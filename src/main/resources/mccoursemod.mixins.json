@@ -6,8 +6,18 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "EnchantmentMixin"
+    "AbstractContainerMenuMixin",
+    "AnvilMenuMixin",
+    "EnchantmentMenuMixin",
+    "EnchantmentMixin",
+    "ItemStackMixin",
+    "LivingEntityMixin",
+    "SculkShriekerBlockEntityMixin",
+    "ServerPlayerMixin",
+    "VibrationListenerMixin"
   ],
   "client": [
+    "AnvilScreenMixin",
+    "EnchantmentScreenMixin"
   ]
 }
