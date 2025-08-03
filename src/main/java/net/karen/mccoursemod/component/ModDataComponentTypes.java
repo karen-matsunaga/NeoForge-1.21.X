@@ -1,0 +1,55 @@
+package net.karen.mccoursemod.component;
+
+import com.mojang.serialization.Codec;
+import net.karen.mccoursemod.MccourseMod;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import java.util.function.UnaryOperator;
+
+public class ModDataComponentTypes {
+    public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
+            DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, MccourseMod.MOD_ID);
+
+    // Coordinates custom data component -> X, Y, Z positions
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> COORDINATES =
+            register("coordinates", builder -> builder.persistent(BlockPos.CODEC));
+
+    // Magnet custom data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> MAGNET =
+            register("magnet", builder ->
+                     builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
+
+    // Auto Smelt custom data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> AUTO_SMELT =
+            register("auto_smelt", builder ->
+                     builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
+
+    // Rainbow custom data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> RAINBOW =
+            register("rainbow", builder ->
+                     builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
+
+    // More Ores custom data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> MORE_ORES =
+            register("more_ores", builder ->
+                     builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
+
+    // Gem Effect custom data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> GEM_EFFECT =
+            register("gem_effect", builder ->
+                     builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+
+    // Registry all custom Data Component
+    private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>>
+                   register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
+        return DATA_COMPONENT_TYPES.register(name, () -> builderOperator.apply(DataComponentType.builder()).build());
+    }
+
+    // Registry all custom Data Component on bus group event
+    public static void register(IEventBus eventBus) { DATA_COMPONENT_TYPES.register(eventBus); }
+}
