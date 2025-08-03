@@ -1,7 +1,27 @@
-// 1.21.8	2025-08-03T12:42:16.1594146	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-08-03T16:46:25.5097828	Tags for minecraft:item mod id vanilla
+c493e5b615f47368e4252c52b5de3c2ae6022862 data/mccoursemod/tags/item/bismuth_armor.json
+c8972a8be96c118471348fbed2acc7066e2147bc data/mccoursemod/tags/item/bismuth_tools.json
+e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/bismuth_tool_materials.json
+070d07f973f1a24a1a41e4e5443ab1cd8b3d8d20 data/mccoursemod/tags/item/boots_fly.json
+0bc8cd739dc46202f2c3e69684cfddc5d38f4292 data/mccoursemod/tags/item/chestplate_fly.json
+9f117baa16a9f576daf317dabbc707d980ef0d7c data/mccoursemod/tags/item/helmet_fly.json
+66cbee4a7af8bb88c0d4fd67cab9fdbae195825d data/mccoursemod/tags/item/leggings_fly.json
 67330d0adf55b62dd108765727e04d7437d6441a data/mccoursemod/tags/item/level_charger_generic.json
 3b77be0ffbf6858688fcb45c18a0773afc9018d1 data/mccoursemod/tags/item/level_charger_green.json
 3cc75d41e3e6ae7e599fe35327cb9082729c861c data/mccoursemod/tags/item/level_charger_items.json
 565fa3bcd84d88f945f7ac9e622a8db2910916a1 data/mccoursemod/tags/item/level_charger_red.json
 e1296da21ce7727ca34c6b4ca53792959f1c4ce3 data/mccoursemod/tags/item/level_charger_specif.json
+e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/magic_block.json
+e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/repairs_bismuth_armor.json
 f3fde543588e8e70cb02cf2a1145d3e5afce946d data/mccoursemod/tags/item/special_effect_items.json
+b8e3f80da63f7dd0490ba845fc64bc11255f56af data/minecraft/tags/item/axes.json
+e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/minecraft/tags/item/beacon_payment_items.json
+0bc8cd739dc46202f2c3e69684cfddc5d38f4292 data/minecraft/tags/item/chest_armor.json
+070d07f973f1a24a1a41e4e5443ab1cd8b3d8d20 data/minecraft/tags/item/foot_armor.json
+9f117baa16a9f576daf317dabbc707d980ef0d7c data/minecraft/tags/item/head_armor.json
+7564f6e29a97b680f4a55af5de07c2393311eb48 data/minecraft/tags/item/hoes.json
+66cbee4a7af8bb88c0d4fd67cab9fdbae195825d data/minecraft/tags/item/leg_armor.json
+ae5df36494e6df0564b24da057505b418fb19436 data/minecraft/tags/item/pickaxes.json
+91efaffa27b10da83c0deaad496e4f931edf0ad1 data/minecraft/tags/item/shovels.json
+a41ef7a380e475dc2331467402cff0fe0966c665 data/minecraft/tags/item/swords.json
+6285b72276b0fd02fe7ba9d29427c56122b1d982 data/minecraft/tags/item/trimmable_armor.json

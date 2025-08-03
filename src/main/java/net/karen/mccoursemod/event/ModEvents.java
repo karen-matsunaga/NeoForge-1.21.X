@@ -2,6 +2,7 @@ package net.karen.mccoursemod.event;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.SpecialEffectItem;
 import net.karen.mccoursemod.potion.ModPotions;
 import net.karen.mccoursemod.util.ModTags;
@@ -11,6 +12,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -38,10 +40,9 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+
+import java.util.*;
+
 import static net.karen.mccoursemod.item.custom.SpecialEffectItem.getEffectMultiplier;
 import static net.karen.mccoursemod.util.ChatUtils.*;
 import static net.karen.mccoursemod.util.Utils.block;
@@ -49,6 +50,30 @@ import static net.karen.mccoursemod.util.Utils.dropItem;
 
 @EventBusSubscriber(modid = MccourseMod.MOD_ID)
 public class ModEvents {
+    // CUSTOM EVENT - Hammer Item
+    // Done with the help of https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java
+    // Don't be a jerk License
+    private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
+
+    @SubscribeEvent
+    public static void onHammerUsage(BlockEvent.BreakEvent event) {
+        Player player = event.getPlayer();
+        ItemStack mainHandItem = player.getMainHandItem();
+        if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayer serverPlayer) {
+            BlockPos initialBlockPos = event.getPos();
+            if (HARVESTED_BLOCKS.contains(initialBlockPos)) { return; }
+            for (BlockPos pos : HammerItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
+                if (pos == initialBlockPos || !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
+                    continue;
+                }
+                HARVESTED_BLOCKS.add(pos);
+                serverPlayer.gameMode.destroyBlock(pos);
+                HARVESTED_BLOCKS.remove(pos);
+            }
+        }
+    }
+
+    // CUSTOM EVENT - Living Damage Event -> Sheep's poison effect
     @SubscribeEvent
     public static void livingDamage(LivingDamageEvent.Pre event) {
         if (event.getEntity() instanceof Sheep sheep && event.getSource().getDirectEntity() instanceof Player player) {
@@ -61,6 +86,7 @@ public class ModEvents {
         }
     }
 
+    // CUSTOM EVENT - Registry all custom potion recipes
     @SubscribeEvent
     public static void onBrewingRecipeRegister(RegisterBrewingRecipesEvent event) {
         PotionBrewing.Builder builder = event.getBuilder();

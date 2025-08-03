@@ -25,6 +25,20 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE, "Level Charger Specif Minus Fortune");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE, "Level Charger Specif Plus Fortune");
 
+        // CUSTOM Tools
+        addItem(ModItems.BISMUTH_HAMMER, "Bismuth Hammer");
+        addItem(ModItems.BISMUTH_SWORD, "Bismuth Sword");
+        addItem(ModItems.BISMUTH_PICKAXE, "Bismuth Pickaxe");
+        addItem(ModItems.BISMUTH_SHOVEL, "Bismuth Shovel");
+        addItem(ModItems.BISMUTH_AXE, "Bismuth Axe");
+        addItem(ModItems.BISMUTH_HOE, "Bismuth Hoe");
+
+        // CUSTOM Armors
+        addItem(ModItems.BISMUTH_HELMET, "Bismuth Helmet");
+        addItem(ModItems.BISMUTH_CHESTPLATE, "Bismuth Chestplate");
+        addItem(ModItems.BISMUTH_LEGGINGS, "Bismuth Leggings");
+        addItem(ModItems.BISMUTH_BOOTS, "Bismuth Boots");
+
         // CUSTOM block item
         add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.bismuth_block", "Bismuth Block");

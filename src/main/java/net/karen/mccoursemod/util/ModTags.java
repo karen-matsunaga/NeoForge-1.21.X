@@ -15,11 +15,10 @@ public class ModTags {
     public static class Blocks {
         // Created tool tags
         // Blocks break
-        public static final TagKey<Block> NEEDS_ALEXANDRITE_TOOL = createTag("needs_alexandrite_tool");
+        public static final TagKey<Block> NEEDS_BISMUTH_TOOL = createTag("needs_bismuth_tool");
 
         // Blocks not break
-        public static final TagKey<Block> INCORRECT_FOR_ALEXANDRITE_TOOL =
-                createTag("incorrect_for_alexandrite_tool");
+        public static final TagKey<Block> INCORRECT_FOR_BISMUTH_TOOL = createTag("incorrect_for_bismuth_tool");
 
         // Created More Ores's drops
         public static final TagKey<Block> MORE_ORES_ALL_DROPS = createTag("more_ores_all_drops");
@@ -42,10 +41,10 @@ public class ModTags {
     // CUSTOM CLASS - Registry all custom item tags
     public static class Items {
         // Created Fly effect item tag
-//        public static final TagKey<Item> HELMET_FLY = createTag("helmet_fly");
-//        public static final TagKey<Item> CHESTPLATE_FLY = createTag("chestplate_fly");
-//        public static final TagKey<Item> LEGGINGS_FLY = createTag("leggings_fly");
-//        public static final TagKey<Item> BOOTS_FLY = createTag("boots_fly");
+        public static final TagKey<Item> HELMET_FLY = createTag("helmet_fly");
+        public static final TagKey<Item> CHESTPLATE_FLY = createTag("chestplate_fly");
+        public static final TagKey<Item> LEGGINGS_FLY = createTag("leggings_fly");
+        public static final TagKey<Item> BOOTS_FLY = createTag("boots_fly");
 
         // Level Charger items
         public static final TagKey<Item> LEVEL_CHARGER_ITEMS = createTag("level_charger_items");
@@ -57,17 +56,17 @@ public class ModTags {
         // Magic block
         public static final TagKey<Item> MAGIC_BLOCK = createTag("magic_block");
 
-        // Alexandrite Tools
-//        public static final TagKey<Item> ALEXANDRITE_TOOLS = createTag("alexandrite_tools");
+        // Bismuth Tools
+        public static final TagKey<Item> BISMUTH_TOOLS = createTag("bismuth_tools");
 
-        // Alexandrite Ingredients
-//        public static final TagKey<Item> ALEXANDRITE_ARMOR = createTag("alexandrite_armor");
+        // Bismuth Ingredients
+        public static final TagKey<Item> BISMUTH_ARMOR = createTag("bismuth_armor");
 
         // Tools
-//        public static final TagKey<Item> ALEXANDRITE_TOOL_MATERIALS = createTag("alexandrite_tool_materials");
+        public static final TagKey<Item> BISMUTH_TOOL_MATERIALS = createTag("bismuth_tool_materials");
 
         // Armor ingredient
-//        public static final TagKey<Item> REPAIRS_ALEXANDRITE_ARMOR = createTag("repairs_alexandrite_armor");
+        public static final TagKey<Item> REPAIRS_BISMUTH_ARMOR = createTag("repairs_bismuth_armor");
 
         // Data Component tags
         public static final TagKey<Item> SPECIAL_EFFECT_ITEMS = createTag("special_effect_items");

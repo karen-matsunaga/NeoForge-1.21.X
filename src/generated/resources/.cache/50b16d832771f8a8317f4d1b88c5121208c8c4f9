@@ -1,9 +1,9 @@
-// 1.21.8	2025-08-02T21:23:35.1163905	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-08-03T16:46:25.5097828	Tags for minecraft:block mod id vanilla
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_alexandrite_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_bismuth_tool.json
 fd0f5b5db276bd24d510d374d9918bc10e68ed6d data/mccoursemod/tags/block/more_ores_all_drops.json
 f92c41ce4c3dd51d875dafefe81e048bf6b8f9ed data/mccoursemod/tags/block/more_ores_break_block.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_alexandrite_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_bismuth_tool.json
 990afa96a60c739378a60e07b8d89cac1a7addb0 data/mccoursemod/tags/block/rainbow_blocks.json
 14f2f0d7fa0b19b565d7a9c81210b119d89bc447 data/mccoursemod/tags/block/rainbow_drops.json
 dad7c0b66a70be84ee33776f79bf92890a9505d9 data/mccoursemod/tags/block/rainbow_ores.json

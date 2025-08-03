@@ -2,14 +2,20 @@ package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.LevelChargerGenericItem;
 import net.karen.mccoursemod.item.custom.LevelChargerSpecifItem;
 import net.karen.mccoursemod.item.custom.SpecialEffectItem;
+import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -81,6 +87,79 @@ public class ModItems {
                                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                          "level_charger_specif_minus_fortune")))
                                                                   .fireResistant(), -1, Enchantments.FORTUNE));
+
+    // Custom tools
+    // CUSTOM Sword
+    public static final DeferredItem<Item> BISMUTH_SWORD = ITEMS.register("bismuth_sword",
+           () -> new Item(new Item.Properties().sword(ModToolMaterials.BISMUTH, 3, -2.4f)
+                                  .fireResistant().setId(ResourceKey.create(Registries.ITEM,
+                                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                         "bismuth_sword")))
+                                                  .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // CUSTOM Pickaxe
+    public static final DeferredItem<Item> BISMUTH_PICKAXE = ITEMS.register("bismuth_pickaxe",
+           () -> new Item(new Item.Properties().pickaxe(ModToolMaterials.BISMUTH, 1, -2.8f)
+                                  .fireResistant().setId(ResourceKey.create(Registries.ITEM,
+                                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                         "bismuth_pickaxe")))
+                                                  .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // CUSTOM Shovel
+    public static final DeferredItem<Item> BISMUTH_SHOVEL = ITEMS.register("bismuth_shovel",
+           () -> new ShovelItem(ModToolMaterials.BISMUTH, 1.5f, -3.0f,
+                 new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
+                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                             "bismuth_shovel")))
+                                                      .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // CUSTOM Axe
+    public static final DeferredItem<Item> BISMUTH_AXE = ITEMS.register("bismuth_axe",
+           () -> new AxeItem(ModToolMaterials.BISMUTH,6, -3.2f,
+                    new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
+                                                                ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                "bismuth_axe")))
+                                                         .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // CUSTOM Hoe
+    public static final DeferredItem<Item> BISMUTH_HOE = ITEMS.register("bismuth_hoe",
+           () -> new HoeItem(ModToolMaterials.BISMUTH, 0, -3.0f,
+                 new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
+                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                             "bismuth_hoe")))
+                                                      .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    public static final DeferredItem<Item> BISMUTH_HAMMER = ITEMS.register("bismuth_hammer",
+           () -> new HammerItem(ModToolMaterials.BISMUTH, 1F, -3.3F,
+                 new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
+                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                             "bismuth_hammer")))
+                                                      .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // Custom armors
+    public static final DeferredItem<Item> BISMUTH_HELMET = ITEMS.register("bismuth_helmet",
+           () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                      "bismuth_helmet")))
+                                               .humanoidArmor(ModArmorMaterials.BISMUTH, ArmorType.HELMET)));
+
+    public static final DeferredItem<Item> BISMUTH_CHESTPLATE = ITEMS.register("bismuth_chestplate",
+           () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                      "bismuth_chestplate")))
+                                               .humanoidArmor(ModArmorMaterials.BISMUTH, ArmorType.CHESTPLATE)));
+
+    public static final DeferredItem<Item> BISMUTH_LEGGINGS = ITEMS.register("bismuth_leggings",
+           () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                      "bismuth_leggings")))
+                                               .humanoidArmor(ModArmorMaterials.BISMUTH, ArmorType.LEGGINGS)));
+
+    public static final DeferredItem<Item> BISMUTH_BOOTS = ITEMS.register("bismuth_boots",
+           () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                      "bismuth_boots")))
+                                               .humanoidArmor(ModArmorMaterials.BISMUTH, ArmorType.BOOTS)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

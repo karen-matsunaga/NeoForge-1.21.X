@@ -32,6 +32,18 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get());
                         output.accept(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get());
                         output.accept(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get());
+                        // CUSTOM tools
+                        output.accept(ModItems.BISMUTH_HAMMER.get());
+                        output.accept(ModItems.BISMUTH_SWORD.get());
+                        output.accept(ModItems.BISMUTH_PICKAXE.get());
+                        output.accept(ModItems.BISMUTH_SHOVEL.get());
+                        output.accept(ModItems.BISMUTH_AXE.get());
+                        output.accept(ModItems.BISMUTH_HOE.get());
+                        // CUSTOM armors
+                        output.accept(ModItems.BISMUTH_HELMET.get());
+                        output.accept(ModItems.BISMUTH_CHESTPLATE.get());
+                        output.accept(ModItems.BISMUTH_LEGGINGS.get());
+                        output.accept(ModItems.BISMUTH_BOOTS.get());
                     }).build());
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCK_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",

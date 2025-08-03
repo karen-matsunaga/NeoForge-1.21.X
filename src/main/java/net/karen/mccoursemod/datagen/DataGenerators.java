@@ -38,5 +38,7 @@ public class DataGenerators {
         event.addProvider(new ModEnchantmentTagGenerator(packOutput, lookupProvider));
         // Data Map
         event.addProvider(new ModDataMapProvider(packOutput, lookupProvider));
+        // Equipment Asset
+        event.addProvider(new ModEquipmentAssetProvider(packOutput));
     }
 }

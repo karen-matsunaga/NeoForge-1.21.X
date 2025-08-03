@@ -20,12 +20,13 @@ public class FlyEffect extends MobEffect {
             AttributeMap attributes = player.getAttributes();
             boolean flyAbilities = abilities.pack().mayFly();
             boolean fly = attributes.hasAttribute(CREATIVE_FLIGHT);
-            if (!fly && !flyAbilities) {
-                abilities.apply(abilities.pack());
+            boolean effect = player.hasEffect(ModEffects.FLY_EFFECT);
+            if (!fly && !flyAbilities && effect) {
                 abilities.setFlyingSpeed(0.05f + (0.02f * amplifier));
                 player.onUpdateAbilities();
             }
-            if (fly && flyAbilities && !player.isCreative()) {
+            if (fly && flyAbilities && !effect && !player.isCreative()) {
+                abilities.flying = false;
                 abilities.setFlyingSpeed(0.05F);
                 player.onUpdateAbilities();
             }

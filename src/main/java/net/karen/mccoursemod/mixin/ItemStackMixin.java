@@ -28,27 +28,27 @@ public abstract class ItemStackMixin {
         List<Component> tooltip = new ArrayList<>(cir.getReturnValue()); // Old tooltip
         if (stack.is(ModBlocks.MAGIC.get().asItem())) { // Item checked is Magic block
             Component original = tooltip.getFirst(), // Original tooltip line 0
-                    colored = original.copy().withStyle(style -> style.withColor(0x00ff00));
+                       colored = original.copy().withStyle(style -> style.withColor(0x00ff00));
             tooltip.set(0, colored); // Change only the name (first line of the tooltip) -> Color not appears on screen
             tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block.tooltip")); // Added more information about block
         }
         // AUTO SMELT, MAGNET, MORE ORES and RAINBOW custom effects
         if (stack.has(ModDataComponentTypes.MAGNET.get())) {
             tooltip.add(componentLiteral("Magnet x" +
-                    getMultiplier(stack, ModDataComponentTypes.MAGNET.get()) + "!", darkGray));
+                        getMultiplier(stack, ModDataComponentTypes.MAGNET.get()) + "!", darkGray));
         }
         if (stack.has(ModDataComponentTypes.RAINBOW.get())) {
             tooltip.add(componentLiteral("Rainbow x" +
-                    getMultiplier(stack, ModDataComponentTypes.RAINBOW.get()) + "!", purple));
+                        getMultiplier(stack, ModDataComponentTypes.RAINBOW.get()) + "!", purple));
         }
         if (stack.has(ModDataComponentTypes.AUTO_SMELT.get())) {
             tooltip.add(componentLiteral("Auto Smelt x" +
-                    getMultiplier(stack, ModDataComponentTypes.AUTO_SMELT.get()) + "!", gold));
+                        getMultiplier(stack, ModDataComponentTypes.AUTO_SMELT.get()) + "!", gold));
             tooltip.add(componentTranslatable("tooltip.mccoursemod.auto_smelt.tooltip", gold));
         }
         if (stack.has(ModDataComponentTypes.MORE_ORES.get())) {
             tooltip.add(componentLiteral("More Ores x" +
-                    getMultiplier(stack, ModDataComponentTypes.MORE_ORES.get()), darkAqua));
+                        getMultiplier(stack, ModDataComponentTypes.MORE_ORES.get()), darkAqua));
         }
         cir.setReturnValue(tooltip); // New tooltip
     }
