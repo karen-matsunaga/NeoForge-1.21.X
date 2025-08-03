@@ -48,11 +48,11 @@ public class ModTags {
 //        public static final TagKey<Item> BOOTS_FLY = createTag("boots_fly");
 
         // Level Charger items
-//        public static final TagKey<Item> LEVEL_CHARGER_ITEMS = createTag("level_charger_items");
-//        public static final TagKey<Item> LEVEL_CHARGER_GENERIC = createTag("level_charger_generic");
-//        public static final TagKey<Item> LEVEL_CHARGER_SPECIF = createTag("level_charger_specif");
-//        public static final TagKey<Item> LEVEL_CHARGER_GREEN = createTag("level_charger_green");
-//        public static final TagKey<Item> LEVEL_CHARGER_RED = createTag("level_charger_red");
+        public static final TagKey<Item> LEVEL_CHARGER_ITEMS = createTag("level_charger_items");
+        public static final TagKey<Item> LEVEL_CHARGER_GENERIC = createTag("level_charger_generic");
+        public static final TagKey<Item> LEVEL_CHARGER_SPECIF = createTag("level_charger_specif");
+        public static final TagKey<Item> LEVEL_CHARGER_GREEN = createTag("level_charger_green");
+        public static final TagKey<Item> LEVEL_CHARGER_RED = createTag("level_charger_red");
 
         // Magic block
         public static final TagKey<Item> MAGIC_BLOCK = createTag("magic_block");
@@ -70,7 +70,7 @@ public class ModTags {
 //        public static final TagKey<Item> REPAIRS_ALEXANDRITE_ARMOR = createTag("repairs_alexandrite_armor");
 
         // Data Component tags
-//        public static final TagKey<Item> MULTIPLIER_ITEMS = createTag("multiplier_items");
+        public static final TagKey<Item> SPECIAL_EFFECT_ITEMS = createTag("special_effect_items");
 
         // CUSTOM METHOD - Registry all custom item tags
         private static TagKey<Item> createTag(String name) {

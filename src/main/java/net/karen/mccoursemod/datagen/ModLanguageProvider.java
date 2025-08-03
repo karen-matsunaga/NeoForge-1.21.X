@@ -16,6 +16,14 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM ITEMS
         addItem(ModItems.BISMUTH, "Bismuth");
         addItem(ModItems.RAW_BISMUTH, "Raw Bismuth");
+        addItem(ModItems.MAGNET, "Magnet");
+        addItem(ModItems.RAINBOW, "Rainbow");
+        addItem(ModItems.AUTO_SMELT, "Auto Smelt");
+        addItem(ModItems.MORE_ORES, "More Ores");
+        addItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS, "Level Charger Generic Plus");
+        addItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS, "Level Charger Generic Minus");
+        addItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE, "Level Charger Specif Minus Fortune");
+        addItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE, "Level Charger Specif Plus Fortune");
 
         // CUSTOM block item
         add("item.mccoursemod.enchant", "Enchant Block");
@@ -165,5 +173,12 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.minecraft.splash_potion.effect.haste_potion", "Haste Splash Potion");
         add("item.minecraft.lingering_potion.effect.haste_potion", "Haste Lingering Potion");
         add("item.minecraft.tipped_arrow.effect.haste_potion", "Arrow of Haste");
+
+        // SLIMEY potion
+        add("effect.mccoursemod.slimey", "Slimey");
+        add("item.minecraft.potion.effect.slimey_potion", "Slimey Potion");
+        add("item.minecraft.splash_potion.effect.slimey_potion", "Slimey Splash Potion");
+        add("item.minecraft.lingering_potion.effect.slimey_potion", "Slimey Lingering Potion");
+        add("item.minecraft.tipped_arrow.effect.slimey_potion", "Arrow of Slimey");
     }
 }

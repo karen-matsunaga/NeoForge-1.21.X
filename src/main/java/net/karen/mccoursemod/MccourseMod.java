@@ -2,10 +2,12 @@ package net.karen.mccoursemod;
 
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantmentEffects;
 import net.karen.mccoursemod.item.ModCreativeModeTabs;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.particle.ModParticles;
+import net.karen.mccoursemod.potion.ModPotions;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -47,6 +49,10 @@ public class MccourseMod {
         ModParticles.register(modEventBus);
         // Register the Deferred Register to the mod event bus so data components get registered
         ModDataComponentTypes.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so effects get registered
+        ModEffects.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so potions get registered
+        ModPotions.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
