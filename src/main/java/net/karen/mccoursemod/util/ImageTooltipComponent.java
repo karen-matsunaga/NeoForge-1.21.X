@@ -1,6 +1,5 @@
 package net.karen.mccoursemod.util;
 
-import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
@@ -28,7 +27,7 @@ public class ImageTooltipComponent implements ClientTooltipComponent, TooltipCom
         Matrix3x2fStack matrix = graphics.pose();
         // Render Image -> Example: Icon 8x8, Icon 9x9, Icon 16x16, etc. (width x height)
         matrix.pushMatrix();
-        graphics.blit(RenderPipelines.GUI_TEXTURED_PREMULTIPLIED_ALPHA, texture, x, y, 0, 0, width, height, width, height); // Render TEXTURE
+        graphics.blit(RenderPipelines.GUI_TEXT_HIGHLIGHT, texture, x, y, 0, 0, width, height, width, height); // Render TEXTURE
         matrix.popMatrix();
         // Render Text -> Example: [ICON] text...
         matrix.pushMatrix();
