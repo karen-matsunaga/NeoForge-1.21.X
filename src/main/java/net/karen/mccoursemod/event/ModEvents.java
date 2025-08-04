@@ -201,7 +201,7 @@ public class ModEvents {
         ItemStack item = event.getItemStack();
         boolean hasMoreOres = item.has(ModDataComponentTypes.MORE_ORES.get());
         List<Either<FormattedText, TooltipComponent>> elements = event.getTooltipElements(); // Item TOOLTIP
-        ChatUtils.imageVanilla(elements, "textures/item/diamond_pickaxe.png", 16, 16,
-                               "More Ores Effect!", hasMoreOres);
+        ChatUtils.imageMod(elements, "textures/misc/mccourse_chestplate_icon.png", 8, 8,
+                           "More Ores Effect!", hasMoreOres);
     }
 }

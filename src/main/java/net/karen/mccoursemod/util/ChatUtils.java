@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.util;
 
 import com.mojang.datafixers.util.Either;
+import net.karen.mccoursemod.MccourseMod;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.*;
@@ -200,11 +201,20 @@ public class ChatUtils {
         return "ICON";
     }
 
-    // CUSTOM METHOD - Icon message TOOLTIP
+    // CUSTOM METHOD - Icon message TOOLTIP -> VANILLA
     public static void imageVanilla(List<Either<FormattedText, TooltipComponent>> element,
                              String path, int width, int height, String text, Boolean bool) {
         if (bool) {
             element.add(Either.right(new ImageTooltipComponent(ResourceLocation.withDefaultNamespace(path),
+                        width, height, standardLiteral(text))));
+        }
+    }
+
+    // CUSTOM METHOD - Icon message TOOLTIP -> MOD
+    public static void imageMod(List<Either<FormattedText, TooltipComponent>> element,
+                                    String path, int width, int height, String text, Boolean bool) {
+        if (bool) {
+            element.add(Either.right(new ImageTooltipComponent(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, path),
                         width, height, standardLiteral(text))));
         }
     }
