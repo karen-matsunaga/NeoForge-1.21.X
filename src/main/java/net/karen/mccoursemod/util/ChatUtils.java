@@ -1,13 +1,13 @@
 package net.karen.mccoursemod.util;
 
+import com.mojang.datafixers.util.Either;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TextColor;
+import net.minecraft.network.chat.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import java.util.List;
@@ -198,5 +198,14 @@ public class ChatUtils {
             return bow;
         }
         return "ICON";
+    }
+
+    // CUSTOM METHOD - Icon message TOOLTIP
+    public static void imageVanilla(List<Either<FormattedText, TooltipComponent>> element,
+                             String path, int width, int height, String text, Boolean bool) {
+        if (bool) {
+            element.add(Either.right(new ImageTooltipComponent(ResourceLocation.withDefaultNamespace(path),
+                        width, height, standardLiteral(text))));
+        }
     }
 }

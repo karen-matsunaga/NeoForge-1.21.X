@@ -1,16 +1,19 @@
 package net.karen.mccoursemod.event;
 
+import com.mojang.datafixers.util.Either;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.SpecialEffectItem;
 import net.karen.mccoursemod.potion.ModPotions;
+import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.FormattedText;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
@@ -18,6 +21,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
@@ -36,13 +40,12 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
-
 import java.util.*;
-
 import static net.karen.mccoursemod.item.custom.SpecialEffectItem.getEffectMultiplier;
 import static net.karen.mccoursemod.util.ChatUtils.*;
 import static net.karen.mccoursemod.util.Utils.block;
@@ -191,5 +194,14 @@ public class ModEvents {
                 finalDrops.forEach(drop -> dropItem(serverLevel, pos, drop));
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onGatherTooltip(RenderTooltipEvent.GatherComponents event) {
+        ItemStack item = event.getItemStack();
+        boolean hasMoreOres = item.has(ModDataComponentTypes.MORE_ORES.get());
+        List<Either<FormattedText, TooltipComponent>> elements = event.getTooltipElements(); // Item TOOLTIP
+        ChatUtils.imageVanilla(elements, "textures/item/diamond_pickaxe.png", 16, 16,
+                               "More Ores Effect!", hasMoreOres);
     }
 }

@@ -2,6 +2,7 @@ package net.karen.mccoursemod;
 
 import net.karen.mccoursemod.particle.BismuthParticles;
 import net.karen.mccoursemod.particle.ModParticles;
+import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -9,9 +10,11 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import java.util.function.Function;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = MccourseMod.MOD_ID, dist = Dist.CLIENT)
@@ -35,5 +38,11 @@ public class MccourseModClient {
     @SubscribeEvent
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ModParticles.BISMUTH_PARTICLES.get(), BismuthParticles.Provider::new);
+    }
+
+    // CUSTOM EVENT - Register custom image tooltip
+    @SubscribeEvent
+    public static void registerTooltip(RegisterClientTooltipComponentFactoriesEvent event) {
+        event.register(ImageTooltipComponent.class, Function.identity());
     }
 }
