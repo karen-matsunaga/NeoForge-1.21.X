@@ -1,6 +1,7 @@
-// 1.21.8	2025-08-03T16:46:25.5097828	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-08-04T17:44:35.7998333	Tags for minecraft:block mod id vanilla
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_bismuth_tool.json
+13cf1fe06cf159d32d074144254a0d375f6b20e7 data/mccoursemod/tags/block/mineable_with_paxel.json
 fd0f5b5db276bd24d510d374d9918bc10e68ed6d data/mccoursemod/tags/block/more_ores_all_drops.json
 f92c41ce4c3dd51d875dafefe81e048bf6b8f9ed data/mccoursemod/tags/block/more_ores_break_block.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_bismuth_tool.json

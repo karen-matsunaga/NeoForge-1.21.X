@@ -12,14 +12,17 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
-    public ModBlockTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+    public ModBlockTagGenerator(PackOutput output,
+                                CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, lookupProvider);
     }
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider lookupProvider) {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ENCHANT.get(), ModBlocks.DISENCHANT_INDIVIDUAL.get(),
-                                                      ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.BISMUTH_BLOCK.get(), ModBlocks.MAGIC.get());
+                                                      ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.BISMUTH_BLOCK.get(),
+                                                      ModBlocks.MAGIC.get());
+
         // CUSTOM Tier Tools - Bismuth as Netherite tier
         tag(ModTags.Blocks.NEEDS_BISMUTH_TOOL);
         tag(ModTags.Blocks.INCORRECT_FOR_BISMUTH_TOOL);
@@ -59,5 +62,10 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
 
         // More Ores break block effect
         this.tag(ModTags.Blocks.MORE_ORES_BREAK_BLOCK).add(Blocks.STONE);
+
+        // Paxel break
+        this.tag(ModTags.Blocks.MINEABLE_WITH_PAXEL).addTag(BlockTags.MINEABLE_WITH_AXE)
+                                                 .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
+                                                 .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
     }
 }

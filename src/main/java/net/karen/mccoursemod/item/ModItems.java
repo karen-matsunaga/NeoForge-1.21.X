@@ -2,10 +2,7 @@ package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
-import net.karen.mccoursemod.item.custom.HammerItem;
-import net.karen.mccoursemod.item.custom.LevelChargerGenericItem;
-import net.karen.mccoursemod.item.custom.LevelChargerSpecifItem;
-import net.karen.mccoursemod.item.custom.SpecialEffectItem;
+import net.karen.mccoursemod.item.custom.*;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -129,12 +126,21 @@ public class ModItems {
                                                              "bismuth_hoe")))
                                                       .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
 
+    // CUSTOM Hammer
     public static final DeferredItem<Item> BISMUTH_HAMMER = ITEMS.register("bismuth_hammer",
            () -> new HammerItem(ModToolMaterials.BISMUTH, 1F, -3.3F,
                  new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                              "bismuth_hammer")))
                                                       .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // CUSTOM Paxel
+    public static final DeferredItem<Item> BISMUTH_PAXEL = ITEMS.register("bismuth_paxel",
+            () -> new PaxelItem(ModToolMaterials.BISMUTH, 1F, -2.8F,
+                  new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
+                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                              "bismuth_paxel")))
+                                                       .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
 
     // Custom armors
     public static final DeferredItem<Item> BISMUTH_HELMET = ITEMS.register("bismuth_helmet",

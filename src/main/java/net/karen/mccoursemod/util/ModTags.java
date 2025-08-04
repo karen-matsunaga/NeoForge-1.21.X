@@ -14,6 +14,10 @@ public class ModTags {
     // CUSTOM CLASS - Registry all custom block tags
     public static class Blocks {
         // Created tool tags
+
+        // Paxel blocks
+        public static final TagKey<Block> MINEABLE_WITH_PAXEL = createTag("mineable_with_paxel");
+
         // Blocks break
         public static final TagKey<Block> NEEDS_BISMUTH_TOOL = createTag("needs_bismuth_tool");
 

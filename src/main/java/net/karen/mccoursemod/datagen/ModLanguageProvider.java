@@ -27,6 +27,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // CUSTOM Tools
         addItem(ModItems.BISMUTH_HAMMER, "Bismuth Hammer");
+        addItem(ModItems.BISMUTH_PAXEL, "Bismuth Paxel");
         addItem(ModItems.BISMUTH_SWORD, "Bismuth Sword");
         addItem(ModItems.BISMUTH_PICKAXE, "Bismuth Pickaxe");
         addItem(ModItems.BISMUTH_SHOVEL, "Bismuth Shovel");

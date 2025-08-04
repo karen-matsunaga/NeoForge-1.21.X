@@ -40,5 +40,7 @@ public class DataGenerators {
         event.addProvider(new ModDataMapProvider(packOutput, lookupProvider));
         // Equipment Asset
         event.addProvider(new ModEquipmentAssetProvider(packOutput));
+        // Datapack Provider
+        event.addProvider(new ModDatapackProvider(packOutput, lookupProvider));
     }
 }

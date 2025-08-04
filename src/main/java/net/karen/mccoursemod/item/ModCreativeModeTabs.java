@@ -34,6 +34,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get());
                         // CUSTOM tools
                         output.accept(ModItems.BISMUTH_HAMMER.get());
+                        output.accept(ModItems.BISMUTH_PAXEL.get());
                         output.accept(ModItems.BISMUTH_SWORD.get());
                         output.accept(ModItems.BISMUTH_PICKAXE.get());
                         output.accept(ModItems.BISMUTH_SHOVEL.get());

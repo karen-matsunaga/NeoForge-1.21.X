@@ -8,6 +8,7 @@ import net.karen.mccoursemod.item.custom.SpecialEffectItem;
 import net.karen.mccoursemod.potion.ModPotions;
 import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.ModTags;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -40,6 +41,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
@@ -196,6 +198,7 @@ public class ModEvents {
         }
     }
 
+    // CUSTOM EVENT - Icon tooltip
     @SubscribeEvent
     public static void onGatherTooltip(RenderTooltipEvent.GatherComponents event) {
         ItemStack item = event.getItemStack();
@@ -203,5 +206,22 @@ public class ModEvents {
         List<Either<FormattedText, TooltipComponent>> elements = event.getTooltipElements(); // Item TOOLTIP
         ChatUtils.imageMod(elements, "textures/misc/mccourse_chestplate_icon.png", 8, 8,
                            "More Ores Effect!", hasMoreOres);
+    }
+
+    // CUSTOM EVENT - Double Jump
+    private static boolean wasJumping = false;
+
+    @SubscribeEvent
+    public static void doubleJump(ClientTickEvent.Post event) {
+        Minecraft mc = Minecraft.getInstance();
+        Player player = mc.player;
+        if (player == null || mc.level == null) { return; }
+        double x = player.getDeltaMovement().x, z = player.getDeltaMovement().z;
+        boolean isJumping = mc.options.keyJump.isDown();
+        if (isJumping && !wasJumping) { // Check if the pulse key is being pressed
+            if (!player.onGround()) { player.setDeltaMovement(x, 0.42, z); } // Applies the boost only if not on the ground
+            else { player.jumpFromGround(); } // Default jump if on the ground
+        }
+        wasJumping = isJumping;
     }
 }
