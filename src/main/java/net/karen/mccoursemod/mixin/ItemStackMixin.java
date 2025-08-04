@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.mixin;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.component.CustomTooltip;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.util.Utils;
 import net.minecraft.network.chat.Component;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -21,6 +23,8 @@ import static net.karen.mccoursemod.util.ChatUtils.*;
 
 @Mixin(value = ItemStack.class)
 public abstract class ItemStackMixin {
+    @Shadow public abstract String toString();
+
     @Inject(method = "getTooltipLines", at = @At("RETURN"), cancellable = true)
     private void getTooltipLines(Item.TooltipContext context, Player player,
                                  TooltipFlag flag, CallbackInfoReturnable<List<Component>> cir) {
@@ -45,6 +49,11 @@ public abstract class ItemStackMixin {
             tooltip.add(componentLiteral("Auto Smelt x" +
                         getMultiplier(stack, ModDataComponentTypes.AUTO_SMELT.get()) + "!", gold));
             tooltip.add(componentTranslatable("tooltip.mccoursemod.auto_smelt.tooltip", gold));
+            Component test2 = Component.literal("\u00a1");
+            tooltip.add(test2);
+            CustomTooltip test = new CustomTooltip(Component.nullToEmpty("[Auto Smelt]"));
+            stack.set(ModDataComponentTypes.CUSTOM_TOOLTIP.get(), test);
+            stack.get(ModDataComponentTypes.CUSTOM_TOOLTIP.get());
         }
         if (stack.has(ModDataComponentTypes.MORE_ORES.get())) {
             tooltip.add(componentLiteral("More Ores x" +
