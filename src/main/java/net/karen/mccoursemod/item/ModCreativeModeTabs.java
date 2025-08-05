@@ -58,6 +58,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BISMUTH_ORE);
                         output.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
                         output.accept(ModBlocks.MAGIC);
+                        // CUSTOM advanced blocks
+                        output.accept(ModBlocks.ENCHANT);
+                        output.accept(ModBlocks.DISENCHANT_GROUPED);
+                        output.accept(ModBlocks.DISENCHANT_INDIVIDUAL);
                     }).build());
 
 
