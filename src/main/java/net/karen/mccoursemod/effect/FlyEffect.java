@@ -5,7 +5,4 @@ import net.minecraft.world.effect.MobEffectCategory;
 
 public class FlyEffect extends MobEffect {
     protected FlyEffect(MobEffectCategory category, int color) { super(category, color); }
-
-    @Override
-    public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) { return true; }
 }

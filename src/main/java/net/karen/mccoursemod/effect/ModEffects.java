@@ -9,7 +9,6 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModEffects {
@@ -22,10 +21,7 @@ public class ModEffects {
             () -> new FlyEffect(MobEffectCategory.BENEFICIAL, 0xFFFF00)
                   .addAttributeModifier(Attributes.FLYING_SPEED,
                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "fly"),
-                                        1.00f, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-                  .addAttributeModifier(NeoForgeMod.CREATIVE_FLIGHT,
-                                        ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "fly"),
-                                        1, AttributeModifier.Operation.ADD_VALUE));
+                                        1.00f, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
     // Slimey's effect
     public static final Holder<MobEffect> SLIMEY_EFFECT = MOB_EFFECTS.register("slimey",

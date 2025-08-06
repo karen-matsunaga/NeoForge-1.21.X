@@ -13,10 +13,17 @@ public class ModEnchantmentEffects {
     public static final DeferredRegister<MapCodec<? extends EnchantmentEntityEffect>> ENTITY_ENCHANTMENT_EFFECTS =
             DeferredRegister.create(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, MccourseMod.MOD_ID);
 
+    //    public static final DeferredRegister<MapCodec<? extends EnchantmentValueEffect>> VALUE_ENCHANTMENT_EFFECTS =
+    //           DeferredRegister.create(Registries.ENCHANTMENT_VALUE_EFFECT_TYPE, MccourseMod.MOD_ID);
+
+    // Registry all custom enchantments
+    // Lightning Striker - Sword tool
     public static final Supplier<MapCodec<? extends EnchantmentEntityEffect>> LIGHTNING_STRIKER =
             ENTITY_ENCHANTMENT_EFFECTS.register("lightning_striker", () -> LightningStrikerEnchantmentEffect.CODEC);
 
+    // CUSTOM METHOD - Registry all custom enchantments on event
     public static void register(IEventBus eventBus) {
+        // VALUE_ENCHANTMENT_EFFECTS.register(busGroup);
         ENTITY_ENCHANTMENT_EFFECTS.register(eventBus);
     }
 }

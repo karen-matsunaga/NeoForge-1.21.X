@@ -11,6 +11,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -181,6 +182,28 @@ public class Utils {
         if (!player.getAbilities().instabuild) {
             usedStack.shrink(1); // Consume Infinite item
             player.containerMenu.broadcastChanges(); // Update the interface
+        }
+    }
+
+    // FLY EFFECT
+    private static final float BASE_FLY_SPEED = 0.05f;
+
+    public static void enableFlight(Player player, AttributeInstance flyAttribute, int amplifier) {
+        if (flyAttribute != null && flyAttribute.getValue() == 0) {
+            flyAttribute.setBaseValue(1);
+//            player.getAbilities().flying = true;
+            player.getAbilities().setFlyingSpeed(BASE_FLY_SPEED + (0.02f * amplifier));
+//            player.fallDistance = 0;
+            player.onUpdateAbilities();
+        }
+    }
+
+    public static void disableFlight(Player player, AttributeInstance flyAttribute) {
+        if (flyAttribute != null && flyAttribute.getValue() > 0)  {
+            flyAttribute.setBaseValue(0);
+            player.getAbilities().flying = false;
+            player.getAbilities().setFlyingSpeed(BASE_FLY_SPEED);
+            player.onUpdateAbilities();
         }
     }
 }

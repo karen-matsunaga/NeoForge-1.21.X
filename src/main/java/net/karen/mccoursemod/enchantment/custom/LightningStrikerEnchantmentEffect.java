@@ -18,7 +18,7 @@ public record LightningStrikerEnchantmentEffect(LevelBasedValue value) implement
     public static final MapCodec<LightningStrikerEnchantmentEffect> CODEC =
             RecordCodecBuilder.mapCodec(instance ->
                     instance.group(LevelBasedValue.CODEC.fieldOf("value") // Value name parameter type
-                                    .forGetter(LightningStrikerEnchantmentEffect::value)) // Value Parameter value
+                            .forGetter(LightningStrikerEnchantmentEffect::value)) // Value Parameter value
                             .apply(instance, LightningStrikerEnchantmentEffect::new));
 
     // DEFAULT METHOD - Registry Lightning Striker function

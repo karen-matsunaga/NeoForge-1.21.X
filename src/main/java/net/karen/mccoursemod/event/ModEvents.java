@@ -50,6 +50,7 @@ import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import java.util.*;
@@ -221,6 +222,7 @@ public class ModEvents {
         Player player = mc.player;
         if (player == null || mc.level == null) { return; }
         if (player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.BISMUTH_BOOTS.get())) {
+            disableFlight(player, player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT));
             double x = player.getDeltaMovement().x, z = player.getDeltaMovement().z;
             boolean isJumping = mc.options.keyJump.isDown();
             if (isJumping && !wasJumping) { // Check if the pulse key is being pressed
@@ -238,25 +240,20 @@ public class ModEvents {
             AttributeInstance fly = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT); // Attribute
             boolean hasEffect = player.hasEffect(ModEffects.FLY_EFFECT); // Fly effect
             MobEffectInstance level = player.getEffect(ModEffects.FLY_EFFECT); // Has fly effect
-            if (level != null) {
-                int flyLevel = level.getAmplifier(); // Fly effect level
-                if (hasEffect) {
-                    if (fly != null && fly.getValue() == 0) {
-                        fly.setBaseValue(1);
-                        player.getAbilities().flying = true;
-                        player.getAbilities().setFlyingSpeed(0.05f + (0.02f * flyLevel));
-                        player.fallDistance = 0;
-                        player.onUpdateAbilities();
-                    }
-                }
-                else {
-                    if (fly != null && fly.getValue() == 1 && !player.isCreative()) {
-                        fly.setBaseValue(0);
-                        player.getAbilities().flying = false;
-                        player.getAbilities().setFlyingSpeed(0.05f);
-                        player.onUpdateAbilities();
-                    }
-                }
+            if (level != null && hasEffect) {
+               int flyLevel = level.getAmplifier(); // Fly effect level
+               enableFlight(player, fly, flyLevel);
+            }
+            else { disableFlight(player, fly); }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onFlyEffectRemoved(MobEffectEvent.Remove event) {
+        if (event.getEntity() instanceof Player player && !player.level().isClientSide()) {
+            if (event.getEffect() == ModEffects.FLY_EFFECT) {
+                AttributeInstance fly = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
+                disableFlight(player, fly);
             }
         }
     }
