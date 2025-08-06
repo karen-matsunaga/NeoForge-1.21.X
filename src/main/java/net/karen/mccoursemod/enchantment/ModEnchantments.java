@@ -12,10 +12,14 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
+import net.minecraft.world.item.enchantment.effects.AddValue;
+import net.minecraft.world.item.enchantment.effects.MultiplyValue;
 
 public class ModEnchantments {
     // Registry all custom enchantments -> enchantment name on JSON file
     public static final ResourceKey<Enchantment> LIGHTNING_STRIKER = createTag("lightning_striker");
+    public static final ResourceKey<Enchantment> AUTO_SMELT = createTag("auto_smelt");
+    public static final ResourceKey<Enchantment> MORE_ORES = createTag("more_ores");
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
@@ -33,6 +37,26 @@ public class ModEnchantments {
                             .withEffect(EnchantmentEffectComponents.POST_ATTACK, EnchantmentTarget.ATTACKER, EnchantmentTarget.VICTIM,
                                         new LightningStrikerEnchantmentEffect(
                                         LevelBasedValue.perLevel(0.5F, 0.15F))));
+
+        register(context, AUTO_SMELT,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                                                                items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.MAINHAND))
+                            .withEffect(EnchantmentEffectComponents.BLOCK_EXPERIENCE,
+                                        new AddValue(LevelBasedValue.perLevel(1.0F, 2.0F))));
+
+        register(context, MORE_ORES,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                                                                items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.MAINHAND))
+                            .withEffect(EnchantmentEffectComponents.BLOCK_EXPERIENCE,
+                                        new MultiplyValue(LevelBasedValue.perLevel(1.0F, 2.0F))));
     }
 
     // CUSTOM METHOD - Registry all custom enchantments -> DATA GEN

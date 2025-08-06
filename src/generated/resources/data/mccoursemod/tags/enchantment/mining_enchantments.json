@@ -1,5 +1,13 @@
 {
   "values": [
+    {
+      "id": "mccoursemod:auto_smelt",
+      "required": false
+    },
+    {
+      "id": "mccoursemod:more_ores",
+      "required": false
+    },
     "minecraft:efficiency",
     "#minecraft:exclusive_set/mining"
   ]

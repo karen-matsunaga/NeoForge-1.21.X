@@ -64,10 +64,18 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // CUSTOM Enchantment
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
+        add("enchantment.mccoursemod.auto_smelt", "Auto Smelt");
+        add("enchantment.mccoursemod.more_ores", "More Ores");
 
         // MOD
         add("enchantment.mccoursemod.lightning_striker.desc",
             "When applied on sword when player hits on entities appears lightning, but player receive damage if attacked.");
+
+        add("enchantment.mccoursemod.auto_smelt.desc",
+            "When applied on pickaxe transform all items that can be roasted on furnace.");
+
+        add("enchantment.mccoursemod.more_ores.desc",
+            "When applied on pickaxe if a stone block is break has a percentage to receive ores.");
 
         // MINING
         add("enchantment.minecraft.efficiency.desc", "When applied on axe, pickaxe, shovel or hoe increases mining speed.");

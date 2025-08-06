@@ -4,6 +4,7 @@ import com.mojang.datafixers.util.Either;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.effect.ModEffects;
+import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.SpecialEffectItem;
@@ -123,7 +124,9 @@ public class ModEvents {
         Level level = (Level) event.getLevel();
         if (tool.isEmpty()) { return; } // * PROBLEMS *
         HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        int fortune = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(Enchantments.FORTUNE).getDelegate(), tool);
+        int fortune = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(Enchantments.FORTUNE).getDelegate(), tool),
+            autoSmelt = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.AUTO_SMELT).getDelegate(), tool),
+            moreOres = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.MORE_ORES).getDelegate(), tool);
         boolean hasRainbow = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.RAINBOW.get()),
                 hasMoreOres = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.MORE_ORES.get()),
                 hasAutoSmelt = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.AUTO_SMELT.get()),
@@ -154,14 +157,15 @@ public class ModEvents {
                     cancelVanillaDrop = true;
                 }
             }
-            if (hasMoreOres) { // * MORE ORES EFFECT *
+            if (hasMoreOres || moreOres > 0) { // * MORE ORES EFFECT *
                 if (state.is(ModTags.Blocks.MORE_ORES_BREAK_BLOCK)) {
                     Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(ModTags.Blocks.MORE_ORES_ALL_DROPS);
                     tagBlock.forEach((block -> {
                         if (serverLevel.random.nextFloat() < 0.01F) {
                             ItemStack drop = new ItemStack(block.value().asItem()); // Increase ore drop with Multiplier enchantment
                             drop.setCount((drop.getCount() * hasFortune) *
-                                    (getEffectMultiplier(tool, ModDataComponentTypes.MORE_ORES.get(), 1)));
+                                          (getEffectMultiplier(tool, ModDataComponentTypes.MORE_ORES.get(), 1)) *
+                                          moreOres);
                             finalDrops.add(drop); // Break block and ore chance drop
                         }
                     }));
@@ -170,7 +174,7 @@ public class ModEvents {
                     cancelVanillaDrop = true;
                 }
             }
-            if (hasAutoSmelt) { // * AUTO SMELT EFFECT *
+            if (hasAutoSmelt || autoSmelt > 0) { // * AUTO SMELT EFFECT *
                 SingleRecipeInput singleRecipe = new SingleRecipeInput(new ItemStack(state.getBlock()));
                 ServerLevel worldServer = serverLevel.getLevel();
                 Optional<RecipeHolder<SmeltingRecipe>> recipe =
@@ -180,7 +184,8 @@ public class ModEvents {
                             drop = new ItemStack(recipeValue.getItem().asItem());
                     if (state.is(ModTags.Blocks.AUTO_SMELT_ORES)) {
                         drop.setCount((drop.getCount() * hasFortune) *
-                                (getEffectMultiplier(tool, ModDataComponentTypes.AUTO_SMELT.get(), 1)));
+                                      (getEffectMultiplier(tool, ModDataComponentTypes.AUTO_SMELT.get(), 1)) *
+                                      autoSmelt);
                     }
                     finalDrops.add(drop);
                 });

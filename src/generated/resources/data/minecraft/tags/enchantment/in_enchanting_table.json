@@ -3,6 +3,14 @@
     {
       "id": "mccoursemod:lightning_striker",
       "required": false
+    },
+    {
+      "id": "mccoursemod:auto_smelt",
+      "required": false
+    },
+    {
+      "id": "mccoursemod:more_ores",
+      "required": false
     }
   ]
 }
