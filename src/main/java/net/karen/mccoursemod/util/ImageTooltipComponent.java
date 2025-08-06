@@ -3,20 +3,20 @@ package net.karen.mccoursemod.util;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Matrix3x2fStack;
 
 public class ImageTooltipComponent implements ClientTooltipComponent, TooltipComponent {
-    private final ResourceLocation texture; // IMAGE appears on screen
+    private final Item item;
     private final int width, height; // WIDTH and HEIGHT of texture
     private final Component text; // TEXT appears next to ICON
 
-    public ImageTooltipComponent(ResourceLocation texture, int width, int height, Component text) {
-        this.texture = texture;
+    public ImageTooltipComponent(Item item, int width, int height, Component text) {
+        this.item = item;
         this.width = width;
         this.height = height;
         this.text = text;
@@ -27,7 +27,8 @@ public class ImageTooltipComponent implements ClientTooltipComponent, TooltipCom
         Matrix3x2fStack matrix = graphics.pose();
         // Render Image -> Example: Icon 8x8, Icon 9x9, Icon 16x16, etc. (width x height)
         matrix.pushMatrix();
-        graphics.blit(RenderPipelines.GUI_TEXT_HIGHLIGHT, texture, x, y, 0, 0, width, height, width, height); // Render TEXTURE
+        graphics.renderItem(new ItemStack(item), x, y); // Render TEXTURE ITEM
+//        graphics.blit(RenderPipelines.GUI_TEXTURED, texture, x, y, 0, 0, width, height, width, height); // Render TEXTURE
         matrix.popMatrix();
         // Render Text -> Example: [ICON] text...
         matrix.pushMatrix();

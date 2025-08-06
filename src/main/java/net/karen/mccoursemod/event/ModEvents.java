@@ -52,6 +52,8 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
+import net.neoforged.neoforge.event.entity.player.ItemFishedEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerWakeUpEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import java.util.*;
@@ -179,7 +181,7 @@ public class ModEvents {
                 ServerLevel worldServer = serverLevel.getLevel();
                 Optional<RecipeHolder<SmeltingRecipe>> recipe =
                         serverLevel.getServer().getRecipeManager().getRecipeFor(RecipeType.SMELTING, singleRecipe, worldServer);
-                recipe.ifPresent(result -> {
+                recipe.ifPresentOrElse(result -> {
                     ItemStack recipeValue = result.value().assemble(singleRecipe, worldServer.registryAccess()),
                             drop = new ItemStack(recipeValue.getItem().asItem());
                     if (state.is(ModTags.Blocks.AUTO_SMELT_ORES)) {
@@ -188,8 +190,8 @@ public class ModEvents {
                                       autoSmelt);
                     }
                     finalDrops.add(drop);
-                });
-                if (recipe.isEmpty()) { finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool)); }
+                },
+                () -> finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool)));
                 cancelVanillaDrop = true;
             }
             if (hasMagnet && !state.isAir()) { // * MAGNETIC EFFECT *
@@ -214,8 +216,10 @@ public class ModEvents {
         ItemStack item = event.getItemStack();
         boolean hasMoreOres = item.has(ModDataComponentTypes.MORE_ORES.get());
         List<Either<FormattedText, TooltipComponent>> elements = event.getTooltipElements(); // Item TOOLTIP
-        ChatUtils.imageMod(elements, "textures/misc/mccourse_chestplate_icon.png", 8, 8,
-                           "More Ores Effect!", hasMoreOres);
+        ChatUtils.image(elements, Items.DIAMOND_HELMET, 16, 16, "More Ores Effect!", hasMoreOres);
+        ChatUtils.image(elements, Items.DIAMOND_CHESTPLATE, 16, 16, "More Ores Effect!", hasMoreOres);
+        ChatUtils.image(elements, Items.DIAMOND_LEGGINGS, 16, 16, "More Ores Effect!", hasMoreOres);
+        ChatUtils.image(elements, Items.DIAMOND_BOOTS, 16, 16, "More Ores Effect!", hasMoreOres);
     }
 
     // CUSTOM EVENT - Double Jump
@@ -260,6 +264,30 @@ public class ModEvents {
                 AttributeInstance fly = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
                 disableFlight(player, fly);
             }
+        }
+    }
+
+    // CUSTOM EVENT - Block + Item experience orb
+    @SubscribeEvent
+    public static void onPlayerWakeUp(PlayerWakeUpEvent event) { // Gain experience orb when sleep
+        Player player = event.getEntity();
+        Level level = player.level();
+        if (!level.isClientSide()) { setPlayerXP(player, level, 2); }
+    }
+
+    @SubscribeEvent
+    public static void onItemFished(ItemFishedEvent event) { // Gain experience orb when fished
+        Player player = event.getEntity();
+        Level level = player.level();
+        if (!level.isClientSide()) { if (!event.getDrops().isEmpty()) { setPlayerXP(player, level, 2); } }
+    }
+
+    @SubscribeEvent
+    public static void activatedAccumulatorOnBreakAnyBlocks(BlockEvent.BreakEvent event) {
+        Player player = event.getPlayer();
+        Level level = player.level();
+        if (!level.isClientSide()) { // ACCUMULATOR block drop xp
+            BuiltInRegistries.BLOCK.forEach(block -> setPlayerXP(player, level, 2)); // All blocks
         }
     }
 }
