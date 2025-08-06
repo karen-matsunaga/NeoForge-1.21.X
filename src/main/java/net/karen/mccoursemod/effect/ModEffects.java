@@ -25,7 +25,7 @@ public class ModEffects {
                                         1.00f, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
                   .addAttributeModifier(NeoForgeMod.CREATIVE_FLIGHT,
                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "fly"),
-                                        1.00f, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                                        1, AttributeModifier.Operation.ADD_VALUE));
 
     // Slimey's effect
     public static final Holder<MobEffect> SLIMEY_EFFECT = MOB_EFFECTS.register("slimey",

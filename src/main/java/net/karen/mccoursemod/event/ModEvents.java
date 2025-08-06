@@ -41,17 +41,16 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import java.util.*;
 import static net.karen.mccoursemod.item.custom.SpecialEffectItem.getEffectMultiplier;
 import static net.karen.mccoursemod.util.ChatUtils.*;
-import static net.karen.mccoursemod.util.Utils.block;
-import static net.karen.mccoursemod.util.Utils.dropItem;
+import static net.karen.mccoursemod.util.Utils.*;
 
 @EventBusSubscriber(modid = MccourseMod.MOD_ID)
 public class ModEvents {
@@ -212,7 +211,7 @@ public class ModEvents {
     private static boolean wasJumping = false;
 
     @SubscribeEvent
-    public static void doubleJump(ClientTickEvent.Post event) {
+    public static void doubleJump(PlayerTickEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
         if (player == null || mc.level == null) { return; }
