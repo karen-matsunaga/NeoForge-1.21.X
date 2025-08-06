@@ -3,6 +3,8 @@ package net.karen.mccoursemod.event;
 import com.mojang.datafixers.util.Either;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.effect.ModEffects;
+import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.SpecialEffectItem;
 import net.karen.mccoursemod.potion.ModPotions;
@@ -20,6 +22,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
@@ -42,6 +46,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
@@ -215,12 +220,44 @@ public class ModEvents {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
         if (player == null || mc.level == null) { return; }
-        double x = player.getDeltaMovement().x, z = player.getDeltaMovement().z;
-        boolean isJumping = mc.options.keyJump.isDown();
-        if (isJumping && !wasJumping) { // Check if the pulse key is being pressed
-            if (!player.onGround()) { player.setDeltaMovement(x, 0.42, z); } // Applies the boost only if not on the ground
-            else { player.jumpFromGround(); } // Default jump if on the ground
+        if (player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.BISMUTH_BOOTS.get())) {
+            double x = player.getDeltaMovement().x, z = player.getDeltaMovement().z;
+            boolean isJumping = mc.options.keyJump.isDown();
+            if (isJumping && !wasJumping) { // Check if the pulse key is being pressed
+                if (!player.onGround()) { player.setDeltaMovement(x, 0.42, z); } // Applies the boost only if not on the ground
+                else { player.jumpFromGround(); } // Default jump if on the ground
+            }
+            wasJumping = isJumping;
         }
-        wasJumping = isJumping;
+    }
+
+    @SubscribeEvent
+    public static void flyEffect(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
+        if (!player.level().isClientSide()) {
+            AttributeInstance fly = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT); // Attribute
+            boolean hasEffect = player.hasEffect(ModEffects.FLY_EFFECT); // Fly effect
+            MobEffectInstance level = player.getEffect(ModEffects.FLY_EFFECT); // Has fly effect
+            if (level != null) {
+                int flyLevel = level.getAmplifier(); // Fly effect level
+                if (hasEffect) {
+                    if (fly != null && fly.getValue() == 0) {
+                        fly.setBaseValue(1);
+                        player.getAbilities().flying = true;
+                        player.getAbilities().setFlyingSpeed(0.05f + (0.02f * flyLevel));
+                        player.fallDistance = 0;
+                        player.onUpdateAbilities();
+                    }
+                }
+                else {
+                    if (fly != null && fly.getValue() == 1 && !player.isCreative()) {
+                        fly.setBaseValue(0);
+                        player.getAbilities().flying = false;
+                        player.getAbilities().setFlyingSpeed(0.05f);
+                        player.onUpdateAbilities();
+                    }
+                }
+            }
+        }
     }
 }
