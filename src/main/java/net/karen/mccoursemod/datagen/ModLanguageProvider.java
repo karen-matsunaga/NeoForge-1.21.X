@@ -53,7 +53,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
         addBlock(ModBlocks.BISMUTH_ORE, "Bismuth Ore");
         addBlock(ModBlocks.BISMUTH_DEEPSLATE_ORE, "Bismuth Deepslate Ore");
-        addBlock(ModBlocks.ENCHANT, "Enchant Block");
+        addBlock(ModBlocks.ENCHANT, "§2Enchant Block");
         addBlock(ModBlocks.DISENCHANT_INDIVIDUAL, "Disenchant Individual Block");
         addBlock(ModBlocks.DISENCHANT_GROUPED, "Disenchant Grouped Block");
         addBlock(ModBlocks.MAGIC, "Magic Block");
@@ -66,6 +66,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
         add("enchantment.mccoursemod.auto_smelt", "Auto Smelt");
         add("enchantment.mccoursemod.more_ores", "More Ores");
+        add("enchantment.mccoursemod.block_fly", "Block Fly");
 
         // MOD
         add("enchantment.mccoursemod.lightning_striker.desc",
@@ -76,6 +77,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add("enchantment.mccoursemod.more_ores.desc",
             "When applied on pickaxe if a stone block is break has a percentage to receive ores.");
+
+        add("enchantment.mccoursemod.block_fly.desc",
+            "When applied on pickaxe if player has flying speed mining equals if player has on ground.");
 
         // MINING
         add("enchantment.minecraft.efficiency.desc", "When applied on axe, pickaxe, shovel or hoe increases mining speed.");

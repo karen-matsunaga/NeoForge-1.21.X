@@ -22,21 +22,25 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
         // Tooltip Order
         this.tag(EnchantmentTags.TOOLTIP_ORDER).addOptional(ModEnchantments.LIGHTNING_STRIKER)
                                                .addOptional(ModEnchantments.AUTO_SMELT)
+                                               .addOptional(ModEnchantments.BLOCK_FLY)
                                                .addOptional(ModEnchantments.MORE_ORES);
 
         // Not treasure enchantment
         this.tag(EnchantmentTags.NON_TREASURE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
                                               .addOptional(ModEnchantments.AUTO_SMELT)
+                                              .addOptional(ModEnchantments.BLOCK_FLY)
                                               .addOptional(ModEnchantments.MORE_ORES);
 
         // Villager Trade
         this.tag(EnchantmentTags.TRADEABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
                                            .addOptional(ModEnchantments.AUTO_SMELT)
+                                           .addOptional(ModEnchantments.BLOCK_FLY)
                                            .addOptional(ModEnchantments.MORE_ORES);
 
         // Enchant table
         this.tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
                                                      .addOptional(ModEnchantments.AUTO_SMELT)
+                                                     .addOptional(ModEnchantments.BLOCK_FLY)
                                                      .addOptional(ModEnchantments.MORE_ORES);
 
         // Lightning Striker tag
@@ -45,6 +49,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
         // Pickaxe enchantments
         this.tag(ModTags.Enchantments.MINING_ENCHANTMENTS).addOptional(ModEnchantments.AUTO_SMELT)
                                                           .addOptional(ModEnchantments.MORE_ORES)
+                                                          .addOptional(ModEnchantments.BLOCK_FLY)
                                                           .add(Enchantments.EFFICIENCY)
                                                           .addTag(EnchantmentTags.MINING_EXCLUSIVE);
 

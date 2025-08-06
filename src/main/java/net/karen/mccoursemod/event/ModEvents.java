@@ -53,6 +53,7 @@ import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.ItemFishedEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerWakeUpEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
@@ -289,5 +290,18 @@ public class ModEvents {
         if (!level.isClientSide()) { // ACCUMULATOR block drop xp
             BuiltInRegistries.BLOCK.forEach(block -> setPlayerXP(player, level, 2)); // All blocks
         }
+    }
+
+    // CUSTOM EVENT - Block Fly custom enchantment
+    @SubscribeEvent
+    public static void activatedBlockFlyEnchantment(PlayerEvent.BreakSpeed event) {
+        Player player = event.getEntity(); // Entity is a player
+        Level level = player.level();
+        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        int efficiency = hasEnchant(ench.getOrThrow(Enchantments.EFFICIENCY).getDelegate(), player),
+              blockFly = hasEnchant(ench.getOrThrow(ModEnchantments.BLOCK_FLY).getDelegate(), player);
+        newSpeed(event, blockFly > 0, player, 5); // There is Block Fly enchantment -> OLD speed * NEW speed (5)
+        // There is Block Fly and Efficiency enchantments -> OLD speed * (NEW speed (5) * efficiency level)
+        newSpeed(event, blockFly > 0 && efficiency > 0, player, (5 + efficiency));
     }
 }

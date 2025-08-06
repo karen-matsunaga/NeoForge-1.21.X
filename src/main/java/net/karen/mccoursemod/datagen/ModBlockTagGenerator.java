@@ -65,7 +65,13 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
 
         // Paxel break
         this.tag(ModTags.Blocks.MINEABLE_WITH_PAXEL).addTag(BlockTags.MINEABLE_WITH_AXE)
-                                                 .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                                                 .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
+                                                    .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
+                                                    .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
+
+        // Block Fly effect
+        this.tag(ModTags.Blocks.BLOCK_FLY_BLOCK_SPEED).add(Blocks.GRAVEL, Blocks.SAND, Blocks.RED_SAND,
+                                                           Blocks.ICE, Blocks.PACKED_ICE,
+                                                           Blocks.BLUE_ICE, Blocks.GLOWSTONE)
+                                                      .addTag(Tags.Blocks.GLASS_BLOCKS);
     }
 }

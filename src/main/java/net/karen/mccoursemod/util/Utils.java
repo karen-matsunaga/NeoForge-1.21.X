@@ -24,8 +24,10 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import java.util.Map;
 
@@ -204,6 +206,20 @@ public class Utils {
             player.getAbilities().flying = false;
             player.getAbilities().setFlyingSpeed(BASE_FLY_SPEED);
             player.onUpdateAbilities();
+        }
+    }
+
+    // CUSTOM METHOD - Set newSpeed adapt with Efficiency enchantment -> Fixed speed mining
+    public static void newSpeed(PlayerEvent.BreakSpeed event, boolean hasEnchant,
+                                Player player, int value) {
+        if (hasEnchant) {
+            BlockState state = event.getState();
+            if ((!player.onGround() && !player.isUnderWater()) || player.isUnderWater()) {
+                event.setNewSpeed(event.getOriginalSpeed() * ((float) Math.sqrt(value) + 1));
+            }
+            if (state.is(ModTags.Blocks.BLOCK_FLY_BLOCK_SPEED)) {
+                event.setNewSpeed(event.getOriginalSpeed() * 2.5F + ((float) Math.sqrt(value) + 1));
+            }
         }
     }
 }
