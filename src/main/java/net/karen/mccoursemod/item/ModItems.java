@@ -144,27 +144,27 @@ public class ModItems {
 
     // Custom armors
     public static final DeferredItem<Item> BISMUTH_HELMET = ITEMS.register("bismuth_helmet",
-           () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                      "bismuth_helmet")))
+           () -> new ModArmorItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                              "bismuth_helmet")))
                                                .humanoidArmor(ModArmorMaterials.BISMUTH, ArmorType.HELMET)));
 
     public static final DeferredItem<Item> BISMUTH_CHESTPLATE = ITEMS.register("bismuth_chestplate",
-           () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                      "bismuth_chestplate")))
+           () -> new ModArmorItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                              "bismuth_chestplate")))
                                                .humanoidArmor(ModArmorMaterials.BISMUTH, ArmorType.CHESTPLATE)));
 
     public static final DeferredItem<Item> BISMUTH_LEGGINGS = ITEMS.register("bismuth_leggings",
-           () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                      "bismuth_leggings")))
+           () -> new ModArmorItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                              "bismuth_leggings")))
                                                .humanoidArmor(ModArmorMaterials.BISMUTH, ArmorType.LEGGINGS)));
 
     public static final DeferredItem<Item> BISMUTH_BOOTS = ITEMS.register("bismuth_boots",
-           () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                      "bismuth_boots")))
+           () -> new ModArmorItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                              "bismuth_boots")))
                                                .humanoidArmor(ModArmorMaterials.BISMUTH, ArmorType.BOOTS)));
 
     public static void register(IEventBus eventBus) {
