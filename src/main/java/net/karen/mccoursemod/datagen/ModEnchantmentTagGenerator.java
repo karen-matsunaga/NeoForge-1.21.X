@@ -26,7 +26,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                .addOptional(ModEnchantments.MAGNET)
                                                .addOptional(ModEnchantments.RAINBOW)
                                                .addOptional(ModEnchantments.MORE_ORES)
-                                               .addOptional(ModEnchantments.IMMORTAL);
+                                               .addOptional(ModEnchantments.IMMORTAL)
+                                               .addOptional(ModEnchantments.PEACEFUL_MOBS);
 
         // Not treasure enchantment
         this.tag(EnchantmentTags.NON_TREASURE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
@@ -35,7 +36,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                               .addOptional(ModEnchantments.MAGNET)
                                               .addOptional(ModEnchantments.RAINBOW)
                                               .addOptional(ModEnchantments.MORE_ORES)
-                                              .addOptional(ModEnchantments.IMMORTAL);
+                                              .addOptional(ModEnchantments.IMMORTAL)
+                                              .addOptional(ModEnchantments.PEACEFUL_MOBS);
 
         // Villager Trade
         this.tag(EnchantmentTags.TRADEABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
@@ -44,7 +46,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                            .addOptional(ModEnchantments.MAGNET)
                                            .addOptional(ModEnchantments.RAINBOW)
                                            .addOptional(ModEnchantments.MORE_ORES)
-                                           .addOptional(ModEnchantments.IMMORTAL);
+                                           .addOptional(ModEnchantments.IMMORTAL)
+                                           .addOptional(ModEnchantments.PEACEFUL_MOBS);
 
         // Enchant table
         this.tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
@@ -53,7 +56,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                      .addOptional(ModEnchantments.MAGNET)
                                                      .addOptional(ModEnchantments.RAINBOW)
                                                      .addOptional(ModEnchantments.MORE_ORES)
-                                                     .addOptional(ModEnchantments.IMMORTAL);
+                                                     .addOptional(ModEnchantments.IMMORTAL)
+                                                     .addOptional(ModEnchantments.PEACEFUL_MOBS);
 
         // Lightning Striker tag
         this.tag(ModTags.Enchantments.LIGHTNING_STRIKER_TAG).addOptional(ModEnchantments.LIGHTNING_STRIKER);
@@ -80,7 +84,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
         this.tag(ModTags.Enchantments.CHESTPLATE_ENCHANTMENTS).add(Enchantments.THORNS);
 
         // Leggings enchantments
-        this.tag(ModTags.Enchantments.LEGGINGS_ENCHANTMENTS).add(Enchantments.SWIFT_SNEAK);
+        this.tag(ModTags.Enchantments.LEGGINGS_ENCHANTMENTS).add(Enchantments.SWIFT_SNEAK)
+                                                            .addOptional(ModEnchantments.PEACEFUL_MOBS);
 
         // Boots enchantments
         this.tag(ModTags.Enchantments.BOOTS_ENCHANTMENTS).addTag(EnchantmentTags.BOOTS_EXCLUSIVE)

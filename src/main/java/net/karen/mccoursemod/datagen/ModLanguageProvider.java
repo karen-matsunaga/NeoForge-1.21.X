@@ -73,6 +73,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.magnet", "Magnet");
         add("enchantment.mccoursemod.rainbow", "Rainbow");
         add("enchantment.mccoursemod.immortal", "Immortal");
+        add("enchantment.mccoursemod.peaceful_mobs", "Peaceful Mobs");
 
         // MOD
         add("enchantment.mccoursemod.lightning_striker.desc",
@@ -95,6 +96,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add("enchantment.mccoursemod.immortal.desc",
             "When applied to tools, armor, etc., it prevents the loss of the item in cactus, TNT, lava, void, etc.");
+
+        add("enchantment.mccoursemod.peaceful_mobs.desc",
+            "When applied on leggings armor all entities not attack Player.");
 
         // MINING
         add("enchantment.minecraft.efficiency.desc", "When applied on axe, pickaxe, shovel or hoe increases mining speed.");

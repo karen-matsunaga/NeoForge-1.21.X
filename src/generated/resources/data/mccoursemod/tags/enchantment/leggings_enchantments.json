@@ -1,5 +1,9 @@
 {
   "values": [
-    "minecraft:swift_sneak"
+    "minecraft:swift_sneak",
+    {
+      "id": "mccoursemod:peaceful_mobs",
+      "required": false
+    }
   ]
 }

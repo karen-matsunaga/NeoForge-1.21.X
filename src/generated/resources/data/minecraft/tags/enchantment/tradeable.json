@@ -27,6 +27,10 @@
     {
       "id": "mccoursemod:immortal",
       "required": false
+    },
+    {
+      "id": "mccoursemod:peaceful_mobs",
+      "required": false
     }
   ]
 }

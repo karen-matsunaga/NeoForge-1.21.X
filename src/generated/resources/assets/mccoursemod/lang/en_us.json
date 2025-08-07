@@ -23,6 +23,8 @@
   "enchantment.mccoursemod.magnet.desc": "When applied on pickaxe all mined blocks automatically store on Player's inventory.",
   "enchantment.mccoursemod.more_ores": "More Ores",
   "enchantment.mccoursemod.more_ores.desc": "When applied on pickaxe if a stone block is break has a percentage to receive ores.",
+  "enchantment.mccoursemod.peaceful_mobs": "Peaceful Mobs",
+  "enchantment.mccoursemod.peaceful_mobs.desc": "When applied on leggings armor all entities not attack Player.",
   "enchantment.mccoursemod.rainbow": "Rainbow",
   "enchantment.mccoursemod.rainbow.desc": "When applied on pickaxe the broken ore is replaced and turned on an ore block.",
   "enchantment.minecraft.aqua_affinity.desc": "When applied on helmet armor increases underwater mining speed.",
