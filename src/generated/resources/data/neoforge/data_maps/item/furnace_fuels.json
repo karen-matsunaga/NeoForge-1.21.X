@@ -1,3 +1,7 @@
 {
-  "values": {}
+  "values": {
+    "mccoursemod:coffee": {
+      "burn_time": 1200
+    }
+  }
 }

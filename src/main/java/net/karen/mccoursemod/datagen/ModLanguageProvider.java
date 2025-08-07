@@ -25,6 +25,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE, "Level Charger Specif Minus Fortune");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE, "Level Charger Specif Plus Fortune");
 
+        // CUSTOM Foods
+        addItem(ModItems.COFFEE, "Coffee");
+
         // CUSTOM Tools
         addItem(ModItems.BISMUTH_HAMMER, "Bismuth Hammer");
         addItem(ModItems.BISMUTH_PAXEL, "Bismuth Paxel");

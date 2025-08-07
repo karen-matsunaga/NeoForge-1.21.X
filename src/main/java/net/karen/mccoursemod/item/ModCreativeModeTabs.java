@@ -17,53 +17,55 @@ public class ModCreativeModeTabs {
 
     public static final Supplier<CreativeModeTab> BISMUTH_ITEMS_TAB = CREATIVE_MODE_TAB.register("bismuth_items_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BISMUTH.get()))
-                    .title(Component.translatable("creativetab.mccoursemod.bismuth_items"))
-                    .displayItems((itemDisplayParameters, output) -> {
-                        // CUSTOM items
-                        output.accept(ModItems.BISMUTH);
-                        output.accept(ModItems.RAW_BISMUTH);
-                        // CUSTOM Special Effect items
-                        output.accept(ModItems.AUTO_SMELT);
-                        output.accept(ModItems.MAGNET);
-                        output.accept(ModItems.MORE_ORES);
-                        output.accept(ModItems.RAINBOW);
-                        // CUSTOM Level Charger items
-                        output.accept(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get());
-                        output.accept(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get());
-                        output.accept(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get());
-                        output.accept(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get());
-                        // CUSTOM tools
-                        output.accept(ModItems.BISMUTH_HAMMER.get());
-                        output.accept(ModItems.BISMUTH_PAXEL.get());
-                        output.accept(ModItems.BISMUTH_SWORD.get());
-                        output.accept(ModItems.BISMUTH_PICKAXE.get());
-                        output.accept(ModItems.BISMUTH_SHOVEL.get());
-                        output.accept(ModItems.BISMUTH_AXE.get());
-                        output.accept(ModItems.BISMUTH_HOE.get());
-                        // CUSTOM armors
-                        output.accept(ModItems.BISMUTH_HELMET.get());
-                        output.accept(ModItems.BISMUTH_CHESTPLATE.get());
-                        output.accept(ModItems.BISMUTH_LEGGINGS.get());
-                        output.accept(ModItems.BISMUTH_BOOTS.get());
-                    }).build());
+                                           .title(Component.translatable("creativetab.mccoursemod.bismuth_items"))
+                                           .displayItems((itemDisplayParameters, output) -> {
+                     // CUSTOM items
+                     output.accept(ModItems.BISMUTH);
+                     output.accept(ModItems.RAW_BISMUTH);
+                     // CUSTOM Special Effect items
+                     output.accept(ModItems.AUTO_SMELT);
+                     output.accept(ModItems.MAGNET);
+                     output.accept(ModItems.MORE_ORES);
+                     output.accept(ModItems.RAINBOW);
+                     // CUSTOM Level Charger items
+                     output.accept(ModItems.LEVEL_CHARGER_GENERIC_PLUS);
+                     output.accept(ModItems.LEVEL_CHARGER_GENERIC_MINUS);
+                     output.accept(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE);
+                     output.accept(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE);
+                     // CUSTOM tools
+                     output.accept(ModItems.BISMUTH_HAMMER);
+                     output.accept(ModItems.BISMUTH_PAXEL);
+                     output.accept(ModItems.BISMUTH_SWORD);
+                     output.accept(ModItems.BISMUTH_PICKAXE);
+                     output.accept(ModItems.BISMUTH_SHOVEL);
+                     output.accept(ModItems.BISMUTH_AXE);
+                     output.accept(ModItems.BISMUTH_HOE);
+                     // CUSTOM armors
+                     output.accept(ModItems.BISMUTH_HELMET);
+                     output.accept(ModItems.BISMUTH_CHESTPLATE);
+                     output.accept(ModItems.BISMUTH_LEGGINGS);
+                     output.accept(ModItems.BISMUTH_BOOTS);
+                     // CUSTOM foods
+                     output.accept(ModItems.COFFEE);
+                  }).build());
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCK_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.BISMUTH_BLOCK))
-                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "bismuth_items_tab"))
-                    .title(Component.translatable("creativetab.mccoursemod.bismuth_blocks"))
-                    .displayItems((itemDisplayParameters, output) -> {
-                        // CUSTOM blocks
-                        // CUSTOM ores
-                        output.accept(ModBlocks.BISMUTH_BLOCK);
-                        output.accept(ModBlocks.BISMUTH_ORE);
-                        output.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
-                        output.accept(ModBlocks.MAGIC);
-                        // CUSTOM advanced blocks
-                        output.accept(ModBlocks.ENCHANT);
-                        output.accept(ModBlocks.DISENCHANT_GROUPED);
-                        output.accept(ModBlocks.DISENCHANT_INDIVIDUAL);
-                    }).build());
-
+                                           .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                                                 "bismuth_items_tab"))
+                                           .title(Component.translatable("creativetab.mccoursemod.bismuth_blocks"))
+                                           .displayItems((itemDisplayParameters, output) -> {
+                     // CUSTOM blocks
+                     // CUSTOM ores
+                     output.accept(ModBlocks.BISMUTH_BLOCK);
+                     output.accept(ModBlocks.BISMUTH_ORE);
+                     output.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
+                     output.accept(ModBlocks.MAGIC);
+                     // CUSTOM advanced blocks
+                     output.accept(ModBlocks.ENCHANT);
+                     output.accept(ModBlocks.DISENCHANT_GROUPED);
+                     output.accept(ModBlocks.DISENCHANT_INDIVIDUAL);
+                  }).build());
 
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TAB.register(eventBus);

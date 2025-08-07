@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-04T17:40:34.7724914	Model Definitions - mccoursemod
+// 1.21.8	2025-08-07T18:51:16.8502553	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
 911f33f77ee00152a3722ae14470c043ab0c8850 assets/mccoursemod/blockstates/bismuth_ore.json
@@ -22,6 +22,7 @@ bd273a4a5339b93fd41ba1b8f3444d4d4b6a3e40 assets/mccoursemod/items/bismuth_paxel.
 a87465084cf38d19b845ff1af5f25044f326dacb assets/mccoursemod/items/bismuth_pickaxe.json
 5761e29ce65506c5b01d827ff20a0b7dd70334a9 assets/mccoursemod/items/bismuth_shovel.json
 fecd838f906f98b450c4c547f66a6a9b6b57ae49 assets/mccoursemod/items/bismuth_sword.json
+4724b7b9f220bb76278f4c673e146c71f1ad6fbe assets/mccoursemod/items/coffee.json
 e5ff5f1a8eb00ed1efa344dca5463d48decdf0e1 assets/mccoursemod/items/disenchant_grouped.json
 d1e1537c835ce37fbba409d8bb2f13016b9bd3ad assets/mccoursemod/items/disenchant_individual.json
 c781befbb88c42517afc059c36c95b3d1712bbdb assets/mccoursemod/items/enchant.json
@@ -98,6 +99,7 @@ c0d1f8e69879adec59df18c6cf6a472c85c042d6 assets/mccoursemod/models/item/bismuth_
 76c9117cd683bb605e5584674a4915ba260f1901 assets/mccoursemod/models/item/bismuth_pickaxe.json
 005b426d4e28a48bd8e12840d2c41fe10340f07b assets/mccoursemod/models/item/bismuth_shovel.json
 333409fddd8c4e68a2e05d5293b5ce7916ee5e65 assets/mccoursemod/models/item/bismuth_sword.json
+1b5bb5f0295c0222714426faf4cb56cdbf27c730 assets/mccoursemod/models/item/coffee.json
 47db5fdb421a808510dc0ba0a413e54429bb4a77 assets/mccoursemod/models/item/level_charger_generic_minus.json
 53f0103424d2ec44c5649419699bc055dcdf20bb assets/mccoursemod/models/item/level_charger_generic_plus.json
 143d725116ad170320c60a860019737d6dc1d1e1 assets/mccoursemod/models/item/level_charger_specif_minus_fortune.json

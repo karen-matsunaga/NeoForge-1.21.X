@@ -4,13 +4,17 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.custom.*;
 import net.karen.mccoursemod.util.ModTags;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ShovelItem;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.bus.api.IEventBus;
@@ -166,6 +170,23 @@ public class ModItems {
                                                               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                               "bismuth_boots")))
                                                .humanoidArmor(ModArmorMaterials.BISMUTH, ArmorType.BOOTS)));
+
+    public static final DeferredItem<Item> COFFEE = ITEMS.register("coffee",
+           () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                      "coffee")))
+                                               .food(new FoodProperties.Builder().nutrition(3)
+                                                                                 .saturationModifier(0.25f).build())
+                                               .component(DataComponents.CONSUMABLE,
+                                                          Consumable.builder().consumeSeconds(2f)
+                                                                              .animation(ItemUseAnimation.EAT)
+                                                                              .sound(SoundEvents.GENERIC_EAT)
+                                                                              .hasConsumeParticles(false)
+                                                                              .onConsume(new ApplyStatusEffectsConsumeEffect(
+                                                                                         new MobEffectInstance(
+                                                                                         MobEffects.HEALTH_BOOST,
+                                                                                         600, 0), 0.35f))
+                                                                              .build())));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
