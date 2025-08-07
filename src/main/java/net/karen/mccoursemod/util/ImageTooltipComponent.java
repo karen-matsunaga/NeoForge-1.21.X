@@ -8,7 +8,6 @@ import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.joml.Matrix3x2fStack;
 
 public class ImageTooltipComponent implements ClientTooltipComponent, TooltipComponent {
     private final Item item;
@@ -24,18 +23,18 @@ public class ImageTooltipComponent implements ClientTooltipComponent, TooltipCom
 
     @Override
     public void renderImage(@NotNull Font font, int x, int y, int width, int height, @NotNull GuiGraphics graphics) {
-        Matrix3x2fStack matrix = graphics.pose();
+//        Matrix3x2fStack matrix = graphics.pose();
         // Render Image -> Example: Icon 8x8, Icon 9x9, Icon 16x16, etc. (width x height)
-        matrix.pushMatrix();
+//        matrix.pushMatrix();
         graphics.renderItem(new ItemStack(item), x, y); // Render TEXTURE ITEM
 //        graphics.blit(RenderPipelines.GUI_TEXTURED, texture, x, y, 0, 0, width, height, width, height); // Render TEXTURE
-        matrix.popMatrix();
+//        matrix.popMatrix();
         // Render Text -> Example: [ICON] text...
-        matrix.pushMatrix();
+//        matrix.pushMatrix();
         int textX = x + width + 4; // 4px image spacing
         int textY = y + (height - font.lineHeight) / 2; // Center vertically
         graphics.drawString(font, text, textX, textY, 0xFFFFFF, true); // Render TEXT
-        matrix.popMatrix();
+//        matrix.popMatrix();
     }
 
     // Image height

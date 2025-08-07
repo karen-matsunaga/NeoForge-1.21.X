@@ -25,10 +25,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
+import java.util.List;
 import java.util.Map;
 
 public class Utils {
@@ -220,6 +223,22 @@ public class Utils {
             if (state.is(ModTags.Blocks.BLOCK_FLY_BLOCK_SPEED)) {
                 event.setNewSpeed(event.getOriginalSpeed() * 2.5F + ((float) Math.sqrt(value) + 1));
             }
+        }
+    }
+
+    // CUSTOM METHOD - Immortal enchantment radius item
+    public static List<Entity> getRadiusItem(LevelTickEvent event) {
+        double x = 0, y = -100, z = 0, xSize = 10000, ySize = 500, zSize = 10000;
+        return event.getLevel().getEntities(null, AABB.ofSize(new Vec3(x, y, z), xSize, ySize, zSize));
+    }
+
+    // CUSTOM METHOD - Activated IMMORTAL enchantment
+    public static void activatedImmortalEnchantment(ItemEntity entity, ItemStack item,
+                                                    Holder<Enchantment> ench) {
+        if (item.getEnchantmentLevel(ench) > 0) {
+            entity.setInvulnerable(true);
+            entity.setUnlimitedLifetime(); // Does not disappear over time
+            entity.setPickUpDelay(10); // It can be collected after 0.5s
         }
     }
 }

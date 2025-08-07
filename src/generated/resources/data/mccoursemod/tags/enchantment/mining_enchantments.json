@@ -1,15 +1,23 @@
 {
   "values": [
     {
+      "id": "mccoursemod:block_fly",
+      "required": false
+    },
+    {
       "id": "mccoursemod:auto_smelt",
       "required": false
     },
     {
-      "id": "mccoursemod:more_ores",
+      "id": "mccoursemod:magnet",
       "required": false
     },
     {
-      "id": "mccoursemod:block_fly",
+      "id": "mccoursemod:rainbow",
+      "required": false
+    },
+    {
+      "id": "mccoursemod:more_ores",
       "required": false
     },
     "minecraft:efficiency",

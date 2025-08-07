@@ -1,6 +1,10 @@
 {
   "values": [
     "minecraft:mending",
-    "minecraft:unbreaking"
+    "minecraft:unbreaking",
+    {
+      "id": "mccoursemod:immortal",
+      "required": false
+    }
   ]
 }

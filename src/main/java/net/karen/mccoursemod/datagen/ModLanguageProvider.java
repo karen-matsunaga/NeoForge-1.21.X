@@ -67,6 +67,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.auto_smelt", "Auto Smelt");
         add("enchantment.mccoursemod.more_ores", "More Ores");
         add("enchantment.mccoursemod.block_fly", "Block Fly");
+        add("enchantment.mccoursemod.magnet", "Magnet");
+        add("enchantment.mccoursemod.rainbow", "Rainbow");
+        add("enchantment.mccoursemod.immortal", "Immortal");
 
         // MOD
         add("enchantment.mccoursemod.lightning_striker.desc",
@@ -80,6 +83,15 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add("enchantment.mccoursemod.block_fly.desc",
             "When applied on pickaxe if player has flying speed mining equals if player has on ground.");
+
+        add("enchantment.mccoursemod.magnet.desc",
+            "When applied on pickaxe all mined blocks automatically store on Player's inventory.");
+
+        add("enchantment.mccoursemod.rainbow.desc",
+            "When applied on pickaxe the broken ore is replaced and turned on an ore block.");
+
+        add("enchantment.mccoursemod.immortal.desc",
+            "When applied to tools, armor, etc., it prevents the loss of the item in cactus, TNT, lava, void, etc.");
 
         // MINING
         add("enchantment.minecraft.efficiency.desc", "When applied on axe, pickaxe, shovel or hoe increases mining speed.");

@@ -1,5 +1,8 @@
-// 1.21.8	2025-08-06T19:27:00.2089694	Registries
-028d5ae1c25b2acd3f83e7cbb848e7b6e929139d data/mccoursemod/enchantment/auto_smelt.json
-f9656c078d858edd70f461d3501e6730942a58c8 data/mccoursemod/enchantment/block_fly.json
+// 1.21.8	2025-08-06T22:51:14.3051538	Registries
+bcd42e3192f291a18c268c668838ef5b2afd5fe6 data/mccoursemod/enchantment/auto_smelt.json
+68c8972713bd2f8573bdb6a5243b656083670f9a data/mccoursemod/enchantment/block_fly.json
+6a6aedf206816a963b193bca4efe57c9bea49bf8 data/mccoursemod/enchantment/immortal.json
 58379fb9bab91a22a216f5370f1d1d0f62138120 data/mccoursemod/enchantment/lightning_striker.json
-84f3f35f780146b58b92cb2f2d7ed2969df5e3f5 data/mccoursemod/enchantment/more_ores.json
+503102a12d876693c6e182b7775da91fffc31eae data/mccoursemod/enchantment/magnet.json
+76444e6eebc846bb9686079a0ce37cb31bdd89c8 data/mccoursemod/enchantment/more_ores.json
+360158b40a967ca35ca63323f4dd0c3a8b4e7d80 data/mccoursemod/enchantment/rainbow.json

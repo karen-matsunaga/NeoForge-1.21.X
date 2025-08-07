@@ -1,7 +1,7 @@
 {
   "anvil_cost": 2,
   "description": {
-    "translate": "enchantment.mccoursemod.more_ores"
+    "translate": "enchantment.mccoursemod.rainbow"
   },
   "max_cost": {
     "base": 25,

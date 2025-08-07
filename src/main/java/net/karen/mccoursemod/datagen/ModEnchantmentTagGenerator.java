@@ -21,41 +21,56 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         // Tooltip Order
         this.tag(EnchantmentTags.TOOLTIP_ORDER).addOptional(ModEnchantments.LIGHTNING_STRIKER)
-                                               .addOptional(ModEnchantments.AUTO_SMELT)
                                                .addOptional(ModEnchantments.BLOCK_FLY)
-                                               .addOptional(ModEnchantments.MORE_ORES);
+                                               .addOptional(ModEnchantments.AUTO_SMELT)
+                                               .addOptional(ModEnchantments.MAGNET)
+                                               .addOptional(ModEnchantments.RAINBOW)
+                                               .addOptional(ModEnchantments.MORE_ORES)
+                                               .addOptional(ModEnchantments.IMMORTAL);
 
         // Not treasure enchantment
         this.tag(EnchantmentTags.NON_TREASURE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
-                                              .addOptional(ModEnchantments.AUTO_SMELT)
                                               .addOptional(ModEnchantments.BLOCK_FLY)
-                                              .addOptional(ModEnchantments.MORE_ORES);
+                                              .addOptional(ModEnchantments.AUTO_SMELT)
+                                              .addOptional(ModEnchantments.MAGNET)
+                                              .addOptional(ModEnchantments.RAINBOW)
+                                              .addOptional(ModEnchantments.MORE_ORES)
+                                              .addOptional(ModEnchantments.IMMORTAL);
 
         // Villager Trade
         this.tag(EnchantmentTags.TRADEABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
-                                           .addOptional(ModEnchantments.AUTO_SMELT)
                                            .addOptional(ModEnchantments.BLOCK_FLY)
-                                           .addOptional(ModEnchantments.MORE_ORES);
+                                           .addOptional(ModEnchantments.AUTO_SMELT)
+                                           .addOptional(ModEnchantments.MAGNET)
+                                           .addOptional(ModEnchantments.RAINBOW)
+                                           .addOptional(ModEnchantments.MORE_ORES)
+                                           .addOptional(ModEnchantments.IMMORTAL);
 
         // Enchant table
         this.tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
-                                                     .addOptional(ModEnchantments.AUTO_SMELT)
                                                      .addOptional(ModEnchantments.BLOCK_FLY)
-                                                     .addOptional(ModEnchantments.MORE_ORES);
+                                                     .addOptional(ModEnchantments.AUTO_SMELT)
+                                                     .addOptional(ModEnchantments.MAGNET)
+                                                     .addOptional(ModEnchantments.RAINBOW)
+                                                     .addOptional(ModEnchantments.MORE_ORES)
+                                                     .addOptional(ModEnchantments.IMMORTAL);
 
         // Lightning Striker tag
         this.tag(ModTags.Enchantments.LIGHTNING_STRIKER_TAG).addOptional(ModEnchantments.LIGHTNING_STRIKER);
 
         // Pickaxe enchantments
-        this.tag(ModTags.Enchantments.MINING_ENCHANTMENTS).addOptional(ModEnchantments.AUTO_SMELT)
+        this.tag(ModTags.Enchantments.MINING_ENCHANTMENTS).addOptional(ModEnchantments.BLOCK_FLY)
+                                                          .addOptional(ModEnchantments.AUTO_SMELT)
+                                                          .addOptional(ModEnchantments.MAGNET)
+                                                          .addOptional(ModEnchantments.RAINBOW)
                                                           .addOptional(ModEnchantments.MORE_ORES)
-                                                          .addOptional(ModEnchantments.BLOCK_FLY)
                                                           .add(Enchantments.EFFICIENCY)
                                                           .addTag(EnchantmentTags.MINING_EXCLUSIVE);
 
         // All tools enchantments
         this.tag(ModTags.Enchantments.DURABILITY_ENCHANTMENTS).add(Enchantments.MENDING)
-                                                              .add(Enchantments.UNBREAKING);
+                                                              .add(Enchantments.UNBREAKING)
+                                                              .addOptional(ModEnchantments.IMMORTAL);
 
         // Helmet enchantments
         this.tag(ModTags.Enchantments.HELMET_ENCHANTMENTS).add(Enchantments.RESPIRATION)

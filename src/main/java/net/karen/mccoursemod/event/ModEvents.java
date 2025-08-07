@@ -23,9 +23,11 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.animal.sheep.Sheep;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
@@ -44,18 +46,24 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.item.ItemExpireEvent;
+import net.neoforged.neoforge.event.entity.item.ItemTossEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.ItemFishedEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerWakeUpEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.level.ExplosionEvent;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import java.util.*;
 import static net.karen.mccoursemod.item.custom.SpecialEffectItem.getEffectMultiplier;
@@ -303,5 +311,72 @@ public class ModEvents {
         newSpeed(event, blockFly > 0, player, 5); // There is Block Fly enchantment -> OLD speed * NEW speed (5)
         // There is Block Fly and Efficiency enchantments -> OLD speed * (NEW speed (5) * efficiency level)
         newSpeed(event, blockFly > 0 && efficiency > 0, player, (5 + efficiency));
+    }
+
+    // CUSTOM EVENT - IMMORTAL custom enchantment
+    @SubscribeEvent
+    public static void onItemToss(ItemTossEvent event) {
+        ItemEntity entity = event.getEntity();
+        HolderLookup.RegistryLookup<Enchantment> ench = entity.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        Holder<Enchantment> immortalEnch = ench.getOrThrow(ModEnchantments.IMMORTAL);
+        if (!entity.level().isClientSide()) {
+            activatedImmortalEnchantment(entity, entity.getItem(), immortalEnch);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onItemSpawn(EntityJoinLevelEvent event) {
+        Entity entity = event.getEntity();
+        HolderLookup.RegistryLookup<Enchantment> ench = entity.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        Holder<Enchantment> immortalEnch = ench.getOrThrow(ModEnchantments.IMMORTAL);
+        if (!entity.level().isClientSide()) {
+            if (entity instanceof ItemEntity itemEntity) {
+                activatedImmortalEnchantment(itemEntity, itemEntity.getItem(), immortalEnch);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onExplosion(ExplosionEvent.Detonate event) {
+        HolderLookup.RegistryLookup<Enchantment> ench = event.getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        Holder<Enchantment> immortalEnch = ench.getOrThrow(ModEnchantments.IMMORTAL);
+        event.getAffectedEntities().removeIf(entity -> entity instanceof ItemEntity itemEntity &&
+                                                             itemEntity.getItem().getEnchantmentLevel(immortalEnch) > 0);
+    }
+
+    @SubscribeEvent
+    public static void onItemExpire(ItemExpireEvent event) { // Never disappears
+        ItemEntity itemEntity = event.getEntity();
+        HolderLookup.RegistryLookup<Enchantment> ench = itemEntity.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        Holder<Enchantment> immortalEnch = ench.getOrThrow(ModEnchantments.IMMORTAL);
+        if (itemEntity.getItem().getEnchantmentLevel(immortalEnch) > 0) {
+            activatedImmortalEnchantment(itemEntity, itemEntity.getItem(), immortalEnch);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEntityTick(LevelTickEvent.Post event) {
+        if (!event.getLevel().isClientSide()) {
+            for (Entity entity : getRadiusItem(event)) {
+                if (entity instanceof ItemEntity item) {
+                    HolderLookup.RegistryLookup<Enchantment> ench =
+                            item.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+                    Holder<Enchantment> immortalEnch = ench.getOrThrow(ModEnchantments.IMMORTAL);
+                    if (item.getItem().getEnchantmentLevel(immortalEnch) > 0) {
+                        if (item.getY() < -64) {
+                            Player nearestPlayer = event.getLevel().getNearestPlayer(item, 64); // Find the nearest player
+                            if (nearestPlayer != null) { // Teleports the item to the player
+                                item.teleportTo(nearestPlayer.getX(), nearestPlayer.getY() + 1, nearestPlayer.getZ());
+                                // Sets the speed for "flying to player"
+                                Vec3 motion = nearestPlayer.position().subtract(item.position()).normalize().scale(0.5);
+                                item.setDeltaMovement(motion);
+                            }
+                            // If no player nearby, pick up the item as before
+                            else { item.teleportTo(item.getX(), 100, item.getZ()); }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

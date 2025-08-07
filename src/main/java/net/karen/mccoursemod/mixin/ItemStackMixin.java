@@ -49,11 +49,11 @@ public abstract class ItemStackMixin {
             tooltip.add(componentLiteral("Auto Smelt x" +
                         getMultiplier(stack, ModDataComponentTypes.AUTO_SMELT.get()) + "!", gold));
             tooltip.add(componentTranslatable("tooltip.mccoursemod.auto_smelt.tooltip", gold));
-            Component test2 = Component.literal("\u00a1");
-            tooltip.add(test2);
-            CustomTooltip test = new CustomTooltip(Component.nullToEmpty("[Auto Smelt]"));
-            stack.set(ModDataComponentTypes.CUSTOM_TOOLTIP.get(), test);
-            stack.get(ModDataComponentTypes.CUSTOM_TOOLTIP.get());
+            stack.set(ModDataComponentTypes.CUSTOM_TOOLTIP, new CustomTooltip(Component.nullToEmpty("[Auto Smelt]")));
+            CustomTooltip value = stack.get(ModDataComponentTypes.CUSTOM_TOOLTIP);
+            if (stack.has(ModDataComponentTypes.CUSTOM_TOOLTIP.get()) && value != null) {
+                tooltip.add(value.line1());
+            }
         }
         if (stack.has(ModDataComponentTypes.MORE_ORES.get())) {
             tooltip.add(componentLiteral("More Ores x" +

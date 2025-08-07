@@ -8,15 +8,10 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
-import net.minecraft.world.item.enchantment.effects.AddValue;
-import net.minecraft.world.item.enchantment.effects.EnchantmentAttributeEffect;
-import net.minecraft.world.item.enchantment.effects.MultiplyValue;
 
 public class ModEnchantments {
     // Registry all custom enchantments -> enchantment name on JSON file
@@ -24,6 +19,9 @@ public class ModEnchantments {
     public static final ResourceKey<Enchantment> AUTO_SMELT = createTag("auto_smelt");
     public static final ResourceKey<Enchantment> MORE_ORES = createTag("more_ores");
     public static final ResourceKey<Enchantment> BLOCK_FLY = createTag("block_fly");
+    public static final ResourceKey<Enchantment> MAGNET = createTag("magnet");
+    public static final ResourceKey<Enchantment> RAINBOW = createTag("rainbow");
+    public static final ResourceKey<Enchantment> IMMORTAL = createTag("immortal");
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
@@ -42,38 +40,58 @@ public class ModEnchantments {
                                         new LightningStrikerEnchantmentEffect(
                                         LevelBasedValue.perLevel(0.5F, 0.15F))));
 
+        // Auto Smelt - Pickaxe tool
         register(context, AUTO_SMELT,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                                                                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                                                                 5, 2,
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
-                                                                2, EquipmentSlotGroup.MAINHAND))
-                            .withEffect(EnchantmentEffectComponents.BLOCK_EXPERIENCE,
-                                        new AddValue(LevelBasedValue.perLevel(1.0F, 2.0F))));
+                                                                2, EquipmentSlotGroup.MAINHAND)));
 
+        // More Ores - Pickaxe tool
         register(context, MORE_ORES,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                                                                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                                                                 5, 2,
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
-                                                                2, EquipmentSlotGroup.MAINHAND))
-                            .withEffect(EnchantmentEffectComponents.BLOCK_EXPERIENCE,
-                                        new MultiplyValue(LevelBasedValue.perLevel(1.0F, 2.0F))));
+                                                                2, EquipmentSlotGroup.MAINHAND)));
 
+        // Block Fly - Pickaxe tool
         register(context, BLOCK_FLY,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                                                                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                                                                 5, 2,
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
-                                                                2, EquipmentSlotGroup.MAINHAND))
-                            .withEffect(EnchantmentEffectComponents.ATTRIBUTES,
-                                        new EnchantmentAttributeEffect(
-                                        ResourceLocation.withDefaultNamespace("enchantment.efficiency"),
-                                        Attributes.MINING_EFFICIENCY, new LevelBasedValue.LevelsSquared(1.0F),
-                                        AttributeModifier.Operation.ADD_VALUE)));
+                                                                2, EquipmentSlotGroup.MAINHAND)));
+
+        // Magnet - Pickaxe tool
+        register(context, MAGNET,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                                                                items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.MAINHAND)));
+
+        // Rainbow - Pickaxe tool
+        register(context, RAINBOW,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                                                                items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.MAINHAND)));
+
+        // Immortal - All tools
+        register(context, IMMORTAL,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.ANY)));
     }
 
     // CUSTOM METHOD - Registry all custom enchantments -> DATA GEN
