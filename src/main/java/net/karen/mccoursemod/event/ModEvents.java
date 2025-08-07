@@ -230,10 +230,13 @@ public class ModEvents {
         ItemStack item = event.getItemStack();
         boolean hasMoreOres = item.has(ModDataComponentTypes.MORE_ORES.get());
         List<Either<FormattedText, TooltipComponent>> elements = event.getTooltipElements(); // Item TOOLTIP
+        // IMAGE TOOLTIP COMPONENT
         ChatUtils.image(elements, Items.DIAMOND_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
         ChatUtils.image(elements, Items.REDSTONE_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
         ChatUtils.image(elements, Items.GOLD_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
         ChatUtils.image(elements, Items.IRON_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
+        // MULTI IMAGE TOOLTIP COMPONENT
+        ChatUtils.text(elements, List.of(Items.IRON_ORE, Items.GOLD_ORE), 16, "More Ores Effect!", hasMoreOres);
     }
 
     // CUSTOM EVENT - Double Jump

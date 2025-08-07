@@ -3,6 +3,7 @@ package net.karen.mccoursemod;
 import net.karen.mccoursemod.particle.BismuthParticles;
 import net.karen.mccoursemod.particle.ModParticles;
 import net.karen.mccoursemod.util.ImageTooltipComponent;
+import net.karen.mccoursemod.util.MultiImageTooltipComponent;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -44,5 +45,6 @@ public class MccourseModClient {
     @SubscribeEvent
     public static void registerTooltip(RegisterClientTooltipComponentFactoriesEvent event) {
         event.register(ImageTooltipComponent.class, Function.identity());
+        event.register(MultiImageTooltipComponent.class, Function.identity());
     }
 }

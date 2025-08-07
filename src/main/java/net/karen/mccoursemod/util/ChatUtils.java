@@ -202,9 +202,19 @@ public class ChatUtils {
         return "ICON";
     }
 
-    // CUSTOM METHOD - Display Icon message TOOLTIP
-    public static void image(List<Either<FormattedText,
-                             TooltipComponent>> list, Item item, int width, int height, String text, Boolean bool) {
+    // CUSTOM METHOD - Display Icon message TOOLTIP -> IMAGE TOOLTIP COMPONENT
+    public static void image(List<Either<FormattedText, TooltipComponent>> list,
+                             Item item, int width, int height, String text, Boolean bool) {
         if (bool) { list.add(Either.right(new ImageTooltipComponent(new ItemStack(item), width, height, text))); }
+    }
+
+    // CUSTOM METHOD - Display Icon messages TOOLTIP -> MULTI IMAGE TOOLTIP COMPONENT
+    public static void text(List<Either<FormattedText, TooltipComponent>> list,
+                            List<Item> item, int size, String text, Boolean bool) {
+        if (bool) {
+            list.add(Either.right(new MultiImageTooltipComponent(List.of(new ItemStack(item.getFirst()),
+                                                                         new ItemStack(item.get(1))),
+                                                                 size, text)));
+        }
     }
 }
