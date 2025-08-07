@@ -150,7 +150,7 @@ public class ModEvents {
             boolean cancelVanillaDrop = false; // Adapt the drop according to the enchantment being true
             List<ItemStack> finalDrops = new ArrayList<>(); // Items caused by enchantments are stored in the list
             int oresFortune = serverLevel.random.nextInt(fortune + 1),
-                    hasFortune = (fortune > 0) ? (1 + oresFortune) : 1;
+                 hasFortune = (fortune > 0) ? (1 + oresFortune) : 1;
             if (hasRainbow || rainbow > 0) { // * RAINBOW EFFECT *
                 Map<Block, TagKey<Block>> rainbowMap = Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
                 Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER), Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
@@ -197,7 +197,7 @@ public class ModEvents {
                         serverLevel.getServer().getRecipeManager().getRecipeFor(RecipeType.SMELTING, singleRecipe, worldServer);
                 recipe.ifPresentOrElse(result -> {
                     ItemStack recipeValue = result.value().assemble(singleRecipe, worldServer.registryAccess()),
-                            drop = new ItemStack(recipeValue.getItem().asItem());
+                                     drop = recipeValue.copy();
                     if (state.is(ModTags.Blocks.AUTO_SMELT_ORES)) {
                         drop.setCount((drop.getCount() * hasFortune) *
                                       (getEffectMultiplier(tool, ModDataComponentTypes.AUTO_SMELT.get(), 1)) *
