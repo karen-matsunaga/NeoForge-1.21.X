@@ -22,9 +22,9 @@ public class ImageTooltipComponent implements ClientTooltipComponent, TooltipCom
     @Override
     public void renderImage(@NotNull Font font, int x, int y, int width, int height, @NotNull GuiGraphics graphics) {
         // Render Image -> Example: Icon 8x8, Icon 9x9, Icon 16x16, etc. (width x height)
-        graphics.renderItem(item, x, y + 10); // Render TEXTURE ITEM
+        graphics.renderItem(item, x, y); // Render TEXTURE ITEM
         // Render Text -> Example: [ICON] text...
-        graphics.renderItemDecorations(font, item, x + 95, y + 10, text); // Render TEXT
+        graphics.renderItemDecorations(font, item, x + 95, y - 4, text); // Render TEXT
     }
 
     // Image height
