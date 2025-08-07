@@ -239,8 +239,11 @@ public class ModEvents {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
         if (player == null || mc.level == null) { return; }
+        AttributeInstance fly = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
+        boolean hasEffect = player.hasEffect(ModEffects.FLY_EFFECT); // Fly effect
+        MobEffectInstance level = player.getEffect(ModEffects.FLY_EFFECT); // Has fly effect
         if (player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.BISMUTH_BOOTS.get())) {
-            disableFlight(player, player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT));
+            disableFlight(player, fly);
             double x = player.getDeltaMovement().x, z = player.getDeltaMovement().z;
             boolean isJumping = mc.options.keyJump.isDown();
             if (isJumping && !wasJumping) { // Check if the pulse key is being pressed
@@ -249,6 +252,7 @@ public class ModEvents {
             }
             wasJumping = isJumping;
         }
+        else { if (level != null && hasEffect) { enableFlight(player, fly, level.getAmplifier()); } }
     }
 
     @SubscribeEvent
