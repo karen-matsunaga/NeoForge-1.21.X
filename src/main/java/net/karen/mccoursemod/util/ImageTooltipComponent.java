@@ -3,18 +3,16 @@ package net.karen.mccoursemod.util;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public class ImageTooltipComponent implements ClientTooltipComponent, TooltipComponent {
-    private final Item item;
+    private final ItemStack item;
     private final int width, height; // WIDTH and HEIGHT of texture
-    private final Component text; // TEXT appears next to ICON
+    private final String text; // TEXT appears next to ICON
 
-    public ImageTooltipComponent(Item item, int width, int height, Component text) {
+    public ImageTooltipComponent(ItemStack item, int width, int height, String text) {
         this.item = item;
         this.width = width;
         this.height = height;
@@ -23,23 +21,15 @@ public class ImageTooltipComponent implements ClientTooltipComponent, TooltipCom
 
     @Override
     public void renderImage(@NotNull Font font, int x, int y, int width, int height, @NotNull GuiGraphics graphics) {
-//        Matrix3x2fStack matrix = graphics.pose();
         // Render Image -> Example: Icon 8x8, Icon 9x9, Icon 16x16, etc. (width x height)
-//        matrix.pushMatrix();
-        graphics.renderItem(new ItemStack(item), x, y); // Render TEXTURE ITEM
-//        graphics.blit(RenderPipelines.GUI_TEXTURED, texture, x, y, 0, 0, width, height, width, height); // Render TEXTURE
-//        matrix.popMatrix();
+        graphics.renderItem(item, x, y + 10); // Render TEXTURE ITEM
         // Render Text -> Example: [ICON] text...
-//        matrix.pushMatrix();
-        int textX = x + width + 4; // 4px image spacing
-        int textY = y + (height - font.lineHeight) / 2; // Center vertically
-        graphics.drawString(font, text, textX, textY, 0xFFFFFF, true); // Render TEXT
-//        matrix.popMatrix();
+        graphics.renderItemDecorations(font, item, x + 95, y + 10, text); // Render TEXT
     }
 
     // Image height
     @Override public int getHeight(@NotNull Font font) { return height; }
 
-    // Image width + spacing + text width
-    @Override public int getWidth(@NotNull Font font) { return width + 4 + font.width(text); }
+    // Image width
+    @Override public int getWidth(@NotNull Font font) { return width; }
 }

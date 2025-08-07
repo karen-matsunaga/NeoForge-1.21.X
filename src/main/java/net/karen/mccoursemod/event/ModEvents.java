@@ -12,6 +12,7 @@ import net.karen.mccoursemod.potion.ModPotions;
 import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -49,6 +50,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.Tags;
@@ -137,7 +139,9 @@ public class ModEvents {
         HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
         int fortune = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(Enchantments.FORTUNE).getDelegate(), tool),
             autoSmelt = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.AUTO_SMELT).getDelegate(), tool),
-            moreOres = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.MORE_ORES).getDelegate(), tool);
+            moreOres = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.MORE_ORES).getDelegate(), tool),
+            rainbow = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.RAINBOW).getDelegate(), tool),
+            magnet = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.MAGNET).getDelegate(), tool);
         boolean hasRainbow = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.RAINBOW.get()),
                 hasMoreOres = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.MORE_ORES.get()),
                 hasAutoSmelt = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.AUTO_SMELT.get()),
@@ -147,7 +151,7 @@ public class ModEvents {
             List<ItemStack> finalDrops = new ArrayList<>(); // Items caused by enchantments are stored in the list
             int oresFortune = serverLevel.random.nextInt(fortune + 1),
                     hasFortune = (fortune > 0) ? (1 + oresFortune) : 1;
-            if (hasRainbow) { // * RAINBOW EFFECT *
+            if (hasRainbow || rainbow > 0) { // * RAINBOW EFFECT *
                 Map<Block, TagKey<Block>> rainbowMap = Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
                 Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER), Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
                 Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD), Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
@@ -163,7 +167,8 @@ public class ModEvents {
                 if (state.is(ModTags.Blocks.RAINBOW_DROPS)) {
                     ItemStack rainbowDrop = new ItemStack(state.getBlock());
                     rainbowDrop.setCount((rainbowDrop.getCount() * hasFortune) *
-                            (getEffectMultiplier(tool, ModDataComponentTypes.RAINBOW.get(), 1)));
+                                         (getEffectMultiplier(tool, ModDataComponentTypes.RAINBOW.get(), 1)) *
+                                         rainbow);
                     finalDrops.add(rainbowDrop);
                     cancelVanillaDrop = true;
                 }
@@ -203,7 +208,7 @@ public class ModEvents {
                 () -> finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool)));
                 cancelVanillaDrop = true;
             }
-            if (hasMagnet && !state.isAir()) { // * MAGNETIC EFFECT *
+            if ((hasMagnet || magnet > 0) && !state.isAir()) { // * MAGNETIC EFFECT *
                 if (finalDrops.isEmpty()) { // FinalDrops empty list added all items on it is
                     finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
                 }
@@ -225,10 +230,10 @@ public class ModEvents {
         ItemStack item = event.getItemStack();
         boolean hasMoreOres = item.has(ModDataComponentTypes.MORE_ORES.get());
         List<Either<FormattedText, TooltipComponent>> elements = event.getTooltipElements(); // Item TOOLTIP
-        ChatUtils.image(elements, Items.DIAMOND_HELMET, 16, 16, "More Ores Effect!", hasMoreOres);
-        ChatUtils.image(elements, Items.DIAMOND_CHESTPLATE, 16, 16, "More Ores Effect!", hasMoreOres);
-        ChatUtils.image(elements, Items.DIAMOND_LEGGINGS, 16, 16, "More Ores Effect!", hasMoreOres);
-        ChatUtils.image(elements, Items.DIAMOND_BOOTS, 16, 16, "More Ores Effect!", hasMoreOres);
+        ChatUtils.image(elements, Items.DIAMOND_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
+        ChatUtils.image(elements, Items.REDSTONE_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
+        ChatUtils.image(elements, Items.GOLD_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
+        ChatUtils.image(elements, Items.IRON_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
     }
 
     // CUSTOM EVENT - Double Jump
@@ -382,5 +387,15 @@ public class ModEvents {
                 }
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onRenderOverlay(RenderGuiEvent.Post event) {
+        Minecraft mc = Minecraft.getInstance();
+        GuiGraphics guiGraphics = event.getGuiGraphics();
+        int x = 10, y = 10;
+        ItemStack itemStack = new ItemStack(Items.DIAMOND);
+        guiGraphics.renderItem(itemStack, x, y);
+        guiGraphics.renderItemDecorations(mc.font, itemStack, x + 20, y + 5, "§bDiamond");
     }
 }

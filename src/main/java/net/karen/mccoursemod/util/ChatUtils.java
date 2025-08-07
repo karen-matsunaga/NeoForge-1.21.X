@@ -60,7 +60,8 @@ public class ChatUtils {
     }
 
     // CUSTOM METHOD - Text appears on TOOLTIP item
-    public static void tooltipLine(Consumer<Component> tooltip, String message, ChatFormatting color) {
+    public static void tooltipLine(Consumer<Component> tooltip,
+                                   String message, ChatFormatting color) {
         tooltip.accept(componentLiteral(message, color));
     }
 
@@ -94,7 +95,8 @@ public class ChatUtils {
     }
 
     // CUSTOM METHOD - Message Literal on screen with RGB colors
-    public static void messageLiteralRGB(Player player, int[] COLORS, ItemStack stack, String message) {
+    public static void messageLiteralRGB(Player player, int[] COLORS,
+                                         ItemStack stack, String message) {
         int shift = (int) (System.currentTimeMillis() / 200L % COLORS.length); // Calculates color shift based on time
         MutableComponent minerText = Component.literal(""); // Animated text for "Miner Bow" with RGB wave effect
         String text = itemLine(stack.getItem().getDescriptionId(), "item.mccoursemod.", "", "_", " "),
@@ -201,8 +203,8 @@ public class ChatUtils {
     }
 
     // CUSTOM METHOD - Display Icon message TOOLTIP
-    public static void image(List<Either<FormattedText, TooltipComponent>> element,
-                                Item item, int width, int height, String text, Boolean bool) {
-        if (bool) { element.add(Either.right(new ImageTooltipComponent(item, width, height, standardLiteral(text)))); }
+    public static void image(List<Either<FormattedText,
+                             TooltipComponent>> list, Item item, int width, int height, String text, Boolean bool) {
+        if (bool) { list.add(Either.right(new ImageTooltipComponent(new ItemStack(item), width, height, text))); }
     }
 }
