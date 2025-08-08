@@ -25,6 +25,7 @@ public class ModEnchantments {
     public static final ResourceKey<Enchantment> PEACEFUL_MOBS = createTag("peaceful_mobs");
     public static final ResourceKey<Enchantment> LIGHTSTRING = createTag("lightstring");
     public static final ResourceKey<Enchantment> GLOWING_MOBS = createTag("glowing_mobs");
+    public static final ResourceKey<Enchantment> MAGNETISM = createTag("magnetism");
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
@@ -98,6 +99,14 @@ public class ModEnchantments {
 
         // Peaceful Mobs - Legging armor
         register(context, PEACEFUL_MOBS,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.LEG_ARMOR_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.LEGS)));
+
+        // Magnetism - Legging armor
+        register(context, MAGNETISM,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.LEG_ARMOR_ENCHANTABLE),
                                                                 5, 2,
                                                                 Enchantment.dynamicCost(5, 7),

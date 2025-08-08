@@ -17,6 +17,10 @@
       "required": false
     },
     {
+      "id": "mccoursemod:magnetism",
+      "required": false
+    },
+    {
       "id": "mccoursemod:rainbow",
       "required": false
     },

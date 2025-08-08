@@ -78,6 +78,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.peaceful_mobs", "Peaceful Mobs");
         add("enchantment.mccoursemod.lightstring", "Lightstring");
         add("enchantment.mccoursemod.glowing_mobs", "Glowing Mobs");
+        add("enchantment.mccoursemod.magnetism", "Magnetism");
 
         // MOD
         add("enchantment.mccoursemod.lightning_striker.desc",
@@ -107,7 +108,12 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.lightstring.desc", "When applied on bow increases bow loading speed.");
 
         add("enchantment.mccoursemod.glowing_mobs.desc",
-            "When applied on helmet armor all entities are detected with X-Ray of mobs. (Press M key to activated or disabled)");
+            "When applied on helmet armor all entities are detected with X-Ray of mobs. " +
+            "(Press M key to activated or disabled)");
+
+        add("enchantment.mccoursemod.magnetism.desc",
+            "When applied on leggings armor searches for items and Experience Orbs on the ground within " +
+            "a radius and returns them to the Player's inventory.");
 
         // MINING
         add("enchantment.minecraft.efficiency.desc", "When applied on axe, pickaxe, shovel or hoe increases mining speed.");
@@ -149,64 +155,84 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // SWORD
         add("enchantment.minecraft.sharpness.desc", "When applied on sword or axe increases melee damage attack on entities.");
+
         add("enchantment.minecraft.smite.desc",
-                "When applied on sword or axe increases damage dealt to undead mobs also Skeleton, Zombie, Wither, Phantom, Zoglin, etc.");
+            "When applied on sword or axe increases damage dealt to undead mobs also Skeleton, Zombie, Wither, Phantom, Zoglin, etc.");
+
         add("enchantment.minecraft.bane_of_arthropods.desc",
-                "When applied on sword or axe increases damage to arthropod mobs also Spiders, Bees, Silverfish, Endermites, etc.");
+            "When applied on sword or axe increases damage to arthropod mobs also Spiders, Bees, Silverfish, Endermites, etc.");
+
         add("enchantment.minecraft.knockback.desc", "When applied on sword or axe increases knockback distance of entities.");
+
         add("enchantment.minecraft.fire_aspect.desc", "When applied on sword or axe an entity received fire attack when hit.");
+
         add("enchantment.minecraft.looting.desc", "When applied on sword or axe increases amount of drop loot of entities.");
+
         // SWEEPING EDGE ENCHANTMENT
         add("enchantment.minecraft.sweeping.desc", "When applied on sword or axe increases sweep attack damage on entities.");
+
         add("enchantment.minecraft.sweeping_edge.desc", "When applied on sword or axe increases sweep attack damage on entities.");
 
         // BOW
         add("enchantment.minecraft.power.desc", "When applied on bow increases arrow damage.");
+
         add("enchantment.minecraft.punch.desc",
-                "When applied on bow increases an arrow's knockback, but it not affect damage dealt of arrows.");
+            "When applied on bow increases an arrow's knockback, but it not affect damage dealt of arrows.");
+
         add("enchantment.minecraft.flame.desc", "When applied on bow shoots flaming arrows.");
+
         add("enchantment.minecraft.infinity.desc",
-                "When applied on bow one arrow is needed to used the enchantment that prevents regular arrows " +
-                        "from being consumed when slot.");
+            "When applied on bow one arrow is needed to used the enchantment that prevents regular arrows " +
+            "from being consumed when slot.");
 
         // FISHING ROD
         add("enchantment.minecraft.luck_of_the_sea.desc",
-                "When applied on fishing rod increases luck while fishing to received enchantments, armors, tools, etc.");
+            "When applied on fishing rod increases luck while fishing to received enchantments, armors, tools, etc.");
+
         add("enchantment.minecraft.lure.desc", "When applied on fishing rod decreases the wait time for a bite on the hook.");
 
         // TRIDENT
         add("enchantment.minecraft.loyalty.desc", "When applied on trident causing it to return to the owner once thrown.");
+
         add("enchantment.minecraft.impaling.desc",
-                "When applied on trident deal extra damage on each hit against aquatic mobs also axolotls, " +
-                        "dolphins, guardians, squid, turtles, all variants of fish, etc. Except drowned is an undead mob.");
+            "When applied on trident deal extra damage on each hit against aquatic mobs also axolotls, " +
+            "dolphins, guardians, squid, turtles, all variants of fish, etc. Except drowned is an undead mob.");
+
         add("enchantment.minecraft.riptide.desc",
-                "When applied on trident hurls the user in the direction the user is facing, but only when they are wet.");
+            "When applied on trident hurls the user in the direction the user is facing, but only when they are wet.");
+
         add("enchantment.minecraft.channeling.desc",
-                "When applied on trident produces lightning when thrown at a mob or lightning rod while a thunderstorm is occurring.");
+            "When applied on trident produces lightning when thrown at a mob or lightning rod while a thunderstorm is occurring.");
 
         // CROSSBOW
         add("enchantment.minecraft.quick_charge.desc", "When applied on crossbow quickly reloading a crossbow.");
+
         add("enchantment.minecraft.multishot.desc",
-                "When applied on crossbow shoot three arrows or firework rockets at the cost of one.");
+            "When applied on crossbow shoot three arrows or firework rockets at the cost of one.");
+
         add("enchantment.minecraft.piercing.desc", "When applied on crossbow causes arrows to pierce through entities.");
 
         // CURSE
         add("enchantment.minecraft.binding_curse.desc",
-                "When applied on armor the player not remove the item of inventory.");
+            "When applied on armor the player not remove the item of inventory.");
+
         add("enchantment.minecraft.vanishing_curse.desc",
-                "When applied on tool or armor if player killed the item disappears of inventory.");
+            "When applied on tool or armor if player killed the item disappears of inventory.");
 
         // MACE
         add("enchantment.minecraft.breach.desc",
-                "When applied on mace ignores 15% of armor damage reduction per level.");
+            "When applied on mace ignores 15% of armor damage reduction per level.");
+
         add("enchantment.minecraft.density.desc",
-                "When applied on mace increases 0.5 additional damage per level for each block fallen with tool.");
+            "When applied on mace increases 0.5 additional damage per level for each block fallen with tool.");
+
         add("enchantment.minecraft.wind_burst.desc",
-                "When applied on mace the player into the air seven blocks per level after performing a smash attack.");
+            "When applied on mace the player into the air seven blocks per level after performing a smash attack.");
 
         // CUSTOM TOOLTIP
         add("tooltip.mccoursemod.magic_block.tooltip", "This Block is quite §9MAGICAL§r");
-        add("tooltip.mccoursemod.auto_smelt.tooltip", "When applied on pickaxe transform all items that can be roasted on furnace.");
+        add("tooltip.mccoursemod.auto_smelt.tooltip",
+            "When applied on pickaxe transform all items that can be roasted on furnace.");
 
         // CUSTOM Effects and Potions
         // FLY effect + potion

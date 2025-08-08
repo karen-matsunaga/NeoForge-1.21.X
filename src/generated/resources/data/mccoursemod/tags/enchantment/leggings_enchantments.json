@@ -4,6 +4,10 @@
     {
       "id": "mccoursemod:peaceful_mobs",
       "required": false
+    },
+    {
+      "id": "mccoursemod:magnetism",
+      "required": false
     }
   ]
 }

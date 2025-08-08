@@ -28,13 +28,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.FormattedText;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -515,6 +513,42 @@ public class ModEvents {
                     });
                 }
             });
+        }
+    }
+
+    // CUSTOM EVENT - MAGNETISM enchantment
+    @SubscribeEvent
+    public static void activatedMagnetismEnchantment(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
+        Level level = player.level();
+        if (!level.isClientSide()) {
+            ItemStack legging = player.getItemBySlot(EquipmentSlot.LEGS);
+            HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            int enchLevel = legging.getEnchantmentLevel(ench.getOrThrow(ModEnchantments.MAGNETISM));
+            // To not run all the time, only every TICK_INTERVAL = 20 ticks
+            if (enchLevel <= 0 || player.tickCount % 20 != 0) { return; } // 1 second (20 ticks)
+            double range = 5.0 + enchLevel * 2; // Range increases with level
+            // Search for items near the player
+            List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, player.getBoundingBox().inflate(range));
+            for (ItemEntity itemEntity : items) {
+                if (itemEntity.isRemoved() || !itemEntity.isAlive()) { continue; }
+                ItemStack stack = itemEntity.getItem().copy();
+                if (player.getInventory().add(stack)) {
+                    itemEntity.remove(Entity.RemovalReason.DISCARDED);
+                    sound(player, SoundEvents.ITEM_PICKUP, 0.2F, ((player.getRandom().nextFloat() -
+                          player.getRandom().nextFloat()) * 0.7F + 1.0F) * 2.0F); // Play sound
+                }
+            }
+            // Search for experience orbs near the player
+            List<ExperienceOrb> orbs = level.getEntitiesOfClass(ExperienceOrb.class, player.getBoundingBox().inflate(range));
+            for (ExperienceOrb orb : orbs) {
+                if (!orb.isAlive() || orb.isRemoved()) { continue; }
+                int xpValue = orb.getValue();
+                player.giveExperiencePoints(xpValue); // Adds XP directly to the player
+                orb.discard(); // Remove the orb from the world
+                // Play sound
+                sound(player, SoundEvents.EXPERIENCE_ORB_PICKUP, 0.1F, 0.5F + player.getRandom().nextFloat());
+            }
         }
     }
 }

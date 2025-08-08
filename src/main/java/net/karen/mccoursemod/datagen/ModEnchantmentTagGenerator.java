@@ -24,6 +24,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                .addOptional(ModEnchantments.BLOCK_FLY)
                                                .addOptional(ModEnchantments.AUTO_SMELT)
                                                .addOptional(ModEnchantments.MAGNET)
+                                               .addOptional(ModEnchantments.MAGNETISM)
                                                .addOptional(ModEnchantments.RAINBOW)
                                                .addOptional(ModEnchantments.MORE_ORES)
                                                .addOptional(ModEnchantments.IMMORTAL)
@@ -36,6 +37,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                               .addOptional(ModEnchantments.BLOCK_FLY)
                                               .addOptional(ModEnchantments.AUTO_SMELT)
                                               .addOptional(ModEnchantments.MAGNET)
+                                              .addOptional(ModEnchantments.MAGNETISM)
                                               .addOptional(ModEnchantments.RAINBOW)
                                               .addOptional(ModEnchantments.MORE_ORES)
                                               .addOptional(ModEnchantments.IMMORTAL)
@@ -48,6 +50,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                            .addOptional(ModEnchantments.BLOCK_FLY)
                                            .addOptional(ModEnchantments.AUTO_SMELT)
                                            .addOptional(ModEnchantments.MAGNET)
+                                           .addOptional(ModEnchantments.MAGNETISM)
                                            .addOptional(ModEnchantments.RAINBOW)
                                            .addOptional(ModEnchantments.MORE_ORES)
                                            .addOptional(ModEnchantments.IMMORTAL)
@@ -60,6 +63,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                      .addOptional(ModEnchantments.BLOCK_FLY)
                                                      .addOptional(ModEnchantments.AUTO_SMELT)
                                                      .addOptional(ModEnchantments.MAGNET)
+                                                     .addOptional(ModEnchantments.MAGNETISM)
                                                      .addOptional(ModEnchantments.RAINBOW)
                                                      .addOptional(ModEnchantments.MORE_ORES)
                                                      .addOptional(ModEnchantments.IMMORTAL)
@@ -94,7 +98,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
 
         // Leggings enchantments
         this.tag(ModTags.Enchantments.LEGGINGS_ENCHANTMENTS).add(Enchantments.SWIFT_SNEAK)
-                                                            .addOptional(ModEnchantments.PEACEFUL_MOBS);
+                                                            .addOptional(ModEnchantments.PEACEFUL_MOBS)
+                                                            .addOptional(ModEnchantments.MAGNETISM);
 
         // Boots enchantments
         this.tag(ModTags.Enchantments.BOOTS_ENCHANTMENTS).addTag(EnchantmentTags.BOOTS_EXCLUSIVE)
