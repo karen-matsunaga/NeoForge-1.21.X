@@ -16,8 +16,9 @@ public record MccourseModElevatorPacketPayload(boolean bool) implements CustomPa
     // Each pair of elements defines the stream codec of the element to encode/decode and the getter for the element to encode
     // 'bool' will be encoded and decoded as a boolean
     // The final parameter takes in the previous parameters in the order they are provided to construct the payload object
-    public static final StreamCodec<ByteBuf, MccourseModElevatorPacketPayload> STREAM_CODEC = StreamCodec.composite(
-           ByteBufCodecs.BOOL, MccourseModElevatorPacketPayload::bool, MccourseModElevatorPacketPayload::new);
+    public static final StreamCodec<ByteBuf, MccourseModElevatorPacketPayload> STREAM_CODEC =
+           StreamCodec.composite(ByteBufCodecs.BOOL, MccourseModElevatorPacketPayload::bool,
+                                 MccourseModElevatorPacketPayload::new);
 
     @Override
     public CustomPacketPayload.@NotNull Type<? extends CustomPacketPayload> type() {

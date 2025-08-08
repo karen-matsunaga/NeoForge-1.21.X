@@ -119,6 +119,7 @@
   "item.minecraft.tipped_arrow.effect.haste_potion": "Arrow of Haste",
   "item.minecraft.tipped_arrow.effect.nothing_potion": "Arrow of Nothing",
   "item.minecraft.tipped_arrow.effect.slimey_potion": "Arrow of Slimey",
+  "mccoursemod.networking.failed": "Mccourse Mod network failed!",
   "tooltip.mccoursemod.auto_smelt.tooltip": "When applied on pickaxe transform all items that can be roasted on furnace.",
   "tooltip.mccoursemod.magic_block.tooltip": "This Block is quite §9MAGICAL§r"
 }

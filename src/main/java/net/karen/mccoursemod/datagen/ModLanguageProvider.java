@@ -231,5 +231,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.minecraft.splash_potion.effect.slimey_potion", "Slimey Splash Potion");
         add("item.minecraft.lingering_potion.effect.slimey_potion", "Slimey Lingering Potion");
         add("item.minecraft.tipped_arrow.effect.slimey_potion", "Arrow of Slimey");
+
+        // NETWORK message
+        add("mccoursemod.networking.failed", "Mccourse Mod network failed!");
     }
 }
