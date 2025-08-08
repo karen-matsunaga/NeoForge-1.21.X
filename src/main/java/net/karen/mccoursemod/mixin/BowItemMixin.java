@@ -6,7 +6,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -32,16 +31,6 @@ public abstract class BowItemMixin {
                     cir.setReturnValue(Math.min(power, 1.0f));
                 }
             }
-        }
-    }
-
-    @Inject(method = "getUseDuration", at = @At("HEAD"), cancellable = true)
-    private void modifyUseDuration(ItemStack stack, LivingEntity entity,
-                                   CallbackInfoReturnable<Integer> cir) {
-        HolderLookup.RegistryLookup<Enchantment> ench =
-                     entity.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        if (stack.getEnchantmentLevel(ench.getOrThrow(ModEnchantments.LIGHTSTRING)) > 0) {
-            cir.setReturnValue(10);
         }
     }
 }

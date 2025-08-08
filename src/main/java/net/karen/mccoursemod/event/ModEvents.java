@@ -11,8 +11,10 @@ import net.karen.mccoursemod.item.custom.SpecialEffectItem;
 import net.karen.mccoursemod.potion.ModPotions;
 import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.ModTags;
+import net.karen.mccoursemod.util.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -31,6 +33,7 @@ import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
@@ -59,6 +62,7 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.item.ItemExpireEvent;
 import net.neoforged.neoforge.event.entity.item.ItemTossEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.ItemFishedEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -399,6 +403,34 @@ public class ModEvents {
         int x = 10, y = 10;
         ItemStack itemStack = new ItemStack(Items.DIAMOND);
         guiGraphics.renderItem(itemStack, x, y);
-        guiGraphics.renderItemDecorations(mc.font, itemStack, x + 20, y + 5, "§bDiamond");
+        guiGraphics.renderItemDecorations(mc.font, itemStack, x + 20, y + 10, "§bDiamond");
+    }
+
+    // CUSTOM EVENT - LIGHTSTRING enchantment
+    @SubscribeEvent
+    public static void onStopBowUsing(LivingEntityUseItemEvent.Stop event) {
+        Utils.clear(); // Clean after use
+    }
+
+    @SubscribeEvent
+    public static void onFinishBowUsing(LivingEntityUseItemEvent.Finish event) {
+        Utils.clear(); // Clean up if usage is finished
+    }
+
+    @SubscribeEvent
+    public static void onCancelBowUsing(LivingEntityUseItemEvent.Tick event) {
+        if (!(event.getEntity() instanceof Player)) { return; }
+        ItemStack stack = event.getItem();
+        if (!(stack.getItem() instanceof BowItem)) { return; }
+        ClientLevel minecraftLevel = Minecraft.getInstance().level;
+        if (minecraftLevel != null) {
+            HolderLookup.RegistryLookup<Enchantment> ench =
+                         minecraftLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            int level = stack.getEnchantmentLevel(ench.getOrThrow(ModEnchantments.LIGHTSTRING));
+            if (level <= 0) { return; }
+            int newDuration = event.getDuration() - level; // Decreases usage time (ex: 20 → 15)
+            event.setDuration(newDuration);
+            if (event.getDuration() <= 0) { Utils.clear(); } // Ensures you don't get stuck
+        }
     }
 }
