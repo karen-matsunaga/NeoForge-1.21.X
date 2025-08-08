@@ -1,5 +1,7 @@
 package net.karen.mccoursemod;
 
+import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
+import net.karen.mccoursemod.network.ServerPayloadHandler;
 import net.karen.mccoursemod.particle.BismuthParticles;
 import net.karen.mccoursemod.particle.ModParticles;
 import net.karen.mccoursemod.util.ImageTooltipComponent;
@@ -15,6 +17,8 @@ import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactori
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import java.util.function.Function;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
@@ -46,5 +50,15 @@ public class MccourseModClient {
     public static void registerTooltip(RegisterClientTooltipComponentFactoriesEvent event) {
         event.register(ImageTooltipComponent.class, Function.identity());
         event.register(MultiImageTooltipComponent.class, Function.identity());
+    }
+
+    @SubscribeEvent
+    public static void registerNetwork(RegisterPayloadHandlersEvent event) {
+        // Network version
+        final PayloadRegistrar registrar = event.registrar("1");
+        // Network -> Mccourse Mod Elevator block
+        registrar.playToServer(MccourseModElevatorPacketPayload.TYPE,
+                               MccourseModElevatorPacketPayload.STREAM_CODEC,
+                               ServerPayloadHandler::handleKeyInput);
     }
 }

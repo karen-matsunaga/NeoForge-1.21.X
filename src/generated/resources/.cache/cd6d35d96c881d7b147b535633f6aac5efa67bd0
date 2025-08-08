@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-07T18:51:16.8502553	Model Definitions - mccoursemod
+// 1.21.8	2025-08-08T11:03:39.2257207	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
 911f33f77ee00152a3722ae14470c043ab0c8850 assets/mccoursemod/blockstates/bismuth_ore.json
@@ -6,6 +6,7 @@ b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_
 5732f9f92cb58ee1208679026d204dafa904d7ed assets/mccoursemod/blockstates/disenchant_individual.json
 159f4b050a7c6570ee1d9417d621862277c6d56d assets/mccoursemod/blockstates/enchant.json
 4a15fdc4810f3071ecf37faff5bd9c35c0030c5d assets/mccoursemod/blockstates/magic.json
+3bfedb2f9fac65a126a774944896212037fd7e9e assets/mccoursemod/blockstates/mccoursemod_elevator.json
 c2b4d9295d859d3a0327787b1e8bf09d53b79434 assets/mccoursemod/items/auto_smelt.json
 0cd349c1683ee0871d6856d90d2c83b54a5d0069 assets/mccoursemod/items/bismuth.json
 00c7b619a0bdb3466ef5597bb0146b72cce70cc7 assets/mccoursemod/items/bismuth_axe.json
@@ -32,6 +33,7 @@ c2387d52e387dbf791b463a2d0c1f627dc616110 assets/mccoursemod/items/level_charger_
 7a0ca5263abe9f4fd243943ed05f1550c613e38a assets/mccoursemod/items/level_charger_specif_plus_fortune.json
 7704fa6cbfdd4572156a0ce428118db262c9f925 assets/mccoursemod/items/magic.json
 b1d651152c241aa4088a4be506555bf85ae00771 assets/mccoursemod/items/magnet.json
+68c66bdb0543e0688b875b7e031b5b47765985a5 assets/mccoursemod/items/mccoursemod_elevator.json
 36c92a1645ec2cada089fdbc4af471bb5dd25d14 assets/mccoursemod/items/more_ores.json
 1dbc6d94623c251c9d96b3a728e180d153ea1507 assets/mccoursemod/items/rainbow.json
 7bc128e532aa0bb779eab4b74e05ce40da3a1815 assets/mccoursemod/items/raw_bismuth.json
@@ -42,6 +44,7 @@ a3dde28a1737e3eab87973fea7c9bf78641d8b7c assets/mccoursemod/models/block/disench
 ce35b0265e015d78eaae4018188399021b5abda4 assets/mccoursemod/models/block/disenchant_individual.json
 45de311c2f1e0dc3a34333c1ec4f0ca80a70e5dd assets/mccoursemod/models/block/enchant.json
 d1194fcfdbedf5563a47c373f6d22e65a87c9d30 assets/mccoursemod/models/block/magic.json
+7dde5690da714130c1876180a473f51cb7ac4271 assets/mccoursemod/models/block/mccoursemod_elevator.json
 f87476fe3cdda790db56abc9a59d5dea20b2c519 assets/mccoursemod/models/item/auto_smelt.json
 2a992ba870374645f84f37dee1e28fa61670eee2 assets/mccoursemod/models/item/bismuth.json
 40c03c00f3cdcdca33d43d18e74e3473e07ca584 assets/mccoursemod/models/item/bismuth_axe.json

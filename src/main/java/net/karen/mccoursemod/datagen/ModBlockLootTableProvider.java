@@ -32,6 +32,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.BISMUTH_ORE.get());
         this.dropSelf(ModBlocks.BISMUTH_DEEPSLATE_ORE.get());
         this.dropSelf(ModBlocks.MAGIC.get());
+        this.dropSelf(ModBlocks.MCCOURSEMOD_ELEVATOR.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

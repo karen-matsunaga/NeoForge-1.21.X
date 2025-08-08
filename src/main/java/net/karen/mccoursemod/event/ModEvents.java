@@ -1,13 +1,16 @@
 package net.karen.mccoursemod.event;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.datafixers.util.Either;
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.SpecialEffectItem;
+import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.potion.ModPotions;
 import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.ModTags;
@@ -54,8 +57,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
@@ -64,7 +69,6 @@ import net.neoforged.neoforge.event.entity.item.ItemExpireEvent;
 import net.neoforged.neoforge.event.entity.item.ItemTossEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
-import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.ItemFishedEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerWakeUpEvent;
@@ -72,6 +76,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.level.ExplosionEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import org.lwjgl.glfw.GLFW;
 import java.util.*;
 import static net.karen.mccoursemod.item.custom.SpecialEffectItem.getEffectMultiplier;
 import static net.karen.mccoursemod.util.ChatUtils.*;
@@ -133,7 +138,7 @@ public class ModEvents {
 
     // CUSTOM EVENT -> AUTO SMELT, MAGNET, MORE ORES, MULTIPLIER and RAINBOW custom effects
     @SubscribeEvent
-    public static void onBlockBreakWithCustomEnchantments(BlockEvent.BreakEvent event) {
+    public static void onAutoSmeltMagnetMoreOresMultiplierRainbowActivated(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
         LevelAccessor world = event.getLevel();
         BlockPos pos = event.getPos();
@@ -231,7 +236,7 @@ public class ModEvents {
 
     // CUSTOM EVENT - Icon tooltip
     @SubscribeEvent
-    public static void onGatherTooltip(RenderTooltipEvent.GatherComponents event) {
+    public static void onRenderTooltipGatherComponent(RenderTooltipEvent.GatherComponents event) {
         ItemStack item = event.getItemStack();
         boolean hasMoreOres = item.has(ModDataComponentTypes.MORE_ORES.get());
         List<Either<FormattedText, TooltipComponent>> elements = event.getTooltipElements(); // Item TOOLTIP
@@ -244,11 +249,22 @@ public class ModEvents {
         ChatUtils.text(elements, List.of(Items.IRON_ORE, Items.GOLD_ORE), 16, "More Ores Effect!", hasMoreOres);
     }
 
+    // CUSTOM EVENT - RENDER on SCREEN
+    @SubscribeEvent
+    public static void onRenderGuiScreenOverlay(RenderGuiEvent.Post event) {
+        Minecraft mc = Minecraft.getInstance();
+        GuiGraphics guiGraphics = event.getGuiGraphics();
+        int x = 10, y = 10;
+        ItemStack itemStack = new ItemStack(Items.DIAMOND);
+        guiGraphics.renderItem(itemStack, x, y);
+        guiGraphics.renderItemDecorations(mc.font, itemStack, x + 20, y + 10, "§bDiamond");
+    }
+
     // CUSTOM EVENT - Double Jump
     private static boolean wasJumping = false;
 
     @SubscribeEvent
-    public static void doubleJump(PlayerTickEvent.Post event) {
+    public static void onDoubleJumpActivated(PlayerTickEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
         if (player == null || mc.level == null) { return; }
@@ -268,8 +284,9 @@ public class ModEvents {
         else { if (level != null && hasEffect) { enableFlight(player, fly, level.getAmplifier()); } }
     }
 
+    // CUSTOM EVENT - Fly effect
     @SubscribeEvent
-    public static void flyEffect(PlayerTickEvent.Post event) {
+    public static void onFlyEffectActivated(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
         if (!player.level().isClientSide()) {
             AttributeInstance fly = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT); // Attribute
@@ -283,43 +300,33 @@ public class ModEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void onFlyEffectRemoved(MobEffectEvent.Remove event) {
-        if (event.getEntity() instanceof Player player && !player.level().isClientSide()) {
-            if (event.getEffect() == ModEffects.FLY_EFFECT) {
-                AttributeInstance fly = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
-                disableFlight(player, fly);
-            }
-        }
-    }
-
     // CUSTOM EVENT - Block + Item experience orb
     @SubscribeEvent
-    public static void onPlayerWakeUp(PlayerWakeUpEvent event) { // Gain experience orb when sleep
+    public static void onBedExperiencePlayerWakeUp(PlayerWakeUpEvent event) { // Gain experience orb when sleep
         Player player = event.getEntity();
         Level level = player.level();
         if (!level.isClientSide()) { setPlayerXP(player, level, 2); }
     }
 
     @SubscribeEvent
-    public static void onItemFished(ItemFishedEvent event) { // Gain experience orb when fished
+    public static void onExperienceItemFished(ItemFishedEvent event) { // Gain experience orb when fished
         Player player = event.getEntity();
         Level level = player.level();
         if (!level.isClientSide()) { if (!event.getDrops().isEmpty()) { setPlayerXP(player, level, 2); } }
     }
 
     @SubscribeEvent
-    public static void activatedAccumulatorOnBreakAnyBlocks(BlockEvent.BreakEvent event) {
+    public static void onExperienceBlockBreak(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
         Level level = player.level();
-        if (!level.isClientSide()) { // ACCUMULATOR block drop xp
+        if (!level.isClientSide()) { // Block drop xp
             BuiltInRegistries.BLOCK.forEach(block -> setPlayerXP(player, level, 2)); // All blocks
         }
     }
 
     // CUSTOM EVENT - Block Fly custom enchantment
     @SubscribeEvent
-    public static void activatedBlockFlyEnchantment(PlayerEvent.BreakSpeed event) {
+    public static void onBlockFlyBreakSpeed(PlayerEvent.BreakSpeed event) {
         Player player = event.getEntity(); // Entity is a player
         Level level = player.level();
         HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
@@ -332,7 +339,7 @@ public class ModEvents {
 
     // CUSTOM EVENT - IMMORTAL custom enchantment
     @SubscribeEvent
-    public static void onItemToss(ItemTossEvent event) {
+    public static void onImmortalItemToss(ItemTossEvent event) {
         ItemEntity entity = event.getEntity();
         HolderLookup.RegistryLookup<Enchantment> ench = entity.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
         Holder<Enchantment> immortalEnch = ench.getOrThrow(ModEnchantments.IMMORTAL);
@@ -342,7 +349,7 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onItemSpawn(EntityJoinLevelEvent event) {
+    public static void onImmortalItemSpawn(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();
         HolderLookup.RegistryLookup<Enchantment> ench = entity.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
         Holder<Enchantment> immortalEnch = ench.getOrThrow(ModEnchantments.IMMORTAL);
@@ -354,7 +361,7 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onExplosion(ExplosionEvent.Detonate event) {
+    public static void onImmortalExplosion(ExplosionEvent.Detonate event) {
         HolderLookup.RegistryLookup<Enchantment> ench = event.getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
         Holder<Enchantment> immortalEnch = ench.getOrThrow(ModEnchantments.IMMORTAL);
         event.getAffectedEntities().removeIf(entity -> entity instanceof ItemEntity itemEntity &&
@@ -362,7 +369,7 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onItemExpire(ItemExpireEvent event) { // Never disappears
+    public static void onImmortalItemExpire(ItemExpireEvent event) { // Never disappears
         ItemEntity itemEntity = event.getEntity();
         HolderLookup.RegistryLookup<Enchantment> ench = itemEntity.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
         Holder<Enchantment> immortalEnch = ench.getOrThrow(ModEnchantments.IMMORTAL);
@@ -372,7 +379,7 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onEntityTick(LevelTickEvent.Post event) {
+    public static void onImmortalEntityTick(LevelTickEvent.Post event) {
         if (!event.getLevel().isClientSide()) {
             for (Entity entity : getRadiusItem(event)) {
                 if (entity instanceof ItemEntity item) {
@@ -397,29 +404,19 @@ public class ModEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void onRenderOverlay(RenderGuiEvent.Post event) {
-        Minecraft mc = Minecraft.getInstance();
-        GuiGraphics guiGraphics = event.getGuiGraphics();
-        int x = 10, y = 10;
-        ItemStack itemStack = new ItemStack(Items.DIAMOND);
-        guiGraphics.renderItem(itemStack, x, y);
-        guiGraphics.renderItemDecorations(mc.font, itemStack, x + 20, y + 10, "§bDiamond");
-    }
-
     // CUSTOM EVENT - LIGHTSTRING enchantment
     @SubscribeEvent
-    public static void onStopBowUsing(LivingEntityUseItemEvent.Stop event) {
+    public static void onLightstringStopBowUsing(LivingEntityUseItemEvent.Stop event) {
         Utils.clear(); // Clean after use
     }
 
     @SubscribeEvent
-    public static void onFinishBowUsing(LivingEntityUseItemEvent.Finish event) {
+    public static void onLightstringFinishBowUsing(LivingEntityUseItemEvent.Finish event) {
         Utils.clear(); // Clean up if usage is finished
     }
 
     @SubscribeEvent
-    public static void onCancelBowUsing(LivingEntityUseItemEvent.Tick event) {
+    public static void onLightstringCancelBowUsing(LivingEntityUseItemEvent.Tick event) {
         if (!(event.getEntity() instanceof Player)) { return; }
         ItemStack stack = event.getItem();
         if (!(stack.getItem() instanceof BowItem)) { return; }
@@ -437,13 +434,31 @@ public class ModEvents {
 
     // CUSTOM EVENT - NOTHING custom effect
     @SubscribeEvent
-    public static void activatedNothingEffect(EntityJoinLevelEvent event) {
+    public static void onNothingEffectActivated(EntityJoinLevelEvent event) {
         if (event.getEntity() instanceof Warden warden) { // Checks if there is a player with the effect active nearby
             List<Player> players = warden.level().getEntitiesOfClass(Player.class, warden.getBoundingBox().inflate(32));
             for (Player player : players) {
                 if (player.hasEffect(ModEffects.NOTHING_EFFECT)) {
                     event.setCanceled(true); // Prevents the Warden from spawning
                     break;
+                }
+            }
+        }
+    }
+
+    // CUSTOM EVENT - Mccourse Mod Elevator advanced block
+    @SubscribeEvent
+    public static void onMccourseModElevatorKeyInput(InputEvent.Key event) {
+        Minecraft mc = Minecraft.getInstance();
+        Player player = mc.player;
+        if (player != null) { // Checks if the player is over the elevator
+            BlockPos pos = BlockPos.containing(player.getX(), player.getY() - 1, player.getZ());
+            if (player.level().getBlockState(pos).getBlock() == ModBlocks.MCCOURSEMOD_ELEVATOR.get()) { // Detects JUMP or SHIFT
+                if (InputConstants.isKeyDown(mc.getWindow().getWindow(), GLFW.GLFW_KEY_SPACE)) {
+                    ClientPacketDistributor.sendToServer(new MccourseModElevatorPacketPayload(true));
+                }
+                if (player.isShiftKeyDown()) {
+                    ClientPacketDistributor.sendToServer(new MccourseModElevatorPacketPayload(false));
                 }
             }
         }

@@ -4,6 +4,7 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.custom.DisenchantBlock;
 import net.karen.mccoursemod.block.custom.EnchantBlock;
 import net.karen.mccoursemod.block.custom.MagicBlock;
+import net.karen.mccoursemod.block.custom.MccourseElevatorBlock;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -70,6 +72,18 @@ public class ModBlocks {
                   .requiresCorrectToolForDrops()
                   .setId(ResourceKey.create(Registries.BLOCK,
                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "disenchant_grouped"))), 2));
+
+    // Mccourse Mod Elevator block
+    public static final DeferredBlock<Block> MCCOURSEMOD_ELEVATOR =
+            registerBlock("mccoursemod_elevator",
+            () -> new MccourseElevatorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL)
+                                                                          .sound(SoundType.WOOL)
+                                                                          .strength(5F, 1200.F)
+                                                                          .requiresCorrectToolForDrops()
+                                                                          .setId(ResourceKey.create(Registries.BLOCK,
+                                                                                 ResourceLocation.fromNamespaceAndPath(
+                                                                                 MccourseMod.MOD_ID,
+                                                                                 "mccoursemod_elevator")))));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

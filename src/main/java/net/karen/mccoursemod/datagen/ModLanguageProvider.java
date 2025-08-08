@@ -51,6 +51,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.disenchant_individual", "Disenchant Individual Block");
         add("item.mccoursemod.disenchant_grouped", "Disenchant Grouped Block");
         add("item.mccoursemod.magic", "Magic Block");
+        add("item.mccoursemod.mccoursemod_elevator", "Mccourse Mod Elevator Block");
 
         // CUSTOM BLOCKS
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
@@ -60,6 +61,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.DISENCHANT_INDIVIDUAL, "Disenchant Individual Block");
         addBlock(ModBlocks.DISENCHANT_GROUPED, "Disenchant Grouped Block");
         addBlock(ModBlocks.MAGIC, "Magic Block");
+        addBlock(ModBlocks.MCCOURSEMOD_ELEVATOR, "Mccourse Mod Elevator Block");
 
         // CUSTOM CREATIVE TABS
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

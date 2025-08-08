@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-02T21:23:35.1163905	Loot Tables
+// 1.21.8	2025-08-08T11:03:39.2372183	Loot Tables
 8655aeed33fac46c32b6b250bd4c122f9d427620 data/mccoursemod/loot_table/blocks/bismuth_block.json
 7f5fb1975232d666f60ffb449d9c2791c55ca518 data/mccoursemod/loot_table/blocks/bismuth_deepslate_ore.json
 3981aa85b985a6d468627c1f2f1f9d2729df13d7 data/mccoursemod/loot_table/blocks/bismuth_ore.json
@@ -6,3 +6,4 @@ a2593e7f37c3c4eca39527b411c5a0986adc355f data/mccoursemod/loot_table/blocks/dise
 5d536a91c53a18ca37b7af22758af735ec56e730 data/mccoursemod/loot_table/blocks/disenchant_individual.json
 7518e7ec9c98f15771c8ed722bc02b8c548d74af data/mccoursemod/loot_table/blocks/enchant.json
 a86d60eb39e4eea7c84b4a5c09af41fd54d07ad6 data/mccoursemod/loot_table/blocks/magic.json
+73e90d341b2cffa8028568f35563cc66e5536a38 data/mccoursemod/loot_table/blocks/mccoursemod_elevator.json

@@ -4,6 +4,7 @@
     "mccoursemod:disenchant_individual",
     "mccoursemod:disenchant_grouped",
     "mccoursemod:bismuth_block",
-    "mccoursemod:magic"
+    "mccoursemod:magic",
+    "mccoursemod:mccoursemod_elevator"
   ]
 }

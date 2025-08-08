@@ -195,20 +195,18 @@ public class Utils {
 
     public static void enableFlight(Player player, AttributeInstance flyAttribute, int amplifier) {
         if (flyAttribute != null && flyAttribute.getValue() == 0) {
-            flyAttribute.setBaseValue(1);
-//            player.getAbilities().flying = true;
-            player.getAbilities().setFlyingSpeed(BASE_FLY_SPEED + (0.02f * amplifier));
-//            player.fallDistance = 0;
-            player.onUpdateAbilities();
+            flyAttribute.setBaseValue(1); // Set FLY -> TRUE
+            player.getAbilities().setFlyingSpeed(BASE_FLY_SPEED + (0.02f * amplifier)); // Set FLY SPEED
+            player.onUpdateAbilities(); // Updated FLY ability
         }
     }
 
     public static void disableFlight(Player player, AttributeInstance flyAttribute) {
         if (flyAttribute != null && flyAttribute.getValue() > 0)  {
-            flyAttribute.setBaseValue(0);
-            player.getAbilities().flying = false;
-            player.getAbilities().setFlyingSpeed(BASE_FLY_SPEED);
-            player.onUpdateAbilities();
+            flyAttribute.setBaseValue(0); // Set FLY -> FALSE
+            player.getAbilities().flying = false; // Set FLYING -> FALSE
+            player.getAbilities().setFlyingSpeed(BASE_FLY_SPEED); // Set FLY SPEED
+            player.onUpdateAbilities(); // Updated FLY ability
         }
     }
 

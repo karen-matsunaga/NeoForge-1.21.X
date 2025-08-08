@@ -65,6 +65,7 @@ public class ModCreativeModeTabs {
                      output.accept(ModBlocks.ENCHANT);
                      output.accept(ModBlocks.DISENCHANT_GROUPED);
                      output.accept(ModBlocks.DISENCHANT_INDIVIDUAL);
+                     output.accept(ModBlocks.MCCOURSEMOD_ELEVATOR);
                   }).build());
 
     public static void register(IEventBus eventBus) {
