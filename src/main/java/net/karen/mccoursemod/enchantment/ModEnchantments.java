@@ -29,7 +29,6 @@ public class ModEnchantments {
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
-        // var enchantments = context.lookup(Registries.ENCHANTMENT);
         var items = context.lookup(Registries.ITEM);
 
         // Lightning Striker - Sword tool
