@@ -31,6 +31,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.BowItem;
@@ -431,6 +432,20 @@ public class ModEvents {
             int newDuration = event.getDuration() - level; // Decreases usage time (ex: 20 → 15)
             event.setDuration(newDuration);
             if (event.getDuration() <= 0) { Utils.clear(); } // Ensures you don't get stuck
+        }
+    }
+
+    // CUSTOM EVENT - NOTHING custom effect
+    @SubscribeEvent
+    public static void activatedNothingEffect(EntityJoinLevelEvent event) {
+        if (event.getEntity() instanceof Warden warden) { // Checks if there is a player with the effect active nearby
+            List<Player> players = warden.level().getEntitiesOfClass(Player.class, warden.getBoundingBox().inflate(32));
+            for (Player player : players) {
+                if (player.hasEffect(ModEffects.NOTHING_EFFECT)) {
+                    event.setCanceled(true); // Prevents the Warden from spawning
+                    break;
+                }
+            }
         }
     }
 }
