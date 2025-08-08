@@ -71,6 +71,7 @@ import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.item.ItemExpireEvent;
 import net.neoforged.neoforge.event.entity.item.ItemTossEvent;
+import net.neoforged.neoforge.event.entity.living.EnderManAngerEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
 import net.neoforged.neoforge.event.entity.player.ItemFishedEvent;
@@ -447,6 +448,14 @@ public class ModEvents {
                     break;
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onNothingEffect(EnderManAngerEvent event) {
+        Player player = event.getPlayer();
+        if (player.hasEffect(ModEffects.NOTHING_EFFECT)) {
+            event.setCanceled(true);
         }
     }
 
