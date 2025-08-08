@@ -29,6 +29,10 @@
       "required": false
     },
     {
+      "id": "mccoursemod:lightstring",
+      "required": false
+    },
+    {
       "id": "mccoursemod:peaceful_mobs",
       "required": false
     }

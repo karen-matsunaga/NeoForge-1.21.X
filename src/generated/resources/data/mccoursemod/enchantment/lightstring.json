@@ -1,7 +1,7 @@
 {
   "anvil_cost": 2,
   "description": {
-    "translate": "enchantment.mccoursemod.peaceful_mobs"
+    "translate": "enchantment.mccoursemod.lightstring"
   },
   "max_cost": {
     "base": 25,
@@ -12,9 +12,10 @@
     "base": 5,
     "per_level_above_first": 7
   },
+  "primary_items": "#minecraft:enchantable/crossbow",
   "slots": [
-    "legs"
+    "mainhand"
   ],
-  "supported_items": "#minecraft:enchantable/leg_armor",
+  "supported_items": "#minecraft:enchantable/bow",
   "weight": 5
 }

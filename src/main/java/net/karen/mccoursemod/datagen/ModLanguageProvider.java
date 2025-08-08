@@ -74,6 +74,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.rainbow", "Rainbow");
         add("enchantment.mccoursemod.immortal", "Immortal");
         add("enchantment.mccoursemod.peaceful_mobs", "Peaceful Mobs");
+        add("enchantment.mccoursemod.lightstring", "Lightstring");
 
         // MOD
         add("enchantment.mccoursemod.lightning_striker.desc",
@@ -99,6 +100,8 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add("enchantment.mccoursemod.peaceful_mobs.desc",
             "When applied on leggings armor all entities not attack Player.");
+
+        add("enchantment.mccoursemod.lightstring.desc", "When applied on bow increases bow loading speed.");
 
         // MINING
         add("enchantment.minecraft.efficiency.desc", "When applied on axe, pickaxe, shovel or hoe increases mining speed.");

@@ -3,6 +3,10 @@
     "minecraft:power",
     "minecraft:punch",
     "minecraft:flame",
-    "minecraft:infinity"
+    "minecraft:infinity",
+    {
+      "id": "mccoursemod:lightstring",
+      "required": false
+    }
   ]
 }

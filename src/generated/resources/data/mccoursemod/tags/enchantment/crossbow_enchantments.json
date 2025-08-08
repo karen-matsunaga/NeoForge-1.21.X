@@ -1,6 +1,10 @@
 {
   "values": [
     "#minecraft:exclusive_set/crossbow",
-    "minecraft:quick_charge"
+    "minecraft:quick_charge",
+    {
+      "id": "mccoursemod:lightstring",
+      "required": false
+    }
   ]
 }

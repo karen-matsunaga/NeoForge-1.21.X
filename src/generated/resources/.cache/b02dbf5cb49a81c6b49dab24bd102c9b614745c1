@@ -1,9 +1,9 @@
-// 1.21.8	2025-08-07T19:05:01.3120273	Tags for minecraft:enchantment mod id mccoursemod
+// 1.21.8	2025-08-07T19:25:36.0001894	Tags for minecraft:enchantment mod id mccoursemod
 3834a210ae1c8cb5863a4f5e598f06cacad6966a data/mccoursemod/tags/enchantment/all_enchantments.json
 07173cc2b2b9dae300de39fb690d3cef6c484092 data/mccoursemod/tags/enchantment/boots_enchantments.json
-f2065debee4ec8edc8ab9b3d2a54ef33d76610da data/mccoursemod/tags/enchantment/bow_enchantments.json
+f5831f2ebdaf06701c3c4814c8a622bfe0bd9b99 data/mccoursemod/tags/enchantment/bow_enchantments.json
 ff315407079774fe2d1b8b1b4afbf2fc3215bd92 data/mccoursemod/tags/enchantment/chestplate_enchantments.json
-209e004866789793a37447f32ecb5b86c9b97b81 data/mccoursemod/tags/enchantment/crossbow_enchantments.json
+4f058517a61129eea8ff2fbd4cd04fc1c0b5cd98 data/mccoursemod/tags/enchantment/crossbow_enchantments.json
 cf728b17c4ba5c135f4908f9cc812f8d59864277 data/mccoursemod/tags/enchantment/durability_enchantments.json
 61db72559f8815a2074d8ef0444a9f9148e92327 data/mccoursemod/tags/enchantment/fishing_enchantments.json
 654b2ce269cf3f3853b3ac66063c03cf5ac2e23d data/mccoursemod/tags/enchantment/helmet_enchantments.json
@@ -13,7 +13,7 @@ f96f8e220e71f5ae7ed5e3cca20ce0243890cced data/mccoursemod/tags/enchantment/leggi
 27b7b2f8c4a608e96920ff7a2e8cbd8b6d41b738 data/mccoursemod/tags/enchantment/mining_enchantments.json
 0fefe519c39aa948c7d0881dad8dfcd2725d5ef8 data/mccoursemod/tags/enchantment/sword_enchantments.json
 a773877d589ff6a6e7c3ec3c9703acd48c9240ef data/mccoursemod/tags/enchantment/trident_enchantments.json
-eb635c1d5037ee9dd935c24202dbdab0c7cf002e data/minecraft/tags/enchantment/in_enchanting_table.json
-eb635c1d5037ee9dd935c24202dbdab0c7cf002e data/minecraft/tags/enchantment/non_treasure.json
-eb635c1d5037ee9dd935c24202dbdab0c7cf002e data/minecraft/tags/enchantment/tooltip_order.json
-eb635c1d5037ee9dd935c24202dbdab0c7cf002e data/minecraft/tags/enchantment/tradeable.json
+c7a8c00192fa5ba9183ce311d0b278a0849d3086 data/minecraft/tags/enchantment/in_enchanting_table.json
+c7a8c00192fa5ba9183ce311d0b278a0849d3086 data/minecraft/tags/enchantment/non_treasure.json
+c7a8c00192fa5ba9183ce311d0b278a0849d3086 data/minecraft/tags/enchantment/tooltip_order.json
+c7a8c00192fa5ba9183ce311d0b278a0849d3086 data/minecraft/tags/enchantment/tradeable.json
