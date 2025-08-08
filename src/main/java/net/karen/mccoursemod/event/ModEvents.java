@@ -13,8 +13,10 @@ import net.karen.mccoursemod.item.custom.SpecialEffectItem;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.potion.ModPotions;
 import net.karen.mccoursemod.util.ChatUtils;
+import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.ModTags;
 import net.karen.mccoursemod.util.Utils;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -30,7 +32,9 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -55,6 +59,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.scores.PlayerTeam;
+import net.minecraft.world.scores.Scoreboard;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.InputEvent;
@@ -461,6 +467,54 @@ public class ModEvents {
                     ClientPacketDistributor.sendToServer(new MccourseModElevatorPacketPayload(false));
                 }
             }
+        }
+    }
+
+    // CUSTOM EVENT - GLOWING MOBS enchantment
+    private static final Map<UUID, Boolean> glowingState = new HashMap<>(); // GLOWING MOBS state (ON/OFF)
+
+    @SubscribeEvent
+    public static void activatedGlowingMobsEnchantment(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
+        ItemStack helmet = has(player, EquipmentSlot.HEAD); // Player has an item on HELMET slot
+        UUID playerUUID = player.getUUID(); // Player UUID -> Detected GLOWING MOBS stage
+        HolderLookup.RegistryLookup<Enchantment> ench = player.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        boolean isEnchanted = helmet.isEnchanted() && helmet.getEnchantmentLevel(ench.getOrThrow(ModEnchantments.GLOWING_MOBS)) > 0;
+        if (!isEnchanted) { // Player hasn't GLOWING MOBS is disabled
+            glowingState.remove(playerUUID);
+        }
+        boolean current = glowingState.getOrDefault(playerUUID, false); // GLOWING MOBS default stage is FALSE
+        if (KeyBinding.GLOWING_MOBS_KEY.get().consumeClick() && KeyBinding.GLOWING_MOBS_KEY.get().isDown()) { // Press [M] key input
+            if (isEnchanted) { // Player has a HELMET inputted on slot and GLOWING MOBS enchantment level
+                boolean newState = !current; // Default stage is FALSE
+                glowingState.put(playerUUID, newState); // Adapted "newState" of "current" stage
+                glow(player, newState, "Mobs: ON!", "Mobs: OFF!"); // Toggle ON/OFF
+            }
+            else { // Hasn't item
+                player(player, "Mobs: Enchanted helmet!", darkRed);
+            }
+        }
+        if (current && isEnchanted) {
+            // Key (Color) -> Each group represent with some color. Value (Group tag name) -> Represent as Tag.
+            Map<ChatFormatting, TagKey<EntityType<?>>> entitiesTag = Map.ofEntries(
+            // Monsters, Animal | Flying entities, Water animals and Villagers
+            Map.entry(red, ModTags.Entities.MONSTERS), Map.entry(blue, ModTags.Entities.ANIMALS),
+            Map.entry(yellow, ModTags.Entities.WATER_ANIMALS), Map.entry(darkPurple, ModTags.Entities.VILLAGER));
+            entitiesTag.forEach((color, tag) -> { // Added GLOWING effect for each GROUP
+                String teamName = tag.location().getPath();
+                List<LivingEntity> entities = getPlayer(player, tag); // Range of GLOWING effect on mobs
+                if (!entities.isEmpty()) { // Groups not empty
+                    Scoreboard score = player.getScoreboard();
+                    PlayerTeam team = score.getPlayerTeam(teamName);
+                    // Added each entity on group with specif tag and color on entitiesTag
+                    if (team == null) { team = score.addPlayerTeam(teamName); team.setColor(color); }
+                    PlayerTeam finalTeam = team; // Each entity received GLOWING effect with specif color on entitiesTag
+                    entities.forEach(entity -> {
+                        entity.addEffect(effect(MobEffects.GLOWING, 20, 1));
+                        score.addPlayerToTeam(entity.getScoreboardName(), finalTeam);
+                    });
+                }
+            });
         }
     }
 }

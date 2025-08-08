@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
@@ -104,6 +105,24 @@ public class ModTags {
         // CUSTOM METHOD - Registry all custom enchantment tags
         private static TagKey<Enchantment> createTag(String name) {
             return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
+        }
+    }
+
+    // Entities
+    public static class Entities {
+        // Created Entities's tags HERE
+        public static final TagKey<EntityType<?>> BOSSES = createTag("bosses");
+        public static final TagKey<EntityType<?>> NETHER = createTag("nether");
+        public static final TagKey<EntityType<?>> END = createTag("end");
+        public static final TagKey<EntityType<?>> OVERWORLD = createTag("overworld");
+        public static final TagKey<EntityType<?>> MONSTERS = createTag("monsters");
+        public static final TagKey<EntityType<?>> ANIMALS = createTag("animals");
+        public static final TagKey<EntityType<?>> VILLAGER = createTag("villager");
+        public static final TagKey<EntityType<?>> WATER_ANIMALS = createTag("water_animals");
+
+        // CUSTOM METHOD - Registry all custom entities tags
+        private static TagKey<EntityType<?>> createTag(String name) {
+            return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
         }
     }
 }

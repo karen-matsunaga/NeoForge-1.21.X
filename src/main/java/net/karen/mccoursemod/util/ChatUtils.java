@@ -217,4 +217,10 @@ public class ChatUtils {
                                                                  size, text)));
         }
     }
+
+    // CUSTOM METHOD - GLOWING MOBS message
+    public static void glow(Player player, boolean test, String message, String message1) {
+        player.displayClientMessage(componentLiteral("Glowing " + (test ? message : message1),
+                                                     (test ? green : red)), true);
+    }
 }

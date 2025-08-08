@@ -77,6 +77,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.immortal", "Immortal");
         add("enchantment.mccoursemod.peaceful_mobs", "Peaceful Mobs");
         add("enchantment.mccoursemod.lightstring", "Lightstring");
+        add("enchantment.mccoursemod.glowing_mobs", "Glowing Mobs");
 
         // MOD
         add("enchantment.mccoursemod.lightning_striker.desc",
@@ -104,6 +105,9 @@ public class ModLanguageProvider extends LanguageProvider {
             "When applied on leggings armor all entities not attack Player.");
 
         add("enchantment.mccoursemod.lightstring.desc", "When applied on bow increases bow loading speed.");
+
+        add("enchantment.mccoursemod.glowing_mobs.desc",
+            "When applied on helmet armor all entities are detected with X-Ray of mobs. (Press M key to activated or disabled)");
 
         // MINING
         add("enchantment.minecraft.efficiency.desc", "When applied on axe, pickaxe, shovel or hoe increases mining speed.");
@@ -234,5 +238,16 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // NETWORK message
         add("mccoursemod.networking.failed", "Mccourse Mod network failed!");
+
+        // KEY BINDING
+        add("key.category.mccoursemod", "Mccourse Mod");
+        add("key.mccoursemod_glowing_blocks", "Glowing Blocks");
+        add("key.mccoursemod_glowing_mobs", "Glowing Mobs");
+        add("key.mccoursemod_mccoursemod_bottle_stored_ten_levels", "Mccourse Mod Bottle Stored Ten Levels");
+        add("key.mccoursemod_mccoursemod_bottle_restored_ten_levels", "Mccourse Mod Bottle Restored Ten Levels");
+        add("key.mccoursemod_mccoursemod_bottle_stored_hundred_levels", "Mccourse Mod Bottle Stored Hundred Levels");
+        add("key.mccoursemod_mccoursemod_bottle_restored_hundred_levels", "Mccourse Mod Bottle Restored Hundred Levels");
+        add("key.mccoursemod_unlock", "Unlock");
+        add("key.mccoursemod_light", "Light");
     }
 }

@@ -24,6 +24,7 @@ public class ModEnchantments {
     public static final ResourceKey<Enchantment> IMMORTAL = createTag("immortal");
     public static final ResourceKey<Enchantment> PEACEFUL_MOBS = createTag("peaceful_mobs");
     public static final ResourceKey<Enchantment> LIGHTSTRING = createTag("lightstring");
+    public static final ResourceKey<Enchantment> GLOWING_MOBS = createTag("glowing_mobs");
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
@@ -111,6 +112,14 @@ public class ModEnchantments {
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.MAINHAND)));
+
+        // Glowing Mobs - Head armor
+        register(context, GLOWING_MOBS,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.HEAD_ARMOR_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.HEAD)));
     }
 
     // CUSTOM METHOD - Registry all custom enchantments -> DATA GEN

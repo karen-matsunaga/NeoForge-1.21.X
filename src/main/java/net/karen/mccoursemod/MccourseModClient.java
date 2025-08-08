@@ -5,6 +5,7 @@ import net.karen.mccoursemod.network.ServerPayloadHandler;
 import net.karen.mccoursemod.particle.BismuthParticles;
 import net.karen.mccoursemod.particle.ModParticles;
 import net.karen.mccoursemod.util.ImageTooltipComponent;
+import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
@@ -14,6 +15,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
@@ -52,6 +54,7 @@ public class MccourseModClient {
         event.register(MultiImageTooltipComponent.class, Function.identity());
     }
 
+    // CUSTOM EVENT - Register network (CLIENT -> SERVER)
     @SubscribeEvent
     public static void registerNetwork(RegisterPayloadHandlersEvent event) {
         // Network version
@@ -60,5 +63,17 @@ public class MccourseModClient {
         registrar.playToServer(MccourseModElevatorPacketPayload.TYPE,
                                MccourseModElevatorPacketPayload.STREAM_CODEC,
                                ServerPayloadHandler::handleKeyInput);
+    }
+
+    // CUSTOM EVENT - Register custom Key Input
+    @SubscribeEvent
+    public static void registerKeyInput(RegisterKeyMappingsEvent event) {
+        event.register(KeyBinding.GLOWING_MOBS_KEY.get()); // Glowing Mobs custom enchantment
+        event.register(KeyBinding.GLOWING_BLOCKS_KEY.get()); // Glowing Blocks custom enchantment
+        event.register(KeyBinding.MCCOURSE_BOTTLE_STORED_TEN_LEVELS_KEY.get()); // Mccourse Bottle stored 10 levels
+        event.register(KeyBinding.MCCOURSE_BOTTLE_RESTORED_TEN_LEVELS_KEY.get()); // Mccourse Bottle restored 10 levels
+        event.register(KeyBinding.MCCOURSE_BOTTLE_STORED_HUNDRED_LEVELS_KEY.get()); // Mccourse Bottle stored 100 levels
+        event.register(KeyBinding.MCCOURSE_BOTTLE_RESTORED_HUNDRED_LEVELS_KEY.get()); // Mccourse Bottle restored 100 levels
+        event.register(KeyBinding.UNLOCK_KEY.get()); // Unlock custom enchantment
     }
 }

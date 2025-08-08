@@ -28,6 +28,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                .addOptional(ModEnchantments.MORE_ORES)
                                                .addOptional(ModEnchantments.IMMORTAL)
                                                .addOptional(ModEnchantments.LIGHTSTRING)
+                                               .addOptional(ModEnchantments.GLOWING_MOBS)
                                                .addOptional(ModEnchantments.PEACEFUL_MOBS);
 
         // Not treasure enchantment
@@ -39,6 +40,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                               .addOptional(ModEnchantments.MORE_ORES)
                                               .addOptional(ModEnchantments.IMMORTAL)
                                               .addOptional(ModEnchantments.LIGHTSTRING)
+                                              .addOptional(ModEnchantments.GLOWING_MOBS)
                                               .addOptional(ModEnchantments.PEACEFUL_MOBS);
 
         // Villager Trade
@@ -50,6 +52,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                            .addOptional(ModEnchantments.MORE_ORES)
                                            .addOptional(ModEnchantments.IMMORTAL)
                                            .addOptional(ModEnchantments.LIGHTSTRING)
+                                           .addOptional(ModEnchantments.GLOWING_MOBS)
                                            .addOptional(ModEnchantments.PEACEFUL_MOBS);
 
         // Enchant table
@@ -61,6 +64,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                      .addOptional(ModEnchantments.MORE_ORES)
                                                      .addOptional(ModEnchantments.IMMORTAL)
                                                      .addOptional(ModEnchantments.LIGHTSTRING)
+                                                     .addOptional(ModEnchantments.GLOWING_MOBS)
                                                      .addOptional(ModEnchantments.PEACEFUL_MOBS);
 
         // Lightning Striker tag
@@ -82,7 +86,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
 
         // Helmet enchantments
         this.tag(ModTags.Enchantments.HELMET_ENCHANTMENTS).add(Enchantments.RESPIRATION)
-                                                          .add(Enchantments.AQUA_AFFINITY);
+                                                          .add(Enchantments.AQUA_AFFINITY)
+                                                          .addOptional(ModEnchantments.GLOWING_MOBS);
 
         // Chestplate enchantments
         this.tag(ModTags.Enchantments.CHESTPLATE_ENCHANTMENTS).add(Enchantments.THORNS);

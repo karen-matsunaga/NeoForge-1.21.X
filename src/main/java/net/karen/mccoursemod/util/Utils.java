@@ -8,9 +8,9 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -238,5 +238,16 @@ public class Utils {
             entity.setUnlimitedLifetime(); // Does not disappear over time
             entity.setPickUpDelay(10); // It can be collected after 0.5s
         }
+    }
+
+    // CUSTOM METHOD - GLOWING MOBS -> Added Effect
+    public static MobEffectInstance effect(Holder<MobEffect> effect, int duration, int amplifier) {
+        return new MobEffectInstance(effect, duration, amplifier, true, false, false);
+    }
+
+    // CUSTOM METHOD - GLOWING MOBS -> GET player item
+    public static List<LivingEntity> getPlayer(Player player, TagKey<EntityType<?>> tag) {
+        return player.level().getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(10),
+                entity -> entity.getType().is(tag) && entity != player);
     }
 }

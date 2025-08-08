@@ -1,6 +1,10 @@
 {
   "values": [
     "minecraft:respiration",
-    "minecraft:aqua_affinity"
+    "minecraft:aqua_affinity",
+    {
+      "id": "mccoursemod:glowing_mobs",
+      "required": false
+    }
   ]
 }

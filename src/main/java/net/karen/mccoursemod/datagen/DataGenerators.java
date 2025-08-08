@@ -42,5 +42,7 @@ public class DataGenerators {
         event.addProvider(new ModEquipmentAssetProvider(packOutput));
         // Datapack Provider
         event.addProvider(new ModDatapackProvider(packOutput, lookupProvider));
+        // Entity Type tags
+        event.addProvider(new ModEntityTypeTagGenerator(packOutput, lookupProvider));
     }
 }
