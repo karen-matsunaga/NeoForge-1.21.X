@@ -9,7 +9,9 @@ import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
+import net.karen.mccoursemod.item.custom.MccourseModBottleItem;
 import net.karen.mccoursemod.item.custom.SpecialEffectItem;
+import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.potion.ModPotions;
 import net.karen.mccoursemod.util.ChatUtils;
@@ -61,6 +63,7 @@ import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
@@ -557,6 +560,22 @@ public class ModEvents {
                 orb.discard(); // Remove the orb from the world
                 // Play sound
                 sound(player, SoundEvents.EXPERIENCE_ORB_PICKUP, 0.1F, 0.5F + player.getRandom().nextFloat());
+            }
+        }
+    }
+
+    // CUSTOM EVENT - MCCOURSE MOD BOTTLE item
+    @SubscribeEvent
+    public static void mccourseBottleLeftShiftInputEvent(ClientTickEvent.Post event) {
+        Minecraft mc = Minecraft.getInstance();
+        Player player = mc.player;
+        if (player != null && mc.level != null) {
+            if (player.getMainHandItem().getItem() instanceof MccourseModBottleItem) {
+                boolean shift = InputConstants.isKeyDown(mc.getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT);
+                int amount = shift ? MccourseModBottleItem.storeXp : 1; // Pressed LEFT click + SHIFT
+                if (mc.options.keyAttack.isDown()) {
+                    ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(shift, amount));
+                }
             }
         }
     }

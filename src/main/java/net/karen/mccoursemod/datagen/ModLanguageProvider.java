@@ -24,6 +24,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS, "Level Charger Generic Minus");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE, "Level Charger Specif Minus Fortune");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE, "Level Charger Specif Plus Fortune");
+        addItem(ModItems.MCCOURSE_MOD_BOTTLE, "Mccourse Mod Bottle");
 
         // CUSTOM Foods
         addItem(ModItems.COFFEE, "Coffee");

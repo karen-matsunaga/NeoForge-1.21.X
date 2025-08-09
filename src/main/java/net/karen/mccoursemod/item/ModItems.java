@@ -171,6 +171,7 @@ public class ModItems {
                                                               "bismuth_boots")))
                                                .humanoidArmor(ModArmorMaterials.BISMUTH, ArmorType.BOOTS)));
 
+    // Custom foods
     public static final DeferredItem<Item> COFFEE = ITEMS.register("coffee",
            () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
@@ -187,6 +188,16 @@ public class ModItems {
                                                                                          MobEffects.HEALTH_BOOST,
                                                                                          600, 0), 0.35f))
                                                                               .build())));
+
+    // Custom advanced items
+    public static final DeferredItem<Item> MCCOURSE_MOD_BOTTLE = ITEMS.register("mccourse_mod_bottle",
+           () -> new MccourseModBottleItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                       "mccourse_mod_bottle")))
+//                                                                .component(ModDataComponentTypes.STORED_LEVELS, 1)
+                                                                .fireResistant()
+                                                                .stacksTo(1),
+                                                                100000, 1));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

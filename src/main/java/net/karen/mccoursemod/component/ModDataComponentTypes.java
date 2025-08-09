@@ -49,6 +49,11 @@ public class ModDataComponentTypes {
            register("custom_tooltip", builder ->
                     builder.persistent(CustomTooltip.CODEC).networkSynchronized(CustomTooltip.STREAM_CODEC));
 
+    // Mccourse Mod Bottle
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> STORED_LEVELS =
+           register("stored_levels", builder ->
+                    builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
+
     // Registry all custom Data Component
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>>
                    register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {

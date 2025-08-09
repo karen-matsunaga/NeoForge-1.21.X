@@ -47,6 +47,8 @@ public class ModCreativeModeTabs {
                      output.accept(ModItems.BISMUTH_BOOTS);
                      // CUSTOM foods
                      output.accept(ModItems.COFFEE);
+                     // CUSTOM advanced items
+                     output.accept(ModItems.MCCOURSE_MOD_BOTTLE);
                   }).build());
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCK_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",

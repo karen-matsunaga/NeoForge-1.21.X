@@ -1,5 +1,6 @@
 package net.karen.mccoursemod;
 
+import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.network.ServerPayloadHandler;
 import net.karen.mccoursemod.particle.BismuthParticles;
@@ -63,6 +64,11 @@ public class MccourseModClient {
         registrar.playToServer(MccourseModElevatorPacketPayload.TYPE,
                                MccourseModElevatorPacketPayload.STREAM_CODEC,
                                ServerPayloadHandler::handleKeyInput);
+
+        // Network -> Mccourse Mod Bottle item
+        registrar.playToServer(MccourseModBottlePacketPayload.TYPE,
+                               MccourseModBottlePacketPayload.STREAM_CODEC,
+                               ServerPayloadHandler::handleKeyInputs);
     }
 
     // CUSTOM EVENT - Register custom Key Input
