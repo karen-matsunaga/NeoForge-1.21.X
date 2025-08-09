@@ -23,10 +23,14 @@ public class SlimeyEffect extends MobEffect {
         BlockPos pos = livingEntity.blockPosition();
         BlockState state = level.getBlockState(pos);
         if (state.isCollisionShapeFullBlock(level, pos)) {
-            if (livingEntity.horizontalCollision || livingEntity.onClimbable()) {
-                Vec3 initialVec = livingEntity.getDeltaMovement();
-                Vec3 climbVec = new Vec3(initialVec.x, 0.2D, initialVec.z);
+            boolean isOnGround = livingEntity.onGround(),
+                    isHorizontal = livingEntity.horizontalCollision,
+                    isClimbable = livingEntity.onClimbable();
+            if (isHorizontal || isClimbable) {
+                Vec3 initialVec = livingEntity.getDeltaMovement(),
+                       climbVec = new Vec3(initialVec.x, 0.2D, initialVec.z);
                 livingEntity.setDeltaMovement(climbVec.scale(0.96D));
+                livingEntity.setOnGroundWithMovement(isOnGround, isHorizontal, climbVec.scale(0.96D));
                 return true;
             }
         }
