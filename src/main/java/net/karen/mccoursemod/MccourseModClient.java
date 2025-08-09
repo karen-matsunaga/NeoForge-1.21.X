@@ -2,7 +2,6 @@ package net.karen.mccoursemod;
 
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
-import net.karen.mccoursemod.network.ServerPayloadHandler;
 import net.karen.mccoursemod.particle.BismuthParticles;
 import net.karen.mccoursemod.particle.ModParticles;
 import net.karen.mccoursemod.util.ImageTooltipComponent;
@@ -62,13 +61,17 @@ public class MccourseModClient {
         final PayloadRegistrar registrar = event.registrar("1");
         // Network -> Mccourse Mod Elevator block
         registrar.playToServer(MccourseModElevatorPacketPayload.TYPE,
+                               // STREAM CODEC
                                MccourseModElevatorPacketPayload.STREAM_CODEC,
-                               ServerPayloadHandler::handleKeyInput);
+                               // Server Payload Handler
+                               MccourseModElevatorPacketPayload::onMccourseModElevatorServerPayloadHandler);
 
         // Network -> Mccourse Mod Bottle item
         registrar.playToServer(MccourseModBottlePacketPayload.TYPE,
+                               // STREAM CODEC
                                MccourseModBottlePacketPayload.STREAM_CODEC,
-                               ServerPayloadHandler::handleKeyInputs);
+                               // Server Payload Handler
+                               MccourseModBottlePacketPayload::onMccourseModBottleServerPayloadHandler);
     }
 
     // CUSTOM EVENT - Register custom Key Input

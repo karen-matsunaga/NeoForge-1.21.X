@@ -2,10 +2,17 @@ package net.karen.mccoursemod.network;
 
 import io.netty.buffer.ByteBuf;
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.block.custom.MccourseElevatorBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.jetbrains.annotations.NotNull;
 
 public record MccourseModElevatorPacketPayload(boolean bool) implements CustomPacketPayload {
@@ -23,5 +30,24 @@ public record MccourseModElevatorPacketPayload(boolean bool) implements CustomPa
     @Override
     public CustomPacketPayload.@NotNull Type<? extends CustomPacketPayload> type() {
        return TYPE;
+    }
+
+    // SERVER NETWORK -> Mccourse Mod Elevator block
+    public static void onMccourseModElevatorServerPayloadHandler(MccourseModElevatorPacketPayload payload,
+                                                                 IPayloadContext context) {
+        context.enqueueWork(() -> {
+                    Player player = context.player();
+                    if (player instanceof ServerPlayer serverPlayer) {
+                        BlockPos pos = BlockPos.containing(serverPlayer.getX(), serverPlayer.getY() - 1, serverPlayer.getZ());
+                        if (serverPlayer.level().getBlockState(pos).getBlock() == ModBlocks.MCCOURSEMOD_ELEVATOR.get()) {
+                            if (payload.bool()) { MccourseElevatorBlock.blockUp(serverPlayer); } // Player UP
+                            else { MccourseElevatorBlock.blockDown(serverPlayer); } // Player DOWN
+                        }
+                    }
+                })
+                .exceptionally(e -> { // Handle exception
+                    context.disconnect(Component.translatable("mccoursemod.networking.failed", e.getMessage()));
+                    return null;
+                });
     }
 }

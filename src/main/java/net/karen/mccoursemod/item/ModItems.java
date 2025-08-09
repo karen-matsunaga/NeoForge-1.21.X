@@ -194,7 +194,6 @@ public class ModItems {
            () -> new MccourseModBottleItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                        ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                        "mccourse_mod_bottle")))
-//                                                                .component(ModDataComponentTypes.STORED_LEVELS, 1)
                                                                 .fireResistant()
                                                                 .stacksTo(1),
                                                                 100000, 1));

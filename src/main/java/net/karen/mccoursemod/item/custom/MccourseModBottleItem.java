@@ -31,19 +31,23 @@ public class MccourseModBottleItem extends Item {
     public @NotNull InteractionResult use(@NotNull Level level, @NotNull Player player,
                                           @NotNull InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand); // Player has Mccourse Bottle on main hand
-        // StoredLevels Data Component to save and to store XP
-        Integer storedLevels = stack.get(ModDataComponentTypes.STORED_LEVELS);
-        if (storedLevels != null && storedLevels > 0) {
-            if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
-                if (player.isShiftKeyDown()) { // SHIFT + RIGHT click
-                    mccourseXp(serverPlayer, player, storedLevels, storedLevels, 0, storedLevels + " levels!");
-                }
-                else { // RIGHT click
-                    mccourseXp(serverPlayer, player, storedLevels, 1, storedLevels - 1, "1 level!");
+        if (!stack.has(ModDataComponentTypes.STORED_LEVELS)) {
+            stack.set(ModDataComponentTypes.STORED_LEVELS, amountXp);
+        }
+        else { // StoredLevels Data Component to save and to store XP
+            Integer storedLevels = stack.get(ModDataComponentTypes.STORED_LEVELS);
+            if (storedLevels != null && storedLevels >= 0) {
+                if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
+                    if (player.isShiftKeyDown()) { // SHIFT + RIGHT click
+                        mccourseXp(serverPlayer, player, storedLevels, storedLevels, 0, storedLevels + " levels!");
+                    }
+                    else { // RIGHT click
+                        mccourseXp(serverPlayer, player, storedLevels, 1, storedLevels - 1, "1 level!");
+                    }
                 }
             }
         }
-        return InteractionResult.SUCCESS_SERVER;
+        return InteractionResult.SUCCESS_SERVER.heldItemTransformedTo(stack);
     }
 
     @Override
@@ -58,7 +62,7 @@ public class MccourseModBottleItem extends Item {
                                 @NotNull Consumer<Component> consumer,
                                 @NotNull TooltipFlag flag) {
         Integer xp = stack.get(ModDataComponentTypes.STORED_LEVELS);
-        if (xp != null && xp > 0) {
+        if (xp != null && xp >= 0) {
             tooltipLine(consumer, "Stored XP: " + xp + " / " + storeXp, yellow);
             tooltipLine(consumer, "Stored XP: Left click: 1 level; N: 10 levels;", red);
             tooltipLine(consumer, "Shift + N: 100 levels; Shift + Left click: All levels.", red);
@@ -83,7 +87,7 @@ public class MccourseModBottleItem extends Item {
             player(player, "Wait before using again!", yellow);
             return;
         }
-        if (storedLevels > 0) { // Restore levels
+        if (storedLevels >= 0) { // Restore levels
             serverPlayer.giveExperienceLevels(amount);
             heldItem.set(ModDataComponentTypes.STORED_LEVELS, store);
             player(player, "Restored " + message, green);

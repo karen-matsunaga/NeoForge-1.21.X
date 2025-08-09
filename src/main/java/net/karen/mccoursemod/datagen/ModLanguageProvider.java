@@ -275,6 +275,5 @@ public class ModLanguageProvider extends LanguageProvider {
         add("key.mccoursemod_mccoursemod_bottle_stored_hundred_levels", "Mccourse Mod Bottle Stored Hundred Levels");
         add("key.mccoursemod_mccoursemod_bottle_restored_hundred_levels", "Mccourse Mod Bottle Restored Hundred Levels");
         add("key.mccoursemod_unlock", "Unlock");
-        add("key.mccoursemod_light", "Light");
     }
 }

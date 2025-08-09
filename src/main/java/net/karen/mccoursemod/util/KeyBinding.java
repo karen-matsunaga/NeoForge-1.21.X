@@ -7,20 +7,20 @@ import net.neoforged.neoforge.common.util.Lazy;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyBinding {
-    public static final String KEY_CATEGORY_MCCOURSE = "key.category.mccourse"; // Mccourse custom category
-    public static final String KEY_GLOWING_BLOCKS = "key.mccourse_glowing_blocks"; // Glowing Blocks custom key input
-    public static final String KEY_GLOWING_MOBS = "key.mccourse_glowing_mobs"; // Glowing Mobs custom key input
+    public static final String KEY_CATEGORY_MCCOURSE = "key.category.mccoursemod"; // Mccourse custom category
+    public static final String KEY_GLOWING_BLOCKS = "key.mccoursemod_glowing_blocks"; // Glowing Blocks custom key input
+    public static final String KEY_GLOWING_MOBS = "key.mccoursemod_glowing_mobs"; // Glowing Mobs custom key input
     // Mccourse Bottle custom key inputs
     public static final String KEY_MCCOURSE_BOTTLE_STORED_TEN_LEVELS =
-            "key.mccourse_mccourse_bottle_stored_ten_levels";
+            "key.mccoursemod_mccoursemod_bottle_stored_ten_levels";
     public static final String KEY_MCCOURSE_BOTTLE_RESTORED_TEN_LEVELS =
-            "key.mccourse_mccourse_bottle_restored_ten_levels";
+            "key.mccoursemod_mccoursemod_bottle_restored_ten_levels";
     public static final String KEY_MCCOURSE_BOTTLE_STORED_HUNDRED_LEVELS =
-            "key.mccourse_mccourse_bottle_stored_hundred_levels";
+            "key.mccoursemod_mccoursemod_bottle_stored_hundred_levels";
     public static final String KEY_MCCOURSE_BOTTLE_RESTORED_HUNDRED_LEVELS =
-            "key.mccourse_mccourse_bottle_restored_hundred_levels";
+            "key.mccoursemod_mccoursemod_bottle_restored_hundred_levels";
     // Unlock custom key input
-    public static final String KEY_UNLOCK = "key.mccourse_unlock";
+    public static final String KEY_UNLOCK = "key.mccoursemod_unlock";
 
     // Register all custom key binding
     public static final Lazy<KeyMapping> GLOWING_BLOCKS_KEY =
