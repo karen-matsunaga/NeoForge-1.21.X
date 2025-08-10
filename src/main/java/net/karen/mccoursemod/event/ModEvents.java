@@ -157,12 +157,14 @@ public class ModEvents {
         ItemStack tool = player.getMainHandItem();
         Level level = (Level) event.getLevel();
         if (tool.isEmpty()) { return; } // * PROBLEMS *
-        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        int fortune = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(Enchantments.FORTUNE).getDelegate(), tool),
-            autoSmelt = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.AUTO_SMELT).getDelegate(), tool),
-            moreOres = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.MORE_ORES).getDelegate(), tool),
-            rainbow = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.RAINBOW).getDelegate(), tool),
-            magnet = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.MAGNET).getDelegate(), tool);
+        RegistryAccess access = level.registryAccess();
+        HolderLookup.RegistryLookup<Enchantment> ench = access.lookupOrThrow(Registries.ENCHANTMENT);
+        int fortune = toolEnchant(ench, Enchantments.FORTUNE, tool),
+            autoSmelt = toolEnchant(ench, ModEnchantments.AUTO_SMELT, tool),
+            moreOres = toolEnchant(ench, ModEnchantments.MORE_ORES, tool),
+            rainbow = toolEnchant(ench, ModEnchantments.RAINBOW, tool),
+            magnet = toolEnchant(ench, ModEnchantments.MAGNET, tool),
+            test = toolEnchant(ench, ModEnchantments.MORE_ORES_ENCHANTMENT_EFFECT, tool);
         boolean hasRainbow = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.RAINBOW.get()),
                 hasMoreOres = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.MORE_ORES.get()),
                 hasAutoSmelt = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.AUTO_SMELT.get()),
@@ -170,8 +172,32 @@ public class ModEvents {
         if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
             boolean cancelVanillaDrop = false; // Adapt the drop according to the enchantment being true
             List<ItemStack> finalDrops = new ArrayList<>(); // Items caused by enchantments are stored in the list
-            int oresFortune = serverLevel.random.nextInt(fortune + 1),
-                 hasFortune = (fortune > 0) ? (1 + oresFortune) : 1;
+            int hasFortune = (fortune > 0) ? (1 + serverLevel.random.nextInt(fortune + 1)) : 1;
+            if (test > 0) { // * MORE ORES ENCHANTMENT EFFECT *
+                HolderLookup.RegistryLookup<Block> blocks = access.lookupOrThrow(Registries.BLOCK);
+                MoreOresEnchantmentEffect tags =
+                        new MoreOresEnchantmentEffect(ModTags.Blocks.MORE_ORES_ALL_DROPS,
+                                                      blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
+                                                      1F);
+                EnchantmentHelper.runIterationOnItem(tool, (holder, holderLvl) -> {
+                    MoreOresEnchantmentEffect moreOresEnchEffect =
+                            holder.value().effects().get(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT.get());
+                    if (moreOresEnchEffect != null) {
+                        if (state.is(tags.block())) {
+                            Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(tags.blockTagKey());
+                            tagBlock.forEach((block -> {
+                                if (serverLevel.random.nextFloat() < tags.chance()) {
+                                    ItemStack drop = new ItemStack(block.value().asItem());
+                                    drop.setCount(drop.getCount() * holderLvl);
+                                    finalDrops.add(drop);
+                                }
+                            }));
+                        }
+                    }
+                });
+                finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
+                cancelVanillaDrop = true;
+            }
             if (hasRainbow || rainbow > 0) { // * RAINBOW EFFECT *
                 Map<Block, TagKey<Block>> rainbowMap = Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
                 Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER), Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
@@ -198,7 +224,7 @@ public class ModEvents {
                 if (state.is(ModTags.Blocks.MORE_ORES_BREAK_BLOCK)) {
                     Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(ModTags.Blocks.MORE_ORES_ALL_DROPS);
                     tagBlock.forEach((block -> {
-                        if (serverLevel.random.nextFloat() < 0.01F) {
+                        if (serverLevel.random.nextFloat() < 1F) {
                             ItemStack drop = new ItemStack(block.value().asItem()); // Increase ore drop with Multiplier enchantment
                             drop.setCount((drop.getCount() * hasFortune) *
                                           (getEffectMultiplier(tool, ModDataComponentTypes.MORE_ORES.get(), 1)) *
@@ -605,44 +631,6 @@ public class ModEvents {
                                                              100));
                     }
                 }
-            }
-        }
-    }
-
-    // CUSTOM EVENT - MORE ORES ENCHANTMENT TEST
-    @SubscribeEvent
-    public static void moreOresEnchantmentEffect(BlockEvent.BreakEvent event) {
-        Player player = event.getPlayer();
-        LevelAccessor world = event.getLevel();
-        BlockPos pos = event.getPos();
-        BlockState state = event.getState();
-        ItemStack tool = player.getMainHandItem();
-        Level level = (Level) event.getLevel();
-        RegistryAccess access = level.registryAccess();
-        HolderLookup.RegistryLookup<Enchantment> ench = access.lookupOrThrow(Registries.ENCHANTMENT);
-        HolderLookup.RegistryLookup<Block> blocks = access.lookupOrThrow(Registries.BLOCK);
-        int test = toolEnchant(ench, ModEnchantments.MORE_ORES_ENCHANTMENT_EFFECT, tool);
-        if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
-            if (test > 0) {
-                MoreOresEnchantmentEffect tags = new MoreOresEnchantmentEffect(ModTags.Blocks.MORE_ORES_ALL_DROPS,
-                                                                               blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
-                                                                               1F);
-                EnchantmentHelper.runIterationOnItem(tool, (holder, holderLvl) -> {
-                    MoreOresEnchantmentEffect moreOres =
-                            holder.value().effects().get(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT.get());
-                    if (moreOres != null) {
-                        if (state.is(tags.block())) {
-                            Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(tags.blockTagKey());
-                            tagBlock.forEach((block -> {
-                                if (serverLevel.random.nextFloat() < tags.chance()) {
-                                    ItemStack drop = new ItemStack(block.value().asItem());
-                                    drop.setCount(drop.getCount() * test);
-                                    dropItem(serverLevel, pos, drop);
-                                }
-                            }));
-                        }
-                    }
-                });
             }
         }
     }
