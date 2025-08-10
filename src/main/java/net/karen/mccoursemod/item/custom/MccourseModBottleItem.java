@@ -18,12 +18,12 @@ import static net.karen.mccoursemod.util.ChatUtils.*;
 import static net.karen.mccoursemod.util.ChatUtils.componentTranslatable;
 
 public class MccourseModBottleItem extends Item {
-    public static int storeXp;
+    public final int storeXp;
     public final int amountXp;
 
     public MccourseModBottleItem(Properties properties, int storeXp, int amountXp) {
         super(properties);
-        MccourseModBottleItem.storeXp = storeXp;
+        this.storeXp = storeXp;
         this.amountXp = amountXp;
     }
 
@@ -31,19 +31,20 @@ public class MccourseModBottleItem extends Item {
     public @NotNull InteractionResult use(@NotNull Level level, @NotNull Player player,
                                           @NotNull InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand); // Player has Mccourse Bottle on main hand
+        if (player.level().isClientSide() || stack.isEmpty()) { return InteractionResult.FAIL; }
+        if (!(stack.getItem() instanceof MccourseModBottleItem self)) { return InteractionResult.FAIL; }
         if (!stack.has(ModDataComponentTypes.STORED_LEVELS)) {
-            stack.set(ModDataComponentTypes.STORED_LEVELS, amountXp);
+            stack.set(ModDataComponentTypes.STORED_LEVELS, self.amountXp);
         }
-        else { // StoredLevels Data Component to save and to store XP
-            Integer storedLevels = stack.get(ModDataComponentTypes.STORED_LEVELS);
-            if (storedLevels != null && storedLevels >= 0) {
-                if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
-                    if (player.isShiftKeyDown()) { // SHIFT + RIGHT click
-                        mccourseXp(serverPlayer, player, storedLevels, storedLevels, 0, storedLevels + " levels!");
-                    }
-                    else { // RIGHT click
-                        mccourseXp(serverPlayer, player, storedLevels, 1, storedLevels - 1, "1 level!");
-                    }
+        // StoredLevels Data Component to save and to store XP
+        Integer storedLevels = stack.get(ModDataComponentTypes.STORED_LEVELS);
+        if (storedLevels != null && storedLevels >= 0) {
+            if (player instanceof ServerPlayer serverPlayer) {
+                if (player.isShiftKeyDown()) { // SHIFT + RIGHT click
+                    mccourseXp(serverPlayer, player, storedLevels, storedLevels, 0, storedLevels + " levels!", stack);
+                }
+                else { // RIGHT click
+                    mccourseXp(serverPlayer, player, storedLevels, 1, storedLevels - 1, "1 level!", stack);
                 }
             }
         }
@@ -81,13 +82,12 @@ public class MccourseModBottleItem extends Item {
 
     // CUSTOM METHOD - Mccourse Bottle RESTORE system
     private void mccourseXp(ServerPlayer serverPlayer, Player player,
-                            int storedLevels, int amount, int store, String message) {
-        ItemStack heldItem = player.getMainHandItem();
+                            int storedLevels, int amount, int store, String message, ItemStack heldItem) {
         if (player.getCooldowns().isOnCooldown(heldItem)) { // Check if it is already on cooldown
             player(player, "Wait before using again!", yellow);
             return;
         }
-        if (storedLevels >= 0) { // Restore levels
+        if (storedLevels > 0) { // Restore levels
             serverPlayer.giveExperienceLevels(amount);
             heldItem.set(ModDataComponentTypes.STORED_LEVELS, store);
             player(player, "Restored " + message, green);

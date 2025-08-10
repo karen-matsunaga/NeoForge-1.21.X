@@ -1,5 +1,6 @@
 package net.karen.mccoursemod.network;
 
+import io.netty.buffer.ByteBuf;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.custom.MccourseModBottleItem;
@@ -10,23 +11,47 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.ByIdMap;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.jetbrains.annotations.NotNull;
+import java.util.function.IntFunction;
 import static net.karen.mccoursemod.util.ChatUtils.*;
-import static net.karen.mccoursemod.util.ChatUtils.green;
-import static net.karen.mccoursemod.util.ChatUtils.player;
-import static net.karen.mccoursemod.util.ChatUtils.red;
 
-public record MccourseModBottlePacketPayload(boolean actionItem,
+public record MccourseModBottlePacketPayload(MccourseModBottleEnum actionItem,
                                              int amount) implements CustomPacketPayload {
+
+    public enum MccourseModBottleEnum implements StringRepresentable {
+        STORED("Stored"),
+        RESTORED("Restored");
+
+        public static final IntFunction<MccourseModBottleEnum> BY_ID =
+                ByIdMap.continuous(Enum::ordinal, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
+
+        public static final StreamCodec<ByteBuf, MccourseModBottleEnum> STREAM_CODEC =
+                ByteBufCodecs.idMapper(BY_ID, Enum::ordinal);
+
+        private final String name;
+
+        MccourseModBottleEnum(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public @NotNull String getSerializedName() {
+            return this.name;
+        }
+    }
+
+
     public static final CustomPacketPayload.Type<MccourseModBottlePacketPayload> TYPE =
            new CustomPacketPayload.Type<>
                (ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "mccoursemod_bottle_data"));
 
     public static final StreamCodec<RegistryFriendlyByteBuf, MccourseModBottlePacketPayload> STREAM_CODEC =
-           StreamCodec.composite(ByteBufCodecs.BOOL, MccourseModBottlePacketPayload::actionItem,
+           StreamCodec.composite(MccourseModBottleEnum.STREAM_CODEC, MccourseModBottlePacketPayload::actionItem,
                                  ByteBufCodecs.INT, MccourseModBottlePacketPayload::amount,
                                  MccourseModBottlePacketPayload::new);
 
@@ -42,39 +67,36 @@ public record MccourseModBottlePacketPayload(boolean actionItem,
             Player player = context.player();
             if (player instanceof ServerPlayer serverPlayer) {
                 ItemStack stack = serverPlayer.getMainHandItem(); // Has Mccourse Mod Bottle item on main hand
-                if (!(stack.getItem() instanceof MccourseModBottleItem)) { return; }
+                if (!(stack.getItem() instanceof MccourseModBottleItem self)) { return; }
                 // Data Component to store and to restore XP, Store Levels on Mccourse Mod Bottle, Player XP
                 Integer storedLevels = stack.get(ModDataComponentTypes.STORED_LEVELS);
-                if (storedLevels != null && storedLevels >= 0) {
-                    int maxLevels = MccourseModBottleItem.storeXp,
+                if (storedLevels != null && storedLevels >= 0) { // STORED
+                    int maxLevels = self.storeXp,
                         availableLevels = serverPlayer.experienceLevel;
                     if (serverPlayer.getCooldowns().isOnCooldown(stack)) { // Check if it is already on cooldown
                         player(serverPlayer, "Wait before using again!", yellow);
                         return;
                     }
-                    if (payload.actionItem()) {
+                    if (payload.actionItem == MccourseModBottleEnum.STORED) {
                         if (availableLevels <= 0) { // Player store XP only has 1+ levels
                             player(serverPlayer, "You have no XP to store!", red);
                             return;
                         }
                         int canStore = Math.min(payload.amount(), Math.min(maxLevels - storedLevels, availableLevels));
-                        if (canStore >= 0) {
+                        if (canStore > 0) {
                             stack.set(ModDataComponentTypes.STORED_LEVELS, storedLevels + canStore);
                             serverPlayer.giveExperienceLevels(-canStore);
                             player(serverPlayer, "Stored " + canStore + " levels!", green);
                         }
                         else { player(serverPlayer, "XP full or insufficient!", red); }
                     }
-                    if (!payload.actionItem()) {
+                    if (payload.actionItem == MccourseModBottleEnum.RESTORED) { // RESTORED
                         int toRestore = Math.min(payload.amount(), storedLevels);
                         stack.set(ModDataComponentTypes.STORED_LEVELS, storedLevels - toRestore);
                         serverPlayer.giveExperienceLevels(toRestore);
                         player(serverPlayer, "Restored " + toRestore + " levels!", green);
                     }
                     serverPlayer.getCooldowns().addCooldown(stack, 20); // Applies 1 second cooldown (20 ticks)
-                }
-                else { // Player store XP only has 1+ levels
-                    player(serverPlayer, "No XP to restore!", red);
                 }
             }
         })

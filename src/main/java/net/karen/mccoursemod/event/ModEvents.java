@@ -19,6 +19,7 @@ import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.ModTags;
 import net.karen.mccoursemod.util.Utils;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -570,13 +571,70 @@ public class ModEvents {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
         if (player != null && mc.level != null) {
-            if (player.getMainHandItem().getItem() instanceof MccourseModBottleItem) {
-                boolean shift = InputConstants.isKeyDown(mc.getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT);
-                int amount = shift ? MccourseModBottleItem.storeXp : 1; // Pressed LEFT click + SHIFT
-                if (mc.options.keyAttack.isDown()) {
-                    ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(shift, amount));
+            if (mc.options.keyAttack.isDown()) {
+                if (player.getMainHandItem().getItem() instanceof MccourseModBottleItem self) {
+                    boolean shift = InputConstants.isKeyDown(mc.getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT);
+                    KeyMapping sTen = KeyBinding.MCCOURSE_BOTTLE_STORED_TEN_LEVELS_KEY.get();
+                    KeyMapping sHun = KeyBinding.MCCOURSE_BOTTLE_STORED_HUNDRED_LEVELS_KEY.get();
+                    KeyMapping rTen = KeyBinding.MCCOURSE_BOTTLE_RESTORED_TEN_LEVELS_KEY.get();
+                    KeyMapping rHun = KeyBinding.MCCOURSE_BOTTLE_RESTORED_HUNDRED_LEVELS_KEY.get();
+                    // Pressed LEFT click + SHIFT
+                    ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
+                                                         MccourseModBottlePacketPayload.MccourseModBottleEnum.STORED,
+                                                         shift ? self.storeXp : 1));
+                    if (sTen.consumeClick() && sTen.isDown()) {
+                        ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
+                                                             MccourseModBottlePacketPayload.MccourseModBottleEnum.STORED,
+                                                             10));
+                    }
+                    if (shift && sHun.consumeClick() && sHun.isDown()) {
+                        ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
+                                                             MccourseModBottlePacketPayload.MccourseModBottleEnum.STORED,
+                                                             100));
+                    }
+                    if (rTen.consumeClick() && rTen.isDown()) {
+                        ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
+                                                             MccourseModBottlePacketPayload.MccourseModBottleEnum.RESTORED,
+                                                             10));
+                    }
+                    if (shift && rHun.consumeClick() && rHun.isDown()) {
+                        ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
+                                                             MccourseModBottlePacketPayload.MccourseModBottleEnum.RESTORED,
+                                                             100));
+                    }
                 }
             }
         }
     }
+
+    // CUSTOM EVENT - MORE ORES ENCHANTMENT TEST
+//    @SubscribeEvent
+//    public static void testEnchantment(BlockEvent.BreakEvent event) {
+//        Player player = event.getPlayer();
+//        LevelAccessor world = event.getLevel();
+//        BlockState state = event.getState();
+//        ItemStack tool = player.getMainHandItem();
+//        Level level = (Level) event.getLevel();
+//        if (tool.isEmpty()) { return; } // * PROBLEMS *
+//        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+//        HolderLookup.RegistryLookup<Block> blocks = level.registryAccess().lookupOrThrow(Registries.BLOCK);
+//        int test = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.MORE_ORES_ENCHANTMENT_EFFECT).getDelegate(), tool);
+//        if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
+//            if (test > 0) { // * MORE ORES EFFECT *
+//                MoreOresEnchantmentEffect tags =
+//                        new MoreOresEnchantmentEffect(ModTags.Blocks.MORE_ORES_ALL_DROPS,
+//                                blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
+//                                0.1F);
+//                if (state.is(tags.block())) {
+//                    Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(tags.blockTagKey());
+//                    tagBlock.forEach((block -> {
+//                        if (serverLevel.random.nextFloat() < tags.chance()) {
+//                            ItemStack drop = new ItemStack(block.value().asItem()); // Increase ore drop with Multiplier enchantment
+//                            drop.setCount(drop.getCount() * test);
+//                        }
+//                    }));
+//                }
+//            }
+//        }
+//    }
 }
