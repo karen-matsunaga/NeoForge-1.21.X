@@ -27,6 +27,7 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.FormattedText;
@@ -610,33 +611,38 @@ public class ModEvents {
 
     // CUSTOM EVENT - MORE ORES ENCHANTMENT TEST
     @SubscribeEvent
-    public static void testEnchantment(BlockEvent.BreakEvent event) {
+    public static void moreOresEnchantmentEffect(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
         LevelAccessor world = event.getLevel();
         BlockPos pos = event.getPos();
         BlockState state = event.getState();
         ItemStack tool = player.getMainHandItem();
         Level level = (Level) event.getLevel();
-        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        HolderLookup.RegistryLookup<Block> blocks = level.registryAccess().lookupOrThrow(Registries.BLOCK);
-        int test =
-        EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.MORE_ORES_ENCHANTMENT_EFFECT).getDelegate(), tool);
+        RegistryAccess access = level.registryAccess();
+        HolderLookup.RegistryLookup<Enchantment> ench = access.lookupOrThrow(Registries.ENCHANTMENT);
+        HolderLookup.RegistryLookup<Block> blocks = access.lookupOrThrow(Registries.BLOCK);
+        int test = toolEnchant(ench, ModEnchantments.MORE_ORES_ENCHANTMENT_EFFECT, tool);
         if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
             if (test > 0) {
                 MoreOresEnchantmentEffect tags = new MoreOresEnchantmentEffect(ModTags.Blocks.MORE_ORES_ALL_DROPS,
                                                                                blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
-                                                                               0.1F);
-                tool.set(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT, tags);
-                if (state.is(tags.block())) {
-                    Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(tags.blockTagKey());
-                    tagBlock.forEach((block -> {
-                        if (serverLevel.random.nextFloat() < tags.chance()) {
-                            ItemStack drop = new ItemStack(block.value().asItem()); // Increase ore drop with Multiplier enchantment
-                            drop.setCount(drop.getCount() * test);
-                            dropItem(serverLevel, pos, drop);
+                                                                               1F);
+                EnchantmentHelper.runIterationOnItem(tool, (holder, holderLvl) -> {
+                    MoreOresEnchantmentEffect moreOres =
+                            holder.value().effects().get(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT.get());
+                    if (moreOres != null) {
+                        if (state.is(tags.block())) {
+                            Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(tags.blockTagKey());
+                            tagBlock.forEach((block -> {
+                                if (serverLevel.random.nextFloat() < tags.chance()) {
+                                    ItemStack drop = new ItemStack(block.value().asItem());
+                                    drop.setCount(drop.getCount() * test);
+                                    dropItem(serverLevel, pos, drop);
+                                }
+                            }));
                         }
-                    }));
-                }
+                    }
+                });
             }
         }
     }

@@ -2,7 +2,9 @@ package net.karen.mccoursemod.util;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
@@ -181,6 +183,11 @@ public class Utils {
         return EnchantmentHelper.getEnchantmentLevel(enchantment, player);
     }
 
+    // CUSTOM METHOD - Enchantment tool
+    public static int toolEnchant(HolderLookup.RegistryLookup<Enchantment> ench,
+                                  ResourceKey<Enchantment> name, ItemStack tool) {
+        return EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(name).getDelegate(), tool);
+    }
 
     // CUSTOM METHOD - Consume Infinite item
     public static void consumeInfinite(Player player, ItemStack usedStack) {

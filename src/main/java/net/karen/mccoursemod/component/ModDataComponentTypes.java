@@ -14,9 +14,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.function.UnaryOperator;
 
 public class ModDataComponentTypes {
+    // Data Component Type Registries
     public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
            DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, MccourseMod.MOD_ID);
 
+    // Enchantment Data Component Type Registries
     public static final DeferredRegister<DataComponentType<?>> ENCHANTMENT_COMPONENT_TYPES =
             DeferredRegister.create(BuiltInRegistries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, MccourseMod.MOD_ID);
 
@@ -54,12 +56,12 @@ public class ModDataComponentTypes {
            register("custom_tooltip", builder ->
                     builder.persistent(CustomTooltip.CODEC).networkSynchronized(CustomTooltip.STREAM_CODEC));
 
-    // Mccourse Mod Bottle
+    // Mccourse Mod Bottle data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> STORED_LEVELS =
            register("stored_levels", builder ->
                     builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
 
-    // TEST
+    // More Ores Enchantment Effect data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<MoreOresEnchantmentEffect>>
             MORE_ORES_ENCHANTMENT_EFFECT =
             ENCHANTMENT_COMPONENT_TYPES.register("more_ores_enchantment_effect", () ->
