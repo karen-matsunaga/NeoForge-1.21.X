@@ -27,11 +27,13 @@ public record MccourseModBottlePacketPayload(MccourseModBottleEnum actionItem,
         STORED("Stored"),
         RESTORED("Restored");
 
+        // Mccourse Mod Bottle Enum -> ID
         public static final IntFunction<MccourseModBottleEnum> BY_ID =
-                ByIdMap.continuous(Enum::ordinal, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
+               ByIdMap.continuous(Enum::ordinal, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
 
+        // Mccourse Mod Bottle Enum -> STREAM CODEC
         public static final StreamCodec<ByteBuf, MccourseModBottleEnum> STREAM_CODEC =
-                ByteBufCodecs.idMapper(BY_ID, Enum::ordinal);
+               ByteBufCodecs.idMapper(BY_ID, Enum::ordinal);
 
         private final String name;
 
@@ -40,25 +42,22 @@ public record MccourseModBottlePacketPayload(MccourseModBottleEnum actionItem,
         }
 
         @Override
-        public @NotNull String getSerializedName() {
-            return this.name;
-        }
+        public @NotNull String getSerializedName() { return this.name; }
     }
 
-
+    // Mccourse Mod Bottle PACKET PAYLOAD -> TYPE
     public static final CustomPacketPayload.Type<MccourseModBottlePacketPayload> TYPE =
            new CustomPacketPayload.Type<>
                (ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "mccoursemod_bottle_data"));
 
+    // Mccourse Mod Bottle PACKET PAYLOAD -> STREAM CODEC
     public static final StreamCodec<RegistryFriendlyByteBuf, MccourseModBottlePacketPayload> STREAM_CODEC =
            StreamCodec.composite(MccourseModBottleEnum.STREAM_CODEC, MccourseModBottlePacketPayload::actionItem,
                                  ByteBufCodecs.INT, MccourseModBottlePacketPayload::amount,
                                  MccourseModBottlePacketPayload::new);
 
     @Override
-    public @NotNull Type<? extends CustomPacketPayload> type() {
-        return TYPE;
-    }
+    public @NotNull Type<? extends CustomPacketPayload> type() { return TYPE; }
 
     // SERVER NETWORK -> Mccourse Mod Bottle item
     public static void onMccourseModBottleServerPayloadHandler(MccourseModBottlePacketPayload payload,

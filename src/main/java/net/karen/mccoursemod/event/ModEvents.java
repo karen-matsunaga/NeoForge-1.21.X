@@ -20,9 +20,9 @@ import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.ModTags;
 import net.karen.mccoursemod.util.Utils;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -66,7 +66,6 @@ import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
@@ -595,42 +594,28 @@ public class ModEvents {
 
     // CUSTOM EVENT - MCCOURSE MOD BOTTLE item
     @SubscribeEvent
-    public static void mccourseBottleLeftShiftInputEvent(ClientTickEvent.Post event) {
+    public static void onMccourseModBottleKeyInput(InputEvent.Key event) {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
-        if (player != null && mc.level != null) {
-            if (mc.options.keyAttack.isDown()) {
+        ClientLevel clientLevel = mc.level;
+        boolean shift = Screen.hasShiftDown();
+        if (player != null && clientLevel != null) { // Pressed SHIFT + B | SHIFT + N
+            if (mc.options.keyAttack.isDown()) { // Pressed LEFT click + SHIFT
                 if (player.getMainHandItem().getItem() instanceof MccourseModBottleItem self) {
-                    boolean shift = InputConstants.isKeyDown(mc.getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT);
-                    KeyMapping sTen = KeyBinding.MCCOURSE_BOTTLE_STORED_TEN_LEVELS_KEY.get();
-                    KeyMapping sHun = KeyBinding.MCCOURSE_BOTTLE_STORED_HUNDRED_LEVELS_KEY.get();
-                    KeyMapping rTen = KeyBinding.MCCOURSE_BOTTLE_RESTORED_TEN_LEVELS_KEY.get();
-                    KeyMapping rHun = KeyBinding.MCCOURSE_BOTTLE_RESTORED_HUNDRED_LEVELS_KEY.get();
-                    // Pressed LEFT click + SHIFT
                     ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
                                                          MccourseModBottlePacketPayload.MccourseModBottleEnum.STORED,
                                                          shift ? self.storeXp : 1));
-                    if (sTen.consumeClick() && sTen.isDown()) {
-                        ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
-                                                             MccourseModBottlePacketPayload.MccourseModBottleEnum.STORED,
-                                                             10));
-                    }
-                    if (shift && sHun.consumeClick() && sHun.isDown()) {
-                        ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
-                                                             MccourseModBottlePacketPayload.MccourseModBottleEnum.STORED,
-                                                             100));
-                    }
-                    if (rTen.consumeClick() && rTen.isDown()) {
-                        ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
-                                                             MccourseModBottlePacketPayload.MccourseModBottleEnum.RESTORED,
-                                                             10));
-                    }
-                    if (shift && rHun.consumeClick() && rHun.isDown()) {
-                        ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
-                                                             MccourseModBottlePacketPayload.MccourseModBottleEnum.RESTORED,
-                                                             100));
-                    }
                 }
+            }
+            if (KeyBinding.MCCOURSE_BOTTLE_STORED_KEY.get().consumeClick()) { // Pressed SHIFT + N
+                ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
+                                                     MccourseModBottlePacketPayload.MccourseModBottleEnum.STORED,
+                                                     shift ? 100 : 10));
+            }
+            if (KeyBinding.MCCOURSE_BOTTLE_RESTORED_KEY.get().consumeClick()) { // Pressed SHIFT + B
+                ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
+                                                     MccourseModBottlePacketPayload.MccourseModBottleEnum.RESTORED,
+                                                     shift ? 100 : 10));
             }
         }
     }

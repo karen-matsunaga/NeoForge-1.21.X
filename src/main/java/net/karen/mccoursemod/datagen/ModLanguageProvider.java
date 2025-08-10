@@ -277,10 +277,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add("key.category.mccoursemod", "Mccourse Mod");
         add("key.mccoursemod_glowing_blocks", "Glowing Blocks");
         add("key.mccoursemod_glowing_mobs", "Glowing Mobs");
-        add("key.mccoursemod_mccoursemod_bottle_stored_ten_levels", "Mccourse Mod Bottle Stored Ten Levels");
-        add("key.mccoursemod_mccoursemod_bottle_restored_ten_levels", "Mccourse Mod Bottle Restored Ten Levels");
-        add("key.mccoursemod_mccoursemod_bottle_stored_hundred_levels", "Mccourse Mod Bottle Stored Hundred Levels");
-        add("key.mccoursemod_mccoursemod_bottle_restored_hundred_levels", "Mccourse Mod Bottle Restored Hundred Levels");
+        add("key.mccoursemod_mccoursemod_bottle_stored", "Mccourse Mod Bottle Stored");
+        add("key.mccoursemod_mccoursemod_bottle_restored", "Mccourse Mod Bottle Restored");
         add("key.mccoursemod_unlock", "Unlock");
     }
 }

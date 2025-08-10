@@ -79,10 +79,8 @@ public class MccourseModClient {
     public static void registerKeyInput(RegisterKeyMappingsEvent event) {
         event.register(KeyBinding.GLOWING_MOBS_KEY.get()); // Glowing Mobs custom enchantment
         event.register(KeyBinding.GLOWING_BLOCKS_KEY.get()); // Glowing Blocks custom enchantment
-        event.register(KeyBinding.MCCOURSE_BOTTLE_STORED_TEN_LEVELS_KEY.get()); // Mccourse Bottle stored 10 levels
-        event.register(KeyBinding.MCCOURSE_BOTTLE_RESTORED_TEN_LEVELS_KEY.get()); // Mccourse Bottle restored 10 levels
-        event.register(KeyBinding.MCCOURSE_BOTTLE_STORED_HUNDRED_LEVELS_KEY.get()); // Mccourse Bottle stored 100 levels
-        event.register(KeyBinding.MCCOURSE_BOTTLE_RESTORED_HUNDRED_LEVELS_KEY.get()); // Mccourse Bottle restored 100 levels
+        event.register(KeyBinding.MCCOURSE_BOTTLE_STORED_KEY.get()); // Mccourse Bottle stored 10 levels
+        event.register(KeyBinding.MCCOURSE_BOTTLE_RESTORED_KEY.get()); // Mccourse Bottle restored 10 levels
         event.register(KeyBinding.UNLOCK_KEY.get()); // Unlock custom enchantment
     }
 }
