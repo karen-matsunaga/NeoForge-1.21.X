@@ -5,6 +5,7 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.neoforged.bus.api.IEventBus;
@@ -15,6 +16,9 @@ import java.util.function.UnaryOperator;
 public class ModDataComponentTypes {
     public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
            DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, MccourseMod.MOD_ID);
+
+    public static final DeferredRegister<DataComponentType<?>> ENCHANTMENT_COMPONENT_TYPES =
+            DeferredRegister.create(BuiltInRegistries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, MccourseMod.MOD_ID);
 
     // Coordinates custom data component -> X, Y, Z positions
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> COORDINATES =
@@ -58,9 +62,10 @@ public class ModDataComponentTypes {
     // TEST
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<MoreOresEnchantmentEffect>>
             MORE_ORES_ENCHANTMENT_EFFECT =
-            register("more_ores_enchantment_effect", builder ->
-                    builder.persistent(MoreOresEnchantmentEffect.CODEC)
-                           .networkSynchronized(MoreOresEnchantmentEffect.STREAM_CODEC));
+            ENCHANTMENT_COMPONENT_TYPES.register("more_ores_enchantment_effect", () ->
+                    DataComponentType.<MoreOresEnchantmentEffect>builder()
+                                     .persistent(MoreOresEnchantmentEffect.CODEC)
+                                     .networkSynchronized(MoreOresEnchantmentEffect.STREAM_CODEC).build());
 
     // Registry all custom Data Component
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>>
@@ -69,5 +74,8 @@ public class ModDataComponentTypes {
     }
 
     // Registry all custom Data Component on bus group event
-    public static void register(IEventBus eventBus) { DATA_COMPONENT_TYPES.register(eventBus); }
+    public static void register(IEventBus eventBus) {
+        DATA_COMPONENT_TYPES.register(eventBus);
+        ENCHANTMENT_COMPONENT_TYPES.register(eventBus);
+    }
 }

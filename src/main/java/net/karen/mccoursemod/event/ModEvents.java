@@ -7,6 +7,7 @@ import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
+import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.MccourseModBottleItem;
@@ -608,33 +609,35 @@ public class ModEvents {
     }
 
     // CUSTOM EVENT - MORE ORES ENCHANTMENT TEST
-//    @SubscribeEvent
-//    public static void testEnchantment(BlockEvent.BreakEvent event) {
-//        Player player = event.getPlayer();
-//        LevelAccessor world = event.getLevel();
-//        BlockState state = event.getState();
-//        ItemStack tool = player.getMainHandItem();
-//        Level level = (Level) event.getLevel();
-//        if (tool.isEmpty()) { return; } // * PROBLEMS *
-//        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-//        HolderLookup.RegistryLookup<Block> blocks = level.registryAccess().lookupOrThrow(Registries.BLOCK);
-//        int test = EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.MORE_ORES_ENCHANTMENT_EFFECT).getDelegate(), tool);
-//        if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
-//            if (test > 0) { // * MORE ORES EFFECT *
-//                MoreOresEnchantmentEffect tags =
-//                        new MoreOresEnchantmentEffect(ModTags.Blocks.MORE_ORES_ALL_DROPS,
-//                                blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
-//                                0.1F);
-//                if (state.is(tags.block())) {
-//                    Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(tags.blockTagKey());
-//                    tagBlock.forEach((block -> {
-//                        if (serverLevel.random.nextFloat() < tags.chance()) {
-//                            ItemStack drop = new ItemStack(block.value().asItem()); // Increase ore drop with Multiplier enchantment
-//                            drop.setCount(drop.getCount() * test);
-//                        }
-//                    }));
-//                }
-//            }
-//        }
-//    }
+    @SubscribeEvent
+    public static void testEnchantment(BlockEvent.BreakEvent event) {
+        Player player = event.getPlayer();
+        LevelAccessor world = event.getLevel();
+        BlockPos pos = event.getPos();
+        BlockState state = event.getState();
+        ItemStack tool = player.getMainHandItem();
+        Level level = (Level) event.getLevel();
+        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        HolderLookup.RegistryLookup<Block> blocks = level.registryAccess().lookupOrThrow(Registries.BLOCK);
+        int test =
+        EnchantmentHelper.getTagEnchantmentLevel(ench.getOrThrow(ModEnchantments.MORE_ORES_ENCHANTMENT_EFFECT).getDelegate(), tool);
+        if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
+            if (test > 0) {
+                MoreOresEnchantmentEffect tags = new MoreOresEnchantmentEffect(ModTags.Blocks.MORE_ORES_ALL_DROPS,
+                                                                               blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
+                                                                               0.1F);
+                tool.set(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT, tags);
+                if (state.is(tags.block())) {
+                    Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(tags.blockTagKey());
+                    tagBlock.forEach((block -> {
+                        if (serverLevel.random.nextFloat() < tags.chance()) {
+                            ItemStack drop = new ItemStack(block.value().asItem()); // Increase ore drop with Multiplier enchantment
+                            drop.setCount(drop.getCount() * test);
+                            dropItem(serverLevel, pos, drop);
+                        }
+                    }));
+                }
+            }
+        }
+    }
 }

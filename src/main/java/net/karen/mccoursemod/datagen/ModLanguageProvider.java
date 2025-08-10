@@ -69,10 +69,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add("creativetab.mccoursemod.bismuth_blocks", "Mccourse Blocks");
 
         // CUSTOM Enchantment
-//        add("enchantment.mccoursemod.more_ores_enchantment_effect", "More Ores Enchantment Effect");
-//
-//        add("enchantment.mccoursemod.more_ores_enchantment_effect.desc",
-//                "When applied on pickaxe if a stone block is break has a percentage to receive ores.");
+        add("enchantment.mccoursemod.more_ores_enchantment_effect", "More Ores Enchantment Effect");
+
+        add("enchantment.mccoursemod.more_ores_enchantment_effect.desc",
+                "When applied on pickaxe if a stone block is break has a percentage to receive ores.");
 
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
         add("enchantment.mccoursemod.auto_smelt", "Auto Smelt");
