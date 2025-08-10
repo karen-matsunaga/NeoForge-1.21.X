@@ -76,6 +76,7 @@ public record MccourseModBottlePacketPayload(MccourseModBottleEnum actionItem,
                         player(serverPlayer, "Wait before using again!", yellow);
                         return;
                     }
+                    // Mccourse Mod Bottle Enum -> STORED
                     if (payload.actionItem == MccourseModBottleEnum.STORED) {
                         if (availableLevels <= 0) { // Player store XP only has 1+ levels
                             player(serverPlayer, "You have no XP to store!", red);
@@ -89,11 +90,15 @@ public record MccourseModBottlePacketPayload(MccourseModBottleEnum actionItem,
                         }
                         else { player(serverPlayer, "XP full or insufficient!", red); }
                     }
-                    if (payload.actionItem == MccourseModBottleEnum.RESTORED) { // RESTORED
-                        int toRestore = Math.min(payload.amount(), storedLevels);
-                        stack.set(ModDataComponentTypes.STORED_LEVELS, storedLevels - toRestore);
-                        serverPlayer.giveExperienceLevels(toRestore);
-                        player(serverPlayer, "Restored " + toRestore + " levels!", green);
+                    // Mccourse Mod Bottle Enum -> RESTORED
+                    if (payload.actionItem == MccourseModBottleEnum.RESTORED) {
+                        int canRestore = Math.min(payload.amount(), storedLevels);
+                        if (canRestore > 0) {
+                            stack.set(ModDataComponentTypes.STORED_LEVELS, storedLevels - canRestore);
+                            serverPlayer.giveExperienceLevels(canRestore);
+                            player(serverPlayer, "Restored " + canRestore + " levels!", green);
+                        }
+                        else { player(serverPlayer, "XP restored!", red); }
                     }
                     serverPlayer.getCooldowns().addCooldown(stack, 20); // Applies 1 second cooldown (20 ticks)
                 }

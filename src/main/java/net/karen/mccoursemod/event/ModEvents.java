@@ -45,6 +45,7 @@ import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
@@ -594,19 +595,28 @@ public class ModEvents {
 
     // CUSTOM EVENT - MCCOURSE MOD BOTTLE item
     @SubscribeEvent
+    public static void onMccourseModBottleMouseButton(InputEvent.MouseButton.Post event) {
+        Minecraft mc = Minecraft.getInstance();
+        Player player = mc.player;
+        ClientLevel clientLevel = mc.level;
+        boolean shift = Screen.hasShiftDown();
+        if (player != null && clientLevel != null) { // Pressed LEFT click + SHIFT
+            Item item = player.getMainHandItem().getItem();
+            if (mc.options.keyAttack.isDown() && item instanceof MccourseModBottleItem self) {
+                ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
+                                                     MccourseModBottlePacketPayload.MccourseModBottleEnum.STORED,
+                                                     shift ? self.storeXp : 1));
+            }
+        }
+    }
+
+    @SubscribeEvent
     public static void onMccourseModBottleKeyInput(InputEvent.Key event) {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
         ClientLevel clientLevel = mc.level;
         boolean shift = Screen.hasShiftDown();
-        if (player != null && clientLevel != null) { // Pressed SHIFT + B | SHIFT + N
-            if (mc.options.keyAttack.isDown()) { // Pressed LEFT click + SHIFT
-                if (player.getMainHandItem().getItem() instanceof MccourseModBottleItem self) {
-                    ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
-                                                         MccourseModBottlePacketPayload.MccourseModBottleEnum.STORED,
-                                                         shift ? self.storeXp : 1));
-                }
-            }
+        if (player != null && clientLevel != null) {
             if (KeyBinding.MCCOURSE_BOTTLE_STORED_KEY.get().consumeClick()) { // Pressed SHIFT + N
                 ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
                                                      MccourseModBottlePacketPayload.MccourseModBottleEnum.STORED,
