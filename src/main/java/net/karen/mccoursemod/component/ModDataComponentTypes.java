@@ -2,6 +2,7 @@ package net.karen.mccoursemod.component;
 
 import com.mojang.serialization.Codec;
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
@@ -53,6 +54,13 @@ public class ModDataComponentTypes {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> STORED_LEVELS =
            register("stored_levels", builder ->
                     builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
+
+    // TEST
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<MoreOresEnchantmentEffect>>
+            MORE_ORES_ENCHANTMENT_EFFECT =
+            register("more_ores_enchantment_effect", builder ->
+                    builder.persistent(MoreOresEnchantmentEffect.CODEC)
+                           .networkSynchronized(MoreOresEnchantmentEffect.STREAM_CODEC));
 
     // Registry all custom Data Component
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>>
