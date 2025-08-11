@@ -4,6 +4,7 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.enchantment.custom.LightningStrikerEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
+import net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -30,6 +31,7 @@ public class ModEnchantments {
     public static final ResourceKey<Enchantment> GLOWING_MOBS = createTag("glowing_mobs");
     public static final ResourceKey<Enchantment> MAGNETISM = createTag("magnetism");
     public static final ResourceKey<Enchantment> MORE_ORES_ENCHANTMENT_EFFECT = createTag("more_ores_enchantment_effect");
+    public static final ResourceKey<Enchantment> RAINBOW_ENCHANTMENT_EFFECT = createTag("rainbow_enchantment_effect");
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
@@ -146,6 +148,18 @@ public class ModEnchantments {
                                                new MoreOresEnchantmentEffect(ModTags.Blocks.MORE_ORES_ALL_DROPS,
                                                                              blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
                                                                              0.1F)));
+
+        // More Ores Enchantment Effect
+        register(context, RAINBOW_ENCHANTMENT_EFFECT,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
+                                                                items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.MAINHAND))
+                            .withSpecialEffect(ModDataComponentTypes.RAINBOW_ENCHANTMENT_EFFECT.get(),
+                                               new RainbowEnchantmentEffect(blocks.getOrThrow(ModTags.Blocks.RAINBOW_ORES),
+                                                                            ModTags.Blocks.RAINBOW_BLOCKS)));
     }
 
     // CUSTOM METHOD - Registry all custom enchantments -> DATA GEN

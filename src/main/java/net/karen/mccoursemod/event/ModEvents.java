@@ -8,6 +8,7 @@ import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
+import net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.MccourseModBottleItem;
@@ -72,7 +73,6 @@ import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.common.NeoForgeMod;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.item.ItemExpireEvent;
@@ -159,12 +159,14 @@ public class ModEvents {
         if (tool.isEmpty()) { return; } // * PROBLEMS *
         RegistryAccess access = level.registryAccess();
         HolderLookup.RegistryLookup<Enchantment> ench = access.lookupOrThrow(Registries.ENCHANTMENT);
+        HolderLookup.RegistryLookup<Block> blocks = access.lookupOrThrow(Registries.BLOCK);
         int fortune = toolEnchant(ench, Enchantments.FORTUNE, tool),
             autoSmelt = toolEnchant(ench, ModEnchantments.AUTO_SMELT, tool),
             moreOres = toolEnchant(ench, ModEnchantments.MORE_ORES, tool),
             rainbow = toolEnchant(ench, ModEnchantments.RAINBOW, tool),
             magnet = toolEnchant(ench, ModEnchantments.MAGNET, tool),
-            test = toolEnchant(ench, ModEnchantments.MORE_ORES_ENCHANTMENT_EFFECT, tool);
+            test = toolEnchant(ench, ModEnchantments.MORE_ORES_ENCHANTMENT_EFFECT, tool),
+            testTwo = toolEnchant(ench, ModEnchantments.RAINBOW_ENCHANTMENT_EFFECT, tool);
         boolean hasRainbow = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.RAINBOW.get()),
                 hasMoreOres = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.MORE_ORES.get()),
                 hasAutoSmelt = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.AUTO_SMELT.get()),
@@ -174,19 +176,15 @@ public class ModEvents {
             List<ItemStack> finalDrops = new ArrayList<>(); // Items caused by enchantments are stored in the list
             int hasFortune = (fortune > 0) ? (1 + serverLevel.random.nextInt(fortune + 1)) : 1;
             if (test > 0) { // * MORE ORES ENCHANTMENT EFFECT *
-                HolderLookup.RegistryLookup<Block> blocks = access.lookupOrThrow(Registries.BLOCK);
-                MoreOresEnchantmentEffect tags =
-                        new MoreOresEnchantmentEffect(ModTags.Blocks.MORE_ORES_ALL_DROPS,
-                                                      blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
-                                                      1F);
                 EnchantmentHelper.runIterationOnItem(tool, (holder, holderLvl) -> {
                     MoreOresEnchantmentEffect moreOresEnchEffect =
                             holder.value().effects().get(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT.get());
                     if (moreOresEnchEffect != null) {
-                        if (state.is(tags.block())) {
-                            Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(tags.blockTagKey());
+                        if (state.is(moreOresEnchEffect.block())) {
+                            Iterable<Holder<Block>> tagBlock =
+                                    BuiltInRegistries.BLOCK.getTagOrEmpty(moreOresEnchEffect.blockTagKey());
                             tagBlock.forEach((block -> {
-                                if (serverLevel.random.nextFloat() < tags.chance()) {
+                                if (serverLevel.random.nextFloat() < moreOresEnchEffect.chance()) {
                                     ItemStack drop = new ItemStack(block.value().asItem());
                                     drop.setCount(drop.getCount() * holderLvl);
                                     finalDrops.add(drop);
@@ -198,45 +196,63 @@ public class ModEvents {
                 finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
                 cancelVanillaDrop = true;
             }
-            if (hasRainbow || rainbow > 0) { // * RAINBOW EFFECT *
-                Map<Block, TagKey<Block>> rainbowMap = Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
-                Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER), Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
-                Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD), Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
-                Map.entry(Blocks.IRON_BLOCK, Tags.Blocks.ORES_IRON), Map.entry(Blocks.LAPIS_BLOCK, Tags.Blocks.ORES_LAPIS),
-                Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
-                Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP));
-                for (Map.Entry<Block, TagKey<Block>> entry : rainbowMap.entrySet()) {
-                    if (state.is(entry.getValue())) {
-                        block(world, pos, entry.getKey(), event);
-                        return;
+            if (testTwo > 0) { // * RAINBOW ENCHANTMENT EFFECT *
+                EnchantmentHelper.runIterationOnItem(tool, (holder, holderLvl) -> {
+                    RainbowEnchantmentEffect rainbowEnchEffect =
+                           holder.value().effects().get(ModDataComponentTypes.RAINBOW_ENCHANTMENT_EFFECT.get());
+                    if (rainbowEnchEffect != null) {
+                        if (state.is(rainbowEnchEffect.block())) {
+                            Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(rainbowEnchEffect.blockTagKey());
+                            tagBlock.forEach((block -> block(world, pos, block.value(), event)));
+                        }
                     }
-                }
+                });
                 if (state.is(ModTags.Blocks.RAINBOW_DROPS)) {
                     ItemStack rainbowDrop = new ItemStack(state.getBlock());
-                    rainbowDrop.setCount((rainbowDrop.getCount() * hasFortune) *
-                                         (getEffectMultiplier(tool, ModDataComponentTypes.RAINBOW.get(), 1)) *
-                                         rainbow);
+                    rainbowDrop.setCount(rainbowDrop.getCount() * testTwo);
                     finalDrops.add(rainbowDrop);
                     cancelVanillaDrop = true;
                 }
             }
-            if (hasMoreOres || moreOres > 0) { // * MORE ORES EFFECT *
-                if (state.is(ModTags.Blocks.MORE_ORES_BREAK_BLOCK)) {
-                    Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(ModTags.Blocks.MORE_ORES_ALL_DROPS);
-                    tagBlock.forEach((block -> {
-                        if (serverLevel.random.nextFloat() < 1F) {
-                            ItemStack drop = new ItemStack(block.value().asItem()); // Increase ore drop with Multiplier enchantment
-                            drop.setCount((drop.getCount() * hasFortune) *
-                                          (getEffectMultiplier(tool, ModDataComponentTypes.MORE_ORES.get(), 1)) *
-                                          moreOres);
-                            finalDrops.add(drop); // Break block and ore chance drop
-                        }
-                    }));
-                    // Break block and ore chance drop
-                    finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
-                    cancelVanillaDrop = true;
-                }
-            }
+//            if (hasRainbow || rainbow > 0) { // * RAINBOW EFFECT *
+//                Map<Block, TagKey<Block>> rainbowMap = Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
+//                Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER), Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
+//                Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD), Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
+//                Map.entry(Blocks.IRON_BLOCK, Tags.Blocks.ORES_IRON), Map.entry(Blocks.LAPIS_BLOCK, Tags.Blocks.ORES_LAPIS),
+//                Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
+//                Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP));
+//                for (Map.Entry<Block, TagKey<Block>> entry : rainbowMap.entrySet()) {
+//                    if (state.is(entry.getValue())) {
+//                        block(world, pos, entry.getKey(), event);
+//                        return;
+//                    }
+//                }
+//                if (state.is(ModTags.Blocks.RAINBOW_DROPS)) {
+//                    ItemStack rainbowDrop = new ItemStack(state.getBlock());
+//                    rainbowDrop.setCount((rainbowDrop.getCount() * hasFortune) *
+//                                         (getEffectMultiplier(tool, ModDataComponentTypes.RAINBOW.get(), 1)) *
+//                                         rainbow);
+//                    finalDrops.add(rainbowDrop);
+//                    cancelVanillaDrop = true;
+//                }
+//            }
+//            if (hasMoreOres || moreOres > 0) { // * MORE ORES EFFECT *
+//                if (state.is(ModTags.Blocks.MORE_ORES_BREAK_BLOCK)) {
+//                    Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(ModTags.Blocks.MORE_ORES_ALL_DROPS);
+//                    tagBlock.forEach((block -> {
+//                        if (serverLevel.random.nextFloat() < 1F) {
+//                            ItemStack drop = new ItemStack(block.value().asItem()); // Increase ore drop with Multiplier enchantment
+//                            drop.setCount((drop.getCount() * hasFortune) *
+//                                          (getEffectMultiplier(tool, ModDataComponentTypes.MORE_ORES.get(), 1)) *
+//                                          moreOres);
+//                            finalDrops.add(drop); // Break block and ore chance drop
+//                        }
+//                    }));
+//                    // Break block and ore chance drop
+//                    finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
+//                    cancelVanillaDrop = true;
+//                }
+//            }
             if (hasAutoSmelt || autoSmelt > 0) { // * AUTO SMELT EFFECT *
                 SingleRecipeInput singleRecipe = new SingleRecipeInput(new ItemStack(state.getBlock()));
                 ServerLevel worldServer = serverLevel.getLevel();

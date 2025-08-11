@@ -74,6 +74,12 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.more_ores_enchantment_effect.desc",
                 "When applied on pickaxe if a stone block is break has a percentage to receive ores.");
 
+        add("enchantment.mccoursemod.rainbow_enchantment_effect",
+            "Rainbow Enchantment Effect");
+
+        add("enchantment.mccoursemod.rainbow_enchantment_effect.desc",
+            "When applied on pickaxe the broken ore is replaced and turned on an ore block.");
+
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
         add("enchantment.mccoursemod.auto_smelt", "Auto Smelt");
         add("enchantment.mccoursemod.more_ores", "More Ores");

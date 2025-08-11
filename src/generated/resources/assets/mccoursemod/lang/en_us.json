@@ -36,6 +36,8 @@
   "enchantment.mccoursemod.peaceful_mobs.desc": "When applied on leggings armor all entities not attack Player.",
   "enchantment.mccoursemod.rainbow": "Rainbow",
   "enchantment.mccoursemod.rainbow.desc": "When applied on pickaxe the broken ore is replaced and turned on an ore block.",
+  "enchantment.mccoursemod.rainbow_enchantment_effect": "Rainbow Enchantment Effect",
+  "enchantment.mccoursemod.rainbow_enchantment_effect.desc": "When applied on pickaxe the broken ore is replaced and turned on an ore block.",
   "enchantment.minecraft.aqua_affinity.desc": "When applied on helmet armor increases underwater mining speed.",
   "enchantment.minecraft.bane_of_arthropods.desc": "When applied on sword or axe increases damage to arthropod mobs also Spiders, Bees, Silverfish, Endermites, etc.",
   "enchantment.minecraft.binding_curse.desc": "When applied on armor the player not remove the item of inventory.",

@@ -3,6 +3,7 @@ package net.karen.mccoursemod.component;
 import com.mojang.serialization.Codec;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
+import net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -63,11 +64,17 @@ public class ModDataComponentTypes {
 
     // More Ores Enchantment Effect data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<MoreOresEnchantmentEffect>>
-            MORE_ORES_ENCHANTMENT_EFFECT =
-            ENCHANTMENT_COMPONENT_TYPES.register("more_ores_enchantment_effect", () ->
-                    DataComponentType.<MoreOresEnchantmentEffect>builder()
-                                     .persistent(MoreOresEnchantmentEffect.CODEC)
-                                     .networkSynchronized(MoreOresEnchantmentEffect.STREAM_CODEC).build());
+            MORE_ORES_ENCHANTMENT_EFFECT = ENCHANTMENT_COMPONENT_TYPES.register("more_ores_enchantment_effect",
+            () -> DataComponentType.<MoreOresEnchantmentEffect>builder()
+                                   .persistent(MoreOresEnchantmentEffect.CODEC)
+                                   .networkSynchronized(MoreOresEnchantmentEffect.STREAM_CODEC).build());
+
+    // Rainbow Enchantment Effect data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<RainbowEnchantmentEffect>>
+            RAINBOW_ENCHANTMENT_EFFECT = ENCHANTMENT_COMPONENT_TYPES.register("rainbow_enchantment_effect",
+            () -> DataComponentType.<RainbowEnchantmentEffect>builder()
+                                   .persistent(RainbowEnchantmentEffect.CODEC)
+                                   .networkSynchronized(RainbowEnchantmentEffect.STREAM_CODEC).build());
 
     // Registry all custom Data Component
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>>

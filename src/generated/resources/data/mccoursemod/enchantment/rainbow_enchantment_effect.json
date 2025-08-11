@@ -1,0 +1,27 @@
+{
+  "anvil_cost": 2,
+  "description": {
+    "translate": "enchantment.mccoursemod.rainbow_enchantment_effect"
+  },
+  "effects": {
+    "mccoursemod:rainbow_enchantment_effect": {
+      "block": "#mccoursemod:rainbow_ores",
+      "blockTagKey": "mccoursemod:rainbow_blocks"
+    }
+  },
+  "max_cost": {
+    "base": 25,
+    "per_level_above_first": 7
+  },
+  "max_level": 2,
+  "min_cost": {
+    "base": 5,
+    "per_level_above_first": 7
+  },
+  "primary_items": "#minecraft:enchantable/mining",
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#minecraft:enchantable/mining_loot",
+  "weight": 5
+}
