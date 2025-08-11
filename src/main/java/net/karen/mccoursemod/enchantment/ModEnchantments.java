@@ -16,6 +16,9 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
+import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
+import java.util.Map;
 
 public class ModEnchantments {
     // Registry all custom enchantments -> enchantment name on JSON file
@@ -158,8 +161,16 @@ public class ModEnchantments {
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.MAINHAND))
                             .withSpecialEffect(ModDataComponentTypes.RAINBOW_ENCHANTMENT_EFFECT.get(),
-                                               new RainbowEnchantmentEffect(blocks.getOrThrow(ModTags.Blocks.RAINBOW_ORES),
-                                                                            ModTags.Blocks.RAINBOW_BLOCKS)));
+                                               new RainbowEnchantmentEffect(
+                                               Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
+                                                             Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER),
+                                                             Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
+                                                             Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD),
+                                                             Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
+                                                             Map.entry(Blocks.IRON_BLOCK, Tags.Blocks.ORES_IRON),
+                                                             Map.entry(Blocks.LAPIS_BLOCK, Tags.Blocks.ORES_LAPIS),
+                                                             Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
+                                                             Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP)))));
     }
 
     // CUSTOM METHOD - Registry all custom enchantments -> DATA GEN
