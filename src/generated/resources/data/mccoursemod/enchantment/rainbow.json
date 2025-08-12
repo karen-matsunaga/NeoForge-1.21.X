@@ -3,6 +3,21 @@
   "description": {
     "translate": "enchantment.mccoursemod.rainbow"
   },
+  "effects": {
+    "mccoursemod:rainbow_enchantment_effect": {
+      "map": {
+        "minecraft:coal_block": "c:ores/coal",
+        "minecraft:copper_block": "c:ores/copper",
+        "minecraft:diamond_block": "c:ores/diamond",
+        "minecraft:emerald_block": "c:ores/emerald",
+        "minecraft:gold_block": "c:ores/gold",
+        "minecraft:iron_block": "c:ores/iron",
+        "minecraft:lapis_block": "c:ores/lapis",
+        "minecraft:netherite_block": "c:ores/netherite_scrap",
+        "minecraft:redstone_block": "c:ores/redstone"
+      }
+    }
+  },
   "max_cost": {
     "base": 25,
     "per_level_above_first": 7
@@ -12,10 +27,10 @@
     "base": 5,
     "per_level_above_first": 7
   },
-  "primary_items": "#minecraft:enchantable/mining_loot",
+  "primary_items": "#minecraft:enchantable/mining",
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#minecraft:enchantable/mining",
+  "supported_items": "#minecraft:enchantable/mining_loot",
   "weight": 5
 }

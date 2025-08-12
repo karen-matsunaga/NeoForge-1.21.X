@@ -20,14 +20,6 @@
       "id": "mccoursemod:more_ores",
       "required": false
     },
-    {
-      "id": "mccoursemod:more_ores_enchantment_effect",
-      "required": false
-    },
-    {
-      "id": "mccoursemod:rainbow_enchantment_effect",
-      "required": false
-    },
     "minecraft:efficiency",
     "#minecraft:exclusive_set/mining"
   ]

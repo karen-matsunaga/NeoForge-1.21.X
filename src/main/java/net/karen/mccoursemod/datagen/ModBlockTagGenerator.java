@@ -27,48 +27,28 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         tag(ModTags.Blocks.NEEDS_BISMUTH_TOOL);
         tag(ModTags.Blocks.INCORRECT_FOR_BISMUTH_TOOL);
 
-        // Ores
+        // Auto Smelt enchantment effect
         this.tag(ModTags.Blocks.AUTO_SMELT_ORES).addTag(Tags.Blocks.ORES).addTag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE);
 
-        // Rainbow
-        this.tag(ModTags.Blocks.RAINBOW_DROPS).addTag(Tags.Blocks.STORAGE_BLOCKS_COAL)
-                                              .addTag(Tags.Blocks.STORAGE_BLOCKS_COPPER)
-                                              .addTag(Tags.Blocks.STORAGE_BLOCKS_DIAMOND)
-                                              .addTag(Tags.Blocks.STORAGE_BLOCKS_EMERALD)
-                                              .addTag(Tags.Blocks.STORAGE_BLOCKS_GOLD)
-                                              .addTag(Tags.Blocks.STORAGE_BLOCKS_IRON)
-                                              .addTag(Tags.Blocks.STORAGE_BLOCKS_LAPIS)
-                                              .addTag(Tags.Blocks.STORAGE_BLOCKS_NETHERITE)
-                                              .addTag(Tags.Blocks.STORAGE_BLOCKS_REDSTONE);
-
-        this.tag(ModTags.Blocks.RAINBOW_ORES).add(Blocks.COAL_ORE, Blocks.DEEPSLATE_COAL_ORE,
-                                                  Blocks.COPPER_ORE, Blocks.DEEPSLATE_COPPER_ORE,
-                                                  Blocks.DIAMOND_ORE, Blocks.DEEPSLATE_DIAMOND_ORE,
-                                                  Blocks.EMERALD_ORE, Blocks.DEEPSLATE_EMERALD_ORE,
-                                                  Blocks.GOLD_ORE, Blocks.DEEPSLATE_GOLD_ORE,
-                                                  Blocks.IRON_ORE, Blocks.DEEPSLATE_IRON_ORE,
-                                                  Blocks.LAPIS_ORE, Blocks.DEEPSLATE_LAPIS_ORE,
-                                                  Blocks.REDSTONE_ORE, Blocks.DEEPSLATE_REDSTONE_ORE, Blocks.ANCIENT_DEBRIS);
-
-        this.tag(ModTags.Blocks.RAINBOW_BLOCKS).add(Blocks.COAL_BLOCK, Blocks.COPPER_BLOCK, Blocks.DIAMOND_BLOCK,
-                                                    Blocks.EMERALD_BLOCK, Blocks.GOLD_BLOCK, Blocks.IRON_BLOCK,
-                                                    Blocks.LAPIS_BLOCK, Blocks.NETHERITE_BLOCK, Blocks.REDSTONE_BLOCK);
-
-        // More Ores random drop effect
-        this.tag(ModTags.Blocks.MORE_ORES_ALL_DROPS).add(Blocks.COAL_ORE, Blocks.COPPER_ORE, Blocks.IRON_ORE,
-                                                         Blocks.LAPIS_ORE, Blocks.REDSTONE_ORE, Blocks.GOLD_ORE,
-                                                         Blocks.DIAMOND_ORE, Blocks.EMERALD_ORE, Blocks.ANCIENT_DEBRIS,
-                                                         Blocks.NETHER_GOLD_ORE, Blocks.NETHER_QUARTZ_ORE);
-
-        // More Ores break block effect
-        this.tag(ModTags.Blocks.MORE_ORES_BREAK_BLOCK).add(Blocks.STONE);
+        // More Ores break block and random drop enchantment effect
+        this.tag(ModTags.Blocks.MORE_ORES_BREAK_BLOCK).add(Blocks.STONE, Blocks.NETHERRACK);
+        this.tag(ModTags.Blocks.MORE_ORES_ONE_DROPS).add(Blocks.COAL_ORE, Blocks.COPPER_ORE);
+        this.tag(ModTags.Blocks.MORE_ORES_TWO_DROPS).add(Blocks.IRON_ORE, Blocks.LAPIS_ORE);
+        this.tag(ModTags.Blocks.MORE_ORES_THREE_DROPS).add(Blocks.REDSTONE_ORE, Blocks.GOLD_ORE);
+        this.tag(ModTags.Blocks.MORE_ORES_FOUR_DROPS).add(Blocks.DIAMOND_ORE, Blocks.EMERALD_ORE);
+        this.tag(ModTags.Blocks.MORE_ORES_FIVE_DROPS).add(Blocks.ANCIENT_DEBRIS, Blocks.NETHER_GOLD_ORE, Blocks.NETHER_QUARTZ_ORE);
+        this.tag(ModTags.Blocks.MORE_ORES_ALL_DROPS).addTag(ModTags.Blocks.MORE_ORES_ONE_DROPS)
+                                                    .addTag(ModTags.Blocks.MORE_ORES_TWO_DROPS)
+                                                    .addTag(ModTags.Blocks.MORE_ORES_THREE_DROPS)
+                                                    .addTag(ModTags.Blocks.MORE_ORES_FOUR_DROPS)
+                                                    .addTag(ModTags.Blocks.MORE_ORES_FIVE_DROPS);
 
         // Paxel break
         this.tag(ModTags.Blocks.MINEABLE_WITH_PAXEL).addTag(BlockTags.MINEABLE_WITH_AXE)
                                                     .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
                                                     .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
 
-        // Block Fly effect
+        // Block Fly enchantment effect
         this.tag(ModTags.Blocks.BLOCK_FLY_BLOCK_SPEED).add(Blocks.GRAVEL, Blocks.SAND, Blocks.RED_SAND,
                                                            Blocks.ICE, Blocks.PACKED_ICE,
                                                            Blocks.BLUE_ICE, Blocks.GLOWSTONE)

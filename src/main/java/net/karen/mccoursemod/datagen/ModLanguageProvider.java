@@ -16,10 +16,7 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM ITEMS
         addItem(ModItems.BISMUTH, "Bismuth");
         addItem(ModItems.RAW_BISMUTH, "Raw Bismuth");
-        addItem(ModItems.MAGNET, "Magnet");
-        addItem(ModItems.RAINBOW, "Rainbow");
         addItem(ModItems.AUTO_SMELT, "Auto Smelt");
-        addItem(ModItems.MORE_ORES, "More Ores");
         addItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS, "Level Charger Generic Plus");
         addItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS, "Level Charger Generic Minus");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE, "Level Charger Specif Minus Fortune");
@@ -69,17 +66,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add("creativetab.mccoursemod.bismuth_blocks", "Mccourse Blocks");
 
         // CUSTOM Enchantment
-        add("enchantment.mccoursemod.more_ores_enchantment_effect", "More Ores Enchantment Effect");
-
-        add("enchantment.mccoursemod.more_ores_enchantment_effect.desc",
-                "When applied on pickaxe if a stone block is break has a percentage to receive ores.");
-
-        add("enchantment.mccoursemod.rainbow_enchantment_effect",
-            "Rainbow Enchantment Effect");
-
-        add("enchantment.mccoursemod.rainbow_enchantment_effect.desc",
-            "When applied on pickaxe the broken ore is replaced and turned on an ore block.");
-
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
         add("enchantment.mccoursemod.auto_smelt", "Auto Smelt");
         add("enchantment.mccoursemod.more_ores", "More Ores");
@@ -94,7 +80,8 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // MOD
         add("enchantment.mccoursemod.lightning_striker.desc",
-            "When applied on sword when player hits on entities appears lightning, but player receive damage if attacked.");
+            "When applied on sword when player hits on entities appears lightning, " +
+            "but player receive damage if attacked.");
 
         add("enchantment.mccoursemod.auto_smelt.desc",
             "When applied on pickaxe transform all items that can be roasted on furnace.");
@@ -128,21 +115,26 @@ public class ModLanguageProvider extends LanguageProvider {
             "a radius and returns them to the Player's inventory.");
 
         // MINING
-        add("enchantment.minecraft.efficiency.desc", "When applied on axe, pickaxe, shovel or hoe increases mining speed.");
-        add("enchantment.minecraft.silk_touch.desc", "When applied on axe, pickaxe, shovel or hoe receives the broken block.");
-        add("enchantment.minecraft.fortune.desc", "When applied on axe, pickaxe, shovel or hoe receives bonus loot drops of ores.");
+        add("enchantment.minecraft.efficiency.desc",
+            "When applied on axe, pickaxe, shovel or hoe increases mining speed.");
+        add("enchantment.minecraft.silk_touch.desc",
+            "When applied on axe, pickaxe, shovel or hoe receives the broken block.");
+        add("enchantment.minecraft.fortune.desc",
+            "When applied on axe, pickaxe, shovel or hoe receives bonus loot drops of ores.");
 
         // DURABILITY
         add("enchantment.minecraft.mending.desc",
-                "When applied on tools or armor regenerates tools, equipments, etc. only player received XP.");
-        add("enchantment.minecraft.unbreaking.desc", "When applied on tools or armor increases durability of tools, equipments, etc.");
+            "When applied on tools or armor regenerates tools, equipments, etc. only player received XP.");
+        add("enchantment.minecraft.unbreaking.desc",
+            "When applied on tools or armor increases durability of tools, equipments, etc.");
 
         // ARMOR EXCLUSIVE
         add("enchantment.minecraft.protection.desc", "When applied on armor add bonus damage reduction.");
         add("enchantment.minecraft.fire_protection.desc", "When applied on armor add bonus damage reduction of fire.");
         add("enchantment.minecraft.blast_protection.desc",
-                "When applied on armor add bonus damage reduction of explosions and fireworks.");
-        add("enchantment.minecraft.projectile_protection.desc", "When applied on armor add bonus damage reduction of projectiles.");
+            "When applied on armor add bonus damage reduction of explosions and fireworks.");
+        add("enchantment.minecraft.projectile_protection.desc",
+            "When applied on armor add bonus damage reduction of projectiles.");
 
         // CHESTPLATE
         add("enchantment.minecraft.thorns.desc", "When applied on armor if entities attacked player receives damage.");
@@ -156,20 +148,22 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // BOOTS
         add("enchantment.minecraft.feather_falling.desc",
-                "When applied on boots armor reduces fall damage the player takes, but it does not affect falling speed.");
-        add("enchantment.minecraft.depth_strider.desc", "When applied on boots armor increases underwater movement speed.");
+            "When applied on boots armor reduces fall damage the player takes, but it does not affect falling speed.");
+        add("enchantment.minecraft.depth_strider.desc",
+            "When applied on boots armor increases underwater movement speed.");
         add("enchantment.minecraft.frost_walker.desc",
-                "When applied on boots armor creates frosted ice blocks when walking over water, " +
-                        "and causes the wearer to be immune to damage from certain blocks such as campfires and magma blocks " +
-                        "when stepped on, but not working with lava.");
+            "When applied on boots armor creates frosted ice blocks when walking over water, " +
+            "and causes the wearer to be immune to damage from certain blocks such as campfires and magma blocks " +
+            "when stepped on, but not working with lava.");
         add("enchantment.minecraft.soul_speed.desc",
-                "When applied on boots armor walk more quickly on soul sand and soul soil blocks.");
+            "When applied on boots armor walk more quickly on soul sand and soul soil blocks.");
 
         // SWORD
         add("enchantment.minecraft.sharpness.desc", "When applied on sword or axe increases melee damage attack on entities.");
 
         add("enchantment.minecraft.smite.desc",
-            "When applied on sword or axe increases damage dealt to undead mobs also Skeleton, Zombie, Wither, Phantom, Zoglin, etc.");
+            "When applied on sword or axe increases damage dealt to undead mobs " +
+            "also Skeleton, Zombie, Wither, Phantom, Zoglin, etc.");
 
         add("enchantment.minecraft.bane_of_arthropods.desc",
             "When applied on sword or axe increases damage to arthropod mobs also Spiders, Bees, Silverfish, Endermites, etc.");

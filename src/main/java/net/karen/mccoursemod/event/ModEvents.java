@@ -7,8 +7,6 @@ import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
-import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
-import net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.MccourseModBottleItem;
@@ -25,9 +23,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.FormattedText;
@@ -55,7 +51,6 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -89,6 +84,8 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.lwjgl.glfw.GLFW;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import static net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect.moreOresEnch;
+import static net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect.rainbowEnch;
 import static net.karen.mccoursemod.item.custom.SpecialEffectItem.getEffectMultiplier;
 import static net.karen.mccoursemod.util.ChatUtils.*;
 import static net.karen.mccoursemod.util.Utils.*;
@@ -159,64 +156,17 @@ public class ModEvents {
         if (tool.isEmpty()) { return; } // * PROBLEMS *
         HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
         int fortune = toolEnchant(ench, Enchantments.FORTUNE, tool),
-            autoSmelt = toolEnchant(ench, ModEnchantments.AUTO_SMELT, tool),
-            magnet = toolEnchant(ench, ModEnchantments.MAGNET, tool),
-            moreOres = toolEnchant(ench, ModEnchantments.MORE_ORES_ENCHANTMENT_EFFECT, tool),
-            rainbow = toolEnchant(ench, ModEnchantments.RAINBOW_ENCHANTMENT_EFFECT, tool);
-        boolean hasAutoSmelt = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.AUTO_SMELT.get()),
-                hasMagnet = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.MAGNET.get());
+            autoSmelt = toolEnchant(ench, ModEnchantments.AUTO_SMELT, tool);
+        boolean hasAutoSmelt = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.AUTO_SMELT.get());
         if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
             // Adapt the drop according to the enchantment being true
             AtomicBoolean cancelVanillaDrop = new AtomicBoolean(false);
             List<ItemStack> finalDrops = new ArrayList<>(); // Items caused by enchantments are stored in the list
             int hasFortune = (fortune > 0) ? (1 + serverLevel.random.nextInt(fortune + 1)) : 1;
-            if (rainbow > 0) { // * RAINBOW ENCHANTMENT EFFECT *
-                EnchantmentHelper.runIterationOnItem(tool, (holder, holderLvl) -> {
-                    RainbowEnchantmentEffect rainbowEnchEffect = // Get all values of Rainbow Enchantment Data Component
-                           holder.value().effects().get(ModDataComponentTypes.RAINBOW_ENCHANTMENT_EFFECT.get());
-                    if (rainbowEnchEffect != null && rainbowEnchEffect.map() != null) {
-                        Map<Block, TagKey<Block>> rainbowMap = rainbowEnchEffect.map();
-                        for (Map.Entry<Block, TagKey<Block>> entry : rainbowMap.entrySet()) {
-                            Block entryKey = entry.getKey(); // Block Ores
-                            TagKey<Block> entryValue = entry.getValue(); // Block Ore Blocks
-                            if (state.is(entryValue)) {
-                                block(world, pos, entryKey, event);
-                                break;
-                            }
-                        }
-                        if (state.is(ModTags.Blocks.RAINBOW_DROPS)) {
-                            ItemStack rainbowDrop = new ItemStack(state.getBlock());
-                            rainbowDrop.setCount((rainbowDrop.getCount() * hasFortune) * holderLvl);
-                            finalDrops.add(rainbowDrop);
-                            cancelVanillaDrop.set(true);
-                        }
-                    }
-                });
-            }
-            if (moreOres > 0) { // * MORE ORES ENCHANTMENT EFFECT *
-                EnchantmentHelper.runIterationOnItem(tool, (holder, holderLvl) -> {
-                    MoreOresEnchantmentEffect moreOresEnchEffect =
-                            holder.value().effects().get(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT.get());
-                    if (moreOresEnchEffect != null && moreOresEnchEffect.block() != null &&
-                        moreOresEnchEffect.blockTagKey() != null) {
-                        if (state.is(moreOresEnchEffect.block())) {
-                            Iterable<Holder<Block>> tagBlock =
-                                    BuiltInRegistries.BLOCK.getTagOrEmpty(moreOresEnchEffect.blockTagKey());
-                            tagBlock.forEach((block -> {
-                                if (serverLevel.random.nextFloat() < moreOresEnchEffect.chance()) {
-                                    // Increase ore drop with Fortune and More Ores enchantments
-                                    ItemStack drop = new ItemStack(block.value().asItem());
-                                    drop.setCount((drop.getCount() * hasFortune) * holderLvl);
-                                    finalDrops.add(drop); // Break block and ore chance drop
-                                }
-                            }));
-                        }
-                    }
-                });
-                // Break block and ore chance drop
-                finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
-                cancelVanillaDrop.set(true);
-            }
+             // * RAINBOW ENCHANTMENT EFFECT *
+            rainbowEnch(tool, state, world, pos, event, hasFortune, finalDrops, cancelVanillaDrop);
+            // * MORE ORES ENCHANTMENT EFFECT *
+            moreOresEnch(tool, state, serverLevel, pos, player, finalDrops, cancelVanillaDrop, hasFortune);
             if (hasAutoSmelt || autoSmelt > 0) { // * AUTO SMELT EFFECT *
                 SingleRecipeInput singleRecipe = new SingleRecipeInput(new ItemStack(state.getBlock()));
                 ServerLevel worldServer = serverLevel.getLevel();
@@ -235,7 +185,7 @@ public class ModEvents {
                 () -> finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool)));
                 cancelVanillaDrop.set(true);
             }
-            if ((hasMagnet || magnet > 0) && !state.isAir()) { // * MAGNETIC EFFECT *
+            if (toolEnchant(ench, ModEnchantments.MAGNET, tool) > 0 && !state.isAir()) { // * MAGNETIC EFFECT *
                 if (finalDrops.isEmpty()) { // FinalDrops empty list added all items on it is
                     finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
                 }
@@ -255,7 +205,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void onRenderTooltipGatherComponent(RenderTooltipEvent.GatherComponents event) {
         ItemStack item = event.getItemStack();
-        boolean hasMoreOres = item.has(ModDataComponentTypes.MORE_ORES.get());
+        boolean hasMoreOres = item.has(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT.get());
         List<Either<FormattedText, TooltipComponent>> elements = event.getTooltipElements(); // Item TOOLTIP
         // IMAGE TOOLTIP COMPONENT
         ChatUtils.image(elements, Items.DIAMOND_ORE, 16, 16, "More Ores Effect!", hasMoreOres);

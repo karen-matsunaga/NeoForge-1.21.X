@@ -95,7 +95,6 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         tag(ModTags.Items.BOOTS_FLY).add(ModItems.BISMUTH_BOOTS.get());
 
         // Special Effect items
-        this.tag(ModTags.Items.SPECIAL_EFFECT_ITEMS).add(ModItems.AUTO_SMELT.get(), ModItems.MAGNET.get(),
-                                                         ModItems.MORE_ORES.get(), ModItems.RAINBOW.get());
+        this.tag(ModTags.Items.SPECIAL_EFFECT_ITEMS).add(ModItems.AUTO_SMELT.get());
     }
 }

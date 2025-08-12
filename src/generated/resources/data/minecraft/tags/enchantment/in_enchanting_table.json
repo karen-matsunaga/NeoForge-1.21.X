@@ -43,14 +43,6 @@
     {
       "id": "mccoursemod:peaceful_mobs",
       "required": false
-    },
-    {
-      "id": "mccoursemod:more_ores_enchantment_effect",
-      "required": false
-    },
-    {
-      "id": "mccoursemod:rainbow_enchantment_effect",
-      "required": false
     }
   ]
 }

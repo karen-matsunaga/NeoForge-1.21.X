@@ -34,30 +34,11 @@ public class ModItems {
                                                        ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                        "raw_bismuth")))));
 
-    // Magnet item
-    public static final DeferredItem<Item> MAGNET = ITEMS.register("magnet",
-           () -> new SpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                   "magnet"))), ModDataComponentTypes.MAGNET.get(), 10));
-
-    // Rainbow item
-    public static final DeferredItem<Item> RAINBOW = ITEMS.register("rainbow",
-           () -> new SpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                   "rainbow"))), ModDataComponentTypes.RAINBOW.get(), 10));
-
     // Auto smelt item
     public static final DeferredItem<Item> AUTO_SMELT = ITEMS.register("auto_smelt",
            () -> new SpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                    ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                    "auto_smelt"))), ModDataComponentTypes.AUTO_SMELT.get(),
-                                                                   10));
-
-    // More Ores item
-    public static final DeferredItem<Item> MORE_ORES = ITEMS.register("more_ores",
-           () -> new SpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                   "more_ores"))), ModDataComponentTypes.MORE_ORES.get(),
                                                                    10));
 
     // Level Charger

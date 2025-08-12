@@ -25,17 +25,17 @@ public class ModTags {
         // Blocks not break
         public static final TagKey<Block> INCORRECT_FOR_BISMUTH_TOOL = createTag("incorrect_for_bismuth_tool");
 
-        // Created More Ores's drops
+        // Created More Ores's drops - More Ores I, II, III, IV, V, Max Level
+        public static final TagKey<Block> MORE_ORES_ONE_DROPS = createTag("more_ores_one_drops");
+        public static final TagKey<Block> MORE_ORES_TWO_DROPS = createTag("more_ores_two_drops");
+        public static final TagKey<Block> MORE_ORES_THREE_DROPS = createTag("more_ores_three_drops");
+        public static final TagKey<Block> MORE_ORES_FOUR_DROPS = createTag("more_ores_four_drops");
+        public static final TagKey<Block> MORE_ORES_FIVE_DROPS = createTag("more_ores_five_drops");
         public static final TagKey<Block> MORE_ORES_ALL_DROPS = createTag("more_ores_all_drops");
         public static final TagKey<Block> MORE_ORES_BREAK_BLOCK = createTag("more_ores_break_block");
 
         // Ores
         public static final TagKey<Block> AUTO_SMELT_ORES = createTag("auto_smelt_ores");
-
-        // Rainbow effect
-        public static final TagKey<Block> RAINBOW_DROPS = createTag("rainbow_drops");
-        public static final TagKey<Block> RAINBOW_ORES = createTag("rainbow_ores");
-        public static final TagKey<Block> RAINBOW_BLOCKS = createTag("rainbow_blocks");
 
         // Block Fly effect
         public static final TagKey<Block> BLOCK_FLY_BLOCK_SPEED = createTag("block_fly_block_speed");

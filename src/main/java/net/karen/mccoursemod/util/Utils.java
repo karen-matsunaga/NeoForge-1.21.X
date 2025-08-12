@@ -3,7 +3,6 @@ package net.karen.mccoursemod.util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -22,13 +21,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
-import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
@@ -41,18 +38,9 @@ public class Utils {
 
     private static final ThreadLocal<ItemStack> LAST_BOW_USED = new ThreadLocal<>(); // Store Miner Bow
 
-    public static void setLastBowUsed(ItemStack stack) { LAST_BOW_USED.set(stack); } // Set Miner Bow
-
     public static ItemStack getLastBowUsed() { return LAST_BOW_USED.get(); } // Get Miner Bow
 
     public static void clear() { LAST_BOW_USED.remove(); } // Clear Miner Bow
-
-    public static ClipContext.Block collider = ClipContext.Block.COLLIDER;
-    public static ClipContext.Fluid none = ClipContext.Fluid.NONE, any = ClipContext.Fluid.ANY;
-
-    public static HitResult.Type hitMiss = HitResult.Type.MISS, hitBlock = HitResult.Type.BLOCK;
-
-    public static ItemStack empty = ItemStack.EMPTY;
 
     public static InteractionHand mainHand = InteractionHand.MAIN_HAND, offhand = InteractionHand.OFF_HAND;
 
@@ -61,53 +49,14 @@ public class Utils {
         player.level().playSound(null, player.blockPosition(), sound, SoundSource.PLAYERS, volume, pitch);
     }
 
-    // CUSTOM METHOD - Player block sounds
-    public static void soundBlock(Player player, SoundEvent sound, float volume, float pitch) {
-        player.level().playSound(null, player.blockPosition(), sound, SoundSource.BLOCKS, volume, pitch);
-    }
-
-    // CUSTOM METHOD - Level neutral sounds
-    public static void neutralSound(Level level, Player player,
-                                    SoundEvent sound, float volume, float pitch) {
-        level.playSound(null, player.getX(), player.getY(), player.getZ(), sound, SoundSource.NEUTRAL, volume, pitch);
-    }
-
-    // CUSTOM METHOD - Level neutral sounds with PITCH value
-    public static void neutralSoundValue(Level level, Player player, SoundEvent sound, float volume) {
-        double x = player.getX(), y = player.getY(), z = player.getZ();
-        float pitch = 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F);
-        level.playSound(null, x, y, z, sound, SoundSource.NEUTRAL, 0.5F + volume, pitch);
-    }
-
-    // CUSTOM METHOD - Level
-    public static void playerSound(Level level, Player player,
-                                   SoundEvent sound, float volume, float pitch) {
-        level.playSound(null, player.getX(), player.getY(), player.getZ(), sound, SoundSource.PLAYERS, volume, pitch);
-    }
-
-    public static void particle(Player player, Entity entity) {
-        ((ServerLevel) player.level()).sendParticles(ParticleTypes.CRIT, entity.getX(), entity.getY(0.5),
-                entity.getZ(), 5, 0.2, 0.2, 0.2, 0.1);
-    }
-
     // CUSTOM METHOD - Item used has on slot
     public static ItemStack has(Player player, EquipmentSlot slot) {
         return player.getItemBySlot(slot); // Xray items - Enchanted Helmet or Metal Detector
     }
 
-    // CUSTOM METHOD - Item used has on slot
-    public static boolean slot(Player player, EquipmentSlot slot, TagKey<Item> item) {
-        return player.getItemBySlot(slot).is(item); // Active Fly with Item
-    }
-
     // CUSTOM METHOD - Item used on MAIN HAND
     public static boolean item(Player player, Item item) {
         return player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == item; // Used item
-    }
-
-    // CUSTOM METHOD - Item used is on offhand or main hand
-    public static ItemStack hasItem(Player player, InteractionHand hand) {
-        return player.getItemInHand(hand);
     }
 
     // CUSTOM METHOD - Drop enchanted book and base item on ground [world]

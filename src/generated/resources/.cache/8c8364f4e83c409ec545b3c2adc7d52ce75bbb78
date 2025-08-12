@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-04T17:40:34.7724914	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-08-11T21:26:46.8043204	Tags for minecraft:item mod id vanilla
 c493e5b615f47368e4252c52b5de3c2ae6022862 data/mccoursemod/tags/item/bismuth_armor.json
 1eb957f30b2897286be890ceec6f9b75ecf8d625 data/mccoursemod/tags/item/bismuth_tools.json
 e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/bismuth_tool_materials.json
@@ -13,7 +13,7 @@ e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/bismuth_tool
 e1296da21ce7727ca34c6b4ca53792959f1c4ce3 data/mccoursemod/tags/item/level_charger_specif.json
 e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/magic_block.json
 e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/repairs_bismuth_armor.json
-f3fde543588e8e70cb02cf2a1145d3e5afce946d data/mccoursemod/tags/item/special_effect_items.json
+b41a72a37404c7dbd6aa6aac08c3c0b04f47cd22 data/mccoursemod/tags/item/special_effect_items.json
 b8e3f80da63f7dd0490ba845fc64bc11255f56af data/minecraft/tags/item/axes.json
 e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/minecraft/tags/item/beacon_payment_items.json
 0bc8cd739dc46202f2c3e69684cfddc5d38f4292 data/minecraft/tags/item/chest_armor.json

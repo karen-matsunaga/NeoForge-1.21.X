@@ -1,8 +1,5 @@
 {
   "values": [
-    "mccoursemod:auto_smelt",
-    "mccoursemod:magnet",
-    "mccoursemod:more_ores",
-    "mccoursemod:rainbow"
+    "mccoursemod:auto_smelt"
   ]
 }

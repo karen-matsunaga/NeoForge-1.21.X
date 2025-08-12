@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-11T13:48:51.948379	Registries
+// 1.21.8	2025-08-11T21:26:46.8123211	Registries
 bcd42e3192f291a18c268c668838ef5b2afd5fe6 data/mccoursemod/enchantment/auto_smelt.json
 68c8972713bd2f8573bdb6a5243b656083670f9a data/mccoursemod/enchantment/block_fly.json
 cbd0b27b43670f6e9f36c7202c532b56233a27c6 data/mccoursemod/enchantment/glowing_mobs.json
@@ -7,8 +7,6 @@ cbd0b27b43670f6e9f36c7202c532b56233a27c6 data/mccoursemod/enchantment/glowing_mo
 7e83bd27b8bda8e162ca21ffac4406ac5826c5ff data/mccoursemod/enchantment/lightstring.json
 503102a12d876693c6e182b7775da91fffc31eae data/mccoursemod/enchantment/magnet.json
 901a4c350f41768b5c8af68b3d6258a296a5fb19 data/mccoursemod/enchantment/magnetism.json
-76444e6eebc846bb9686079a0ce37cb31bdd89c8 data/mccoursemod/enchantment/more_ores.json
-1147cde19986a32bceb06f6b176f5d252bd5a255 data/mccoursemod/enchantment/more_ores_enchantment_effect.json
+05641e354b14e3581e613e93ea0ba653e14d1efe data/mccoursemod/enchantment/more_ores.json
 97a506bfa83f6f79eba1e3f08a65511185fae851 data/mccoursemod/enchantment/peaceful_mobs.json
-360158b40a967ca35ca63323f4dd0c3a8b4e7d80 data/mccoursemod/enchantment/rainbow.json
-a247d495f32f8419a09b74803dc6934287340b9e data/mccoursemod/enchantment/rainbow_enchantment_effect.json
+3df4df04e4fd575e92581da57603e623155fa7ad data/mccoursemod/enchantment/rainbow.json

@@ -4,9 +4,7 @@ import com.mojang.serialization.Codec;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.neoforged.bus.api.IEventBus;
@@ -21,36 +19,12 @@ public class ModDataComponentTypes {
 
     // Enchantment Data Component Type Registries
     public static final DeferredRegister<DataComponentType<?>> ENCHANTMENT_COMPONENT_TYPES =
-            DeferredRegister.create(BuiltInRegistries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, MccourseMod.MOD_ID);
-
-    // Coordinates custom data component -> X, Y, Z positions
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> COORDINATES =
-           register("coordinates", builder -> builder.persistent(BlockPos.CODEC));
-
-    // Magnet custom data component
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> MAGNET =
-           register("magnet", builder ->
-                    builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
+           DeferredRegister.createDataComponents(Registries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, MccourseMod.MOD_ID);
 
     // Auto Smelt custom data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> AUTO_SMELT =
            register("auto_smelt", builder ->
                     builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
-
-    // Rainbow custom data component
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> RAINBOW =
-           register("rainbow", builder ->
-                    builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
-
-    // More Ores custom data component
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> MORE_ORES =
-           register("more_ores", builder ->
-                    builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
-
-    // Gem Effect custom data component
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> GEM_EFFECT =
-           register("gem_effect", builder ->
-                    builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
 
     // Custom tooltip data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<CustomTooltip>> CUSTOM_TOOLTIP =
@@ -64,22 +38,27 @@ public class ModDataComponentTypes {
 
     // More Ores Enchantment Effect data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<MoreOresEnchantmentEffect>>
-            MORE_ORES_ENCHANTMENT_EFFECT = ENCHANTMENT_COMPONENT_TYPES.register("more_ores_enchantment_effect",
-            () -> DataComponentType.<MoreOresEnchantmentEffect>builder()
-                                   .persistent(MoreOresEnchantmentEffect.CODEC)
-                                   .networkSynchronized(MoreOresEnchantmentEffect.STREAM_CODEC).build());
+           MORE_ORES_ENCHANTMENT_EFFECT = registerEnch("more_ores_enchantment_effect",
+                                                       builder ->
+                                                       builder.persistent(MoreOresEnchantmentEffect.CODEC)
+                                                              .networkSynchronized(MoreOresEnchantmentEffect.STREAM_CODEC));
 
     // Rainbow Enchantment Effect data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<RainbowEnchantmentEffect>>
-            RAINBOW_ENCHANTMENT_EFFECT = ENCHANTMENT_COMPONENT_TYPES.register("rainbow_enchantment_effect",
-            () -> DataComponentType.<RainbowEnchantmentEffect>builder()
-                                   .persistent(RainbowEnchantmentEffect.CODEC)
-                                   .networkSynchronized(RainbowEnchantmentEffect.STREAM_CODEC).build());
+           RAINBOW_ENCHANTMENT_EFFECT = registerEnch("rainbow_enchantment_effect", builder ->
+                                        builder.persistent(RainbowEnchantmentEffect.CODEC)
+                                               .networkSynchronized(RainbowEnchantmentEffect.STREAM_CODEC));
 
     // Registry all custom Data Component
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>>
                    register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
         return DATA_COMPONENT_TYPES.register(name, () -> builderOperator.apply(DataComponentType.builder()).build());
+    }
+
+    // Registry all custom Enchantment Component
+    private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>>
+                   registerEnch(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
+        return ENCHANTMENT_COMPONENT_TYPES.register(name, () -> builderOperator.apply(DataComponentType.builder()).build());
     }
 
     // Registry all custom Data Component on bus group event

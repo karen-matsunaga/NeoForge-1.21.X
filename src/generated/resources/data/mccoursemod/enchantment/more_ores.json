@@ -3,6 +3,23 @@
   "description": {
     "translate": "enchantment.mccoursemod.more_ores"
   },
+  "effects": {
+    "mccoursemod:more_ores_enchantment_effect": {
+      "block": "#mccoursemod:more_ores_break_block",
+      "blockTagKey": [
+        "mccoursemod:more_ores_one_drops",
+        "mccoursemod:more_ores_two_drops",
+        "mccoursemod:more_ores_three_drops",
+        "mccoursemod:more_ores_four_drops",
+        "mccoursemod:more_ores_five_drops",
+        "mccoursemod:more_ores_all_drops"
+      ],
+      "chance": [
+        0.1,
+        0.05
+      ]
+    }
+  },
   "max_cost": {
     "base": 25,
     "per_level_above_first": 7
@@ -12,10 +29,10 @@
     "base": 5,
     "per_level_above_first": 7
   },
-  "primary_items": "#minecraft:enchantable/mining_loot",
+  "primary_items": "#minecraft:enchantable/mining",
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#minecraft:enchantable/mining",
+  "supported_items": "#minecraft:enchantable/mining_loot",
   "weight": 5
 }

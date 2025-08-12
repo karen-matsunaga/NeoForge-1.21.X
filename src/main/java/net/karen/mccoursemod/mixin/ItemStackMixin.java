@@ -36,15 +36,7 @@ public abstract class ItemStackMixin {
             tooltip.set(0, colored); // Change only the name (first line of the tooltip) -> Color not appears on screen
             tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block.tooltip")); // Added more information about block
         }
-        // AUTO SMELT, MAGNET, MORE ORES and RAINBOW custom effects
-        if (stack.has(ModDataComponentTypes.MAGNET.get())) {
-            tooltip.add(componentLiteral("Magnet x" +
-                        getMultiplier(stack, ModDataComponentTypes.MAGNET.get()) + "!", darkGray));
-        }
-        if (stack.has(ModDataComponentTypes.RAINBOW.get())) {
-            tooltip.add(componentLiteral("Rainbow x" +
-                        getMultiplier(stack, ModDataComponentTypes.RAINBOW.get()) + "!", purple));
-        }
+        // AUTO SMELT custom effect
         if (stack.has(ModDataComponentTypes.AUTO_SMELT.get())) {
             tooltip.add(componentLiteral("Auto Smelt x" +
                         getMultiplier(stack, ModDataComponentTypes.AUTO_SMELT.get()) + "!", gold));
@@ -54,10 +46,6 @@ public abstract class ItemStackMixin {
             if (stack.has(ModDataComponentTypes.CUSTOM_TOOLTIP.get()) && value != null) {
                 tooltip.add(value.line1());
             }
-        }
-        if (stack.has(ModDataComponentTypes.MORE_ORES.get())) {
-            tooltip.add(componentLiteral("More Ores x" +
-                        getMultiplier(stack, ModDataComponentTypes.MORE_ORES.get()), darkAqua));
         }
         cir.setReturnValue(tooltip); // New tooltip
     }

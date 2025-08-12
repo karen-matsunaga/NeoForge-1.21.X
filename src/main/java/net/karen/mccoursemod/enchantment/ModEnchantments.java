@@ -18,23 +18,22 @@ import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
+import java.util.List;
 import java.util.Map;
 
 public class ModEnchantments {
     // Registry all custom enchantments -> enchantment name on JSON file
     public static final ResourceKey<Enchantment> LIGHTNING_STRIKER = createTag("lightning_striker");
     public static final ResourceKey<Enchantment> AUTO_SMELT = createTag("auto_smelt");
-    public static final ResourceKey<Enchantment> MORE_ORES = createTag("more_ores");
     public static final ResourceKey<Enchantment> BLOCK_FLY = createTag("block_fly");
     public static final ResourceKey<Enchantment> MAGNET = createTag("magnet");
-    public static final ResourceKey<Enchantment> RAINBOW = createTag("rainbow");
     public static final ResourceKey<Enchantment> IMMORTAL = createTag("immortal");
     public static final ResourceKey<Enchantment> PEACEFUL_MOBS = createTag("peaceful_mobs");
     public static final ResourceKey<Enchantment> LIGHTSTRING = createTag("lightstring");
     public static final ResourceKey<Enchantment> GLOWING_MOBS = createTag("glowing_mobs");
     public static final ResourceKey<Enchantment> MAGNETISM = createTag("magnetism");
-    public static final ResourceKey<Enchantment> MORE_ORES_ENCHANTMENT_EFFECT = createTag("more_ores_enchantment_effect");
-    public static final ResourceKey<Enchantment> RAINBOW_ENCHANTMENT_EFFECT = createTag("rainbow_enchantment_effect");
+    public static final ResourceKey<Enchantment> MORE_ORES = createTag("more_ores");
+    public static final ResourceKey<Enchantment> RAINBOW = createTag("rainbow");
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
@@ -49,21 +48,13 @@ public class ModEnchantments {
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.MAINHAND))
-                            .withEffect(EnchantmentEffectComponents.POST_ATTACK, EnchantmentTarget.ATTACKER, EnchantmentTarget.VICTIM,
+                            .withEffect(EnchantmentEffectComponents.POST_ATTACK, EnchantmentTarget.ATTACKER,
+                                        EnchantmentTarget.VICTIM,
                                         new LightningStrikerEnchantmentEffect(
                                         LevelBasedValue.perLevel(0.5F, 0.15F))));
 
         // Auto Smelt - Pickaxe tool
         register(context, AUTO_SMELT,
-                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
-                                                                items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
-                                                                5, 2,
-                                                                Enchantment.dynamicCost(5, 7),
-                                                                Enchantment.dynamicCost(25, 7),
-                                                                2, EquipmentSlotGroup.MAINHAND)));
-
-        // More Ores - Pickaxe tool
-        register(context, MORE_ORES,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                                                                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                                                                 5, 2,
@@ -82,15 +73,6 @@ public class ModEnchantments {
 
         // Magnet - Pickaxe tool
         register(context, MAGNET,
-                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
-                                                                items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
-                                                                5, 2,
-                                                                Enchantment.dynamicCost(5, 7),
-                                                                Enchantment.dynamicCost(25, 7),
-                                                                2, EquipmentSlotGroup.MAINHAND)));
-
-        // Rainbow - Pickaxe tool
-        register(context, RAINBOW,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                                                                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                                                                 5, 2,
@@ -139,8 +121,8 @@ public class ModEnchantments {
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.HEAD)));
 
-        // More Ores Enchantment Effect
-        register(context, MORE_ORES_ENCHANTMENT_EFFECT,
+        // More Ores Enchantment Effect - Pickaxe tool
+        register(context, MORE_ORES,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                                                                 items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                                                                 5, 2,
@@ -148,12 +130,18 @@ public class ModEnchantments {
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.MAINHAND))
                             .withSpecialEffect(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT.get(),
-                                               new MoreOresEnchantmentEffect(ModTags.Blocks.MORE_ORES_ALL_DROPS,
-                                                                             blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
-                                                                             0.1F)));
+                                               new MoreOresEnchantmentEffect(
+                                               List.of(ModTags.Blocks.MORE_ORES_ONE_DROPS,
+                                                       ModTags.Blocks.MORE_ORES_TWO_DROPS,
+                                                       ModTags.Blocks.MORE_ORES_THREE_DROPS,
+                                                       ModTags.Blocks.MORE_ORES_FOUR_DROPS,
+                                                       ModTags.Blocks.MORE_ORES_FIVE_DROPS,
+                                                       ModTags.Blocks.MORE_ORES_ALL_DROPS),
+                                               blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
+                                               List.of(0.1F, 0.05F))));
 
-        // More Ores Enchantment Effect
-        register(context, RAINBOW_ENCHANTMENT_EFFECT,
+        // More Ores Enchantment Effect - Pickaxe tool
+        register(context, RAINBOW,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                                                                 items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                                                                 5, 2,
@@ -163,14 +151,14 @@ public class ModEnchantments {
                             .withSpecialEffect(ModDataComponentTypes.RAINBOW_ENCHANTMENT_EFFECT.get(),
                                                new RainbowEnchantmentEffect(
                                                Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
-                                                             Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER),
-                                                             Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
-                                                             Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD),
-                                                             Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
-                                                             Map.entry(Blocks.IRON_BLOCK, Tags.Blocks.ORES_IRON),
-                                                             Map.entry(Blocks.LAPIS_BLOCK, Tags.Blocks.ORES_LAPIS),
-                                                             Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
-                                                             Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP)))));
+                                               Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER),
+                                               Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
+                                               Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD),
+                                               Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
+                                               Map.entry(Blocks.IRON_BLOCK, Tags.Blocks.ORES_IRON),
+                                               Map.entry(Blocks.LAPIS_BLOCK, Tags.Blocks.ORES_LAPIS),
+                                               Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
+                                               Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP)))));
     }
 
     // CUSTOM METHOD - Registry all custom enchantments -> DATA GEN

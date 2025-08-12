@@ -24,9 +24,6 @@ public class ModCreativeModeTabs {
                      output.accept(ModItems.RAW_BISMUTH);
                      // CUSTOM Special Effect items
                      output.accept(ModItems.AUTO_SMELT);
-                     output.accept(ModItems.MAGNET);
-                     output.accept(ModItems.MORE_ORES);
-                     output.accept(ModItems.RAINBOW);
                      // CUSTOM Level Charger items
                      output.accept(ModItems.LEVEL_CHARGER_GENERIC_PLUS);
                      output.accept(ModItems.LEVEL_CHARGER_GENERIC_MINUS);
