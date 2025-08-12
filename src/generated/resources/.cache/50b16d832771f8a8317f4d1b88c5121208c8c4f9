@@ -1,7 +1,8 @@
-// 1.21.8	2025-08-11T21:26:46.8043204	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-08-12T19:17:09.4775467	Tags for minecraft:block mod id vanilla
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 fb04ce601bdbe167eef745f4fb188a2bb2d4ca6a data/mccoursemod/tags/block/block_fly_block_speed.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_bismuth_tool.json
+93e4924ee7617175cb81d648d05184947024e31a data/mccoursemod/tags/block/mccourse_mod_ores.json
 13cf1fe06cf159d32d074144254a0d375f6b20e7 data/mccoursemod/tags/block/mineable_with_paxel.json
 53d229458fe5c66b06115505277e4434612432d9 data/mccoursemod/tags/block/more_ores_all_drops.json
 ae3b4c6513932cf9e82044de3f1e90f2c997fd31 data/mccoursemod/tags/block/more_ores_break_block.json
@@ -11,4 +12,4 @@ a3b034ba6dfc318ff77dbd2fedd47a18e2872e02 data/mccoursemod/tags/block/more_ores_f
 7b9951a96f44c21b24724332c83c49c1dc358b0a data/mccoursemod/tags/block/more_ores_three_drops.json
 76e1074a2f2f826c8f45cc1ab2a7d876f28710d8 data/mccoursemod/tags/block/more_ores_two_drops.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_bismuth_tool.json
-561f4ef4b961adb589a85027296a135024629580 data/minecraft/tags/block/mineable/pickaxe.json
+30d3b318ba5108780048498dafed1013b10d3118 data/minecraft/tags/block/mineable/pickaxe.json

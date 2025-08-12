@@ -21,7 +21,12 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
     protected void addTags(HolderLookup.@NotNull Provider lookupProvider) {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ENCHANT.get(), ModBlocks.DISENCHANT_INDIVIDUAL.get(),
                                                       ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.BISMUTH_BLOCK.get(),
-                                                      ModBlocks.MAGIC.get(), ModBlocks.MCCOURSEMOD_ELEVATOR.get());
+                                                      ModBlocks.MAGIC.get(), ModBlocks.MCCOURSEMOD_ELEVATOR.get())
+                                                 .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES);
+
+        // Mccourse Mod Ores
+        this.tag(ModTags.Blocks.MCCOURSE_MOD_ORES).add(ModBlocks.BISMUTH_ORE.get(), ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),
+                                                       ModBlocks.BISMUTH_END_ORE.get(), ModBlocks.BISMUTH_NETHER_ORE.get());
 
         // CUSTOM Tier Tools - Bismuth as Netherite tier
         tag(ModTags.Blocks.NEEDS_BISMUTH_TOOL);

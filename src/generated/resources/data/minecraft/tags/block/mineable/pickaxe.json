@@ -5,6 +5,7 @@
     "mccoursemod:disenchant_grouped",
     "mccoursemod:bismuth_block",
     "mccoursemod:magic",
-    "mccoursemod:mccoursemod_elevator"
+    "mccoursemod:mccoursemod_elevator",
+    "#mccoursemod:mccourse_mod_ores"
   ]
 }

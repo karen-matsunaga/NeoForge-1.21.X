@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -25,17 +26,31 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(ModBlocks.ENCHANT.get());
-        this.dropSelf(ModBlocks.DISENCHANT_INDIVIDUAL.get());
-        this.dropSelf(ModBlocks.DISENCHANT_GROUPED.get());
-        this.dropSelf(ModBlocks.BISMUTH_BLOCK.get());
-        this.dropSelf(ModBlocks.BISMUTH_ORE.get());
-        this.dropSelf(ModBlocks.BISMUTH_DEEPSLATE_ORE.get());
-        this.dropSelf(ModBlocks.MAGIC.get());
-        this.dropSelf(ModBlocks.MCCOURSEMOD_ELEVATOR.get());
+        // Custom BLOCKS
+        dropSelf(ModBlocks.ENCHANT.get());
+        dropSelf(ModBlocks.DISENCHANT_INDIVIDUAL.get());
+        dropSelf(ModBlocks.DISENCHANT_GROUPED.get());
+        dropSelf(ModBlocks.BISMUTH_BLOCK.get());
+        dropSelf(ModBlocks.MAGIC.get());
+        dropSelf(ModBlocks.MCCOURSEMOD_ELEVATOR.get());
+
+        // Mccourse Mod Ores
+        add(ModBlocks.BISMUTH_ORE.get(), block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));
+
+        add(ModBlocks.BISMUTH_DEEPSLATE_ORE.get(), block -> createMultipleOreDrops(ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),
+                                                                                         ModItems.RAW_BISMUTH.get(),
+                                                                                         2, 5));
+
+        add(ModBlocks.BISMUTH_END_ORE.get(), block -> createMultipleOreDrops(ModBlocks.BISMUTH_END_ORE.get(),
+                                                                                   ModItems.RAW_BISMUTH.get(),
+                                                                                   3, 6));
+        add(ModBlocks.BISMUTH_NETHER_ORE.get(), block -> createMultipleOreDrops(ModBlocks.BISMUTH_NETHER_ORE.get(),
+                                                                                      ModItems.RAW_BISMUTH.get(),
+                                                                                      4, 8));
     }
 
-    protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
+    protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item,
+                                                       float minDrops, float maxDrops) {
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
         return this.createSilkTouchDispatchTable(pBlock,
                 this.applyExplosionDecay(pBlock, LootItem.lootTableItem(item)

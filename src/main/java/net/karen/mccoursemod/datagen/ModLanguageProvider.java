@@ -46,6 +46,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.bismuth_block", "Bismuth Block");
         add("item.mccoursemod.bismuth_ore", "Bismuth Ore");
         add("item.mccoursemod.bismuth_deepslate_ore", "Bismuth Deepslate Ore");
+        add("item.mccoursemod.bismuth_end_ore", "Bismuth End Ore");
+        add("item.mccoursemod.bismuth_nether_ore", "Bismuth Nether Ore");
         add("item.mccoursemod.disenchant_individual", "Disenchant Individual Block");
         add("item.mccoursemod.disenchant_grouped", "Disenchant Grouped Block");
         add("item.mccoursemod.magic", "Magic Block");
@@ -55,6 +57,8 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
         addBlock(ModBlocks.BISMUTH_ORE, "Bismuth Ore");
         addBlock(ModBlocks.BISMUTH_DEEPSLATE_ORE, "Bismuth Deepslate Ore");
+        addBlock(ModBlocks.BISMUTH_END_ORE, "Bismuth End Ore");
+        addBlock(ModBlocks.BISMUTH_NETHER_ORE, "Bismuth Nether Ore");
         addBlock(ModBlocks.ENCHANT, "§2Enchant Block");
         addBlock(ModBlocks.DISENCHANT_INDIVIDUAL, "Disenchant Individual Block");
         addBlock(ModBlocks.DISENCHANT_GROUPED, "Disenchant Grouped Block");

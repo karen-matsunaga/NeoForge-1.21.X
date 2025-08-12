@@ -14,7 +14,8 @@ import net.minecraft.world.level.block.Block;
 public class ModTags {
     // CUSTOM CLASS - Registry all custom block tags
     public static class Blocks {
-        // Created tool tags
+        // Mccourse Mod Ores
+        public static final TagKey<Block> MCCOURSE_MOD_ORES = createTag("mccourse_mod_ores");
 
         // Paxel blocks
         public static final TagKey<Block> MINEABLE_WITH_PAXEL = createTag("mineable_with_paxel");

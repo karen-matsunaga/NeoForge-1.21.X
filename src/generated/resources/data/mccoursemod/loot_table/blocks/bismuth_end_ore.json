@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "mccoursemod:bismuth_deepslate_ore"
+              "name": "mccoursemod:bismuth_end_ore"
             },
             {
               "type": "minecraft:item",
@@ -35,8 +35,8 @@
                   "add": false,
                   "count": {
                     "type": "minecraft:uniform",
-                    "max": 5.0,
-                    "min": 2.0
+                    "max": 6.0,
+                    "min": 3.0
                   },
                   "function": "minecraft:set_count"
                 },
@@ -57,5 +57,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "mccoursemod:blocks/bismuth_deepslate_ore"
+  "random_sequence": "mccoursemod:blocks/bismuth_end_ore"
 }

@@ -30,6 +30,8 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.BISMUTH_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_ORE.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_DEEPSLATE_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.BISMUTH_END_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.BISMUTH_NETHER_ORE.get());
         blockModels.createTrivialCube(ModBlocks.MAGIC.get());
         blockModels.createTrivialCube(ModBlocks.ENCHANT.get());
         blockModels.createTrivialCube(ModBlocks.DISENCHANT_GROUPED.get());
@@ -79,13 +81,10 @@ public class ModModelProvider extends ModelProvider {
         // Boolean Texture
         ItemModel.Unbaked bottleOn = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, ModelTemplates.FLAT_ITEM));
         ItemModel.Unbaked bottleOff = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, "_off",
-                                                                                             ModelTemplates.FLAT_ITEM));
+                                                                                               ModelTemplates.FLAT_ITEM));
         itemModels.itemModelOutput.accept(item, new ConditionalItemModel.Unbaked(
-           // The property to check
-           new AlternateTexture(ModDataComponentTypes.STORED_LEVELS.get()),
-           // When the boolean is true
-           bottleOn,
-           // When the boolean is false
-           bottleOff));
+           new AlternateTexture(ModDataComponentTypes.STORED_LEVELS.get()), // The property to check
+           bottleOn, // When the boolean is true
+           bottleOff)); // When the boolean is false
     }
 }

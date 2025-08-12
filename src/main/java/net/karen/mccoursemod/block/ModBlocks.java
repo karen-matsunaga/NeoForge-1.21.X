@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -46,6 +47,22 @@ public class ModBlocks {
                                     .setId(ResourceKey.create(Registries.BLOCK,
                                                               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                               "bismuth_deepslate_ore")))));
+
+    public static final DeferredBlock<Block> BISMUTH_END_ORE = registerBlock("bismuth_end_ore",
+            () -> new DropExperienceBlock(UniformInt.of(5, 9),
+                      BlockBehaviour.Properties.of().strength(7f)
+                                    .requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM)
+                                    .setId(ResourceKey.create(Registries.BLOCK,
+                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                              "bismuth_end_ore")))));
+
+    public static final DeferredBlock<Block> BISMUTH_NETHER_ORE = registerBlock("bismuth_nether_ore",
+            () -> new DropExperienceBlock(UniformInt.of(1, 5),
+                    BlockBehaviour.Properties.of().strength(3f)
+                                             .requiresCorrectToolForDrops().sound(SoundType.NETHERRACK)
+                                             .setId(ResourceKey.create(Registries.BLOCK,
+                                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                       "bismuth_nether_ore")))));
 
     public static final DeferredBlock<Block> MAGIC = registerBlock("magic",
             () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f)
