@@ -164,7 +164,7 @@ public class ModEvents {
             List<ItemStack> finalDrops = new ArrayList<>(); // Items caused by enchantments are stored in the list
             int hasFortune = (fortune > 0) ? (1 + serverLevel.random.nextInt(fortune + 1)) : 1;
              // * RAINBOW ENCHANTMENT EFFECT *
-            rainbowEnch(tool, state, world, pos, event, hasFortune, finalDrops, cancelVanillaDrop);
+            rainbowEnch(tool, state, hasFortune, finalDrops, cancelVanillaDrop);
             // * MORE ORES ENCHANTMENT EFFECT *
             moreOresEnch(tool, state, serverLevel, pos, player, finalDrops, cancelVanillaDrop, hasFortune);
             if (hasAutoSmelt || autoSmelt > 0) { // * AUTO SMELT EFFECT *
