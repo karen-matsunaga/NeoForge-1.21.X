@@ -2,13 +2,19 @@ package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.component.AlternateTexture;
+import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.ModEquipmentAssets;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.renderer.item.ConditionalItemModel;
+import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.NotNull;
 import static net.minecraft.client.data.models.ItemModelGenerators.*;
 
@@ -40,7 +46,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
 
         // CUSTOM ADVANCED ITEMS
-        itemModels.generateFlatItem(ModItems.MCCOURSE_MOD_BOTTLE.get(), ModelTemplates.FLAT_ITEM);
+        alternateItem(itemModels, ModItems.MCCOURSE_MOD_BOTTLE.get());
 
         // CUSTOM FOODS
         itemModels.generateFlatItem(ModItems.COFFEE.get(), ModelTemplates.FLAT_ITEM);
@@ -66,5 +72,20 @@ public class ModModelProvider extends ModelProvider {
 
         itemModels.generateTrimmableItem(ModItems.BISMUTH_BOOTS.get(), ModEquipmentAssets.BISMUTH,
                                          TRIM_PREFIX_BOOTS, false);
+    }
+
+    // CUSTOM METHOD - Alternate Texture
+    public static void alternateItem(ItemModelGenerators itemModels, Item item) {
+        // Boolean Texture
+        ItemModel.Unbaked bottleOn = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, ModelTemplates.FLAT_ITEM));
+        ItemModel.Unbaked bottleOff = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, "_off",
+                                                                                             ModelTemplates.FLAT_ITEM));
+        itemModels.itemModelOutput.accept(item, new ConditionalItemModel.Unbaked(
+           // The property to check
+           new AlternateTexture(ModDataComponentTypes.STORED_LEVELS.get()),
+           // When the boolean is true
+           bottleOn,
+           // When the boolean is false
+           bottleOff));
     }
 }

@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-11T21:26:46.8043204	Model Definitions - mccoursemod
+// 1.21.8	2025-08-12T13:16:07.0561847	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
 911f33f77ee00152a3722ae14470c043ab0c8850 assets/mccoursemod/blockstates/bismuth_ore.json
@@ -33,7 +33,7 @@ c2387d52e387dbf791b463a2d0c1f627dc616110 assets/mccoursemod/items/level_charger_
 7a0ca5263abe9f4fd243943ed05f1550c613e38a assets/mccoursemod/items/level_charger_specif_plus_fortune.json
 7704fa6cbfdd4572156a0ce428118db262c9f925 assets/mccoursemod/items/magic.json
 68c66bdb0543e0688b875b7e031b5b47765985a5 assets/mccoursemod/items/mccoursemod_elevator.json
-c5dd00306a99d3b626959fcf5cb175205735e6e3 assets/mccoursemod/items/mccourse_mod_bottle.json
+a33fdc1092fa423bf247380062149416cb1374e7 assets/mccoursemod/items/mccourse_mod_bottle.json
 7bc128e532aa0bb779eab4b74e05ce40da3a1815 assets/mccoursemod/items/raw_bismuth.json
 48df39b63967c5c0c6266b2d31d2d154193b46fd assets/mccoursemod/models/block/bismuth_block.json
 09665db7fb7ee3d5fee0fa675b201d1ffcd42456 assets/mccoursemod/models/block/bismuth_deepslate_ore.json
@@ -106,4 +106,5 @@ c0d1f8e69879adec59df18c6cf6a472c85c042d6 assets/mccoursemod/models/item/bismuth_
 143d725116ad170320c60a860019737d6dc1d1e1 assets/mccoursemod/models/item/level_charger_specif_minus_fortune.json
 8efd307d669786861e1c019b978ab2ea898c12d8 assets/mccoursemod/models/item/level_charger_specif_plus_fortune.json
 bd54a57c8de52209472992241e62408fce50a4eb assets/mccoursemod/models/item/mccourse_mod_bottle.json
+b1b2377b4f2b8cb5f3ed27769ec348976d3191af assets/mccoursemod/models/item/mccourse_mod_bottle_off.json
 2546ad02640ae8645cc6a77dc22cc4f7085dc9be assets/mccoursemod/models/item/raw_bismuth.json

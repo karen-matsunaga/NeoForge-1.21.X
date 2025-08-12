@@ -1,5 +1,6 @@
 package net.karen.mccoursemod;
 
+import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.particle.BismuthParticles;
@@ -8,6 +9,7 @@ import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
 import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -15,6 +17,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
+import net.neoforged.neoforge.client.event.RegisterConditionalItemModelPropertyEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
@@ -82,5 +85,13 @@ public class MccourseModClient {
         event.register(KeyBinding.MCCOURSE_BOTTLE_STORED_KEY.get()); // Mccourse Bottle stored 10 levels
         event.register(KeyBinding.MCCOURSE_BOTTLE_RESTORED_KEY.get()); // Mccourse Bottle restored 10 levels
         event.register(KeyBinding.UNLOCK_KEY.get()); // Unlock custom enchantment
+    }
+
+    @SubscribeEvent // on the mod event bus only on the physical client
+    public static void registerConditionalProperties(RegisterConditionalItemModelPropertyEvent event) {
+        // The name to reference as the type
+        event.register(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "has_data_info"),
+                       // The map codec
+                       AlternateTexture.MAP_CODEC);
     }
 }

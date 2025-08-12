@@ -1,6 +1,15 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "mccoursemod:item/mccourse_mod_bottle"
+    "type": "minecraft:condition",
+    "dataComponentType": "mccoursemod:stored_levels",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "mccoursemod:item/mccourse_mod_bottle_off"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "mccoursemod:item/mccourse_mod_bottle"
+    },
+    "property": "mccoursemod:has_data_info"
   }
 }
