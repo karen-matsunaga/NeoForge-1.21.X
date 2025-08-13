@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "bismuth",
+  "key": {
+    "#": "mccoursemod:bismuth"
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "mccoursemod:bismuth_stairs"
+  }
+}

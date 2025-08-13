@@ -52,6 +52,15 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.disenchant_grouped", "Disenchant Grouped Block");
         add("item.mccoursemod.magic", "Magic Block");
         add("item.mccoursemod.mccoursemod_elevator", "Mccourse Mod Elevator Block");
+        add("item.mccoursemod.bismuth_button", "Bismuth Button Block");
+        add("item.mccoursemod.bismuth_door", "Bismuth Door Block");
+        add("item.mccoursemod.bismuth_fence", "Bismuth Fence Block");
+        add("item.mccoursemod.bismuth_fence_gate", "Bismuth Fence Gate Block");
+        add("item.mccoursemod.bismuth_pressure_plate", "Bismuth Pressure Plate Block");
+        add("item.mccoursemod.bismuth_slab", "Bismuth Slab Block");
+        add("item.mccoursemod.bismuth_stairs", "Bismuth Stairs Block");
+        add("item.mccoursemod.bismuth_trapdoor", "Bismuth Trapdoor Block");
+        add("item.mccoursemod.bismuth_wall", "Bismuth Wall Block");
 
         // CUSTOM BLOCKS
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
@@ -64,6 +73,17 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.DISENCHANT_GROUPED, "Disenchant Grouped Block");
         addBlock(ModBlocks.MAGIC, "Magic Block");
         addBlock(ModBlocks.MCCOURSEMOD_ELEVATOR, "Mccourse Mod Elevator Block");
+
+        // Block Families
+        addBlock(ModBlocks.BISMUTH_BUTTON, "Bismuth Button Block");
+        addBlock(ModBlocks.BISMUTH_DOOR, "Bismuth Door Block");
+        addBlock(ModBlocks.BISMUTH_FENCE, "Bismuth Fence Block");
+        addBlock(ModBlocks.BISMUTH_FENCE_GATE, "Bismuth Fence Gate Block");
+        addBlock(ModBlocks.BISMUTH_PRESSURE_PLATE, "Bismuth Pressure Plate Block");
+        addBlock(ModBlocks.BISMUTH_SLAB, "Bismuth Slab Block");
+        addBlock(ModBlocks.BISMUTH_STAIRS, "Bismuth Stairs Block");
+        addBlock(ModBlocks.BISMUTH_TRAPDOOR, "Bismuth Trapdoor Block");
+        addBlock(ModBlocks.BISMUTH_WALL, "Bismuth Wall Block");
 
         // CUSTOM CREATIVE TABS
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

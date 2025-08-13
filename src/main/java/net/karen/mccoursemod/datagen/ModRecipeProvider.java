@@ -6,9 +6,11 @@ import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
@@ -37,6 +39,16 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes() {
+        List<ItemLike> BISMUTH_SMELTABLES = List.of(ModItems.RAW_BISMUTH, ModBlocks.BISMUTH_ORE,
+                                                    ModBlocks.BISMUTH_DEEPSLATE_ORE, ModBlocks.BISMUTH_END_ORE,
+                                                    ModBlocks.BISMUTH_NETHER_ORE);
+
+        // CUSTOM Smelting + Blasting
+        oreSmelting(BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(),
+                    0.25f, 200, "bismuth");
+        oreBlasting(BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(),
+                    0.25f, 100, "bismuth");
+
         // CUSTOM block
         this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.ANVIL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENCHANT.get());
 
@@ -59,6 +71,41 @@ public class ModRecipeProvider extends RecipeProvider {
         this.fullArmor(List.of(ModItems.BISMUTH_HELMET.get(), ModItems.BISMUTH_CHESTPLATE.get(),
                                ModItems.BISMUTH_LEGGINGS.get(), ModItems.BISMUTH_BOOTS.get(),
                                ModItems.BISMUTH.get()));
+
+        // Block Families
+        this.blockFamilies(List.of(ModBlocks.BISMUTH_STAIRS.get(), ModBlocks.BISMUTH_SLAB.get(),
+                                   ModBlocks.BISMUTH_BUTTON.get(), ModBlocks.BISMUTH_PRESSURE_PLATE.get(),
+                                   ModBlocks.BISMUTH_FENCE.get(), ModBlocks.BISMUTH_FENCE_GATE.get(),
+                                   ModBlocks.BISMUTH_WALL.get(), ModBlocks.BISMUTH_DOOR.get(),
+                                   ModBlocks.BISMUTH_TRAPDOOR.get()),
+                           ModItems.BISMUTH.get(), "bismuth", this.output);
+    }
+
+    // CUSTOM METHOD - Block Families
+    protected void blockFamilies(List<Block> blocks, Item item, String group, RecipeOutput output) {
+        stairBuilder(blocks.getFirst(), Ingredient.of(item)).group(group)
+                    .unlockedBy(getHasName(item), has(item)).save(output);
+
+        slab(RecipeCategory.BUILDING_BLOCKS, blocks.get(1), item);
+
+        buttonBuilder(blocks.get(2), Ingredient.of(item)).group(group)
+                     .unlockedBy(getHasName(item), has(item)).save(output);
+
+        pressurePlate(blocks.get(3), item);
+
+        fenceBuilder(blocks.get(4), Ingredient.of(item)).group(group)
+                    .unlockedBy(getHasName(item), has(item)).save(output);
+
+        fenceGateBuilder(blocks.get(5), Ingredient.of(item)).group(group)
+                        .unlockedBy(getHasName(item), has(item)).save(output);
+
+        wall(RecipeCategory.BUILDING_BLOCKS, blocks.get(6), item);
+
+        doorBuilder(blocks.get(7), Ingredient.of(item)).group(group)
+                   .unlockedBy(getHasName(item), has(item)).save(output);
+
+        trapdoorBuilder(blocks.get(8), Ingredient.of(item)).group(group)
+                       .unlockedBy(getHasName(item), has(item)).save(output);
     }
 
     // CUSTOM METHOD - Smelting

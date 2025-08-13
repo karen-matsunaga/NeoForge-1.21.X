@@ -58,5 +58,16 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                            Blocks.ICE, Blocks.PACKED_ICE,
                                                            Blocks.BLUE_ICE, Blocks.GLOWSTONE)
                                                       .addTag(Tags.Blocks.GLASS_BLOCKS);
+
+        // Block families
+        tag(BlockTags.BUTTONS).add(ModBlocks.BISMUTH_BUTTON.get());
+        tag(BlockTags.DOORS).add(ModBlocks.BISMUTH_DOOR.get());
+        tag(BlockTags.FENCES).add(ModBlocks.BISMUTH_FENCE.get());
+        tag(BlockTags.FENCE_GATES).add(ModBlocks.BISMUTH_FENCE_GATE.get());
+        tag(BlockTags.PRESSURE_PLATES).add(ModBlocks.BISMUTH_PRESSURE_PLATE.get());
+        tag(BlockTags.STAIRS).add(ModBlocks.BISMUTH_STAIRS.get());
+        tag(BlockTags.SLABS).add(ModBlocks.BISMUTH_SLAB.get());
+        tag(BlockTags.TRAPDOORS).add(ModBlocks.BISMUTH_TRAPDOOR.get());
+        tag(BlockTags.WALLS).add(ModBlocks.BISMUTH_WALL.get());
     }
 }

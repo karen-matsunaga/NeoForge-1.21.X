@@ -26,7 +26,6 @@ public class ModModelProvider extends ModelProvider {
     protected void registerModels(@NotNull BlockModelGenerators blockModels,
                                   @NotNull ItemModelGenerators itemModels) {
         // CUSTOM BLOCKS
-        blockModels.createTrivialCube(ModBlocks.BISMUTH_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_ORE.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_DEEPSLATE_ORE.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_END_ORE.get());
@@ -36,6 +35,18 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.DISENCHANT_GROUPED.get());
         blockModels.createTrivialCube(ModBlocks.DISENCHANT_INDIVIDUAL.get());
         blockModels.createTrivialCube(ModBlocks.MCCOURSEMOD_ELEVATOR.get());
+
+        // BLOCK FAMILIES
+        blockModels.family(ModBlocks.BISMUTH_BLOCK.get())
+                   .fence(ModBlocks.BISMUTH_FENCE.get())
+                   .fenceGate(ModBlocks.BISMUTH_FENCE_GATE.get())
+                   .wall(ModBlocks.BISMUTH_WALL.get())
+                   .stairs(ModBlocks.BISMUTH_STAIRS.get())
+                   .slab(ModBlocks.BISMUTH_SLAB.get())
+                   .button(ModBlocks.BISMUTH_BUTTON.get())
+                   .pressurePlate(ModBlocks.BISMUTH_PRESSURE_PLATE.get())
+                   .door(ModBlocks.BISMUTH_DOOR.get())
+                   .trapdoor(ModBlocks.BISMUTH_TRAPDOOR.get());
 
         // CUSTOM ITEMS
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);

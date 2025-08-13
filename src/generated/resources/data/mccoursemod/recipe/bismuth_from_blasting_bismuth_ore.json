@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "bismuth",
+  "ingredient": "mccoursemod:bismuth_ore",
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:bismuth"
+  }
+}
