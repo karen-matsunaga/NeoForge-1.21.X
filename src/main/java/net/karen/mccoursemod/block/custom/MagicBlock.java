@@ -43,6 +43,9 @@ public class MagicBlock extends Block {
             if (itemEntity.getItem().getItem() == Items.RABBIT_FOOT) {
                 itemEntity.setItem(new ItemStack(Items.EMERALD, itemEntity.getItem().getCount()));
             }
+            if (itemEntity.getItem().getItem() == Items.DANDELION) {
+                itemEntity.setItem(new ItemStack(Items.WITHER_ROSE, itemEntity.getItem().getCount()));
+            }
         }
         super.stepOn(level, pos, state, entity);
     }

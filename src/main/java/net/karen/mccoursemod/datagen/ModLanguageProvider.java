@@ -267,7 +267,7 @@ public class ModLanguageProvider extends LanguageProvider {
             "When applied on mace the player into the air seven blocks per level after performing a smash attack.");
 
         // CUSTOM TOOLTIP
-        add("tooltip.mccoursemod.magic_block.tooltip", "This Block is quite §9MAGICAL§r");
+        add("tooltip.mccoursemod.magic_block", "This Block is quite §9MAGICAL§r");
         add("tooltip.mccoursemod.auto_smelt.tooltip",
             "When applied on pickaxe transform all items that can be roasted on furnace.");
         add("tooltip.mccoursemod.more_ores.tooltip",

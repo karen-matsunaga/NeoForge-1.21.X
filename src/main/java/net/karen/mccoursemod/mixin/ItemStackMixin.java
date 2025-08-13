@@ -34,7 +34,7 @@ public abstract class ItemStackMixin {
             Component original = tooltip.getFirst(), // Original tooltip line 0
                        colored = original.copy().withStyle(style -> style.withColor(0x00ff00));
             tooltip.set(0, colored); // Change only the name (first line of the tooltip) -> Color not appears on screen
-            tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block.tooltip")); // Added more information about block
+            tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block")); // Added more information about block
         }
         // AUTO SMELT custom effect
         if (stack.has(ModDataComponentTypes.AUTO_SMELT.get())) {
