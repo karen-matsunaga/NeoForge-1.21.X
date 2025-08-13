@@ -14,8 +14,10 @@ import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.renderer.item.ClientItem;
 import net.minecraft.client.renderer.item.ConditionalItemModel;
 import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -66,7 +68,8 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
 
         // CUSTOM ADVANCED ITEMS
-        alternateItem(itemModels, ModItems.MCCOURSE_MOD_BOTTLE.get());
+        alternateItemTexture(itemModels, ModItems.MCCOURSE_MOD_BOTTLE.get());
+        booleanItemTexture(itemModels, ModItems.CHISEL.get());
 
         // CUSTOM FOODS
         itemModels.generateFlatItem(ModItems.COFFEE.get(), ModelTemplates.FLAT_ITEM);
@@ -94,27 +97,39 @@ public class ModModelProvider extends ModelProvider {
                                          TRIM_PREFIX_BOOTS, false);
     }
 
-    // CUSTOM METHOD - Alternate Texture
-    public static void alternateItem(ItemModelGenerators itemModels, Item item) {
+    // * CUSTOM BLOCKS *
+    // CUSTOM METHOD - Blockstate Texture
+    protected static void blockstateTexture(BlockModelGenerators blockModels, Block block) {
+        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
+                   .with(BlockModelGenerators.createBooleanModelDispatch(BismuthLampBlock.CLICKED,
+                         // Bismuth Lamp On
+                         BlockModelGenerators.plainVariant(blockModels.createSuffixedVariant(block, "_on",
+                                                           ModelTemplates.CUBE_ALL, TextureMapping::cube)),
+                         // Bismuth Lamp Off
+                         BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(block, blockModels.modelOutput)))));
+    }
+
+    // * CUSTOM ITEMS *
+    // CUSTOM METHOD - Alternate item textures
+    protected static void alternateItemTexture(ItemModelGenerators itemModels, Item item) {
         // Boolean Texture
         ItemModel.Unbaked bottleOn = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, ModelTemplates.FLAT_ITEM));
         ItemModel.Unbaked bottleOff = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, "_off",
                                                                                                ModelTemplates.FLAT_ITEM));
         itemModels.itemModelOutput.accept(item, new ConditionalItemModel.Unbaked(
-           new AlternateTexture(ModDataComponentTypes.STORED_LEVELS.get()), // The property to check
-           bottleOn, // When the boolean is true
-           bottleOff)); // When the boolean is false
+            new AlternateTexture(ModDataComponentTypes.STORED_LEVELS.get()), // The property to check
+                                 bottleOn, // When the boolean is true
+                                 bottleOff)); // When the boolean is false
     }
 
-    // CUSTOM METHOD - Blockstate Texture
-    public static void blockstateTexture(BlockModelGenerators blockModels, Block block) {
-        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
-                                    .with(BlockModelGenerators.createBooleanModelDispatch(BismuthLampBlock.CLICKED,
-                                          // Bismuth Lamp On
-                                          BlockModelGenerators.plainVariant(blockModels.createSuffixedVariant(block, "_on",
-                                                                            ModelTemplates.CUBE_ALL, TextureMapping::cube)),
-                                          // Bismuth Lamp Off
-                                          BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(block,
-                                                                                                      blockModels.modelOutput)))));
+    // CUSTOM METHOD - Boolean item textures
+    protected static void booleanItemTexture(ItemModelGenerators itemModels, Item item) {
+        ItemModel.Unbaked chisel = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, ModelTemplates.FLAT_ITEM));
+        ItemModel.Unbaked usedChisel = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, "_used",
+                                                                                                ModelTemplates.FLAT_ITEM));
+        itemModels.itemModelOutput.register(ModItems.CHISEL.get(),
+                  new ClientItem(new ConditionalItemModel.Unbaked(
+                                 new HasComponent(ModDataComponentTypes.COORDINATES.get(), false),
+                                 usedChisel, chisel), new ClientItem.Properties(false, false)));
     }
 }

@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -20,6 +21,10 @@ public class ModDataComponentTypes {
     // Enchantment Data Component Type Registries
     public static final DeferredRegister<DataComponentType<?>> ENCHANTMENT_COMPONENT_TYPES =
            DeferredRegister.createDataComponents(Registries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, MccourseMod.MOD_ID);
+
+    // Coordinates data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> COORDINATES =
+           register("coordinates", builder -> builder.persistent(BlockPos.CODEC));
 
     // Auto Smelt custom data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> AUTO_SMELT =

@@ -183,6 +183,13 @@ public class ModItems {
                                                                 .stacksTo(1),
                                                                 100000, 1));
 
+    public static final DeferredItem<Item> CHISEL = ITEMS.register("chisel",
+           () -> new ChiselItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                            ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                            "chisel")))
+                                                     .durability(32)));
+
+    // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

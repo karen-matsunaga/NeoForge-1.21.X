@@ -59,10 +59,16 @@ public class ChatUtils {
         return Component.translatable(tooltip).withStyle(Style.EMPTY.withColor(color).withBold(curseFalse).withItalic(curseTrue));
     }
 
-    // CUSTOM METHOD - Text appears on TOOLTIP item
+    // CUSTOM METHOD - Text appears on TOOLTIP item -> Component Literal
     public static void tooltipLine(Consumer<Component> tooltip,
                                    String message, ChatFormatting color) {
         tooltip.accept(componentLiteral(message, color));
+    }
+
+    // CUSTOM METHOD - Text appears on TOOLTIP item -> Component Translatable
+    public static void tooltipLineT(Consumer<Component> tooltip,
+                                   String message, ChatFormatting color) {
+        tooltip.accept(componentTranslatable(message, color));
     }
 
     // CUSTOM METHOD - Text appears on TOOLTIP item (Translatable version) with RGB color

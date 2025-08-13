@@ -21,7 +21,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS, "Level Charger Generic Minus");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE, "Level Charger Specif Minus Fortune");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE, "Level Charger Specif Plus Fortune");
+
+        // CUSTOM ADVANCED ITEMS
         addItem(ModItems.MCCOURSE_MOD_BOTTLE, "Mccourse Mod Bottle");
+        addItem(ModItems.CHISEL, "Chisel");
 
         // CUSTOM Foods
         addItem(ModItems.COFFEE, "Coffee");
@@ -269,6 +272,8 @@ public class ModLanguageProvider extends LanguageProvider {
             "When applied on pickaxe transform all items that can be roasted on furnace.");
         add("tooltip.mccoursemod.more_ores.tooltip",
             "When applied on pickaxe if a stone block is break has a percentage to receive ores.");
+        add("tooltip.mccoursemod.chisel.shift_down", "This Item can chisel Blocks into Bricks");
+        add("tooltip.mccoursemod.chisel", "Press §eShift§r for more Information");
 
         // CUSTOM Effects and Potions
         // FLY effect + potion
