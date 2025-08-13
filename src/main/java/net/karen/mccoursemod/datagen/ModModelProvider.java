@@ -4,7 +4,6 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
-import net.karen.mccoursemod.item.ModEquipmentAssets;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -63,16 +62,16 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.BISMUTH_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
         // CUSTOM ARMORS
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_HELMET.get(), ModEquipmentAssets.BISMUTH,
+        itemModels.generateTrimmableItem(ModItems.BISMUTH_HELMET.get(), ModEquipmentAssetProvider.BISMUTH,
                                          TRIM_PREFIX_HELMET, false);
 
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_CHESTPLATE.get(), ModEquipmentAssets.BISMUTH,
+        itemModels.generateTrimmableItem(ModItems.BISMUTH_CHESTPLATE.get(), ModEquipmentAssetProvider.BISMUTH,
                                          TRIM_PREFIX_CHESTPLATE, false);
 
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_LEGGINGS.get(), ModEquipmentAssets.BISMUTH,
+        itemModels.generateTrimmableItem(ModItems.BISMUTH_LEGGINGS.get(), ModEquipmentAssetProvider.BISMUTH,
                                          TRIM_PREFIX_LEGGINGS, false);
 
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_BOOTS.get(), ModEquipmentAssets.BISMUTH,
+        itemModels.generateTrimmableItem(ModItems.BISMUTH_BOOTS.get(), ModEquipmentAssetProvider.BISMUTH,
                                          TRIM_PREFIX_BOOTS, false);
     }
 
