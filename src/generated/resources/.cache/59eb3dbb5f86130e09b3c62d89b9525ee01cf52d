@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-13T15:18:07.4276041	Loot Tables
+// 1.21.8	2025-08-13T16:22:49.557793	Loot Tables
 8655aeed33fac46c32b6b250bd4c122f9d427620 data/mccoursemod/loot_table/blocks/bismuth_block.json
 2d484e8694e507dbffcf26de827d1a89ca8dbfa3 data/mccoursemod/loot_table/blocks/bismuth_button.json
 f072ab7b820da2d097e2aa6ddcdd8e7a4332c2b4 data/mccoursemod/loot_table/blocks/bismuth_deepslate_ore.json
@@ -6,6 +6,7 @@ f072ab7b820da2d097e2aa6ddcdd8e7a4332c2b4 data/mccoursemod/loot_table/blocks/bism
 ed0532b1fad1b219261082a34cf370e3344f9d11 data/mccoursemod/loot_table/blocks/bismuth_end_ore.json
 86319b1524c41ab3b8dfcbe53e18e013cda3de31 data/mccoursemod/loot_table/blocks/bismuth_fence.json
 9474b13165517d212dff09a73d727c9840c8db75 data/mccoursemod/loot_table/blocks/bismuth_fence_gate.json
+639c993be8395dacbbe59d93b8bd173fb33c3f80 data/mccoursemod/loot_table/blocks/bismuth_lamp.json
 1d5fa81b3f4ada24da940d6de49e462c48d64c0c data/mccoursemod/loot_table/blocks/bismuth_nether_ore.json
 892125033439128aa8806438e1b35d4127c28c0a data/mccoursemod/loot_table/blocks/bismuth_ore.json
 73a5e3db919d86c9813041b614d9a9eb549d394f data/mccoursemod/loot_table/blocks/bismuth_pressure_plate.json

@@ -61,6 +61,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.bismuth_stairs", "Bismuth Stairs Block");
         add("item.mccoursemod.bismuth_trapdoor", "Bismuth Trapdoor Block");
         add("item.mccoursemod.bismuth_wall", "Bismuth Wall Block");
+        add("item.mccoursemod.bismuth_lamp", "Bismuth Lamp Block");
 
         // CUSTOM BLOCKS
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
@@ -84,6 +85,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.BISMUTH_STAIRS, "Bismuth Stairs Block");
         addBlock(ModBlocks.BISMUTH_TRAPDOOR, "Bismuth Trapdoor Block");
         addBlock(ModBlocks.BISMUTH_WALL, "Bismuth Wall Block");
+
+        // Blockstate block
+        addBlock(ModBlocks.BISMUTH_LAMP, "Bismuth Lamp Block");
 
         // CUSTOM CREATIVE TABS
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

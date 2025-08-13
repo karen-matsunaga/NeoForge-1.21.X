@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-13T15:18:07.4276041	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-08-13T16:22:49.557793	Tags for minecraft:block mod id vanilla
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 fb04ce601bdbe167eef745f4fb188a2bb2d4ca6a data/mccoursemod/tags/block/block_fly_block_speed.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_bismuth_tool.json
@@ -16,7 +16,7 @@ b2be94b08f1f767a4949e7d5c4095b56769b0306 data/minecraft/tags/block/buttons.json
 71290579fa6caeebf702d4d276f6ddfe00a2b65f data/minecraft/tags/block/doors.json
 a44bf901799c6d7db15b15452067a0123b89153c data/minecraft/tags/block/fences.json
 07086651e9b7704a233d9f0c0533454d47edad3f data/minecraft/tags/block/fence_gates.json
-30d3b318ba5108780048498dafed1013b10d3118 data/minecraft/tags/block/mineable/pickaxe.json
+84f943fa97c6bd83f461a5a885c9222fb914d859 data/minecraft/tags/block/mineable/pickaxe.json
 bcf4bcf7ee0f0b3801aac9a06bc97d9deda22c9d data/minecraft/tags/block/pressure_plates.json
 48d0c5ab4593b22cb99ef8679e1bfb56a8cd44c7 data/minecraft/tags/block/slabs.json
 0cd7b03a503db0ddd1b76d689dc4942c9f1d0943 data/minecraft/tags/block/stairs.json

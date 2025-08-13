@@ -1,10 +1,7 @@
 package net.karen.mccoursemod.block;
 
 import net.karen.mccoursemod.MccourseMod;
-import net.karen.mccoursemod.block.custom.DisenchantBlock;
-import net.karen.mccoursemod.block.custom.EnchantBlock;
-import net.karen.mccoursemod.block.custom.MagicBlock;
-import net.karen.mccoursemod.block.custom.MccourseElevatorBlock;
+import net.karen.mccoursemod.block.custom.*;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -171,6 +168,16 @@ public class ModBlocks {
                                                                     .setId(ResourceKey.create(Registries.BLOCK,
                                                                            ResourceLocation.fromNamespaceAndPath(
                                                                            MccourseMod.MOD_ID, "bismuth_trapdoor")))));
+
+    // CUSTOM blockstate block
+    public static final DeferredBlock<Block> BISMUTH_LAMP = registerBlock("bismuth_lamp",
+           () -> new BismuthLampBlock(BlockBehaviour.Properties.of().strength(2f)
+                                                    .requiresCorrectToolForDrops()
+                                                    .lightLevel(state ->
+                                                                state.getValue(BismuthLampBlock.CLICKED) ? 15 : 0)
+                                                    .setId(ResourceKey.create(Registries.BLOCK,
+                                                           ResourceLocation.fromNamespaceAndPath(
+                                                           MccourseMod.MOD_ID, "bismuth_lamp")))));
 
     // CUSTOM METHOD - Registry all custom blocks
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

@@ -2,18 +2,23 @@ package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.block.custom.BismuthLampBlock;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.client.renderer.item.ConditionalItemModel;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 import static net.minecraft.client.data.models.ItemModelGenerators.*;
 
@@ -47,6 +52,9 @@ public class ModModelProvider extends ModelProvider {
                    .pressurePlate(ModBlocks.BISMUTH_PRESSURE_PLATE.get())
                    .door(ModBlocks.BISMUTH_DOOR.get())
                    .trapdoor(ModBlocks.BISMUTH_TRAPDOOR.get());
+
+        // BLOCKSTATE block
+        blockstateTexture(blockModels, ModBlocks.BISMUTH_LAMP.get());
 
         // CUSTOM ITEMS
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
@@ -96,5 +104,17 @@ public class ModModelProvider extends ModelProvider {
            new AlternateTexture(ModDataComponentTypes.STORED_LEVELS.get()), // The property to check
            bottleOn, // When the boolean is true
            bottleOff)); // When the boolean is false
+    }
+
+    // CUSTOM METHOD - Blockstate Texture
+    public static void blockstateTexture(BlockModelGenerators blockModels, Block block) {
+        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
+                                    .with(BlockModelGenerators.createBooleanModelDispatch(BismuthLampBlock.CLICKED,
+                                          // Bismuth Lamp On
+                                          BlockModelGenerators.plainVariant(blockModels.createSuffixedVariant(block, "_on",
+                                                                            ModelTemplates.CUBE_ALL, TextureMapping::cube)),
+                                          // Bismuth Lamp Off
+                                          BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(block,
+                                                                                                      blockModels.modelOutput)))));
     }
 }

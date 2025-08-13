@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-13T15:18:07.4081382	Model Definitions - mccoursemod
+// 1.21.8	2025-08-13T16:22:49.557793	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -6,6 +6,7 @@ b6cbee0c6ccd305611425ba952ce7be59ecdf791 assets/mccoursemod/blockstates/bismuth_
 ea22d9834454ae28ba6a682a1694e430b450c758 assets/mccoursemod/blockstates/bismuth_end_ore.json
 bbdf5f66f06735bef031e62151a9a63fc8f4309e assets/mccoursemod/blockstates/bismuth_fence.json
 2c2c94712d4f600fdee5e6c82c584b9dedeb4322 assets/mccoursemod/blockstates/bismuth_fence_gate.json
+cc64ebe66c81c6f215659ef55bbf847928a7d95d assets/mccoursemod/blockstates/bismuth_lamp.json
 2f072373d7f72a35664b98d30806329f32b6d1c2 assets/mccoursemod/blockstates/bismuth_nether_ore.json
 911f33f77ee00152a3722ae14470c043ab0c8850 assets/mccoursemod/blockstates/bismuth_ore.json
 14fb135f81215e6681c3106535c540edaa03cac2 assets/mccoursemod/blockstates/bismuth_pressure_plate.json
@@ -33,6 +34,7 @@ be855cb7a0c84c280e24360353a66c4247c49829 assets/mccoursemod/items/bismuth_fence_
 722c986c5e50dee06670d1ea419442866c115755 assets/mccoursemod/items/bismuth_hammer.json
 9889c2909d5081598ff49f382b5d935398b69ff2 assets/mccoursemod/items/bismuth_helmet.json
 11ef30f3c26cc55a08304b960e4328f2a9eea96a assets/mccoursemod/items/bismuth_hoe.json
+e321dfc1147f80ce302e390c7e14cbe6d424cc29 assets/mccoursemod/items/bismuth_lamp.json
 c6260cb4a6d7f38e5cadac9944f5c6599c6b3dcf assets/mccoursemod/items/bismuth_leggings.json
 435d213ed3e8943738ff1be5da8ab83e0e87b3f6 assets/mccoursemod/items/bismuth_nether_ore.json
 36d7371da3cb8f2bbe8f80fc6a9380a8a2f15d88 assets/mccoursemod/items/bismuth_ore.json
@@ -78,6 +80,8 @@ d6fb749939ae1a8614e56f7f0948d14a72d32785 assets/mccoursemod/models/block/bismuth
 19ca64610be3635093bf9e5b7d333bd9cefe7ced assets/mccoursemod/models/block/bismuth_fence_inventory.json
 68041683f39eb34050e2546af5f4b291a726c61b assets/mccoursemod/models/block/bismuth_fence_post.json
 06ddb184526313677b9c05e64898b13740fde91a assets/mccoursemod/models/block/bismuth_fence_side.json
+283845237b18031585e136b3ab0d7b68b405c96f assets/mccoursemod/models/block/bismuth_lamp.json
+22ec700d2721883b85efed0fcefb0e9e5846ceb3 assets/mccoursemod/models/block/bismuth_lamp_on.json
 0635e24017c9151e56fd93fd520d9fbee4b29c11 assets/mccoursemod/models/block/bismuth_nether_ore.json
 22d92e6a01faf649a27057dd6a146f626aa78d58 assets/mccoursemod/models/block/bismuth_ore.json
 4d935313d6f1f41022bae306e4517bf3c956b67b assets/mccoursemod/models/block/bismuth_pressure_plate.json
