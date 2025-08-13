@@ -2,7 +2,6 @@ package net.karen.mccoursemod.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.karen.mccoursemod.item.ModArmorMaterials;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
@@ -10,7 +9,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -38,9 +36,7 @@ public class ModArmorItem extends Item {
     @Override
     public void inventoryTick(@NotNull ItemStack stack, @NotNull ServerLevel level,
                               @NotNull Entity entity, @Nullable EquipmentSlot slot) {
-        if (entity instanceof Player player && hasFullSuitOfArmorOn(player)) {
-            evaluateArmorEffects(player);
-        }
+        if (entity instanceof Player player && hasFullSuitOfArmorOn(player)) { evaluateArmorEffects(player); }
     }
 
     // CUSTOM METHOD - Check if player used same armor material type and received correct effect
@@ -48,9 +44,7 @@ public class ModArmorItem extends Item {
         for (Map.Entry<ArmorMaterial, List<MobEffectInstance>> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
             ArmorMaterial mapArmorMaterial = entry.getKey();
             List<MobEffectInstance> mapEffect = entry.getValue();
-            if (hasPlayerCorrectArmorOn(mapArmorMaterial, player)) {
-                addEffectToPlayer(player, mapEffect);
-            }
+            if (hasPlayerCorrectArmorOn(mapArmorMaterial, player)) { addEffectToPlayer(player, mapEffect); }
         }
     }
 
@@ -67,37 +61,27 @@ public class ModArmorItem extends Item {
 
     // CUSTOM METHOD - Player is used only one armor material type
     private boolean hasPlayerCorrectArmorOn(ArmorMaterial armorMaterial, Player player) {
-        Inventory playerInv = player.getInventory(); // Player's inventory
-        DataComponentType<Equippable> dataComp = DataComponents.EQUIPPABLE;
-        Equippable boots = playerInv.getItem(EquipmentSlot.FEET.getIndex()).getComponents().get(dataComp),
-                leggings = playerInv.getItem(EquipmentSlot.LEGS.getIndex()).getComponents().get(dataComp),
-              chestplate = playerInv.getItem(EquipmentSlot.CHEST.getIndex()).getComponents().get(dataComp),
-                  helmet = playerInv.getItem(EquipmentSlot.HEAD.getIndex()).getComponents().get(dataComp);
-        boolean result = (boots != null && leggings != null && chestplate != null && helmet != null);
-        boolean returnValue = false;
-        if (result) {
-            Optional<ResourceKey<EquipmentAsset>> bootsEquip = boots.assetId(),
-                                                  leggingsEquip = leggings.assetId(),
-                                                  chestplateEquip = chestplate.assetId(),
-                                                  helmetEquip = helmet.assetId();
-            boolean resultTwo = (bootsEquip.isPresent() && leggingsEquip.isPresent() &&
-                                 chestplateEquip.isPresent() && helmetEquip.isPresent());
-            if (resultTwo) {
+        Equippable boots = player.getItemBySlot(EquipmentSlot.FEET).getComponents().get(DataComponents.EQUIPPABLE);
+        Equippable leggings = player.getItemBySlot(EquipmentSlot.LEGS).getComponents().get(DataComponents.EQUIPPABLE);
+        Equippable chestplate = player.getItemBySlot(EquipmentSlot.CHEST).getComponents().get(DataComponents.EQUIPPABLE);
+        Equippable helmet = player.getItemBySlot(EquipmentSlot.HEAD).getComponents().get(DataComponents.EQUIPPABLE);
+        if (boots != null && leggings != null && chestplate != null && helmet != null) {
+            Optional<ResourceKey<EquipmentAsset>> bootsEquip = boots.assetId();
+            Optional<ResourceKey<EquipmentAsset>> leggingsEquip = leggings.assetId();
+            Optional<ResourceKey<EquipmentAsset>> chestplateEquip = chestplate.assetId();
+            Optional<ResourceKey<EquipmentAsset>> helmetEquip = helmet.assetId();
+            if (bootsEquip.isPresent() && leggingsEquip.isPresent() && chestplateEquip.isPresent() && helmetEquip.isPresent()) {
                 ResourceKey<EquipmentAsset> armorAssetId = armorMaterial.assetId();
-                returnValue = bootsEquip.get().equals(armorAssetId) && leggingsEquip.get().equals(armorAssetId) &&
-                              chestplateEquip.get().equals(armorAssetId) && helmetEquip.get().equals(armorAssetId);
+                return bootsEquip.get().equals(armorAssetId) && leggingsEquip.get().equals(armorAssetId) &&
+                       chestplateEquip.get().equals(armorAssetId) && helmetEquip.get().equals(armorAssetId);
             }
         }
-        return returnValue;
+        return false;
     }
 
     // CUSTOM METHOD - Player is used full armor
     private boolean hasFullSuitOfArmorOn(Player player) {
-        Inventory playerInv = player.getInventory(); // Player's inventory
-        ItemStack boots = playerInv.getItem(EquipmentSlot.FEET.getIndex());  // Boots
-        ItemStack leggings = playerInv.getItem(EquipmentSlot.LEGS.getIndex());  // Leggings
-        ItemStack chestplate = playerInv.getItem(EquipmentSlot.CHEST.getIndex()); // Chestplate
-        ItemStack helmet = playerInv.getItem(EquipmentSlot.HEAD.getIndex());  // Helmet
-        return !boots.isEmpty() && !leggings.isEmpty() && !chestplate.isEmpty() && !helmet.isEmpty();
+        return player.hasItemInSlot(EquipmentSlot.FEET) && player.hasItemInSlot(EquipmentSlot.LEGS) &&
+               player.hasItemInSlot(EquipmentSlot.CHEST) && player.hasItemInSlot(EquipmentSlot.HEAD);
     }
 }
