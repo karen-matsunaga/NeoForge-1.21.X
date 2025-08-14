@@ -96,5 +96,11 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
 
         // Special Effect items
         this.tag(ModTags.Items.SPECIAL_EFFECT_ITEMS).add(ModItems.AUTO_SMELT.get());
+
+        // Custom trimmable armor item tag
+        tag(ItemTags.TRIMMABLE_ARMOR).addTag(ModTags.Items.BISMUTH_ARMOR);
+
+        // Custom trim materials item tag
+        tag(ItemTags.TRIM_MATERIALS).add(ModItems.BISMUTH.get());
     }
 }

@@ -101,6 +101,9 @@ public class ModModelProvider extends ModelProvider {
 
         itemModels.generateTrimmableItem(ModItems.BISMUTH_BOOTS.get(), ModEquipmentAssetProvider.BISMUTH,
                                          TRIM_PREFIX_BOOTS, false);
+
+        // Custom Smithing Template
+        itemModels.generateFlatItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
     }
 
     // * CUSTOM BLOCKS *

@@ -51,6 +51,8 @@ public class ModCreativeModeTabs {
                      output.accept(ModItems.BAR_BRAWL_MUSIC_DISC);
                      // CUSTOM horse armor
                      output.accept(ModItems.BISMUTH_HORSE_ARMOR);
+                     // Custom Smithing Template
+                     output.accept(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
                   }).build());
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCK_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",

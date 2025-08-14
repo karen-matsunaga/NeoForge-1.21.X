@@ -205,6 +205,10 @@ public class ModItems {
                                                        ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                        "bismuth_horse_armor")))));
 
+    // Custom Smithing Template
+    public static final DeferredItem<Item> KAUPEN_SMITHING_TEMPLATE =
+           ITEMS.registerItem("kaupen_armor_trim_smithing_template", SmithingTemplateItem::createArmorTrimTemplate);
+
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

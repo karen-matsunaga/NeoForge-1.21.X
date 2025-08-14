@@ -125,6 +125,7 @@
   "item.mccoursemod.disenchant_grouped": "Disenchant Grouped Block",
   "item.mccoursemod.disenchant_individual": "Disenchant Individual Block",
   "item.mccoursemod.enchant": "Enchant Block",
+  "item.mccoursemod.kaupen_armor_trim_smithing_template": "Kaupen Trim Template",
   "item.mccoursemod.level_charger_generic_minus": "Level Charger Generic Minus",
   "item.mccoursemod.level_charger_generic_plus": "Level Charger Generic Plus",
   "item.mccoursemod.level_charger_specif_minus_fortune": "Level Charger Specif Minus Fortune",
@@ -166,5 +167,7 @@
   "tooltip.mccoursemod.chisel": "Press §eShift§r for more Information",
   "tooltip.mccoursemod.chisel.shift_down": "This Item can chisel Blocks into Bricks",
   "tooltip.mccoursemod.magic_block": "This Block is quite §9MAGICAL§r",
-  "tooltip.mccoursemod.more_ores.tooltip": "When applied on pickaxe if a stone block is break has a percentage to receive ores."
+  "tooltip.mccoursemod.more_ores.tooltip": "When applied on pickaxe if a stone block is break has a percentage to receive ores.",
+  "trim_material.mccoursemod.bismuth": "Bismuth Material",
+  "trim_pattern.mccoursemod.kaupen": "Kaupen Armor Trim"
 }

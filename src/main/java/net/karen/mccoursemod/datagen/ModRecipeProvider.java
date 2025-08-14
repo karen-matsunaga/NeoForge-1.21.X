@@ -79,6 +79,12 @@ public class ModRecipeProvider extends RecipeProvider {
                                    ModBlocks.BISMUTH_WALL.get(), ModBlocks.BISMUTH_DOOR.get(),
                                    ModBlocks.BISMUTH_TRAPDOOR.get()),
                            ModItems.BISMUTH.get(), "bismuth", this.output);
+
+        // CUSTOM Trim Smithing
+//        trimSmithing(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ModTrimPatterns.KAUPEN,
+//                     ResourceKey.create(Registries.RECIPE,
+//                                        ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+//                                                                              "kaupen_armor_trim_smithing_template")));
     }
 
     // CUSTOM METHOD - Block Families

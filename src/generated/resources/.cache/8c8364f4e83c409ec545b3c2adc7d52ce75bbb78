@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-11T21:26:46.8043204	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-08-14T09:45:46.7759771	Tags for minecraft:item mod id vanilla
 c493e5b615f47368e4252c52b5de3c2ae6022862 data/mccoursemod/tags/item/bismuth_armor.json
 1eb957f30b2897286be890ceec6f9b75ecf8d625 data/mccoursemod/tags/item/bismuth_tools.json
 e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/bismuth_tool_materials.json
@@ -24,4 +24,5 @@ e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/minecraft/tags/item/beacon_payment
 c3edc13a3874b70c74abd4fdd68b5b6a1ea0a6cd data/minecraft/tags/item/pickaxes.json
 91efaffa27b10da83c0deaad496e4f931edf0ad1 data/minecraft/tags/item/shovels.json
 a41ef7a380e475dc2331467402cff0fe0966c665 data/minecraft/tags/item/swords.json
-6285b72276b0fd02fe7ba9d29427c56122b1d982 data/minecraft/tags/item/trimmable_armor.json
+d18a8864b87a83492e3f4abe7b3722ebae90e6ba data/minecraft/tags/item/trimmable_armor.json
+e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/minecraft/tags/item/trim_materials.json

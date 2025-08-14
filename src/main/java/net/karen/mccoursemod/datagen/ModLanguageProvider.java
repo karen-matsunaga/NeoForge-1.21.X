@@ -50,6 +50,13 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM horse armor
         addItem(ModItems.BISMUTH_HORSE_ARMOR, "Bismuth Horse Armor");
 
+        // CUSTOM SMITHING TEMPLATE
+        addItem(ModItems.KAUPEN_SMITHING_TEMPLATE, "Kaupen Trim Template");
+
+        // CUSTOM TRIM MATERIAL + TRIM PATTERN
+        add("trim_material.mccoursemod.bismuth", "Bismuth Material");
+        add("trim_pattern.mccoursemod.kaupen", "Kaupen Armor Trim");
+
         // CUSTOM Painting Variant
         add("painting.mccoursemod.world.title", "World");
         add("painting.mccoursemod.world.author", "NanoAttack");

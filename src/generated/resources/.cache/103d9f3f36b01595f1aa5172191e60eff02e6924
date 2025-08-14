@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-13T22:18:41.4933352	Registries
+// 1.21.8	2025-08-14T09:45:46.7767964	Registries
 bcd42e3192f291a18c268c668838ef5b2afd5fe6 data/mccoursemod/enchantment/auto_smelt.json
 68c8972713bd2f8573bdb6a5243b656083670f9a data/mccoursemod/enchantment/block_fly.json
 cbd0b27b43670f6e9f36c7202c532b56233a27c6 data/mccoursemod/enchantment/glowing_mobs.json
@@ -17,6 +17,8 @@ cbd0b27b43670f6e9f36c7202c532b56233a27c6 data/mccoursemod/enchantment/glowing_mo
 50dc2c0370e22ad532797e8bfca072d78ce6b981 data/mccoursemod/painting_variant/saw_them.json
 9ec684b853dcf7e6ab0ac9f92519ff60df549a5a data/mccoursemod/painting_variant/shrimp.json
 d1fb24e076d65d44d4a322fee1a56413ebdd3f36 data/mccoursemod/painting_variant/world.json
+bf8cb1ebb6c0da25ab66ad9f31a52448df725dcb data/mccoursemod/trim_material/bismuth.json
+9c4d4bd2070ea5fff3cadfe2f02ecbaf345aad59 data/mccoursemod/trim_pattern/kaupen.json
 05fee6e64fbfae30c7eafd2d522621f53ae172ca data/mccoursemod/worldgen/configured_feature/bismuth_ore.json
 23e67acfe84fe709ebeae56c14f2534997f37521 data/mccoursemod/worldgen/configured_feature/end_bismuth_ore.json
 f71cc8f8ab9d97579728a9fbd0f0e0d628dfc582 data/mccoursemod/worldgen/configured_feature/nether_bismuth_ore.json
