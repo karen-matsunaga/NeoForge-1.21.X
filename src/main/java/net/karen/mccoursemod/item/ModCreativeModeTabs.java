@@ -102,6 +102,14 @@ public class ModCreativeModeTabs {
                      output.accept(ModBlocks.RADISH_CROP);
                      // Bush crop block
                      output.accept(ModBlocks.GOJI_BERRY_BUSH);
+                     // Bloodwood log + Bloodwood wood
+                     output.accept(ModBlocks.BLOODWOOD_LOG.get());
+                     output.accept(ModBlocks.BLOODWOOD_WOOD.get());
+                     output.accept(ModBlocks.STRIPPED_BLOODWOOD_LOG.get());
+                     output.accept(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get());
+                     output.accept(ModBlocks.BLOODWOOD_PLANKS.get());
+                     output.accept(ModBlocks.BLOODWOOD_SAPLING.get());
+                     output.accept(ModBlocks.BLOODWOOD_LEAVES.get());
                   }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus

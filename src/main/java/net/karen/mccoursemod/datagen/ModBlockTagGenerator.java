@@ -73,5 +73,11 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
 
         // Crop
         tag(BlockTags.CROPS).add(ModBlocks.RADISH_CROP.get());
+
+        // Bloodwood log
+        this.tag(BlockTags.LOGS_THAT_BURN).add(ModBlocks.BLOODWOOD_LOG.get())
+                                          .add(ModBlocks.BLOODWOOD_WOOD.get())
+                                          .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.get())
+                                          .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get());
     }
 }

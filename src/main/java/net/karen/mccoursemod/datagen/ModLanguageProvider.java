@@ -100,6 +100,13 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.bismuth_lamp", "Bismuth Lamp Block");
         add("item.mccoursemod.radish_crop", "Radish Crop Block");
         add("item.mccoursemod.goji_berry_bush", "Goji Berry Bush Block");
+        add("item.mccoursemod.bloodwood_log", "Bloodwood Log");
+        add("item.mccoursemod.bloodwood_planks", "Bloodwood Planks");
+        add("item.mccoursemod.bloodwood_wood", "Bloodwood Wood");
+        add("item.mccoursemod.stripped_bloodwood_log", "Stripped Bloodwood Log");
+        add("item.mccoursemod.stripped_bloodwood_wood", "Stripped Bloodwood Wood");
+        add("item.mccoursemod.bloodwood_leaves", "Bloodwood Leaves");
+        add("item.mccoursemod.bloodwood_sapling", "Bloodwood Sapling");
 
         // CUSTOM BLOCKS
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
@@ -132,6 +139,15 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // Bush block
         addBlock(ModBlocks.GOJI_BERRY_BUSH, "Goji Berry Bush Block");
+
+        // Log
+        addBlock(ModBlocks.BLOODWOOD_LOG, "Bloodwood Log");
+        addBlock(ModBlocks.BLOODWOOD_PLANKS, "Bloodwood Planks");
+        addBlock(ModBlocks.BLOODWOOD_WOOD, "Bloodwood Wood");
+        addBlock(ModBlocks.STRIPPED_BLOODWOOD_LOG, "Stripped Bloodwood Log");
+        addBlock(ModBlocks.STRIPPED_BLOODWOOD_WOOD, "Stripped Bloodwood Wood");
+        addBlock(ModBlocks.BLOODWOOD_LEAVES, "Bloodwood Leaves");
+        addBlock(ModBlocks.BLOODWOOD_SAPLING, "Bloodwood Sapling");
 
         // CUSTOM CREATIVE TABS
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

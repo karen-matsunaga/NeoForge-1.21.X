@@ -1,5 +1,6 @@
 package net.karen.mccoursemod.datagen;
 
+import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -108,5 +109,13 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
 
         // Custom trim materials item tag
         tag(ItemTags.TRIM_MATERIALS).add(ModItems.BISMUTH.get());
+
+        // Bloodwood item tag
+        this.tag(ItemTags.LOGS_THAT_BURN).add(ModBlocks.BLOODWOOD_LOG.get().asItem())
+                                         .add(ModBlocks.BLOODWOOD_WOOD.get().asItem())
+                                         .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.get().asItem())
+                                         .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get().asItem());
+
+        this.tag(ItemTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.asItem());
     }
 }

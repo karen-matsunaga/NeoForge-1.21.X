@@ -66,6 +66,19 @@ public class ModModelProvider extends ModelProvider {
         // CUSTOM bush crop
         blockModels.createCropBlock(ModBlocks.GOJI_BERRY_BUSH.get(), GojiBerryBushBlock.AGE,  0, 1, 2, 3);
 
+        // Bloodwood log
+        blockModels.woodProvider(ModBlocks.BLOODWOOD_LOG.get())
+                   .logWithHorizontal(ModBlocks.BLOODWOOD_LOG.get())
+                   .wood(ModBlocks.BLOODWOOD_WOOD.get());
+
+        blockModels.woodProvider(ModBlocks.STRIPPED_BLOODWOOD_LOG.get())
+                   .logWithHorizontal(ModBlocks.STRIPPED_BLOODWOOD_LOG.get())
+                   .wood(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get());
+
+        blockModels.createTrivialCube(ModBlocks.BLOODWOOD_PLANKS.get());
+        blockModels.createTintedLeaves(ModBlocks.BLOODWOOD_LEAVES.get(), TexturedModel.LEAVES, -12012264);
+        blockModels.createCrossBlock(ModBlocks.BLOODWOOD_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
+
         // CUSTOM ITEMS
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_BISMUTH.get(), ModelTemplates.FLAT_ITEM);

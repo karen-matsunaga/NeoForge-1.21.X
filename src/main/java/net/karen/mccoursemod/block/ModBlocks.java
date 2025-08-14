@@ -4,14 +4,20 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.custom.*;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.sound.ModSounds;
+import net.karen.mccoursemod.worldgen.tree.ModTreeGrowers;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -20,6 +26,8 @@ import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.function.Supplier;
 
 public class ModBlocks {
@@ -200,18 +208,136 @@ public class ModBlocks {
                                                                        .noOcclusion()
                                                                        .pushReaction(PushReaction.DESTROY)));
 
+    // CUSTOM log
+    public static final DeferredBlock<Block> BLOODWOOD_LOG = registerBlock("bloodwood_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.of()
+                                                                   .instrument(NoteBlockInstrument.BASS)
+                                                                   .strength(2.0F)
+                                                                   .sound(SoundType.CHERRY_WOOD)
+                                                                   .ignitedByLava()
+                                                                   .setId(ResourceKey.create(Registries.BLOCK,
+                                                                          ResourceLocation.fromNamespaceAndPath(
+                                                                          MccourseMod.MOD_ID, "bloodwood_log")))));
+
+    // CUSTOM wood
+    public static final DeferredBlock<Block> BLOODWOOD_WOOD = registerBlock("bloodwood_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.of()
+                                                                   .instrument(NoteBlockInstrument.BASS)
+                                                                   .strength(2.0F)
+                                                                   .sound(SoundType.CHERRY_WOOD)
+                                                                   .ignitedByLava()
+                                                                   .setId(ResourceKey.create(Registries.BLOCK,
+                                                                          ResourceLocation.fromNamespaceAndPath(
+                                                                          MccourseMod.MOD_ID, "bloodwood_wood")))));
+
+    // CUSTOM stripped log
+    public static final DeferredBlock<Block> STRIPPED_BLOODWOOD_LOG = registerBlock("stripped_bloodwood_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.of()
+                                                                   .instrument(NoteBlockInstrument.BASS)
+                                                                   .strength(2.0F)
+                                                                   .sound(SoundType.CHERRY_WOOD)
+                                                                   .ignitedByLava()
+                                                                   .setId(ResourceKey.create(Registries.BLOCK,
+                                                                          ResourceLocation.fromNamespaceAndPath(
+                                                                          MccourseMod.MOD_ID, "stripped_bloodwood_log")))));
+
+    // CUSTOM stripped wood
+    public static final DeferredBlock<Block> STRIPPED_BLOODWOOD_WOOD = registerBlock("stripped_bloodwood_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.of()
+                                                                   .instrument(NoteBlockInstrument.BASS)
+                                                                   .strength(2.0F)
+                                                                   .sound(SoundType.CHERRY_WOOD)
+                                                                   .ignitedByLava()
+                                                                   .setId(ResourceKey.create(Registries.BLOCK,
+                                                                          ResourceLocation.fromNamespaceAndPath(
+                                                                          MccourseMod.MOD_ID, "stripped_bloodwood_wood")))));
+
+    // CUSTOM planks
+    public static final DeferredBlock<Block> BLOODWOOD_PLANKS = registerBlock("bloodwood_planks",
+            () -> new Block(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK,
+                                                                 ResourceLocation.fromNamespaceAndPath(
+                                                                 MccourseMod.MOD_ID, "bloodwood_planks")))) {
+                @Override
+                public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level,
+                                           @NotNull BlockPos pos, @NotNull Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level,
+                                           @NotNull BlockPos pos, @NotNull Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level,
+                                              @NotNull BlockPos pos, @NotNull Direction direction) {
+                    return 5;
+                }
+            });
+
+    // CUSTOM leaves
+    public static final DeferredBlock<Block> BLOODWOOD_LEAVES = registerBlock("bloodwood_leaves",
+            () -> new UntintedParticleLeavesBlock(0.01f, ParticleTypes.CHERRY_LEAVES,
+                  BlockBehaviour.Properties.of().mapColor(MapColor.PLANT)
+                                                .strength(0.2F)
+                                                .randomTicks()
+                                                .sound(SoundType.CHERRY_LEAVES)
+                                                .noOcclusion()
+                                                .isValidSpawn(Blocks::ocelotOrParrot)
+                                                .ignitedByLava()
+                                                .pushReaction(PushReaction.DESTROY)
+                                                .setId(ResourceKey.create(Registries.BLOCK,
+                                                       ResourceLocation.fromNamespaceAndPath(
+                                                       MccourseMod.MOD_ID, "bloodwood_leaves")))) {
+                @Override
+                public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level,
+                                           @NotNull BlockPos pos, @NotNull Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level,
+                                           @NotNull BlockPos pos, @NotNull Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level,
+                                              @NotNull BlockPos pos, @NotNull Direction direction) {
+                    return 30;
+                }
+            });
+
+    // CUSTOM sapling
+    public static final DeferredBlock<Block> BLOODWOOD_SAPLING = registerBlock("bloodwood_sapling",
+            () -> new ModSaplingBlock(ModTreeGrowers.BLOODWOOD, BlockBehaviour.Properties.of()
+                                                                              .mapColor(MapColor.PLANT)
+                                                                              .noCollission()
+                                                                              .randomTicks()
+                                                                              .instabreak()
+                                                                              .sound(SoundType.GRASS)
+                                                                              .pushReaction(PushReaction.DESTROY)
+                                                                              .setId(ResourceKey.create(Registries.BLOCK,
+                                                                                     ResourceLocation.fromNamespaceAndPath(
+                                                                                     MccourseMod.MOD_ID, "bloodwood_sapling"))),
+                                      () -> Blocks.NETHERRACK));
+
     // CUSTOM METHOD - Registry all custom blocks
-    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
+    private static <T extends Block> DeferredBlock<T> registerBlock(String name,
+                                                                    Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
     }
 
     // CUSTOM METHOD - Registry all custom block items
-    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
+    private static <T extends Block> void registerBlockItem(String name,
+                                                            DeferredBlock<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
                 new Item.Properties()
-                        .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name)))));
+                        .setId(ResourceKey.create(Registries.ITEM,
+                               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name)))));
     }
 
     // CUSTOM METHOD - Registry all custom blocks on event bus

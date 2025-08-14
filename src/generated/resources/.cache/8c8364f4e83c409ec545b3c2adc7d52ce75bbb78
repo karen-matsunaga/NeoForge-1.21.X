@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-14T11:47:25.4571481	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-08-14T18:31:11.4580354	Tags for minecraft:item mod id vanilla
 c493e5b615f47368e4252c52b5de3c2ae6022862 data/mccoursemod/tags/item/bismuth_armor.json
 1eb957f30b2897286be890ceec6f9b75ecf8d625 data/mccoursemod/tags/item/bismuth_tools.json
 e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/bismuth_tool_materials.json
@@ -23,7 +23,9 @@ e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/minecraft/tags/item/beacon_payment
 9f117baa16a9f576daf317dabbc707d980ef0d7c data/minecraft/tags/item/head_armor.json
 7564f6e29a97b680f4a55af5de07c2393311eb48 data/minecraft/tags/item/hoes.json
 66cbee4a7af8bb88c0d4fd67cab9fdbae195825d data/minecraft/tags/item/leg_armor.json
+81d61840f7e470498e0b50066a57efdb7c293248 data/minecraft/tags/item/logs_that_burn.json
 c3edc13a3874b70c74abd4fdd68b5b6a1ea0a6cd data/minecraft/tags/item/pickaxes.json
+7608a745df402e2f37eae16233348148ab1e39ab data/minecraft/tags/item/planks.json
 91efaffa27b10da83c0deaad496e4f931edf0ad1 data/minecraft/tags/item/shovels.json
 20b06f431ee78b3be641dd73046f7e5fda54086f data/minecraft/tags/item/skeleton_preferred_weapons.json
 a41ef7a380e475dc2331467402cff0fe0966c665 data/minecraft/tags/item/swords.json
