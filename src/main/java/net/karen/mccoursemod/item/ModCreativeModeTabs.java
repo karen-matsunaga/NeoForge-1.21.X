@@ -55,6 +55,9 @@ public class ModCreativeModeTabs {
                      output.accept(ModItems.KAUPEN_SMITHING_TEMPLATE);
                      // CUSTOM bow
                      output.accept(ModItems.KAUPEN_BOW);
+                     // CUSTOM seeds
+                     output.accept(ModItems.RADISH_SEEDS);
+                     output.accept(ModItems.RADISH);
                   }).build());
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCK_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",
@@ -88,6 +91,8 @@ public class ModCreativeModeTabs {
                      output.accept(ModBlocks.BISMUTH_TRAPDOOR);
                      // Blockstate block
                      output.accept(ModBlocks.BISMUTH_LAMP);
+                     // Crop block
+                     output.accept(ModBlocks.RADISH_CROP);
                   }).build());
 
     public static void register(IEventBus eventBus) {

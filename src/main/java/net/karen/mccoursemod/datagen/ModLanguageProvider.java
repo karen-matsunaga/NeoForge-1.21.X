@@ -5,6 +5,7 @@ import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import org.checkerframework.checker.units.qual.A;
 
 public class ModLanguageProvider extends LanguageProvider {
     public ModLanguageProvider(PackOutput packOutput) {
@@ -66,6 +67,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add("painting.mccoursemod.saw_them.title", "Saw Them");
         add("painting.mccoursemod.saw_them.author", "NanoAttack");
 
+        // CUSTOM seeds
+        addItem(ModItems.RADISH, "Radish");
+        addItem(ModItems.RADISH_SEEDS, "Radish Seeds");
+
         // CUSTOM block item
         add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.bismuth_block", "Bismuth Block");
@@ -87,6 +92,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.bismuth_trapdoor", "Bismuth Trapdoor Block");
         add("item.mccoursemod.bismuth_wall", "Bismuth Wall Block");
         add("item.mccoursemod.bismuth_lamp", "Bismuth Lamp Block");
+        add("item.mccoursemod.radish_crop", "Radish Crop Block");
 
         // CUSTOM BLOCKS
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
@@ -113,6 +119,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // Blockstate block
         addBlock(ModBlocks.BISMUTH_LAMP, "Bismuth Lamp Block");
+
+        // Crop block
+        addBlock(ModBlocks.RADISH_CROP, "Radish Crop Block");
 
         // CUSTOM CREATIVE TABS
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");
@@ -300,6 +309,7 @@ public class ModLanguageProvider extends LanguageProvider {
             "When applied on pickaxe if a stone block is break has a percentage to receive ores.");
         add("tooltip.mccoursemod.chisel.shift_down", "This Item can chisel Blocks into Bricks");
         add("tooltip.mccoursemod.chisel", "Press §eShift§r for more Information");
+        add("tooltip.mccoursemod.radish", "Tastes really great!");
 
         // CUSTOM Effects and Potions
         // FLY effect + potion

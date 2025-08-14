@@ -1,0 +1,10 @@
+{
+  "values": {
+    "mccoursemod:radish": {
+      "chance": 0.45
+    },
+    "mccoursemod:radish_seeds": {
+      "chance": 0.25
+    }
+  }
+}

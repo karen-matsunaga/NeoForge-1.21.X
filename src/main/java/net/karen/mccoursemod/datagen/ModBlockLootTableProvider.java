@@ -1,7 +1,9 @@
 package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.block.custom.RadishCropBlock;
 import net.karen.mccoursemod.item.ModItems;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -15,6 +17,8 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import org.jetbrains.annotations.NotNull;
 import java.util.Set;
@@ -61,15 +65,27 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         // Blockstate block
         dropSelf(ModBlocks.BISMUTH_LAMP.get());
+
+        // Crop block
+        // Crop loot item drop
+        LootItemCondition.Builder lootItemConditionBuilder =
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.RADISH_CROP.get())
+                                                   .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                   .hasProperty(RadishCropBlock.AGE, 3));
+        // Crop drop
+        this.add(ModBlocks.RADISH_CROP.get(),
+                 this.createCropDrops(ModBlocks.RADISH_CROP.get(), ModItems.RADISH.get(),
+                                      ModItems.RADISH_SEEDS.get(), lootItemConditionBuilder));
     }
 
-    protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item,
+    // CUSTOM METHOD - Custom ore loot table drops
+    protected LootTable.Builder createMultipleOreDrops(Block block, Item item,
                                                        float minDrops, float maxDrops) {
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
-        return this.createSilkTouchDispatchTable(pBlock,
-                this.applyExplosionDecay(pBlock, LootItem.lootTableItem(item)
-                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(minDrops, maxDrops)))
-                        .apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))));
+        return this.createSilkTouchDispatchTable(block,
+               this.applyExplosionDecay(block, LootItem.lootTableItem(item)
+                   .apply(SetItemCountFunction.setCount(UniformGenerator.between(minDrops, maxDrops)))
+                   .apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))));
     }
 
     @Override

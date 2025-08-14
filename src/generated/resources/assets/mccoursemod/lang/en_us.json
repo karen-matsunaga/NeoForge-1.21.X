@@ -19,6 +19,7 @@
   "block.mccoursemod.enchant": "§2Enchant Block",
   "block.mccoursemod.magic": "Magic Block",
   "block.mccoursemod.mccoursemod_elevator": "Mccourse Mod Elevator Block",
+  "block.mccoursemod.radish_crop": "Radish Crop Block",
   "creativetab.mccoursemod.bismuth_blocks": "Mccourse Blocks",
   "creativetab.mccoursemod.bismuth_items": "Mccourse Items",
   "effect.mccoursemod.fly": "Fly",
@@ -134,6 +135,9 @@
   "item.mccoursemod.magic": "Magic Block",
   "item.mccoursemod.mccourse_mod_bottle": "Mccourse Mod Bottle",
   "item.mccoursemod.mccoursemod_elevator": "Mccourse Mod Elevator Block",
+  "item.mccoursemod.radish": "Radish",
+  "item.mccoursemod.radish_crop": "Radish Crop Block",
+  "item.mccoursemod.radish_seeds": "Radish Seeds",
   "item.mccoursemod.raw_bismuth": "Raw Bismuth",
   "item.minecraft.lingering_potion.effect.fly_potion": "Fly Lingering Potion",
   "item.minecraft.lingering_potion.effect.haste_potion": "Haste Lingering Potion",
@@ -169,6 +173,7 @@
   "tooltip.mccoursemod.chisel.shift_down": "This Item can chisel Blocks into Bricks",
   "tooltip.mccoursemod.magic_block": "This Block is quite §9MAGICAL§r",
   "tooltip.mccoursemod.more_ores.tooltip": "When applied on pickaxe if a stone block is break has a percentage to receive ores.",
+  "tooltip.mccoursemod.radish": "Tastes really great!",
   "trim_material.mccoursemod.bismuth": "Bismuth Material",
   "trim_pattern.mccoursemod.kaupen": "Kaupen Armor Trim"
 }

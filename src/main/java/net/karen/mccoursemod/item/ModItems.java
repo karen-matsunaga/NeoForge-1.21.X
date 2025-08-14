@@ -1,12 +1,14 @@
 package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.custom.*;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -15,12 +17,17 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.component.Consumables;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.function.Consumer;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MccourseMod.MOD_ID);
@@ -212,6 +219,26 @@ public class ModItems {
     // Custom Smithing Template
     public static final DeferredItem<Item> KAUPEN_SMITHING_TEMPLATE =
            ITEMS.registerItem("kaupen_armor_trim_smithing_template", SmithingTemplateItem::createArmorTrimTemplate);
+
+    // Custom seeds
+    public static final DeferredItem<Item> RADISH_SEEDS = ITEMS.registerItem("radish_seeds",
+           (properties) -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties));
+
+    public static final DeferredItem<Item> RADISH = ITEMS.registerItem("radish",
+           (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
+                                                                                          .saturationModifier(0.25f).build(),
+                                                              Consumables.defaultFood().onConsume(
+                                                              new ApplyStatusEffectsConsumeEffect(
+                                                              new MobEffectInstance(MobEffects.HEALTH_BOOST, 400),
+                                                                                    0.35f)).build())) {
+              @Override
+              public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context,
+                                        @NotNull TooltipDisplay display, @NotNull Consumer<Component> consumer,
+                                        @NotNull TooltipFlag flag) {
+                  consumer.accept(Component.translatable("tooltip.mccoursemod.radish"));
+                  super.appendHoverText(stack, context, display, consumer, flag);
+              }
+           });
 
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {

@@ -70,5 +70,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         tag(BlockTags.SLABS).add(ModBlocks.BISMUTH_SLAB.get());
         tag(BlockTags.TRAPDOORS).add(ModBlocks.BISMUTH_TRAPDOOR.get());
         tag(BlockTags.WALLS).add(ModBlocks.BISMUTH_WALL.get());
+
+        // Crop
+        tag(BlockTags.CROPS).add(ModBlocks.RADISH_CROP.get());
     }
 }

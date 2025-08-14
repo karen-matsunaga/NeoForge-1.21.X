@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -179,6 +180,16 @@ public class ModBlocks {
                                                     .setId(ResourceKey.create(Registries.BLOCK,
                                                            ResourceLocation.fromNamespaceAndPath(
                                                            MccourseMod.MOD_ID, "bismuth_lamp")))));
+
+    // CUSTOM crop block
+    public static final DeferredBlock<Block> RADISH_CROP = BLOCKS.registerBlock("radish_crop",
+            (properties) -> new RadishCropBlock(properties.mapColor(MapColor.PLANT)
+                                                                    .strength(0.2F)
+                                                                    .randomTicks()
+                                                                    .instabreak()
+                                                                    .sound(SoundType.CROP)
+                                                                    .noOcclusion()
+                                                                    .pushReaction(PushReaction.DESTROY)));
 
     // CUSTOM METHOD - Registry all custom blocks
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

@@ -3,6 +3,7 @@ package net.karen.mccoursemod.datagen;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.block.custom.BismuthLampBlock;
+import net.karen.mccoursemod.block.custom.RadishCropBlock;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.ModItems;
@@ -58,6 +59,9 @@ public class ModModelProvider extends ModelProvider {
         // BLOCKSTATE block
         blockstateTexture(blockModels, ModBlocks.BISMUTH_LAMP.get());
 
+        // CUSTOM crop
+        blockModels.createCropBlock(ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
+
         // CUSTOM ITEMS
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_BISMUTH.get(), ModelTemplates.FLAT_ITEM);
@@ -107,6 +111,9 @@ public class ModModelProvider extends ModelProvider {
 
         // Custom Smithing Template
         itemModels.generateFlatItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
+
+        // CUSTOM seeds
+        itemModels.generateFlatItem(ModItems.RADISH.get(), ModelTemplates.FLAT_ITEM);
     }
 
     // * CUSTOM BLOCKS *

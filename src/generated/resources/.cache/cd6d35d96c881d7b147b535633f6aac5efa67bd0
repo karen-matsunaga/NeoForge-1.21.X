@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-14T11:47:25.4501115	Model Definitions - mccoursemod
+// 1.21.8	2025-08-14T12:31:02.0880949	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -19,6 +19,7 @@ cc64ebe66c81c6f215659ef55bbf847928a7d95d assets/mccoursemod/blockstates/bismuth_
 159f4b050a7c6570ee1d9417d621862277c6d56d assets/mccoursemod/blockstates/enchant.json
 4a15fdc4810f3071ecf37faff5bd9c35c0030c5d assets/mccoursemod/blockstates/magic.json
 3bfedb2f9fac65a126a774944896212037fd7e9e assets/mccoursemod/blockstates/mccoursemod_elevator.json
+4b1c64db912dc00e460c0e04b7c2dceec437e38e assets/mccoursemod/blockstates/radish_crop.json
 c2b4d9295d859d3a0327787b1e8bf09d53b79434 assets/mccoursemod/items/auto_smelt.json
 01faff27d45538b35f94e1b7be6b2543a05c771f assets/mccoursemod/items/bar_brawl_music_disc.json
 0cd349c1683ee0871d6856d90d2c83b54a5d0069 assets/mccoursemod/items/bismuth.json
@@ -63,6 +64,8 @@ c2387d52e387dbf791b463a2d0c1f627dc616110 assets/mccoursemod/items/level_charger_
 7704fa6cbfdd4572156a0ce428118db262c9f925 assets/mccoursemod/items/magic.json
 68c66bdb0543e0688b875b7e031b5b47765985a5 assets/mccoursemod/items/mccoursemod_elevator.json
 a33fdc1092fa423bf247380062149416cb1374e7 assets/mccoursemod/items/mccourse_mod_bottle.json
+8b0f4093ea959596641caaeac7b9b6f5d8538593 assets/mccoursemod/items/radish.json
+044453ac49e2bb7b7422285bf31380f2762406f8 assets/mccoursemod/items/radish_seeds.json
 7bc128e532aa0bb779eab4b74e05ce40da3a1815 assets/mccoursemod/items/raw_bismuth.json
 48df39b63967c5c0c6266b2d31d2d154193b46fd assets/mccoursemod/models/block/bismuth_block.json
 3eefc1447695038271bc1cf1f9de7fbbd7356c16 assets/mccoursemod/models/block/bismuth_button.json
@@ -108,6 +111,10 @@ ce35b0265e015d78eaae4018188399021b5abda4 assets/mccoursemod/models/block/disench
 45de311c2f1e0dc3a34333c1ec4f0ca80a70e5dd assets/mccoursemod/models/block/enchant.json
 d1194fcfdbedf5563a47c373f6d22e65a87c9d30 assets/mccoursemod/models/block/magic.json
 7dde5690da714130c1876180a473f51cb7ac4271 assets/mccoursemod/models/block/mccoursemod_elevator.json
+ce80889171d9eb18f46254785ed5bd5e6b563496 assets/mccoursemod/models/block/radish_crop_stage0.json
+9b6576b11e16e02e55e4926f19a3de86ce5d00c4 assets/mccoursemod/models/block/radish_crop_stage1.json
+3e27201af90111441b22d26302706c62c4e7db5e assets/mccoursemod/models/block/radish_crop_stage2.json
+6a56cf8cfab14ceda8139023450d3fad31480a83 assets/mccoursemod/models/block/radish_crop_stage3.json
 f87476fe3cdda790db56abc9a59d5dea20b2c519 assets/mccoursemod/models/item/auto_smelt.json
 98c07c10f3185541ad211d209953f1fbdf169704 assets/mccoursemod/models/item/bar_brawl_music_disc.json
 2a992ba870374645f84f37dee1e28fa61670eee2 assets/mccoursemod/models/item/bismuth.json
@@ -182,4 +189,6 @@ c0d1f8e69879adec59df18c6cf6a472c85c042d6 assets/mccoursemod/models/item/bismuth_
 8efd307d669786861e1c019b978ab2ea898c12d8 assets/mccoursemod/models/item/level_charger_specif_plus_fortune.json
 bd54a57c8de52209472992241e62408fce50a4eb assets/mccoursemod/models/item/mccourse_mod_bottle.json
 b1b2377b4f2b8cb5f3ed27769ec348976d3191af assets/mccoursemod/models/item/mccourse_mod_bottle_off.json
+9c566763be3a3a7e2b92115f731cecc2be946de4 assets/mccoursemod/models/item/radish.json
+4b756411260fbcbb14f6cb6e5027205b3e060849 assets/mccoursemod/models/item/radish_seeds.json
 2546ad02640ae8645cc6a77dc22cc4f7085dc9be assets/mccoursemod/models/item/raw_bismuth.json
