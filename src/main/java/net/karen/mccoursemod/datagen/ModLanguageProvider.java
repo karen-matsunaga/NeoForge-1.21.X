@@ -47,6 +47,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.BISMUTH_LEGGINGS, "Bismuth Leggings");
         addItem(ModItems.BISMUTH_BOOTS, "Bismuth Boots");
 
+        // CUSTOM horse armor
+        addItem(ModItems.BISMUTH_HORSE_ARMOR, "Bismuth Horse Armor");
+
         // CUSTOM Painting Variant
         add("painting.mccoursemod.world.title", "World");
         add("painting.mccoursemod.world.author", "NanoAttack");

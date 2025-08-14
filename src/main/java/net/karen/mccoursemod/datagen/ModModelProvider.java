@@ -86,6 +86,9 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.BISMUTH_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BISMUTH_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
+        // CUSTOM Horse Armor
+        itemModels.generateFlatItem(ModItems.BISMUTH_HORSE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
+
         // CUSTOM ARMORS
         itemModels.generateTrimmableItem(ModItems.BISMUTH_HELMET.get(), ModEquipmentAssetProvider.BISMUTH,
                                          TRIM_PREFIX_HELMET, false);

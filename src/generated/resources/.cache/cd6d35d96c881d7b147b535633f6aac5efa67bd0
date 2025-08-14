@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-13T18:46:02.7335852	Model Definitions - mccoursemod
+// 1.21.8	2025-08-13T22:33:13.0382107	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -35,6 +35,7 @@ be855cb7a0c84c280e24360353a66c4247c49829 assets/mccoursemod/items/bismuth_fence_
 722c986c5e50dee06670d1ea419442866c115755 assets/mccoursemod/items/bismuth_hammer.json
 9889c2909d5081598ff49f382b5d935398b69ff2 assets/mccoursemod/items/bismuth_helmet.json
 11ef30f3c26cc55a08304b960e4328f2a9eea96a assets/mccoursemod/items/bismuth_hoe.json
+0e4c1093af7e72ce2d692eec5a5ae6498d680c55 assets/mccoursemod/items/bismuth_horse_armor.json
 e321dfc1147f80ce302e390c7e14cbe6d424cc29 assets/mccoursemod/items/bismuth_lamp.json
 c6260cb4a6d7f38e5cadac9944f5c6599c6b3dcf assets/mccoursemod/items/bismuth_leggings.json
 435d213ed3e8943738ff1be5da8ab83e0e87b3f6 assets/mccoursemod/items/bismuth_nether_ore.json
@@ -148,6 +149,7 @@ d1269702dd50cbfbbe87c538f494946fd5c34f49 assets/mccoursemod/models/item/bismuth_
 cb815b785b28d6dc3f5e52be894dadd9f8544001 assets/mccoursemod/models/item/bismuth_helmet_redstone_trim.json
 8edef33e23c8d5ac3d9f7e7971e6def6f4ffa105 assets/mccoursemod/models/item/bismuth_helmet_resin_trim.json
 00fdc6d7a8f9ff8a9951308a2d3c5d8a14681bcd assets/mccoursemod/models/item/bismuth_hoe.json
+3cbc720cf13103fb409157996ef09481136bd348 assets/mccoursemod/models/item/bismuth_horse_armor.json
 de8113e5c2f50799015b2d74bc30b8b4d9274e3c assets/mccoursemod/models/item/bismuth_leggings.json
 a963991249200e23689645a988ab4e3ac71c992c assets/mccoursemod/models/item/bismuth_leggings_amethyst_trim.json
 d77ed5f198049e740eab11a6410a8ee158dd22fb assets/mccoursemod/models/item/bismuth_leggings_copper_trim.json

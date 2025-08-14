@@ -197,6 +197,14 @@ public class ModItems {
                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                       "bar_brawl_music_disc")))));
 
+    // Custom Bismuth horse armor
+    public static final DeferredItem<Item> BISMUTH_HORSE_ARMOR = ITEMS.register("bismuth_horse_armor",
+            () -> new Item(new Item.Properties().stacksTo(1)
+                                                .horseArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL)
+                                                .setId(ResourceKey.create(Registries.ITEM,
+                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                       "bismuth_horse_armor")))));
+
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
