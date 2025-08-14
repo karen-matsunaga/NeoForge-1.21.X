@@ -13,8 +13,9 @@ import java.util.function.Supplier;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MccourseMod.MOD_ID);
+           DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MccourseMod.MOD_ID);
 
+    // Show all items in Creative Mode -> First Creative Mode Tab
     public static final Supplier<CreativeModeTab> BISMUTH_ITEMS_TAB = CREATIVE_MODE_TAB.register("bismuth_items_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BISMUTH.get()))
                                            .title(Component.translatable("creativetab.mccoursemod.bismuth_items"))
@@ -61,8 +62,11 @@ public class ModCreativeModeTabs {
                      // CUSTOM fuels
                      output.accept(ModItems.FROSTFIRE_ICE);
                      output.accept(ModItems.STARLIGHT_ASHES);
+                     // CUSTOM bush
+                     output.accept(ModItems.GOJI_BERRIES);
                   }).build());
 
+    // Show all blocks in Creative Mode -> Second Creative Mode Tab
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCK_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.BISMUTH_BLOCK))
                                            .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
@@ -96,8 +100,11 @@ public class ModCreativeModeTabs {
                      output.accept(ModBlocks.BISMUTH_LAMP);
                      // Crop block
                      output.accept(ModBlocks.RADISH_CROP);
+                     // Bush crop block
+                     output.accept(ModBlocks.GOJI_BERRY_BUSH);
                   }).build());
 
+    // CUSTOM METHOD - Registry Creative Mode Tab on event bus
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TAB.register(eventBus);
     }

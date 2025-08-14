@@ -191,6 +191,15 @@ public class ModBlocks {
                                                                     .noOcclusion()
                                                                     .pushReaction(PushReaction.DESTROY)));
 
+    // CUSTOM bush crop block
+    public static final DeferredBlock<Block> GOJI_BERRY_BUSH = BLOCKS.registerBlock("goji_berry_bush",
+            (properties) -> new GojiBerryBushBlock(properties.mapColor(MapColor.PLANT)
+                                                                       .strength(0.2F)
+                                                                       .randomTicks()
+                                                                       .sound(SoundType.CROP)
+                                                                       .noOcclusion()
+                                                                       .pushReaction(PushReaction.DESTROY)));
+
     // CUSTOM METHOD - Registry all custom blocks
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

@@ -71,8 +71,11 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.RADISH_SEEDS, "Radish Seeds");
 
         // CUSTOM fuels
-        add(ModItems.FROSTFIRE_ICE.get(), "Frostfire Ice");
-        add(ModItems.STARLIGHT_ASHES.get(), "Starlight Ashes");
+        addItem(ModItems.FROSTFIRE_ICE, "Frostfire Ice");
+        addItem(ModItems.STARLIGHT_ASHES, "Starlight Ashes");
+
+        // CUSTOM Bush
+        addItem(ModItems.GOJI_BERRIES, "Goji Berries");
 
         // CUSTOM block item
         add("item.mccoursemod.enchant", "Enchant Block");
@@ -96,6 +99,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.bismuth_wall", "Bismuth Wall Block");
         add("item.mccoursemod.bismuth_lamp", "Bismuth Lamp Block");
         add("item.mccoursemod.radish_crop", "Radish Crop Block");
+        add("item.mccoursemod.goji_berry_bush", "Goji Berry Bush Block");
 
         // CUSTOM BLOCKS
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
@@ -125,6 +129,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // Crop block
         addBlock(ModBlocks.RADISH_CROP, "Radish Crop Block");
+
+        // Bush block
+        addBlock(ModBlocks.GOJI_BERRY_BUSH, "Goji Berry Bush Block");
 
         // CUSTOM CREATIVE TABS
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

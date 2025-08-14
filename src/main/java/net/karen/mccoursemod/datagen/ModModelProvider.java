@@ -3,6 +3,7 @@ package net.karen.mccoursemod.datagen;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.block.custom.BismuthLampBlock;
+import net.karen.mccoursemod.block.custom.GojiBerryBushBlock;
 import net.karen.mccoursemod.block.custom.RadishCropBlock;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
@@ -61,6 +62,9 @@ public class ModModelProvider extends ModelProvider {
 
         // CUSTOM crop
         blockModels.createCropBlock(ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
+
+        // CUSTOM bush crop
+        blockModels.createCropBlock(ModBlocks.GOJI_BERRY_BUSH.get(), GojiBerryBushBlock.AGE,  0, 1, 2, 3);
 
         // CUSTOM ITEMS
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);

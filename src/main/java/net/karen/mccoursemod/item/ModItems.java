@@ -26,7 +26,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.function.Consumer;
 
 public class ModItems {
@@ -246,6 +245,13 @@ public class ModItems {
 
     public static final DeferredItem<Item> STARLIGHT_ASHES =
            ITEMS.registerItem("starlight_ashes", Item::new);
+
+    // CUSTOM bush crop
+    public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",
+           (properties) -> new BlockItem(ModBlocks.GOJI_BERRY_BUSH.get(),
+                                                   properties.food(new FoodProperties.Builder().nutrition(2)
+                                                                                               .saturationModifier(0.15f)
+                                                                                               .build())));
 
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
