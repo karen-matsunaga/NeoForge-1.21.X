@@ -2,6 +2,12 @@
   "values": {
     "mccoursemod:coffee": {
       "burn_time": 1200
+    },
+    "mccoursemod:frostfire_ice": {
+      "burn_time": 2400
+    },
+    "mccoursemod:starlight_ashes": {
+      "burn_time": 1200
     }
   }
 }

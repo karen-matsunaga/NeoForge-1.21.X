@@ -5,7 +5,6 @@ import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import org.checkerframework.checker.units.qual.A;
 
 public class ModLanguageProvider extends LanguageProvider {
     public ModLanguageProvider(PackOutput packOutput) {
@@ -70,6 +69,10 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM seeds
         addItem(ModItems.RADISH, "Radish");
         addItem(ModItems.RADISH_SEEDS, "Radish Seeds");
+
+        // CUSTOM fuels
+        add(ModItems.FROSTFIRE_ICE.get(), "Frostfire Ice");
+        add(ModItems.STARLIGHT_ASHES.get(), "Starlight Ashes");
 
         // CUSTOM block item
         add("item.mccoursemod.enchant", "Enchant Block");

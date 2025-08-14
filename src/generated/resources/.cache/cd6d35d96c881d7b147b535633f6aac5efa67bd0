@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-14T12:31:02.0880949	Model Definitions - mccoursemod
+// 1.21.8	2025-08-14T15:01:46.7874065	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -55,6 +55,7 @@ b1b910b2fd997ca3483843e8298b3be3c154fb0a assets/mccoursemod/items/bismuth_wall.j
 e5ff5f1a8eb00ed1efa344dca5463d48decdf0e1 assets/mccoursemod/items/disenchant_grouped.json
 d1e1537c835ce37fbba409d8bb2f13016b9bd3ad assets/mccoursemod/items/disenchant_individual.json
 c781befbb88c42517afc059c36c95b3d1712bbdb assets/mccoursemod/items/enchant.json
+d16de6e4e1ec5722e7da7f542236800827c8ae85 assets/mccoursemod/items/frostfire_ice.json
 24903ede3671a35b74fdec66f35dc9eec5eebb64 assets/mccoursemod/items/kaupen_armor_trim_smithing_template.json
 1017fda44dab724e54ad236adf749d3ee1d1f97c assets/mccoursemod/items/kaupen_bow.json
 eab7f2c5f04d122f1b4b8a99efd397286953c77f assets/mccoursemod/items/level_charger_generic_minus.json
@@ -67,6 +68,7 @@ a33fdc1092fa423bf247380062149416cb1374e7 assets/mccoursemod/items/mccourse_mod_b
 8b0f4093ea959596641caaeac7b9b6f5d8538593 assets/mccoursemod/items/radish.json
 044453ac49e2bb7b7422285bf31380f2762406f8 assets/mccoursemod/items/radish_seeds.json
 7bc128e532aa0bb779eab4b74e05ce40da3a1815 assets/mccoursemod/items/raw_bismuth.json
+45c9b0172ee53fb9a75add030b9a2f3d687d346f assets/mccoursemod/items/starlight_ashes.json
 48df39b63967c5c0c6266b2d31d2d154193b46fd assets/mccoursemod/models/block/bismuth_block.json
 3eefc1447695038271bc1cf1f9de7fbbd7356c16 assets/mccoursemod/models/block/bismuth_button.json
 ee1683afcd190fb942f307f1cc57e15b897a6972 assets/mccoursemod/models/block/bismuth_button_inventory.json
@@ -178,6 +180,7 @@ c0d1f8e69879adec59df18c6cf6a472c85c042d6 assets/mccoursemod/models/item/bismuth_
 0667590b478aa28ad039666e24244c92e2b3a485 assets/mccoursemod/models/item/chisel.json
 8f1e5531b8694e0358bfd9a168c2352c5aa67dbb assets/mccoursemod/models/item/chisel_used.json
 1b5bb5f0295c0222714426faf4cb56cdbf27c730 assets/mccoursemod/models/item/coffee.json
+b76f16fdd036f042e4e703d6fe5a8ad8eb860d18 assets/mccoursemod/models/item/frostfire_ice.json
 458c1d3aa02b68b4ffb2276f7c1b48f50eaf4d62 assets/mccoursemod/models/item/kaupen_armor_trim_smithing_template.json
 38a010bdf3433667f18032bf8d2d4d7c03792b58 assets/mccoursemod/models/item/kaupen_bow.json
 40b2c7dcafbb3f2ec9d9d1cff795b4eaa117ea88 assets/mccoursemod/models/item/kaupen_bow_pulling_0.json
@@ -192,3 +195,4 @@ b1b2377b4f2b8cb5f3ed27769ec348976d3191af assets/mccoursemod/models/item/mccourse
 9c566763be3a3a7e2b92115f731cecc2be946de4 assets/mccoursemod/models/item/radish.json
 4b756411260fbcbb14f6cb6e5027205b3e060849 assets/mccoursemod/models/item/radish_seeds.json
 2546ad02640ae8645cc6a77dc22cc4f7085dc9be assets/mccoursemod/models/item/raw_bismuth.json
+a6b51f4159f4654e658ca1aaceec18a5fbf715fb assets/mccoursemod/models/item/starlight_ashes.json

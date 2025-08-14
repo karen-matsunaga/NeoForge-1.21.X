@@ -240,6 +240,13 @@ public class ModItems {
               }
            });
 
+    // CUSTOM fuels
+    public static final DeferredItem<Item> FROSTFIRE_ICE =
+           ITEMS.registerItem("frostfire_ice", (properties) -> new FuelItem(properties, 800));
+
+    public static final DeferredItem<Item> STARLIGHT_ASHES =
+           ITEMS.registerItem("starlight_ashes", Item::new);
+
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
