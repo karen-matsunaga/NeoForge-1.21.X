@@ -3,6 +3,7 @@ package net.karen.mccoursemod.block;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.custom.*;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.sound.ModSounds;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -62,9 +63,9 @@ public class ModBlocks {
                                                                        "bismuth_nether_ore")))));
 
     public static final DeferredBlock<Block> MAGIC = registerBlock("magic",
-            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f)
-                                               .setId(ResourceKey.create(Registries.BLOCK,
-                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "magic")))));
+           () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).sound(ModSounds.MAGIC_BLOCK_SOUNDS)
+                                              .setId(ResourceKey.create(Registries.BLOCK,
+                                                     ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "magic")))));
 
     // CUSTOM Enchant block
     public static final DeferredBlock<Block> ENCHANT = registerBlock("enchant",

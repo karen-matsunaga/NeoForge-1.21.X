@@ -71,6 +71,9 @@ public class ModModelProvider extends ModelProvider {
         alternateItemTexture(itemModels, ModItems.MCCOURSE_MOD_BOTTLE.get());
         booleanItemTexture(itemModels, ModItems.CHISEL.get());
 
+        // CUSTOM MUSIC DISC
+        itemModels.generateFlatItem(ModItems.BAR_BRAWL_MUSIC_DISC.get(), ModelTemplates.FLAT_ITEM);
+
         // CUSTOM FOODS
         itemModels.generateFlatItem(ModItems.COFFEE.get(), ModelTemplates.FLAT_ITEM);
 

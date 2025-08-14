@@ -90,6 +90,8 @@
   "enchantment.minecraft.vanishing_curse.desc": "When applied on tool or armor if player killed the item disappears of inventory.",
   "enchantment.minecraft.wind_burst.desc": "When applied on mace the player into the air seven blocks per level after performing a smash attack.",
   "item.mccoursemod.auto_smelt": "Auto Smelt",
+  "item.mccoursemod.bar_brawl_music_disc": "Bar Brawl Music Disc",
+  "item.mccoursemod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
   "item.mccoursemod.bismuth": "Bismuth",
   "item.mccoursemod.bismuth_axe": "Bismuth Axe",
   "item.mccoursemod.bismuth_block": "Bismuth Block",

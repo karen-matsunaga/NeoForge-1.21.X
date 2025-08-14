@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-13T17:21:34.9047355	Model Definitions - mccoursemod
+// 1.21.8	2025-08-13T18:46:02.7335852	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -20,6 +20,7 @@ cc64ebe66c81c6f215659ef55bbf847928a7d95d assets/mccoursemod/blockstates/bismuth_
 4a15fdc4810f3071ecf37faff5bd9c35c0030c5d assets/mccoursemod/blockstates/magic.json
 3bfedb2f9fac65a126a774944896212037fd7e9e assets/mccoursemod/blockstates/mccoursemod_elevator.json
 c2b4d9295d859d3a0327787b1e8bf09d53b79434 assets/mccoursemod/items/auto_smelt.json
+01faff27d45538b35f94e1b7be6b2543a05c771f assets/mccoursemod/items/bar_brawl_music_disc.json
 0cd349c1683ee0871d6856d90d2c83b54a5d0069 assets/mccoursemod/items/bismuth.json
 00c7b619a0bdb3466ef5597bb0146b72cce70cc7 assets/mccoursemod/items/bismuth_axe.json
 d989cd8617f4399ce42c5669d498bb167ade8344 assets/mccoursemod/items/bismuth_block.json
@@ -105,6 +106,7 @@ ce35b0265e015d78eaae4018188399021b5abda4 assets/mccoursemod/models/block/disench
 d1194fcfdbedf5563a47c373f6d22e65a87c9d30 assets/mccoursemod/models/block/magic.json
 7dde5690da714130c1876180a473f51cb7ac4271 assets/mccoursemod/models/block/mccoursemod_elevator.json
 f87476fe3cdda790db56abc9a59d5dea20b2c519 assets/mccoursemod/models/item/auto_smelt.json
+98c07c10f3185541ad211d209953f1fbdf169704 assets/mccoursemod/models/item/bar_brawl_music_disc.json
 2a992ba870374645f84f37dee1e28fa61670eee2 assets/mccoursemod/models/item/bismuth.json
 40c03c00f3cdcdca33d43d18e74e3473e07ca584 assets/mccoursemod/models/item/bismuth_axe.json
 3dad4e5e081c7064bcee3e11ecc696d3b8fbba19 assets/mccoursemod/models/item/bismuth_boots.json

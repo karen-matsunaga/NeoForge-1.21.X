@@ -44,5 +44,7 @@ public class DataGenerators {
         event.addProvider(new ModDatapackProvider(packOutput, lookupProvider));
         // Entity Type tags
         event.addProvider(new ModEntityTypeTagGenerator(packOutput, lookupProvider));
+        // Sound Provider
+        event.addProvider(new ModSoundDefinitionsProvider(packOutput));
     }
 }

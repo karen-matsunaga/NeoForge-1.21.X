@@ -3,6 +3,7 @@ package net.karen.mccoursemod.item;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.custom.*;
+import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -188,6 +189,13 @@ public class ModItems {
                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                             "chisel")))
                                                      .durability(32)));
+
+    // Custom music disc
+    public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.register("bar_brawl_music_disc",
+           () -> new Item(new Item.Properties().jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).stacksTo(1)
+                                               .setId(ResourceKey.create(Registries.ITEM,
+                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                      "bar_brawl_music_disc")))));
 
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {

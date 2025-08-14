@@ -26,6 +26,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.MCCOURSE_MOD_BOTTLE, "Mccourse Mod Bottle");
         addItem(ModItems.CHISEL, "Chisel");
 
+        // CUSTOM MUSIC DISC
+        addItem(ModItems.BAR_BRAWL_MUSIC_DISC, "Bar Brawl Music Disc");
+
         // CUSTOM Foods
         addItem(ModItems.COFFEE, "Coffee");
 
@@ -109,7 +112,11 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.glowing_mobs", "Glowing Mobs");
         add("enchantment.mccoursemod.magnetism", "Magnetism");
 
-        // MOD
+        // DESCRIPTIONS
+        // CUSTOM MUSIC DISC
+        add("item.mccoursemod.bar_brawl_music_disc.desc", "Bryan Tech - Bar Brawl (CC0)");
+
+        // CUSTOM ENCHANTMENT MOD
         add("enchantment.mccoursemod.lightning_striker.desc",
             "When applied on sword when player hits on entities appears lightning, " +
             "but player receive damage if attacked.");
