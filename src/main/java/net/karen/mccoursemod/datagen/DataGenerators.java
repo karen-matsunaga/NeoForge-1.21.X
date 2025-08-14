@@ -46,5 +46,7 @@ public class DataGenerators {
         event.addProvider(new ModEntityTypeTagGenerator(packOutput, lookupProvider));
         // Sound Provider
         event.addProvider(new ModSoundDefinitionsProvider(packOutput));
+        // Painting Variant tags
+        event.addProvider(new ModPaintingVariantTagGenerator(packOutput, lookupProvider));
     }
 }

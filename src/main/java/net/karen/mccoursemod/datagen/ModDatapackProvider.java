@@ -2,6 +2,7 @@ package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
+import net.karen.mccoursemod.painting.ModPaintingVariants;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.worldgen.ModBiomeModifiers;
 import net.karen.mccoursemod.worldgen.ModConfiguredFeatures;
@@ -21,7 +22,8 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
                                    .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap) // World Generation
                                    .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
                                    .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
-                                   .add(Registries.JUKEBOX_SONG, ModSounds::bootstrap); // Jukebox Songs
+                                   .add(Registries.JUKEBOX_SONG, ModSounds::bootstrap) // Jukebox Songs
+                                   .add(Registries.PAINTING_VARIANT, ModPaintingVariants::bootstrap); // Painting Variants
 
     public ModDatapackProvider(PackOutput output,
                                CompletableFuture<HolderLookup.Provider> registries) {

@@ -1,0 +1,13 @@
+{
+  "asset_id": "mccoursemod:shrimp",
+  "author": {
+    "color": "gray",
+    "translate": "painting.mccoursemod.shrimp.author"
+  },
+  "height": 1,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.mccoursemod.shrimp.title"
+  },
+  "width": 2
+}
