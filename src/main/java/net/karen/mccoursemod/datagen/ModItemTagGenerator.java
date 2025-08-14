@@ -42,6 +42,12 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         // Hoe
         tag(ItemTags.HOES).add(ModItems.BISMUTH_HOE.get());
 
+        // Bow
+        tag(ItemTags.SKELETON_PREFERRED_WEAPONS).add(ModItems.KAUPEN_BOW.get());
+        tag(ItemTags.WITHER_SKELETON_DISLIKED_WEAPONS).add(ModItems.KAUPEN_BOW.get());
+        tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get());
+        tag(ItemTags.BOW_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get());
+
         // CUSTOM Tools ingredients repair
         // Tools
         tag(ModTags.Items.BISMUTH_TOOL_MATERIALS).add(ModItems.BISMUTH.get());

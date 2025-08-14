@@ -86,6 +86,9 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.BISMUTH_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BISMUTH_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
+        // CUSTOM bow
+        createBowTexture(itemModels, ModItems.KAUPEN_BOW.get());
+
         // CUSTOM Horse Armor
         itemModels.generateFlatItem(ModItems.BISMUTH_HORSE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
 
@@ -140,5 +143,11 @@ public class ModModelProvider extends ModelProvider {
                   new ClientItem(new ConditionalItemModel.Unbaked(
                                  new HasComponent(ModDataComponentTypes.COORDINATES.get(), false),
                                  usedChisel, chisel), new ClientItem.Properties(false, false)));
+    }
+
+    // CUSTOM METHOD - Bow texture
+    protected static void createBowTexture(ItemModelGenerators itemModels, Item item) {
+        itemModels.createFlatItemModel(item, ModelTemplates.BOW);
+        itemModels.generateBow(item);
     }
 }

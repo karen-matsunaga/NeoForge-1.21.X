@@ -128,6 +128,10 @@ public class ModItems {
                                                               "bismuth_paxel")))
                                                        .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
 
+    // Custom Bow
+    public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.registerItem("kaupen_bow",
+           (properties) -> new BowItem(properties.durability(500)));
+
     // Custom armors
     public static final DeferredItem<Item> BISMUTH_HELMET = ITEMS.register("bismuth_helmet",
            () -> new ModArmorItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,

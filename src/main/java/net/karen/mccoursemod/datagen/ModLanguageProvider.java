@@ -40,6 +40,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.BISMUTH_SHOVEL, "Bismuth Shovel");
         addItem(ModItems.BISMUTH_AXE, "Bismuth Axe");
         addItem(ModItems.BISMUTH_HOE, "Bismuth Hoe");
+        addItem(ModItems.KAUPEN_BOW, "Kaupen Bow");
 
         // CUSTOM Armors
         addItem(ModItems.BISMUTH_HELMET, "Bismuth Helmet");

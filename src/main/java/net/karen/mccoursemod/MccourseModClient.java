@@ -1,6 +1,7 @@
 package net.karen.mccoursemod;
 
 import net.karen.mccoursemod.component.AlternateTexture;
+import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.particle.BismuthParticles;
@@ -10,16 +11,14 @@ import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
-import net.neoforged.neoforge.client.event.RegisterConditionalItemModelPropertyEvent;
-import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -87,11 +86,27 @@ public class MccourseModClient {
         event.register(KeyBinding.UNLOCK_KEY.get()); // Unlock custom enchantment
     }
 
-    @SubscribeEvent // on the mod event bus only on the physical client
+    // CUSTOM EVENT - On the MOD EVENT BUS only on the physical client
+    @SubscribeEvent
     public static void registerConditionalProperties(RegisterConditionalItemModelPropertyEvent event) {
         // The name to reference as the type
         event.register(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "has_data_info"),
                        // The map codec
                        AlternateTexture.MAP_CODEC);
+    }
+
+    // CUSTOM EVENT - Kaupen Bow zoom
+    @SubscribeEvent
+    public static void onComputeFovModifierEvent(ComputeFovModifierEvent event) {
+        Player player = event.getPlayer();
+        if (player.isUsingItem() && player.getUseItem().getItem() == ModItems.KAUPEN_BOW.get()) {
+            float fovModifier = 1f;
+            int ticksUsingItem = player.getTicksUsingItem();
+            float deltaTicks = (float) ticksUsingItem / 20f;
+            if (deltaTicks > 1f) { deltaTicks = 1f; }
+            else { deltaTicks *= deltaTicks; }
+            fovModifier *= 1f - deltaTicks * 0.15f;
+            event.setNewFovModifier(fovModifier);
+        }
     }
 }

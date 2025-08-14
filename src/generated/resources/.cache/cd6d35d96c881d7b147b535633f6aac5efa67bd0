@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-14T09:45:46.7613656	Model Definitions - mccoursemod
+// 1.21.8	2025-08-14T11:47:25.4501115	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -55,6 +55,7 @@ e5ff5f1a8eb00ed1efa344dca5463d48decdf0e1 assets/mccoursemod/items/disenchant_gro
 d1e1537c835ce37fbba409d8bb2f13016b9bd3ad assets/mccoursemod/items/disenchant_individual.json
 c781befbb88c42517afc059c36c95b3d1712bbdb assets/mccoursemod/items/enchant.json
 24903ede3671a35b74fdec66f35dc9eec5eebb64 assets/mccoursemod/items/kaupen_armor_trim_smithing_template.json
+1017fda44dab724e54ad236adf749d3ee1d1f97c assets/mccoursemod/items/kaupen_bow.json
 eab7f2c5f04d122f1b4b8a99efd397286953c77f assets/mccoursemod/items/level_charger_generic_minus.json
 06a75e1b34ff96123a6729785b541173acdea77c assets/mccoursemod/items/level_charger_generic_plus.json
 c2387d52e387dbf791b463a2d0c1f627dc616110 assets/mccoursemod/items/level_charger_specif_minus_fortune.json
@@ -171,6 +172,10 @@ c0d1f8e69879adec59df18c6cf6a472c85c042d6 assets/mccoursemod/models/item/bismuth_
 8f1e5531b8694e0358bfd9a168c2352c5aa67dbb assets/mccoursemod/models/item/chisel_used.json
 1b5bb5f0295c0222714426faf4cb56cdbf27c730 assets/mccoursemod/models/item/coffee.json
 458c1d3aa02b68b4ffb2276f7c1b48f50eaf4d62 assets/mccoursemod/models/item/kaupen_armor_trim_smithing_template.json
+38a010bdf3433667f18032bf8d2d4d7c03792b58 assets/mccoursemod/models/item/kaupen_bow.json
+40b2c7dcafbb3f2ec9d9d1cff795b4eaa117ea88 assets/mccoursemod/models/item/kaupen_bow_pulling_0.json
+3586c35e7c207e50ee2d02487254718a5bb56b20 assets/mccoursemod/models/item/kaupen_bow_pulling_1.json
+2ed3104cbb1b0604aec1b05685fec0c9ce9a9234 assets/mccoursemod/models/item/kaupen_bow_pulling_2.json
 47db5fdb421a808510dc0ba0a413e54429bb4a77 assets/mccoursemod/models/item/level_charger_generic_minus.json
 53f0103424d2ec44c5649419699bc055dcdf20bb assets/mccoursemod/models/item/level_charger_generic_plus.json
 143d725116ad170320c60a860019737d6dc1d1e1 assets/mccoursemod/models/item/level_charger_specif_minus_fortune.json
