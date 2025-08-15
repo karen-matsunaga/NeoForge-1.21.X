@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-15T09:40:20.742401	Loot Tables
+// 1.21.8	2025-08-15T16:51:51.8042703	Loot Tables
 8655aeed33fac46c32b6b250bd4c122f9d427620 data/mccoursemod/loot_table/blocks/bismuth_block.json
 2d484e8694e507dbffcf26de827d1a89ca8dbfa3 data/mccoursemod/loot_table/blocks/bismuth_button.json
 f072ab7b820da2d097e2aa6ddcdd8e7a4332c2b4 data/mccoursemod/loot_table/blocks/bismuth_deepslate_ore.json
@@ -26,6 +26,7 @@ a2593e7f37c3c4eca39527b411c5a0986adc355f data/mccoursemod/loot_table/blocks/dise
 e5c81ae611ce4baa03350fca9be57894c05936ab data/mccoursemod/loot_table/blocks/goji_berry_bush.json
 a86d60eb39e4eea7c84b4a5c09af41fd54d07ad6 data/mccoursemod/loot_table/blocks/magic.json
 73e90d341b2cffa8028568f35563cc66e5536a38 data/mccoursemod/loot_table/blocks/mccoursemod_elevator.json
+89ea5ed091b6961b413e844e7a9f345594a2e9a9 data/mccoursemod/loot_table/blocks/pedestal.json
 dbe24e619188e9f9d646155a2684fdd0dd6c2e6a data/mccoursemod/loot_table/blocks/radish_crop.json
 7eaea1a178b3d02c3533edd19be59af96d3056ab data/mccoursemod/loot_table/blocks/stripped_bloodwood_log.json
 91cc1bd25b436e6e28dc659bfa172742c912f5c1 data/mccoursemod/loot_table/blocks/stripped_bloodwood_wood.json

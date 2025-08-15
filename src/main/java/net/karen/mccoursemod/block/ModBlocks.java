@@ -329,6 +329,12 @@ public class ModBlocks {
                                                                      ResourceLocation.fromNamespaceAndPath(
                                                                      MccourseMod.MOD_ID, "chair")))));
 
+    // CUSTOM block entity
+    public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal",
+           () -> new PedestalBlock(BlockBehaviour.Properties.of().noOcclusion().setId(ResourceKey.create(Registries.BLOCK,
+                                                                                      ResourceLocation.fromNamespaceAndPath(
+                                                                                      MccourseMod.MOD_ID, "pedestal")))));
+
     // CUSTOM METHOD - Registry all custom blocks
     private static <T extends Block> DeferredBlock<T> registerBlock(String name,
                                                                     Supplier<T> block) {

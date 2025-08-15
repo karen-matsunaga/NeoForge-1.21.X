@@ -1,6 +1,7 @@
 package net.karen.mccoursemod;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.block.entity.ModBlockEntities;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantmentEffects;
@@ -10,6 +11,7 @@ import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.loot.ModLootModifiers;
 import net.karen.mccoursemod.particle.ModParticles;
 import net.karen.mccoursemod.potion.ModPotions;
+import net.karen.mccoursemod.screen.ModMenuTypes;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.villager.ModVillagers;
 import org.slf4j.Logger;
@@ -65,6 +67,10 @@ public class MccourseMod {
         ModVillagers.register(modEventBus);
         // Register the Deferred Register to the mod event bus so loot modifiers get registered
         ModLootModifiers.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so block entities get registered
+        ModBlockEntities.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so menu types get registered
+        ModMenuTypes.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.

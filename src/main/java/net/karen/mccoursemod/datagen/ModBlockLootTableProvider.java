@@ -109,6 +109,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         // CUSTOM sittable block model
         this.dropSelf(ModBlocks.CHAIR.get());
+
+        // CUSTOM block entity
+        this.dropSelf(ModBlocks.PEDESTAL.get());
     }
 
     // CUSTOM METHOD - Custom ore loot table drops

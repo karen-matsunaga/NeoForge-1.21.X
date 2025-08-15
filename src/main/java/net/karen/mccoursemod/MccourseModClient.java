@@ -1,6 +1,8 @@
 package net.karen.mccoursemod;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.block.entity.ModBlockEntities;
+import net.karen.mccoursemod.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.entity.client.*;
@@ -9,6 +11,8 @@ import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.particle.BismuthParticles;
 import net.karen.mccoursemod.particle.ModParticles;
+import net.karen.mccoursemod.screen.ModMenuTypes;
+import net.karen.mccoursemod.screen.custom.PedestalScreen;
 import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
@@ -131,5 +135,17 @@ public class MccourseModClient {
         event.registerLayerDefinition(GeckoModel.LAYER_LOCATION, GeckoModel::createBodyLayer);
         // CUSTOM Throwable Projectiles
         event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
+    }
+
+    // CUSTOM EVENT - Registry all custom block entity renderer
+    @SubscribeEvent
+    public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
+    }
+
+    // CUSTOM EVENT - Registry all custom screen
+    @SubscribeEvent
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
     }
 }

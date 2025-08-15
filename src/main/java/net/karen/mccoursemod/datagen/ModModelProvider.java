@@ -208,18 +208,19 @@ public class ModModelProvider extends ModelProvider {
 //                                                        .select(Direction.WEST, multiVariant.with(BlockModelGenerators.Y_ROT_270))));
 //    }
 
-    // CUSTOM METHOD - Block models
+    // CUSTOM METHOD - Block models -> Ignore JSON files
     @Override
     protected @NotNull Stream<? extends Holder<Block>> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries()
-                               .stream().filter(x -> !(x.get() == ModBlocks.CHAIR.get()));
+                               .stream().filter(x ->
+                                                !(x.get() == ModBlocks.PEDESTAL.get()) && !(x.get() == ModBlocks.CHAIR.get()));
     }
 
-    // CUSTOM METHOD - Item models
+    // CUSTOM METHOD - Item models -> Ignore JSON files
     @Override
     protected @NotNull Stream<? extends Holder<Item>> getKnownItems() {
         return ModItems.ITEMS.getEntries()
-                             .stream().filter(x -> x.get() != ModBlocks.CHAIR.asItem() &&
-                                              !(x.get() == ModItems.TOMAHAWK.get()));
+                             .stream().filter(x -> x.get() != ModBlocks.PEDESTAL.asItem() &&
+                                              x.get() != ModBlocks.CHAIR.asItem() && !(x.get() == ModItems.TOMAHAWK.get()));
     }
 }
