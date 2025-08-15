@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -49,7 +50,7 @@ public class ModEntityTypeTagGenerator extends EntityTypeTagsProvider {
                                                EntityType.DONKEY, EntityType.SKELETON_HORSE, EntityType.TURTLE,
                                                EntityType.AXOLOTL, EntityType.SNIFFER, EntityType.WOLF, EntityType.PARROT,
                                                EntityType.CAT, EntityType.POLAR_BEAR, EntityType.SHEEP, EntityType.SNOW_GOLEM,
-                                               EntityType.ALLAY, EntityType.BAT, EntityType.HAPPY_GHAST);
+                                               EntityType.ALLAY, EntityType.BAT, EntityType.HAPPY_GHAST, ModEntities.GECKO.get());
 
         // Villager entities
         this.tag(ModTags.Entities.VILLAGER).add(EntityType.IRON_GOLEM, EntityType.VILLAGER,

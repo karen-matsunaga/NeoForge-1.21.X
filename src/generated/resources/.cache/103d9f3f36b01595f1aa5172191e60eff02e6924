@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-14T18:31:11.4580354	Registries
+// 1.21.8	2025-08-14T19:40:42.1832511	Registries
 bcd42e3192f291a18c268c668838ef5b2afd5fe6 data/mccoursemod/enchantment/auto_smelt.json
 68c8972713bd2f8573bdb6a5243b656083670f9a data/mccoursemod/enchantment/block_fly.json
 cbd0b27b43670f6e9f36c7202c532b56233a27c6 data/mccoursemod/enchantment/glowing_mobs.json
@@ -16,6 +16,7 @@ cbd0b27b43670f6e9f36c7202c532b56233a27c6 data/mccoursemod/enchantment/glowing_mo
 1b1843d383d120283547996c32a2453d37680686 data/mccoursemod/neoforge/biome_modifier/add_goji_berry_bush.json
 3ef0fd6a045070b7658108c594e8f5d81d81eb7e data/mccoursemod/neoforge/biome_modifier/add_nether_bismuth_ore.json
 4c0f1ae6b53413947616576648ec9ff3075b0dbe data/mccoursemod/neoforge/biome_modifier/add_tree_bloodwood.json
+64aafd2793138032d1cc7539638ac72dc1d16ba5 data/mccoursemod/neoforge/biome_modifier/spawn_gecko.json
 50dc2c0370e22ad532797e8bfca072d78ce6b981 data/mccoursemod/painting_variant/saw_them.json
 9ec684b853dcf7e6ab0ac9f92519ff60df549a5a data/mccoursemod/painting_variant/shrimp.json
 d1fb24e076d65d44d4a322fee1a56413ebdd3f36 data/mccoursemod/painting_variant/world.json

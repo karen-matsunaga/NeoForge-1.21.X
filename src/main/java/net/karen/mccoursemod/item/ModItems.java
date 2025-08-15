@@ -3,6 +3,7 @@ package net.karen.mccoursemod.item;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.item.custom.*;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.util.ModTags;
@@ -252,6 +253,10 @@ public class ModItems {
                                                    properties.food(new FoodProperties.Builder().nutrition(2)
                                                                                                .saturationModifier(0.15f)
                                                                                                .build())));
+
+    // CUSTOM mob
+    public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.registerItem("gecko_spawn_egg",
+           (properties) -> new SpawnEggItem(ModEntities.GECKO.get(), properties));
 
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {

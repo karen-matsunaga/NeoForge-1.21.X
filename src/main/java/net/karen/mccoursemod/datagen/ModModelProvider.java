@@ -135,6 +135,9 @@ public class ModModelProvider extends ModelProvider {
         // CUSTOM fuels
         itemModels.generateFlatItem(ModItems.FROSTFIRE_ICE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.STARLIGHT_ASHES.get(), ModelTemplates.FLAT_ITEM);
+
+        // CUSTOM mob
+        itemModels.generateFlatItem(ModItems.GECKO_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
     }
 
     // * CUSTOM BLOCKS *

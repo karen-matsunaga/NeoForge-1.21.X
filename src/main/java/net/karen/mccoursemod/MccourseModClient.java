@@ -1,6 +1,10 @@
 package net.karen.mccoursemod;
 
+import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.AlternateTexture;
+import net.karen.mccoursemod.entity.ModEntities;
+import net.karen.mccoursemod.entity.client.GeckoModel;
+import net.karen.mccoursemod.entity.client.GeckoRenderer;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
@@ -10,6 +14,9 @@ import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
@@ -42,6 +49,14 @@ public class MccourseModClient {
         // Some client setup code
         MccourseMod.LOGGER.info("HELLO FROM CLIENT SETUP");
         MccourseMod.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        // Custom mob
+        EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
+        // Custom block render type
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOJI_BERRY_BUSH.get(), ChunkSectionLayer.CUTOUT);
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.RADISH_CROP.get(), ChunkSectionLayer.CUTOUT);
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOODWOOD_SAPLING.get(), ChunkSectionLayer.CUTOUT);
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BISMUTH_DOOR.get(), ChunkSectionLayer.CUTOUT);
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BISMUTH_TRAPDOOR.get(), ChunkSectionLayer.CUTOUT);
     }
 
     @SubscribeEvent
@@ -108,5 +123,12 @@ public class MccourseModClient {
             fovModifier *= 1f - deltaTicks * 0.15f;
             event.setNewFovModifier(fovModifier);
         }
+    }
+
+    // CUSTOM EVENT - Registry all custom entity renderer layers
+    @SubscribeEvent
+    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        // Gecko mob
+        event.registerLayerDefinition(GeckoModel.LAYER_LOCATION, GeckoModel::createBodyLayer);
     }
 }

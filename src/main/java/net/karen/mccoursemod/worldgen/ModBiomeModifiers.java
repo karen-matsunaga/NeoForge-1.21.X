@@ -1,13 +1,16 @@
 package net.karen.mccoursemod.worldgen;
 
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.entity.ModEntities;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
@@ -32,6 +35,9 @@ public class ModBiomeModifiers {
     // Goji Berry custom bush
     public static final ResourceKey<BiomeModifier> ADD_GOJI_BERRY_BUSH =
            registerKey("add_goji_berry_bush");
+
+    // Gecko custom mob
+    public static final ResourceKey<BiomeModifier> SPAWN_GECKO = registerKey("spawn_gecko");
 
     // CUSTOM METHOD - Registry all custom biome modifiers
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
@@ -72,6 +78,11 @@ public class ModBiomeModifiers {
                 HolderSet.direct(biomes.getOrThrow(Biomes.FOREST)),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.GOJI_BERRY_BUSH_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        // CUSTOM mob
+        context.register(SPAWN_GECKO, new BiomeModifiers.AddSpawnsBiomeModifier(
+                         HolderSet.direct(biomes.getOrThrow(Biomes.SWAMP), biomes.getOrThrow(Biomes.PLAINS)),
+                         WeightedList.of(new MobSpawnSettings.SpawnerData(ModEntities.GECKO.get(), 2, 4))));
     }
 
     // CUSTOM METHOD - Registry all custom biome modifiers (JSON file)

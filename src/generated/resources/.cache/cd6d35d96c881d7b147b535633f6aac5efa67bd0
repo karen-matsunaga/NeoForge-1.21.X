@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-14T18:31:11.4453801	Model Definitions - mccoursemod
+// 1.21.8	2025-08-14T19:34:48.0545887	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -69,6 +69,7 @@ e5ff5f1a8eb00ed1efa344dca5463d48decdf0e1 assets/mccoursemod/items/disenchant_gro
 d1e1537c835ce37fbba409d8bb2f13016b9bd3ad assets/mccoursemod/items/disenchant_individual.json
 c781befbb88c42517afc059c36c95b3d1712bbdb assets/mccoursemod/items/enchant.json
 d16de6e4e1ec5722e7da7f542236800827c8ae85 assets/mccoursemod/items/frostfire_ice.json
+46e6f51ea093628ec2e3cf939bd206b36308bda9 assets/mccoursemod/items/gecko_spawn_egg.json
 1ee0e54c23940eb7b0a3fb3ea575da512485541d assets/mccoursemod/items/goji_berries.json
 24903ede3671a35b74fdec66f35dc9eec5eebb64 assets/mccoursemod/items/kaupen_armor_trim_smithing_template.json
 1017fda44dab724e54ad236adf749d3ee1d1f97c assets/mccoursemod/items/kaupen_bow.json
@@ -210,6 +211,7 @@ c0d1f8e69879adec59df18c6cf6a472c85c042d6 assets/mccoursemod/models/item/bismuth_
 8f1e5531b8694e0358bfd9a168c2352c5aa67dbb assets/mccoursemod/models/item/chisel_used.json
 1b5bb5f0295c0222714426faf4cb56cdbf27c730 assets/mccoursemod/models/item/coffee.json
 b76f16fdd036f042e4e703d6fe5a8ad8eb860d18 assets/mccoursemod/models/item/frostfire_ice.json
+0af77c03355d63ba8d8f826247d6ff618b01c0ef assets/mccoursemod/models/item/gecko_spawn_egg.json
 2d6733a2d6218d78d25aeb87e71e2b3e131a8f36 assets/mccoursemod/models/item/goji_berries.json
 458c1d3aa02b68b4ffb2276f7c1b48f50eaf4d62 assets/mccoursemod/models/item/kaupen_armor_trim_smithing_template.json
 38a010bdf3433667f18032bf8d2d4d7c03792b58 assets/mccoursemod/models/item/kaupen_bow.json

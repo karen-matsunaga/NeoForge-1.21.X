@@ -77,6 +77,9 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM Bush
         addItem(ModItems.GOJI_BERRIES, "Goji Berries");
 
+        // CUSTOM Mob
+        addItem(ModItems.GECKO_SPAWN_EGG, "Gecko Spawn Egg");
+
         // CUSTOM block item
         add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.bismuth_block", "Bismuth Block");
@@ -375,5 +378,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add("key.mccoursemod_mccoursemod_bottle_stored", "Mccourse Mod Bottle Stored");
         add("key.mccoursemod_mccoursemod_bottle_restored", "Mccourse Mod Bottle Restored");
         add("key.mccoursemod_unlock", "Unlock");
+
+        // CUSTOM mob
+        add("entity.mccoursemod.gecko", "Gecko");
     }
 }

@@ -64,6 +64,8 @@ public class ModCreativeModeTabs {
                      output.accept(ModItems.STARLIGHT_ASHES);
                      // CUSTOM bush
                      output.accept(ModItems.GOJI_BERRIES);
+                     // CUSTOM mob
+                     output.accept(ModItems.GECKO_SPAWN_EGG);
                   }).build());
 
     // Show all blocks in Creative Mode -> Second Creative Mode Tab
