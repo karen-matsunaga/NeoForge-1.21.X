@@ -68,6 +68,8 @@ public class ModCreativeModeTabs {
                      output.accept(ModItems.GECKO_SPAWN_EGG);
                      // CUSTOM Throwable Projectiles
                      output.accept(ModItems.TOMAHAWK);
+                     // CUSTOM Animated Textures
+                     output.accept(ModItems.RADIATION_STAFF.get());
                   }).build());
 
     // Show all blocks in Creative Mode -> Second Creative Mode Tab

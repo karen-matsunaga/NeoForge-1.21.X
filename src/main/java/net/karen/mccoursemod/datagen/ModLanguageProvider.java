@@ -83,6 +83,9 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM Throwable Projectiles
         addItem(ModItems.TOMAHAWK, "Tomahawk");
 
+        // CUSTOM Animated Textures
+        addItem(ModItems.RADIATION_STAFF, "Radiation Staff");
+
         // CUSTOM block item
         add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.bismuth_block", "Bismuth Block");

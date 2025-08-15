@@ -262,6 +262,10 @@ public class ModItems {
     public static final DeferredItem<Item> TOMAHAWK = ITEMS.registerItem("tomahawk",
            (properties) -> new TomahawkItem(properties.stacksTo(16)));
 
+    // CUSTOM Animated Textures
+    public static final DeferredItem<Item> RADIATION_STAFF = ITEMS.registerItem("radiation_staff",
+           (properties) -> new Item(properties.stacksTo(1)));
+
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
