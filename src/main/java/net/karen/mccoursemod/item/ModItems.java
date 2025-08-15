@@ -258,6 +258,10 @@ public class ModItems {
     public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.registerItem("gecko_spawn_egg",
            (properties) -> new SpawnEggItem(ModEntities.GECKO.get(), properties));
 
+    // CUSTOM Throwable Projectiles
+    public static final DeferredItem<Item> TOMAHAWK = ITEMS.registerItem("tomahawk",
+           (properties) -> new TomahawkItem(properties.stacksTo(16)));
+
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

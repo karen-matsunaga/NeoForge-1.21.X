@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-14T19:34:48.0545887	Model Definitions - mccoursemod
+// 1.21.8	2025-08-14T22:50:41.8055771	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -86,6 +86,7 @@ a33fdc1092fa423bf247380062149416cb1374e7 assets/mccoursemod/items/mccourse_mod_b
 45c9b0172ee53fb9a75add030b9a2f3d687d346f assets/mccoursemod/items/starlight_ashes.json
 b86f9f4ee4c859ced76274a2fba8706c821ccd78 assets/mccoursemod/items/stripped_bloodwood_log.json
 e23ae541c80a26e495600e0ca7cf24e43eca7900 assets/mccoursemod/items/stripped_bloodwood_wood.json
+6ffa3088847fd2040eabd23900fda15cb5df052b assets/mccoursemod/items/tomahawk.json
 48df39b63967c5c0c6266b2d31d2d154193b46fd assets/mccoursemod/models/block/bismuth_block.json
 3eefc1447695038271bc1cf1f9de7fbbd7356c16 assets/mccoursemod/models/block/bismuth_button.json
 ee1683afcd190fb942f307f1cc57e15b897a6972 assets/mccoursemod/models/block/bismuth_button_inventory.json

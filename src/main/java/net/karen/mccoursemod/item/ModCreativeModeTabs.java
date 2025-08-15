@@ -66,6 +66,8 @@ public class ModCreativeModeTabs {
                      output.accept(ModItems.GOJI_BERRIES);
                      // CUSTOM mob
                      output.accept(ModItems.GECKO_SPAWN_EGG);
+                     // CUSTOM Throwable Projectiles
+                     output.accept(ModItems.TOMAHAWK);
                   }).build());
 
     // Show all blocks in Creative Mode -> Second Creative Mode Tab

@@ -80,6 +80,9 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM Mob
         addItem(ModItems.GECKO_SPAWN_EGG, "Gecko Spawn Egg");
 
+        // CUSTOM Throwable Projectiles
+        addItem(ModItems.TOMAHAWK, "Tomahawk");
+
         // CUSTOM block item
         add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.bismuth_block", "Bismuth Block");
@@ -381,5 +384,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // CUSTOM mob
         add("entity.mccoursemod.gecko", "Gecko");
+        // CUSTOM Throwable Projectiles
+        add("entity.mccoursemod.tomahawk", "Tomahawk");
     }
 }

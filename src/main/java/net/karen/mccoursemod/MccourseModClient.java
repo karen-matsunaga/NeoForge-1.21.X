@@ -5,6 +5,8 @@ import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.entity.client.GeckoModel;
 import net.karen.mccoursemod.entity.client.GeckoRenderer;
+import net.karen.mccoursemod.entity.client.TomahawkProjectileModel;
+import net.karen.mccoursemod.entity.client.TomahawkProjectileRenderer;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
@@ -51,6 +53,8 @@ public class MccourseModClient {
         MccourseMod.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         // Custom mob
         EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
+        // CUSTOM Throwable Projectiles
+        EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
         // Custom block render type
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOJI_BERRY_BUSH.get(), ChunkSectionLayer.CUTOUT);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.RADISH_CROP.get(), ChunkSectionLayer.CUTOUT);
@@ -128,7 +132,9 @@ public class MccourseModClient {
     // CUSTOM EVENT - Registry all custom entity renderer layers
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        // Gecko mob
+        // CUSTOM Gecko mob
         event.registerLayerDefinition(GeckoModel.LAYER_LOCATION, GeckoModel::createBodyLayer);
+        // CUSTOM Throwable Projectiles
+        event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
     }
 }
