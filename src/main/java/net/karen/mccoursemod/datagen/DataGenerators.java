@@ -20,13 +20,13 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-        // Language file en_us.json
+        // Language file en_us.json -> Language Provider
         event.addProvider(new ModLanguageProvider(packOutput));
-        // Block models + Item models
+        // Block models + Item models -> Model Provider
         event.addProvider(new ModModelProvider(packOutput));
-        // Recipes
+        // Recipes -> Recipe Provider
         event.addProvider(new ModRecipeProvider.Runner(packOutput, lookupProvider));
-        // Block Loot Table
+        // Block Loot Table Provider
         event.addProvider(new LootTableProvider(packOutput, Collections.emptySet(),
                           List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new,
                                                                          LootContextParamSets.BLOCK)), lookupProvider));
@@ -36,9 +36,9 @@ public class DataGenerators {
         event.addProvider(new ModItemTagGenerator(packOutput, lookupProvider));
         // Enchantment tags
         event.addProvider(new ModEnchantmentTagGenerator(packOutput, lookupProvider));
-        // Data Map
+        // Data Map Provider
         event.addProvider(new ModDataMapProvider(packOutput, lookupProvider));
-        // Equipment Asset
+        // Equipment Asset Provider
         event.addProvider(new ModEquipmentAssetProvider(packOutput));
         // Datapack Provider
         event.addProvider(new ModDatapackProvider(packOutput, lookupProvider));
@@ -50,5 +50,7 @@ public class DataGenerators {
         event.addProvider(new ModPaintingVariantTagGenerator(packOutput, lookupProvider));
         // Villager Poi Type tags
         event.addProvider(new ModPoiTypeTagsProvider(packOutput, lookupProvider));
+        // Loot Modifiers Provider
+        generator.addProvider(true, new ModGlobalLootModifierProvider(packOutput, lookupProvider));
     }
 }
