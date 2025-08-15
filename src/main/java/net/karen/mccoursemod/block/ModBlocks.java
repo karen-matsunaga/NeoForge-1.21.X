@@ -3,6 +3,7 @@ package net.karen.mccoursemod.block;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.custom.*;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.block.custom.GrowthChamberBlock;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.worldgen.tree.ModTreeGrowers;
 import net.minecraft.core.BlockPos;
@@ -335,6 +336,12 @@ public class ModBlocks {
                                                                                       ResourceLocation.fromNamespaceAndPath(
                                                                                       MccourseMod.MOD_ID, "pedestal")))));
 
+    // CUSTOM crafting block entity
+    public static final DeferredBlock<Block> GROWTH_CHAMBER = registerBlock("growth_chamber",
+           () -> new GrowthChamberBlock(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK,
+                                                                             ResourceLocation.fromNamespaceAndPath(
+                                                                             MccourseMod.MOD_ID, "growth_chamber")))));
+
     // CUSTOM METHOD - Registry all custom blocks
     private static <T extends Block> DeferredBlock<T> registerBlock(String name,
                                                                     Supplier<T> block) {
@@ -347,9 +354,8 @@ public class ModBlocks {
     private static <T extends Block> void registerBlockItem(String name,
                                                             DeferredBlock<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties()
-                        .setId(ResourceKey.create(Registries.ITEM,
-                               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name)))));
+                new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                            ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name)))));
     }
 
     // CUSTOM METHOD - Registry all custom blocks on event bus

@@ -11,6 +11,7 @@ import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.loot.ModLootModifiers;
 import net.karen.mccoursemod.particle.ModParticles;
 import net.karen.mccoursemod.potion.ModPotions;
+import net.karen.mccoursemod.recipe.ModRecipes;
 import net.karen.mccoursemod.screen.ModMenuTypes;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.villager.ModVillagers;
@@ -71,6 +72,8 @@ public class MccourseMod {
         ModBlockEntities.register(modEventBus);
         // Register the Deferred Register to the mod event bus so menu types get registered
         ModMenuTypes.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so recipes get registered
+        ModRecipes.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.

@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-15T13:23:11.6937083	Model Definitions - mccoursemod
+// 1.21.8	2025-08-15T17:36:52.6831544	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -23,6 +23,7 @@ ced91739611e8b474fd92e630d6788bd3ab464b6 assets/mccoursemod/blockstates/bloodwoo
 5732f9f92cb58ee1208679026d204dafa904d7ed assets/mccoursemod/blockstates/disenchant_individual.json
 159f4b050a7c6570ee1d9417d621862277c6d56d assets/mccoursemod/blockstates/enchant.json
 d8dbf9ee5426d834c61d532fff32bb128bf208e0 assets/mccoursemod/blockstates/goji_berry_bush.json
+82d492e2ed177166a162d9797f6366a2ffbbd4d2 assets/mccoursemod/blockstates/growth_chamber.json
 4a15fdc4810f3071ecf37faff5bd9c35c0030c5d assets/mccoursemod/blockstates/magic.json
 3bfedb2f9fac65a126a774944896212037fd7e9e assets/mccoursemod/blockstates/mccoursemod_elevator.json
 4b1c64db912dc00e460c0e04b7c2dceec437e38e assets/mccoursemod/blockstates/radish_crop.json
@@ -71,6 +72,7 @@ c781befbb88c42517afc059c36c95b3d1712bbdb assets/mccoursemod/items/enchant.json
 d16de6e4e1ec5722e7da7f542236800827c8ae85 assets/mccoursemod/items/frostfire_ice.json
 46e6f51ea093628ec2e3cf939bd206b36308bda9 assets/mccoursemod/items/gecko_spawn_egg.json
 1ee0e54c23940eb7b0a3fb3ea575da512485541d assets/mccoursemod/items/goji_berries.json
+13aa98e4367e83b6071c7c5819ee3d3482ce4bfa assets/mccoursemod/items/growth_chamber.json
 24903ede3671a35b74fdec66f35dc9eec5eebb64 assets/mccoursemod/items/kaupen_armor_trim_smithing_template.json
 1017fda44dab724e54ad236adf749d3ee1d1f97c assets/mccoursemod/items/kaupen_bow.json
 eab7f2c5f04d122f1b4b8a99efd397286953c77f assets/mccoursemod/items/level_charger_generic_minus.json
@@ -140,6 +142,7 @@ d0a65d14964037e224506d33ded6f8fd7da1d4ff assets/mccoursemod/models/block/goji_be
 700f361dfc892f63f889425b791cf2c2dfe5fe43 assets/mccoursemod/models/block/goji_berry_bush_stage1.json
 90c59802ef6ccca29ae261a9a68b54672876ffde assets/mccoursemod/models/block/goji_berry_bush_stage2.json
 84e58d0185ec26dd36c71587357462f76da8bb15 assets/mccoursemod/models/block/goji_berry_bush_stage3.json
+fde30d0d4c47eeba4ea51e17e009ec3f25e5361e assets/mccoursemod/models/block/growth_chamber.json
 d1194fcfdbedf5563a47c373f6d22e65a87c9d30 assets/mccoursemod/models/block/magic.json
 7dde5690da714130c1876180a473f51cb7ac4271 assets/mccoursemod/models/block/mccoursemod_elevator.json
 ce80889171d9eb18f46254785ed5bd5e6b563496 assets/mccoursemod/models/block/radish_crop_stage0.json

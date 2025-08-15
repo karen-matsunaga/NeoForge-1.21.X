@@ -1,0 +1,7 @@
+{
+  "type": "mccoursemod:growth_chamber",
+  "ingredient": "mccoursemod:raw_bismuth",
+  "result": {
+    "id": "mccoursemod:bismuth"
+  }
+}

@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.screen;
 
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.screen.custom.GrowthChamberMenu;
 import net.karen.mccoursemod.screen.custom.PedestalMenu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -15,14 +16,20 @@ public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS =
            DeferredRegister.create(Registries.MENU, MccourseMod.MOD_ID);
 
+    // Register all custom block entity menus
     public static final DeferredHolder<MenuType<?>, MenuType<PedestalMenu>> PEDESTAL_MENU =
            registerMenuType("pedestal_menu", PedestalMenu::new);
 
+    public static final DeferredHolder<MenuType<?>, MenuType<GrowthChamberMenu>> GROWTH_CHAMBER_MENU =
+           registerMenuType("growth_chamber_menu", GrowthChamberMenu::new);
+
+    // CUSTOM METHOD - Registry all custom menus
     private static <T extends AbstractContainerMenu> DeferredHolder<MenuType<?>, MenuType<T>>
                               registerMenuType(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IMenuTypeExtension.create(factory));
     }
 
+    // CUSTOM METHOD - Registry all custom menus on event bus
     public static void register(IEventBus eventBus) {
         MENUS.register(eventBus);
     }

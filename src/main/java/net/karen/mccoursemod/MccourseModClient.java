@@ -12,6 +12,7 @@ import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.particle.BismuthParticles;
 import net.karen.mccoursemod.particle.ModParticles;
 import net.karen.mccoursemod.screen.ModMenuTypes;
+import net.karen.mccoursemod.screen.custom.GrowthChamberScreen;
 import net.karen.mccoursemod.screen.custom.PedestalScreen;
 import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.karen.mccoursemod.util.KeyBinding;
@@ -147,5 +148,6 @@ public class MccourseModClient {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
+        event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
     }
 }

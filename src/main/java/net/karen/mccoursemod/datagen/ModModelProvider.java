@@ -78,6 +78,9 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTintedLeaves(ModBlocks.BLOODWOOD_LEAVES.get(), TexturedModel.LEAVES, -12012264);
         blockModels.createCrossBlock(ModBlocks.BLOODWOOD_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
 
+        // CUSTOM block entity
+        blockModels.createTrivialCube(ModBlocks.GROWTH_CHAMBER.get());
+
         // CUSTOM sittable block model
         // createChairTexture(blockModels, ModBlocks.CHAIR.get());
 

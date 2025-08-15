@@ -118,6 +118,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.bloodwood_sapling", "Bloodwood Sapling");
         add("item.mccoursemod.chair", "Chair Block");
         add("item.mccoursemod.pedestal", "Pedestal Block");
+        add("item.mccoursemod.growth_chamber", "Growth Chamber Block");
 
         // CUSTOM BLOCKS
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
@@ -165,6 +166,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // CUSTOM block entity
         addBlock(ModBlocks.PEDESTAL, "Pedestal Block");
+        addBlock(ModBlocks.GROWTH_CHAMBER, "Growth Chamber Block");
 
         // CUSTOM CREATIVE TABS
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

@@ -120,6 +120,7 @@ public class ModCreativeModeTabs {
                      output.accept(ModBlocks.CHAIR.get());
                      // Block entity
                      output.accept(ModBlocks.PEDESTAL.get());
+                     output.accept(ModBlocks.GROWTH_CHAMBER.get());
                   }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus
