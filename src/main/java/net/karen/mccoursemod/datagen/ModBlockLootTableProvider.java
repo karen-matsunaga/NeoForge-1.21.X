@@ -106,6 +106,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.BLOODWOOD_SAPLING.get());
         this.add(ModBlocks.BLOODWOOD_LEAVES.get(),
                  block -> createLeavesDrops(block, ModBlocks.BLOODWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+        // CUSTOM sittable block model
+        this.dropSelf(ModBlocks.CHAIR.get());
     }
 
     // CUSTOM METHOD - Custom ore loot table drops

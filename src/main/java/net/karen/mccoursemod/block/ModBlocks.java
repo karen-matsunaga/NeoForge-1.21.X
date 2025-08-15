@@ -27,12 +27,11 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
-            DeferredRegister.createBlocks(MccourseMod.MOD_ID);
+           DeferredRegister.createBlocks(MccourseMod.MOD_ID);
 
     public static final DeferredBlock<Block> BISMUTH_BLOCK = registerBlock("bismuth_block",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -322,6 +321,13 @@ public class ModBlocks {
                                                                                      ResourceLocation.fromNamespaceAndPath(
                                                                                      MccourseMod.MOD_ID, "bloodwood_sapling"))),
                                       () -> Blocks.NETHERRACK));
+
+    // CUSTOM sittable block model
+    public static final DeferredBlock<Block> CHAIR = registerBlock("chair",
+           () -> new ChairBlock(BlockBehaviour.Properties.of().noOcclusion()
+                                                              .setId(ResourceKey.create(Registries.BLOCK,
+                                                                     ResourceLocation.fromNamespaceAndPath(
+                                                                     MccourseMod.MOD_ID, "chair")))));
 
     // CUSTOM METHOD - Registry all custom blocks
     private static <T extends Block> DeferredBlock<T> registerBlock(String name,

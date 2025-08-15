@@ -3,10 +3,7 @@ package net.karen.mccoursemod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.entity.ModEntities;
-import net.karen.mccoursemod.entity.client.GeckoModel;
-import net.karen.mccoursemod.entity.client.GeckoRenderer;
-import net.karen.mccoursemod.entity.client.TomahawkProjectileModel;
-import net.karen.mccoursemod.entity.client.TomahawkProjectileRenderer;
+import net.karen.mccoursemod.entity.client.*;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
@@ -36,13 +33,9 @@ import java.util.function.Function;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = MccourseMod.MOD_ID, dist = Dist.CLIENT)
-// You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
 @EventBusSubscriber(modid = MccourseMod.MOD_ID, value = Dist.CLIENT)
 public class MccourseModClient {
     public MccourseModClient(ModContainer container) {
-        // Allows NeoForge to create a config screen for this mod's configs.
-        // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.
-        // Do not forget to add translations for your config options to the en_us.json file.
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
@@ -51,11 +44,13 @@ public class MccourseModClient {
         // Some client setup code
         MccourseMod.LOGGER.info("HELLO FROM CLIENT SETUP");
         MccourseMod.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-        // Custom mob
+        // CUSTOM mob
         EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
         // CUSTOM Throwable Projectiles
         EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
-        // Custom block render type
+        // CUSTOM Sittable blocks
+        EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
+        // CUSTOM block render type
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOJI_BERRY_BUSH.get(), ChunkSectionLayer.CUTOUT);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.RADISH_CROP.get(), ChunkSectionLayer.CUTOUT);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOODWOOD_SAPLING.get(), ChunkSectionLayer.CUTOUT);
@@ -105,7 +100,7 @@ public class MccourseModClient {
         event.register(KeyBinding.UNLOCK_KEY.get()); // Unlock custom enchantment
     }
 
-    // CUSTOM EVENT - On the MOD EVENT BUS only on the physical client
+    // CUSTOM EVENT - Register custom item model property conditionals
     @SubscribeEvent
     public static void registerConditionalProperties(RegisterConditionalItemModelPropertyEvent event) {
         // The name to reference as the type
@@ -114,7 +109,7 @@ public class MccourseModClient {
                        AlternateTexture.MAP_CODEC);
     }
 
-    // CUSTOM EVENT - Kaupen Bow zoom
+    // CUSTOM EVENT - Register all custom bows zoom
     @SubscribeEvent
     public static void onComputeFovModifierEvent(ComputeFovModifierEvent event) {
         Player player = event.getPlayer();

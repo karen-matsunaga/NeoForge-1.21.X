@@ -114,6 +114,8 @@ public class ModCreativeModeTabs {
                      output.accept(ModBlocks.BLOODWOOD_PLANKS.get());
                      output.accept(ModBlocks.BLOODWOOD_SAPLING.get());
                      output.accept(ModBlocks.BLOODWOOD_LEAVES.get());
+                     // Sittable blocks
+                     output.accept(ModBlocks.CHAIR.get());
                   }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus

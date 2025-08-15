@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.entity;
 
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.entity.custom.ChairEntity;
 import net.karen.mccoursemod.entity.custom.GeckoEntity;
 import net.karen.mccoursemod.entity.custom.TomahawkProjectileEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -25,6 +26,10 @@ public class ModEntities {
     public static ResourceKey<EntityType<?>> TOMAHAWK_KEY =
            ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace("tomahawk"));
 
+    // Registry all custom sittable blocks -> Resource Key
+    public static ResourceKey<EntityType<?>> CHAIR_KEY =
+           ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace("chair_entity"));
+
     // Registry all custom Entities -> Entity Type
     public static final Supplier<EntityType<GeckoEntity>> GECKO =
            ENTITY_TYPES.register("gecko", () -> EntityType.Builder.of(GeckoEntity::new, MobCategory.CREATURE)
@@ -35,6 +40,11 @@ public class ModEntities {
            ENTITY_TYPES.register("tomahawk",
            () -> EntityType.Builder.<TomahawkProjectileEntity>of(TomahawkProjectileEntity::new, MobCategory.MISC)
                                    .sized(0.5f, 1.15f).build(TOMAHAWK_KEY));
+
+    // Registry all custom sittable blocks -> Entity Type
+    public static final Supplier<EntityType<ChairEntity>> CHAIR_ENTITY =
+           ENTITY_TYPES.register("chair_entity", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC)
+                                                                       .sized(0.5f, 0.5f).build(CHAIR_KEY));
 
     // CUSTOM METHOD - Registry all entity types on event
     public static void register(IEventBus eventBus) {

@@ -113,6 +113,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.stripped_bloodwood_wood", "Stripped Bloodwood Wood");
         add("item.mccoursemod.bloodwood_leaves", "Bloodwood Leaves");
         add("item.mccoursemod.bloodwood_sapling", "Bloodwood Sapling");
+        add("item.mccoursemod.chair", "Chair Block");
 
         // CUSTOM BLOCKS
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
@@ -154,6 +155,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.STRIPPED_BLOODWOOD_WOOD, "Stripped Bloodwood Wood");
         addBlock(ModBlocks.BLOODWOOD_LEAVES, "Bloodwood Leaves");
         addBlock(ModBlocks.BLOODWOOD_SAPLING, "Bloodwood Sapling");
+
+        // CUSTOM sittable block model
+        addBlock(ModBlocks.CHAIR, "Chair Block");
 
         // CUSTOM CREATIVE TABS
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

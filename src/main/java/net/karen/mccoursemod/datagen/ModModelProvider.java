@@ -11,19 +11,23 @@ import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
-import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
-import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.ClientItem;
 import net.minecraft.client.renderer.item.ConditionalItemModel;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.jetbrains.annotations.NotNull;
+import java.util.stream.Stream;
 import static net.minecraft.client.data.models.ItemModelGenerators.*;
 
 public class ModModelProvider extends ModelProvider {
@@ -34,7 +38,7 @@ public class ModModelProvider extends ModelProvider {
     @Override
     protected void registerModels(@NotNull BlockModelGenerators blockModels,
                                   @NotNull ItemModelGenerators itemModels) {
-        // CUSTOM BLOCKS
+        // * CUSTOM BLOCKS *
         blockModels.createTrivialCube(ModBlocks.BISMUTH_ORE.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_DEEPSLATE_ORE.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_END_ORE.get());
@@ -79,7 +83,10 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTintedLeaves(ModBlocks.BLOODWOOD_LEAVES.get(), TexturedModel.LEAVES, -12012264);
         blockModels.createCrossBlock(ModBlocks.BLOODWOOD_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
 
-        // CUSTOM ITEMS
+        // CUSTOM sittable block model
+        // createChairTexture(blockModels, ModBlocks.CHAIR.get());
+
+        // * CUSTOM ITEMS *
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.AUTO_SMELT.get(), ModelTemplates.FLAT_ITEM);
@@ -183,5 +190,38 @@ public class ModModelProvider extends ModelProvider {
     protected static void createBowTexture(ItemModelGenerators itemModels, Item item) {
         itemModels.createFlatItemModel(item, ModelTemplates.BOW);
         itemModels.generateBow(item);
+    }
+
+    // CUSTOM METHOD - Chair
+//    protected static void createChairTexture(BlockModelGenerators blockModels, Block block) {
+//        ResourceLocation modelLoc = TexturedModel.CUBE.create(block, blockModels.modelOutput);
+//        MultiVariant multiVariant = BlockModelGenerators.plainVariant(modelLoc);
+//        MultiVariant multiVariantTwo = BlockModelGenerators.plainVariant(
+//                ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, ""));
+//        // Render block
+//        // blockModels.registerSimpleItemModel(block, modelLoc);
+//        // Render Variant
+//        blockModels.blockStateOutput.accept(
+//             MultiVariantGenerator.dispatch(block)
+//                                  .with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING)
+//                                                        .select(Direction.NORTH, multiVariant)
+//                                                        .select(Direction.SOUTH, multiVariant.with(BlockModelGenerators.Y_ROT_180))
+//                                                        .select(Direction.EAST, multiVariant.with(BlockModelGenerators.Y_ROT_90))
+//                                                        .select(Direction.WEST, multiVariant.with(BlockModelGenerators.Y_ROT_270))));
+//    }
+
+    // CUSTOM METHOD - Block models
+    @Override
+    protected @NotNull Stream<? extends Holder<Block>> getKnownBlocks() {
+        return ModBlocks.BLOCKS.getEntries()
+                               .stream().filter(x -> !(x.get() == ModBlocks.CHAIR.get()));
+    }
+
+    // CUSTOM METHOD - Item models
+    @Override
+    protected @NotNull Stream<? extends Holder<Item>> getKnownItems() {
+        return ModItems.ITEMS.getEntries()
+                             .stream().filter(x -> x.get() != ModBlocks.CHAIR.asItem() &&
+                                              !(x.get() == ModItems.TOMAHAWK.get()));
     }
 }
