@@ -393,5 +393,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("entity.mccoursemod.gecko", "Gecko");
         // CUSTOM Throwable Projectiles
         add("entity.mccoursemod.tomahawk", "Tomahawk");
+        // CUSTOM villager
+        add("entity.minecraft.villager.mccoursemod.kaupenger", "Kaupenger");
     }
 }

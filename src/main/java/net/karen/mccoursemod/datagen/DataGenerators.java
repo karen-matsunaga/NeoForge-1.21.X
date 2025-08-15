@@ -48,5 +48,7 @@ public class DataGenerators {
         event.addProvider(new ModSoundDefinitionsProvider(packOutput));
         // Painting Variant tags
         event.addProvider(new ModPaintingVariantTagGenerator(packOutput, lookupProvider));
+        // Villager Poi Type tags
+        event.addProvider(new ModPoiTypeTagsProvider(packOutput, lookupProvider));
     }
 }

@@ -10,6 +10,7 @@ import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.particle.ModParticles;
 import net.karen.mccoursemod.potion.ModPotions;
 import net.karen.mccoursemod.sound.ModSounds;
+import net.karen.mccoursemod.villager.ModVillagers;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -59,6 +60,8 @@ public class MccourseMod {
         ModSounds.register(modEventBus);
         // Register the Deferred Register to the mod event bus so entities get registered
         ModEntities.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so villagers get registered
+        ModVillagers.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.

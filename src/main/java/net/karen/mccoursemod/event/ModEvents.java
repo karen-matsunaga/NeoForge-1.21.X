@@ -2,6 +2,7 @@ package net.karen.mccoursemod.event;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.datafixers.util.Either;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
@@ -18,6 +19,7 @@ import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.ModTags;
 import net.karen.mccoursemod.util.Utils;
+import net.karen.mccoursemod.villager.ModVillagers;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -38,6 +40,8 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.warden.Warden;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.BowItem;
@@ -52,6 +56,8 @@ import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.trading.ItemCost;
+import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -81,6 +87,8 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.level.ExplosionEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
+import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import org.lwjgl.glfw.GLFW;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -558,5 +566,57 @@ public class ModEvents {
                                                      shift ? 100 : 10));
             }
         }
+    }
+
+    // CUSTOM EVENT - Villager trades
+    @SubscribeEvent
+    public static void addCustomTrades(VillagerTradesEvent event) {
+        // Farmer trades
+        if (event.getType() == VillagerProfession.FARMER) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            // Trade level one
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.EMERALD, 3),
+                               new ItemStack(ModItems.GOJI_BERRIES.get(), 18), 6, 3, 0.05f));
+            // Trade level one
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.DIAMOND, 12),
+                               new ItemStack(ModItems.RADISH.get(), 1), 6, 3, 0.05f));
+            // Trade level two
+            trades.get(2).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.ENDER_PEARL, 1),
+                               new ItemStack(ModItems.RADISH_SEEDS.get(), 1), 2, 8, 0.05f));
+        }
+        // Kaupenger trades
+        if (event.getType() == ModVillagers.KAUPENGER.getKey()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            // Trade level one
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.EMERALD, 2),
+                               new ItemStack(ModItems.RAW_BISMUTH.get(), 18), 6, 3, 0.05f));
+            // Trade level one
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.DIAMOND, 16),
+                               new ItemStack(ModItems.RADIATION_STAFF.get(), 1), 6, 3, 0.05f));
+            // Trade level two
+            trades.get(2).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.ENDER_PEARL, 2),
+                               new ItemStack(ModItems.BISMUTH_SWORD.get(), 1), 2, 8, 0.05f));
+        }
+    }
+
+    // CUSTOM EVENT - Wandering trades
+    @SubscribeEvent
+    public static void addWanderingTrades(WandererTradesEvent event) {
+        List<VillagerTrades.ItemListing> genericTrades = event.getGenericTrades();
+        List<VillagerTrades.ItemListing> rareTrades = event.getRareTrades();
+        // Generic trades
+        genericTrades.add((entity, randomSource) -> new MerchantOffer(
+                           new ItemCost(Items.EMERALD, 16),
+                           new ItemStack(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), 1), 1, 10, 0.2f));
+        // Rare trades
+        rareTrades.add((entity, randomSource) -> new MerchantOffer(
+                        new ItemCost(Items.NETHERITE_INGOT, 1),
+                        new ItemStack(ModItems.BAR_BRAWL_MUSIC_DISC.get(), 1), 1, 10, 0.2f));
     }
 }
