@@ -79,5 +79,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                           .add(ModBlocks.BLOODWOOD_WOOD.get())
                                           .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.get())
                                           .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get());
+        this.tag(BlockTags.SAPLINGS).add(ModBlocks.BLOODWOOD_SAPLING.get());
+        this.tag(BlockTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.get());
+        this.tag(BlockTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.get());
     }
 }
