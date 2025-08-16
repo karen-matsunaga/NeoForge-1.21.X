@@ -2,6 +2,7 @@ package net.karen.mccoursemod.enchantment;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.enchantment.custom.AutoSmeltEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.LightningStrikerEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect;
@@ -60,7 +61,9 @@ public class ModEnchantments {
                                                                 5, 2,
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
-                                                                2, EquipmentSlotGroup.MAINHAND)));
+                                                                2, EquipmentSlotGroup.MAINHAND))
+                            .withSpecialEffect(ModDataComponentTypes.AUTO_SMELT_ENCHANTMENT_EFFECT.get(),
+                                               new AutoSmeltEnchantmentEffect(ModTags.Blocks.AUTO_SMELT_ORES)));
 
         // Block Fly - Pickaxe tool
         register(context, BLOCK_FLY,

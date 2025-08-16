@@ -2,6 +2,7 @@ package net.karen.mccoursemod.component;
 
 import com.mojang.serialization.Codec;
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.enchantment.custom.AutoSmeltEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect;
 import net.minecraft.core.BlockPos;
@@ -51,8 +52,15 @@ public class ModDataComponentTypes {
     // Rainbow Enchantment Effect data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<RainbowEnchantmentEffect>>
            RAINBOW_ENCHANTMENT_EFFECT = registerEnch("rainbow_enchantment_effect", builder ->
-                                        builder.persistent(RainbowEnchantmentEffect.CODEC)
-                                               .networkSynchronized(RainbowEnchantmentEffect.STREAM_CODEC));
+                                                     builder.persistent(RainbowEnchantmentEffect.CODEC)
+                                                            .networkSynchronized(RainbowEnchantmentEffect.STREAM_CODEC));
+
+    // Auto Smelt Enchantment Effect data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<AutoSmeltEnchantmentEffect>>
+           AUTO_SMELT_ENCHANTMENT_EFFECT = registerEnch("auto_smelt_enchantment_effect",
+                                                        builder ->
+                                                        builder.persistent(AutoSmeltEnchantmentEffect.CODEC)
+                                                               .networkSynchronized(AutoSmeltEnchantmentEffect.STREAM_CODEC));
 
     // Registry all custom Data Component
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>>

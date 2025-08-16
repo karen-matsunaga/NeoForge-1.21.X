@@ -3,6 +3,11 @@
   "description": {
     "translate": "enchantment.mccoursemod.auto_smelt"
   },
+  "effects": {
+    "mccoursemod:auto_smelt_enchantment_effect": {
+      "blockTag": "mccoursemod:auto_smelt_ores"
+    }
+  },
   "max_cost": {
     "base": 25,
     "per_level_above_first": 7

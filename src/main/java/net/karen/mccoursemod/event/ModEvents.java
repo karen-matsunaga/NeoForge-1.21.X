@@ -11,7 +11,6 @@ import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.MccourseModBottleItem;
-import net.karen.mccoursemod.item.custom.SpecialEffectItem;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.potion.ModPotions;
@@ -50,10 +49,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.SingleRecipeInput;
-import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.ItemCost;
@@ -92,9 +87,9 @@ import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import org.lwjgl.glfw.GLFW;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import static net.karen.mccoursemod.enchantment.custom.AutoSmeltEnchantmentEffect.autoSmeltEnch;
 import static net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect.moreOresEnch;
 import static net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect.rainbowEnch;
-import static net.karen.mccoursemod.item.custom.SpecialEffectItem.getEffectMultiplier;
 import static net.karen.mccoursemod.util.ChatUtils.*;
 import static net.karen.mccoursemod.util.Utils.*;
 
@@ -163,9 +158,7 @@ public class ModEvents {
         Level level = (Level) event.getLevel();
         if (tool.isEmpty()) { return; } // * PROBLEMS *
         HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        int fortune = toolEnchant(ench, Enchantments.FORTUNE, tool),
-            autoSmelt = toolEnchant(ench, ModEnchantments.AUTO_SMELT, tool);
-        boolean hasAutoSmelt = SpecialEffectItem.getMultiplierBool(tool, ModDataComponentTypes.AUTO_SMELT.get());
+        int fortune = toolEnchant(ench, Enchantments.FORTUNE, tool);
         if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
             // Adapt the drop according to the enchantment being true
             AtomicBoolean cancelVanillaDrop = new AtomicBoolean(false);
@@ -175,25 +168,10 @@ public class ModEvents {
             rainbowEnch(tool, state, hasFortune, finalDrops, cancelVanillaDrop);
             // * MORE ORES ENCHANTMENT EFFECT *
             moreOresEnch(tool, state, serverLevel, pos, player, finalDrops, cancelVanillaDrop, hasFortune);
-            if (hasAutoSmelt || autoSmelt > 0) { // * AUTO SMELT EFFECT *
-                SingleRecipeInput singleRecipe = new SingleRecipeInput(new ItemStack(state.getBlock()));
-                ServerLevel worldServer = serverLevel.getLevel();
-                Optional<RecipeHolder<SmeltingRecipe>> recipe =
-                        serverLevel.getServer().getRecipeManager().getRecipeFor(RecipeType.SMELTING, singleRecipe, worldServer);
-                recipe.ifPresentOrElse(result -> {
-                    ItemStack recipeValue = result.value().assemble(singleRecipe, worldServer.registryAccess()),
-                                     drop = recipeValue.copy();
-                    if (state.is(ModTags.Blocks.AUTO_SMELT_ORES)) {
-                        drop.setCount((drop.getCount() * hasFortune) *
-                                      (getEffectMultiplier(tool, ModDataComponentTypes.AUTO_SMELT.get(), 1)) *
-                                      autoSmelt);
-                    }
-                    finalDrops.add(drop);
-                },
-                () -> finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool)));
-                cancelVanillaDrop.set(true);
-            }
-            if (toolEnchant(ench, ModEnchantments.MAGNET, tool) > 0 && !state.isAir()) { // * MAGNETIC EFFECT *
+            // * AUTO SMELT EFFECT *
+            autoSmeltEnch(tool, state, serverLevel, pos, player, finalDrops, cancelVanillaDrop, hasFortune);
+            // * MAGNETIC EFFECT *
+            if (toolEnchant(ench, ModEnchantments.MAGNET, tool) > 0 && !state.isAir()) {
                 if (finalDrops.isEmpty()) { // FinalDrops empty list added all items on it is
                     finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
                 }
