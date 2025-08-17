@@ -11,6 +11,7 @@ import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.ClientItem;
@@ -19,6 +20,7 @@ import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
 import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
@@ -78,11 +80,14 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTintedLeaves(ModBlocks.BLOODWOOD_LEAVES.get(), TexturedModel.LEAVES, -12012264);
         blockModels.createCrossBlock(ModBlocks.BLOODWOOD_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
 
-        // CUSTOM block entity
-        blockModels.createTrivialCube(ModBlocks.GROWTH_CHAMBER.get());
-
         // CUSTOM sittable block model
         // createChairTexture(blockModels, ModBlocks.CHAIR.get());
+
+        // CUSTOM block entity
+        createPedestalTexture(blockModels, itemModels, ModBlocks.PEDESTAL.get());
+
+        // CUSTOM crafting block entity
+        blockModels.createTrivialCube(ModBlocks.GROWTH_CHAMBER.get());
 
         // * CUSTOM ITEMS *
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
@@ -193,7 +198,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateBow(item);
     }
 
-    // CUSTOM METHOD - Chair
+    // CUSTOM METHOD - Chair texture
 //    protected static void createChairTexture(BlockModelGenerators blockModels, Block block) {
 //        ResourceLocation modelLoc = TexturedModel.CUBE.create(block, blockModels.modelOutput);
 //        MultiVariant multiVariant = BlockModelGenerators.plainVariant(modelLoc);
@@ -210,6 +215,19 @@ public class ModModelProvider extends ModelProvider {
 //                                                        .select(Direction.EAST, multiVariant.with(BlockModelGenerators.Y_ROT_90))
 //                                                        .select(Direction.WEST, multiVariant.with(BlockModelGenerators.Y_ROT_270))));
 //    }
+
+    // CUSTOM METHOD - Pedestal texture
+    protected static void createPedestalTexture(BlockModelGenerators blockModels,
+                                                ItemModelGenerators itemModels, Block block) {
+        ResourceLocation modelLoc = TextureMapping.getBlockTexture(block);
+        MultiVariant multiVariant = BlockModelGenerators.plainVariant(modelLoc);
+        // assets\mccoursemod\blockstates
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(ModBlocks.PEDESTAL.value(), multiVariant));
+        // assets\mccoursemod\items
+        ItemModel.Unbaked pedestalModel = ItemModelUtils.plainModel(modelLoc);
+        itemModels.itemModelOutput.accept(block.asItem(), pedestalModel);
+        // assets\mccoursemod\models\item
+    }
 
     // CUSTOM METHOD - Block models -> Ignore JSON files
     @Override

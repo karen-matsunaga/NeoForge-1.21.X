@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-15T17:36:52.6831544	Model Definitions - mccoursemod
+// 1.21.8	2025-08-16T20:10:05.1048139	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -26,6 +26,7 @@ d8dbf9ee5426d834c61d532fff32bb128bf208e0 assets/mccoursemod/blockstates/goji_ber
 82d492e2ed177166a162d9797f6366a2ffbbd4d2 assets/mccoursemod/blockstates/growth_chamber.json
 4a15fdc4810f3071ecf37faff5bd9c35c0030c5d assets/mccoursemod/blockstates/magic.json
 3bfedb2f9fac65a126a774944896212037fd7e9e assets/mccoursemod/blockstates/mccoursemod_elevator.json
+6e61df3e4426d8b2207bbe7e24893c1dc9bd828a assets/mccoursemod/blockstates/pedestal.json
 4b1c64db912dc00e460c0e04b7c2dceec437e38e assets/mccoursemod/blockstates/radish_crop.json
 1dc4ba29be1815f4b7d9bf535425fff506842793 assets/mccoursemod/blockstates/stripped_bloodwood_log.json
 f55039b94a8a400766000d5a68fa3f86265f73b4 assets/mccoursemod/blockstates/stripped_bloodwood_wood.json
@@ -82,6 +83,7 @@ c2387d52e387dbf791b463a2d0c1f627dc616110 assets/mccoursemod/items/level_charger_
 7704fa6cbfdd4572156a0ce428118db262c9f925 assets/mccoursemod/items/magic.json
 68c66bdb0543e0688b875b7e031b5b47765985a5 assets/mccoursemod/items/mccoursemod_elevator.json
 a33fdc1092fa423bf247380062149416cb1374e7 assets/mccoursemod/items/mccourse_mod_bottle.json
+f690992a632d5f7b472d3b3b164fd4e146d7e4ad assets/mccoursemod/items/pedestal.json
 d8d7bed06e1dd1e8cd6bcc1a83823f5a108a7e1d assets/mccoursemod/items/radiation_staff.json
 8b0f4093ea959596641caaeac7b9b6f5d8538593 assets/mccoursemod/items/radish.json
 044453ac49e2bb7b7422285bf31380f2762406f8 assets/mccoursemod/items/radish_seeds.json
