@@ -52,5 +52,7 @@ public class DataGenerators {
         event.addProvider(new ModPoiTypeTagsProvider(packOutput, lookupProvider));
         // Loot Modifiers Provider
         generator.addProvider(true, new ModGlobalLootModifierProvider(packOutput, lookupProvider));
+        // Particles Provider
+        generator.addProvider(true, new ModParticleDescriptionProvider(packOutput));
     }
 }

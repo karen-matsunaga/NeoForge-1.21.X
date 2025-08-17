@@ -10,11 +10,13 @@ import java.util.function.Supplier;
 
 public class ModParticles {
     public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES =
-            DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE, MccourseMod.MOD_ID);
+           DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE, MccourseMod.MOD_ID);
 
+    // Registry all custom particles
     public static final Supplier<SimpleParticleType> BISMUTH_PARTICLES =
-            PARTICLE_TYPES.register("bismuth_particles", () -> new SimpleParticleType(true));
+           PARTICLE_TYPES.register("bismuth_particles", () -> new SimpleParticleType(true));
 
+    // CUSTOM METHOD - Registry all custom particles types on event
     public static void register(IEventBus eventBus) {
         PARTICLE_TYPES.register(eventBus);
     }
