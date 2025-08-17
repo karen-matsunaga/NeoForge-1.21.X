@@ -139,7 +139,7 @@ public class ModItems {
     public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",
            (properties) -> new BlockItem(ModBlocks.GOJI_BERRY_BUSH.get(),
                                                    properties.food(new FoodProperties.Builder().nutrition(2)
-                                                                                               .saturationModifier(0.15f).build())));
+                                                                                               .saturationModifier(0.15F).build())));
 
     // ** CUSTOM mob **
     public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.registerItem("gecko_spawn_egg",
@@ -182,16 +182,16 @@ public class ModItems {
     // Coffee item food
     public static final DeferredItem<Item> COFFEE = ITEMS.registerItem("coffee",
            (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
-                                                                                          .saturationModifier(0.25f).build())
+                                                                                          .saturationModifier(0.25F).build())
                                                         .component(DataComponents.CONSUMABLE,
-                                                                   Consumable.builder().consumeSeconds(2f)
+                                                                   Consumable.builder().consumeSeconds(2F)
                                                                              .animation(ItemUseAnimation.EAT)
                                                                              .sound(SoundEvents.GENERIC_EAT)
                                                                              .hasConsumeParticles(false)
                                                                              .onConsume(new ApplyStatusEffectsConsumeEffect(
                                                                                         new MobEffectInstance(
                                                                                         MobEffects.HEALTH_BOOST,
-                                                                                        600, 0), 0.35f))
+                                                                                        600, 0), 0.35F))
                                                                              .build())));
 
     // Mccourse Mod Bottle item
