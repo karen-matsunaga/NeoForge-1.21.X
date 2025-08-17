@@ -8,10 +8,7 @@ import net.karen.mccoursemod.item.custom.*;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -30,241 +27,177 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Consumer;
 
 public class ModItems {
+    // Registry all custom ITEMS
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MccourseMod.MOD_ID);
 
-    public static final DeferredItem<Item> BISMUTH = ITEMS.register("bismuth",
-            () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                       "bismuth")))));
+    // ** CUSTOM items **
+    public static final DeferredItem<Item> BISMUTH = ITEMS.registerItem("bismuth", Item::new, new Item.Properties());
 
-    public static final DeferredItem<Item> RAW_BISMUTH = ITEMS.register("raw_bismuth",
-            () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                       "raw_bismuth")))));
+    public static final DeferredItem<Item> RAW_BISMUTH =
+           ITEMS.registerItem("raw_bismuth", Item::new, new Item.Properties());
 
-    // Auto smelt item
-    public static final DeferredItem<Item> AUTO_SMELT = ITEMS.register("auto_smelt",
-           () -> new SpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                   "auto_smelt"))), ModDataComponentTypes.AUTO_SMELT.get(),
-                                                                   10));
-
-    // Level Charger
-    public static final DeferredItem<Item> LEVEL_CHARGER_GENERIC_PLUS =
-            ITEMS.register("level_charger_generic_plus",
-            () -> new LevelChargerGenericItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                          "level_charger_generic_plus")))
-                                                                   .fireResistant(), 1));
-
-    public static final DeferredItem<Item> LEVEL_CHARGER_GENERIC_MINUS =
-            ITEMS.register("level_charger_generic_minus",
-            () -> new LevelChargerGenericItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                          "level_charger_generic_minus")))
-                                                                   .fireResistant(), -1));
-
-    public static final DeferredItem<Item> LEVEL_CHARGER_SPECIF_PLUS_FORTUNE =
-            ITEMS.register("level_charger_specif_plus_fortune",
-            () -> new LevelChargerSpecifItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                         "level_charger_specif_plus_fortune")))
-                                                                  .fireResistant(), 1, Enchantments.FORTUNE));
-
-    public static final DeferredItem<Item> LEVEL_CHARGER_SPECIF_MINUS_FORTUNE =
-            ITEMS.register("level_charger_specif_minus_fortune",
-            () -> new LevelChargerSpecifItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                         "level_charger_specif_minus_fortune")))
-                                                                  .fireResistant(), -1, Enchantments.FORTUNE));
-
-    // Custom tools
-    // CUSTOM Sword
-    public static final DeferredItem<Item> BISMUTH_SWORD = ITEMS.register("bismuth_sword",
-           () -> new Item(new Item.Properties().sword(ModToolMaterials.BISMUTH, 3, -2.4f)
-                                  .fireResistant().setId(ResourceKey.create(Registries.ITEM,
-                                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                         "bismuth_sword")))
-                                                  .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
-
-    // CUSTOM Pickaxe
-    public static final DeferredItem<Item> BISMUTH_PICKAXE = ITEMS.register("bismuth_pickaxe",
-           () -> new Item(new Item.Properties().pickaxe(ModToolMaterials.BISMUTH, 1, -2.8f)
-                                  .fireResistant().setId(ResourceKey.create(Registries.ITEM,
-                                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                         "bismuth_pickaxe")))
-                                                  .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
-
-    // CUSTOM Shovel
-    public static final DeferredItem<Item> BISMUTH_SHOVEL = ITEMS.register("bismuth_shovel",
-           () -> new ShovelItem(ModToolMaterials.BISMUTH, 1.5f, -3.0f,
-                 new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
-                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                             "bismuth_shovel")))
-                                                      .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
-
-    // CUSTOM Axe
-    public static final DeferredItem<Item> BISMUTH_AXE = ITEMS.register("bismuth_axe",
-           () -> new AxeItem(ModToolMaterials.BISMUTH,6, -3.2f,
-                    new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
-                                                                ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                "bismuth_axe")))
-                                                         .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
-
-    // CUSTOM Hoe
-    public static final DeferredItem<Item> BISMUTH_HOE = ITEMS.register("bismuth_hoe",
-           () -> new HoeItem(ModToolMaterials.BISMUTH, 0, -3.0f,
-                 new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
-                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                             "bismuth_hoe")))
-                                                      .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
-
-    // CUSTOM Hammer
-    public static final DeferredItem<Item> BISMUTH_HAMMER = ITEMS.register("bismuth_hammer",
-           () -> new HammerItem(ModToolMaterials.BISMUTH, 1F, -3.3F,
-                 new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
-                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                             "bismuth_hammer")))
-                                                      .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
-
-    // CUSTOM Paxel
-    public static final DeferredItem<Item> BISMUTH_PAXEL = ITEMS.register("bismuth_paxel",
-            () -> new PaxelItem(ModToolMaterials.BISMUTH, 1F, -2.8F,
-                  new Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM,
-                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                              "bismuth_paxel")))
-                                                       .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
-
-    // Custom Bow
-    public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.registerItem("kaupen_bow",
-           (properties) -> new BowItem(properties.durability(500)));
-
-    // Custom armors
-    public static final DeferredItem<Item> BISMUTH_HELMET = ITEMS.register("bismuth_helmet",
-           () -> new ModArmorItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                              "bismuth_helmet")))
-                                                       .humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
-                                                                      ArmorType.HELMET)));
-
-    public static final DeferredItem<Item> BISMUTH_CHESTPLATE = ITEMS.register("bismuth_chestplate",
-           () -> new ModArmorItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                              "bismuth_chestplate")))
-                                                       .humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
-                                                                      ArmorType.CHESTPLATE)));
-
-    public static final DeferredItem<Item> BISMUTH_LEGGINGS = ITEMS.register("bismuth_leggings",
-           () -> new ModArmorItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                              "bismuth_leggings")))
-                                                       .humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
-                                                                      ArmorType.LEGGINGS)));
-
-    public static final DeferredItem<Item> BISMUTH_BOOTS = ITEMS.register("bismuth_boots",
-           () -> new ModArmorItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                              "bismuth_boots")))
-                                                       .humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
-                                                                      ArmorType.BOOTS)));
-
-    // Custom foods
-    public static final DeferredItem<Item> COFFEE = ITEMS.register("coffee",
-           () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                      "coffee")))
-                                               .food(new FoodProperties.Builder().nutrition(3)
-                                                                                 .saturationModifier(0.25f).build())
-                                               .component(DataComponents.CONSUMABLE,
-                                                          Consumable.builder().consumeSeconds(2f)
-                                                                              .animation(ItemUseAnimation.EAT)
-                                                                              .sound(SoundEvents.GENERIC_EAT)
-                                                                              .hasConsumeParticles(false)
-                                                                              .onConsume(new ApplyStatusEffectsConsumeEffect(
-                                                                                         new MobEffectInstance(
-                                                                                         MobEffects.HEALTH_BOOST,
-                                                                                         600, 0), 0.35f))
-                                                                              .build())));
-
-    // Custom advanced items
-    public static final DeferredItem<Item> MCCOURSE_MOD_BOTTLE = ITEMS.register("mccourse_mod_bottle",
-           () -> new MccourseModBottleItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                       "mccourse_mod_bottle")))
-                                                                .fireResistant()
-                                                                .stacksTo(1),
-                                                                100000, 1));
-
-    public static final DeferredItem<Item> CHISEL = ITEMS.register("chisel",
-           () -> new ChiselItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                            ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                            "chisel")))
-                                                     .durability(32)));
-
-    // Custom music disc
-    public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.register("bar_brawl_music_disc",
-           () -> new Item(new Item.Properties().jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).stacksTo(1)
-                                               .setId(ResourceKey.create(Registries.ITEM,
-                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                      "bar_brawl_music_disc")))));
-
-    // Custom Bismuth horse armor
-    public static final DeferredItem<Item> BISMUTH_HORSE_ARMOR = ITEMS.register("bismuth_horse_armor",
-            () -> new Item(new Item.Properties().stacksTo(1)
-                                                .horseArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL)
-                                                .setId(ResourceKey.create(Registries.ITEM,
-                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                       "bismuth_horse_armor")))));
-
-    // Custom Smithing Template
-    public static final DeferredItem<Item> KAUPEN_SMITHING_TEMPLATE =
-           ITEMS.registerItem("kaupen_armor_trim_smithing_template", SmithingTemplateItem::createArmorTrimTemplate);
-
-    // Custom seeds
-    public static final DeferredItem<Item> RADISH_SEEDS = ITEMS.registerItem("radish_seeds",
-           (properties) -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties));
+    // ** CUSTOM advanced items **
+    public static final DeferredItem<Item> CHISEL =
+           ITEMS.registerItem("chisel", ChiselItem::new, new Item.Properties().durability(32));
 
     public static final DeferredItem<Item> RADISH = ITEMS.registerItem("radish",
-           (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
-                                                                                          .saturationModifier(0.25f).build(),
+           (properties) -> new Item(properties.food(new FoodProperties.Builder()
+                                                                                .nutrition(3).saturationModifier(0.25F).build(),
                                                               Consumables.defaultFood().onConsume(
                                                               new ApplyStatusEffectsConsumeEffect(
                                                               new MobEffectInstance(MobEffects.HEALTH_BOOST, 400),
-                                                                                    0.35f)).build())) {
-              @Override
-              public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context,
-                                        @NotNull TooltipDisplay display, @NotNull Consumer<Component> consumer,
-                                        @NotNull TooltipFlag flag) {
-                  consumer.accept(Component.translatable("tooltip.mccoursemod.radish"));
-                  super.appendHoverText(stack, context, display, consumer, flag);
-              }
+                                                              0.35F)).build())) {
+               @Override
+               public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context,
+                                           @NotNull TooltipDisplay display, @NotNull Consumer<Component> consumer,
+                                           @NotNull TooltipFlag flag) {
+                   consumer.accept(Component.translatable("tooltip.mccoursemod.radish"));
+                   super.appendHoverText(stack, context, display, consumer, flag);
+               }
            });
 
-    // CUSTOM fuels
-    public static final DeferredItem<Item> FROSTFIRE_ICE =
-           ITEMS.registerItem("frostfire_ice", (properties) -> new FuelItem(properties, 800));
+    // ** CUSTOM fuels **
+    public static final DeferredItem<Item> FROSTFIRE_ICE = ITEMS.registerItem("frostfire_ice",
+           (properties) -> new FuelItem(properties, 800));
 
-    public static final DeferredItem<Item> STARLIGHT_ASHES =
-           ITEMS.registerItem("starlight_ashes", Item::new);
+    public static final DeferredItem<Item> STARLIGHT_ASHES = ITEMS.registerItem("starlight_ashes", Item::new);
 
-    // CUSTOM bush crop
+    // ** CUSTOM tools **
+    // CUSTOM Sword
+    public static final DeferredItem<Item> BISMUTH_SWORD = ITEMS.registerItem("bismuth_sword",
+           (properties) -> new Item(properties.sword(ModToolMaterials.BISMUTH, 5.0F, -2.4F)
+                                                        .fireResistant().repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // CUSTOM Pickaxe
+    public static final DeferredItem<Item> BISMUTH_PICKAXE = ITEMS.registerItem("bismuth_pickaxe",
+           (properties) -> new Item(properties.pickaxe(ModToolMaterials.BISMUTH, 1.0F, -2.8F)
+                                                        .fireResistant().repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // CUSTOM Shovel
+    public static final DeferredItem<Item> BISMUTH_SHOVEL = ITEMS.registerItem("bismuth_shovel",
+           (properties) -> new ShovelItem(ModToolMaterials.BISMUTH, 1.5F, -3.0F,
+                                                    properties.fireResistant().repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // CUSTOM Axe
+    public static final DeferredItem<Item> BISMUTH_AXE = ITEMS.registerItem("bismuth_axe",
+           (properties) -> new AxeItem(ModToolMaterials.BISMUTH,6.0F, -3.2F,
+                                                 properties.fireResistant().repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // CUSTOM Hoe
+    public static final DeferredItem<Item> BISMUTH_HOE = ITEMS.registerItem("bismuth_hoe",
+           (properties) -> new HoeItem(ModToolMaterials.BISMUTH, 0.0F, -3.0F,
+                                                 properties.fireResistant().repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // CUSTOM Hammer
+    public static final DeferredItem<Item> BISMUTH_HAMMER = ITEMS.registerItem("bismuth_hammer",
+           (properties) -> new HammerItem(ModToolMaterials.BISMUTH, 7F, -3.5F,
+                                                    properties.fireResistant().repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // ** CUSTOM armors **
+    // CUSTOM Helmet
+    public static final DeferredItem<Item> BISMUTH_HELMET = ITEMS.registerItem("bismuth_helmet",
+           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
+                                                                               ArmorType.HELMET)));
+
+    // CUSTOM Chestplate
+    public static final DeferredItem<Item> BISMUTH_CHESTPLATE = ITEMS.registerItem("bismuth_chestplate",
+           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
+                                                                               ArmorType.CHESTPLATE)));
+
+    // CUSTOM Leggings
+    public static final DeferredItem<Item> BISMUTH_LEGGINGS = ITEMS.registerItem("bismuth_leggings",
+           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
+                                                                               ArmorType.LEGGINGS)));
+
+    // CUSTOM Boots
+    public static final DeferredItem<Item> BISMUTH_BOOTS = ITEMS.registerItem("bismuth_boots",
+           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
+                                                                               ArmorType.BOOTS)));
+
+    // ** CUSTOM horse armor **
+    public static final DeferredItem<Item> BISMUTH_HORSE_ARMOR = ITEMS.registerItem("bismuth_horse_armor",
+           (properties) -> new Item(properties.stacksTo(1)
+                                                        .horseArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL)));
+
+    // ** CUSTOM Smithing Template **
+    public static final DeferredItem<Item> KAUPEN_SMITHING_TEMPLATE =
+           ITEMS.registerItem("kaupen_armor_trim_smithing_template", SmithingTemplateItem::createArmorTrimTemplate);
+
+    // ** CUSTOM Bow **
+    public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.registerItem("kaupen_bow",
+           (properties) -> new BowItem(properties.durability(500)));
+
+    // ** CUSTOM music disc **
+    public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.registerItem("bar_brawl_music_disc",
+           (properties) -> new Item(properties.jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).stacksTo(1)));
+
+    // ** CUSTOM seeds **
+    public static final DeferredItem<Item> RADISH_SEEDS = ITEMS.registerItem("radish_seeds",
+           (properties) -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties));
+
+    // ** CUSTOM bush crop **
     public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",
            (properties) -> new BlockItem(ModBlocks.GOJI_BERRY_BUSH.get(),
                                                    properties.food(new FoodProperties.Builder().nutrition(2)
-                                                                                               .saturationModifier(0.15f)
-                                                                                               .build())));
+                                                                                               .saturationModifier(0.15f).build())));
 
-    // CUSTOM mob
+    // ** CUSTOM mob **
     public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.registerItem("gecko_spawn_egg",
            (properties) -> new SpawnEggItem(ModEntities.GECKO.get(), properties));
 
-    // CUSTOM Throwable Projectiles
+    // ** CUSTOM Throwable Projectiles **
     public static final DeferredItem<Item> TOMAHAWK = ITEMS.registerItem("tomahawk",
            (properties) -> new TomahawkItem(properties.stacksTo(16)));
 
-    // CUSTOM Animated Textures
+    // ** CUSTOM Animated Textures **
     public static final DeferredItem<Item> RADIATION_STAFF = ITEMS.registerItem("radiation_staff",
            (properties) -> new Item(properties.stacksTo(1)));
+
+    // Auto smelt item
+    public static final DeferredItem<Item> AUTO_SMELT = ITEMS.registerItem("auto_smelt",
+           (properties) -> new SpecialEffectItem(properties, ModDataComponentTypes.AUTO_SMELT.get(), 10));
+
+    // Level Charger items
+    public static final DeferredItem<Item> LEVEL_CHARGER_GENERIC_PLUS =
+           ITEMS.registerItem("level_charger_generic_plus",
+           (properties) -> new LevelChargerGenericItem(properties.fireResistant(), 1));
+
+    public static final DeferredItem<Item> LEVEL_CHARGER_GENERIC_MINUS =
+           ITEMS.registerItem("level_charger_generic_minus",
+           (properties) -> new LevelChargerGenericItem(properties.fireResistant(), -1));
+
+    public static final DeferredItem<Item> LEVEL_CHARGER_SPECIF_PLUS_FORTUNE =
+           ITEMS.registerItem("level_charger_specif_plus_fortune",
+           (properties) -> new LevelChargerSpecifItem(properties.fireResistant(), 1, Enchantments.FORTUNE));
+
+    public static final DeferredItem<Item> LEVEL_CHARGER_SPECIF_MINUS_FORTUNE =
+           ITEMS.registerItem("level_charger_specif_minus_fortune",
+           (properties) -> new LevelChargerSpecifItem(properties.fireResistant(), -1, Enchantments.FORTUNE));
+
+    // CUSTOM Paxel
+    public static final DeferredItem<Item> BISMUTH_PAXEL = ITEMS.registerItem("bismuth_paxel",
+           (properties) -> new PaxelItem(ModToolMaterials.BISMUTH, 1F, -2.8F,
+                                                   properties.fireResistant().repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
+    // Coffee item food
+    public static final DeferredItem<Item> COFFEE = ITEMS.registerItem("coffee",
+           (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
+                                                                                          .saturationModifier(0.25f).build())
+                                                        .component(DataComponents.CONSUMABLE,
+                                                                   Consumable.builder().consumeSeconds(2f)
+                                                                             .animation(ItemUseAnimation.EAT)
+                                                                             .sound(SoundEvents.GENERIC_EAT)
+                                                                             .hasConsumeParticles(false)
+                                                                             .onConsume(new ApplyStatusEffectsConsumeEffect(
+                                                                                        new MobEffectInstance(
+                                                                                        MobEffects.HEALTH_BOOST,
+                                                                                        600, 0), 0.35f))
+                                                                             .build())));
+
+    // Mccourse Mod Bottle item
+    public static final DeferredItem<Item> MCCOURSE_MOD_BOTTLE = ITEMS.registerItem("mccourse_mod_bottle",
+           (properties) -> new MccourseModBottleItem(properties.fireResistant().stacksTo(1),
+                                                               100000, 1));
 
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
