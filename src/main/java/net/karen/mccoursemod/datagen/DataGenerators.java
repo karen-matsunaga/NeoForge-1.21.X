@@ -15,41 +15,84 @@ import java.util.concurrent.CompletableFuture;
 
 @EventBusSubscriber(modid = MccourseMod.MOD_ID)
 public class DataGenerators {
+    // ** CLIENT DATA **
     @SubscribeEvent
     public static void gatherClientData(GatherDataEvent.Client event) {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
         // Language file en_us.json -> Language Provider
-        event.addProvider(new ModLanguageProvider(packOutput));
+        generator.addProvider(true, new ModLanguageProvider(packOutput));
         // Block models + Item models -> Model Provider
-        event.addProvider(new ModModelProvider(packOutput));
+        generator.addProvider(true, new ModModelProvider(packOutput));
         // Recipes -> Recipe Provider
-        event.addProvider(new ModRecipeProvider.Runner(packOutput, lookupProvider));
+        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
         // Block Loot Table Provider
-        event.addProvider(new LootTableProvider(packOutput, Collections.emptySet(),
-                          List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new,
-                                                                         LootContextParamSets.BLOCK)), lookupProvider));
+        generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
+                              List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new,
+                                                                             LootContextParamSets.BLOCK)), lookupProvider));
         // Block tags
-        event.addProvider(new ModBlockTagGenerator(packOutput, lookupProvider));
+        generator.addProvider(true, new ModBlockTagGenerator(packOutput, lookupProvider));
         // Item tags
-        event.addProvider(new ModItemTagGenerator(packOutput, lookupProvider));
+        generator.addProvider(true, new ModItemTagGenerator(packOutput, lookupProvider));
         // Enchantment tags
-        event.addProvider(new ModEnchantmentTagGenerator(packOutput, lookupProvider));
+        generator.addProvider(true, new ModEnchantmentTagGenerator(packOutput, lookupProvider));
         // Data Map Provider
-        event.addProvider(new ModDataMapProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new ModDataMapProvider(packOutput, lookupProvider));
         // Equipment Asset Provider
-        event.addProvider(new ModEquipmentAssetProvider(packOutput));
+        generator.addProvider(true, new ModEquipmentAssetProvider(packOutput));
         // Datapack Provider
-        event.addProvider(new ModDatapackProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new ModDatapackProvider(packOutput, lookupProvider));
         // Entity Type tags
-        event.addProvider(new ModEntityTypeTagGenerator(packOutput, lookupProvider));
+        generator.addProvider(true, new ModEntityTypeTagGenerator(packOutput, lookupProvider));
         // Sound Provider
-        event.addProvider(new ModSoundDefinitionsProvider(packOutput));
+        generator.addProvider(true, new ModSoundDefinitionsProvider(packOutput));
         // Painting Variant tags
-        event.addProvider(new ModPaintingVariantTagGenerator(packOutput, lookupProvider));
+        generator.addProvider(true, new ModPaintingVariantTagGenerator(packOutput, lookupProvider));
         // Villager Poi Type tags
-        event.addProvider(new ModPoiTypeTagsProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new ModPoiTypeTagsProvider(packOutput, lookupProvider));
+        // Loot Modifiers Provider
+        generator.addProvider(true, new ModGlobalLootModifierProvider(packOutput, lookupProvider));
+        // Particles Provider
+        generator.addProvider(true, new ModParticleDescriptionProvider(packOutput));
+    }
+
+    // ** SERVER DATA **
+    @SubscribeEvent
+    public static void gatherServerData(GatherDataEvent.Server event) {
+        DataGenerator generator = event.getGenerator();
+        PackOutput packOutput = generator.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+        // Language file en_us.json -> Language Provider
+        generator.addProvider(true, new ModLanguageProvider(packOutput));
+        // Block models + Item models -> Model Provider
+        generator.addProvider(true, new ModModelProvider(packOutput));
+        // Recipes -> Recipe Provider
+        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
+        // Block Loot Table Provider
+        generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
+                              List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new,
+                                                                             LootContextParamSets.BLOCK)), lookupProvider));
+        // Block tags
+        generator.addProvider(true, new ModBlockTagGenerator(packOutput, lookupProvider));
+        // Item tags
+        generator.addProvider(true, new ModItemTagGenerator(packOutput, lookupProvider));
+        // Enchantment tags
+        generator.addProvider(true, new ModEnchantmentTagGenerator(packOutput, lookupProvider));
+        // Data Map Provider
+        generator.addProvider(true, new ModDataMapProvider(packOutput, lookupProvider));
+        // Equipment Asset Provider
+        generator.addProvider(true, new ModEquipmentAssetProvider(packOutput));
+        // Datapack Provider
+        generator.addProvider(true, new ModDatapackProvider(packOutput, lookupProvider));
+        // Entity Type tags
+        generator.addProvider(true, new ModEntityTypeTagGenerator(packOutput, lookupProvider));
+        // Sound Provider
+        generator.addProvider(true, new ModSoundDefinitionsProvider(packOutput));
+        // Painting Variant tags
+        generator.addProvider(true, new ModPaintingVariantTagGenerator(packOutput, lookupProvider));
+        // Villager Poi Type tags
+        generator.addProvider(true, new ModPoiTypeTagsProvider(packOutput, lookupProvider));
         // Loot Modifiers Provider
         generator.addProvider(true, new ModGlobalLootModifierProvider(packOutput, lookupProvider));
         // Particles Provider
