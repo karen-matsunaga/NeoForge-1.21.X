@@ -13,16 +13,19 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.ClientItem;
 import net.minecraft.client.renderer.item.ConditionalItemModel;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.jetbrains.annotations.NotNull;
 import java.util.stream.Stream;
 import static net.minecraft.client.data.models.ItemModelGenerators.*;
@@ -81,7 +84,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createCrossBlock(ModBlocks.BLOODWOOD_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
 
         // CUSTOM sittable block model
-        // createChairTexture(blockModels, ModBlocks.CHAIR.get());
+         createChairTexture(blockModels, itemModels, ModBlocks.CHAIR.get());
 
         // CUSTOM block entity
         createPedestalTexture(blockModels, itemModels, ModBlocks.PEDESTAL.get());
@@ -199,22 +202,22 @@ public class ModModelProvider extends ModelProvider {
     }
 
     // CUSTOM METHOD - Chair texture
-//    protected static void createChairTexture(BlockModelGenerators blockModels, Block block) {
-//        ResourceLocation modelLoc = TexturedModel.CUBE.create(block, blockModels.modelOutput);
-//        MultiVariant multiVariant = BlockModelGenerators.plainVariant(modelLoc);
-//        MultiVariant multiVariantTwo = BlockModelGenerators.plainVariant(
-//                ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, ""));
-//        // Render block
-//        // blockModels.registerSimpleItemModel(block, modelLoc);
-//        // Render Variant
-//        blockModels.blockStateOutput.accept(
-//             MultiVariantGenerator.dispatch(block)
-//                                  .with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING)
-//                                                        .select(Direction.NORTH, multiVariant)
-//                                                        .select(Direction.SOUTH, multiVariant.with(BlockModelGenerators.Y_ROT_180))
-//                                                        .select(Direction.EAST, multiVariant.with(BlockModelGenerators.Y_ROT_90))
-//                                                        .select(Direction.WEST, multiVariant.with(BlockModelGenerators.Y_ROT_270))));
-//    }
+    protected static void createChairTexture(BlockModelGenerators blockModels,
+                                             ItemModelGenerators itemModels, Block block) {
+        ResourceLocation modelLoc = TextureMapping.getBlockTexture(block);
+        MultiVariant multiVariant = BlockModelGenerators.plainVariant(modelLoc);
+        // assets\mccoursemod\blockstates
+        blockModels.blockStateOutput
+                   .accept(MultiVariantGenerator.dispatch(block)
+                                                .with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING)
+                                                .select(Direction.NORTH, multiVariant)
+                                                .select(Direction.SOUTH, multiVariant.with(BlockModelGenerators.Y_ROT_180))
+                                                .select(Direction.EAST, multiVariant.with(BlockModelGenerators.Y_ROT_90))
+                                                .select(Direction.WEST, multiVariant.with(BlockModelGenerators.Y_ROT_270))));
+        // assets\mccoursemod\items
+        ItemModel.Unbaked pedestalModel = ItemModelUtils.plainModel(modelLoc);
+        itemModels.itemModelOutput.accept(block.asItem(), pedestalModel);
+    }
 
     // CUSTOM METHOD - Pedestal texture
     protected static void createPedestalTexture(BlockModelGenerators blockModels,

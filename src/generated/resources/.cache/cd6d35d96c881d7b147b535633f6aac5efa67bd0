@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-16T20:10:05.1048139	Model Definitions - mccoursemod
+// 1.21.8	2025-08-17T00:15:59.8505375	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -19,6 +19,7 @@ e8ca7904fb79206c9f0b93b12a3d7127ee4570bd assets/mccoursemod/blockstates/bloodwoo
 8fa31a9aea97020ced14212ff81f16a6b7c770ea assets/mccoursemod/blockstates/bloodwood_planks.json
 385a28e0b73889b77c9cabb472461ae3f51cd80e assets/mccoursemod/blockstates/bloodwood_sapling.json
 ced91739611e8b474fd92e630d6788bd3ab464b6 assets/mccoursemod/blockstates/bloodwood_wood.json
+ff9043da6429d54da45740e04585885cdb513611 assets/mccoursemod/blockstates/chair.json
 51734bf600a686825e0ec38b2ea4d7ae0080404a assets/mccoursemod/blockstates/disenchant_grouped.json
 5732f9f92cb58ee1208679026d204dafa904d7ed assets/mccoursemod/blockstates/disenchant_individual.json
 159f4b050a7c6570ee1d9417d621862277c6d56d assets/mccoursemod/blockstates/enchant.json
@@ -65,6 +66,7 @@ b1b910b2fd997ca3483843e8298b3be3c154fb0a assets/mccoursemod/items/bismuth_wall.j
 65c59ce648dfc08c5d99e974173d92df488e595b assets/mccoursemod/items/bloodwood_planks.json
 e7871ea4c90d160dcdac90a834a8867cd6e7af37 assets/mccoursemod/items/bloodwood_sapling.json
 7d24e67090a8b75c035b45339064d6cde549eae1 assets/mccoursemod/items/bloodwood_wood.json
+d2b9a628c74d630b8276101f8a0f04626db1a47e assets/mccoursemod/items/chair.json
 75e724a0c073e339ce30f90f294a184beb4da809 assets/mccoursemod/items/chisel.json
 4724b7b9f220bb76278f4c673e146c71f1ad6fbe assets/mccoursemod/items/coffee.json
 e5ff5f1a8eb00ed1efa344dca5463d48decdf0e1 assets/mccoursemod/items/disenchant_grouped.json
