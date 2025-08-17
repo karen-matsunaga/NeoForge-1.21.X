@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-13T15:36:13.6051831	Mccourse Recipes
+// 1.21.8	2025-08-17T17:08:12.860316	Mccourse Recipes
 3b949a4428873633a142ad3704af57db5549e504 data/mccoursemod/advancement/recipes/building_blocks/bismuth_slab.json
 f0bcf56ee4ba6ef2c6daa084ce26842a8e2a7d54 data/mccoursemod/advancement/recipes/building_blocks/bismuth_stairs.json
 6ecc1b151daa1ea43079ca932ba60ec61d43fc13 data/mccoursemod/advancement/recipes/building_blocks/bismuth_wall.json
@@ -18,6 +18,7 @@ b112924da5c3f1e9a852c20eb2ed7829bdf80d57 data/mccoursemod/advancement/recipes/mi
 90334654abe592a8a69f6b6cb19e05f179342107 data/mccoursemod/advancement/recipes/misc/bismuth_from_smelting_bismuth_nether_ore.json
 501e2d9dd9c2a15ee1bab459d274694bf3207d52 data/mccoursemod/advancement/recipes/misc/bismuth_from_smelting_bismuth_ore.json
 e51ec4a1d41eaf45fca8a71ec3155b770c9b173c data/mccoursemod/advancement/recipes/misc/bismuth_from_smelting_raw_bismuth.json
+9c672b506553cdb9e3b5073b555c622861333515 data/mccoursemod/advancement/recipes/misc/kaupen_armor_trim_smithing_template.json
 2db2aba64df2f6a8036d6031c071f7fdca6f1b04 data/mccoursemod/advancement/recipes/redstone/bismuth_button.json
 0252364c5fe5d74d83cb97c12ce5b6f3f64d5a5a data/mccoursemod/advancement/recipes/redstone/bismuth_door.json
 5ef966350f487ca08248d2bf61415372654e2547 data/mccoursemod/advancement/recipes/redstone/bismuth_fence_gate.json
@@ -59,6 +60,7 @@ aa890711ab5ac6e9cd1820f075f18694044afb37 data/mccoursemod/recipe/bismuth_slab.js
 e52d28d2902cce9facbe02670b4a58759c62f690 data/mccoursemod/recipe/bismuth_sword.json
 1caeb1c0ef8f54d34e1ac93b6170deb4f4f68641 data/mccoursemod/recipe/bismuth_trapdoor.json
 902dd9159aaba4ace179a9df8301c1fe711631bb data/mccoursemod/recipe/bismuth_wall.json
+718f7527abd6d35d16e9f71453530b490caf6e76 data/mccoursemod/recipe/kaupen_armor_trim_smithing_template.json
 7b825554a5bd41149d8c60c6c17c3dd371082926 data/minecraft/advancement/recipes/building_blocks/bismuth_block.json
 9578c882a60557d03e9c2f70bd72dedf61a7c146 data/minecraft/advancement/recipes/building_blocks/bone_block.json
 75b7397254faee3b11995f6a43622472d0251d82 data/minecraft/advancement/recipes/building_blocks/enchant.json

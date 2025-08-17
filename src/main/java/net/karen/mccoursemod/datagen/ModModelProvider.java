@@ -38,7 +38,7 @@ public class ModModelProvider extends ModelProvider {
     @Override
     protected void registerModels(@NotNull BlockModelGenerators blockModels,
                                   @NotNull ItemModelGenerators itemModels) {
-        // * CUSTOM BLOCKS *
+        // ** CUSTOM BLOCKS **
         blockModels.createTrivialCube(ModBlocks.BISMUTH_ORE.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_DEEPSLATE_ORE.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_END_ORE.get());
@@ -92,7 +92,7 @@ public class ModModelProvider extends ModelProvider {
         // CUSTOM crafting block entity
         blockModels.createTrivialCube(ModBlocks.GROWTH_CHAMBER.get());
 
-        // * CUSTOM ITEMS *
+        // ** CUSTOM ITEMS **
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.AUTO_SMELT.get(), ModelTemplates.FLAT_ITEM);
@@ -229,7 +229,6 @@ public class ModModelProvider extends ModelProvider {
         // assets\mccoursemod\items
         ItemModel.Unbaked pedestalModel = ItemModelUtils.plainModel(modelLoc);
         itemModels.itemModelOutput.accept(block.asItem(), pedestalModel);
-        // assets\mccoursemod\models\item
     }
 
     // CUSTOM METHOD - Block models -> Ignore JSON files
