@@ -121,6 +121,9 @@ public class ModCreativeModeTabs {
                      // Block entity
                      output.accept(ModBlocks.PEDESTAL.get());
                      output.accept(ModBlocks.GROWTH_CHAMBER.get());
+                     // Glass blocks
+                     output.accept(ModBlocks.FORCED_STAINED_GLASS);
+                     output.accept(ModBlocks.FORCED_STAINED_GLASS_PANE);
                   }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus

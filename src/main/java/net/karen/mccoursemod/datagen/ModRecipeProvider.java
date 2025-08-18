@@ -86,6 +86,9 @@ public class ModRecipeProvider extends RecipeProvider {
         // SMITHING TABLE -> ERROR
 //        this.trimSmithing(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ModTrimPatterns.KAUPEN,
 //                          ResourceKey.create(Registries.RECIPE, ModTrimPatterns.KAUPEN.location()));
+
+        // CUSTOM glass block
+        this.glassBlocks(List.of(ModBlocks.FORCED_STAINED_GLASS.get(), ModBlocks.FORCED_STAINED_GLASS_PANE.get(), Items.GREEN_DYE));
     }
 
     // CUSTOM METHOD - Block Families
@@ -303,5 +306,13 @@ public class ModRecipeProvider extends RecipeProvider {
             .define('X', itemLikes.get(1)) // Ingredient
             .unlockedBy(getHasName(itemLikes.get(1)), this.has(itemLikes.get(1)))
             .save(this.output);
+    }
+
+    // CUSTOM METHOD - Glass blocks custom recipes
+    protected void glassBlocks(List<ItemLike> items) {
+        // 0 -> GLASS; 1 -> GLASS PANE; 2 -> DYE COLOR.
+        this.stainedGlassFromGlassAndDye(items.get(0), items.get(2));
+        this.stainedGlassPaneFromGlassPaneAndDye(items.get(1), items.get(2));
+        this.stainedGlassPaneFromStainedGlass(items.get(1), items.get(0));
     }
 }

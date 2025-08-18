@@ -119,6 +119,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.chair", "Chair Block");
         add("item.mccoursemod.pedestal", "Pedestal Block");
         add("item.mccoursemod.growth_chamber", "Growth Chamber Block");
+        add("item.mccoursemod.forced_stained_glass", "Force Stained Glass Block");
+        add("item.mccoursemod.forced_stained_glass_pane", "Force Stained Glass Pane Block");
 
         // CUSTOM BLOCKS
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
@@ -142,6 +144,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.BISMUTH_STAIRS, "Bismuth Stairs Block");
         addBlock(ModBlocks.BISMUTH_TRAPDOOR, "Bismuth Trapdoor Block");
         addBlock(ModBlocks.BISMUTH_WALL, "Bismuth Wall Block");
+
+        // Glass block
+        addBlock(ModBlocks.FORCED_STAINED_GLASS, "Forced Stained Glass Block");
+        addBlock(ModBlocks.FORCED_STAINED_GLASS_PANE, "Forced Stained Glass Pane Block");
 
         // Blockstate block
         addBlock(ModBlocks.BISMUTH_LAMP, "Bismuth Lamp Block");

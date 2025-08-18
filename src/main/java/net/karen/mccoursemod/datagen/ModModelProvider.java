@@ -12,6 +12,7 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.MultiVariant;
+import net.minecraft.client.data.models.blockstates.MultiPartGenerator;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
@@ -26,8 +27,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
 import org.jetbrains.annotations.NotNull;
 import java.util.stream.Stream;
+import static net.minecraft.client.data.models.BlockModelGenerators.*;
 import static net.minecraft.client.data.models.ItemModelGenerators.*;
 
 public class ModModelProvider extends ModelProvider {
@@ -81,7 +84,7 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.createTrivialCube(ModBlocks.BLOODWOOD_PLANKS.get());
         blockModels.createTintedLeaves(ModBlocks.BLOODWOOD_LEAVES.get(), TexturedModel.LEAVES, -12012264);
-        blockModels.createCrossBlock(ModBlocks.BLOODWOOD_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
+        blockModels.createCrossBlock(ModBlocks.BLOODWOOD_SAPLING.get(), PlantType.TINTED);
 
         // CUSTOM sittable block model
          createChairTexture(blockModels, itemModels, ModBlocks.CHAIR.get());
@@ -91,6 +94,9 @@ public class ModModelProvider extends ModelProvider {
 
         // CUSTOM crafting block entity
         blockModels.createTrivialCube(ModBlocks.GROWTH_CHAMBER.get());
+
+        // CUSTOM glass block
+        createGlassBlocksTransparent(blockModels, ModBlocks.FORCED_STAINED_GLASS.get(), ModBlocks.FORCED_STAINED_GLASS_PANE.get());
 
         // ** CUSTOM ITEMS **
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
@@ -163,12 +169,90 @@ public class ModModelProvider extends ModelProvider {
     // CUSTOM METHOD - Blockstate Texture
     protected static void blockstateTexture(BlockModelGenerators blockModels, Block block) {
         blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
-                   .with(BlockModelGenerators.createBooleanModelDispatch(BismuthLampBlock.CLICKED,
+                   .with(createBooleanModelDispatch(BismuthLampBlock.CLICKED,
                          // Bismuth Lamp On
-                         BlockModelGenerators.plainVariant(blockModels.createSuffixedVariant(block, "_on",
+                         plainVariant(blockModels.createSuffixedVariant(block, "_on",
                                                            ModelTemplates.CUBE_ALL, TextureMapping::cube)),
                          // Bismuth Lamp Off
-                         BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(block, blockModels.modelOutput)))));
+                         plainVariant(TexturedModel.CUBE.create(block, blockModels.modelOutput)))));
+    }
+
+    // CUSTOM METHOD - Chair texture
+    protected static void createChairTexture(BlockModelGenerators blockModels,
+                                             ItemModelGenerators itemModels, Block block) {
+        ResourceLocation modelLoc = TextureMapping.getBlockTexture(block);
+        MultiVariant multiVariant = plainVariant(modelLoc);
+        // assets\mccoursemod\blockstates
+        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
+                   .with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING)
+                   .select(Direction.NORTH, multiVariant)
+                   .select(Direction.SOUTH, multiVariant.with(Y_ROT_180))
+                   .select(Direction.EAST, multiVariant.with(Y_ROT_90))
+                   .select(Direction.WEST, multiVariant.with(Y_ROT_270))));
+        // assets\mccoursemod\items
+        ItemModel.Unbaked pedestalModel = ItemModelUtils.plainModel(modelLoc);
+        itemModels.itemModelOutput.accept(block.asItem(), pedestalModel);
+    }
+
+    // CUSTOM METHOD - Pedestal texture
+    protected static void createPedestalTexture(BlockModelGenerators blockModels,
+                                                ItemModelGenerators itemModels, Block block) {
+        ResourceLocation modelLoc = TextureMapping.getBlockTexture(block);
+        MultiVariant multiVariant = plainVariant(modelLoc);
+        // assets\mccoursemod\blockstates
+        blockModels.blockStateOutput.accept(createSimpleBlock(ModBlocks.PEDESTAL.value(), multiVariant));
+        // assets\mccoursemod\items
+        ItemModel.Unbaked pedestalModel = ItemModelUtils.plainModel(modelLoc);
+        itemModels.itemModelOutput.accept(block.asItem(), pedestalModel);
+    }
+
+    // CUSTOM METHOD - Glass Translucent texture (TRANSPARENT)
+    protected static void createGlassBlocksTransparent(BlockModelGenerators blockModels,
+                                                       Block glassBlock, Block paneBlock) {
+        // ** STAINED GLASS model **
+        TexturedModel.Provider cubeTransparent =
+                TexturedModel.CUBE.updateTemplate(template -> template.extend().renderType("translucent").build());
+        // assets\mccoursemod\items + assets\mccoursemod\blockstates
+        blockModels.createTrivialBlock(glassBlock, cubeTransparent);
+        // ** STAINED GLASS PANE model **
+        TextureMapping texturemapping = TextureMapping.pane(glassBlock, paneBlock);
+        // Render type
+        ExtendedModelTemplate stainedGlassPost =
+                ModelTemplates.STAINED_GLASS_PANE_POST.extend().renderType("translucent").build();
+        ExtendedModelTemplate stainedGlassSide =
+                ModelTemplates.STAINED_GLASS_PANE_SIDE.extend().renderType("translucent").build();
+        ExtendedModelTemplate stainedGlassSideAlt =
+                ModelTemplates.STAINED_GLASS_PANE_SIDE_ALT.extend().renderType("translucent").build();
+        ExtendedModelTemplate stainedGlassSideNoside =
+                ModelTemplates.STAINED_GLASS_PANE_NOSIDE.extend().renderType("translucent").build();
+        ExtendedModelTemplate stainedGlassSideNosideAlt =
+                ModelTemplates.STAINED_GLASS_PANE_NOSIDE_ALT.extend().renderType("translucent").build();
+        // Multivariant
+        MultiVariant multivariant =
+             plainVariant(stainedGlassPost.create(paneBlock, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant1 =
+             plainVariant(stainedGlassSide.create(paneBlock, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant2 =
+             plainVariant(stainedGlassSideAlt.create(paneBlock, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant3 =
+             plainVariant(stainedGlassSideNoside.create(paneBlock, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant4 =
+             plainVariant(stainedGlassSideNosideAlt.create(paneBlock, texturemapping, blockModels.modelOutput));
+        Item item = paneBlock.asItem();
+        // assets\mccoursemod\items
+        ExtendedModelTemplate paneTransparent = ModelTemplates.FLAT_ITEM.extend().renderType("translucent").build();
+        blockModels.registerSimpleItemModel(item, paneTransparent.create(ModelLocationUtils.getModelLocation(item),
+                                            TextureMapping.layer0(glassBlock), blockModels.modelOutput));
+        // assets\mccoursemod\blockstates
+        blockModels.blockStateOutput.accept(MultiPartGenerator.multiPart(paneBlock)
+                   .with(multivariant).with(condition().term(BlockStateProperties.NORTH, true), multivariant1)
+                   .with(condition().term(BlockStateProperties.EAST, true), multivariant1.with(Y_ROT_90))
+                   .with(condition().term(BlockStateProperties.SOUTH, true), multivariant2)
+                   .with(condition().term(BlockStateProperties.WEST, true), multivariant2.with(Y_ROT_90))
+                   .with(condition().term(BlockStateProperties.NORTH, false), multivariant3)
+                   .with(condition().term(BlockStateProperties.EAST, false), multivariant4)
+                   .with(condition().term(BlockStateProperties.SOUTH, false), multivariant4.with(Y_ROT_90))
+                   .with(condition().term(BlockStateProperties.WEST, false), multivariant3.with(Y_ROT_270)));
     }
 
     // * CUSTOM ITEMS *
@@ -199,36 +283,6 @@ public class ModModelProvider extends ModelProvider {
     protected static void createBowTexture(ItemModelGenerators itemModels, Item item) {
         itemModels.createFlatItemModel(item, ModelTemplates.BOW);
         itemModels.generateBow(item);
-    }
-
-    // CUSTOM METHOD - Chair texture
-    protected static void createChairTexture(BlockModelGenerators blockModels,
-                                             ItemModelGenerators itemModels, Block block) {
-        ResourceLocation modelLoc = TextureMapping.getBlockTexture(block);
-        MultiVariant multiVariant = BlockModelGenerators.plainVariant(modelLoc);
-        // assets\mccoursemod\blockstates
-        blockModels.blockStateOutput
-                   .accept(MultiVariantGenerator.dispatch(block)
-                                                .with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING)
-                                                .select(Direction.NORTH, multiVariant)
-                                                .select(Direction.SOUTH, multiVariant.with(BlockModelGenerators.Y_ROT_180))
-                                                .select(Direction.EAST, multiVariant.with(BlockModelGenerators.Y_ROT_90))
-                                                .select(Direction.WEST, multiVariant.with(BlockModelGenerators.Y_ROT_270))));
-        // assets\mccoursemod\items
-        ItemModel.Unbaked pedestalModel = ItemModelUtils.plainModel(modelLoc);
-        itemModels.itemModelOutput.accept(block.asItem(), pedestalModel);
-    }
-
-    // CUSTOM METHOD - Pedestal texture
-    protected static void createPedestalTexture(BlockModelGenerators blockModels,
-                                                ItemModelGenerators itemModels, Block block) {
-        ResourceLocation modelLoc = TextureMapping.getBlockTexture(block);
-        MultiVariant multiVariant = BlockModelGenerators.plainVariant(modelLoc);
-        // assets\mccoursemod\blockstates
-        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(ModBlocks.PEDESTAL.value(), multiVariant));
-        // assets\mccoursemod\items
-        ItemModel.Unbaked pedestalModel = ItemModelUtils.plainModel(modelLoc);
-        itemModels.itemModelOutput.accept(block.asItem(), pedestalModel);
     }
 
     // CUSTOM METHOD - Block models -> Ignore JSON files

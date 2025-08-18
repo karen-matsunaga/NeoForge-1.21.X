@@ -11,6 +11,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -192,7 +193,7 @@ public class ModBlocks {
 
     // CUSTOM leaves
     public static final DeferredBlock<Block> BLOODWOOD_LEAVES = registerBlock("bloodwood_leaves",
-           (properties) -> new UntintedParticleLeavesBlock(0.01f,
+           (properties) -> new UntintedParticleLeavesBlock(0.01F,
                                                                      ParticleTypes.CHERRY_LEAVES,
                                                                      properties.mapColor(MapColor.PLANT)
                                                                                .strength(0.2F)
@@ -241,6 +242,28 @@ public class ModBlocks {
     // ** CUSTOM crafting block entity **
     public static final DeferredBlock<Block> GROWTH_CHAMBER =
            registerBlock("growth_chamber", GrowthChamberBlock::new);
+
+
+    // ** CUSTOM glass block **
+    public static final DeferredBlock<Block> FORCED_STAINED_GLASS =
+           registerBlock("forced_stained_glass",
+           (properties) -> new StainedGlassBlock(DyeColor.GREEN,
+                                                           properties.strength(3.0F, 10.0F)
+                                                                     .mapColor(DyeColor.GREEN).instrument(NoteBlockInstrument.HAT)
+                                                                     .sound(SoundType.GLASS).noOcclusion()
+                                                                     .isValidSpawn(Blocks::never)
+                                                                     .isRedstoneConductor((s, g, p)
+                                                                                           -> false)
+                                                                     .isSuffocating((s, g, p)
+                                                                                      -> false)
+                                                                     .isViewBlocking((s, g, p)
+                                                                                      -> false)));
+
+    public static final DeferredBlock<Block> FORCED_STAINED_GLASS_PANE =
+           registerBlock("forced_stained_glass_pane",
+           (properties) -> new IronBarsBlock(properties.strength(3.0F, 10.0F)
+                                                                 .instrument(NoteBlockInstrument.HAT)
+                                                                 .sound(SoundType.GLASS).noOcclusion()));
 
     // CUSTOM METHOD - Registry all custom blocks
     private static <T extends Block> DeferredBlock<T> registerBlock(String name,

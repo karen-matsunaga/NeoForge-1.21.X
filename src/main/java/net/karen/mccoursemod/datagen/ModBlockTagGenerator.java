@@ -22,7 +22,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ENCHANT.get(), ModBlocks.DISENCHANT_INDIVIDUAL.get(),
                                                       ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.BISMUTH_BLOCK.get(),
                                                       ModBlocks.MAGIC.get(), ModBlocks.MCCOURSEMOD_ELEVATOR.get(),
-                                                      ModBlocks.BISMUTH_LAMP.get())
+                                                      ModBlocks.BISMUTH_LAMP.get(), ModBlocks.FORCED_STAINED_GLASS.get(),
+                                                      ModBlocks.FORCED_STAINED_GLASS_PANE.get())
                                                  .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES);
 
         // Mccourse Mod Ores
@@ -82,5 +83,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         this.tag(BlockTags.SAPLINGS).add(ModBlocks.BLOODWOOD_SAPLING.get());
         this.tag(BlockTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.get());
         this.tag(BlockTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.get());
+
+        // Glass
+        this.tag(BlockTags.IMPERMEABLE).add(ModBlocks.FORCED_STAINED_GLASS.get());
     }
 }
