@@ -35,6 +35,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.stream.Stream;
 import static net.minecraft.client.data.models.BlockModelGenerators.*;
 import static net.minecraft.client.data.models.ItemModelGenerators.*;
+import static net.minecraft.client.data.models.model.TextureMapping.getBlockTexture;
 
 public class ModModelProvider extends ModelProvider {
     public ModModelProvider(PackOutput output) {
@@ -87,7 +88,8 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.createTrivialCube(ModBlocks.BLOODWOOD_PLANKS.get());
         blockModels.createTintedLeaves(ModBlocks.BLOODWOOD_LEAVES.get(), TexturedModel.LEAVES, -12012264);
-        blockModels.createCrossBlock(ModBlocks.BLOODWOOD_SAPLING.get(), PlantType.TINTED);
+        // BLOODWOOD SAPLING -> Used Netherrack block
+        createSaplingTexture(blockModels, ModBlocks.BLOODWOOD_SAPLING.get());
 
         // CUSTOM sittable block model
         createChairTexture(blockModels, itemModels, ModBlocks.CHAIR.get());
@@ -183,7 +185,7 @@ public class ModModelProvider extends ModelProvider {
     // CUSTOM METHOD - Chair texture
     protected static void createChairTexture(BlockModelGenerators blockModels,
                                              ItemModelGenerators itemModels, Block block) {
-        ResourceLocation modelLoc = TextureMapping.getBlockTexture(block);
+        ResourceLocation modelLoc = getBlockTexture(block);
         MultiVariant multiVariant = plainVariant(modelLoc);
         // assets\mccoursemod\blockstates
         blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
@@ -200,13 +202,27 @@ public class ModModelProvider extends ModelProvider {
     // CUSTOM METHOD - Pedestal texture
     protected static void createPedestalTexture(BlockModelGenerators blockModels,
                                                 ItemModelGenerators itemModels, Block block) {
-        ResourceLocation modelLoc = TextureMapping.getBlockTexture(block);
+        ResourceLocation modelLoc = getBlockTexture(block);
         MultiVariant multiVariant = plainVariant(modelLoc);
         // assets\mccoursemod\blockstates
         blockModels.blockStateOutput.accept(createSimpleBlock(ModBlocks.PEDESTAL.value(), multiVariant));
         // assets\mccoursemod\items
         ItemModel.Unbaked pedestalModel = ItemModelUtils.plainModel(modelLoc);
         itemModels.itemModelOutput.accept(block.asItem(), pedestalModel);
+    }
+
+    // CUSTOM METHOD - Sapling Texture
+    protected static void createSaplingTexture(BlockModelGenerators blockModels,
+                                               Block block) {
+        // assets\mccoursemod\blockstates
+        ResourceLocation modelLoc = getBlockTexture(block);
+        MultiVariant multiVariant = plainVariant(modelLoc);
+        blockModels.blockStateOutput.accept(createSimpleBlock(block, multiVariant));
+
+        // CROSS -> assets\mccoursemod\models\block + assets\mccoursemod\items
+        ExtendedModelTemplate crossType = ModelTemplates.TINTED_CROSS.extend().renderType("cutout").build();
+        ResourceLocation crossLocation = crossType.create(block, TextureMapping.cross(modelLoc), blockModels.modelOutput);
+        blockModels.registerSimpleItemModel(block, crossLocation);
     }
 
     // CUSTOM METHOD - Glass Translucent texture (TRANSPARENT)
