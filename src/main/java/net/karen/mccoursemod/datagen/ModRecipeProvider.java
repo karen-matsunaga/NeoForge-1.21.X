@@ -82,7 +82,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         // CUSTOM Trim Smithing
         // CRAFTING TABLE
-        this.copySmithingTemplate(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ModItems.BISMUTH.get());
+        this.copySmithingTemplate(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModItems.BISMUTH.get());
         // SMITHING TABLE -> ERROR
 //        this.trimSmithing(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ModTrimPatterns.KAUPEN,
 //                          ResourceKey.create(Registries.RECIPE, ModTrimPatterns.KAUPEN.location()));
@@ -92,7 +92,8 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     // CUSTOM METHOD - Block Families
-    protected void blockFamilies(List<Block> blocks, Item item, String group, RecipeOutput output) {
+    protected void blockFamilies(List<Block> blocks, Item item,
+                                 String group, RecipeOutput output) {
         stairBuilder(blocks.getFirst(), Ingredient.of(item)).group(group)
                     .unlockedBy(getHasName(item), has(item)).save(output);
 

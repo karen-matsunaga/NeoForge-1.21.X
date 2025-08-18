@@ -52,7 +52,8 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.BISMUTH_HORSE_ARMOR, "Bismuth Horse Armor");
 
         // CUSTOM SMITHING TEMPLATE
-        addItem(ModItems.KAUPEN_SMITHING_TEMPLATE, "Kaupen Trim Template");
+        addItem(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
+        add("item.mccoursemod.kaupen_armor_trim_smithing_template.new", "Kaupen Armor Trim");
 
         // CUSTOM TRIM MATERIAL + TRIM PATTERN
         add("trim_material.mccoursemod.bismuth", "Bismuth Material");

@@ -53,7 +53,7 @@ public class ModCreativeModeTabs {
                      // CUSTOM horse armor
                      output.accept(ModItems.BISMUTH_HORSE_ARMOR);
                      // CUSTOM Smithing Template
-                     output.accept(ModItems.KAUPEN_SMITHING_TEMPLATE);
+                     output.accept(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE);
                      // CUSTOM bow
                      output.accept(ModItems.KAUPEN_BOW);
                      // CUSTOM seeds

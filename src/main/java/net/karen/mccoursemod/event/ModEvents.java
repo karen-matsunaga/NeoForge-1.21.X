@@ -610,7 +610,7 @@ public class ModEvents {
         // Generic trades
         genericTrades.add((entity, randomSource) -> new MerchantOffer(
                            new ItemCost(Items.EMERALD, 16),
-                           new ItemStack(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), 1), 1, 10, 0.2f));
+                           new ItemStack(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 1), 1, 10, 0.2f));
         // Rare trades
         rareTrades.add((entity, randomSource) -> new MerchantOffer(
                         new ItemCost(Items.NETHERITE_INGOT, 1),

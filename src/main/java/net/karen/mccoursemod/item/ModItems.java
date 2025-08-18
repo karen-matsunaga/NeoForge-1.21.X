@@ -120,8 +120,9 @@ public class ModItems {
                                                         .horseArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL)));
 
     // ** CUSTOM Smithing Template **
-    public static final DeferredItem<Item> KAUPEN_SMITHING_TEMPLATE =
-           ITEMS.registerItem("kaupen_armor_trim_smithing_template", SmithingTemplateItem::createArmorTrimTemplate);
+    public static final DeferredItem<Item> KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE =
+           ITEMS.registerItem("kaupen_armor_trim_smithing_template",
+                              SmithingTemplateItem::createArmorTrimTemplate, (new Item.Properties()).rarity(Rarity.COMMON));
 
     // ** CUSTOM Bow **
     public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.registerItem("kaupen_bow",

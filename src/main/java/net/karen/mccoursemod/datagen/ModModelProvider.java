@@ -159,7 +159,7 @@ public class ModModelProvider extends ModelProvider {
                                          TRIM_PREFIX_BOOTS, false);
 
         // ** CUSTOM Smithing Template **
-        itemModels.generateFlatItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM seeds **
         itemModels.generateFlatItem(ModItems.RADISH.get(), ModelTemplates.FLAT_ITEM);
