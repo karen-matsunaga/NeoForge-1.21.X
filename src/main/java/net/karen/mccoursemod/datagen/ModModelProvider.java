@@ -56,7 +56,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.DISENCHANT_INDIVIDUAL.get());
         blockModels.createTrivialCube(ModBlocks.MCCOURSEMOD_ELEVATOR.get());
 
-        // BLOCK FAMILIES
+        // ** BLOCK FAMILIES **
         blockModels.family(ModBlocks.BISMUTH_BLOCK.get())
                    .fence(ModBlocks.BISMUTH_FENCE.get())
                    .fenceGate(ModBlocks.BISMUTH_FENCE_GATE.get())
@@ -64,22 +64,24 @@ public class ModModelProvider extends ModelProvider {
                    .stairs(ModBlocks.BISMUTH_STAIRS.get())
                    .slab(ModBlocks.BISMUTH_SLAB.get())
                    .button(ModBlocks.BISMUTH_BUTTON.get())
-                   .pressurePlate(ModBlocks.BISMUTH_PRESSURE_PLATE.get())
-                   .trapdoor(ModBlocks.BISMUTH_TRAPDOOR.get());
+                   .pressurePlate(ModBlocks.BISMUTH_PRESSURE_PLATE.get());
 
         // DOOR
         createDoorTexture(blockModels, ModBlocks.BISMUTH_DOOR.get());
 
-        // BLOCKSTATE block
+        // TRAPDOOR
+        createTrapdoorTexture(blockModels, ModBlocks.BISMUTH_TRAPDOOR.get());
+
+        // ** BLOCKSTATE block **
         blockstateTexture(blockModels, ModBlocks.BISMUTH_LAMP.get());
 
-        // CUSTOM crop
+        // ** CUSTOM crop **
         createCropBlock(blockModels, ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
 
-        // CUSTOM bush crop
+        // ** CUSTOM bush crop **
         createCropBlock(blockModels, ModBlocks.GOJI_BERRY_BUSH.get(), GojiBerryBushBlock.AGE,  0, 1, 2, 3);
 
-        // Bloodwood log
+        // ** CUSTOM log block **
         blockModels.woodProvider(ModBlocks.BLOODWOOD_LOG.get())
                    .logWithHorizontal(ModBlocks.BLOODWOOD_LOG.get())
                    .wood(ModBlocks.BLOODWOOD_WOOD.get());
@@ -93,16 +95,16 @@ public class ModModelProvider extends ModelProvider {
         // BLOODWOOD SAPLING -> Used Netherrack block
         createSaplingTexture(blockModels, ModBlocks.BLOODWOOD_SAPLING.get());
 
-        // CUSTOM sittable block model
+        // ** CUSTOM sittable block model **
         createChairTexture(blockModels, itemModels, ModBlocks.CHAIR.get());
 
-        // CUSTOM block entity
+        // ** CUSTOM block entity **
         createPedestalTexture(blockModels, itemModels, ModBlocks.PEDESTAL.get());
 
-        // CUSTOM crafting block entity
+        // ** CUSTOM crafting block entity **
         blockModels.createTrivialCube(ModBlocks.GROWTH_CHAMBER.get());
 
-        // CUSTOM glass block
+        // ** CUSTOM glass block **
         createGlassBlocksTransparent(blockModels, ModBlocks.FORCED_STAINED_GLASS.get(), ModBlocks.FORCED_STAINED_GLASS_PANE.get());
 
         // ** CUSTOM ITEMS **
@@ -114,17 +116,17 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
 
-        // CUSTOM ADVANCED ITEMS
+        // ** CUSTOM ADVANCED ITEMS **
         alternateItemTexture(itemModels, ModItems.MCCOURSE_MOD_BOTTLE.get());
         booleanItemTexture(itemModels, ModItems.CHISEL.get());
 
-        // CUSTOM MUSIC DISC
+        // ** CUSTOM MUSIC DISC **
         itemModels.generateFlatItem(ModItems.BAR_BRAWL_MUSIC_DISC.get(), ModelTemplates.FLAT_ITEM);
 
-        // CUSTOM FOODS
+        // ** CUSTOM FOODS **
         itemModels.generateFlatItem(ModItems.COFFEE.get(), ModelTemplates.FLAT_ITEM);
 
-        // CUSTOM TOOLS
+        // ** CUSTOM TOOLS **
         itemModels.generateFlatItem(ModItems.BISMUTH_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BISMUTH_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BISMUTH_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
@@ -133,13 +135,13 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.BISMUTH_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BISMUTH_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
-        // CUSTOM bow
+        // ** CUSTOM bow **
         createBowTexture(itemModels, ModItems.KAUPEN_BOW.get());
 
-        // CUSTOM Horse Armor
+        // ** CUSTOM Horse Armor **
         itemModels.generateFlatItem(ModItems.BISMUTH_HORSE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
 
-        // CUSTOM ARMORS
+        // ** CUSTOM ARMORS **
         itemModels.generateTrimmableItem(ModItems.BISMUTH_HELMET.get(), ModEquipmentAssetProvider.BISMUTH,
                                          TRIM_PREFIX_HELMET, false);
 
@@ -152,23 +154,23 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateTrimmableItem(ModItems.BISMUTH_BOOTS.get(), ModEquipmentAssetProvider.BISMUTH,
                                          TRIM_PREFIX_BOOTS, false);
 
-        // Custom Smithing Template
+        // ** CUSTOM Smithing Template **
         itemModels.generateFlatItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
 
-        // CUSTOM seeds
+        // ** CUSTOM seeds **
         itemModels.generateFlatItem(ModItems.RADISH.get(), ModelTemplates.FLAT_ITEM);
 
-        // CUSTOM fuels
+        // ** CUSTOM fuels **
         itemModels.generateFlatItem(ModItems.FROSTFIRE_ICE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.STARLIGHT_ASHES.get(), ModelTemplates.FLAT_ITEM);
 
-        // CUSTOM mob
+        // ** CUSTOM mob **
         itemModels.generateFlatItem(ModItems.GECKO_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
 
-        // CUSTOM Throwable Projectiles
+        // ** CUSTOM Throwable Projectiles **
         itemModels.declareCustomModelItem(ModItems.TOMAHAWK.get());
 
-        // CUSTOM Animated Textures
+        // ** CUSTOM Animated Textures **
         itemModels.generateFlatItem(ModItems.RADIATION_STAFF.get(), ModelTemplates.FLAT_ITEM);
     }
 
@@ -299,37 +301,70 @@ public class ModModelProvider extends ModelProvider {
         }
     }
 
-    // CUSTOM METHOD - Door texture
+    // CUSTOM METHOD - Door block texture
     protected static void createDoorTexture(BlockModelGenerators blockModels, Block block) {
         TextureMapping texturemapping = TextureMapping.door(block);
-        MultiVariant multivariant =
+        MultiVariant doorBottomLeft =
              plainVariant(ModelTemplates.DOOR_BOTTOM_LEFT.extend().renderType("cutout").build()
                                                          .create(block, texturemapping, blockModels.modelOutput));
-        MultiVariant multivariant1 =
+        MultiVariant doorBottomLeftOpen =
              plainVariant(ModelTemplates.DOOR_BOTTOM_LEFT_OPEN.extend().renderType("cutout").build()
                                                               .create(block, texturemapping, blockModels.modelOutput));
-        MultiVariant multivariant2 =
+        MultiVariant doorBottomRight =
              plainVariant(ModelTemplates.DOOR_BOTTOM_RIGHT.extend().renderType("cutout").build()
                                                           .create(block, texturemapping, blockModels.modelOutput));
-        MultiVariant multivariant3 =
+        MultiVariant doorBottomRightOpen =
              plainVariant(ModelTemplates.DOOR_BOTTOM_RIGHT_OPEN.extend().renderType("cutout").build()
                                                                .create(block, texturemapping, blockModels.modelOutput));
-        MultiVariant multivariant4 =
+        MultiVariant doorTopLeft =
              plainVariant(ModelTemplates.DOOR_TOP_LEFT.extend().renderType("cutout").build()
                                                       .create(block, texturemapping, blockModels.modelOutput));
-        MultiVariant multivariant5 =
+        MultiVariant doorTopLeftOpen =
              plainVariant(ModelTemplates.DOOR_TOP_LEFT_OPEN.extend().renderType("cutout").build()
                                                            .create(block, texturemapping, blockModels.modelOutput));
-        MultiVariant multivariant6 =
+        MultiVariant doorTopRight =
              plainVariant(ModelTemplates.DOOR_TOP_RIGHT.extend().renderType("cutout").build()
                                                        .create(block, texturemapping, blockModels.modelOutput));
-        MultiVariant multivariant7 =
+        MultiVariant doorTopRightOpen =
              plainVariant(ModelTemplates.DOOR_TOP_RIGHT_OPEN.extend().renderType("cutout").build()
                                                             .create(block, texturemapping, blockModels.modelOutput));
         blockModels.registerSimpleFlatItemModel(block.asItem());
-        blockModels.blockStateOutput.accept(createDoor(block, multivariant, multivariant1, multivariant2,
-                                                       multivariant3, multivariant4, multivariant5,
-                                                       multivariant6, multivariant7));
+        blockModels.blockStateOutput.accept(createDoor(block, doorBottomLeft, doorBottomLeftOpen, doorBottomRight,
+                                                       doorBottomRightOpen, doorTopLeft, doorTopLeftOpen,
+                                                       doorTopRight, doorTopRightOpen));
+    }
+
+    // CUSTOM METHOD - Trapdoor block texture
+    protected static void createTrapdoorTexture(BlockModelGenerators blockModels, Block block) {
+        if (BlockModelGenerators.NON_ORIENTABLE_TRAPDOOR.contains(block)) {
+            blockModels.createTrapdoor(block);
+            TextureMapping textureMapping = TextureMapping.defaultTexture(block);
+            MultiVariant trapdoorTop =
+                 plainVariant(ModelTemplates.TRAPDOOR_TOP.extend().renderType("cutout").build()
+                                                         .create(block, textureMapping, blockModels.modelOutput));
+            ResourceLocation location = ModelTemplates.TRAPDOOR_BOTTOM.extend().renderType("cutout").build()
+                                                                      .create(block, textureMapping, blockModels.modelOutput);
+            MultiVariant trapdoorOpen =
+                 plainVariant(ModelTemplates.TRAPDOOR_OPEN.extend().renderType("cutout").build()
+                                                          .create(block, textureMapping, blockModels.modelOutput));
+            blockModels.blockStateOutput.accept(createTrapdoor(block, trapdoorTop, plainVariant(location), trapdoorOpen));
+            blockModels.registerSimpleItemModel(block, location);
+        }
+        else {
+            TextureMapping textureMapping = TextureMapping.defaultTexture(block);
+            MultiVariant orientableTrapdoorTop =
+                 plainVariant(ModelTemplates.ORIENTABLE_TRAPDOOR_TOP.extend().renderType("cutout").build()
+                                                                    .create(block, textureMapping, blockModels.modelOutput));
+            ResourceLocation location =
+                    ModelTemplates.ORIENTABLE_TRAPDOOR_BOTTOM.extend().renderType("cutout").build()
+                                                             .create(block, textureMapping, blockModels.modelOutput);
+            MultiVariant orientableTrapdoorOpen =
+                 plainVariant(ModelTemplates.ORIENTABLE_TRAPDOOR_OPEN.extend().renderType("cutout").build()
+                                                                     .create(block, textureMapping, blockModels.modelOutput));
+            blockModels.blockStateOutput.accept(createOrientableTrapdoor(block, orientableTrapdoorTop,
+                                                                         plainVariant(location), orientableTrapdoorOpen));
+            blockModels.registerSimpleItemModel(block, location);
+        }
     }
 
     // * CUSTOM ITEMS *

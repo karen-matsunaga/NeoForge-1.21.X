@@ -41,6 +41,9 @@ public class ModTags {
         // Block Fly effect
         public static final TagKey<Block> BLOCK_FLY_BLOCK_SPEED = createTag("block_fly_block_speed");
 
+        // Bismuth blocks
+        public static final TagKey<Block> BISMUTH_BLOCKS = createTag("bismuth_blocks");
+
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));

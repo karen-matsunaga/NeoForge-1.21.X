@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-18T15:14:59.1979918	Model Definitions - mccoursemod
+// 1.21.8	2025-08-18T15:52:44.869529	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -130,9 +130,9 @@ d6fb749939ae1a8614e56f7f0948d14a72d32785 assets/mccoursemod/models/block/bismuth
 4d7b574bdd243264363c1ed17b2e207e2c6e1def assets/mccoursemod/models/block/bismuth_stairs.json
 2aaa788a38cd29e81b6034ecc40dbb639a11b15d assets/mccoursemod/models/block/bismuth_stairs_inner.json
 304b7d48b2a7d9bff6b6334fde6751e2392531f6 assets/mccoursemod/models/block/bismuth_stairs_outer.json
-85b5a220bb64e8f271d50d52b92c59a5684b129b assets/mccoursemod/models/block/bismuth_trapdoor_bottom.json
-3eb984f87577e2196d7fb8875b770ac72a281a6a assets/mccoursemod/models/block/bismuth_trapdoor_open.json
-9270e0d9122a470eec206266e79eba561a03b6e6 assets/mccoursemod/models/block/bismuth_trapdoor_top.json
+51c0af01a2f8e20b37c06af428fbca5b3423352e assets/mccoursemod/models/block/bismuth_trapdoor_bottom.json
+e8076f8104ca2c1bc66e57cf04b31544d70b7a13 assets/mccoursemod/models/block/bismuth_trapdoor_open.json
+7cf0e6025da451bf6b28f2fde1d04408efce6138 assets/mccoursemod/models/block/bismuth_trapdoor_top.json
 08df86deb13b2095e8688f77a74b7fe46b7f29f2 assets/mccoursemod/models/block/bismuth_wall_inventory.json
 404b241eb2c88098b4cd9c9c0f730c885c8747eb assets/mccoursemod/models/block/bismuth_wall_post.json
 5e30bf03de610b718e0ec74c9dab2e653adabcce assets/mccoursemod/models/block/bismuth_wall_side.json

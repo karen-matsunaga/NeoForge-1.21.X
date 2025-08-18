@@ -24,7 +24,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                       ModBlocks.MAGIC.get(), ModBlocks.MCCOURSEMOD_ELEVATOR.get(),
                                                       ModBlocks.BISMUTH_LAMP.get(), ModBlocks.FORCED_STAINED_GLASS.get(),
                                                       ModBlocks.FORCED_STAINED_GLASS_PANE.get())
-                                                 .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES);
+                                                 .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES)
+                                                 .addTag(ModTags.Blocks.BISMUTH_BLOCKS);
 
         // Mccourse Mod Ores
         this.tag(ModTags.Blocks.MCCOURSE_MOD_ORES).add(ModBlocks.BISMUTH_ORE.get(), ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),
@@ -71,6 +72,11 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         tag(BlockTags.SLABS).add(ModBlocks.BISMUTH_SLAB.get());
         tag(BlockTags.TRAPDOORS).add(ModBlocks.BISMUTH_TRAPDOOR.get());
         tag(BlockTags.WALLS).add(ModBlocks.BISMUTH_WALL.get());
+        this.tag(ModTags.Blocks.BISMUTH_BLOCKS).add(ModBlocks.BISMUTH_BUTTON.get(), ModBlocks.BISMUTH_DOOR.get(),
+                                                    ModBlocks.BISMUTH_FENCE.get(), ModBlocks.BISMUTH_FENCE_GATE.get(),
+                                                    ModBlocks.BISMUTH_PRESSURE_PLATE.get(), ModBlocks.BISMUTH_STAIRS.get(),
+                                                    ModBlocks.BISMUTH_SLAB.get(), ModBlocks.BISMUTH_TRAPDOOR.get(),
+                                                    ModBlocks.BISMUTH_WALL.get());
 
         // Crop
         tag(BlockTags.CROPS).add(ModBlocks.RADISH_CROP.get());

@@ -9,6 +9,7 @@
     "mccoursemod:bismuth_lamp",
     "mccoursemod:forced_stained_glass",
     "mccoursemod:forced_stained_glass_pane",
-    "#mccoursemod:mccourse_mod_ores"
+    "#mccoursemod:mccourse_mod_ores",
+    "#mccoursemod:bismuth_blocks"
   ]
 }

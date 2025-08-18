@@ -1,7 +1,6 @@
 package net.karen.mccoursemod.event;
 
 import net.karen.mccoursemod.MccourseMod;
-import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.block.entity.ModBlockEntities;
 import net.karen.mccoursemod.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.karen.mccoursemod.component.AlternateTexture;
@@ -19,8 +18,6 @@ import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -56,8 +53,6 @@ public class ModClientEvents {
         EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
         // CUSTOM Sittable blocks
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
-        // CUSTOM block render type
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BISMUTH_TRAPDOOR.get(), ChunkSectionLayer.CUTOUT);
     }
 
     @SubscribeEvent
