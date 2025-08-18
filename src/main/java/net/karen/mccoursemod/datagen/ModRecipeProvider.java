@@ -3,9 +3,12 @@ package net.karen.mccoursemod.datagen;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.trim.ModTrimPatterns;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
@@ -84,8 +87,8 @@ public class ModRecipeProvider extends RecipeProvider {
         // CRAFTING TABLE
         this.copySmithingTemplate(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModItems.BISMUTH.get());
         // SMITHING TABLE -> ERROR
-//        this.trimSmithing(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ModTrimPatterns.KAUPEN,
-//                          ResourceKey.create(Registries.RECIPE, ModTrimPatterns.KAUPEN.location()));
+        this.trimSmithing(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModTrimPatterns.KAUPEN,
+                          ResourceKey.create(Registries.RECIPE, ModTrimPatterns.KAUPEN.location()));
 
         // CUSTOM glass block
         this.glassBlocks(List.of(ModBlocks.FORCED_STAINED_GLASS.get(), ModBlocks.FORCED_STAINED_GLASS_PANE.get(), Items.GREEN_DYE));
