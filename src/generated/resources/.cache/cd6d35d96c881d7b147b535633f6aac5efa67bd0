@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-18T09:30:45.0122442	Model Definitions - mccoursemod
+// 1.21.8	2025-08-18T10:12:07.9795084	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -159,10 +159,10 @@ d0a65d14964037e224506d33ded6f8fd7da1d4ff assets/mccoursemod/models/block/goji_be
 fde30d0d4c47eeba4ea51e17e009ec3f25e5361e assets/mccoursemod/models/block/growth_chamber.json
 d1194fcfdbedf5563a47c373f6d22e65a87c9d30 assets/mccoursemod/models/block/magic.json
 7dde5690da714130c1876180a473f51cb7ac4271 assets/mccoursemod/models/block/mccoursemod_elevator.json
-ce80889171d9eb18f46254785ed5bd5e6b563496 assets/mccoursemod/models/block/radish_crop_stage0.json
-9b6576b11e16e02e55e4926f19a3de86ce5d00c4 assets/mccoursemod/models/block/radish_crop_stage1.json
-3e27201af90111441b22d26302706c62c4e7db5e assets/mccoursemod/models/block/radish_crop_stage2.json
-6a56cf8cfab14ceda8139023450d3fad31480a83 assets/mccoursemod/models/block/radish_crop_stage3.json
+68b9b6611d443245c47633be102e7c158b90aca7 assets/mccoursemod/models/block/radish_crop_stage0.json
+cdd6ea5a94ed3280025dac2d18d5f1c85069dc18 assets/mccoursemod/models/block/radish_crop_stage1.json
+b2938abf8ff8f55173f0c44b0fd7fa724dce70f8 assets/mccoursemod/models/block/radish_crop_stage2.json
+d8e78a50f6c65c63ba12c9058d60588e5e53c06d assets/mccoursemod/models/block/radish_crop_stage3.json
 4b1ea983865054b9a7fab36868db6bec13e6a0d8 assets/mccoursemod/models/block/stripped_bloodwood_log.json
 a11000b05b4b9355fdecb91ccace302a0ec1b677 assets/mccoursemod/models/block/stripped_bloodwood_log_horizontal.json
 7c1acd4ad8ba1c90d2a3c4d463ed0c86553fdeb0 assets/mccoursemod/models/block/stripped_bloodwood_wood.json

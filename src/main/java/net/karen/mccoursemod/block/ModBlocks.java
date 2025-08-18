@@ -129,9 +129,8 @@ public class ModBlocks {
 
     // ** CUSTOM crop block **
     public static final DeferredBlock<Block> RADISH_CROP = BLOCKS.registerBlock("radish_crop",
-           (properties) -> new RadishCropBlock(properties.mapColor(MapColor.PLANT).strength(0.2F)
-                                                                   .randomTicks().instabreak()
-                                                                   .sound(SoundType.CROP).noOcclusion()
+           (properties) -> new RadishCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
+                                                                   .randomTicks().instabreak().sound(SoundType.CROP)
                                                                    .pushReaction(PushReaction.DESTROY)));
 
     // ** CUSTOM bush crop block **

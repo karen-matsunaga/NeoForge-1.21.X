@@ -1,5 +1,7 @@
 package net.karen.mccoursemod.datagen;
 
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.block.custom.BismuthLampBlock;
@@ -27,6 +29,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
 import org.jetbrains.annotations.NotNull;
 import java.util.stream.Stream;
@@ -68,7 +71,7 @@ public class ModModelProvider extends ModelProvider {
         blockstateTexture(blockModels, ModBlocks.BISMUTH_LAMP.get());
 
         // CUSTOM crop
-        blockModels.createCropBlock(ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
+        createCropBlock(blockModels, ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
 
         // CUSTOM bush crop
         blockModels.createCropBlock(ModBlocks.GOJI_BERRY_BUSH.get(), GojiBerryBushBlock.AGE,  0, 1, 2, 3);
@@ -87,7 +90,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createCrossBlock(ModBlocks.BLOODWOOD_SAPLING.get(), PlantType.TINTED);
 
         // CUSTOM sittable block model
-         createChairTexture(blockModels, itemModels, ModBlocks.CHAIR.get());
+        createChairTexture(blockModels, itemModels, ModBlocks.CHAIR.get());
 
         // CUSTOM block entity
         createPedestalTexture(blockModels, itemModels, ModBlocks.PEDESTAL.get());
@@ -253,6 +256,27 @@ public class ModModelProvider extends ModelProvider {
                    .with(condition().term(BlockStateProperties.EAST, false), multivariant4)
                    .with(condition().term(BlockStateProperties.SOUTH, false), multivariant4.with(Y_ROT_90))
                    .with(condition().term(BlockStateProperties.WEST, false), multivariant3.with(Y_ROT_270)));
+    }
+
+    // CUSTOM METHOD - Crop block texture
+    protected static void createCropBlock(BlockModelGenerators blockModels,
+                                          Block cropBlock, Property<Integer> ageProperty,
+                                          int... ageToVisualStageMapping) {
+        blockModels.registerSimpleFlatItemModel(cropBlock.asItem());
+        if (ageProperty.getPossibleValues().size() != ageToVisualStageMapping.length) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            Int2ObjectMap<ResourceLocation> ageState = new Int2ObjectOpenHashMap<>();
+            blockModels.blockStateOutput
+                       .accept(MultiVariantGenerator.dispatch(cropBlock)
+                                                    .with(PropertyDispatch.initial(ageProperty)
+                                                    .generate((integer) ->
+                       plainVariant(ageState.computeIfAbsent(ageToVisualStageMapping[integer], (j) ->
+                                                              blockModels.createSuffixedVariant(cropBlock, "_stage" + j,
+                                                              ModelTemplates.CROP.extend().renderType("cutout").build(),
+                                                              TextureMapping::crop))))));
+        }
     }
 
     // * CUSTOM ITEMS *

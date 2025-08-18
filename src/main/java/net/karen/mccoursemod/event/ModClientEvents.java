@@ -58,7 +58,6 @@ public class ModClientEvents {
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
         // CUSTOM block render type
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOJI_BERRY_BUSH.get(), ChunkSectionLayer.CUTOUT);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.RADISH_CROP.get(), ChunkSectionLayer.CUTOUT);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOODWOOD_SAPLING.get(), ChunkSectionLayer.CUTOUT);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BISMUTH_DOOR.get(), ChunkSectionLayer.CUTOUT);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BISMUTH_TRAPDOOR.get(), ChunkSectionLayer.CUTOUT);
