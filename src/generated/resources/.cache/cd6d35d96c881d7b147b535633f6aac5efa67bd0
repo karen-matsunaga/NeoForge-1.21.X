@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-18T15:52:44.869529	Model Definitions - mccoursemod
+// 1.21.8	2025-08-18T17:03:12.2857316	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -137,7 +137,7 @@ e8076f8104ca2c1bc66e57cf04b31544d70b7a13 assets/mccoursemod/models/block/bismuth
 404b241eb2c88098b4cd9c9c0f730c885c8747eb assets/mccoursemod/models/block/bismuth_wall_post.json
 5e30bf03de610b718e0ec74c9dab2e653adabcce assets/mccoursemod/models/block/bismuth_wall_side.json
 40d33064f2f8927061aa8285397db111d44f5fc3 assets/mccoursemod/models/block/bismuth_wall_side_tall.json
-b056b695dac968bb4894131f87731a093fbb3a41 assets/mccoursemod/models/block/bloodwood_leaves.json
+681ffc3bffaccc0a3abe908e5389acf70cfff9da assets/mccoursemod/models/block/bloodwood_leaves.json
 cccace463ba326e312c990c3d21462903b01f870 assets/mccoursemod/models/block/bloodwood_log.json
 eaafed569639bb3e76365e6852c28062051c45cf assets/mccoursemod/models/block/bloodwood_log_horizontal.json
 1fd77dc15d4aa1a4a4c18c72dd756ee43fddfd66 assets/mccoursemod/models/block/bloodwood_planks.json

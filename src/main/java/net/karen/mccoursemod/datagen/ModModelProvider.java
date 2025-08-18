@@ -91,7 +91,11 @@ public class ModModelProvider extends ModelProvider {
                    .wood(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get());
 
         blockModels.createTrivialCube(ModBlocks.BLOODWOOD_PLANKS.get());
-        blockModels.createTintedLeaves(ModBlocks.BLOODWOOD_LEAVES.get(), TexturedModel.LEAVES, -12012264);
+
+        blockModels.createTintedLeaves(ModBlocks.BLOODWOOD_LEAVES.get(),
+                                       TexturedModel.LEAVES.updateTemplate(template ->
+                                                                           template.extend().renderType("cutout_mipped").build()),
+                                                                           -12012264);
         // BLOODWOOD SAPLING -> Used Netherrack block
         createSaplingTexture(blockModels, ModBlocks.BLOODWOOD_SAPLING.get());
 
