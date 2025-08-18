@@ -65,8 +65,10 @@ public class ModModelProvider extends ModelProvider {
                    .slab(ModBlocks.BISMUTH_SLAB.get())
                    .button(ModBlocks.BISMUTH_BUTTON.get())
                    .pressurePlate(ModBlocks.BISMUTH_PRESSURE_PLATE.get())
-                   .door(ModBlocks.BISMUTH_DOOR.get())
                    .trapdoor(ModBlocks.BISMUTH_TRAPDOOR.get());
+
+        // DOOR
+        createDoorTexture(blockModels, ModBlocks.BISMUTH_DOOR.get());
 
         // BLOCKSTATE block
         blockstateTexture(blockModels, ModBlocks.BISMUTH_LAMP.get());
@@ -295,6 +297,39 @@ public class ModModelProvider extends ModelProvider {
                                                               ModelTemplates.CROP.extend().renderType("cutout").build(),
                                                               TextureMapping::crop))))));
         }
+    }
+
+    // CUSTOM METHOD - Door texture
+    protected static void createDoorTexture(BlockModelGenerators blockModels, Block block) {
+        TextureMapping texturemapping = TextureMapping.door(block);
+        MultiVariant multivariant =
+             plainVariant(ModelTemplates.DOOR_BOTTOM_LEFT.extend().renderType("cutout").build()
+                                                         .create(block, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant1 =
+             plainVariant(ModelTemplates.DOOR_BOTTOM_LEFT_OPEN.extend().renderType("cutout").build()
+                                                              .create(block, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant2 =
+             plainVariant(ModelTemplates.DOOR_BOTTOM_RIGHT.extend().renderType("cutout").build()
+                                                          .create(block, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant3 =
+             plainVariant(ModelTemplates.DOOR_BOTTOM_RIGHT_OPEN.extend().renderType("cutout").build()
+                                                               .create(block, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant4 =
+             plainVariant(ModelTemplates.DOOR_TOP_LEFT.extend().renderType("cutout").build()
+                                                      .create(block, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant5 =
+             plainVariant(ModelTemplates.DOOR_TOP_LEFT_OPEN.extend().renderType("cutout").build()
+                                                           .create(block, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant6 =
+             plainVariant(ModelTemplates.DOOR_TOP_RIGHT.extend().renderType("cutout").build()
+                                                       .create(block, texturemapping, blockModels.modelOutput));
+        MultiVariant multivariant7 =
+             plainVariant(ModelTemplates.DOOR_TOP_RIGHT_OPEN.extend().renderType("cutout").build()
+                                                            .create(block, texturemapping, blockModels.modelOutput));
+        blockModels.registerSimpleFlatItemModel(block.asItem());
+        blockModels.blockStateOutput.accept(createDoor(block, multivariant, multivariant1, multivariant2,
+                                                       multivariant3, multivariant4, multivariant5,
+                                                       multivariant6, multivariant7));
     }
 
     // * CUSTOM ITEMS *

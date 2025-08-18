@@ -3,17 +3,11 @@ package net.karen.mccoursemod.datagen;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.util.ModTags;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.VanillaItemTagsProvider;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Comparator;
 import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagGenerator extends VanillaItemTagsProvider {
@@ -116,7 +110,8 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
                                          .add(ModBlocks.BLOODWOOD_WOOD.get().asItem())
                                          .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.get().asItem())
                                          .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get().asItem());
-
         this.tag(ItemTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.asItem());
+        this.tag(ItemTags.SAPLINGS).add(ModBlocks.BLOODWOOD_SAPLING.asItem());
+        this.tag(ItemTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.asItem());
     }
 }
