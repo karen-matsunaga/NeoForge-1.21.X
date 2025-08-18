@@ -1,5 +1,6 @@
-package net.karen.mccoursemod;
+package net.karen.mccoursemod.event;
 
+import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.block.entity.ModBlockEntities;
 import net.karen.mccoursemod.block.entity.renderer.PedestalBlockEntityRenderer;
@@ -39,8 +40,8 @@ import java.util.function.Function;
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = MccourseMod.MOD_ID, dist = Dist.CLIENT)
 @EventBusSubscriber(modid = MccourseMod.MOD_ID, value = Dist.CLIENT)
-public class MccourseModClient {
-    public MccourseModClient(ModContainer container) {
+public class ModClientEvents {
+    public ModClientEvents(ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
@@ -110,8 +111,7 @@ public class MccourseModClient {
     public static void registerConditionalProperties(RegisterConditionalItemModelPropertyEvent event) {
         // The name to reference as the type
         event.register(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "has_data_info"),
-                       // The map codec
-                       AlternateTexture.MAP_CODEC);
+                       AlternateTexture.MAP_CODEC); // The map codec
     }
 
     // CUSTOM EVENT - Register all custom bows zoom
