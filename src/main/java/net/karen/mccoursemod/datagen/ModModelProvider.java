@@ -74,7 +74,7 @@ public class ModModelProvider extends ModelProvider {
         createCropBlock(blockModels, ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
 
         // CUSTOM bush crop
-        blockModels.createCropBlock(ModBlocks.GOJI_BERRY_BUSH.get(), GojiBerryBushBlock.AGE,  0, 1, 2, 3);
+        createCropBlock(blockModels, ModBlocks.GOJI_BERRY_BUSH.get(), GojiBerryBushBlock.AGE,  0, 1, 2, 3);
 
         // Bloodwood log
         blockModels.woodProvider(ModBlocks.BLOODWOOD_LOG.get())
@@ -262,12 +262,14 @@ public class ModModelProvider extends ModelProvider {
     protected static void createCropBlock(BlockModelGenerators blockModels,
                                           Block cropBlock, Property<Integer> ageProperty,
                                           int... ageToVisualStageMapping) {
+        // assets\mccoursemod\items + assets\mccoursemod\blockstates
         blockModels.registerSimpleFlatItemModel(cropBlock.asItem());
         if (ageProperty.getPossibleValues().size() != ageToVisualStageMapping.length) {
             throw new IllegalArgumentException();
         }
         else {
             Int2ObjectMap<ResourceLocation> ageState = new Int2ObjectOpenHashMap<>();
+            // assets\mccoursemod\models\block
             blockModels.blockStateOutput
                        .accept(MultiVariantGenerator.dispatch(cropBlock)
                                                     .with(PropertyDispatch.initial(ageProperty)

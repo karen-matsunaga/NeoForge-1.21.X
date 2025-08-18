@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-18T10:12:07.9795084	Model Definitions - mccoursemod
+// 1.21.8	2025-08-18T10:30:28.5745079	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -152,10 +152,10 @@ e1724130d9a84a77c8816b787147c8f2bc3e3b96 assets/mccoursemod/models/block/forced_
 05e0784b3ae2b343f10ec6e1ff44e513c91f3dbc assets/mccoursemod/models/block/forced_stained_glass_pane_post.json
 720fa5f47d9fd637831c4d9c92dd6cc882917ace assets/mccoursemod/models/block/forced_stained_glass_pane_side.json
 61b89a24192cb40acfed6579956c0ecbbbf14ab7 assets/mccoursemod/models/block/forced_stained_glass_pane_side_alt.json
-d0a65d14964037e224506d33ded6f8fd7da1d4ff assets/mccoursemod/models/block/goji_berry_bush_stage0.json
-700f361dfc892f63f889425b791cf2c2dfe5fe43 assets/mccoursemod/models/block/goji_berry_bush_stage1.json
-90c59802ef6ccca29ae261a9a68b54672876ffde assets/mccoursemod/models/block/goji_berry_bush_stage2.json
-84e58d0185ec26dd36c71587357462f76da8bb15 assets/mccoursemod/models/block/goji_berry_bush_stage3.json
+a73c7ed097888b91f1c714ab3891dba751322894 assets/mccoursemod/models/block/goji_berry_bush_stage0.json
+492a41edce4f8913f0fbd177bb47ae77c9ab27fb assets/mccoursemod/models/block/goji_berry_bush_stage1.json
+00fd639cb9c124753c7e981b1e0ee592855acd86 assets/mccoursemod/models/block/goji_berry_bush_stage2.json
+93481b692f0948c36a656f8cc0597eeeae2ddda3 assets/mccoursemod/models/block/goji_berry_bush_stage3.json
 fde30d0d4c47eeba4ea51e17e009ec3f25e5361e assets/mccoursemod/models/block/growth_chamber.json
 d1194fcfdbedf5563a47c373f6d22e65a87c9d30 assets/mccoursemod/models/block/magic.json
 7dde5690da714130c1876180a473f51cb7ac4271 assets/mccoursemod/models/block/mccoursemod_elevator.json

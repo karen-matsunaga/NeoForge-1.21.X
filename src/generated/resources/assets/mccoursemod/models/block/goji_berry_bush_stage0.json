@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/crop",
+  "render_type": "minecraft:cutout",
   "textures": {
     "crop": "mccoursemod:block/goji_berry_bush_stage0"
   }
