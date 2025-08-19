@@ -78,6 +78,13 @@
           "model": "mccoursemod:item/bismuth_boots_resin_trim"
         },
         "when": "minecraft:resin"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "mccoursemod:item/bismuth_boots_bismuth_trim"
+        },
+        "when": "mccoursemod:bismuth"
       }
     ],
     "fallback": {

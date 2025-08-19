@@ -17,6 +17,9 @@ public class ModTrimMaterials {
     public static final ResourceKey<TrimMaterial> BISMUTH =
            ResourceKey.create(Registries.TRIM_MATERIAL, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "bismuth"));
 
+    // Registry all custom MATERIAL ASSET GROUP ingredients
+    public static final MaterialAssetGroup BISMUTH_MATERIAL = MaterialAssetGroup.create("bismuth");
+
     // CUSTOM METHOD - Registry all custom TRIM MATERIALS -> Data Generation with JSON file
     public static void bootstrap(BootstrapContext<TrimMaterial> context) {
         register(context, BISMUTH, Style.EMPTY.withColor(TextColor.parseColor("#031cfc").getOrThrow()));
@@ -25,7 +28,7 @@ public class ModTrimMaterials {
     // CUSTOM METHOD - Registry all custom TRIM MATERIALS parameters
     private static void register(BootstrapContext<TrimMaterial> context,
                                  ResourceKey<TrimMaterial> trimKey, Style style) {
-        TrimMaterial trimmaterial = new TrimMaterial(MaterialAssetGroup.create("bismuth"),
+        TrimMaterial trimmaterial = new TrimMaterial(BISMUTH_MATERIAL,
                                                      Component.translatable(Util.makeDescriptionId("trim_material",
                                                                                                    trimKey.location()))
                                                               .withStyle(style));

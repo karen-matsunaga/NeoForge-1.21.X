@@ -10,10 +10,9 @@ import net.karen.mccoursemod.block.custom.RadishCropBlock;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.ModItems;
-import net.minecraft.client.data.models.BlockModelGenerators;
-import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.ModelProvider;
-import net.minecraft.client.data.models.MultiVariant;
+import net.karen.mccoursemod.trim.ModTrimMaterials;
+import net.minecraft.client.color.item.Dye;
+import net.minecraft.client.data.models.*;
 import net.minecraft.client.data.models.blockstates.MultiPartGenerator;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
@@ -21,17 +20,26 @@ import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.ClientItem;
 import net.minecraft.client.renderer.item.ConditionalItemModel;
 import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.client.renderer.item.SelectItemModel;
 import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
+import net.minecraft.client.renderer.item.properties.select.TrimMaterialProperty;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.equipment.EquipmentAsset;
+import net.minecraft.world.item.equipment.trim.MaterialAssetGroup;
+import net.minecraft.world.item.equipment.trim.TrimMaterial;
+import net.minecraft.world.item.equipment.trim.TrimMaterials;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
 import org.jetbrains.annotations.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 import static net.minecraft.client.data.models.BlockModelGenerators.*;
 import static net.minecraft.client.data.models.ItemModelGenerators.*;
@@ -146,17 +154,9 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.BISMUTH_HORSE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM ARMORS **
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_HELMET.get(), ModEquipmentAssetProvider.BISMUTH,
-                                         TRIM_PREFIX_HELMET, false);
-
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_CHESTPLATE.get(), ModEquipmentAssetProvider.BISMUTH,
-                                         TRIM_PREFIX_CHESTPLATE, false);
-
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_LEGGINGS.get(), ModEquipmentAssetProvider.BISMUTH,
-                                         TRIM_PREFIX_LEGGINGS, false);
-
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_BOOTS.get(), ModEquipmentAssetProvider.BISMUTH,
-                                         TRIM_PREFIX_BOOTS, false);
+        createArmorTrim(itemModels, ModEquipmentAssetProvider.BISMUTH,
+                        List.of(ModItems.BISMUTH_HELMET.get(), ModItems.BISMUTH_CHESTPLATE.get(),
+                                ModItems.BISMUTH_LEGGINGS.get(), ModItems.BISMUTH_BOOTS.get()));
 
         // ** CUSTOM Smithing Template **
         itemModels.generateFlatItem(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
@@ -399,6 +399,65 @@ public class ModModelProvider extends ModelProvider {
     protected static void createBowTexture(ItemModelGenerators itemModels, Item item) {
         itemModels.createFlatItemModel(item, ModelTemplates.BOW);
         itemModels.generateBow(item);
+    }
+
+    // CUSTOM METHOD - Armor Trim model
+    public static void createArmorTrim(ItemModelGenerators itemModels,
+                                       ResourceKey<EquipmentAsset> equipmentAsset, List<Item> item) {
+        pieceArmorTrim(itemModels, item.getFirst(), equipmentAsset, TRIM_PREFIX_HELMET, false);
+        pieceArmorTrim(itemModels, item.get(1), equipmentAsset, TRIM_PREFIX_CHESTPLATE, false);
+        pieceArmorTrim(itemModels, item.get(2), equipmentAsset, TRIM_PREFIX_LEGGINGS, false);
+        pieceArmorTrim(itemModels, item.get(3), equipmentAsset, TRIM_PREFIX_BOOTS, false);
+    }
+
+    public record TrimMaterialData(MaterialAssetGroup assets, ResourceKey<TrimMaterial> materialKey) {}
+
+    public static final List<TrimMaterialData> TRIM_MATERIAL_MODELS =
+           List.of(new TrimMaterialData(MaterialAssetGroup.QUARTZ, TrimMaterials.QUARTZ),
+                   new TrimMaterialData(MaterialAssetGroup.IRON, TrimMaterials.IRON),
+                   new TrimMaterialData(MaterialAssetGroup.NETHERITE, TrimMaterials.NETHERITE),
+                   new TrimMaterialData(MaterialAssetGroup.REDSTONE, TrimMaterials.REDSTONE),
+                   new TrimMaterialData(MaterialAssetGroup.COPPER, TrimMaterials.COPPER),
+                   new TrimMaterialData(MaterialAssetGroup.GOLD, TrimMaterials.GOLD),
+                   new TrimMaterialData(MaterialAssetGroup.EMERALD, TrimMaterials.EMERALD),
+                   new TrimMaterialData(MaterialAssetGroup.DIAMOND, TrimMaterials.DIAMOND),
+                   new TrimMaterialData(MaterialAssetGroup.LAPIS, TrimMaterials.LAPIS),
+                   new TrimMaterialData(MaterialAssetGroup.AMETHYST, TrimMaterials.AMETHYST),
+                   new TrimMaterialData(MaterialAssetGroup.RESIN, TrimMaterials.RESIN),
+                   new TrimMaterialData(ModTrimMaterials.BISMUTH_MATERIAL, ModTrimMaterials.BISMUTH));
+
+    public static void pieceArmorTrim(ItemModelGenerators itemModels, Item item,
+                                      ResourceKey<EquipmentAsset> equipmentAsset,
+                                      ResourceLocation modelId, boolean usesSecondLayer) {
+        ResourceLocation itemName = ModelLocationUtils.getModelLocation(item);
+        ResourceLocation armorItem = TextureMapping.getItemTexture(item);
+        ResourceLocation armorRender = TextureMapping.getItemTexture(item, "_overlay");
+        List<SelectItemModel.SwitchCase<ResourceKey<TrimMaterial>>> list = new ArrayList<>(TRIM_MATERIAL_MODELS.size());
+        for (TrimMaterialData armorTrimMaterials : TRIM_MATERIAL_MODELS) {
+            ResourceLocation ingredientItem = itemName.withSuffix("_" + armorTrimMaterials.assets().base().suffix() + "_trim");
+            String equipmentAssetItem = armorTrimMaterials.assets().assetId(equipmentAsset).suffix();
+            ResourceLocation armorTrimType = modelId.withSuffix("_" + equipmentAssetItem);
+            ItemModel.Unbaked itemModelUnbaked;
+            if (usesSecondLayer) {
+                itemModels.generateLayeredItem(ingredientItem, armorItem, armorRender, armorTrimType);
+                itemModelUnbaked = ItemModelUtils.tintedModel(ingredientItem, new Dye(-6265536));
+            }
+            else {
+                itemModels.generateLayeredItem(ingredientItem, armorItem, armorTrimType);
+                itemModelUnbaked = ItemModelUtils.plainModel(ingredientItem);
+            }
+            list.add(ItemModelUtils.when(armorTrimMaterials.materialKey, itemModelUnbaked));
+        }
+        ItemModel.Unbaked itemModelUnbakedTwo;
+        if (usesSecondLayer) { // LAYER 1
+            ModelTemplates.TWO_LAYERED_ITEM.create(itemName, TextureMapping.layered(armorItem, armorRender), itemModels.modelOutput);
+            itemModelUnbakedTwo = ItemModelUtils.tintedModel(itemName, new Dye(-6265536));
+        }
+        else { // LAYER 0
+            ModelTemplates.FLAT_ITEM.create(itemName, TextureMapping.layer0(armorItem), itemModels.modelOutput);
+            itemModelUnbakedTwo = ItemModelUtils.plainModel(itemName);
+        }
+        itemModels.itemModelOutput.accept(item, ItemModelUtils.select(new TrimMaterialProperty(), itemModelUnbakedTwo, list));
     }
 
     // CUSTOM METHOD - Block models -> Ignore JSON files

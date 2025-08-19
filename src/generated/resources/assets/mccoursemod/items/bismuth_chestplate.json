@@ -78,6 +78,13 @@
           "model": "mccoursemod:item/bismuth_chestplate_resin_trim"
         },
         "when": "minecraft:resin"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "mccoursemod:item/bismuth_chestplate_bismuth_trim"
+        },
+        "when": "mccoursemod:bismuth"
       }
     ],
     "fallback": {
