@@ -22,16 +22,15 @@ public class ModTrimMaterials {
 
     // CUSTOM METHOD - Registry all custom TRIM MATERIALS -> Data Generation with JSON file
     public static void bootstrap(BootstrapContext<TrimMaterial> context) {
-        register(context, BISMUTH, Style.EMPTY.withColor(TextColor.parseColor("#031cfc").getOrThrow()));
+        register(context, BISMUTH, Style.EMPTY.withColor(TextColor.parseColor("#031cfc").getOrThrow()), BISMUTH_MATERIAL);
     }
 
     // CUSTOM METHOD - Registry all custom TRIM MATERIALS parameters
     private static void register(BootstrapContext<TrimMaterial> context,
-                                 ResourceKey<TrimMaterial> trimKey, Style style) {
-        TrimMaterial trimmaterial = new TrimMaterial(BISMUTH_MATERIAL,
-                                                     Component.translatable(Util.makeDescriptionId("trim_material",
-                                                                                                   trimKey.location()))
-                                                              .withStyle(style));
-        context.register(trimKey, trimmaterial);
+                                 ResourceKey<TrimMaterial> key, Style style, MaterialAssetGroup material) {
+        Component trimMaterial = Component.translatable(Util.makeDescriptionId("trim_material", key.location()))
+                                          .withStyle(style);
+        TrimMaterial trimmaterial = new TrimMaterial(material, trimMaterial);
+        context.register(key, trimmaterial);
     }
 }

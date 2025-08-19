@@ -6,6 +6,7 @@ import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.item.custom.*;
 import net.karen.mccoursemod.sound.ModSounds;
+import net.karen.mccoursemod.trim.ModTrimMaterials;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -31,7 +32,8 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MccourseMod.MOD_ID);
 
     // ** CUSTOM items **
-    public static final DeferredItem<Item> BISMUTH = ITEMS.registerItem("bismuth", Item::new, new Item.Properties());
+    public static final DeferredItem<Item> BISMUTH =
+           ITEMS.registerItem("bismuth", Item::new, new Item.Properties().trimMaterial(ModTrimMaterials.BISMUTH));
 
     public static final DeferredItem<Item> RAW_BISMUTH =
            ITEMS.registerItem("raw_bismuth", Item::new, new Item.Properties());

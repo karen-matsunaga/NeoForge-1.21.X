@@ -410,21 +410,19 @@ public class ModModelProvider extends ModelProvider {
         pieceArmorTrim(itemModels, item.get(3), equipmentAsset, TRIM_PREFIX_BOOTS, false);
     }
 
-    public record TrimMaterialData(MaterialAssetGroup assets, ResourceKey<TrimMaterial> materialKey) {}
-
-    public static final List<TrimMaterialData> TRIM_MATERIAL_MODELS =
-           List.of(new TrimMaterialData(MaterialAssetGroup.QUARTZ, TrimMaterials.QUARTZ),
-                   new TrimMaterialData(MaterialAssetGroup.IRON, TrimMaterials.IRON),
-                   new TrimMaterialData(MaterialAssetGroup.NETHERITE, TrimMaterials.NETHERITE),
-                   new TrimMaterialData(MaterialAssetGroup.REDSTONE, TrimMaterials.REDSTONE),
-                   new TrimMaterialData(MaterialAssetGroup.COPPER, TrimMaterials.COPPER),
-                   new TrimMaterialData(MaterialAssetGroup.GOLD, TrimMaterials.GOLD),
-                   new TrimMaterialData(MaterialAssetGroup.EMERALD, TrimMaterials.EMERALD),
-                   new TrimMaterialData(MaterialAssetGroup.DIAMOND, TrimMaterials.DIAMOND),
-                   new TrimMaterialData(MaterialAssetGroup.LAPIS, TrimMaterials.LAPIS),
-                   new TrimMaterialData(MaterialAssetGroup.AMETHYST, TrimMaterials.AMETHYST),
-                   new TrimMaterialData(MaterialAssetGroup.RESIN, TrimMaterials.RESIN),
-                   new TrimMaterialData(ModTrimMaterials.BISMUTH_MATERIAL, ModTrimMaterials.BISMUTH));
+    public static final List<ItemModelGenerators.TrimMaterialData> TRIM_MATERIAL_MODELS =
+           List.of(new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.QUARTZ, TrimMaterials.QUARTZ),
+                   new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.IRON, TrimMaterials.IRON),
+                   new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.NETHERITE, TrimMaterials.NETHERITE),
+                   new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.REDSTONE, TrimMaterials.REDSTONE),
+                   new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.COPPER, TrimMaterials.COPPER),
+                   new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.GOLD, TrimMaterials.GOLD),
+                   new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.EMERALD, TrimMaterials.EMERALD),
+                   new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.DIAMOND, TrimMaterials.DIAMOND),
+                   new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.LAPIS, TrimMaterials.LAPIS),
+                   new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.AMETHYST, TrimMaterials.AMETHYST),
+                   new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.RESIN, TrimMaterials.RESIN),
+                   new ItemModelGenerators.TrimMaterialData(ModTrimMaterials.BISMUTH_MATERIAL, ModTrimMaterials.BISMUTH));
 
     public static void pieceArmorTrim(ItemModelGenerators itemModels, Item item,
                                       ResourceKey<EquipmentAsset> equipmentAsset,
@@ -446,7 +444,7 @@ public class ModModelProvider extends ModelProvider {
                 itemModels.generateLayeredItem(ingredientItem, armorItem, armorTrimType);
                 itemModelUnbaked = ItemModelUtils.plainModel(ingredientItem);
             }
-            list.add(ItemModelUtils.when(armorTrimMaterials.materialKey, itemModelUnbaked));
+            list.add(ItemModelUtils.when(armorTrimMaterials.materialKey(), itemModelUnbaked));
         }
         ItemModel.Unbaked itemModelUnbakedTwo;
         if (usesSecondLayer) { // LAYER 1
