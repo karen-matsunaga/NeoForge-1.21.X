@@ -33,6 +33,7 @@ public class ModBlocks {
            DeferredRegister.createBlocks(MccourseMod.MOD_ID);
 
     // ** CUSTOM ores **
+    // BISMUTH
     public static final DeferredBlock<Block> BISMUTH_BLOCK = registerBlock("bismuth_block",
            (properties) -> new Block(properties.strength(4F).requiresCorrectToolForDrops()
                                                          .sound(SoundType.AMETHYST)));
@@ -56,6 +57,39 @@ public class ModBlocks {
            (properties) -> new DropExperienceBlock(UniformInt.of(1, 5),
                                                              properties.strength(3F).requiresCorrectToolForDrops()
                                                                        .sound(SoundType.NETHERRACK)));
+
+    // ALEXANDRITE
+    public static final DeferredBlock<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block",
+           (properties) -> new Block(properties.mapColor(MapColor.METAL)
+                                                         .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+                                                         .requiresCorrectToolForDrops()
+                                                         .strength(5.0F, 6.0F)
+                                                         .sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> RAW_ALEXANDRITE_BLOCK = registerBlock("raw_alexandrite_block",
+           (properties) -> new Block(properties.mapColor(MapColor.METAL)
+                                                        .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+                                                        .requiresCorrectToolForDrops()
+                                                        .strength(5.0F, 6.0F)
+                                                        .sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_ORE = registerBlock("alexandrite_ore",
+           (properties) -> new DropExperienceBlock(UniformInt.of(2, 5),
+                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> DEEPSLATE_ALEXANDRITE_ORE =
+           registerBlock("deepslate_alexandrite_ore",
+           (properties) -> new DropExperienceBlock(UniformInt.of(3, 7),
+                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> END_STONE_ALEXANDRITE_ORE =
+           registerBlock("end_stone_alexandrite_ore",
+           (properties) -> new DropExperienceBlock(UniformInt.of(5, 8),
+                                                            properties.strength(5F).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> NETHER_ALEXANDRITE_ORE = registerBlock("nether_alexandrite_ore",
+           (properties) -> new DropExperienceBlock(UniformInt.of(3, 6),
+                                                             properties.strength(5F).requiresCorrectToolForDrops()));
 
     // ** CUSTOM advanced block **
     public static final DeferredBlock<Block> MAGIC = registerBlock("magic",
@@ -83,6 +117,7 @@ public class ModBlocks {
                                                                          .requiresCorrectToolForDrops()));
 
     // ** CUSTOM Block Family -> (Button, Door, Fence, Fence Gate, Pressure Plate, Slab, Stairs, Trapdoor and Wall) **
+    // BISMUTH
     public static final DeferredBlock<StairBlock> BISMUTH_STAIRS = registerBlock("bismuth_stairs",
            (properties) -> new StairBlock(ModBlocks.BISMUTH_BLOCK.get().defaultBlockState(),
                                                     properties.strength(2F).requiresCorrectToolForDrops()));
@@ -120,9 +155,56 @@ public class ModBlocks {
                                                        properties.strength(2F).requiresCorrectToolForDrops()
                                                                               .noOcclusion()));
 
+    // ALEXANDRITE
+    public static final DeferredBlock<Block> ALEXANDRITE_STAIRS = registerBlock("alexandrite_stairs",
+           (properties) -> new StairBlock(ModBlocks.ALEXANDRITE_BLOCK.get().defaultBlockState(),
+                                                    properties.strength(2F).requiresCorrectToolForDrops()
+                                                                           .sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_SLABS = registerBlock("alexandrite_slabs",
+           (properties) -> new SlabBlock(properties.strength(2F).requiresCorrectToolForDrops()
+                                                                          .sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_PREASSURE_PLATE =
+           registerBlock("alexandrite_pressure_plate",
+           (properties) -> new PressurePlateBlock(BlockSetType.IRON,
+                                                            properties.strength(2F).requiresCorrectToolForDrops()
+                                                                                   .sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_BUTTON = registerBlock("alexandrite_button",
+           (properties) -> new ButtonBlock(BlockSetType.IRON, 10,
+                                                     properties.strength(2F).requiresCorrectToolForDrops()
+                                                                            .sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_FENCE = registerBlock("alexandrite_fence",
+           (properties) -> new FenceBlock(properties.strength(2F).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_FENCE_GATE = registerBlock("alexandrite_fence_gate",
+           (properties) -> new FenceGateBlock(WoodType.ACACIA,
+                                                        properties.strength(2F).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_WALL = registerBlock("alexandrite_wall",
+           (properties) -> new WallBlock(properties.strength(2F).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_DOOR = registerBlock("alexandrite_door",
+           (properties) -> new DoorBlock(BlockSetType.IRON,
+                                                   properties.strength(2F).requiresCorrectToolForDrops().noOcclusion()));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_TRAPDOOR = registerBlock("alexandrite_trapdoor",
+           (properties) -> new TrapDoorBlock(BlockSetType.IRON,
+                                                       properties.strength(2F).requiresCorrectToolForDrops().noOcclusion()));
+
     // ** CUSTOM blockstate block **
     public static final DeferredBlock<Block> BISMUTH_LAMP = registerBlock("bismuth_lamp",
            (properties) -> new BismuthLampBlock(properties.strength(2F).requiresCorrectToolForDrops()
+                                                                    .lightLevel(state ->
+                                                                                state.getValue(BismuthLampBlock.CLICKED)
+                                                                                               ? 15 : 0)));
+
+    public static final DeferredBlock<Block> ALEXANDRITE_LAMP = registerBlock("alexandrite_lamp",
+           (properties) -> new BismuthLampBlock(properties.mapColor(MapColor.COLOR_BLUE)
+                                                                    .sound(ModSounds.ALEXANDRITE_LAMP_SOUNDS)
+                                                                    .strength(1f)
                                                                     .lightLevel(state ->
                                                                                 state.getValue(BismuthLampBlock.CLICKED)
                                                                                                ? 15 : 0)));

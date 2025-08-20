@@ -28,7 +28,8 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
     // Registry all custom configured features
-    // Bismuth custom ores
+    // ** CUSTOM ores **
+    // BISMUTH -> STONE, NETHER and END
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_BISMUTH_ORE_KEY =
            registerKey("bismuth_ore");
 
@@ -37,6 +38,16 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> END_BISMUTH_ORE_KEY =
            registerKey("end_bismuth_ore");
+
+    // ALEXANDRITE -> STONE, NETHER and END
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_ALEXANDRITE_ORE_KEY =
+           registerKey("alexandrite_ore");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_ALEXANDRITE_ORE_KEY =
+           registerKey("nether_alexandrite_ore");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> END_ALEXANDRITE_ORE_KEY =
+           registerKey("end_alexandrite_ore");
 
     // Bloodwood custom tree
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLOODWOOD_KEY =
@@ -54,17 +65,35 @@ public class ModConfiguredFeatures {
         RuleTest netherrackReplaceables = new BlockMatchTest(Blocks.NETHERRACK);
         RuleTest endReplaceables = new BlockMatchTest(Blocks.END_STONE);
 
+        // All custom ores generated on overworld
+        // BISMUTH
         List<OreConfiguration.TargetBlockState> overworldBismuthOres =
             List.of(OreConfiguration.target(stoneReplaceables, ModBlocks.BISMUTH_ORE.get().defaultBlockState()),
                     OreConfiguration.target(deepslateReplaceables, ModBlocks.BISMUTH_DEEPSLATE_ORE.get().defaultBlockState()));
 
+        // ALEXANDRITE
+        List<OreConfiguration.TargetBlockState> overworldAlexandriteOres =
+            List.of(OreConfiguration.target(stoneReplaceables, ModBlocks.ALEXANDRITE_ORE.get().defaultBlockState()),
+                    OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get().defaultBlockState()));
+
+        // Register all custom ores and define the amount of ores to generate on overworld
+        // BISMUTH
         register(context, OVERWORLD_BISMUTH_ORE_KEY, Feature.ORE, new OreConfiguration(overworldBismuthOres, 9));
 
-        register(context, NETHER_BISMUTH_ORE_KEY, Feature.ORE, new OreConfiguration(netherrackReplaceables,
-                 ModBlocks.BISMUTH_NETHER_ORE.get().defaultBlockState(), 9));
+        register(context, NETHER_BISMUTH_ORE_KEY, Feature.ORE,
+                 new OreConfiguration(netherrackReplaceables, ModBlocks.BISMUTH_NETHER_ORE.get().defaultBlockState(), 9));
 
-        register(context, END_BISMUTH_ORE_KEY, Feature.ORE, new OreConfiguration(endReplaceables,
-                 ModBlocks.BISMUTH_END_ORE.get().defaultBlockState(), 9));
+        register(context, END_BISMUTH_ORE_KEY, Feature.ORE,
+                 new OreConfiguration(endReplaceables, ModBlocks.BISMUTH_END_ORE.get().defaultBlockState(), 9));
+
+        // ALEXANDRITE
+        register(context, OVERWORLD_ALEXANDRITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldAlexandriteOres, 9));
+
+        register(context, NETHER_ALEXANDRITE_ORE_KEY, Feature.ORE,
+                 new OreConfiguration(netherrackReplaceables, ModBlocks.NETHER_ALEXANDRITE_ORE.get().defaultBlockState(), 9));
+
+        register(context, END_ALEXANDRITE_ORE_KEY, Feature.ORE,
+                 new OreConfiguration(endReplaceables, ModBlocks.END_STONE_ALEXANDRITE_ORE.get().defaultBlockState(), 9));
 
         // CUSTOM trees
         register(context, BLOODWOOD_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(

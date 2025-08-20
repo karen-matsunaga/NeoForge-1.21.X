@@ -20,9 +20,14 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BISMUTH.get()))
                                            .title(Component.translatable("creativetab.mccoursemod.bismuth_items"))
                                            .displayItems((itemDisplayParameters, output) -> {
-                     // CUSTOM items
+                     // ** CUSTOM items **
+                     // ** CUSTOM Mccourse Mod ore items **
+                     // BISMUTH
                      output.accept(ModItems.BISMUTH);
                      output.accept(ModItems.RAW_BISMUTH);
+                     // ALEXANDRITE
+                     output.accept(ModItems.ALEXANDRITE);
+                     output.accept(ModItems.RAW_ALEXANDRITE);
                      // CUSTOM Special Effect items
                      output.accept(ModItems.AUTO_SMELT);
                      // CUSTOM Level Charger items
@@ -81,20 +86,29 @@ public class ModCreativeModeTabs {
                                                                                                  "bismuth_items_tab"))
                                            .title(Component.translatable("creativetab.mccoursemod.bismuth_blocks"))
                                            .displayItems((itemDisplayParameters, output) -> {
-                     // CUSTOM blocks
-                     // CUSTOM ores
+                     // ** CUSTOM blocks **
+                     // ** CUSTOM ores **
+                     // BISMUTH
                      output.accept(ModBlocks.BISMUTH_BLOCK);
                      output.accept(ModBlocks.BISMUTH_ORE);
                      output.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
                      output.accept(ModBlocks.BISMUTH_END_ORE);
                      output.accept(ModBlocks.BISMUTH_NETHER_ORE);
+                     // ALEXANDRITE
+                     output.accept(ModBlocks.ALEXANDRITE_BLOCK);
+                     output.accept(ModBlocks.RAW_ALEXANDRITE_BLOCK);
+                     output.accept(ModBlocks.ALEXANDRITE_ORE);
+                     output.accept(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE);
+                     output.accept(ModBlocks.END_STONE_ALEXANDRITE_ORE);
+                     output.accept(ModBlocks.NETHER_ALEXANDRITE_ORE);
+                     // ** CUSTOM advanced blocks **
                      output.accept(ModBlocks.MAGIC);
-                     // CUSTOM advanced blocks
                      output.accept(ModBlocks.ENCHANT);
                      output.accept(ModBlocks.DISENCHANT_GROUPED);
                      output.accept(ModBlocks.DISENCHANT_INDIVIDUAL);
                      output.accept(ModBlocks.MCCOURSEMOD_ELEVATOR);
-                     // Block families
+                     // ** CUSTOM Block families **
+                     // BISMUTH
                      output.accept(ModBlocks.BISMUTH_STAIRS);
                      output.accept(ModBlocks.BISMUTH_SLAB);
                      output.accept(ModBlocks.BISMUTH_PRESSURE_PLATE);
@@ -104,8 +118,21 @@ public class ModCreativeModeTabs {
                      output.accept(ModBlocks.BISMUTH_WALL);
                      output.accept(ModBlocks.BISMUTH_DOOR);
                      output.accept(ModBlocks.BISMUTH_TRAPDOOR);
-                     // Blockstate block
+                     // ALEXANDRITE
+                     output.accept(ModBlocks.ALEXANDRITE_STAIRS);
+                     output.accept(ModBlocks.ALEXANDRITE_SLABS);
+                     output.accept(ModBlocks.ALEXANDRITE_PREASSURE_PLATE);
+                     output.accept(ModBlocks.ALEXANDRITE_BUTTON);
+                     output.accept(ModBlocks.ALEXANDRITE_FENCE);
+                     output.accept(ModBlocks.ALEXANDRITE_FENCE_GATE);
+                     output.accept(ModBlocks.ALEXANDRITE_WALL);
+                     output.accept(ModBlocks.ALEXANDRITE_DOOR);
+                     output.accept(ModBlocks.ALEXANDRITE_TRAPDOOR);
+                     // ** CUSTOM Blockstate block **
+                     // BISMUTH
                      output.accept(ModBlocks.BISMUTH_LAMP);
+                     // ALEXANDRITE
+                     output.accept(ModBlocks.ALEXANDRITE_LAMP);
                      // Crop block
                      output.accept(ModBlocks.RADISH_CROP);
                      // Bush crop block

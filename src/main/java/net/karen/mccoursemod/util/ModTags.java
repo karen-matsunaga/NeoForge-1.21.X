@@ -41,8 +41,11 @@ public class ModTags {
         // Block Fly effect
         public static final TagKey<Block> BLOCK_FLY_BLOCK_SPEED = createTag("block_fly_block_speed");
 
-        // Bismuth blocks
+        // BISMUTH blocks
         public static final TagKey<Block> BISMUTH_BLOCKS = createTag("bismuth_blocks");
+
+        // ALEXANDRITE blocks
+        public static final TagKey<Block> ALEXANDRITE_BLOCKS = createTag("alexandrite_blocks");
 
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {

@@ -9,7 +9,11 @@
     "mccoursemod:bismuth_lamp",
     "mccoursemod:forced_stained_glass",
     "mccoursemod:forced_stained_glass_pane",
+    "mccoursemod:alexandrite_lamp",
+    "mccoursemod:alexandrite_block",
+    "mccoursemod:raw_alexandrite_block",
     "#mccoursemod:mccourse_mod_ores",
-    "#mccoursemod:bismuth_blocks"
+    "#mccoursemod:bismuth_blocks",
+    "#mccoursemod:alexandrite_blocks"
   ]
 }

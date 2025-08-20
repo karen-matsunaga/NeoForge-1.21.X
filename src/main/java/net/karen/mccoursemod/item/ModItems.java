@@ -33,11 +33,20 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MccourseMod.MOD_ID);
 
     // ** CUSTOM items **
+    // ** CUSTOM ORES items **
+    // BISMUTH
     public static final DeferredItem<Item> BISMUTH =
            ITEMS.registerItem("bismuth", Item::new, new Item.Properties().trimMaterial(ModTrimMaterials.BISMUTH));
 
     public static final DeferredItem<Item> RAW_BISMUTH =
            ITEMS.registerItem("raw_bismuth", Item::new, new Item.Properties());
+
+    // ALEXANDRITE
+    public static final DeferredItem<Item> ALEXANDRITE =
+           ITEMS.registerItem("alexandrite", Item::new, new Item.Properties());
+
+    public static final DeferredItem<Item> RAW_ALEXANDRITE =
+           ITEMS.registerItem("raw_alexandrite", Item::new, new Item.Properties());
 
     // ** CUSTOM advanced items **
     public static final DeferredItem<Item> CHISEL =

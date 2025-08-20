@@ -23,13 +23,18 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                       ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.BISMUTH_BLOCK.get(),
                                                       ModBlocks.MAGIC.get(), ModBlocks.MCCOURSEMOD_ELEVATOR.get(),
                                                       ModBlocks.BISMUTH_LAMP.get(), ModBlocks.FORCED_STAINED_GLASS.get(),
-                                                      ModBlocks.FORCED_STAINED_GLASS_PANE.get())
+                                                      ModBlocks.FORCED_STAINED_GLASS_PANE.get(), ModBlocks.ALEXANDRITE_LAMP.get(),
+                                                      ModBlocks.ALEXANDRITE_BLOCK.get(), ModBlocks.RAW_ALEXANDRITE_BLOCK.get())
                                                  .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES)
-                                                 .addTag(ModTags.Blocks.BISMUTH_BLOCKS);
+                                                 .addTag(ModTags.Blocks.BISMUTH_BLOCKS)
+                                                 .addTag(ModTags.Blocks.ALEXANDRITE_BLOCKS);
 
         // Mccourse Mod Ores
         this.tag(ModTags.Blocks.MCCOURSE_MOD_ORES).add(ModBlocks.BISMUTH_ORE.get(), ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),
-                                                       ModBlocks.BISMUTH_END_ORE.get(), ModBlocks.BISMUTH_NETHER_ORE.get());
+                                                       ModBlocks.BISMUTH_END_ORE.get(), ModBlocks.BISMUTH_NETHER_ORE.get(),
+                                                       ModBlocks.ALEXANDRITE_ORE.get(), ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get(),
+                                                       ModBlocks.END_STONE_ALEXANDRITE_ORE.get(),
+                                                       ModBlocks.NETHER_ALEXANDRITE_ORE.get() );
 
         // CUSTOM Tier Tools - Bismuth as Netherite tier
         tag(ModTags.Blocks.NEEDS_BISMUTH_TOOL);
@@ -63,20 +68,27 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                       .addTag(Tags.Blocks.GLASS_BLOCKS);
 
         // Block families
-        tag(BlockTags.BUTTONS).add(ModBlocks.BISMUTH_BUTTON.get());
-        tag(BlockTags.DOORS).add(ModBlocks.BISMUTH_DOOR.get());
-        tag(BlockTags.FENCES).add(ModBlocks.BISMUTH_FENCE.get());
-        tag(BlockTags.FENCE_GATES).add(ModBlocks.BISMUTH_FENCE_GATE.get());
-        tag(BlockTags.PRESSURE_PLATES).add(ModBlocks.BISMUTH_PRESSURE_PLATE.get());
-        tag(BlockTags.STAIRS).add(ModBlocks.BISMUTH_STAIRS.get());
-        tag(BlockTags.SLABS).add(ModBlocks.BISMUTH_SLAB.get());
-        tag(BlockTags.TRAPDOORS).add(ModBlocks.BISMUTH_TRAPDOOR.get());
-        tag(BlockTags.WALLS).add(ModBlocks.BISMUTH_WALL.get());
+        tag(BlockTags.BUTTONS).add(ModBlocks.BISMUTH_BUTTON.get(), ModBlocks.ALEXANDRITE_BUTTON.get());
+        tag(BlockTags.DOORS).add(ModBlocks.BISMUTH_DOOR.get(), ModBlocks.ALEXANDRITE_DOOR.get());
+        tag(BlockTags.FENCES).add(ModBlocks.BISMUTH_FENCE.get(), ModBlocks.ALEXANDRITE_FENCE.get());
+        tag(BlockTags.FENCE_GATES).add(ModBlocks.BISMUTH_FENCE_GATE.get(), ModBlocks.ALEXANDRITE_FENCE_GATE.get());
+        tag(BlockTags.PRESSURE_PLATES).add(ModBlocks.BISMUTH_PRESSURE_PLATE.get(), ModBlocks.BISMUTH_PRESSURE_PLATE.get());
+        tag(BlockTags.STAIRS).add(ModBlocks.BISMUTH_STAIRS.get(), ModBlocks.ALEXANDRITE_STAIRS.get());
+        tag(BlockTags.SLABS).add(ModBlocks.BISMUTH_SLAB.get(), ModBlocks.ALEXANDRITE_SLABS.get());
+        tag(BlockTags.TRAPDOORS).add(ModBlocks.BISMUTH_TRAPDOOR.get(), ModBlocks.ALEXANDRITE_TRAPDOOR.get());
+        tag(BlockTags.WALLS).add(ModBlocks.BISMUTH_WALL.get(), ModBlocks.ALEXANDRITE_WALL.get());
+        // BISMUTH
         this.tag(ModTags.Blocks.BISMUTH_BLOCKS).add(ModBlocks.BISMUTH_BUTTON.get(), ModBlocks.BISMUTH_DOOR.get(),
                                                     ModBlocks.BISMUTH_FENCE.get(), ModBlocks.BISMUTH_FENCE_GATE.get(),
                                                     ModBlocks.BISMUTH_PRESSURE_PLATE.get(), ModBlocks.BISMUTH_STAIRS.get(),
                                                     ModBlocks.BISMUTH_SLAB.get(), ModBlocks.BISMUTH_TRAPDOOR.get(),
                                                     ModBlocks.BISMUTH_WALL.get());
+        // ALEXANDRITE
+        this.tag(ModTags.Blocks.ALEXANDRITE_BLOCKS).add(ModBlocks.ALEXANDRITE_BUTTON.get(), ModBlocks.ALEXANDRITE_DOOR.get(),
+                                                        ModBlocks.ALEXANDRITE_FENCE.get(), ModBlocks.ALEXANDRITE_FENCE_GATE.get(),
+                                                        ModBlocks.ALEXANDRITE_PREASSURE_PLATE.get(), ModBlocks.ALEXANDRITE_STAIRS.get(),
+                                                        ModBlocks.ALEXANDRITE_SLABS.get(), ModBlocks.ALEXANDRITE_TRAPDOOR.get(),
+                                                        ModBlocks.ALEXANDRITE_WALL.get());
 
         // Crop
         tag(BlockTags.CROPS).add(ModBlocks.RADISH_CROP.get());

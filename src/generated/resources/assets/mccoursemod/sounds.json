@@ -1,4 +1,34 @@
 {
+  "alexandrite_lamp_break": {
+    "sounds": [
+      "mccoursemod:alexandrite_lamp_break"
+    ],
+    "subtitle": "sounds.mccoursemod.alexandrite_lamp_break"
+  },
+  "alexandrite_lamp_fall": {
+    "sounds": [
+      "mccoursemod:alexandrite_lamp_fall"
+    ],
+    "subtitle": "sounds.mccoursemod.alexandrite_lamp_fall"
+  },
+  "alexandrite_lamp_hit": {
+    "sounds": [
+      "mccoursemod:alexandrite_lamp_hit"
+    ],
+    "subtitle": "sounds.mccoursemod.alexandrite_lamp_hit"
+  },
+  "alexandrite_lamp_place": {
+    "sounds": [
+      "mccoursemod:alexandrite_lamp_place"
+    ],
+    "subtitle": "sounds.mccoursemod.alexandrite_lamp_place"
+  },
+  "alexandrite_lamp_step": {
+    "sounds": [
+      "mccoursemod:alexandrite_lamp_step"
+    ],
+    "subtitle": "sounds.mccoursemod.alexandrite_lamp_step"
+  },
   "bar_brawl": {
     "sounds": [
       {

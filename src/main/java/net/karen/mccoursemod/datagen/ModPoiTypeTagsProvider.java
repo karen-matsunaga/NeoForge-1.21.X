@@ -21,7 +21,7 @@ public class ModPoiTypeTagsProvider extends PoiTypeTagsProvider {
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         ResourceKey<PoiType> KAUPEN = ModVillagers.KAUPEN_POI.getKey();
         if (KAUPEN != null) {
-            this.tag(PoiTypeTags.ACQUIRABLE_JOB_SITE).addOptional(ModVillagers.KAUPEN_POI.getKey());
+            this.tag(PoiTypeTags.ACQUIRABLE_JOB_SITE).addOptional(KAUPEN);
         }
     }
 }

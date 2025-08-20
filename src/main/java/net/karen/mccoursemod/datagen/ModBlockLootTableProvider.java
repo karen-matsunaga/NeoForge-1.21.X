@@ -32,15 +32,22 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        // Custom BLOCKS
+        // ** Custom BLOCKS **
+        // ** CUSTOM Advanced blocks **
         dropSelf(ModBlocks.ENCHANT.get());
         dropSelf(ModBlocks.DISENCHANT_INDIVIDUAL.get());
         dropSelf(ModBlocks.DISENCHANT_GROUPED.get());
-        dropSelf(ModBlocks.BISMUTH_BLOCK.get());
         dropSelf(ModBlocks.MAGIC.get());
         dropSelf(ModBlocks.MCCOURSEMOD_ELEVATOR.get());
 
-        // Mccourse Mod Ores
+        // ** CUSTOM ORES ** -> Mccourse Mod Ores
+        // BISMUTH
+        dropSelf(ModBlocks.BISMUTH_BLOCK.get());
+        // ALEXANDRITE
+        dropSelf(ModBlocks.ALEXANDRITE_BLOCK.get());
+        dropSelf(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
+
+        // BISMUTH ores
         add(ModBlocks.BISMUTH_ORE.get(), block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));
 
         add(ModBlocks.BISMUTH_DEEPSLATE_ORE.get(), block -> createMultipleOreDrops(ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),
@@ -50,11 +57,29 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.BISMUTH_END_ORE.get(), block -> createMultipleOreDrops(ModBlocks.BISMUTH_END_ORE.get(),
                                                                                    ModItems.RAW_BISMUTH.get(),
                                                                                    3, 6));
+
         add(ModBlocks.BISMUTH_NETHER_ORE.get(), block -> createMultipleOreDrops(ModBlocks.BISMUTH_NETHER_ORE.get(),
                                                                                       ModItems.RAW_BISMUTH.get(),
                                                                                       4, 8));
 
+        // ALEXANDRITE ores
+        add(ModBlocks.ALEXANDRITE_ORE.get(), block -> createOreDrop(ModBlocks.ALEXANDRITE_ORE.get(),
+                                                                          ModItems.RAW_ALEXANDRITE.get()));
+
+        add(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get(),
+            block -> createMultipleOreDrops(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get(),
+                                                  ModItems.RAW_ALEXANDRITE.get(), 2, 5));
+
+        add(ModBlocks.END_STONE_ALEXANDRITE_ORE.get(),
+            block -> createMultipleOreDrops(ModBlocks.END_STONE_ALEXANDRITE_ORE.get(),
+                                                  ModItems.RAW_ALEXANDRITE.get(), 3, 6));
+
+        add(ModBlocks.NETHER_ALEXANDRITE_ORE.get(),
+            block -> createMultipleOreDrops(ModBlocks.NETHER_ALEXANDRITE_ORE.get(),
+                                                  ModItems.RAW_ALEXANDRITE.get(), 4, 8));
+
         // Block families
+        // BISMUTH
         dropSelf(ModBlocks.BISMUTH_STAIRS.get());
         add(ModBlocks.BISMUTH_SLAB.get(), block -> createSlabItemTable(ModBlocks.BISMUTH_SLAB.get()));
         dropSelf(ModBlocks.BISMUTH_PRESSURE_PLATE.get());
@@ -65,8 +90,23 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BISMUTH_TRAPDOOR.get());
         add(ModBlocks.BISMUTH_DOOR.get(), block -> createDoorTable(ModBlocks.BISMUTH_DOOR.get()));
 
-        // Blockstate block
+        // ALEXANDRITE
+        dropSelf(ModBlocks.ALEXANDRITE_STAIRS.get());
+        // Slabs - Drops are different because to put twice blocks
+        add(ModBlocks.ALEXANDRITE_SLABS.get(), block -> createSlabItemTable(ModBlocks.ALEXANDRITE_SLABS.get()));
+        dropSelf(ModBlocks.ALEXANDRITE_PREASSURE_PLATE.get());
+        dropSelf(ModBlocks.ALEXANDRITE_BUTTON.get());
+        dropSelf(ModBlocks.ALEXANDRITE_FENCE.get());
+        dropSelf(ModBlocks.ALEXANDRITE_FENCE_GATE.get());
+        dropSelf(ModBlocks.ALEXANDRITE_WALL.get());
+        dropSelf(ModBlocks.ALEXANDRITE_TRAPDOOR.get());
+        add(ModBlocks.ALEXANDRITE_DOOR.get(), block -> createDoorTable(ModBlocks.ALEXANDRITE_DOOR.get()));
+
+        // ** CUSTOM Blockstate blocks **
+        // BISMUTH
         dropSelf(ModBlocks.BISMUTH_LAMP.get());
+        // ALEXANDRITE
+        dropSelf(ModBlocks.ALEXANDRITE_LAMP.get());
 
         // Crop block
         // Crop loot item drop

@@ -3,6 +3,10 @@
     "mccoursemod:bismuth_ore",
     "mccoursemod:bismuth_deepslate_ore",
     "mccoursemod:bismuth_end_ore",
-    "mccoursemod:bismuth_nether_ore"
+    "mccoursemod:bismuth_nether_ore",
+    "mccoursemod:alexandrite_ore",
+    "mccoursemod:deepslate_alexandrite_ore",
+    "mccoursemod:end_stone_alexandrite_ore",
+    "mccoursemod:nether_alexandrite_ore"
   ]
 }

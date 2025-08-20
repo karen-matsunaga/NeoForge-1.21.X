@@ -13,16 +13,21 @@ public class ModLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        // CUSTOM ITEMS
+        // ** CUSTOM ITEMS **
+        // ** CUSTOM ore items **
+        // BISMUTH
         addItem(ModItems.BISMUTH, "Bismuth");
         addItem(ModItems.RAW_BISMUTH, "Raw Bismuth");
+        // ALEXANDRITE
+        addItem(ModItems.ALEXANDRITE, "Alexandrite");
+        addItem(ModItems.RAW_ALEXANDRITE, "Raw Alexandrite");
+
+        // ** CUSTOM ADVANCED ITEMS **
         addItem(ModItems.AUTO_SMELT, "Auto Smelt");
         addItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS, "Level Charger Generic Plus");
         addItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS, "Level Charger Generic Minus");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE, "Level Charger Specif Minus Fortune");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE, "Level Charger Specif Plus Fortune");
-
-        // CUSTOM ADVANCED ITEMS
         addItem(ModItems.MCCOURSE_MOD_BOTTLE, "Mccourse Mod Bottle");
         addItem(ModItems.CHISEL, "Chisel");
 
@@ -90,12 +95,18 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.MCCOURSE_MOD_FISHING_ROD, "Mccourse Mod Fishing Rod");
 
         // CUSTOM block item
-        add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.bismuth_block", "Bismuth Block");
         add("item.mccoursemod.bismuth_ore", "Bismuth Ore");
         add("item.mccoursemod.bismuth_deepslate_ore", "Bismuth Deepslate Ore");
         add("item.mccoursemod.bismuth_end_ore", "Bismuth End Ore");
         add("item.mccoursemod.bismuth_nether_ore", "Bismuth Nether Ore");
+        add("item.mccoursemod.alexandrite_block", "Alexandrite Block");
+        add("item.mccoursemod.raw_alexandrite_block", "Alexandrite Raw Block");
+        add("item.mccoursemod.alexandrite_ore", "Alexandrite Ore");
+        add("item.mccoursemod.deepslate_alexandrite_ore", "Alexandrite Deepslate Ore");
+        add("item.mccoursemod.end_stone_alexandrite_ore", "Alexandrite End Ore");
+        add("item.mccoursemod.nether_alexandrite_ore", "Alexandrite Nether Ore");
+        add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.disenchant_individual", "Disenchant Individual Block");
         add("item.mccoursemod.disenchant_grouped", "Disenchant Grouped Block");
         add("item.mccoursemod.magic", "Magic Block");
@@ -110,6 +121,16 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.bismuth_trapdoor", "Bismuth Trapdoor Block");
         add("item.mccoursemod.bismuth_wall", "Bismuth Wall Block");
         add("item.mccoursemod.bismuth_lamp", "Bismuth Lamp Block");
+        add("item.mccoursemod.alexandrite_button", "Alexandrite Button Block");
+        add("item.mccoursemod.alexandrite_door", "Alexandrite Door Block");
+        add("item.mccoursemod.alexandrite_fence", "Alexandrite Fence Block");
+        add("item.mccoursemod.alexandrite_fence_gate", "Alexandrite Fence Gate Block");
+        add("item.mccoursemod.alexandrite_pressure_plate", "Alexandrite Pressure Plate Block");
+        add("item.mccoursemod.alexandrite_slabs", "Alexandrite Slab Block");
+        add("item.mccoursemod.alexandrite_stairs", "Alexandrite Stairs Block");
+        add("item.mccoursemod.alexandrite_trapdoor", "Alexandrite Trapdoor Block");
+        add("item.mccoursemod.alexandrite_wall", "Alexandrite Wall Block");
+        add("item.mccoursemod.alexandrite_lamp", "Alexandrite Lamp Block");
         add("item.mccoursemod.radish_crop", "Radish Crop Block");
         add("item.mccoursemod.goji_berry_bush", "Goji Berry Bush Block");
         add("item.mccoursemod.bloodwood_log", "Bloodwood Log");
@@ -125,19 +146,31 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.forced_stained_glass", "Force Stained Glass Block");
         add("item.mccoursemod.forced_stained_glass_pane", "Force Stained Glass Pane Block");
 
-        // CUSTOM BLOCKS
+        // ** CUSTOM BLOCKS **
+        // ** CUSTOM ores **
+        // BISMUTH
         addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
         addBlock(ModBlocks.BISMUTH_ORE, "Bismuth Ore");
         addBlock(ModBlocks.BISMUTH_DEEPSLATE_ORE, "Bismuth Deepslate Ore");
         addBlock(ModBlocks.BISMUTH_END_ORE, "Bismuth End Ore");
         addBlock(ModBlocks.BISMUTH_NETHER_ORE, "Bismuth Nether Ore");
+        // ALEXANDRITE
+        addBlock(ModBlocks.ALEXANDRITE_BLOCK, "Alexandrite Block");
+        addBlock(ModBlocks.RAW_ALEXANDRITE_BLOCK, "Alexandrite Raw Block");
+        addBlock(ModBlocks.ALEXANDRITE_ORE, "Alexandrite Ore");
+        addBlock(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE, "Alexandrite Deepslate Ore");
+        addBlock(ModBlocks.END_STONE_ALEXANDRITE_ORE, "Alexandrite End Ore");
+        addBlock(ModBlocks.NETHER_ALEXANDRITE_ORE, "Alexandrite Nether Ore");
+
+        // ** CUSTOM Advanced blocks **
         addBlock(ModBlocks.ENCHANT, "§2Enchant Block");
         addBlock(ModBlocks.DISENCHANT_INDIVIDUAL, "Disenchant Individual Block");
         addBlock(ModBlocks.DISENCHANT_GROUPED, "Disenchant Grouped Block");
         addBlock(ModBlocks.MAGIC, "Magic Block");
         addBlock(ModBlocks.MCCOURSEMOD_ELEVATOR, "Mccourse Mod Elevator Block");
 
-        // Block Families
+        // ** CUSTOM Block Families **
+        // BISMUTH
         addBlock(ModBlocks.BISMUTH_BUTTON, "Bismuth Button Block");
         addBlock(ModBlocks.BISMUTH_DOOR, "Bismuth Door Block");
         addBlock(ModBlocks.BISMUTH_FENCE, "Bismuth Fence Block");
@@ -147,6 +180,16 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.BISMUTH_STAIRS, "Bismuth Stairs Block");
         addBlock(ModBlocks.BISMUTH_TRAPDOOR, "Bismuth Trapdoor Block");
         addBlock(ModBlocks.BISMUTH_WALL, "Bismuth Wall Block");
+        // ALEXANDRITE
+        addBlock(ModBlocks.ALEXANDRITE_BUTTON, "Alexandrite Button Block");
+        addBlock(ModBlocks.ALEXANDRITE_DOOR, "Alexandrite Door Block");
+        addBlock(ModBlocks.ALEXANDRITE_FENCE, "Alexandrite Fence Block");
+        addBlock(ModBlocks.ALEXANDRITE_FENCE_GATE, "Alexandrite Fence Gate Block");
+        addBlock(ModBlocks.ALEXANDRITE_PREASSURE_PLATE, "Alexandrite Pressure Plate Block");
+        addBlock(ModBlocks.ALEXANDRITE_SLABS, "Alexandrite Slab Block");
+        addBlock(ModBlocks.ALEXANDRITE_STAIRS, "Alexandrite Stairs Block");
+        addBlock(ModBlocks.ALEXANDRITE_TRAPDOOR, "Alexandrite Trapdoor Block");
+        addBlock(ModBlocks.ALEXANDRITE_WALL, "Alexandrite Wall Block");
 
         // Glass block
         addBlock(ModBlocks.FORCED_STAINED_GLASS, "Forced Stained Glass Block");
@@ -154,6 +197,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // Blockstate block
         addBlock(ModBlocks.BISMUTH_LAMP, "Bismuth Lamp Block");
+        addBlock(ModBlocks.ALEXANDRITE_LAMP, "Alexandrite Lamp Block");
 
         // Crop block
         addBlock(ModBlocks.RADISH_CROP, "Radish Crop Block");

@@ -20,10 +20,12 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
            DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, MccourseMod.MOD_ID);
 
+    // ** CUSTOM Advanced item sounds **
     // Chisel item sounds
     public static final Supplier<SoundEvent> CHISEL_USE = registerSoundEvent("chisel_use");
 
-    /* Magic block sounds   * Position 1: Break sound (when block is broken)
+    // ** CUSTOM Advanced block sounds **
+    /* MAGIC block sounds   * Position 1: Break sound (when block is broken)
                             * Position 2: Step sound (when walking on block)
                             * Position 3: Place sound (when block is placed)
                             * Position 4: Hit sound (when block is punched)
@@ -34,9 +36,20 @@ public class ModSounds {
     public static final Supplier<SoundEvent> MAGIC_BLOCK_HIT = registerSoundEvent("magic_block_hit");
     public static final Supplier<SoundEvent> MAGIC_BLOCK_FALL = registerSoundEvent("magic_block_fall");
     public static final DeferredSoundType MAGIC_BLOCK_SOUNDS =
-           new DeferredSoundType(1f, 1f, ModSounds.MAGIC_BLOCK_BREAK, ModSounds.MAGIC_BLOCK_STEP,
+           new DeferredSoundType(1F, 1F, ModSounds.MAGIC_BLOCK_BREAK, ModSounds.MAGIC_BLOCK_STEP,
                                  ModSounds.MAGIC_BLOCK_PLACE, ModSounds.MAGIC_BLOCK_HIT, ModSounds.MAGIC_BLOCK_FALL);
 
+    // ALEXANDRITE LAMP block sounds to registry in NeoForge events
+    public static final Supplier<SoundEvent> ALEXANDRITE_LAMP_BREAK = registerSoundEvents("alexandrite_lamp_break");
+    public static final Supplier<SoundEvent> ALEXANDRITE_LAMP_STEP = registerSoundEvents("alexandrite_lamp_step");
+    public static final Supplier<SoundEvent> ALEXANDRITE_LAMP_FALL = registerSoundEvents("alexandrite_lamp_fall");
+    public static final Supplier<SoundEvent> ALEXANDRITE_LAMP_PLACE = registerSoundEvents("alexandrite_lamp_place");
+    public static final Supplier<SoundEvent> ALEXANDRITE_LAMP_HIT = registerSoundEvents("alexandrite_lamp_hit");
+    public static final DeferredSoundType ALEXANDRITE_LAMP_SOUNDS =
+           new DeferredSoundType(1F, 1F, ModSounds.ALEXANDRITE_LAMP_BREAK, ModSounds.ALEXANDRITE_LAMP_STEP,
+                                 ModSounds.ALEXANDRITE_LAMP_FALL, ModSounds.ALEXANDRITE_LAMP_PLACE, ModSounds.ALEXANDRITE_LAMP_HIT);
+
+    // ** CUSTOM Jukebox songs **
     // Bar Brawl item sounds
     public static final ResourceKey<JukeboxSong> BAR_BRAWL_KEY = createSong("bar_brawl");
     public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_DISC_BAR_BRAWL =

@@ -18,7 +18,8 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 public class ModBiomeModifiers {
     // Registry all custom biome modifiers
-    // Bismuth custom ores
+    // ** CUSTOM ores **
+    // BISMUTH
     public static final ResourceKey<BiomeModifier> ADD_BISMUTH_ORE =
            registerKey("add_bismuth_ore");
 
@@ -27,6 +28,16 @@ public class ModBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier> ADD_END_BISMUTH_ORE =
            registerKey("add_end_bismuth_ore");
+
+    // ALEXANDRITE
+    public static final ResourceKey<BiomeModifier> ADD_ALEXANDRITE_ORE =
+           registerKey("add_alexandrite_ore");
+
+    public static final ResourceKey<BiomeModifier> ADD_NETHER_ALEXANDRITE_ORE =
+           registerKey("add_nether_alexandrite_ore");
+
+    public static final ResourceKey<BiomeModifier> ADD_END_ALEXANDRITE_ORE =
+           registerKey("add_end_alexandrite_ore");
 
     // Bloodwood custom tree
     public static final ResourceKey<BiomeModifier> ADD_TREE_BLOODWOOD =
@@ -45,7 +56,9 @@ public class ModBiomeModifiers {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
         // Registry all custom placed feature (BIOME)
-        // CUSTOM ores
+        // World to generate all custom ores on biomes selected
+        // ** CUSTOM ores **
+        // BISMUTH
         context.register(ADD_BISMUTH_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
                          biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                          HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.BISMUTH_ORE_PLACED_KEY)),
@@ -66,6 +79,22 @@ public class ModBiomeModifiers {
         //                  HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.SAVANNA)),
         //                  HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.BISMUTH_ORE_PLACED_KEY)),
         //                  GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        // ALEXANDRITE
+        context.register(ADD_ALEXANDRITE_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                         biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.ALEXANDRITE_ORE_PLACED_KEY)),
+                         GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_NETHER_ALEXANDRITE_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                         biomes.getOrThrow(BiomeTags.IS_NETHER),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.NETHER_ALEXANDRITE_ORE_PLACED_KEY)),
+                         GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_END_ALEXANDRITE_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                         biomes.getOrThrow(BiomeTags.IS_END),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.END_ALEXANDRITE_ORE_PLACED_KEY)),
+                         GenerationStep.Decoration.UNDERGROUND_ORES));
 
         // CUSTOM trees
         context.register(ADD_TREE_BLOODWOOD, new BiomeModifiers.AddFeaturesBiomeModifier(

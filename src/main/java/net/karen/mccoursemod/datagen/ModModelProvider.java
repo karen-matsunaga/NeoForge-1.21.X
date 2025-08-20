@@ -54,10 +54,21 @@ public class ModModelProvider extends ModelProvider {
     protected void registerModels(@NotNull BlockModelGenerators blockModels,
                                   @NotNull ItemModelGenerators itemModels) {
         // ** CUSTOM BLOCKS **
+        // ** CUSTOM ores **
+        // BISMUTH
         blockModels.createTrivialCube(ModBlocks.BISMUTH_ORE.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_DEEPSLATE_ORE.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_END_ORE.get());
         blockModels.createTrivialCube(ModBlocks.BISMUTH_NETHER_ORE.get());
+
+        // ALEXANDRITE
+        blockModels.createTrivialCube(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.ALEXANDRITE_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.END_STONE_ALEXANDRITE_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.NETHER_ALEXANDRITE_ORE.get());
+
+        // ** CUSTOM Advanced blocks **
         blockModels.createTrivialCube(ModBlocks.MAGIC.get());
         blockModels.createTrivialCube(ModBlocks.ENCHANT.get());
         blockModels.createTrivialCube(ModBlocks.DISENCHANT_GROUPED.get());
@@ -65,6 +76,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.MCCOURSEMOD_ELEVATOR.get());
 
         // ** BLOCK FAMILIES **
+        // BISMUTH
         blockModels.family(ModBlocks.BISMUTH_BLOCK.get())
                    .fence(ModBlocks.BISMUTH_FENCE.get())
                    .fenceGate(ModBlocks.BISMUTH_FENCE_GATE.get())
@@ -80,8 +92,27 @@ public class ModModelProvider extends ModelProvider {
         // TRAPDOOR
         createTrapdoorTexture(blockModels, ModBlocks.BISMUTH_TRAPDOOR.get());
 
-        // ** BLOCKSTATE block **
+        // ALEXANDRITE
+        blockModels.family(ModBlocks.ALEXANDRITE_BLOCK.get())
+                   .fence(ModBlocks.ALEXANDRITE_FENCE.get())
+                   .fenceGate(ModBlocks.ALEXANDRITE_FENCE_GATE.get())
+                   .wall(ModBlocks.ALEXANDRITE_WALL.get())
+                   .stairs(ModBlocks.ALEXANDRITE_STAIRS.get())
+                   .slab(ModBlocks.ALEXANDRITE_SLABS.get())
+                   .button(ModBlocks.ALEXANDRITE_BUTTON.get())
+                   .pressurePlate(ModBlocks.ALEXANDRITE_PREASSURE_PLATE.get());
+
+        // DOOR
+        createDoorTexture(blockModels, ModBlocks.ALEXANDRITE_DOOR.get());
+
+        // TRAPDOOR
+        createTrapdoorTexture(blockModels, ModBlocks.ALEXANDRITE_TRAPDOOR.get());
+
+        // ** CUSTOM BLOCKSTATE block **
+        // BISMUTH
         blockstateTexture(blockModels, ModBlocks.BISMUTH_LAMP.get());
+        // ALEXANDRITE
+        blockstateTexture(blockModels, ModBlocks.ALEXANDRITE_LAMP.get());
 
         // ** CUSTOM crop **
         createCropBlock(blockModels, ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
@@ -120,15 +151,20 @@ public class ModModelProvider extends ModelProvider {
         createGlassBlocksTransparent(blockModels, ModBlocks.FORCED_STAINED_GLASS.get(), ModBlocks.FORCED_STAINED_GLASS_PANE.get());
 
         // ** CUSTOM ITEMS **
+        // ** CUSTOM ore items **
+        // BISMUTH
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_BISMUTH.get(), ModelTemplates.FLAT_ITEM);
+        // ALEXANDRITE
+        itemModels.generateFlatItem(ModItems.ALEXANDRITE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.RAW_ALEXANDRITE.get(), ModelTemplates.FLAT_ITEM);
+
+        // ** CUSTOM ADVANCED ITEMS **
         itemModels.generateFlatItem(ModItems.AUTO_SMELT.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
-
-        // ** CUSTOM ADVANCED ITEMS **
         alternateItemTexture(itemModels, ModItems.MCCOURSE_MOD_BOTTLE.get());
         booleanItemTexture(itemModels, ModItems.CHISEL.get());
 

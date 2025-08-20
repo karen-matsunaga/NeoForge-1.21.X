@@ -36,6 +36,26 @@ public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
         add("magic_block_fall", SoundDefinition.definition().subtitle("sounds.mccoursemod.magic_block_fall")
                                                                        .with(sound("mccoursemod:magic_block_fall")));
 
+        // ALEXANDRITE BREAK
+        add("alexandrite_lamp_break", SoundDefinition.definition().subtitle("sounds.mccoursemod.alexandrite_lamp_break")
+                                                                             .with(sound("mccoursemod:alexandrite_lamp_break")));
+
+        // ALEXANDRITE STEP
+        add("alexandrite_lamp_step", SoundDefinition.definition().subtitle("sounds.mccoursemod.alexandrite_lamp_step")
+                                                                            .with(sound("mccoursemod:alexandrite_lamp_step")));
+
+        // ALEXANDRITE PLACE
+        add("alexandrite_lamp_place", SoundDefinition.definition().subtitle("sounds.mccoursemod.alexandrite_lamp_place")
+                                                                             .with(sound("mccoursemod:alexandrite_lamp_place")));
+
+        // ALEXANDRITE HIT
+        add("alexandrite_lamp_hit", SoundDefinition.definition().subtitle("sounds.mccoursemod.alexandrite_lamp_hit")
+                                                                           .with(sound("mccoursemod:alexandrite_lamp_hit")));
+
+        // ALEXANDRITE FALL
+        add("alexandrite_lamp_fall", SoundDefinition.definition().subtitle("sounds.mccoursemod.alexandrite_lamp_fall")
+                                                                            .with(sound("mccoursemod:alexandrite_lamp_fall")));
+
         // BAR BRAWL
         add("bar_brawl", SoundDefinition.definition().with(sound("mccoursemod:bar_brawl",
                                                                             SoundDefinition.SoundType.SOUND).stream(true)));

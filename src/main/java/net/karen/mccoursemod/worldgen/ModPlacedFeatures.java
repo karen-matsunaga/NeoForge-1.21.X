@@ -16,7 +16,8 @@ import java.util.List;
 
 public class ModPlacedFeatures {
     // Registry all custom placed features
-    // Bismuth custom ores
+    // ** CUSTOM ores **
+    // BISMUTH
     public static final ResourceKey<PlacedFeature> BISMUTH_ORE_PLACED_KEY =
            registerKey("bismuth_ore_placed");
 
@@ -25,6 +26,14 @@ public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> END_BISMUTH_ORE_PLACED_KEY =
            registerKey("end_bismuth_ore_placed");
+
+    // ALEXANDRITE
+    public static final ResourceKey<PlacedFeature> ALEXANDRITE_ORE_PLACED_KEY =
+           registerKey("alexandrite_ore_placed");
+    public static final ResourceKey<PlacedFeature> NETHER_ALEXANDRITE_ORE_PLACED_KEY =
+           registerKey("nether_alexandrite_ore_placed");
+    public static final ResourceKey<PlacedFeature> END_ALEXANDRITE_ORE_PLACED_KEY =
+           registerKey("end_alexandrite_ore_placed");
 
     // Bloodwood custom tree
     public static final ResourceKey<PlacedFeature> BLOODWOOD_PLACED_KEY =
@@ -38,17 +47,43 @@ public class ModPlacedFeatures {
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
-        // CUSTOM ores
-        register(context, BISMUTH_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_BISMUTH_ORE_KEY),
-                 ModOrePlacement.commonOrePlacement(12, HeightRangePlacement.triangle(VerticalAnchor.absolute(-64),
+        // CUSTOM ores -> Position block of custom ores to go to generate on overworld, nether, etc.
+        // BISMUTH
+        register(context, BISMUTH_ORE_PLACED_KEY,
+                 configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_BISMUTH_ORE_KEY),
+                 ModOrePlacement.commonOrePlacement(12,
+                 HeightRangePlacement.triangle(VerticalAnchor.absolute(-64),
                  VerticalAnchor.absolute(80))));
 
-        register(context, NETHER_BISMUTH_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_BISMUTH_ORE_KEY),
-                 ModOrePlacement.commonOrePlacement(9, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
+        register(context, NETHER_BISMUTH_ORE_PLACED_KEY,
+                 configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_BISMUTH_ORE_KEY),
+                 ModOrePlacement.commonOrePlacement(9,
+                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
                  VerticalAnchor.absolute(80))));
 
-        register(context, END_BISMUTH_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.END_BISMUTH_ORE_KEY),
-                 ModOrePlacement.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
+        register(context, END_BISMUTH_ORE_PLACED_KEY,
+                 configuredFeatures.getOrThrow(ModConfiguredFeatures.END_BISMUTH_ORE_KEY),
+                 ModOrePlacement.commonOrePlacement(12,
+                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
+                 VerticalAnchor.absolute(80))));
+
+        // ALEXANDRITE
+        register(context, ALEXANDRITE_ORE_PLACED_KEY,
+                 configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_ALEXANDRITE_ORE_KEY),
+                 ModOrePlacement.commonOrePlacement(12,
+                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
+                 VerticalAnchor.absolute(80))));
+
+        register(context, NETHER_ALEXANDRITE_ORE_PLACED_KEY,
+                 configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_ALEXANDRITE_ORE_KEY),
+                 ModOrePlacement.commonOrePlacement(9,
+                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
+                 VerticalAnchor.absolute(80))));
+
+        register(context, END_ALEXANDRITE_ORE_PLACED_KEY,
+                 configuredFeatures.getOrThrow(ModConfiguredFeatures.END_ALEXANDRITE_ORE_KEY),
+                 ModOrePlacement.commonOrePlacement(7,
+                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
                  VerticalAnchor.absolute(80))));
 
         // CUSTOM trees
@@ -64,12 +99,15 @@ public class ModPlacedFeatures {
 
     // CUSTOM METHOD - Registry all custom placed features (JSON file)
     private static ResourceKey<PlacedFeature> registerKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
+        return ResourceKey.create(Registries.PLACED_FEATURE,
+                                  ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
     }
 
     // CUSTOM METHOD - Registry all custom placed features
-    private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key,
-                                 Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {
+    private static void register(BootstrapContext<PlacedFeature> context,
+                                 ResourceKey<PlacedFeature> key,
+                                 Holder<ConfiguredFeature<?, ?>> configuration,
+                                 List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
     }
 }
