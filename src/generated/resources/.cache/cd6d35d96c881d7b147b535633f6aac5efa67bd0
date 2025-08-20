@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-20T19:09:57.9578848	Model Definitions - mccoursemod
+// 1.21.8	2025-08-20T19:37:30.9108114	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -47,6 +47,7 @@ d8dbf9ee5426d834c61d532fff32bb128bf208e0 assets/mccoursemod/blockstates/goji_ber
 6e61df3e4426d8b2207bbe7e24893c1dc9bd828a assets/mccoursemod/blockstates/pedestal.json
 4b1c64db912dc00e460c0e04b7c2dceec437e38e assets/mccoursemod/blockstates/radish_crop.json
 5ffe791d80fdb7a62ac74297599f887101abb1b7 assets/mccoursemod/blockstates/raw_alexandrite_block.json
+24ddc2bac67acaad712fe761b0f0c7e874406c73 assets/mccoursemod/blockstates/sound.json
 1dc4ba29be1815f4b7d9bf535425fff506842793 assets/mccoursemod/blockstates/stripped_bloodwood_log.json
 f55039b94a8a400766000d5a68fa3f86265f73b4 assets/mccoursemod/blockstates/stripped_bloodwood_wood.json
 fb056aea612cc39d954e70ae76624108b8ea1d4a assets/mccoursemod/items/alexandrite.json
@@ -144,6 +145,7 @@ d8d7bed06e1dd1e8cd6bcc1a83823f5a108a7e1d assets/mccoursemod/items/radiation_staf
 a03e7dcd392f45731a6fbabcf8ff1d6427a3498e assets/mccoursemod/items/raw_alexandrite.json
 11c7413b3e921051ec376cef864dde5018f821d5 assets/mccoursemod/items/raw_alexandrite_block.json
 7bc128e532aa0bb779eab4b74e05ce40da3a1815 assets/mccoursemod/items/raw_bismuth.json
+11d5f553544b8c7c66db7b5e63c247b703cae9cf assets/mccoursemod/items/sound.json
 45c9b0172ee53fb9a75add030b9a2f3d687d346f assets/mccoursemod/items/starlight_ashes.json
 b86f9f4ee4c859ced76274a2fba8706c821ccd78 assets/mccoursemod/items/stripped_bloodwood_log.json
 e23ae541c80a26e495600e0ca7cf24e43eca7900 assets/mccoursemod/items/stripped_bloodwood_wood.json
@@ -253,6 +255,7 @@ cdd6ea5a94ed3280025dac2d18d5f1c85069dc18 assets/mccoursemod/models/block/radish_
 b2938abf8ff8f55173f0c44b0fd7fa724dce70f8 assets/mccoursemod/models/block/radish_crop_stage2.json
 d8e78a50f6c65c63ba12c9058d60588e5e53c06d assets/mccoursemod/models/block/radish_crop_stage3.json
 bba4ded4abed3fa49e5409154b21b7f13ec127c5 assets/mccoursemod/models/block/raw_alexandrite_block.json
+11fcb04430a09e4476521a98488f038e529e4853 assets/mccoursemod/models/block/sound.json
 4b1ea983865054b9a7fab36868db6bec13e6a0d8 assets/mccoursemod/models/block/stripped_bloodwood_log.json
 a11000b05b4b9355fdecb91ccace302a0ec1b677 assets/mccoursemod/models/block/stripped_bloodwood_log_horizontal.json
 7c1acd4ad8ba1c90d2a3c4d463ed0c86553fdeb0 assets/mccoursemod/models/block/stripped_bloodwood_wood.json

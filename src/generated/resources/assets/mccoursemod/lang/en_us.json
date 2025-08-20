@@ -47,6 +47,7 @@
   "block.mccoursemod.pedestal": "Pedestal Block",
   "block.mccoursemod.radish_crop": "Radish Crop Block",
   "block.mccoursemod.raw_alexandrite_block": "Alexandrite Raw Block",
+  "block.mccoursemod.sound": "Sound Block",
   "block.mccoursemod.stripped_bloodwood_log": "Stripped Bloodwood Log",
   "block.mccoursemod.stripped_bloodwood_wood": "Stripped Bloodwood Wood",
   "creativetab.mccoursemod.bismuth_blocks": "Mccourse Blocks",
@@ -223,6 +224,7 @@
   "item.mccoursemod.raw_alexandrite": "Raw Alexandrite",
   "item.mccoursemod.raw_alexandrite_block": "Alexandrite Raw Block",
   "item.mccoursemod.raw_bismuth": "Raw Bismuth",
+  "item.mccoursemod.sound": "Sound Block",
   "item.mccoursemod.starlight_ashes": "Starlight Ashes",
   "item.mccoursemod.stripped_bloodwood_log": "Stripped Bloodwood Log",
   "item.mccoursemod.stripped_bloodwood_wood": "Stripped Bloodwood Wood",
@@ -264,6 +266,7 @@
   "tooltip.mccoursemod.metal_detector.tooltip.shift": "Right Click on Blocks to find Valuables!",
   "tooltip.mccoursemod.more_ores.tooltip": "When applied on pickaxe if a stone block is break has a percentage to receive ores.",
   "tooltip.mccoursemod.radish": "Tastes really great!",
+  "tooltip.mccoursemod.sound": "Plays nice sounds when walking or right-clicking.",
   "trim_material.mccoursemod.alexandrite": "Alexandrite Material",
   "trim_material.mccoursemod.bismuth": "Bismuth Material",
   "trim_pattern.mccoursemod.kaupen": "Kaupen Armor Trim"

@@ -35,13 +35,19 @@ public abstract class ItemStackMixin {
                                  TooltipFlag flag, CallbackInfoReturnable<List<Component>> cir) {
         ItemStack stack = (ItemStack) (Object) this; // Get all blocks, items, etc.
         List<Component> tooltip = new ArrayList<>(cir.getReturnValue()); // Old tooltip
-        if (stack.is(ModBlocks.MAGIC.get().asItem())) { // Item checked is Magic block
+        // Item checked is MAGIC block
+        if (stack.is(ModBlocks.MAGIC.get().asItem())) {
             Component original = tooltip.getFirst(), // Original tooltip line 0
                        colored = original.copy().withStyle(style -> style.withColor(0x00ff00));
             tooltip.set(0, colored); // Change only the name (first line of the tooltip) -> Color not appears on screen
-            tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block")); // Added more information about block
+            // Added more information about MAGIC block
+            tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block"));
         }
-        // AUTO SMELT custom effect
+        // Item checked is SOUND block
+        if (stack.is(ModBlocks.SOUND.get().asItem())) {
+            tooltip.add(standardTranslatable("tooltip.mccoursemod.sound")); // Added more information about SOUND block
+        }
+        // Item checked is AUTO SMELT custom effect
         Level level = Minecraft.getInstance().level;
         if (level != null) {
         HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);

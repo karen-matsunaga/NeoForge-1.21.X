@@ -167,6 +167,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.growth_chamber", "Growth Chamber Block");
         add("item.mccoursemod.forced_stained_glass", "Force Stained Glass Block");
         add("item.mccoursemod.forced_stained_glass_pane", "Force Stained Glass Pane Block");
+        add("item.mccoursemod.sound", "Sound Block");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -190,6 +191,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.DISENCHANT_GROUPED, "Disenchant Grouped Block");
         addBlock(ModBlocks.MAGIC, "Magic Block");
         addBlock(ModBlocks.MCCOURSEMOD_ELEVATOR, "Mccourse Mod Elevator Block");
+        addBlock(ModBlocks.SOUND, "Sound Block");
 
         // ** CUSTOM Block Families **
         // BISMUTH
@@ -436,6 +438,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("tooltip.mccoursemod.radish", "Tastes really great!");
         add("tooltip.mccoursemod.metal_detector.tooltip.shift", "Right Click on Blocks to find Valuables!");
         add("tooltip.mccoursemod.metal_detector.tooltip", "Press §eSHIFT§r for more Information");
+        add("tooltip.mccoursemod.sound", "Plays nice sounds when walking or right-clicking.");
 
         // ** CUSTOM player display screen messages **
         add("item.mccoursemod.metal_detector.no_valuable_values", "No Valuables Found!");

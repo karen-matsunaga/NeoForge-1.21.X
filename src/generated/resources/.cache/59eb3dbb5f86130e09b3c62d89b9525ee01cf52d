@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-20T10:51:00.4818933	Loot Tables
+// 1.21.8	2025-08-20T19:37:30.9426973	Loot Tables
 cdb697b4f47740809ecdb90e81e8e5d2f56cfc86 data/mccoursemod/loot_table/blocks/alexandrite_block.json
 291a785f3fc73335884718fec6c7d2db06eb0048 data/mccoursemod/loot_table/blocks/alexandrite_button.json
 d0ad4d5e3aeabf77ec2d12530e2bc9b7e6bef80e data/mccoursemod/loot_table/blocks/alexandrite_door.json
@@ -47,5 +47,6 @@ c1239efba4c7e03871208eaae09e67d7f955eb05 data/mccoursemod/loot_table/blocks/neth
 89ea5ed091b6961b413e844e7a9f345594a2e9a9 data/mccoursemod/loot_table/blocks/pedestal.json
 dbe24e619188e9f9d646155a2684fdd0dd6c2e6a data/mccoursemod/loot_table/blocks/radish_crop.json
 12ba5f65cca09ac6d67fec4f02e44af6bef3161c data/mccoursemod/loot_table/blocks/raw_alexandrite_block.json
+3bf626e03b5f390f584aa128c9acc60d59c92227 data/mccoursemod/loot_table/blocks/sound.json
 7eaea1a178b3d02c3533edd19be59af96d3056ab data/mccoursemod/loot_table/blocks/stripped_bloodwood_log.json
 91cc1bd25b436e6e28dc659bfa172742c912f5c1 data/mccoursemod/loot_table/blocks/stripped_bloodwood_wood.json

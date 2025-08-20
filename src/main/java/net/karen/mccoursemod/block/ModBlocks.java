@@ -345,6 +345,12 @@ public class ModBlocks {
                                                                  .instrument(NoteBlockInstrument.HAT)
                                                                  .sound(SoundType.GLASS).noOcclusion()));
 
+    // SOUND block
+    public static final DeferredBlock<Block> SOUND = registerBlock("sound",
+           (properties) -> new SoundBlock(properties.strength(3.0F, 20.F)
+                                                              .requiresCorrectToolForDrops()
+                                                              .sound(SoundType.AMETHYST)));
+
     // CUSTOM METHOD - Registry all custom blocks
     private static <T extends Block> DeferredBlock<T> registerBlock(String name,
                                                                     Function<BlockBehaviour.Properties, T> block) {

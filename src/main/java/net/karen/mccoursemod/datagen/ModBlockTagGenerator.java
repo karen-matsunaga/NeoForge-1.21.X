@@ -19,20 +19,30 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider lookupProvider) {
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ENCHANT.get(), ModBlocks.DISENCHANT_INDIVIDUAL.get(),
-                                                      ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.BISMUTH_BLOCK.get(),
-                                                      ModBlocks.MAGIC.get(), ModBlocks.MCCOURSEMOD_ELEVATOR.get(),
-                                                      ModBlocks.BISMUTH_LAMP.get(), ModBlocks.FORCED_STAINED_GLASS.get(),
-                                                      ModBlocks.FORCED_STAINED_GLASS_PANE.get(), ModBlocks.ALEXANDRITE_LAMP.get(),
-                                                      ModBlocks.ALEXANDRITE_BLOCK.get(), ModBlocks.RAW_ALEXANDRITE_BLOCK.get())
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ENCHANT.get(),
+                                                      ModBlocks.DISENCHANT_INDIVIDUAL.get(),
+                                                      ModBlocks.DISENCHANT_GROUPED.get(),
+                                                      ModBlocks.BISMUTH_BLOCK.get(),
+                                                      ModBlocks.MAGIC.get(),
+                                                      ModBlocks.MCCOURSEMOD_ELEVATOR.get(),
+                                                      ModBlocks.BISMUTH_LAMP.get(),
+                                                      ModBlocks.FORCED_STAINED_GLASS.get(),
+                                                      ModBlocks.FORCED_STAINED_GLASS_PANE.get(),
+                                                      ModBlocks.ALEXANDRITE_LAMP.get(),
+                                                      ModBlocks.ALEXANDRITE_BLOCK.get(),
+                                                      ModBlocks.RAW_ALEXANDRITE_BLOCK.get(),
+                                                      ModBlocks.SOUND.get())
                                                  .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES)
                                                  .addTag(ModTags.Blocks.BISMUTH_BLOCKS)
                                                  .addTag(ModTags.Blocks.ALEXANDRITE_BLOCKS);
 
         // Mccourse Mod Ores
-        this.tag(ModTags.Blocks.MCCOURSE_MOD_ORES).add(ModBlocks.BISMUTH_ORE.get(), ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),
-                                                       ModBlocks.BISMUTH_END_ORE.get(), ModBlocks.BISMUTH_NETHER_ORE.get(),
-                                                       ModBlocks.ALEXANDRITE_ORE.get(), ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get(),
+        this.tag(ModTags.Blocks.MCCOURSE_MOD_ORES).add(ModBlocks.BISMUTH_ORE.get(),
+                                                       ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),
+                                                       ModBlocks.BISMUTH_END_ORE.get(),
+                                                       ModBlocks.BISMUTH_NETHER_ORE.get(),
+                                                       ModBlocks.ALEXANDRITE_ORE.get(),
+                                                       ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get(),
                                                        ModBlocks.END_STONE_ALEXANDRITE_ORE.get(),
                                                        ModBlocks.NETHER_ALEXANDRITE_ORE.get() );
 
@@ -53,7 +63,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         this.tag(ModTags.Blocks.MORE_ORES_TWO_DROPS).add(Blocks.IRON_ORE, Blocks.LAPIS_ORE);
         this.tag(ModTags.Blocks.MORE_ORES_THREE_DROPS).add(Blocks.REDSTONE_ORE, Blocks.GOLD_ORE);
         this.tag(ModTags.Blocks.MORE_ORES_FOUR_DROPS).add(Blocks.DIAMOND_ORE, Blocks.EMERALD_ORE);
-        this.tag(ModTags.Blocks.MORE_ORES_FIVE_DROPS).add(Blocks.ANCIENT_DEBRIS, Blocks.NETHER_GOLD_ORE, Blocks.NETHER_QUARTZ_ORE);
+        this.tag(ModTags.Blocks.MORE_ORES_FIVE_DROPS).add(Blocks.ANCIENT_DEBRIS, Blocks.NETHER_GOLD_ORE,
+                                                          Blocks.NETHER_QUARTZ_ORE);
         this.tag(ModTags.Blocks.MORE_ORES_ALL_DROPS).addTag(ModTags.Blocks.MORE_ORES_ONE_DROPS)
                                                     .addTag(ModTags.Blocks.MORE_ORES_TWO_DROPS)
                                                     .addTag(ModTags.Blocks.MORE_ORES_THREE_DROPS)
@@ -82,16 +93,24 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         tag(BlockTags.TRAPDOORS).add(ModBlocks.BISMUTH_TRAPDOOR.get(), ModBlocks.ALEXANDRITE_TRAPDOOR.get());
         tag(BlockTags.WALLS).add(ModBlocks.BISMUTH_WALL.get(), ModBlocks.ALEXANDRITE_WALL.get());
         // BISMUTH
-        this.tag(ModTags.Blocks.BISMUTH_BLOCKS).add(ModBlocks.BISMUTH_BUTTON.get(), ModBlocks.BISMUTH_DOOR.get(),
-                                                    ModBlocks.BISMUTH_FENCE.get(), ModBlocks.BISMUTH_FENCE_GATE.get(),
-                                                    ModBlocks.BISMUTH_PRESSURE_PLATE.get(), ModBlocks.BISMUTH_STAIRS.get(),
-                                                    ModBlocks.BISMUTH_SLAB.get(), ModBlocks.BISMUTH_TRAPDOOR.get(),
+        this.tag(ModTags.Blocks.BISMUTH_BLOCKS).add(ModBlocks.BISMUTH_BUTTON.get(),
+                                                    ModBlocks.BISMUTH_DOOR.get(),
+                                                    ModBlocks.BISMUTH_FENCE.get(),
+                                                    ModBlocks.BISMUTH_FENCE_GATE.get(),
+                                                    ModBlocks.BISMUTH_PRESSURE_PLATE.get(),
+                                                    ModBlocks.BISMUTH_STAIRS.get(),
+                                                    ModBlocks.BISMUTH_SLAB.get(),
+                                                    ModBlocks.BISMUTH_TRAPDOOR.get(),
                                                     ModBlocks.BISMUTH_WALL.get());
         // ALEXANDRITE
-        this.tag(ModTags.Blocks.ALEXANDRITE_BLOCKS).add(ModBlocks.ALEXANDRITE_BUTTON.get(), ModBlocks.ALEXANDRITE_DOOR.get(),
-                                                        ModBlocks.ALEXANDRITE_FENCE.get(), ModBlocks.ALEXANDRITE_FENCE_GATE.get(),
-                                                        ModBlocks.ALEXANDRITE_PREASSURE_PLATE.get(), ModBlocks.ALEXANDRITE_STAIRS.get(),
-                                                        ModBlocks.ALEXANDRITE_SLABS.get(), ModBlocks.ALEXANDRITE_TRAPDOOR.get(),
+        this.tag(ModTags.Blocks.ALEXANDRITE_BLOCKS).add(ModBlocks.ALEXANDRITE_BUTTON.get(),
+                                                        ModBlocks.ALEXANDRITE_DOOR.get(),
+                                                        ModBlocks.ALEXANDRITE_FENCE.get(),
+                                                        ModBlocks.ALEXANDRITE_FENCE_GATE.get(),
+                                                        ModBlocks.ALEXANDRITE_PREASSURE_PLATE.get(),
+                                                        ModBlocks.ALEXANDRITE_STAIRS.get(),
+                                                        ModBlocks.ALEXANDRITE_SLABS.get(),
+                                                        ModBlocks.ALEXANDRITE_TRAPDOOR.get(),
                                                         ModBlocks.ALEXANDRITE_WALL.get());
 
         // Crop

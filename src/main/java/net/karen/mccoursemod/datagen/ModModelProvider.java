@@ -75,6 +75,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.DISENCHANT_GROUPED.get());
         blockModels.createTrivialCube(ModBlocks.DISENCHANT_INDIVIDUAL.get());
         blockModels.createTrivialCube(ModBlocks.MCCOURSEMOD_ELEVATOR.get());
+        blockModels.createTrivialCube(ModBlocks.SOUND.get());
 
         // ** BLOCK FAMILIES **
         // BISMUTH
