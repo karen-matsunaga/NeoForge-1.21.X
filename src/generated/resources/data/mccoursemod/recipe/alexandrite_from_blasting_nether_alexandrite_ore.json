@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "alexandrite",
+  "ingredient": "mccoursemod:nether_alexandrite_ore",
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:alexandrite"
+  }
+}

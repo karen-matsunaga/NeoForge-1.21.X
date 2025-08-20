@@ -36,9 +36,13 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                        ModBlocks.END_STONE_ALEXANDRITE_ORE.get(),
                                                        ModBlocks.NETHER_ALEXANDRITE_ORE.get() );
 
-        // CUSTOM Tier Tools - Bismuth as Netherite tier
+        // ** CUSTOM TIER TOOLS **
+        // BISMUTH as Netherite tier
         tag(ModTags.Blocks.NEEDS_BISMUTH_TOOL);
         tag(ModTags.Blocks.INCORRECT_FOR_BISMUTH_TOOL);
+        // ALEXANDRITE as Diamond tier
+        tag(ModTags.Blocks.NEEDS_ALEXANDRITE_TOOL);
+        tag(ModTags.Blocks.INCORRECT_FOR_ALEXANDRITE_TOOL);
 
         // Auto Smelt enchantment effect
         this.tag(ModTags.Blocks.AUTO_SMELT_ORES).addTag(Tags.Blocks.ORES).addTag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE);

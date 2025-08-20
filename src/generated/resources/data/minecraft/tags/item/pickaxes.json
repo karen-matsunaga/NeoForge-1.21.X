@@ -2,6 +2,9 @@
   "values": [
     "mccoursemod:bismuth_pickaxe",
     "mccoursemod:bismuth_hammer",
-    "mccoursemod:bismuth_paxel"
+    "mccoursemod:bismuth_paxel",
+    "mccoursemod:alexandrite_pickaxe",
+    "mccoursemod:alexandrite_hammer",
+    "mccoursemod:alexandrite_paxel"
   ]
 }

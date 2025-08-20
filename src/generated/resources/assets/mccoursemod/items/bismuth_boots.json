@@ -85,6 +85,13 @@
           "model": "mccoursemod:item/bismuth_boots_bismuth_trim"
         },
         "when": "mccoursemod:bismuth"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "mccoursemod:item/bismuth_boots_alexandrite_trim"
+        },
+        "when": "mccoursemod:alexandrite"
       }
     ],
     "fallback": {

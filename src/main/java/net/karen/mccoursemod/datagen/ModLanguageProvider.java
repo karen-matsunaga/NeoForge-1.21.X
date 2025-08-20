@@ -37,7 +37,8 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM Foods
         addItem(ModItems.COFFEE, "Coffee");
 
-        // CUSTOM Tools
+        // ** CUSTOM Tools **
+        // BISMUTH
         addItem(ModItems.BISMUTH_HAMMER, "Bismuth Hammer");
         addItem(ModItems.BISMUTH_PAXEL, "Bismuth Paxel");
         addItem(ModItems.BISMUTH_SWORD, "Bismuth Sword");
@@ -46,21 +47,40 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.BISMUTH_AXE, "Bismuth Axe");
         addItem(ModItems.BISMUTH_HOE, "Bismuth Hoe");
         addItem(ModItems.KAUPEN_BOW, "Kaupen Bow");
+        // ALEXANDRITE
+        addItem(ModItems.ALEXANDRITE_HAMMER, "Alexandrite Hammer");
+        addItem(ModItems.ALEXANDRITE_PAXEL, "Alexandrite Paxel");
+        addItem(ModItems.ALEXANDRITE_SWORD, "Alexandrite Sword");
+        addItem(ModItems.ALEXANDRITE_PICKAXE, "Alexandrite Pickaxe");
+        addItem(ModItems.ALEXANDRITE_SHOVEL, "Alexandrite Shovel");
+        addItem(ModItems.ALEXANDRITE_AXE, "Alexandrite Axe");
+        addItem(ModItems.ALEXANDRITE_HOE, "Alexandrite Hoe");
+        addItem(ModItems.ALEXANDRITE_BOW, "Alexandrite Bow");
 
-        // CUSTOM Armors
+        // ** CUSTOM Armors **
+        // BISMUTH
         addItem(ModItems.BISMUTH_HELMET, "Bismuth Helmet");
         addItem(ModItems.BISMUTH_CHESTPLATE, "Bismuth Chestplate");
         addItem(ModItems.BISMUTH_LEGGINGS, "Bismuth Leggings");
         addItem(ModItems.BISMUTH_BOOTS, "Bismuth Boots");
+        // ALEXANDRITE
+        addItem(ModItems.ALEXANDRITE_HELMET, "Alexandrite Helmet");
+        addItem(ModItems.ALEXANDRITE_CHESTPLATE, "Alexandrite Chestplate");
+        addItem(ModItems.ALEXANDRITE_LEGGINGS, "Alexandrite Leggings");
+        addItem(ModItems.ALEXANDRITE_BOOTS, "Alexandrite Boots");
 
-        // CUSTOM horse armor
+        // ** CUSTOM Horse armor **
+        // BISMUTH
         addItem(ModItems.BISMUTH_HORSE_ARMOR, "Bismuth Horse Armor");
+        // ALEXANDRITE
+        addItem(ModItems.ALEXANDRITE_HORSE_ARMOR, "Alexandrite Horse Armor");
 
         // CUSTOM SMITHING TEMPLATE
         addItem(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE, "Kaupen Armor Trim Smithing Template");
 
         // CUSTOM TRIM MATERIAL + TRIM PATTERN
         add("trim_material.mccoursemod.bismuth", "Bismuth Material");
+        add("trim_material.mccoursemod.alexandrite", "Alexandrite Material");
         add("trim_pattern.mccoursemod.kaupen", "Kaupen Armor Trim");
 
         // CUSTOM Painting Variant

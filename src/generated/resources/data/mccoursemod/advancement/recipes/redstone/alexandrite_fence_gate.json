@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_nether_star": {
+    "has_bismuth": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:nether_star"
+            "items": "mccoursemod:bismuth"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:bone_block"
+        "recipe": "mccoursemod:alexandrite_fence_gate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_nether_star"
+      "has_bismuth"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:bone_block"
+      "mccoursemod:alexandrite_fence_gate"
     ]
   }
 }

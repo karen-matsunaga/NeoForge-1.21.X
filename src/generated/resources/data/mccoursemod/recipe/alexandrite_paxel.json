@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "mccoursemod:alexandrite_pickaxe",
+    "mccoursemod:alexandrite_axe",
+    "mccoursemod:alexandrite_shovel"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:alexandrite_paxel"
+  }
+}

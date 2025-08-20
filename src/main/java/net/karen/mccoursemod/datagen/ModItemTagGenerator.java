@@ -19,61 +19,76 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         // CUSTOM Items
-        tag(ItemTags.BEACON_PAYMENT_ITEMS).add(ModItems.BISMUTH.get());
+        tag(ItemTags.BEACON_PAYMENT_ITEMS).add(ModItems.BISMUTH.get(), ModItems.ALEXANDRITE.get());
 
-        // CUSTOM Tools
+        // ** CUSTOM Tools **
+        // BISMUTH
         tag(ModTags.Items.BISMUTH_TOOLS).add(ModItems.BISMUTH_SWORD.get(), ModItems.BISMUTH_PICKAXE.get(),
                                              ModItems.BISMUTH_SHOVEL.get(), ModItems.BISMUTH_AXE.get(),
                                              ModItems.BISMUTH_HOE.get(), ModItems.BISMUTH_HAMMER.get(),
-                                             ModItems.BISMUTH_PAXEL.get());
+                                             ModItems.BISMUTH_PAXEL.get(), ModItems.KAUPEN_BOW.get());
 
-        // Axe
-        tag(ItemTags.AXES).add(ModItems.BISMUTH_AXE.get());
+        // ALEXANDRITE
+        tag(ModTags.Items.ALEXANDRITE_TOOLS).add(ModItems.ALEXANDRITE_SWORD.get(), ModItems.ALEXANDRITE_PICKAXE.get(),
+                                                 ModItems.ALEXANDRITE_SHOVEL.get(), ModItems.ALEXANDRITE_AXE.get(),
+                                                 ModItems.ALEXANDRITE_HOE.get(), ModItems.ALEXANDRITE_HAMMER.get(),
+                                                 ModItems.ALEXANDRITE_PAXEL.get(), ModItems.ALEXANDRITE_BOW.get());
 
-        // Pickaxe
+        // CUSTOM Axe
+        tag(ItemTags.AXES).add(ModItems.BISMUTH_AXE.get(), ModItems.ALEXANDRITE_AXE.get());
+
+        // CUSTOM Pickaxe
         tag(ItemTags.PICKAXES).add(ModItems.BISMUTH_PICKAXE.get(), ModItems.BISMUTH_HAMMER.get(),
-                                   ModItems.BISMUTH_PAXEL.get());
+                                   ModItems.BISMUTH_PAXEL.get(), ModItems.ALEXANDRITE_PICKAXE.get(),
+                                   ModItems.ALEXANDRITE_HAMMER.get(), ModItems.ALEXANDRITE_PAXEL.get());
 
-        // Sword
-        tag(ItemTags.SWORDS).add(ModItems.BISMUTH_SWORD.get());
+        // CUSTOM Sword
+        tag(ItemTags.SWORDS).add(ModItems.BISMUTH_SWORD.get(), ModItems.ALEXANDRITE_SWORD.get());
 
-        // Shovel
-        tag(ItemTags.SHOVELS).add(ModItems.BISMUTH_SHOVEL.get());
+        // CUSTOM Shovel
+        tag(ItemTags.SHOVELS).add(ModItems.BISMUTH_SHOVEL.get(), ModItems.ALEXANDRITE_SHOVEL.get());
 
-        // Hoe
-        tag(ItemTags.HOES).add(ModItems.BISMUTH_HOE.get());
+        // CUSTOM Hoe
+        tag(ItemTags.HOES).add(ModItems.BISMUTH_HOE.get(), ModItems.ALEXANDRITE_HOE.get());
 
-        // Bow
-        tag(ItemTags.SKELETON_PREFERRED_WEAPONS).add(ModItems.KAUPEN_BOW.get());
-        tag(ItemTags.WITHER_SKELETON_DISLIKED_WEAPONS).add(ModItems.KAUPEN_BOW.get());
-        tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get());
-        tag(ItemTags.BOW_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get());
+        // CUSTOM Bow
+        tag(ItemTags.SKELETON_PREFERRED_WEAPONS).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
+        tag(ItemTags.WITHER_SKELETON_DISLIKED_WEAPONS).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
+        tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
+        tag(ItemTags.BOW_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
 
-        // CUSTOM Tools ingredients repair
-        // Tools
+        // ** CUSTOM Repair ARMOR - TOOL ingredients **
+        // TOOL MATERIALS
         tag(ModTags.Items.BISMUTH_TOOL_MATERIALS).add(ModItems.BISMUTH.get());
-
-        // Armors
+        tag(ModTags.Items.ALEXANDRITE_TOOL_MATERIALS).add(ModItems.ALEXANDRITE.get());
+        // ARMOR MATERIALS
         tag(ModTags.Items.REPAIRS_BISMUTH_ARMOR).add(ModItems.BISMUTH.get());
+        tag(ModTags.Items.REPAIRS_ALEXANDRITE_ARMOR).add(ModItems.ALEXANDRITE.get());
 
         // CUSTOM Armors -> Trimmable armor + Enchanted Armor
         tag(ModTags.Items.BISMUTH_ARMOR).add(ModItems.BISMUTH_HELMET.get(), ModItems.BISMUTH_CHESTPLATE.get(),
                                              ModItems.BISMUTH_LEGGINGS.get(), ModItems.BISMUTH_BOOTS.get());
 
-        // Trim material
-        // Boots
-        tag(ItemTags.FOOT_ARMOR).add(ModItems.BISMUTH_BOOTS.get());
+        tag(ModTags.Items.ALEXANDRITE_ARMOR).add(ModItems.ALEXANDRITE_HELMET.get(), ModItems.ALEXANDRITE_CHESTPLATE.get(),
+                                                 ModItems.ALEXANDRITE_LEGGINGS.get(), ModItems.ALEXANDRITE_BOOTS.get());
 
-        // Leggings
-        tag(ItemTags.LEG_ARMOR).add(ModItems.BISMUTH_LEGGINGS.get());
+        // CUSTOM TRIM MATERIALS
+        tag(ItemTags.TRIM_MATERIALS).add(ModItems.BISMUTH.get(), ModItems.ALEXANDRITE.get());
 
-        // Chestplate
-        tag(ItemTags.CHEST_ARMOR).add(ModItems.BISMUTH_CHESTPLATE.get());
+        // CUSTOM Boots
+        tag(ItemTags.FOOT_ARMOR).add(ModItems.BISMUTH_BOOTS.get(), ModItems.ALEXANDRITE_BOOTS.get());
 
-        // Helmet
-        tag(ItemTags.HEAD_ARMOR).add(ModItems.BISMUTH_HELMET.get());
+        // CUSTOM Leggings
+        tag(ItemTags.LEG_ARMOR).add(ModItems.BISMUTH_LEGGINGS.get(), ModItems.ALEXANDRITE_LEGGINGS.get());
 
-        // Level Charger
+        // CUSTOM Chestplate
+        tag(ItemTags.CHEST_ARMOR).add(ModItems.BISMUTH_CHESTPLATE.get(), ModItems.ALEXANDRITE_CHESTPLATE.get());
+
+        // CUSTOM Helmet
+        tag(ItemTags.HEAD_ARMOR).add(ModItems.BISMUTH_HELMET.get(), ModItems.ALEXANDRITE_HELMET.get());
+
+        // ** CUSTOM Advanced items **
+        // Level Charger item tags
         tag(ModTags.Items.LEVEL_CHARGER_GENERIC).add(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get(),
                                                      ModItems.LEVEL_CHARGER_GENERIC_MINUS.get());
 
@@ -101,9 +116,6 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
 
         // Special Effect items
         this.tag(ModTags.Items.SPECIAL_EFFECT_ITEMS).add(ModItems.AUTO_SMELT.get());
-
-        // Custom trim materials item tag
-        tag(ItemTags.TRIM_MATERIALS).add(ModItems.BISMUTH.get());
 
         // Bloodwood item tag
         this.tag(ItemTags.LOGS_THAT_BURN).add(ModBlocks.BLOODWOOD_LOG.get().asItem())

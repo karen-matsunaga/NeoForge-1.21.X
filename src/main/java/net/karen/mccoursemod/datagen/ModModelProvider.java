@@ -175,6 +175,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.COFFEE.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM TOOLS **
+        // BISMUTH
         itemModels.generateFlatItem(ModItems.BISMUTH_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BISMUTH_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BISMUTH_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
@@ -182,17 +183,36 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.BISMUTH_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BISMUTH_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BISMUTH_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        // ALEXANDRITE
+        itemModels.generateFlatItem(ModItems.ALEXANDRITE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.ALEXANDRITE_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.ALEXANDRITE_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.ALEXANDRITE_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.ALEXANDRITE_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.ALEXANDRITE_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.ALEXANDRITE_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
         // ** CUSTOM bow **
+        // BISMUTH
         createBowTexture(itemModels, ModItems.KAUPEN_BOW.get());
+        // ALEXANDRITE
+        createBowTexture(itemModels, ModItems.ALEXANDRITE_BOW.get());
 
         // ** CUSTOM Horse Armor **
+        // BISMUTH
         itemModels.generateFlatItem(ModItems.BISMUTH_HORSE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
+        // ALEXANDRITE
+        itemModels.generateFlatItem(ModItems.ALEXANDRITE_HORSE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM ARMORS **
+        // BISMUTH
         createArmorTrim(itemModels, ModEquipmentAssetProvider.BISMUTH,
                         List.of(ModItems.BISMUTH_HELMET.get(), ModItems.BISMUTH_CHESTPLATE.get(),
                                 ModItems.BISMUTH_LEGGINGS.get(), ModItems.BISMUTH_BOOTS.get()));
+        // ALEXANDRITE
+        createArmorTrim(itemModels, ModEquipmentAssetProvider.ALEXANDRITE,
+                        List.of(ModItems.ALEXANDRITE_HELMET.get(), ModItems.ALEXANDRITE_CHESTPLATE.get(),
+                                ModItems.ALEXANDRITE_LEGGINGS.get(), ModItems.ALEXANDRITE_BOOTS.get()));
 
         // ** CUSTOM Smithing Template **
         itemModels.generateFlatItem(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
@@ -461,7 +481,8 @@ public class ModModelProvider extends ModelProvider {
                    new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.LAPIS, TrimMaterials.LAPIS),
                    new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.AMETHYST, TrimMaterials.AMETHYST),
                    new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.RESIN, TrimMaterials.RESIN),
-                   new ItemModelGenerators.TrimMaterialData(ModTrimMaterials.BISMUTH_MATERIAL, ModTrimMaterials.BISMUTH));
+                   new ItemModelGenerators.TrimMaterialData(ModTrimMaterials.BISMUTH_MATERIAL, ModTrimMaterials.BISMUTH),
+                   new ItemModelGenerators.TrimMaterialData(ModTrimMaterials.ALEXANDRITE_MATERIAL, ModTrimMaterials.ALEXANDRITE));
 
     public static void pieceArmorTrim(ItemModelGenerators itemModels, Item item,
                                       ResourceKey<EquipmentAsset> equipmentAsset,

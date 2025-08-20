@@ -14,15 +14,24 @@ import net.minecraft.world.item.equipment.trim.TrimMaterial;
 
 public class ModTrimMaterials {
     // Registry all custom TRIM MATERIAL textures
+    // BISMUTH
     public static final ResourceKey<TrimMaterial> BISMUTH =
-           ResourceKey.create(Registries.TRIM_MATERIAL, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "bismuth"));
+           ResourceKey.create(Registries.TRIM_MATERIAL,
+                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "bismuth"));
+
+    // ALEXANDRITE
+    public static final ResourceKey<TrimMaterial> ALEXANDRITE =
+           ResourceKey.create(Registries.TRIM_MATERIAL,
+                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "alexandrite"));
 
     // Registry all custom MATERIAL ASSET GROUP ingredients
     public static final MaterialAssetGroup BISMUTH_MATERIAL = MaterialAssetGroup.create("bismuth");
+    public static final MaterialAssetGroup ALEXANDRITE_MATERIAL = MaterialAssetGroup.create("alexandrite");
 
     // CUSTOM METHOD - Registry all custom TRIM MATERIALS -> Data Generation with JSON file
     public static void bootstrap(BootstrapContext<TrimMaterial> context) {
         register(context, BISMUTH, Style.EMPTY.withColor(TextColor.parseColor("#031cfc").getOrThrow()), BISMUTH_MATERIAL);
+        register(context, ALEXANDRITE, Style.EMPTY.withColor(TextColor.parseColor("#7AE2FF").getOrThrow()), ALEXANDRITE_MATERIAL);
     }
 
     // CUSTOM METHOD - Registry all custom TRIM MATERIALS parameters

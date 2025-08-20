@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "mccoursemod:item/alexandrite_bow_pulling_1"
+  }
+}

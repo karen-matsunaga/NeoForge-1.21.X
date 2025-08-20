@@ -11,7 +11,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -43,36 +42,56 @@ public class ModRecipeProvider extends RecipeProvider {
                                                     ModBlocks.BISMUTH_DEEPSLATE_ORE, ModBlocks.BISMUTH_END_ORE,
                                                     ModBlocks.BISMUTH_NETHER_ORE);
 
-        // CUSTOM Smelting + Blasting
-        oreSmelting(BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(),
-                    0.25f, 200, "bismuth");
-        oreBlasting(BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(),
-                    0.25f, 100, "bismuth");
+        List<ItemLike> ALEXANDRITE_SMELTABLES = List.of(ModItems.RAW_ALEXANDRITE, ModBlocks.ALEXANDRITE_ORE,
+                                                        ModBlocks.DEEPSLATE_ALEXANDRITE_ORE,
+                                                        ModBlocks.END_STONE_ALEXANDRITE_ORE,
+                                                        ModBlocks.NETHER_ALEXANDRITE_ORE);
 
-        // CUSTOM block
+        // ** CUSTOM Smelting + Blasting blocks, items, etc. **
+        oreSmelting(BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(),
+                    0.25F, 200, "bismuth");
+        oreBlasting(BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(),
+                    0.25F, 100, "bismuth");
+
+        oreSmelting(ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),
+                    0.25F, 200, "alexandrite");
+        oreBlasting(ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),
+                    0.25F, 100, "alexandrite");
+
+        // ** CUSTOM block **
         this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.ANVIL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENCHANT.get());
 
         this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.BISMUTH.get(),
                                      RecipeCategory.BUILDING_BLOCKS, ModBlocks.BISMUTH_BLOCK.get());
 
-        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.NETHER_STAR, RecipeCategory.BUILDING_BLOCKS, Blocks.BONE_BLOCK);
-
-        // CUSTOM tools
+        // ** CUSTOM tools **
         this.allTools(List.of(ModItems.BISMUTH_SWORD.get(), ModItems.BISMUTH_PICKAXE.get(),
                               ModItems.BISMUTH_SHOVEL.get(), ModItems.BISMUTH_AXE.get(),
                               ModItems.BISMUTH_HOE.get(), ModItems.BISMUTH.get()));
 
+        this.allTools(List.of(ModItems.ALEXANDRITE_SWORD.get(), ModItems.ALEXANDRITE_PICKAXE.get(),
+                              ModItems.ALEXANDRITE_SHOVEL.get(), ModItems.ALEXANDRITE_AXE.get(),
+                              ModItems.ALEXANDRITE_HOE.get(), ModItems.ALEXANDRITE.get()));
+
         this.hammerTool(List.of(ModItems.BISMUTH_HAMMER.get(), ModBlocks.BISMUTH_BLOCK.get()));
+        this.hammerTool(List.of(ModItems.ALEXANDRITE_HAMMER.get(), ModBlocks.ALEXANDRITE_BLOCK.get()));
 
         this.paxelTool(List.of(ModItems.BISMUTH_PAXEL.get(), ModItems.BISMUTH_PICKAXE.get(),
                                ModItems.BISMUTH_AXE.get(), ModItems.BISMUTH_SHOVEL.get()));
 
-        // CUSTOM armors
+        this.paxelTool(List.of(ModItems.ALEXANDRITE_PAXEL.get(), ModItems.ALEXANDRITE_PICKAXE.get(),
+                               ModItems.ALEXANDRITE_AXE.get(), ModItems.ALEXANDRITE_SHOVEL.get()));
+
+        // ** CUSTOM armors **
         this.fullArmor(List.of(ModItems.BISMUTH_HELMET.get(), ModItems.BISMUTH_CHESTPLATE.get(),
                                ModItems.BISMUTH_LEGGINGS.get(), ModItems.BISMUTH_BOOTS.get(),
                                ModItems.BISMUTH.get()));
 
-        // Block Families
+        this.fullArmor(List.of(ModItems.ALEXANDRITE_HELMET.get(), ModItems.ALEXANDRITE_CHESTPLATE.get(),
+                               ModItems.ALEXANDRITE_LEGGINGS.get(), ModItems.ALEXANDRITE_BOOTS.get(),
+                               ModItems.ALEXANDRITE.get()));
+
+        // ** CUSTOM Block Families **
         this.blockFamilies(List.of(ModBlocks.BISMUTH_STAIRS.get(), ModBlocks.BISMUTH_SLAB.get(),
                                    ModBlocks.BISMUTH_BUTTON.get(), ModBlocks.BISMUTH_PRESSURE_PLATE.get(),
                                    ModBlocks.BISMUTH_FENCE.get(), ModBlocks.BISMUTH_FENCE_GATE.get(),
@@ -80,14 +99,21 @@ public class ModRecipeProvider extends RecipeProvider {
                                    ModBlocks.BISMUTH_TRAPDOOR.get()),
                            ModItems.BISMUTH.get(), "bismuth", this.output);
 
-        // CUSTOM Trim Smithing
+        this.blockFamilies(List.of(ModBlocks.ALEXANDRITE_STAIRS.get(), ModBlocks.ALEXANDRITE_SLABS.get(),
+                                   ModBlocks.ALEXANDRITE_BUTTON.get(), ModBlocks.ALEXANDRITE_PREASSURE_PLATE.get(),
+                                   ModBlocks.ALEXANDRITE_FENCE.get(), ModBlocks.ALEXANDRITE_FENCE_GATE.get(),
+                                   ModBlocks.ALEXANDRITE_WALL.get(), ModBlocks.ALEXANDRITE_DOOR.get(),
+                                   ModBlocks.ALEXANDRITE_TRAPDOOR.get()),
+                           ModItems.BISMUTH.get(), "bismuth", this.output);
+
+        // ** CUSTOM Trim Smithing **
         // CRAFTING TABLE
         this.copySmithingTemplate(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModItems.BISMUTH.get());
         // SMITHING TABLE -> ERROR
         //this.trimSmithing(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModTrimPatterns.KAUPEN,
         //                  ResourceKey.create(Registries.RECIPE, ModTrimPatterns.KAUPEN.location()));
 
-        // CUSTOM glass block
+        // ** CUSTOM glass block **
         this.glassBlocks(List.of(ModBlocks.FORCED_STAINED_GLASS.get(), ModBlocks.FORCED_STAINED_GLASS_PANE.get(), Items.GREEN_DYE));
     }
 

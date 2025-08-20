@@ -14,17 +14,22 @@ import net.minecraft.world.level.block.Block;
 public class ModTags {
     // CUSTOM CLASS - Registry all custom block tags
     public static class Blocks {
-        // Mccourse Mod Ores
+        // ** CUSTOM ores -> Mccourse Mod ores **
         public static final TagKey<Block> MCCOURSE_MOD_ORES = createTag("mccourse_mod_ores");
 
-        // Paxel blocks
+        // ** CUSTOM TOOLS **
+        // PAXEL tool
         public static final TagKey<Block> MINEABLE_WITH_PAXEL = createTag("mineable_with_paxel");
 
-        // Blocks break
+        // TOOL MATERIALS -> Blocks break
         public static final TagKey<Block> NEEDS_BISMUTH_TOOL = createTag("needs_bismuth_tool");
+        public static final TagKey<Block> NEEDS_ALEXANDRITE_TOOL =
+               createTag("needs_alexandrite_tool");
 
-        // Blocks not break
+        // TOOL MATERIALS -> Blocks not break
         public static final TagKey<Block> INCORRECT_FOR_BISMUTH_TOOL = createTag("incorrect_for_bismuth_tool");
+        public static final TagKey<Block> INCORRECT_FOR_ALEXANDRITE_TOOL =
+               createTag("incorrect_for_alexandrite_tool");
 
         // Created More Ores's drops - More Ores I, II, III, IV, V, Max Level
         public static final TagKey<Block> MORE_ORES_ONE_DROPS = createTag("more_ores_one_drops");
@@ -71,17 +76,22 @@ public class ModTags {
         // Magic block
         public static final TagKey<Item> MAGIC_BLOCK = createTag("magic_block");
 
-        // Bismuth Tools
+        // TOOL MATERIALS items - TOOLS
         public static final TagKey<Item> BISMUTH_TOOLS = createTag("bismuth_tools");
+        public static final TagKey<Item> ALEXANDRITE_TOOLS = createTag("alexandrite_tools");
 
-        // Bismuth Ingredients
+        // ARMOR MATERIALS items - ARMORS
         public static final TagKey<Item> BISMUTH_ARMOR = createTag("bismuth_armor");
+        public static final TagKey<Item> ALEXANDRITE_ARMOR = createTag("alexandrite_armor");
 
-        // Tools
+        // TOOL MATERIALS items - REPAIR TOOL ingredients
         public static final TagKey<Item> BISMUTH_TOOL_MATERIALS = createTag("bismuth_tool_materials");
+        public static final TagKey<Item> ALEXANDRITE_TOOL_MATERIALS =
+               createTag("alexandrite_tool_materials");
 
-        // Armor ingredient
+        // ARMOR MATERIALS items - REPAIR ARMOR ingredients
         public static final TagKey<Item> REPAIRS_BISMUTH_ARMOR = createTag("repairs_bismuth_armor");
+        public static final TagKey<Item> REPAIRS_ALEXANDRITE_ARMOR = createTag("repairs_alexandrite_armor");
 
         // Data Component tags
         public static final TagKey<Item> SPECIAL_EFFECT_ITEMS = createTag("special_effect_items");

@@ -26,19 +26,24 @@ public class ModEquipmentAssetProvider extends EquipmentAssetProvider {
 
     // List of EQUIPMENT ASSET
     public static final ResourceKey<EquipmentAsset> BISMUTH = createId("bismuth");
+    public static final ResourceKey<EquipmentAsset> ALEXANDRITE = createId("alexandrite");
 
     // CUSTOM METHOD - Register all custom equipment assets -> Resource Key
     private static ResourceKey<EquipmentAsset> createId(String name) {
-        return ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
+        return ResourceKey.create(EquipmentAssets.ROOT_ID,
+                                  ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
     }
 
     // CUSTOM METHOD - Register all custom entities EQUIPMENT ASSETS
-    public static void bootstrap(BiConsumer<ResourceKey<EquipmentAsset>, EquipmentClientInfo> consumer) {
+    public static void bootstrap(BiConsumer<ResourceKey<EquipmentAsset>,
+                                 EquipmentClientInfo> consumer) {
         registerAssetWithLayers(consumer, BISMUTH, "bismuth");
+        registerAssetWithLayers(consumer, ALEXANDRITE, "alexandrite");
     }
 
     // CUSTOM METHOD - Register all custom Horse EQUIPMENT ASSETS
-    private static void registerAssetWithLayers(BiConsumer<ResourceKey<EquipmentAsset>, EquipmentClientInfo> consumer,
+    private static void registerAssetWithLayers(BiConsumer<ResourceKey<EquipmentAsset>,
+                                                EquipmentClientInfo> consumer,
                                                 ResourceKey<EquipmentAsset> asset, String name) {
         consumer.accept(asset, EquipmentClientInfo.builder()
                 .addHumanoidLayers(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name))
@@ -47,6 +52,7 @@ public class ModEquipmentAssetProvider extends EquipmentAssetProvider {
                 .build());
     }
 
+    // DEFAULT METHOD - Save all custom EQUIPMENT ASSETS
     @Override
     public @NotNull CompletableFuture<?> run(@NotNull CachedOutput output) {
         Map<ResourceKey<EquipmentAsset>, EquipmentClientInfo> map = new HashMap<>();
