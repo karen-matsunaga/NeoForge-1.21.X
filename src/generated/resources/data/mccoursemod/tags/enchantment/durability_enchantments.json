@@ -5,6 +5,10 @@
     {
       "id": "mccoursemod:immortal",
       "required": false
+    },
+    {
+      "id": "mccoursemod:xp_boost",
+      "required": false
     }
   ]
 }

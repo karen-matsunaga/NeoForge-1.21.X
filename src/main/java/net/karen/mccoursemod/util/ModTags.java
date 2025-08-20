@@ -91,7 +91,6 @@ public class ModTags {
 
     // CUSTOM CLASS - Registry all custom enchantment tags
     public static class Enchantments {
-        public static final TagKey<Enchantment> LIGHTNING_STRIKER_TAG = createTag("lightning_striker_tag");
         public static final TagKey<Enchantment> MINING_ENCHANTMENTS = createTag("mining_enchantments");
         public static final TagKey<Enchantment> DURABILITY_ENCHANTMENTS = createTag("durability_enchantments");
         public static final TagKey<Enchantment> FISHING_ENCHANTMENTS = createTag("fishing_enchantments");

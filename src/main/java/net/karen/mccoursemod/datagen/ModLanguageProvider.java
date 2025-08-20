@@ -86,6 +86,9 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM Animated Textures
         addItem(ModItems.RADIATION_STAFF, "Radiation Staff");
 
+        // CUSTOM Fishing Rod
+        addItem(ModItems.MCCOURSE_MOD_FISHING_ROD, "Mccourse Mod Fishing Rod");
+
         // CUSTOM block item
         add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.bismuth_block", "Bismuth Block");
@@ -190,6 +193,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.lightstring", "Lightstring");
         add("enchantment.mccoursemod.glowing_mobs", "Glowing Mobs");
         add("enchantment.mccoursemod.magnetism", "Magnetism");
+        add("enchantment.mccoursemod.xp_boost", "Xp Boost");
 
         // DESCRIPTIONS
         // CUSTOM MUSIC DISC
@@ -244,6 +248,9 @@ public class ModLanguageProvider extends LanguageProvider {
             "When applied on tools or armor regenerates tools, equipments, etc. only player received XP.");
         add("enchantment.minecraft.unbreaking.desc",
             "When applied on tools or armor increases durability of tools, equipments, etc.");
+        add("enchantment.mccoursemod.xp_boost.desc",
+            "When applied to tools, armor, etc. gain more experience orb when killing mobs, mining blocks, " +
+            "cooking items, walking, mining, attacking, etc.");
 
         // ARMOR EXCLUSIVE
         add("enchantment.minecraft.protection.desc", "When applied on armor add bonus damage reduction.");

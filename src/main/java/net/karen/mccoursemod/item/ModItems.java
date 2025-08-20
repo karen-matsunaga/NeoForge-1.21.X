@@ -26,6 +26,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
 import java.util.function.Consumer;
+import static net.karen.mccoursemod.util.ChatUtils.purple;
 
 public class ModItems {
     // Registry all custom ITEMS
@@ -201,6 +202,16 @@ public class ModItems {
     public static final DeferredItem<Item> MCCOURSE_MOD_BOTTLE = ITEMS.registerItem("mccourse_mod_bottle",
            (properties) -> new MccourseModBottleItem(properties.fireResistant().stacksTo(1),
                                                                100000, 1));
+
+    // CUSTOM Fishing Rod
+    public static final DeferredItem<Item> MCCOURSE_MOD_FISHING_ROD =
+           ITEMS.registerItem("mccourse_mod_fishing_rod",
+           (properties) -> new FishingRodItem(properties.fireResistant()) {
+               @Override
+               public @NotNull Component getName(@NotNull ItemStack stack) { // Appears on name item
+                   return super.getName(stack).copy().withStyle(purple);
+               }
+           });
 
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {

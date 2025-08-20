@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-19T15:25:39.1458527	Model Definitions - mccoursemod
+// 1.21.8	2025-08-19T22:03:18.8744628	Model Definitions - mccoursemod
 23abd55ed44db7228c58ae2cbad60653ad35c1ac assets/mccoursemod/blockstates/bismuth_block.json
 e3922722ae94bfb473d1fdc36050f3fffd011415 assets/mccoursemod/blockstates/bismuth_button.json
 b162c18374186eabf082f4a12b8b666cd203de3f assets/mccoursemod/blockstates/bismuth_deepslate_ore.json
@@ -89,6 +89,7 @@ c2387d52e387dbf791b463a2d0c1f627dc616110 assets/mccoursemod/items/level_charger_
 7704fa6cbfdd4572156a0ce428118db262c9f925 assets/mccoursemod/items/magic.json
 68c66bdb0543e0688b875b7e031b5b47765985a5 assets/mccoursemod/items/mccoursemod_elevator.json
 a33fdc1092fa423bf247380062149416cb1374e7 assets/mccoursemod/items/mccourse_mod_bottle.json
+25342023c4799ea43bffd715785d95aefc165f06 assets/mccoursemod/items/mccourse_mod_fishing_rod.json
 f690992a632d5f7b472d3b3b164fd4e146d7e4ad assets/mccoursemod/items/pedestal.json
 d8d7bed06e1dd1e8cd6bcc1a83823f5a108a7e1d assets/mccoursemod/items/radiation_staff.json
 8b0f4093ea959596641caaeac7b9b6f5d8538593 assets/mccoursemod/items/radish.json
@@ -248,6 +249,8 @@ b76f16fdd036f042e4e703d6fe5a8ad8eb860d18 assets/mccoursemod/models/item/frostfir
 8efd307d669786861e1c019b978ab2ea898c12d8 assets/mccoursemod/models/item/level_charger_specif_plus_fortune.json
 bd54a57c8de52209472992241e62408fce50a4eb assets/mccoursemod/models/item/mccourse_mod_bottle.json
 b1b2377b4f2b8cb5f3ed27769ec348976d3191af assets/mccoursemod/models/item/mccourse_mod_bottle_off.json
+d84cb676f120f5f30936cc48c5415d8686d35849 assets/mccoursemod/models/item/mccourse_mod_fishing_rod.json
+6b3d6d19dbd0e0dbdb0e0091dfa2e5b2ebf7d866 assets/mccoursemod/models/item/mccourse_mod_fishing_rod_cast.json
 39d6c9aa4fed33e381348147a96d23f84e154e99 assets/mccoursemod/models/item/radiation_staff.json
 9c566763be3a3a7e2b92115f731cecc2be946de4 assets/mccoursemod/models/item/radish.json
 4b756411260fbcbb14f6cb6e5027205b3e060849 assets/mccoursemod/models/item/radish_seeds.json

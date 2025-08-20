@@ -35,6 +35,7 @@ public class ModEnchantments {
     public static final ResourceKey<Enchantment> MAGNETISM = createTag("magnetism");
     public static final ResourceKey<Enchantment> MORE_ORES = createTag("more_ores");
     public static final ResourceKey<Enchantment> RAINBOW = createTag("rainbow");
+    public static final ResourceKey<Enchantment> XP_BOOST = createTag("xp_boost");
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
@@ -143,7 +144,7 @@ public class ModEnchantments {
                                                blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
                                                List.of(0.1F, 0.05F))));
 
-        // More Ores Enchantment Effect - Pickaxe tool
+        // Rainbow Enchantment Effect - Pickaxe tool
         register(context, RAINBOW,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                                                                 items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
@@ -162,6 +163,14 @@ public class ModEnchantments {
                                                Map.entry(Blocks.LAPIS_BLOCK, Tags.Blocks.ORES_LAPIS),
                                                Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
                                                Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP)))));
+
+        // Xp Boost Enchantment Effect - Armor and Tools
+        register(context, XP_BOOST,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.ANY)));
     }
 
     // CUSTOM METHOD - Registry all custom enchantments -> DATA GEN

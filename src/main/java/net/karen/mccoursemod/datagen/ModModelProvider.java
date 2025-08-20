@@ -176,6 +176,9 @@ public class ModModelProvider extends ModelProvider {
 
         // ** CUSTOM Animated Textures **
         itemModels.generateFlatItem(ModItems.RADIATION_STAFF.get(), ModelTemplates.FLAT_ITEM);
+
+        // ** CUSTOM Fishing Rod **
+        itemModels.generateFishingRod(ModItems.MCCOURSE_MOD_FISHING_ROD.get());
     }
 
     // * CUSTOM BLOCKS *

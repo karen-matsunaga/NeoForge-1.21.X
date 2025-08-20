@@ -30,7 +30,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                .addOptional(ModEnchantments.IMMORTAL)
                                                .addOptional(ModEnchantments.LIGHTSTRING)
                                                .addOptional(ModEnchantments.GLOWING_MOBS)
-                                               .addOptional(ModEnchantments.PEACEFUL_MOBS);
+                                               .addOptional(ModEnchantments.PEACEFUL_MOBS)
+                                               .addOptional(ModEnchantments.XP_BOOST);
 
         // Not treasure enchantment
         this.tag(EnchantmentTags.NON_TREASURE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
@@ -43,7 +44,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                               .addOptional(ModEnchantments.IMMORTAL)
                                               .addOptional(ModEnchantments.LIGHTSTRING)
                                               .addOptional(ModEnchantments.GLOWING_MOBS)
-                                              .addOptional(ModEnchantments.PEACEFUL_MOBS);
+                                              .addOptional(ModEnchantments.PEACEFUL_MOBS)
+                                              .addOptional(ModEnchantments.XP_BOOST);
 
         // Villager Trade
         this.tag(EnchantmentTags.TRADEABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
@@ -56,7 +58,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                            .addOptional(ModEnchantments.IMMORTAL)
                                            .addOptional(ModEnchantments.LIGHTSTRING)
                                            .addOptional(ModEnchantments.GLOWING_MOBS)
-                                           .addOptional(ModEnchantments.PEACEFUL_MOBS);
+                                           .addOptional(ModEnchantments.PEACEFUL_MOBS)
+                                           .addOptional(ModEnchantments.XP_BOOST);
 
         // Enchant table
         this.tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
@@ -69,10 +72,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                      .addOptional(ModEnchantments.IMMORTAL)
                                                      .addOptional(ModEnchantments.LIGHTSTRING)
                                                      .addOptional(ModEnchantments.GLOWING_MOBS)
-                                                     .addOptional(ModEnchantments.PEACEFUL_MOBS);
-
-        // Lightning Striker tag
-        this.tag(ModTags.Enchantments.LIGHTNING_STRIKER_TAG).addOptional(ModEnchantments.LIGHTNING_STRIKER);
+                                                     .addOptional(ModEnchantments.PEACEFUL_MOBS)
+                                                     .addOptional(ModEnchantments.XP_BOOST);
 
         // Pickaxe enchantments
         this.tag(ModTags.Enchantments.MINING_ENCHANTMENTS).addOptional(ModEnchantments.BLOCK_FLY)
@@ -86,7 +87,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
         // All tools enchantments
         this.tag(ModTags.Enchantments.DURABILITY_ENCHANTMENTS).add(Enchantments.MENDING)
                                                               .add(Enchantments.UNBREAKING)
-                                                              .addOptional(ModEnchantments.IMMORTAL);
+                                                              .addOptional(ModEnchantments.IMMORTAL)
+                                                              .addOptional(ModEnchantments.XP_BOOST);
 
         // Helmet enchantments
         this.tag(ModTags.Enchantments.HELMET_ENCHANTMENTS).add(Enchantments.RESPIRATION)
@@ -107,7 +109,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                          .add(Enchantments.FEATHER_FALLING);
 
         // Sword enchantments
-        this.tag(ModTags.Enchantments.SWORD_ENCHANTMENTS).addTag(ModTags.Enchantments.LIGHTNING_STRIKER_TAG)
+        this.tag(ModTags.Enchantments.SWORD_ENCHANTMENTS).addOptional(ModEnchantments.LIGHTNING_STRIKER)
                                                          .add(Enchantments.SHARPNESS)
                                                          .add(Enchantments.SMITE)
                                                          .add(Enchantments.BANE_OF_ARTHROPODS)

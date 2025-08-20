@@ -81,9 +81,11 @@ import net.neoforged.neoforge.event.entity.item.ItemTossEvent;
 import net.neoforged.neoforge.event.entity.living.EnderManAngerEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
+import net.neoforged.neoforge.event.entity.living.LivingExperienceDropEvent;
 import net.neoforged.neoforge.event.entity.player.ItemFishedEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerWakeUpEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerXpEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.level.ExplosionEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
@@ -272,27 +274,63 @@ public class ModEvents {
         }
     }
 
-    // CUSTOM EVENT - Block + Item experience orb
+    // CUSTOM EVENT - XP BOOST custom enchantment effect -> Block + Item experience orb
     @SubscribeEvent
-    public static void onBedExperiencePlayerWakeUp(PlayerWakeUpEvent event) { // Gain experience orb when sleep
+    public static void onBedExperiencePlayerSleep(PlayerWakeUpEvent event) { // Gain experience orb when sleep
         Player player = event.getEntity();
         Level level = player.level();
-        if (!level.isClientSide()) { setPlayerXP(player, level, 2); }
+        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        int xpBoost = Utils.hasEnchant(ench.getOrThrow(ModEnchantments.XP_BOOST).getDelegate(), player);
+        if (!level.isClientSide() && xpBoost > 0) { setPlayerXP(player, level, xpBoost); }
     }
 
     @SubscribeEvent
     public static void onExperienceItemFished(ItemFishedEvent event) { // Gain experience orb when fished
         Player player = event.getEntity();
         Level level = player.level();
-        if (!level.isClientSide()) { if (!event.getDrops().isEmpty()) { setPlayerXP(player, level, 2); } }
+        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        int xpBoost = Utils.hasEnchant(ench.getOrThrow(ModEnchantments.XP_BOOST).getDelegate(), player);
+        if (!level.isClientSide() && xpBoost > 0) {
+            if (!event.getDrops().isEmpty()) { setPlayerXP(player, level, xpBoost); }
+        }
     }
 
     @SubscribeEvent
     public static void onExperienceBlockBreak(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
         Level level = player.level();
-        if (!level.isClientSide()) { // Block drop xp
-            BuiltInRegistries.BLOCK.forEach(block -> setPlayerXP(player, level, 2)); // All blocks
+        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        int xpBoost = Utils.hasEnchant(ench.getOrThrow(ModEnchantments.XP_BOOST).getDelegate(), player);
+        if (!level.isClientSide() && xpBoost > 0) { // Block drop xp
+            BuiltInRegistries.BLOCK.forEach(block -> setPlayerXP(player, level, xpBoost)); // All blocks
+        }
+    }
+
+    @SubscribeEvent
+    public static void onExperienceHitMob(LivingExperienceDropEvent event) {
+        if (event.getEntity() instanceof Player player) {
+            Level level = player.level();
+            if (event.getAttackingPlayer() != null && !level.isClientSide()) { // Attacked entities
+            HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            int xpBoost = Utils.hasEnchant(ench.getOrThrow(ModEnchantments.XP_BOOST).getDelegate(), player);
+                if (!level.isClientSide() && xpBoost > 0) {
+                    int bonus = Math.round(event.getOriginalExperience() * (1.0F * xpBoost));
+                    event.setDroppedExperience(event.getDroppedExperience() + bonus);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onExperienceMineBlockPickupFurnace(PlayerXpEvent.PickupXp event) {
+        Player player = event.getEntity();
+        Level level = player.level();
+        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        int xpBoost = Utils.hasEnchant(ench.getOrThrow(ModEnchantments.XP_BOOST).getDelegate(), player);
+        if (!level.isClientSide() && xpBoost > 0) {
+            int original = event.getOrb().getValue();
+            original += Math.round(original * (1.0F * xpBoost)); // Mined blocks or Picked furnace items
+            player.giveExperiencePoints(original);
         }
     }
 

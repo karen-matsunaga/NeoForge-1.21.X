@@ -1,6 +1,9 @@
 {
   "values": [
-    "#mccoursemod:lightning_striker_tag",
+    {
+      "id": "mccoursemod:lightning_striker",
+      "required": false
+    },
     "minecraft:sharpness",
     "minecraft:smite",
     "minecraft:bane_of_arthropods",

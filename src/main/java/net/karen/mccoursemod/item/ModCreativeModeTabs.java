@@ -69,7 +69,9 @@ public class ModCreativeModeTabs {
                      // CUSTOM Throwable Projectiles
                      output.accept(ModItems.TOMAHAWK);
                      // CUSTOM Animated Textures
-                     output.accept(ModItems.RADIATION_STAFF.get());
+                     output.accept(ModItems.RADIATION_STAFF);
+                     // CUSTOM Fishing Rod
+                     output.accept(ModItems.MCCOURSE_MOD_FISHING_ROD);
                   }).build());
 
     // Show all blocks in Creative Mode -> Second Creative Mode Tab
@@ -109,18 +111,18 @@ public class ModCreativeModeTabs {
                      // Bush crop block
                      output.accept(ModBlocks.GOJI_BERRY_BUSH);
                      // Bloodwood log + Bloodwood wood
-                     output.accept(ModBlocks.BLOODWOOD_LOG.get());
-                     output.accept(ModBlocks.BLOODWOOD_WOOD.get());
-                     output.accept(ModBlocks.STRIPPED_BLOODWOOD_LOG.get());
-                     output.accept(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get());
-                     output.accept(ModBlocks.BLOODWOOD_PLANKS.get());
-                     output.accept(ModBlocks.BLOODWOOD_SAPLING.get());
-                     output.accept(ModBlocks.BLOODWOOD_LEAVES.get());
+                     output.accept(ModBlocks.BLOODWOOD_LOG);
+                     output.accept(ModBlocks.BLOODWOOD_WOOD);
+                     output.accept(ModBlocks.STRIPPED_BLOODWOOD_LOG);
+                     output.accept(ModBlocks.STRIPPED_BLOODWOOD_WOOD);
+                     output.accept(ModBlocks.BLOODWOOD_PLANKS);
+                     output.accept(ModBlocks.BLOODWOOD_SAPLING);
+                     output.accept(ModBlocks.BLOODWOOD_LEAVES);
                      // Sittable blocks
-                     output.accept(ModBlocks.CHAIR.get());
+                     output.accept(ModBlocks.CHAIR);
                      // Block entity
-                     output.accept(ModBlocks.PEDESTAL.get());
-                     output.accept(ModBlocks.GROWTH_CHAMBER.get());
+                     output.accept(ModBlocks.PEDESTAL);
+                     output.accept(ModBlocks.GROWTH_CHAMBER);
                      // Glass blocks
                      output.accept(ModBlocks.FORCED_STAINED_GLASS);
                      output.accept(ModBlocks.FORCED_STAINED_GLASS_PANE);

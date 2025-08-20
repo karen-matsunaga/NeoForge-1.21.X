@@ -3,13 +3,19 @@ package net.karen.mccoursemod.mixin;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.CustomTooltip;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.util.Utils;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,7 +24,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.ArrayList;
 import java.util.List;
-import static net.karen.mccoursemod.item.custom.SpecialEffectItem.getMultiplier;
 import static net.karen.mccoursemod.util.ChatUtils.*;
 
 @Mixin(value = ItemStack.class)
@@ -37,14 +42,15 @@ public abstract class ItemStackMixin {
             tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block")); // Added more information about block
         }
         // AUTO SMELT custom effect
-        if (stack.has(ModDataComponentTypes.AUTO_SMELT.get())) {
-            tooltip.add(componentLiteral("Auto Smelt x" +
-                        getMultiplier(stack, ModDataComponentTypes.AUTO_SMELT.get()) + "!", gold));
-            tooltip.add(componentTranslatable("tooltip.mccoursemod.auto_smelt.tooltip", gold));
-            stack.set(ModDataComponentTypes.CUSTOM_TOOLTIP, new CustomTooltip(Component.nullToEmpty("[Auto Smelt]")));
-            CustomTooltip value = stack.get(ModDataComponentTypes.CUSTOM_TOOLTIP);
-            if (stack.has(ModDataComponentTypes.CUSTOM_TOOLTIP.get()) && value != null) {
-                tooltip.add(value.line1());
+        Level level = Minecraft.getInstance().level;
+        if (level != null) {
+        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            if (Utils.toolEnchant(ench, ModEnchantments.AUTO_SMELT, stack) > 0) {
+                stack.set(ModDataComponentTypes.CUSTOM_TOOLTIP, new CustomTooltip(Component.nullToEmpty("[Auto Smelt]")));
+                CustomTooltip value = stack.get(ModDataComponentTypes.CUSTOM_TOOLTIP);
+                if (stack.has(ModDataComponentTypes.CUSTOM_TOOLTIP.get()) && value != null) {
+                    tooltip.add(value.line1());
+                }
             }
         }
         cir.setReturnValue(tooltip); // New tooltip

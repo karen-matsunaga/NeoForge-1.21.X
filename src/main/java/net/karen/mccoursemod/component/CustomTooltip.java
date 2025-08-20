@@ -35,11 +35,7 @@ public record CustomTooltip(Component line1) implements TooltipProvider {
     @Override
     public void addToTooltip(Item.@NotNull TooltipContext context, @NotNull Consumer<Component> consumer,
                              @NotNull TooltipFlag flag, @NotNull DataComponentGetter dataComp) {
-        Integer autoSmelt = dataComp.get(ModDataComponentTypes.AUTO_SMELT);
-        if (autoSmelt != null && autoSmelt > 0) {
-            consumer.accept(line1);
-            consumer.accept(componentLiteral("Auto Smelt x" + autoSmelt + "!", gold));
-            consumer.accept(componentLiteral("tooltip.mccoursemod.auto_smelt.tooltip", gold));
-        }
+        consumer.accept(line1);
+        consumer.accept(componentLiteral("tooltip.mccoursemod.auto_smelt.tooltip", gold));
     }
 }
