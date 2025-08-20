@@ -16,6 +16,11 @@ public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
         add("chisel_use", SoundDefinition.definition().subtitle("sounds.mccoursemod.chisel_use")
                                                                  .with(sound("mccoursemod:chisel_use")));
 
+        // METAL DETECTOR FOUND ORE
+        add("metal_detector_found_ore", SoundDefinition.definition()
+                                                                  .subtitle("sounds.mccoursemod.metal_detector_found_ore")
+                                                                  .with(sound("mccoursemod:metal_detector_found_ore")));
+
         // MAGIC BREAK
         add("magic_block_break", SoundDefinition.definition().subtitle("sounds.mccoursemod.magic_block_break")
                                                                         .with(sound("mccoursemod:magic_block_break")));

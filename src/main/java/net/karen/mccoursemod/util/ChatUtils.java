@@ -16,12 +16,14 @@ import java.util.function.Consumer;
 
 public class ChatUtils {
     public static ChatFormatting blue = ChatFormatting.BLUE, darkBlue = ChatFormatting.DARK_BLUE,
-            aqua = ChatFormatting.AQUA, darkAqua = ChatFormatting.DARK_AQUA, purple = ChatFormatting.LIGHT_PURPLE,
-            darkPurple = ChatFormatting.DARK_PURPLE, green = ChatFormatting.GREEN, darkGreen = ChatFormatting.DARK_GREEN,
-            gray = ChatFormatting.GRAY, darkGray = ChatFormatting.DARK_GRAY, yellow = ChatFormatting.YELLOW,
-            gold = ChatFormatting.GOLD, red = ChatFormatting.RED, darkRed = ChatFormatting.DARK_RED,
-            black = ChatFormatting.BLACK, white = ChatFormatting.WHITE,
-            bold = ChatFormatting.BOLD, italic = ChatFormatting.ITALIC;
+           aqua = ChatFormatting.AQUA, darkAqua = ChatFormatting.DARK_AQUA,
+           purple = ChatFormatting.LIGHT_PURPLE, darkPurple = ChatFormatting.DARK_PURPLE,
+           green = ChatFormatting.GREEN, darkGreen = ChatFormatting.DARK_GREEN,
+           gray = ChatFormatting.GRAY, darkGray = ChatFormatting.DARK_GRAY,
+           yellow = ChatFormatting.YELLOW, gold = ChatFormatting.GOLD,
+           red = ChatFormatting.RED, darkRed = ChatFormatting.DARK_RED,
+           black = ChatFormatting.BLACK, white = ChatFormatting.WHITE,
+           bold = ChatFormatting.BOLD, italic = ChatFormatting.ITALIC;
 
     // CUSTOM METHOD - COMPONENT LITERAL without color
     public static Component standardLiteral(String message) {
@@ -43,12 +45,28 @@ public class ChatUtils {
         return Component.translatable(message).withStyle(color);
     }
 
+    // CUSTOM METHOD - COMPONENT LITERAL with one color
+    public static Component componentLiteralBold(String message, ChatFormatting color) {
+        return Component.literal(message).withStyle(color).withStyle(bold);
+    }
+
+    // CUSTOM METHOD - COMPONENT TRANSLATABLE with one color
+    public static Component componentTranslatableBold(String message, ChatFormatting color) {
+        return Component.translatable(message).withStyle(color).withStyle(bold);
+    }
+
     // CUSTOM METHOD - Message appears on screen without BOLD format
     public static void player(Player player, String message, ChatFormatting color) {
         player.displayClientMessage(componentLiteral(message, color), true);
     }
 
-    public static void playerRGB(Player player, Component message) {
+    // CUSTOM METHOD - Message appears on screen without BOLD format (en_us.json file)
+    public static void playerDisplayTranslatable(Player player, String message) {
+        player.displayClientMessage(standardTranslatable(message), true);
+    }
+
+    // CUSTOM METHOD - Message appears on screen without BOLD format
+    public static void playDisplayLiteral(Player player, Component message) {
         player.displayClientMessage(message, true);
     }
 
@@ -56,7 +74,8 @@ public class ChatUtils {
     public static MutableComponent description(String tooltip, ChatFormatting color,
                                                List<Boolean> curse) {
         boolean curseFalse = curse.get(0), curseTrue = curse.get(1);
-        return Component.translatable(tooltip).withStyle(Style.EMPTY.withColor(color).withBold(curseFalse).withItalic(curseTrue));
+        return Component.translatable(tooltip)
+                        .withStyle(Style.EMPTY.withColor(color).withBold(curseFalse).withItalic(curseTrue));
     }
 
     // CUSTOM METHOD - Text appears on TOOLTIP item -> Component Literal
@@ -67,22 +86,8 @@ public class ChatUtils {
 
     // CUSTOM METHOD - Text appears on TOOLTIP item -> Component Translatable
     public static void tooltipLineT(Consumer<Component> tooltip,
-                                   String message, ChatFormatting color) {
+                                    String message, ChatFormatting color) {
         tooltip.accept(componentTranslatable(message, color));
-    }
-
-    // CUSTOM METHOD - Text appears on TOOLTIP item (Translatable version) with RGB color
-    public static MutableComponent tooltipLineTranslatableRGB(int[] COLORS, ItemStack stack) {
-        int shift = (int) (System.currentTimeMillis() / 200L % COLORS.length); // Calculates color shift based on time
-        MutableComponent minerText = Component.literal(""); // Animated text for "Miner Bow" with RGB wave effect
-        String text = itemLine(stack.getItem().getDescriptionId(), "item.mccoursemod.", "", "_", " "),
-                on = itemLines(text);
-        for (int i = 0; i < on.length(); i++) {
-            int colorIndex = (i - shift + COLORS.length) % COLORS.length; // Adjust to move colors from left to right
-            minerText.append(Component.translatable(String.valueOf(on.charAt(i)))
-                    .setStyle(Style.EMPTY.withColor(TextColor.fromRgb(COLORS[colorIndex]))));
-        }
-        return minerText;
     }
 
     // CUSTOM METHOD - Tooltip Line Literal with RGB colors
@@ -91,28 +96,13 @@ public class ChatUtils {
         int shift = (int) (System.currentTimeMillis() / 200L % COLORS.length); // Calculates color shift based on time
         MutableComponent minerText = Component.literal(""); // Animated text for "Miner Bow" with RGB wave effect
         String text = itemLine(stack.getItem().getDescriptionId(), "item.mccoursemod.", "", "_", " "),
-                on = itemLines(text) + message;
+                 on = itemLines(text) + message;
         for (int i = 0; i < on.length(); i++) {
             int colorIndex = (i - shift + COLORS.length) % COLORS.length; // Adjust to move colors from left to right
             minerText.append(Component.literal(String.valueOf(on.charAt(i)))
-                    .setStyle(Style.EMPTY.withColor(TextColor.fromRgb(COLORS[colorIndex]))));
+                     .setStyle(Style.EMPTY.withColor(TextColor.fromRgb(COLORS[colorIndex]))));
         }
         tooltip.accept(minerText);
-    }
-
-    // CUSTOM METHOD - Message Literal on screen with RGB colors
-    public static void messageLiteralRGB(Player player, int[] COLORS,
-                                         ItemStack stack, String message) {
-        int shift = (int) (System.currentTimeMillis() / 200L % COLORS.length); // Calculates color shift based on time
-        MutableComponent minerText = Component.literal(""); // Animated text for "Miner Bow" with RGB wave effect
-        String text = itemLine(stack.getItem().getDescriptionId(), "item.mccoursemod.", "", "_", " "),
-                on = itemLines(text) + message;
-        for (int i = 0; i < on.length(); i++) {
-            int colorIndex = (i - shift + COLORS.length) % COLORS.length; // Adjust to move colors from left to right
-            minerText.append(Component.literal(String.valueOf(on.charAt(i)))
-                    .setStyle(Style.EMPTY.withColor(TextColor.fromRgb(COLORS[colorIndex]))));
-        }
-        playerRGB(player, minerText);
     }
 
     // CUSTOM METHOD - Renamed string on TOOLTIP -> Ex: Fortune etc. (Only one word) -> Capitalize First Letters
@@ -127,7 +117,9 @@ public class ChatUtils {
         String[] words = input.split(" "); // Separated words
         StringJoiner capitalized = new StringJoiner(" "); // Spaced words
         for (String word : words) { // For each word
-            if (!word.isEmpty()) { capitalized.add(word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase()); }
+            if (!word.isEmpty()) {
+                capitalized.add(word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase());
+            }
         }
         return capitalized.toString(); // Joined words with capitalize words
     }
@@ -176,16 +168,18 @@ public class ChatUtils {
     // CUSTOM METHOD - Enchantment Icon compatibility
     public static String icon(Holder<Enchantment> holder) {
         String armor = "§6⭐", pick = "§5⛏", hammer = "§3🔨", shield = "§1🛡",
-                bow = "§a\uD83C\uDFF9", sword = "§4\uD83D\uDDE1", trident = "§b\uD83D\uDD31",
+                 bow = "§a\uD83C\uDFF9", sword = "§4\uD83D\uDDE1", trident = "§b\uD83D\uDD31",
                 fish = "§e\uD83C\uDFA3", axe = "§5\uD83E\uDE93";
         // CURSE
         if (holder.is(EnchantmentTags.CURSE)) { return "§c🔥"; }
         // ARMOR
         if (holder.is(EnchantmentTags.ARMOR_EXCLUSIVE)) { return armor; }
         // HELMET, CHESTPLATE, LEGGINGS, BOOTS ARMORS AND MACE
-        if (holder.is(ModTags.Enchantments.HELMET_ENCHANTMENTS) || holder.is(ModTags.Enchantments.CHESTPLATE_ENCHANTMENTS) ||
-                holder.is(ModTags.Enchantments.LEGGINGS_ENCHANTMENTS) || holder.is(ModTags.Enchantments.BOOTS_ENCHANTMENTS) ||
-                holder.is(ModTags.Enchantments.MACE_ENCHANTMENTS)) {
+        if (holder.is(ModTags.Enchantments.HELMET_ENCHANTMENTS) ||
+            holder.is(ModTags.Enchantments.CHESTPLATE_ENCHANTMENTS) ||
+            holder.is(ModTags.Enchantments.LEGGINGS_ENCHANTMENTS) ||
+            holder.is(ModTags.Enchantments.BOOTS_ENCHANTMENTS) ||
+            holder.is(ModTags.Enchantments.MACE_ENCHANTMENTS)) {
             return "";
         }
         // FISHING ROD
@@ -195,7 +189,7 @@ public class ChatUtils {
         // GENERAL UNBREAKING, MENDING
         if (holder.is(ModTags.Enchantments.DURABILITY_ENCHANTMENTS)) {
             return axe + " " + fish + " " + pick + " " + armor + " " + sword + " " + bow + " " + trident + " " +
-                    hammer + " " + shield;
+                   hammer + " " + shield;
         }
         // TRIDENT
         if (holder.is(ModTags.Enchantments.TRIDENT_ENCHANTMENTS)) { return trident; }
@@ -225,7 +219,8 @@ public class ChatUtils {
     }
 
     // CUSTOM METHOD - GLOWING MOBS message
-    public static void glow(Player player, boolean test, String message, String message1) {
+    public static void glow(Player player, boolean test,
+                            String message, String message1) {
         player.displayClientMessage(componentLiteral("Glowing " + (test ? message : message1),
                                                      (test ? green : red)), true);
     }

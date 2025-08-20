@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-20T15:26:24.4299721	Model Definitions - mccoursemod
+// 1.21.8	2025-08-20T19:09:57.9578848	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -113,6 +113,7 @@ e7871ea4c90d160dcdac90a834a8867cd6e7af37 assets/mccoursemod/items/bloodwood_sapl
 d2b9a628c74d630b8276101f8a0f04626db1a47e assets/mccoursemod/items/chair.json
 75e724a0c073e339ce30f90f294a184beb4da809 assets/mccoursemod/items/chisel.json
 4724b7b9f220bb76278f4c673e146c71f1ad6fbe assets/mccoursemod/items/coffee.json
+f2086c138ed4b922bce40b818104fe94bf86f1a1 assets/mccoursemod/items/data_tablet.json
 4a1ee8e87d8a82726d9f60201212c8ecb0a82fd7 assets/mccoursemod/items/deepslate_alexandrite_ore.json
 e5ff5f1a8eb00ed1efa344dca5463d48decdf0e1 assets/mccoursemod/items/disenchant_grouped.json
 d1e1537c835ce37fbba409d8bb2f13016b9bd3ad assets/mccoursemod/items/disenchant_individual.json
@@ -134,6 +135,7 @@ c2387d52e387dbf791b463a2d0c1f627dc616110 assets/mccoursemod/items/level_charger_
 68c66bdb0543e0688b875b7e031b5b47765985a5 assets/mccoursemod/items/mccoursemod_elevator.json
 a33fdc1092fa423bf247380062149416cb1374e7 assets/mccoursemod/items/mccourse_mod_bottle.json
 25342023c4799ea43bffd715785d95aefc165f06 assets/mccoursemod/items/mccourse_mod_fishing_rod.json
+19ac3cb83f5367f89d744334427415cfda292188 assets/mccoursemod/items/metal_detector.json
 1f4c1972b284d872be756cf2e58ecde8e66fd4e0 assets/mccoursemod/items/nether_alexandrite_ore.json
 f690992a632d5f7b472d3b3b164fd4e146d7e4ad assets/mccoursemod/items/pedestal.json
 d8d7bed06e1dd1e8cd6bcc1a83823f5a108a7e1d assets/mccoursemod/items/radiation_staff.json
@@ -395,6 +397,8 @@ c0d1f8e69879adec59df18c6cf6a472c85c042d6 assets/mccoursemod/models/item/bismuth_
 0667590b478aa28ad039666e24244c92e2b3a485 assets/mccoursemod/models/item/chisel.json
 8f1e5531b8694e0358bfd9a168c2352c5aa67dbb assets/mccoursemod/models/item/chisel_used.json
 1b5bb5f0295c0222714426faf4cb56cdbf27c730 assets/mccoursemod/models/item/coffee.json
+f92d6b1a7b4ec66ff5d806fe06ed5da88bdba765 assets/mccoursemod/models/item/data_tablet.json
+b697e7685f5c3ea819307d479ba39799ddc6d074 assets/mccoursemod/models/item/data_tablet_used.json
 627d1a15dd252d7d5697ccfe1384d2229de1f7f5 assets/mccoursemod/models/item/forced_stained_glass_pane.json
 b76f16fdd036f042e4e703d6fe5a8ad8eb860d18 assets/mccoursemod/models/item/frostfire_ice.json
 0af77c03355d63ba8d8f826247d6ff618b01c0ef assets/mccoursemod/models/item/gecko_spawn_egg.json
@@ -412,6 +416,7 @@ bd54a57c8de52209472992241e62408fce50a4eb assets/mccoursemod/models/item/mccourse
 b1b2377b4f2b8cb5f3ed27769ec348976d3191af assets/mccoursemod/models/item/mccourse_mod_bottle_off.json
 d84cb676f120f5f30936cc48c5415d8686d35849 assets/mccoursemod/models/item/mccourse_mod_fishing_rod.json
 6b3d6d19dbd0e0dbdb0e0091dfa2e5b2ebf7d866 assets/mccoursemod/models/item/mccourse_mod_fishing_rod_cast.json
+439a8fb1f55590b6fc5aaf8667bf67da0afff665 assets/mccoursemod/models/item/metal_detector.json
 39d6c9aa4fed33e381348147a96d23f84e154e99 assets/mccoursemod/models/item/radiation_staff.json
 9c566763be3a3a7e2b92115f731cecc2be946de4 assets/mccoursemod/models/item/radish.json
 4b756411260fbcbb14f6cb6e5027205b3e060849 assets/mccoursemod/models/item/radish_seeds.json

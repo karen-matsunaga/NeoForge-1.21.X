@@ -25,6 +25,7 @@ import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
 import net.minecraft.client.renderer.item.properties.select.TrimMaterialProperty;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -166,7 +167,9 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
         alternateItemTexture(itemModels, ModItems.MCCOURSE_MOD_BOTTLE.get());
-        booleanItemTexture(itemModels, ModItems.CHISEL.get());
+        booleanItemTexture(itemModels, ModItems.CHISEL.get(), ModDataComponentTypes.COORDINATES.get());
+        booleanItemTexture(itemModels, ModItems.DATA_TABLET.get(), ModDataComponentTypes.FOUND_BLOCK.get());
+        itemModels.generateFlatItem(ModItems.METAL_DETECTOR.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM MUSIC DISC **
         itemModels.generateFlatItem(ModItems.BAR_BRAWL_MUSIC_DISC.get(), ModelTemplates.FLAT_ITEM);
@@ -444,14 +447,15 @@ public class ModModelProvider extends ModelProvider {
     }
 
     // CUSTOM METHOD - Boolean item textures
-    protected static void booleanItemTexture(ItemModelGenerators itemModels, Item item) {
-        ItemModel.Unbaked chisel = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, ModelTemplates.FLAT_ITEM));
-        ItemModel.Unbaked usedChisel = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, "_used",
-                                                                                                ModelTemplates.FLAT_ITEM));
-        itemModels.itemModelOutput.register(ModItems.CHISEL.get(),
-                  new ClientItem(new ConditionalItemModel.Unbaked(
-                                 new HasComponent(ModDataComponentTypes.COORDINATES.get(), false),
-                                 usedChisel, chisel), new ClientItem.Properties(false, false)));
+    protected static void booleanItemTexture(ItemModelGenerators itemModels,
+                                             Item item, DataComponentType<?> data) {
+        ItemModel.Unbaked offItem = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, ModelTemplates.FLAT_ITEM));
+        ItemModel.Unbaked usedItem = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, "_used",
+                                                                                              ModelTemplates.FLAT_ITEM));
+        itemModels.itemModelOutput
+                  .register(item, new ClientItem(
+                                  new ConditionalItemModel.Unbaked(new HasComponent(data, false), usedItem, offItem),
+                                  new ClientItem.Properties(false, false)));
     }
 
     // CUSTOM METHOD - Bow texture

@@ -282,6 +282,16 @@ public class ModItems {
            (properties) -> new MccourseModBottleItem(properties.fireResistant().stacksTo(1),
                                                                100000, 1));
 
+    // METAL DETECTOR item
+    public static final DeferredItem<Item> METAL_DETECTOR =
+           ITEMS.registerItem("metal_detector",
+           (properties) -> new MetalDetectorItem(properties.fireResistant().stacksTo(1),
+                                                           ModTags.Blocks.METAL_DETECTOR_VALUABLES));
+
+    // DATA TABLET item
+    public static final DeferredItem<Item> DATA_TABLET =
+           ITEMS.registerItem("data_tablet", DataTabletItem::new, new Item.Properties().stacksTo(1));
+
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

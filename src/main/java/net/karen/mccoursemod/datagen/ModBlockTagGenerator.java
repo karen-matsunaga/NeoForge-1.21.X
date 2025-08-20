@@ -108,5 +108,10 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
 
         // Glass
         this.tag(BlockTags.IMPERMEABLE).add(ModBlocks.FORCED_STAINED_GLASS.get());
+
+        // METAL DETECTOR
+        tag(ModTags.Blocks.METAL_DETECTOR_VALUABLES).addTag(Tags.Blocks.ORES)
+                                                    .addTag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE);
+        tag(ModTags.Blocks.METAL_DETECTOR_COLORS).addTag(Tags.Blocks.ORES_GOLD).addTag(Tags.Blocks.ORES_COPPER);
     }
 }

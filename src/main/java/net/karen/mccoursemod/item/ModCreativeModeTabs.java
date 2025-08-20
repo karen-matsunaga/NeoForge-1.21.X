@@ -38,6 +38,9 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.LEVEL_CHARGER_GENERIC_MINUS);
                  output.accept(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE);
                  output.accept(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE);
+                 // CUSTOM FOUND ORES
+                 output.accept(ModItems.DATA_TABLET);
+                 output.accept(ModItems.METAL_DETECTOR);
                  // ** CUSTOM tools **
                  // BISMUTH
                  output.accept(ModItems.BISMUTH_HAMMER);

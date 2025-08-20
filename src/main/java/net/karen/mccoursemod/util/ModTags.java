@@ -52,6 +52,10 @@ public class ModTags {
         // ALEXANDRITE blocks
         public static final TagKey<Block> ALEXANDRITE_BLOCKS = createTag("alexandrite_blocks");
 
+        // METAL DETECTOR
+        public static final TagKey<Block> METAL_DETECTOR_VALUABLES = createTag("metal_detector_valuables");
+        public static final TagKey<Block> METAL_DETECTOR_COLORS = createTag("metal_detector_colors");
+
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));

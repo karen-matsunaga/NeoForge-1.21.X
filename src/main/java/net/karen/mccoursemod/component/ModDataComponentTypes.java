@@ -27,6 +27,10 @@ public class ModDataComponentTypes {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> COORDINATES =
            register("coordinates", builder -> builder.persistent(BlockPos.CODEC));
 
+    // Found Block data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<FoundBlock>> FOUND_BLOCK =
+           register("found_block", builder -> builder.persistent(FoundBlock.CODEC));
+
     // Auto Smelt custom data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> AUTO_SMELT =
            register("auto_smelt", builder ->

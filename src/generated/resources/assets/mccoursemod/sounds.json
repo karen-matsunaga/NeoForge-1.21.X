@@ -72,5 +72,11 @@
       "mccoursemod:magic_block_step"
     ],
     "subtitle": "sounds.mccoursemod.magic_block_step"
+  },
+  "metal_detector_found_ore": {
+    "sounds": [
+      "mccoursemod:metal_detector_found_ore"
+    ],
+    "subtitle": "sounds.mccoursemod.metal_detector_found_ore"
   }
 }

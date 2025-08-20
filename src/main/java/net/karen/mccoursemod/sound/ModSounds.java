@@ -21,8 +21,12 @@ public class ModSounds {
            DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, MccourseMod.MOD_ID);
 
     // ** CUSTOM Advanced item sounds **
-    // Chisel item sounds
+    // CHISEL item sound
     public static final Supplier<SoundEvent> CHISEL_USE = registerSoundEvent("chisel_use");
+
+    // METAL DETECTOR item sound
+    public static final Supplier<SoundEvent> METAL_DETECTOR_FOUND_ORE =
+           registerSoundEvents("metal_detector_found_ore");
 
     // ** CUSTOM Advanced block sounds **
     /* MAGIC block sounds   * Position 1: Break sound (when block is broken)

@@ -30,6 +30,8 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE, "Level Charger Specif Plus Fortune");
         addItem(ModItems.MCCOURSE_MOD_BOTTLE, "Mccourse Mod Bottle");
         addItem(ModItems.CHISEL, "Chisel");
+        addItem(ModItems.DATA_TABLET, "Data Tablet");
+        addItem(ModItems.METAL_DETECTOR, "Metal Detector");
 
         // CUSTOM MUSIC DISC
         addItem(ModItems.BAR_BRAWL_MUSIC_DISC, "Bar Brawl Music Disc");
@@ -423,7 +425,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.minecraft.wind_burst.desc",
             "When applied on mace the player into the air seven blocks per level after performing a smash attack.");
 
-        // CUSTOM TOOLTIP
+        // ** CUSTOM TOOLTIP **
         add("tooltip.mccoursemod.magic_block", "This Block is quite §9MAGICAL§r");
         add("tooltip.mccoursemod.auto_smelt.tooltip",
             "When applied on pickaxe transform all items that can be roasted on furnace.");
@@ -432,6 +434,11 @@ public class ModLanguageProvider extends LanguageProvider {
         add("tooltip.mccoursemod.chisel.shift_down", "This Item can chisel Blocks into Bricks");
         add("tooltip.mccoursemod.chisel", "Press §eShift§r for more Information");
         add("tooltip.mccoursemod.radish", "Tastes really great!");
+        add("tooltip.mccoursemod.metal_detector.tooltip.shift", "Right Click on Blocks to find Valuables!");
+        add("tooltip.mccoursemod.metal_detector.tooltip", "Press §eSHIFT§r for more Information");
+
+        // ** CUSTOM player display screen messages **
+        add("item.mccoursemod.metal_detector.no_valuable_values", "No Valuables Found!");
 
         // CUSTOM Effects and Potions
         // FLY effect + potion
