@@ -93,6 +93,7 @@ public class ModCreativeModeTabs {
                  // CUSTOM fuels
                  output.accept(ModItems.FROSTFIRE_ICE);
                  output.accept(ModItems.STARLIGHT_ASHES);
+                 output.accept(ModItems.PEAT_BRICK);
                  // CUSTOM bush
                  output.accept(ModItems.GOJI_BERRIES);
                  // CUSTOM mob

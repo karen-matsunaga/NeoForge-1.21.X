@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-20T21:17:57.7246652	Model Definitions - mccoursemod
+// 1.21.8	2025-08-20T21:38:25.6041322	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -141,6 +141,7 @@ a33fdc1092fa423bf247380062149416cb1374e7 assets/mccoursemod/items/mccourse_mod_b
 25342023c4799ea43bffd715785d95aefc165f06 assets/mccoursemod/items/mccourse_mod_fishing_rod.json
 19ac3cb83f5367f89d744334427415cfda292188 assets/mccoursemod/items/metal_detector.json
 1f4c1972b284d872be756cf2e58ecde8e66fd4e0 assets/mccoursemod/items/nether_alexandrite_ore.json
+a9909762f5666fd668c999f8aa8a0ed525aa939f assets/mccoursemod/items/peat_brick.json
 f690992a632d5f7b472d3b3b164fd4e146d7e4ad assets/mccoursemod/items/pedestal.json
 d8d7bed06e1dd1e8cd6bcc1a83823f5a108a7e1d assets/mccoursemod/items/radiation_staff.json
 8b0f4093ea959596641caaeac7b9b6f5d8538593 assets/mccoursemod/items/radish.json
@@ -432,6 +433,7 @@ b1b2377b4f2b8cb5f3ed27769ec348976d3191af assets/mccoursemod/models/item/mccourse
 d84cb676f120f5f30936cc48c5415d8686d35849 assets/mccoursemod/models/item/mccourse_mod_fishing_rod.json
 6b3d6d19dbd0e0dbdb0e0091dfa2e5b2ebf7d866 assets/mccoursemod/models/item/mccourse_mod_fishing_rod_cast.json
 439a8fb1f55590b6fc5aaf8667bf67da0afff665 assets/mccoursemod/models/item/metal_detector.json
+39fc8b83448cca2cf588db4a4ec7b5c925df9153 assets/mccoursemod/models/item/peat_brick.json
 39d6c9aa4fed33e381348147a96d23f84e154e99 assets/mccoursemod/models/item/radiation_staff.json
 9c566763be3a3a7e2b92115f731cecc2be946de4 assets/mccoursemod/models/item/radish.json
 4b756411260fbcbb14f6cb6e5027205b3e060849 assets/mccoursemod/models/item/radish_seeds.json

@@ -102,6 +102,7 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM fuels
         addItem(ModItems.FROSTFIRE_ICE, "Frostfire Ice");
         addItem(ModItems.STARLIGHT_ASHES, "Starlight Ashes");
+        addItem(ModItems.PEAT_BRICK, "Peat Brick");
 
         // CUSTOM Bush
         addItem(ModItems.GOJI_BERRIES, "Goji Berries");
@@ -228,6 +229,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // Crop block
         addBlock(ModBlocks.RADISH_CROP, "Radish Crop Block");
+        addBlock(ModBlocks.KOHLRABI_CROP, "Kohlrabi Crop Block");
 
         // Bush block
         addBlock(ModBlocks.GOJI_BERRY_BUSH, "Goji Berry Bush Block");

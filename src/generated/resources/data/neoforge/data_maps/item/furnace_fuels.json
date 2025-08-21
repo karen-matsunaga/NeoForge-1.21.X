@@ -6,6 +6,9 @@
     "mccoursemod:frostfire_ice": {
       "burn_time": 2400
     },
+    "mccoursemod:peat_brick": {
+      "burn_time": 400
+    },
     "mccoursemod:starlight_ashes": {
       "burn_time": 1200
     }

@@ -1,5 +1,11 @@
 {
   "values": {
+    "mccoursemod:kohlrabi": {
+      "chance": 0.45
+    },
+    "mccoursemod:kohlrabi_seeds": {
+      "chance": 0.25
+    },
     "mccoursemod:radish": {
       "chance": 0.45
     },

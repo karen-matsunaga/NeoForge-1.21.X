@@ -83,6 +83,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> STARLIGHT_ASHES = ITEMS.registerItem("starlight_ashes", Item::new);
 
+    public static final DeferredItem<Item> PEAT_BRICK =
+           ITEMS.registerItem("peat_brick", (properties) -> new FuelItem(properties, 200));
+
     // ** CUSTOM tools (Sword, Pickaxe, Shovel, Axe, Hoe, Hammer, Paxel, Bow, etc.) **
     // BISMUTH
     public static final DeferredItem<Item> BISMUTH_SWORD = ITEMS.registerItem("bismuth_sword",

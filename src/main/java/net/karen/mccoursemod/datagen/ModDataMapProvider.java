@@ -18,15 +18,18 @@ public class ModDataMapProvider extends DataMapProvider {
 
     @Override
     protected void gather(HolderLookup.@NotNull Provider provider) {
-        // CUSTOM furnace fuels items
+        // ** CUSTOM furnace fuels items **
         this.builder(NeoForgeDataMaps.FURNACE_FUELS)
             .add(ModItems.STARLIGHT_ASHES.getId(), new FurnaceFuel(1200), false)
             .add(ModItems.FROSTFIRE_ICE.getId(), new FurnaceFuel(2400), false)
+            .add(ModItems.PEAT_BRICK.getId(), new FurnaceFuel(400), false)
             .add(ModItems.COFFEE, new FurnaceFuel(1200), false);
 
-        // CUSTOM compostables items
+        // ** CUSTOM compostables items **
         this.builder(NeoForgeDataMaps.COMPOSTABLES)
-            .add(ModItems.RADISH_SEEDS.getId(), new Compostable(0.25f), false)
-            .add(ModItems.RADISH.getId(), new Compostable(0.45f), false);
+            .add(ModItems.RADISH_SEEDS.getId(), new Compostable(0.25F), false)
+            .add(ModItems.RADISH.getId(), new Compostable(0.45F), false)
+            .add(ModItems.KOHLRABI_SEEDS.getId(), new Compostable(0.25F), false)
+            .add(ModItems.KOHLRABI.getId(), new Compostable(0.45F), false);
     }
 }
