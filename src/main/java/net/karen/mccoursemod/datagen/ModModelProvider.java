@@ -6,6 +6,7 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.block.custom.BismuthLampBlock;
 import net.karen.mccoursemod.block.custom.GojiBerryBushBlock;
+import net.karen.mccoursemod.block.custom.KohlrabiCropBlock;
 import net.karen.mccoursemod.block.custom.RadishCropBlock;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
@@ -117,10 +118,15 @@ public class ModModelProvider extends ModelProvider {
         blockstateTexture(blockModels, ModBlocks.ALEXANDRITE_LAMP.get());
 
         // ** CUSTOM crop **
-        createCropBlock(blockModels, ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
+        createCropBlock(blockModels, ModBlocks.RADISH_CROP.get(),
+                        RadishCropBlock.AGE, 0, 1, 2, 3);
+
+        createCropBlock(blockModels, ModBlocks.KOHLRABI_CROP.get(),
+                        KohlrabiCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
 
         // ** CUSTOM bush crop **
-        createCropBlock(blockModels, ModBlocks.GOJI_BERRY_BUSH.get(), GojiBerryBushBlock.AGE,  0, 1, 2, 3);
+        createCropBlock(blockModels, ModBlocks.GOJI_BERRY_BUSH.get(),
+                        GojiBerryBushBlock.AGE,  0, 1, 2, 3);
 
         // ** CUSTOM log block **
         blockModels.woodProvider(ModBlocks.BLOODWOOD_LOG.get())
@@ -135,7 +141,8 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.createTintedLeaves(ModBlocks.BLOODWOOD_LEAVES.get(),
                                        TexturedModel.LEAVES.updateTemplate(template ->
-                                                                           template.extend().renderType("cutout_mipped").build()),
+                                                                           template.extend()
+                                                                                   .renderType("cutout_mipped").build()),
                                                                            -12012264);
         // BLOODWOOD SAPLING -> Used Netherrack block
         createSaplingTexture(blockModels, ModBlocks.BLOODWOOD_SAPLING.get());
@@ -150,7 +157,8 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.GROWTH_CHAMBER.get());
 
         // ** CUSTOM glass block **
-        createGlassBlocksTransparent(blockModels, ModBlocks.FORCED_STAINED_GLASS.get(), ModBlocks.FORCED_STAINED_GLASS_PANE.get());
+        createGlassBlocksTransparent(blockModels, ModBlocks.FORCED_STAINED_GLASS.get(),
+                                     ModBlocks.FORCED_STAINED_GLASS_PANE.get());
 
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
@@ -223,6 +231,7 @@ public class ModModelProvider extends ModelProvider {
 
         // ** CUSTOM seeds **
         itemModels.generateFlatItem(ModItems.RADISH.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.KOHLRABI.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM fuels **
         itemModels.generateFlatItem(ModItems.FROSTFIRE_ICE.get(), ModelTemplates.FLAT_ITEM);

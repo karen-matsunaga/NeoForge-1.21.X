@@ -95,7 +95,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // CUSTOM seeds
         addItem(ModItems.RADISH, "Radish");
+        addItem(ModItems.KOHLRABI, "Kohlrabi");
         addItem(ModItems.RADISH_SEEDS, "Radish Seeds");
+        addItem(ModItems.KOHLRABI_SEEDS, "Kohlrabi Seeds");
 
         // CUSTOM fuels
         addItem(ModItems.FROSTFIRE_ICE, "Frostfire Ice");
@@ -154,6 +156,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.alexandrite_wall", "Alexandrite Wall Block");
         add("item.mccoursemod.alexandrite_lamp", "Alexandrite Lamp Block");
         add("item.mccoursemod.radish_crop", "Radish Crop Block");
+        add("item.mccoursemod.kohlrabi_crop", "Kohlrabi Crop Block");
         add("item.mccoursemod.goji_berry_bush", "Goji Berry Bush Block");
         add("item.mccoursemod.bloodwood_log", "Bloodwood Log");
         add("item.mccoursemod.bloodwood_planks", "Bloodwood Planks");

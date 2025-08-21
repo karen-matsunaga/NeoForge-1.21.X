@@ -78,6 +78,8 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.ALEXANDRITE_HORSE_ARMOR);
                  // CUSTOM foods
                  output.accept(ModItems.COFFEE);
+                 output.accept(ModItems.RADISH);
+                 output.accept(ModItems.KOHLRABI);
                  // CUSTOM advanced items
                  output.accept(ModItems.MCCOURSE_MOD_BOTTLE);
                  output.accept(ModItems.CHISEL);
@@ -85,9 +87,9 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.BAR_BRAWL_MUSIC_DISC);
                  // CUSTOM Smithing Template
                  output.accept(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE);
-                 // CUSTOM seeds
+                 // ** CUSTOM seeds **
                  output.accept(ModItems.RADISH_SEEDS);
-                 output.accept(ModItems.RADISH);
+                 output.accept(ModItems.KOHLRABI_SEEDS);
                  // CUSTOM fuels
                  output.accept(ModItems.FROSTFIRE_ICE);
                  output.accept(ModItems.STARLIGHT_ASHES);
@@ -159,8 +161,9 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.BISMUTH_LAMP);
                  // ALEXANDRITE
                  output.accept(ModBlocks.ALEXANDRITE_LAMP);
-                 // Crop block
+                 // ** CUSTOM Crop block **
                  output.accept(ModBlocks.RADISH_CROP);
+                 output.accept(ModBlocks.KOHLRABI_CROP);
                  // Bush crop block
                  output.accept(ModBlocks.GOJI_BERRY_BUSH);
                  // Bloodwood log + Bloodwood wood

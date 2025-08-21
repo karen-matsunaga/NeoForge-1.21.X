@@ -52,6 +52,7 @@ public class ModItems {
     public static final DeferredItem<Item> CHISEL =
            ITEMS.registerItem("chisel", ChiselItem::new, new Item.Properties().durability(32));
 
+    // ** CUSTOM foods **
     public static final DeferredItem<Item> RADISH = ITEMS.registerItem("radish",
            (properties) -> new Item(properties.food(new FoodProperties.Builder()
                                                                                 .nutrition(3).saturationModifier(0.25F).build(),
@@ -67,6 +68,14 @@ public class ModItems {
                    super.appendHoverText(stack, context, display, consumer, flag);
                }
            });
+
+    public static final DeferredItem<Item> KOHLRABI = ITEMS.registerItem("kohlrabi",
+           (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
+                                                                                          .saturationModifier(0.25F).build(),
+                                                              Consumables.defaultFood().onConsume(
+                                                              new ApplyStatusEffectsConsumeEffect(
+                                                              new MobEffectInstance(MobEffects.SPEED, 200),
+                                                              0.1F)).build())));
 
     // ** CUSTOM fuels **
     public static final DeferredItem<Item> FROSTFIRE_ICE = ITEMS.registerItem("frostfire_ice",
@@ -222,6 +231,9 @@ public class ModItems {
     // ** CUSTOM seeds **
     public static final DeferredItem<Item> RADISH_SEEDS = ITEMS.registerItem("radish_seeds",
            (properties) -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties));
+
+    public static final DeferredItem<Item> KOHLRABI_SEEDS = ITEMS.registerItem("kohlrabi_seeds",
+           (properties) -> new BlockItem(ModBlocks.KOHLRABI_CROP.get(), properties));
 
     // ** CUSTOM bush crop **
     public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",

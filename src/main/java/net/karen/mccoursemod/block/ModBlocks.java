@@ -215,6 +215,11 @@ public class ModBlocks {
                                                                    .randomTicks().instabreak().sound(SoundType.CROP)
                                                                    .pushReaction(PushReaction.DESTROY)));
 
+    public static final DeferredBlock<Block> KOHLRABI_CROP = BLOCKS.registerBlock("kohlrabi_crop",
+           (properties) -> new KohlrabiCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
+                                                                     .randomTicks().instabreak().sound(SoundType.CROP)
+                                                                     .pushReaction(PushReaction.DESTROY)));
+
     // ** CUSTOM bush crop block **
     public static final DeferredBlock<Block> GOJI_BERRY_BUSH = BLOCKS.registerBlock("goji_berry_bush",
            (properties) -> new GojiBerryBushBlock(properties.mapColor(MapColor.PLANT).noCollission()

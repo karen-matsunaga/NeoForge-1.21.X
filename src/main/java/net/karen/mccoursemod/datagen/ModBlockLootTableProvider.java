@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.block.custom.KohlrabiCropBlock;
 import net.karen.mccoursemod.block.custom.RadishCropBlock;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -109,16 +110,27 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         // ALEXANDRITE
         dropSelf(ModBlocks.ALEXANDRITE_LAMP.get());
 
-        // Crop block
-        // Crop loot item drop
-        LootItemCondition.Builder lootItemConditionBuilder =
+        // ** CUSTOM Crop block **
+        // RADISH Crop loot item drop
+        LootItemCondition.Builder radishLootItemConditionBuilder =
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.RADISH_CROP.get())
                                                    .setProperties(StatePropertiesPredicate.Builder.properties()
                                                    .hasProperty(RadishCropBlock.AGE, 3));
-        // Crop drop
+        // RADISH Crop drop
         this.add(ModBlocks.RADISH_CROP.get(),
                  this.createCropDrops(ModBlocks.RADISH_CROP.get(), ModItems.RADISH.get(),
-                                      ModItems.RADISH_SEEDS.get(), lootItemConditionBuilder));
+                                      ModItems.RADISH_SEEDS.get(), radishLootItemConditionBuilder));
+
+        // KOHLRABI Crop loot item drop
+        LootItemCondition.Builder kohlrabiLootItemConditionBuilder =
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.KOHLRABI_CROP.get())
+                                                   .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                   .hasProperty(KohlrabiCropBlock.AGE, 6));
+
+        // KOHLRABI Crop drop
+        this.add(ModBlocks.KOHLRABI_CROP.get(),
+                 this.createCropDrops(ModBlocks.KOHLRABI_CROP.get(), ModItems.KOHLRABI.get(),
+                                      ModItems.KOHLRABI_SEEDS.get(), kohlrabiLootItemConditionBuilder));
 
         // Bush crop
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
