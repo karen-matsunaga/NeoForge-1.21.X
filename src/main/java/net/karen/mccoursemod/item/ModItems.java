@@ -307,6 +307,11 @@ public class ModItems {
     public static final DeferredItem<Item> DATA_TABLET =
            ITEMS.registerItem("data_tablet", DataTabletItem::new, new Item.Properties().stacksTo(1));
 
+    // GROWTH item
+    public static final DeferredItem<Item> GROWTH =
+           ITEMS.registerItem("growth", GrowthItem::new, new Item.Properties().stacksTo(64)
+                                                                                    .fireResistant());
+
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

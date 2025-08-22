@@ -33,6 +33,8 @@ public class ModCreativeModeTabs {
                  // ** CUSTOM Advanced items **
                  // CUSTOM Special Effect items
                  output.accept(ModItems.AUTO_SMELT);
+                 // CUSTOM Growth item
+                 output.accept(ModItems.GROWTH);
                  // CUSTOM Level Charger items
                  output.accept(ModItems.LEVEL_CHARGER_GENERIC_PLUS);
                  output.accept(ModItems.LEVEL_CHARGER_GENERIC_MINUS);

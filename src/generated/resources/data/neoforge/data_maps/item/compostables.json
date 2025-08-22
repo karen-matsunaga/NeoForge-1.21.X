@@ -1,5 +1,8 @@
 {
   "values": {
+    "mccoursemod:growth": {
+      "chance": 0.5
+    },
     "mccoursemod:kohlrabi": {
       "chance": 0.45
     },

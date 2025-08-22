@@ -24,6 +24,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // ** CUSTOM ADVANCED ITEMS **
         addItem(ModItems.AUTO_SMELT, "Auto Smelt");
+        addItem(ModItems.GROWTH, "Growth");
         addItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS, "Level Charger Generic Plus");
         addItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS, "Level Charger Generic Minus");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE, "Level Charger Specif Minus Fortune");
@@ -33,10 +34,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.DATA_TABLET, "Data Tablet");
         addItem(ModItems.METAL_DETECTOR, "Metal Detector");
 
-        // CUSTOM MUSIC DISC
+        // ** CUSTOM MUSIC DISC **
         addItem(ModItems.BAR_BRAWL_MUSIC_DISC, "Bar Brawl Music Disc");
 
-        // CUSTOM Foods
+        // ** CUSTOM Foods **
         addItem(ModItems.COFFEE, "Coffee");
 
         // ** CUSTOM Tools **
@@ -77,15 +78,15 @@ public class ModLanguageProvider extends LanguageProvider {
         // ALEXANDRITE
         addItem(ModItems.ALEXANDRITE_HORSE_ARMOR, "Alexandrite Horse Armor");
 
-        // CUSTOM SMITHING TEMPLATE
+        // ** CUSTOM SMITHING TEMPLATE **
         addItem(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE, "Kaupen Armor Trim Smithing Template");
 
-        // CUSTOM TRIM MATERIAL + TRIM PATTERN
+        // ** CUSTOM TRIM MATERIAL + TRIM PATTERN **
         add("trim_material.mccoursemod.bismuth", "Bismuth Material");
         add("trim_material.mccoursemod.alexandrite", "Alexandrite Material");
         add("trim_pattern.mccoursemod.kaupen", "Kaupen Armor Trim");
 
-        // CUSTOM Painting Variant
+        // ** CUSTOM Painting Variant **
         add("painting.mccoursemod.world.title", "World");
         add("painting.mccoursemod.world.author", "NanoAttack");
         add("painting.mccoursemod.shrimp.title", "Shrimp");
@@ -93,33 +94,33 @@ public class ModLanguageProvider extends LanguageProvider {
         add("painting.mccoursemod.saw_them.title", "Saw Them");
         add("painting.mccoursemod.saw_them.author", "NanoAttack");
 
-        // CUSTOM seeds
+        // ** CUSTOM seeds **
         addItem(ModItems.RADISH, "Radish");
-        addItem(ModItems.KOHLRABI, "Kohlrabi");
         addItem(ModItems.RADISH_SEEDS, "Radish Seeds");
+        addItem(ModItems.KOHLRABI, "Kohlrabi");
         addItem(ModItems.KOHLRABI_SEEDS, "Kohlrabi Seeds");
 
-        // CUSTOM fuels
+        // ** CUSTOM fuels **
         addItem(ModItems.FROSTFIRE_ICE, "Frostfire Ice");
         addItem(ModItems.STARLIGHT_ASHES, "Starlight Ashes");
         addItem(ModItems.PEAT_BRICK, "Peat Brick");
 
-        // CUSTOM Bush
+        // ** CUSTOM Bush **
         addItem(ModItems.GOJI_BERRIES, "Goji Berries");
 
-        // CUSTOM Mob
+        // ** CUSTOM Mob **
         addItem(ModItems.GECKO_SPAWN_EGG, "Gecko Spawn Egg");
 
-        // CUSTOM Throwable Projectiles
+        // ** CUSTOM Throwable Projectiles **
         addItem(ModItems.TOMAHAWK, "Tomahawk");
 
-        // CUSTOM Animated Textures
+        // ** CUSTOM Animated Textures **
         addItem(ModItems.RADIATION_STAFF, "Radiation Staff");
 
-        // CUSTOM Fishing Rod
+        // ** CUSTOM Fishing Rod **
         addItem(ModItems.MCCOURSE_MOD_FISHING_ROD, "Mccourse Mod Fishing Rod");
 
-        // CUSTOM block item
+        // ** CUSTOM block items **
         add("item.mccoursemod.bismuth_block", "Bismuth Block");
         add("item.mccoursemod.bismuth_ore", "Bismuth Ore");
         add("item.mccoursemod.bismuth_deepslate_ore", "Bismuth Deepslate Ore");
@@ -219,22 +220,22 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.ALEXANDRITE_TRAPDOOR, "Alexandrite Trapdoor Block");
         addBlock(ModBlocks.ALEXANDRITE_WALL, "Alexandrite Wall Block");
 
-        // Glass block
+        // ** CUSTOM glass block **
         addBlock(ModBlocks.FORCED_STAINED_GLASS, "Forced Stained Glass Block");
         addBlock(ModBlocks.FORCED_STAINED_GLASS_PANE, "Forced Stained Glass Pane Block");
 
-        // Blockstate block
+        // ** CUSTOM Blockstate block **
         addBlock(ModBlocks.BISMUTH_LAMP, "Bismuth Lamp Block");
         addBlock(ModBlocks.ALEXANDRITE_LAMP, "Alexandrite Lamp Block");
 
-        // Crop block
+        // ** CUSTOM Crop block **
         addBlock(ModBlocks.RADISH_CROP, "Radish Crop Block");
         addBlock(ModBlocks.KOHLRABI_CROP, "Kohlrabi Crop Block");
 
-        // Bush block
+        // ** CUSTOM Bush block **
         addBlock(ModBlocks.GOJI_BERRY_BUSH, "Goji Berry Bush Block");
 
-        // Log
+        // ** CUSTOM Log block **
         addBlock(ModBlocks.BLOODWOOD_LOG, "Bloodwood Log");
         addBlock(ModBlocks.BLOODWOOD_PLANKS, "Bloodwood Planks");
         addBlock(ModBlocks.BLOODWOOD_WOOD, "Bloodwood Wood");
@@ -243,18 +244,18 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.BLOODWOOD_LEAVES, "Bloodwood Leaves");
         addBlock(ModBlocks.BLOODWOOD_SAPLING, "Bloodwood Sapling");
 
-        // CUSTOM sittable block model
+        // ** CUSTOM sittable block model **
         addBlock(ModBlocks.CHAIR, "Chair Block");
 
-        // CUSTOM block entity
+        // ** CUSTOM block entity **
         addBlock(ModBlocks.PEDESTAL, "Pedestal Block");
         addBlock(ModBlocks.GROWTH_CHAMBER, "Growth Chamber Block");
 
-        // CUSTOM CREATIVE TABS
+        // ** CUSTOM CREATIVE TABS **
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");
         add("creativetab.mccoursemod.bismuth_blocks", "Mccourse Blocks");
 
-        // CUSTOM Enchantment
+        // ** CUSTOM Mccourse Mod Enchantment names **
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
         add("enchantment.mccoursemod.auto_smelt", "Auto Smelt");
         add("enchantment.mccoursemod.more_ores", "More Ores");
@@ -268,11 +269,11 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.magnetism", "Magnetism");
         add("enchantment.mccoursemod.xp_boost", "Xp Boost");
 
-        // DESCRIPTIONS
-        // CUSTOM MUSIC DISC
+        // ** CUSTOM DESCRIPTIONS **
+        // ** CUSTOM MUSIC DISC **
         add("item.mccoursemod.bar_brawl_music_disc.desc", "Bryan Tech - Bar Brawl (CC0)");
 
-        // CUSTOM ENCHANTMENT MOD
+        // ** CUSTOM MCCOURSE MOD ENCHANTMENTS **
         add("enchantment.mccoursemod.lightning_striker.desc",
             "When applied on sword when player hits on entities appears lightning, " +
             "but player receive damage if attacked.");
@@ -308,6 +309,7 @@ public class ModLanguageProvider extends LanguageProvider {
             "When applied on leggings armor searches for items and Experience Orbs on the ground within " +
             "a radius and returns them to the Player's inventory.");
 
+        // ** VANILLA ENCHANTMENTS **
         // MINING
         add("enchantment.minecraft.efficiency.desc",
             "When applied on axe, pickaxe, shovel or hoe increases mining speed.");
@@ -448,7 +450,7 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM player display screen messages **
         add("item.mccoursemod.metal_detector.no_valuable_values", "§4No Valuables Found!");
 
-        // CUSTOM Effects and Potions
+        // ** CUSTOM Effects and Potions **
         // FLY effect + potion
         add("effect.mccoursemod.fly", "Fly");
         add("item.minecraft.potion.effect.fly_potion", "Fly Potion");
@@ -476,10 +478,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.minecraft.lingering_potion.effect.slimey_potion", "Slimey Lingering Potion");
         add("item.minecraft.tipped_arrow.effect.slimey_potion", "Arrow of Slimey");
 
-        // NETWORK message
+        // ** CUSTOM NETWORK message **
         add("mccoursemod.networking.failed", "Mccourse Mod network failed!");
 
-        // KEY BINDING
+        // ** CUSTOM KEY BINDING **
         add("key.category.mccoursemod", "Mccourse Mod");
         add("key.mccoursemod_glowing_blocks", "Glowing Blocks");
         add("key.mccoursemod_glowing_mobs", "Glowing Mobs");
@@ -487,11 +489,13 @@ public class ModLanguageProvider extends LanguageProvider {
         add("key.mccoursemod_mccoursemod_bottle_restored", "Mccourse Mod Bottle Restored");
         add("key.mccoursemod_unlock", "Unlock");
 
-        // CUSTOM mob
+        // ** CUSTOM mob **
         add("entity.mccoursemod.gecko", "Gecko");
-        // CUSTOM Throwable Projectiles
+
+        // ** CUSTOM Throwable Projectiles **
         add("entity.mccoursemod.tomahawk", "Tomahawk");
-        // CUSTOM villager
+
+        // ** CUSTOM villager **
         add("entity.minecraft.villager.mccoursemod.kaupenger", "Kaupenger");
     }
 }

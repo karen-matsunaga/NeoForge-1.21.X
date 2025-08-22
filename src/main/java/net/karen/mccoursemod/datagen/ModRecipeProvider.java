@@ -21,8 +21,8 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     public static class Runner extends RecipeProvider.Runner {
-        // Get the parameters from the `GatherDataEvent`s.
-        public Runner(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        public Runner(PackOutput output,
+                      CompletableFuture<HolderLookup.Provider> lookupProvider) {
             super(output, lookupProvider);
         }
 
@@ -59,7 +59,8 @@ public class ModRecipeProvider extends RecipeProvider {
                     0.25F, 100, "alexandrite");
 
         // ** CUSTOM block **
-        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.ANVIL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENCHANT.get());
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.ANVIL,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENCHANT.get());
 
         this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.BISMUTH.get(),
                                      RecipeCategory.BUILDING_BLOCKS, ModBlocks.BISMUTH_BLOCK.get());
@@ -114,7 +115,11 @@ public class ModRecipeProvider extends RecipeProvider {
         //                  ResourceKey.create(Registries.RECIPE, ModTrimPatterns.KAUPEN.location()));
 
         // ** CUSTOM glass block **
-        this.glassBlocks(List.of(ModBlocks.FORCED_STAINED_GLASS.get(), ModBlocks.FORCED_STAINED_GLASS_PANE.get(), Items.GREEN_DYE));
+        this.glassBlocks(List.of(ModBlocks.FORCED_STAINED_GLASS.get(),
+                                 ModBlocks.FORCED_STAINED_GLASS_PANE.get(), Items.GREEN_DYE));
+
+        // ** CUSTOM advanced items **
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.GROWTH.get(), RecipeCategory.FOOD, Items.CARROT);
     }
 
     // CUSTOM METHOD - Block Families
@@ -146,25 +151,28 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     // CUSTOM METHOD - Smelting
-    protected void oreSmelting(@NotNull List<ItemLike> itemLikes, @NotNull RecipeCategory category,
-                               @NotNull ItemLike result, float experience, int cookingTime, @NotNull String group) {
+    protected void oreSmelting(@NotNull List<ItemLike> itemLikes,
+                               @NotNull RecipeCategory category, @NotNull ItemLike result,
+                               float experience, int cookingTime, @NotNull String group) {
         this.oreCooking(RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, itemLikes, category, result,
                         experience, cookingTime, group, "_from_smelting");
     }
 
     // CUSTOM METHOD - Blasting
-    protected void oreBlasting(@NotNull List<ItemLike> itemLikes, @NotNull RecipeCategory category,
-                               @NotNull ItemLike result, float experience, int cookingTime, @NotNull String group) {
+    protected void oreBlasting(@NotNull List<ItemLike> itemLikes,
+                               @NotNull RecipeCategory category, @NotNull ItemLike result,
+                               float experience, int cookingTime, @NotNull String group) {
         this.oreCooking(RecipeSerializer.BLASTING_RECIPE, BlastingRecipe::new, itemLikes, category, result,
                         experience, cookingTime, group, "_from_blasting");
     }
 
     // CUSTOM METHOD - Smelting and Blasting
-    protected <T extends AbstractCookingRecipe> void oreCooking(@NotNull RecipeSerializer<T> serializer,
-                                                                AbstractCookingRecipe.@NotNull Factory<T> recipeFactory,
-                                                                List<ItemLike> itemLikes, @NotNull RecipeCategory category,
-                                                                @NotNull ItemLike result, float experience, int cookingTime,
-                                                                @NotNull String group, @NotNull String suffix) {
+    protected <T extends AbstractCookingRecipe>
+              void oreCooking(@NotNull RecipeSerializer<T> serializer,
+                              AbstractCookingRecipe.@NotNull Factory<T> recipeFactory,
+                              List<ItemLike> itemLikes, @NotNull RecipeCategory category,
+                              @NotNull ItemLike result, float experience, int cookingTime,
+                              @NotNull String group, @NotNull String suffix) {
         for (ItemLike itemlike : itemLikes) {
             SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), category, result, experience, cookingTime,
                                                serializer, recipeFactory)

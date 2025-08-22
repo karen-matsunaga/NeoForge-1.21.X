@@ -30,6 +30,7 @@ public class ModDataMapProvider extends DataMapProvider {
             .add(ModItems.RADISH_SEEDS.getId(), new Compostable(0.25F), false)
             .add(ModItems.RADISH.getId(), new Compostable(0.45F), false)
             .add(ModItems.KOHLRABI_SEEDS.getId(), new Compostable(0.25F), false)
-            .add(ModItems.KOHLRABI.getId(), new Compostable(0.45F), false);
+            .add(ModItems.KOHLRABI.getId(), new Compostable(0.45F), false)
+            .add(ModItems.GROWTH.getId(), new Compostable(0.5F), false);
     }
 }

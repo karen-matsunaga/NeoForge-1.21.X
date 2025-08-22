@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-20T21:38:25.6041322	Model Definitions - mccoursemod
+// 1.21.8	2025-08-22T09:21:37.5767533	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -126,6 +126,7 @@ f3eebc082c2c88ea97bea7a98d4deeceeb66d2c8 assets/mccoursemod/items/forced_stained
 d16de6e4e1ec5722e7da7f542236800827c8ae85 assets/mccoursemod/items/frostfire_ice.json
 46e6f51ea093628ec2e3cf939bd206b36308bda9 assets/mccoursemod/items/gecko_spawn_egg.json
 1ee0e54c23940eb7b0a3fb3ea575da512485541d assets/mccoursemod/items/goji_berries.json
+523f017287bb9d1e7ae9cf2f368c554d20152496 assets/mccoursemod/items/growth.json
 13aa98e4367e83b6071c7c5819ee3d3482ce4bfa assets/mccoursemod/items/growth_chamber.json
 24903ede3671a35b74fdec66f35dc9eec5eebb64 assets/mccoursemod/items/kaupen_armor_trim_smithing_template.json
 1017fda44dab724e54ad236adf749d3ee1d1f97c assets/mccoursemod/items/kaupen_bow.json
@@ -417,6 +418,7 @@ b697e7685f5c3ea819307d479ba39799ddc6d074 assets/mccoursemod/models/item/data_tab
 b76f16fdd036f042e4e703d6fe5a8ad8eb860d18 assets/mccoursemod/models/item/frostfire_ice.json
 0af77c03355d63ba8d8f826247d6ff618b01c0ef assets/mccoursemod/models/item/gecko_spawn_egg.json
 2d6733a2d6218d78d25aeb87e71e2b3e131a8f36 assets/mccoursemod/models/item/goji_berries.json
+4511360adea8256ef79ac2bd96d3708ae59418b1 assets/mccoursemod/models/item/growth.json
 458c1d3aa02b68b4ffb2276f7c1b48f50eaf4d62 assets/mccoursemod/models/item/kaupen_armor_trim_smithing_template.json
 38a010bdf3433667f18032bf8d2d4d7c03792b58 assets/mccoursemod/models/item/kaupen_bow.json
 40b2c7dcafbb3f2ec9d9d1cff795b4eaa117ea88 assets/mccoursemod/models/item/kaupen_bow_pulling_0.json

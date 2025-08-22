@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:carrot"
+  ],
+  "result": {
+    "count": 9,
+    "id": "mccoursemod:growth"
+  }
+}
