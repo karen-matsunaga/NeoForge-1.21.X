@@ -119,7 +119,8 @@ public class ModRecipeProvider extends RecipeProvider {
                                  ModBlocks.FORCED_STAINED_GLASS_PANE.get(), Items.GREEN_DYE));
 
         // ** CUSTOM advanced items **
-        this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.GROWTH.get(), RecipeCategory.FOOD, Items.CARROT);
+        // CARROT -> REQUIRED || GROWTH -> RESULT
+        this.nineBlockStorageRecipes(RecipeCategory.FOOD, Items.CARROT, RecipeCategory.MISC, ModItems.GROWTH.get());
     }
 
     // CUSTOM METHOD - Block Families

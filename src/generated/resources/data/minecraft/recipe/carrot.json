@@ -1,16 +1,11 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "#": "mccoursemod:growth"
-  },
-  "pattern": [
-    "###",
-    "###",
-    "###"
+  "ingredients": [
+    "mccoursemod:growth"
   ],
   "result": {
-    "count": 1,
+    "count": 9,
     "id": "minecraft:carrot"
   }
 }

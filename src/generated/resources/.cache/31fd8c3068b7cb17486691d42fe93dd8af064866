@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-22T09:21:37.4241745	Mccourse Recipes
+// 1.21.8	2025-08-22T09:31:21.6302573	Mccourse Recipes
 0007e86a60bbd3b0a4baaf013385795221e8513e data/mccoursemod/advancement/recipes/building_blocks/alexandrite_slabs.json
 8f4eac1f86e2a81087b0ad34a987911811b2e48a data/mccoursemod/advancement/recipes/building_blocks/alexandrite_stairs.json
 43c1e827f47c9a2463760730f6cf478f2122bf12 data/mccoursemod/advancement/recipes/building_blocks/alexandrite_wall.json
@@ -135,7 +135,7 @@ cde3f5b832ca8af3be91a35b9e7c31f51ad5149d data/minecraft/advancement/recipes/food
 fa60ce84c317e47bf185127bb6ddeaec753f8f54 data/minecraft/recipe/anvil.json
 8c0d18275bca00828b8ed307d53b87a17442428f data/minecraft/recipe/bismuth.json
 2a69dee656db35ad1a677763a5bf298e548c677a data/minecraft/recipe/bismuth_block.json
-6d752e38445d52ee3cca4a94ff0eba2402d75277 data/minecraft/recipe/carrot.json
+1578d7af678ab61b04cae2b61343bc5b3dd58110 data/minecraft/recipe/carrot.json
 d2217a3657e82978b7adb1b41203f2320eafb15a data/minecraft/recipe/enchant.json
 ef3d73c10fd0e242f12e240e52a8e2fa0a6d85fc data/minecraft/recipe/forced_stained_glass_pane_from_glass_pane.json
-11faccee7e2df20a27a992858ef27f124a6240c1 data/minecraft/recipe/growth.json
+e544e500f0436e2304a08fe8e8c6f01638bb812f data/minecraft/recipe/growth.json
