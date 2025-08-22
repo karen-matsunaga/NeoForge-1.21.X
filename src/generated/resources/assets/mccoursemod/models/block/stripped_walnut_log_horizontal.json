@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "mccoursemod:block/stripped_walnut_log_top",
+    "side": "mccoursemod:block/stripped_walnut_log"
+  }
+}

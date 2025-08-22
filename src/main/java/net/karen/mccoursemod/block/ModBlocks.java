@@ -227,6 +227,7 @@ public class ModBlocks {
                                                                       .pushReaction(PushReaction.DESTROY)));
 
     // ** CUSTOM log **
+    // BLOODWOOD
     public static final DeferredBlock<Block> BLOODWOOD_LOG = registerBlock("bloodwood_log",
            (properties) -> new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS)
                                                                                   .strength(2.0F)
@@ -315,6 +316,90 @@ public class ModBlocks {
                                                                    .instabreak().sound(SoundType.GRASS)
                                                                    .pushReaction(PushReaction.DESTROY),
                                                          () -> Blocks.NETHERRACK));
+
+    // WALNUT
+    public static final DeferredBlock<Block> WALNUT_LOG = registerBlock("walnut_log",
+           (properties) -> new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS)
+                                                                                  .strength(2.0F)
+                                                                                  .sound(SoundType.WOOD)
+                                                                                  .ignitedByLava()));
+
+    public static final DeferredBlock<Block> WALNUT_WOOD = registerBlock("walnut_wood",
+           (properties) -> new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS)
+                                                                                  .strength(2.0F)
+                                                                                  .sound(SoundType.WOOD)
+                                                                                  .ignitedByLava()));
+
+    public static final DeferredBlock<Block> STRIPPED_WALNUT_LOG = registerBlock("stripped_walnut_log",
+           (properties) -> new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS)
+                                                                                  .strength(2.0F)
+                                                                                  .sound(SoundType.WOOD)
+                                                                                  .ignitedByLava()));
+
+    public static final DeferredBlock<Block> STRIPPED_WALNUT_WOOD = registerBlock("stripped_walnut_wood",
+           (properties) -> new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS)
+                                                                                  .strength(2.0F)
+                                                                                  .sound(SoundType.WOOD)
+                                                                                  .ignitedByLava()));
+
+    public static final DeferredBlock<Block> WALNUT_PLANKS = registerBlock("walnut_planks",
+           (properties) -> new Block(properties) {
+               @Override
+               public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level,
+                                          @NotNull BlockPos pos, @NotNull Direction direction) {
+                   return true;
+               }
+
+               @Override
+               public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level,
+                                          @NotNull BlockPos pos, @NotNull Direction direction) {
+                   return 20;
+               }
+
+               @Override
+               public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level,
+                                             @NotNull BlockPos pos, @NotNull Direction direction) {
+                   return 5;
+               }
+           });
+
+    public static final DeferredBlock<Block> WALNUT_LEAVES = registerBlock("walnut_leaves",
+           (properties) -> new UntintedParticleLeavesBlock(0.01F,
+                                                                     ParticleTypes.CHERRY_LEAVES,
+                                                                     properties.mapColor(MapColor.PLANT)
+                                                                               .strength(0.2F)
+                                                                               .randomTicks()
+                                                                               .sound(SoundType.CHERRY_LEAVES)
+                                                                               .noOcclusion()
+                                                                               .isValidSpawn(Blocks::ocelotOrParrot)
+                                                                               .ignitedByLava()
+                                                                               .pushReaction(PushReaction.DESTROY)) {
+               @Override
+               public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level,
+                                          @NotNull BlockPos pos, @NotNull Direction direction) {
+                   return true;
+               }
+
+               @Override
+               public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level,
+                                          @NotNull BlockPos pos, @NotNull Direction direction) {
+                   return 60;
+               }
+
+               @Override
+               public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level,
+                                             @NotNull BlockPos pos, @NotNull Direction direction) {
+                   return 30;
+               }
+           });
+
+    public static final DeferredBlock<Block> WALNUT_SAPLING = registerBlock("walnut_sapling",
+           (properties) -> new ModSaplingBlock(ModTreeGrowers.WALNUT,
+                                                         properties.mapColor(MapColor.PLANT)
+                                                                   .noCollission().randomTicks()
+                                                                   .instabreak().sound(SoundType.GRASS)
+                                                                   .pushReaction(PushReaction.DESTROY),
+                                                         () -> Blocks.END_STONE));
 
     // ** CUSTOM sittable block model **
     public static final DeferredBlock<Block> CHAIR = registerBlock("chair",

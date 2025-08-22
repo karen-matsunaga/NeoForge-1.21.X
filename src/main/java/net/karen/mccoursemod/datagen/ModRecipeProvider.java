@@ -3,9 +3,11 @@ package net.karen.mccoursemod.datagen;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
@@ -105,7 +107,7 @@ public class ModRecipeProvider extends RecipeProvider {
                                    ModBlocks.ALEXANDRITE_FENCE.get(), ModBlocks.ALEXANDRITE_FENCE_GATE.get(),
                                    ModBlocks.ALEXANDRITE_WALL.get(), ModBlocks.ALEXANDRITE_DOOR.get(),
                                    ModBlocks.ALEXANDRITE_TRAPDOOR.get()),
-                           ModItems.BISMUTH.get(), "bismuth", this.output);
+                           ModItems.BISMUTH.get(), "alexandrite", this.output);
 
         // ** CUSTOM Trim Smithing **
         // CRAFTING TABLE
@@ -121,6 +123,10 @@ public class ModRecipeProvider extends RecipeProvider {
         // ** CUSTOM advanced items **
         // CARROT -> REQUIRED || GROWTH -> RESULT
         this.nineBlockStorageRecipes(RecipeCategory.FOOD, Items.CARROT, RecipeCategory.MISC, ModItems.GROWTH.get());
+
+        // ** CUSTOM log **
+        log(List.of(ModBlocks.BLOODWOOD_PLANKS, ModBlocks.BLOODWOOD_WOOD, ModBlocks.BLOODWOOD_LOG), ModTags.Items.BLOODWOOD_LOGS);
+        log(List.of(ModBlocks.WALNUT_PLANKS, ModBlocks.WALNUT_WOOD, ModBlocks.WALNUT_LOG), ModTags.Items.WALNUT_LOGS);
     }
 
     // CUSTOM METHOD - Block Families
@@ -350,5 +356,11 @@ public class ModRecipeProvider extends RecipeProvider {
         this.stainedGlassFromGlassAndDye(items.get(0), items.get(2));
         this.stainedGlassPaneFromGlassPaneAndDye(items.get(1), items.get(2));
         this.stainedGlassPaneFromStainedGlass(items.get(1), items.get(0));
+    }
+
+    // CUSTOM METHOD - Logs
+    protected void log(List<ItemLike> items, TagKey<Item> itemTag) {
+        this.planksFromLogs(items.getFirst(), itemTag, 4);
+        this.woodFromLogs(items.get(1), items.get(2));
     }
 }

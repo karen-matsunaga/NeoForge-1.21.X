@@ -35,9 +35,14 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> END_ALEXANDRITE_ORE_PLACED_KEY =
            registerKey("end_alexandrite_ore_placed");
 
-    // Bloodwood custom tree
+    // ** CUSTOM trees **
+    // BLOODWOOD
     public static final ResourceKey<PlacedFeature> BLOODWOOD_PLACED_KEY =
            registerKey("bloodwood_placed");
+
+    // WALNUT
+    public static final ResourceKey<PlacedFeature> WALNUT_PLACED_KEY =
+           registerKey("walnut_placed");
 
     // Goji Berry custom bush
     public static final ResourceKey<PlacedFeature> GOJI_BERRY_BUSH_PLACED_KEY =
@@ -86,10 +91,17 @@ public class ModPlacedFeatures {
                  HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
                  VerticalAnchor.absolute(80))));
 
+        // Position block of custom tree to go to generate on overworld
         // CUSTOM trees
+        // BLOODWOOD
         register(context, BLOODWOOD_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOODWOOD_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2),
-                ModBlocks.BLOODWOOD_SAPLING.get()));
+                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2),
+                 ModBlocks.BLOODWOOD_SAPLING.get()));
+
+        // WALNUT
+        register(context, WALNUT_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.WALNUT_KEY),
+                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2),
+                 ModBlocks.WALNUT_SAPLING.get()));
 
         // CUSTOM bush
         register(context, GOJI_BERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.GOJI_BERRY_BUSH_KEY),

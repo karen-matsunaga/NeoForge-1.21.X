@@ -114,16 +114,23 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                         ModBlocks.ALEXANDRITE_WALL.get());
 
         // Crop
-        tag(BlockTags.CROPS).add(ModBlocks.RADISH_CROP.get());
+        tag(BlockTags.CROPS).add(ModBlocks.RADISH_CROP.get(), ModBlocks.KOHLRABI_CROP.get());
 
-        // Bloodwood log
-        this.tag(BlockTags.LOGS_THAT_BURN).add(ModBlocks.BLOODWOOD_LOG.get())
-                                          .add(ModBlocks.BLOODWOOD_WOOD.get())
-                                          .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.get())
-                                          .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get());
-        this.tag(BlockTags.SAPLINGS).add(ModBlocks.BLOODWOOD_SAPLING.get());
-        this.tag(BlockTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.get());
-        this.tag(BlockTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.get());
+        // ** CUSTOM log **
+        // Bloodwood and Walnut logs
+        this.tag(BlockTags.LOGS_THAT_BURN).add(ModBlocks.BLOODWOOD_LOG.get(), ModBlocks.WALNUT_LOG.get())
+                                          .add(ModBlocks.BLOODWOOD_WOOD.get(), ModBlocks.WALNUT_WOOD.get())
+                                          .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.get(), ModBlocks.STRIPPED_WALNUT_LOG.get())
+                                          .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get(), ModBlocks.STRIPPED_WALNUT_WOOD.get());
+        this.tag(BlockTags.SAPLINGS).add(ModBlocks.BLOODWOOD_SAPLING.get(), ModBlocks.WALNUT_SAPLING.get());
+        this.tag(BlockTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.get(), ModBlocks.WALNUT_LEAVES.get());
+        this.tag(BlockTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.get(), ModBlocks.WALNUT_PLANKS.get());
+
+        this.tag(ModTags.Blocks.BLOODWOOD_LOGS).add(ModBlocks.BLOODWOOD_LOG.get(), ModBlocks.BLOODWOOD_WOOD.get(),
+                                                    ModBlocks.STRIPPED_BLOODWOOD_LOG.get(), ModBlocks.STRIPPED_BLOODWOOD_WOOD.get());
+
+        this.tag(ModTags.Blocks.WALNUT_LOGS).add(ModBlocks.WALNUT_LOG.get(), ModBlocks.WALNUT_WOOD.get(),
+                                                 ModBlocks.STRIPPED_WALNUT_LOG.get(), ModBlocks.STRIPPED_WALNUT_WOOD.get());
 
         // Glass
         this.tag(BlockTags.IMPERMEABLE).add(ModBlocks.FORCED_STAINED_GLASS.get());

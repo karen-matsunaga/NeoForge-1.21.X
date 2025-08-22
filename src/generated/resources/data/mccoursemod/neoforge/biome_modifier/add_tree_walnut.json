@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "minecraft:beach",
+    "minecraft:ice_spikes"
+  ],
+  "features": "mccoursemod:walnut_placed",
+  "step": "vegetal_decoration"
+}

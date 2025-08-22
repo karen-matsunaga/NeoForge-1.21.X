@@ -118,12 +118,16 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         this.tag(ModTags.Items.SPECIAL_EFFECT_ITEMS).add(ModItems.AUTO_SMELT.get());
 
         // Bloodwood item tag
-        this.tag(ItemTags.LOGS_THAT_BURN).add(ModBlocks.BLOODWOOD_LOG.get().asItem())
-                                         .add(ModBlocks.BLOODWOOD_WOOD.get().asItem())
-                                         .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.get().asItem())
-                                         .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get().asItem());
-        this.tag(ItemTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.asItem());
-        this.tag(ItemTags.SAPLINGS).add(ModBlocks.BLOODWOOD_SAPLING.asItem());
-        this.tag(ItemTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.asItem());
+        this.tag(ItemTags.LOGS_THAT_BURN).add(ModBlocks.BLOODWOOD_LOG.asItem(), ModBlocks.WALNUT_LOG.asItem())
+                                         .add(ModBlocks.BLOODWOOD_WOOD.asItem(), ModBlocks.WALNUT_WOOD.asItem())
+                                         .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.asItem(), ModBlocks.STRIPPED_WALNUT_LOG.asItem())
+                                         .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.asItem(), ModBlocks.STRIPPED_WALNUT_WOOD.asItem());
+        this.tag(ItemTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.asItem(), ModBlocks.WALNUT_PLANKS.asItem());
+        this.tag(ItemTags.SAPLINGS).add(ModBlocks.BLOODWOOD_SAPLING.asItem(), ModBlocks.WALNUT_SAPLING.asItem());
+        this.tag(ItemTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.asItem(), ModBlocks.WALNUT_LEAVES.asItem());
+        this.tag(ModTags.Items.BLOODWOOD_LOGS).add(ModBlocks.BLOODWOOD_LOG.asItem(), ModBlocks.BLOODWOOD_WOOD.asItem(),
+                                                   ModBlocks.STRIPPED_BLOODWOOD_LOG.asItem(), ModBlocks.STRIPPED_BLOODWOOD_WOOD.asItem());
+        this.tag(ModTags.Items.WALNUT_LOGS).add(ModBlocks.WALNUT_LOG.asItem(), ModBlocks.WALNUT_WOOD.asItem(),
+                                                ModBlocks.STRIPPED_WALNUT_LOG.asItem(), ModBlocks.STRIPPED_WALNUT_WOOD.asItem());
     }
 }

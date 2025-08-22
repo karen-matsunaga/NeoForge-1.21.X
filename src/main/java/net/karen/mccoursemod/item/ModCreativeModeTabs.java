@@ -169,7 +169,8 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.KOHLRABI_CROP);
                  // Bush crop block
                  output.accept(ModBlocks.GOJI_BERRY_BUSH);
-                 // Bloodwood log + Bloodwood wood
+                 // ** CUSTOM log **
+                 // BLOODWOOD
                  output.accept(ModBlocks.BLOODWOOD_LOG);
                  output.accept(ModBlocks.BLOODWOOD_WOOD);
                  output.accept(ModBlocks.STRIPPED_BLOODWOOD_LOG);
@@ -177,6 +178,14 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.BLOODWOOD_PLANKS);
                  output.accept(ModBlocks.BLOODWOOD_SAPLING);
                  output.accept(ModBlocks.BLOODWOOD_LEAVES);
+                 // WALNUT
+                 output.accept(ModBlocks.WALNUT_LOG);
+                 output.accept(ModBlocks.WALNUT_WOOD);
+                 output.accept(ModBlocks.STRIPPED_WALNUT_LOG);
+                 output.accept(ModBlocks.STRIPPED_WALNUT_WOOD);
+                 output.accept(ModBlocks.WALNUT_PLANKS);
+                 output.accept(ModBlocks.WALNUT_SAPLING);
+                 output.accept(ModBlocks.WALNUT_LEAVES);
                  // Sittable blocks
                  output.accept(ModBlocks.CHAIR);
                  // Block entity

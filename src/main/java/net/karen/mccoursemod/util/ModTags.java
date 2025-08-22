@@ -56,6 +56,10 @@ public class ModTags {
         public static final TagKey<Block> METAL_DETECTOR_VALUABLES = createTag("metal_detector_valuables");
         public static final TagKey<Block> METAL_DETECTOR_COLORS = createTag("metal_detector_colors");
 
+        // ** CUSTOM log **
+        public static final TagKey<Block> BLOODWOOD_LOGS = createTag("bloodwood_logs");
+        public static final TagKey<Block> WALNUT_LOGS = createTag("walnut_logs");
+
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
@@ -99,6 +103,10 @@ public class ModTags {
 
         // Data Component tags
         public static final TagKey<Item> SPECIAL_EFFECT_ITEMS = createTag("special_effect_items");
+
+        // ** CUSTOM log **
+        public static final TagKey<Item> BLOODWOOD_LOGS = createTag("bloodwood_logs");
+        public static final TagKey<Item> WALNUT_LOGS = createTag("walnut_logs");
 
         // CUSTOM METHOD - Registry all custom item tags
         private static TagKey<Item> createTag(String name) {

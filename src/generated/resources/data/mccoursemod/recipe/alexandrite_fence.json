@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "bismuth",
+  "group": "alexandrite",
   "key": {
     "#": "minecraft:stick",
     "W": "mccoursemod:bismuth"

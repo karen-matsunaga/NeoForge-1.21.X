@@ -167,6 +167,13 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.stripped_bloodwood_wood", "Stripped Bloodwood Wood");
         add("item.mccoursemod.bloodwood_leaves", "Bloodwood Leaves");
         add("item.mccoursemod.bloodwood_sapling", "Bloodwood Sapling");
+        add("item.mccoursemod.walnut_log", "Walnut Log");
+        add("item.mccoursemod.walnut_planks", "Walnut Planks");
+        add("item.mccoursemod.walnut_wood", "Walnut Wood");
+        add("item.mccoursemod.stripped_walnut_log", "Stripped Walnut Log");
+        add("item.mccoursemod.stripped_walnut_wood", "Stripped Walnut Wood");
+        add("item.mccoursemod.walnut_leaves", "Walnut Leaves");
+        add("item.mccoursemod.walnut_sapling", "Walnut Sapling");
         add("item.mccoursemod.chair", "Chair Block");
         add("item.mccoursemod.pedestal", "Pedestal Block");
         add("item.mccoursemod.growth_chamber", "Growth Chamber Block");
@@ -236,6 +243,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.GOJI_BERRY_BUSH, "Goji Berry Bush Block");
 
         // ** CUSTOM Log block **
+        // BLOODWOOD
         addBlock(ModBlocks.BLOODWOOD_LOG, "Bloodwood Log");
         addBlock(ModBlocks.BLOODWOOD_PLANKS, "Bloodwood Planks");
         addBlock(ModBlocks.BLOODWOOD_WOOD, "Bloodwood Wood");
@@ -243,6 +251,15 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.STRIPPED_BLOODWOOD_WOOD, "Stripped Bloodwood Wood");
         addBlock(ModBlocks.BLOODWOOD_LEAVES, "Bloodwood Leaves");
         addBlock(ModBlocks.BLOODWOOD_SAPLING, "Bloodwood Sapling");
+
+        // WALNUT
+        addBlock(ModBlocks.WALNUT_LOG, "Walnut Log");
+        addBlock(ModBlocks.WALNUT_PLANKS, "Walnut Planks");
+        addBlock(ModBlocks.WALNUT_WOOD, "Walnut Wood");
+        addBlock(ModBlocks.STRIPPED_WALNUT_LOG, "Stripped Walnut Log");
+        addBlock(ModBlocks.STRIPPED_WALNUT_WOOD, "Stripped Walnut Wood");
+        addBlock(ModBlocks.WALNUT_LEAVES, "Walnut Leaves");
+        addBlock(ModBlocks.WALNUT_SAPLING, "Walnut Sapling");
 
         // ** CUSTOM sittable block model **
         addBlock(ModBlocks.CHAIR, "Chair Block");

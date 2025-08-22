@@ -129,6 +129,7 @@ public class ModModelProvider extends ModelProvider {
                         GojiBerryBushBlock.AGE,  0, 1, 2, 3);
 
         // ** CUSTOM log block **
+        // BLOODWOOD
         blockModels.woodProvider(ModBlocks.BLOODWOOD_LOG.get())
                    .logWithHorizontal(ModBlocks.BLOODWOOD_LOG.get())
                    .wood(ModBlocks.BLOODWOOD_WOOD.get());
@@ -144,8 +145,26 @@ public class ModModelProvider extends ModelProvider {
                                                                            template.extend()
                                                                                    .renderType("cutout_mipped").build()),
                                                                            -12012264);
-        // BLOODWOOD SAPLING -> Used Netherrack block
-        createSaplingTexture(blockModels, ModBlocks.BLOODWOOD_SAPLING.get());
+
+        createSaplingTexture(blockModels, ModBlocks.BLOODWOOD_SAPLING.get()); // BLOODWOOD SAPLING -> Used Netherrack block
+
+        // WALNUT
+        blockModels.woodProvider(ModBlocks.WALNUT_LOG.get())
+                   .logWithHorizontal(ModBlocks.WALNUT_LOG.get())
+                   .wood(ModBlocks.WALNUT_WOOD.get());
+
+        blockModels.woodProvider(ModBlocks.STRIPPED_WALNUT_LOG.get())
+                   .logWithHorizontal(ModBlocks.STRIPPED_WALNUT_LOG.get())
+                   .wood(ModBlocks.STRIPPED_WALNUT_WOOD.get());
+
+        blockModels.createTrivialCube(ModBlocks.WALNUT_PLANKS.get());
+
+        blockModels.createTintedLeaves(ModBlocks.WALNUT_LEAVES.get(),
+                                       TexturedModel.LEAVES.updateTemplate(template ->
+                                                                           template.extend().renderType("cutout_mipped").build()),
+                                                                           -12012264);
+
+        createSaplingTexture(blockModels, ModBlocks.WALNUT_SAPLING.get()); // WALNUT SAPLING -> Used End block
 
         // ** CUSTOM sittable block model **
         createChairTexture(blockModels, itemModels, ModBlocks.CHAIR.get());

@@ -19,7 +19,9 @@ import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConf
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
@@ -49,9 +51,14 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> END_ALEXANDRITE_ORE_KEY =
            registerKey("end_alexandrite_ore");
 
-    // Bloodwood custom tree
+    // ** CUSTOM trees **
+    // BLOODWOOD
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLOODWOOD_KEY =
            registerKey("bloodwood");
+
+    // WALNUT
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WALNUT_KEY =
+           registerKey("walnut");
 
     // Goji Berry custom bush
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOJI_BERRY_BUSH_KEY =
@@ -95,16 +102,27 @@ public class ModConfiguredFeatures {
         register(context, END_ALEXANDRITE_ORE_KEY, Feature.ORE,
                  new OreConfiguration(endReplaceables, ModBlocks.END_STONE_ALEXANDRITE_ORE.get().defaultBlockState(), 9));
 
-        // CUSTOM trees
+        // ** CUSTOM trees **
+        // BLOODWOOD
         register(context, BLOODWOOD_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                // Bloodwood log
-                BlockStateProvider.simple(ModBlocks.BLOODWOOD_LOG.get()),
-                new ForkingTrunkPlacer(4, 4, 3),
-                // Bloodwood leave
-                BlockStateProvider.simple(ModBlocks.BLOODWOOD_LEAVES.get()),
-                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(3), 3),
-                // Bloodwood log + Bloodwood leave layer
-                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.NETHERRACK)).build());
+                 // Bloodwood log
+                 BlockStateProvider.simple(ModBlocks.BLOODWOOD_LOG.get()),
+                 new ForkingTrunkPlacer(4, 4, 3),
+                 // Bloodwood leave
+                 BlockStateProvider.simple(ModBlocks.BLOODWOOD_LEAVES.get()),
+                 new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(3), 3),
+                 // Bloodwood log + Bloodwood leave layer
+                 new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.NETHERRACK)).build());
+
+        // WALNUT
+        register(context, WALNUT_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                 // Log's position
+                 BlockStateProvider.simple(ModBlocks.WALNUT_LOG.get()), new DarkOakTrunkPlacer(5, 4, 3),
+                 // Leave's position
+                 BlockStateProvider.simple(ModBlocks.WALNUT_LEAVES.get()),
+                 new DarkOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(2)),
+                 // Dirt block or End Stone block
+                 new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.END_STONE)).build());
 
         // CUSTOM bush
         register(context, GOJI_BERRY_BUSH_KEY, Feature.RANDOM_PATCH,

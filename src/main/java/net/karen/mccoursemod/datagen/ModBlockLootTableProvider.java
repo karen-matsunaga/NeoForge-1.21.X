@@ -150,6 +150,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                          .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                          .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
+        // ** CUSTOM log **
         // Bloodwood log + Bloodwood wood
         this.dropSelf(ModBlocks.BLOODWOOD_LOG.get());
         this.dropSelf(ModBlocks.BLOODWOOD_WOOD.get());
@@ -159,6 +160,16 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.BLOODWOOD_SAPLING.get());
         this.add(ModBlocks.BLOODWOOD_LEAVES.get(),
                  block -> createLeavesDrops(block, ModBlocks.BLOODWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+        // Walnut log + Walnut wood
+        this.dropSelf(ModBlocks.WALNUT_LOG.get());
+        this.dropSelf(ModBlocks.WALNUT_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_WALNUT_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_WALNUT_WOOD.get());
+        this.dropSelf(ModBlocks.WALNUT_PLANKS.get());
+        this.dropSelf(ModBlocks.WALNUT_SAPLING.get());
+        this.add(ModBlocks.WALNUT_LEAVES.get(),
+                 block -> createLeavesDrops(block, ModBlocks.WALNUT_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
         // CUSTOM sittable block model
         this.dropSelf(ModBlocks.CHAIR.get());

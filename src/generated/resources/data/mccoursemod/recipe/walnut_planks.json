@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    "#mccoursemod:walnut_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "mccoursemod:walnut_planks"
+  }
+}

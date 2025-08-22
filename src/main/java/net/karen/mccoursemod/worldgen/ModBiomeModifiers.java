@@ -39,9 +39,14 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_END_ALEXANDRITE_ORE =
            registerKey("add_end_alexandrite_ore");
 
-    // Bloodwood custom tree
+    // ** CUSTOM trees **
+    // BLOODWOOD
     public static final ResourceKey<BiomeModifier> ADD_TREE_BLOODWOOD =
            registerKey("add_tree_bloodwood");
+
+    // WALNUT
+    public static final ResourceKey<BiomeModifier> ADD_TREE_WALNUT =
+           registerKey("add_tree_walnut");
 
     // Goji Berry custom bush
     public static final ResourceKey<BiomeModifier> ADD_GOJI_BERRY_BUSH =
@@ -96,11 +101,19 @@ public class ModBiomeModifiers {
                          HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.END_ALEXANDRITE_ORE_PLACED_KEY)),
                          GenerationStep.Decoration.UNDERGROUND_ORES));
 
+        // World to generate all custom tree on biomes selected
         // CUSTOM trees
+        // BLOODWOOD
         context.register(ADD_TREE_BLOODWOOD, new BiomeModifiers.AddFeaturesBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.SAVANNA)),
-                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.BLOODWOOD_PLACED_KEY)),
-                GenerationStep.Decoration.VEGETAL_DECORATION));
+                         HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.SAVANNA)),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.BLOODWOOD_PLACED_KEY)),
+                         GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        // WALNUT
+        context.register(ADD_TREE_WALNUT, new BiomeModifiers.AddFeaturesBiomeModifier(
+                         HolderSet.direct(biomes.getOrThrow(Biomes.BEACH), biomes.getOrThrow(Biomes.ICE_SPIKES)),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.WALNUT_PLACED_KEY)),
+                         GenerationStep.Decoration.VEGETAL_DECORATION));
 
         // CUSTOM bush
         context.register(ADD_GOJI_BERRY_BUSH, new BiomeModifiers.AddFeaturesBiomeModifier(
