@@ -9,13 +9,14 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 
 public class TomahawkProjectileRenderer extends EntityRenderer<TomahawkProjectileEntity,
-                                                TomahawkProjectileRenderState> {
+                                                               EntityRenderState> {
     private final TomahawkProjectileModel model;
     private TomahawkProjectileEntity entity;
     private float partial;
@@ -26,33 +27,33 @@ public class TomahawkProjectileRenderer extends EntityRenderer<TomahawkProjectil
     }
 
     @Override
-    public @NotNull TomahawkProjectileRenderState createRenderState() {
-        return new TomahawkProjectileRenderState();
+    public @NotNull EntityRenderState createRenderState() {
+        return new EntityRenderState();
     }
 
     @Override
     public void extractRenderState(@NotNull TomahawkProjectileEntity entity,
-                                   @NotNull TomahawkProjectileRenderState state, float partialTick) {
+                                   @NotNull EntityRenderState state, float partialTick) {
         super.extractRenderState(entity, state, partialTick);
         this.entity = entity;
         this.partial = partialTick;
-        state.xRot = entity.getXRot(partialTick);
-        state.yRot = entity.getYRot(partialTick);
     }
 
     @Override
-    public void render(@NotNull TomahawkProjectileRenderState state, @NotNull PoseStack poseStack,
+    public void render(@NotNull EntityRenderState state, @NotNull PoseStack poseStack,
                        @NotNull MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
-        if (!entity.onGround()) {
+        if (!entity.neverIsInGround() && entity != null) {
             poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partial, entity.yRotO, entity.getYRot())));
             poseStack.mulPose(Axis.XP.rotationDegrees(entity.getRenderingRotation() * 5f));
             poseStack.translate(0, -1.0f, 0);
         }
         else {
-            poseStack.mulPose(Axis.YP.rotationDegrees(entity.groundedOffset.y));
-            poseStack.mulPose(Axis.XP.rotationDegrees(entity.groundedOffset.x));
-            poseStack.translate(0, -1.0f, 0);
+            if (entity != null && entity.groundedOffset != null) {
+                poseStack.mulPose(Axis.YP.rotationDegrees(entity.groundedOffset.y));
+                poseStack.mulPose(Axis.XP.rotationDegrees(entity.groundedOffset.x));
+                poseStack.translate(0, -1.0f, 0);
+            }
         }
         VertexConsumer vertexconsumer =
               ItemRenderer.getFoilBuffer(buffer, this.model.renderType(this.getTextureLocation()),false, false);
@@ -61,6 +62,7 @@ public class TomahawkProjectileRenderer extends EntityRenderer<TomahawkProjectil
         super.render(state, poseStack, buffer, packedLight);
     }
 
+    // CUSTOM METHOD - Tomahawk texture
     public ResourceLocation getTextureLocation() {
         return ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "textures/entity/tomahawk/tomahawk.png");
     }
