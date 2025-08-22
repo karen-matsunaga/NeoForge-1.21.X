@@ -78,33 +78,34 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.BISMUTH_HORSE_ARMOR);
                  // ALEXANDRITE
                  output.accept(ModItems.ALEXANDRITE_HORSE_ARMOR);
-                 // CUSTOM foods
+                 // ** CUSTOM foods **
                  output.accept(ModItems.COFFEE);
                  output.accept(ModItems.RADISH);
                  output.accept(ModItems.KOHLRABI);
-                 // CUSTOM advanced items
+                 // ** CUSTOM advanced items **
                  output.accept(ModItems.MCCOURSE_MOD_BOTTLE);
                  output.accept(ModItems.CHISEL);
-                 // CUSTOM music disc
+                 // ** CUSTOM music disc **
                  output.accept(ModItems.BAR_BRAWL_MUSIC_DISC);
                  // CUSTOM Smithing Template
                  output.accept(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE);
                  // ** CUSTOM seeds **
                  output.accept(ModItems.RADISH_SEEDS);
                  output.accept(ModItems.KOHLRABI_SEEDS);
-                 // CUSTOM fuels
+                 // ** CUSTOM fuels **
                  output.accept(ModItems.FROSTFIRE_ICE);
                  output.accept(ModItems.STARLIGHT_ASHES);
                  output.accept(ModItems.PEAT_BRICK);
-                 // CUSTOM bush
+                 // ** CUSTOM bush **
                  output.accept(ModItems.GOJI_BERRIES);
-                 // CUSTOM mob
+                 // ** CUSTOM mob **
                  output.accept(ModItems.GECKO_SPAWN_EGG);
-                 // CUSTOM Throwable Projectiles
+                 output.accept(ModItems.RHINO_SPAWN_EGG);
+                 // ** CUSTOM Throwable Projectiles **
                  output.accept(ModItems.TOMAHAWK);
-                 // CUSTOM Animated Textures
+                 // ** CUSTOM Animated Textures **
                  output.accept(ModItems.RADIATION_STAFF);
-                 // CUSTOM Fishing Rod
+                 // ** CUSTOM Fishing Rod **
                  output.accept(ModItems.MCCOURSE_MOD_FISHING_ROD);
            }).build());
 

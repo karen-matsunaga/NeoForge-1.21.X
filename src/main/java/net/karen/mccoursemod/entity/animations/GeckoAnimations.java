@@ -1,4 +1,4 @@
-package net.karen.mccoursemod.entity.client;
+package net.karen.mccoursemod.entity.animations;
 
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;

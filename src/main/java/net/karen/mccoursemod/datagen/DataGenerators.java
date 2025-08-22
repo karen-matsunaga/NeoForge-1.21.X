@@ -27,10 +27,13 @@ public class DataGenerators {
         generator.addProvider(true, new ModModelProvider(packOutput));
         // Recipes -> Recipe Provider
         generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
-        // Block Loot Table Provider
+        // Block Loot Table Provider + Entity Loot Table Provider
         generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
                               List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new,
-                                                                             LootContextParamSets.BLOCK)), lookupProvider));
+                                                                             LootContextParamSets.BLOCK),
+                                      new LootTableProvider.SubProviderEntry(ModEntityLootTableProvider::new,
+                                                                             LootContextParamSets.ENTITY)),
+                              lookupProvider));
         // Block tags
         generator.addProvider(true, new ModBlockTagGenerator(packOutput, lookupProvider));
         // Item tags
@@ -69,10 +72,13 @@ public class DataGenerators {
         generator.addProvider(true, new ModModelProvider(packOutput));
         // Recipes -> Recipe Provider
         generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
-        // Block Loot Table Provider
+        // Block Loot Table Provider + Entity Loot Table Provider
         generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
                               List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new,
-                                                                             LootContextParamSets.BLOCK)), lookupProvider));
+                                                                             LootContextParamSets.BLOCK),
+                                      new LootTableProvider.SubProviderEntry(ModEntityLootTableProvider::new,
+                                                                             LootContextParamSets.ENTITY)),
+                              lookupProvider));
         // Block tags
         generator.addProvider(true, new ModBlockTagGenerator(packOutput, lookupProvider));
         // Item tags

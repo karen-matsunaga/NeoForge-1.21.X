@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-22T14:23:28.8890746	Loot Tables
+// 1.21.8	2025-08-22T18:06:37.1361006	Loot Tables
 cdb697b4f47740809ecdb90e81e8e5d2f56cfc86 data/mccoursemod/loot_table/blocks/alexandrite_block.json
 291a785f3fc73335884718fec6c7d2db06eb0048 data/mccoursemod/loot_table/blocks/alexandrite_button.json
 d0ad4d5e3aeabf77ec2d12530e2bc9b7e6bef80e data/mccoursemod/loot_table/blocks/alexandrite_door.json
@@ -58,3 +58,7 @@ afecd10e8de6b35d9d4eb7f382bae6aecd0ee74c data/mccoursemod/loot_table/blocks/waln
 aee862a9dd8884c8a83698175bb47fe35d0d87be data/mccoursemod/loot_table/blocks/walnut_planks.json
 a37689b1674492d652930f1409a58bd0a706b0d8 data/mccoursemod/loot_table/blocks/walnut_sapling.json
 fee5fe17e2c9572bae322093b0918d1f9aa1a1d5 data/mccoursemod/loot_table/blocks/walnut_wood.json
+03b27250656a8ed2a03d2904a7479159fc4aad05 data/minecraft/loot_table/entities/chair_entity.json
+25c6460083bd65f7ff23bba165ba4e494b940536 data/minecraft/loot_table/entities/gecko.json
+bbbb99a3c6cd580fd7782ad7dbe3519a3cb5755f data/minecraft/loot_table/entities/rhino.json
+9c4f862be2afdc60cfd01ecbd44965f4a6157bd9 data/minecraft/loot_table/entities/tomahawk.json

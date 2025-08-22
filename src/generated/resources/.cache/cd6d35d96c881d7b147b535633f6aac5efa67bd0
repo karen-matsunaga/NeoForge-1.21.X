@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-22T14:23:28.8784126	Model Definitions - mccoursemod
+// 1.21.8	2025-08-22T17:56:47.1331527	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -157,6 +157,7 @@ d8d7bed06e1dd1e8cd6bcc1a83823f5a108a7e1d assets/mccoursemod/items/radiation_staf
 a03e7dcd392f45731a6fbabcf8ff1d6427a3498e assets/mccoursemod/items/raw_alexandrite.json
 11c7413b3e921051ec376cef864dde5018f821d5 assets/mccoursemod/items/raw_alexandrite_block.json
 7bc128e532aa0bb779eab4b74e05ce40da3a1815 assets/mccoursemod/items/raw_bismuth.json
+d3c475577fc61505503ae2b8475fb65c2cbaac6e assets/mccoursemod/items/rhino_spawn_egg.json
 11d5f553544b8c7c66db7b5e63c247b703cae9cf assets/mccoursemod/items/sound.json
 45c9b0172ee53fb9a75add030b9a2f3d687d346f assets/mccoursemod/items/starlight_ashes.json
 b86f9f4ee4c859ced76274a2fba8706c821ccd78 assets/mccoursemod/items/stripped_bloodwood_log.json
@@ -464,4 +465,5 @@ d84cb676f120f5f30936cc48c5415d8686d35849 assets/mccoursemod/models/item/mccourse
 4b756411260fbcbb14f6cb6e5027205b3e060849 assets/mccoursemod/models/item/radish_seeds.json
 1877f652f796bc71bb7d3ccacee4dae67acf30c6 assets/mccoursemod/models/item/raw_alexandrite.json
 2546ad02640ae8645cc6a77dc22cc4f7085dc9be assets/mccoursemod/models/item/raw_bismuth.json
+201cdbdd1d7c0f29ede2af341f8d1772b0743ba6 assets/mccoursemod/models/item/rhino_spawn_egg.json
 a6b51f4159f4654e658ca1aaceec18a5fbf715fb assets/mccoursemod/models/item/starlight_ashes.json

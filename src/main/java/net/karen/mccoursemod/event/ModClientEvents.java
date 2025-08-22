@@ -48,7 +48,10 @@ public class ModClientEvents {
         MccourseMod.LOGGER.info("HELLO FROM CLIENT SETUP");
         MccourseMod.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         // CUSTOM mob
+        // GECKO
         EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
+        // RHINO
+        EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
         // CUSTOM Throwable Projectiles
         EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
         // CUSTOM Sittable blocks
@@ -124,7 +127,10 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         // CUSTOM Gecko mob
+        // GECKO
         event.registerLayerDefinition(GeckoModel.LAYER_LOCATION, GeckoModel::createBodyLayer);
+        // RHINO
+        event.registerLayerDefinition(RhinoModel.LAYER_LOCATION, RhinoModel::createBodyLayer);
         // CUSTOM Throwable Projectiles
         event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
     }

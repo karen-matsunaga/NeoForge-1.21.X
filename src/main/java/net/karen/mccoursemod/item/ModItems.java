@@ -245,8 +245,13 @@ public class ModItems {
                                                                                                .saturationModifier(0.15F).build())));
 
     // ** CUSTOM mob **
+    // GECKO
     public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.registerItem("gecko_spawn_egg",
            (properties) -> new SpawnEggItem(ModEntities.GECKO.get(), properties));
+
+    // RHINO
+    public static final DeferredItem<Item> RHINO_SPAWN_EGG = ITEMS.registerItem("rhino_spawn_egg",
+           (properties) -> new SpawnEggItem(ModEntities.RHINO.get(), properties));
 
     // ** CUSTOM Throwable Projectiles **
     public static final DeferredItem<Item> TOMAHAWK = ITEMS.registerItem("tomahawk",

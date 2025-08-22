@@ -1,6 +1,6 @@
 package net.karen.mccoursemod.entity.custom;
 
-import net.karen.mccoursemod.entity.GeckoVariant;
+import net.karen.mccoursemod.entity.variant.GeckoVariant;
 import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.Util;

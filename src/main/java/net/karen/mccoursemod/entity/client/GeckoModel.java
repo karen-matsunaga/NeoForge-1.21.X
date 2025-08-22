@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.entity.client;
 
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.entity.animations.GeckoAnimations;
 import net.minecraft.client.animation.KeyframeAnimation;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;

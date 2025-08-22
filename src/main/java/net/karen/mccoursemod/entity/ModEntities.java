@@ -3,6 +3,7 @@ package net.karen.mccoursemod.entity;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.entity.custom.ChairEntity;
 import net.karen.mccoursemod.entity.custom.GeckoEntity;
+import net.karen.mccoursemod.entity.custom.RhinoEntity;
 import net.karen.mccoursemod.entity.custom.TomahawkProjectileEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -22,6 +23,9 @@ public class ModEntities {
     public static ResourceKey<EntityType<?>> GECKO_KEY =
            ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace("gecko"));
 
+    public static ResourceKey<EntityType<?>> RHINO_KEY =
+           ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace("rhino"));
+
     // Registry all custom Throwable Projectiles -> Resource Key
     public static ResourceKey<EntityType<?>> TOMAHAWK_KEY =
            ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace("tomahawk"));
@@ -34,6 +38,10 @@ public class ModEntities {
     public static final Supplier<EntityType<GeckoEntity>> GECKO =
            ENTITY_TYPES.register("gecko", () -> EntityType.Builder.of(GeckoEntity::new, MobCategory.CREATURE)
                                                                 .sized(0.75f, 0.35f).build(GECKO_KEY));
+
+    public static final Supplier<EntityType<RhinoEntity>> RHINO =
+           ENTITY_TYPES.register("rhino", () -> EntityType.Builder.of(RhinoEntity::new, MobCategory.CREATURE)
+                                                                .sized(2.5f, 2.5f).build(RHINO_KEY));
 
     // Registry all custom Throwable Projectiles -> Entity Type
     public static final Supplier<EntityType<TomahawkProjectileEntity>> TOMAHAWK =

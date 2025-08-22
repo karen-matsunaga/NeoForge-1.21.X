@@ -259,7 +259,10 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.PEAT_BRICK.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM mob **
+        // GECKO
         itemModels.generateFlatItem(ModItems.GECKO_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
+        // RHINO
+        itemModels.generateFlatItem(ModItems.RHINO_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM Throwable Projectiles **
         itemModels.declareCustomModelItem(ModItems.TOMAHAWK.get());

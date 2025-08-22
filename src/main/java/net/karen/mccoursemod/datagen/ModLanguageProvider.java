@@ -109,7 +109,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.GOJI_BERRIES, "Goji Berries");
 
         // ** CUSTOM Mob **
+        // GECKO
         addItem(ModItems.GECKO_SPAWN_EGG, "Gecko Spawn Egg");
+        // RHINO
+        addItem(ModItems.RHINO_SPAWN_EGG, "Rhino Spawn Egg");
 
         // ** CUSTOM Throwable Projectiles **
         addItem(ModItems.TOMAHAWK, "Tomahawk");

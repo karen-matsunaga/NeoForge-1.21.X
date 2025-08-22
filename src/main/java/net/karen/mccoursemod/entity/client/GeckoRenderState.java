@@ -1,6 +1,6 @@
 package net.karen.mccoursemod.entity.client;
 
-import net.karen.mccoursemod.entity.GeckoVariant;
+import net.karen.mccoursemod.entity.variant.GeckoVariant;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.world.entity.AnimationState;
 

@@ -10,6 +10,7 @@ import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.entity.custom.GeckoEntity;
+import net.karen.mccoursemod.entity.custom.RhinoEntity;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.MccourseModBottleItem;
@@ -155,10 +156,13 @@ public class ModEvents {
         builder.addMix(Potions.AWKWARD, Items.CARROT, ModPotions.HASTE_POTION);
     }
 
-    // CUSTOM EVENT - Gecko mob
+    // CUSTOM EVENT - Registry all custom entity attributes
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
+        // GECKO
         event.put(ModEntities.GECKO.get(), GeckoEntity.createAttributes().build());
+        // RHINO
+        event.put(ModEntities.RHINO.get(), RhinoEntity.createAttributes().build());
     }
 
     @SubscribeEvent

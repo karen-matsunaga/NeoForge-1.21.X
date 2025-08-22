@@ -3,7 +3,7 @@ package net.karen.mccoursemod.entity.client;
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.karen.mccoursemod.MccourseMod;
-import net.karen.mccoursemod.entity.GeckoVariant;
+import net.karen.mccoursemod.entity.variant.GeckoVariant;
 import net.karen.mccoursemod.entity.custom.GeckoEntity;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
