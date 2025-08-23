@@ -2,6 +2,7 @@ package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.fluid.ModFluids;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -107,6 +108,10 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.RADIATION_STAFF);
                  // ** CUSTOM Fishing Rod **
                  output.accept(ModItems.MCCOURSE_MOD_FISHING_ROD);
+                 // ** CUSTOM Shield **
+                 output.accept(ModItems.ALEXANDRITE_SHIELD);
+                 // ** CUSTOM Fluid **
+                 output.accept(ModFluids.SOAP_WATER_BUCKET);
            }).build());
 
     // Show all blocks in Creative Mode -> Second Creative Mode Tab
@@ -187,12 +192,12 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.WALNUT_PLANKS);
                  output.accept(ModBlocks.WALNUT_SAPLING);
                  output.accept(ModBlocks.WALNUT_LEAVES);
-                 // Sittable blocks
+                 // ** CUSTOM Sittable blocks **
                  output.accept(ModBlocks.CHAIR);
-                 // Block entity
+                 // ** CUSTOM Block entity **
                  output.accept(ModBlocks.PEDESTAL);
                  output.accept(ModBlocks.GROWTH_CHAMBER);
-                 // Glass blocks
+                 // ** CUSTOM Glass blocks **
                  output.accept(ModBlocks.FORCED_STAINED_GLASS);
                  output.accept(ModBlocks.FORCED_STAINED_GLASS_PANE);
            }).build());

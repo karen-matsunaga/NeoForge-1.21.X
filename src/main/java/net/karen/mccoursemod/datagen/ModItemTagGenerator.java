@@ -1,12 +1,14 @@
 package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.fluid.ModFluids;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.VanillaItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
 
@@ -54,8 +56,12 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         // CUSTOM Bow
         tag(ItemTags.SKELETON_PREFERRED_WEAPONS).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
         tag(ItemTags.WITHER_SKELETON_DISLIKED_WEAPONS).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
-        tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
+        tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get(),
+                                                 ModItems.ALEXANDRITE_BOW.get(), ModItems.ALEXANDRITE_SHIELD.get());
         tag(ItemTags.BOW_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
+
+        // CUSTOM Shield
+        this.tag(Tags.Items.TOOLS_SHIELD).add(ModItems.ALEXANDRITE_SHIELD.get());
 
         // ** CUSTOM Repair ARMOR - TOOL ingredients **
         // TOOL MATERIALS
@@ -120,14 +126,24 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         // Bloodwood item tag
         this.tag(ItemTags.LOGS_THAT_BURN).add(ModBlocks.BLOODWOOD_LOG.asItem(), ModBlocks.WALNUT_LOG.asItem())
                                          .add(ModBlocks.BLOODWOOD_WOOD.asItem(), ModBlocks.WALNUT_WOOD.asItem())
-                                         .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.asItem(), ModBlocks.STRIPPED_WALNUT_LOG.asItem())
-                                         .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.asItem(), ModBlocks.STRIPPED_WALNUT_WOOD.asItem());
+                                         .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.asItem(),
+                                              ModBlocks.STRIPPED_WALNUT_LOG.asItem())
+                                         .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.asItem(),
+                                              ModBlocks.STRIPPED_WALNUT_WOOD.asItem());
         this.tag(ItemTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.asItem(), ModBlocks.WALNUT_PLANKS.asItem());
         this.tag(ItemTags.SAPLINGS).add(ModBlocks.BLOODWOOD_SAPLING.asItem(), ModBlocks.WALNUT_SAPLING.asItem());
         this.tag(ItemTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.asItem(), ModBlocks.WALNUT_LEAVES.asItem());
-        this.tag(ModTags.Items.BLOODWOOD_LOGS).add(ModBlocks.BLOODWOOD_LOG.asItem(), ModBlocks.BLOODWOOD_WOOD.asItem(),
-                                                   ModBlocks.STRIPPED_BLOODWOOD_LOG.asItem(), ModBlocks.STRIPPED_BLOODWOOD_WOOD.asItem());
-        this.tag(ModTags.Items.WALNUT_LOGS).add(ModBlocks.WALNUT_LOG.asItem(), ModBlocks.WALNUT_WOOD.asItem(),
-                                                ModBlocks.STRIPPED_WALNUT_LOG.asItem(), ModBlocks.STRIPPED_WALNUT_WOOD.asItem());
+        this.tag(ModTags.Items.BLOODWOOD_LOGS).add(ModBlocks.BLOODWOOD_LOG.asItem(),
+                                                   ModBlocks.BLOODWOOD_WOOD.asItem(),
+                                                   ModBlocks.STRIPPED_BLOODWOOD_LOG.asItem(),
+                                                   ModBlocks.STRIPPED_BLOODWOOD_WOOD.asItem());
+        this.tag(ModTags.Items.WALNUT_LOGS).add(ModBlocks.WALNUT_LOG.asItem(),
+                                                ModBlocks.WALNUT_WOOD.asItem(),
+                                                ModBlocks.STRIPPED_WALNUT_LOG.asItem(),
+                                                ModBlocks.STRIPPED_WALNUT_WOOD.asItem());
+        // ** CUSTOM fluid **
+        this.tag(Tags.Items.BUCKETS).add(ModFluids.SOAP_WATER_BUCKET.get());
+        this.tag(Tags.Items.BUCKETS_WATER).add(ModFluids.SOAP_WATER_BUCKET.get());
+        this.tag(Tags.Items.BUCKETS_ENTITY_WATER).add(ModFluids.SOAP_WATER_BUCKET.get());
     }
 }

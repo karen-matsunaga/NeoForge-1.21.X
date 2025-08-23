@@ -6,6 +6,9 @@ import net.karen.mccoursemod.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.entity.client.*;
+import net.karen.mccoursemod.fluid.BaseFluidType;
+import net.karen.mccoursemod.fluid.ModFluidTypes;
+import net.karen.mccoursemod.fluid.ModFluids;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
@@ -18,6 +21,8 @@ import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -28,6 +33,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -47,30 +53,36 @@ public class ModClientEvents {
         // Some client setup code
         MccourseMod.LOGGER.info("HELLO FROM CLIENT SETUP");
         MccourseMod.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-        // CUSTOM mob
+        // ** CUSTOM entity mob **
         // GECKO
         EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
         // RHINO
         EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
-        // CUSTOM Throwable Projectiles
+        // ** CUSTOM Throwable Projectiles **
         EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
-        // CUSTOM Sittable blocks
+        // ** CUSTOM Sittable blocks **
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
+        // ** CUSTOM Fluid **
+        event.enqueueWork(() -> {
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_SOAP_WATER.get(), ChunkSectionLayer.TRANSLUCENT);
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_SOAP_WATER.get(), ChunkSectionLayer.TRANSLUCENT);
+        });
     }
 
+    // CUSTOM EVENT - Register all custom particles
     @SubscribeEvent
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ModParticles.BISMUTH_PARTICLES.get(), BismuthParticles.Provider::new);
     }
 
-    // CUSTOM EVENT - Register custom image tooltip
+    // CUSTOM EVENT - Register all custom image tooltip
     @SubscribeEvent
     public static void registerTooltip(RegisterClientTooltipComponentFactoriesEvent event) {
         event.register(ImageTooltipComponent.class, Function.identity());
         event.register(MultiImageTooltipComponent.class, Function.identity());
     }
 
-    // CUSTOM EVENT - Register network (CLIENT -> SERVER)
+    // CUSTOM EVENT - Register all custom network (CLIENT -> SERVER)
     @SubscribeEvent
     public static void registerNetwork(RegisterPayloadHandlersEvent event) {
         // Network version
@@ -90,7 +102,7 @@ public class ModClientEvents {
                                MccourseModBottlePacketPayload::onMccourseModBottleServerPayloadHandler);
     }
 
-    // CUSTOM EVENT - Register custom Key Input
+    // CUSTOM EVENT - Register all custom Key Inputs
     @SubscribeEvent
     public static void registerKeyInput(RegisterKeyMappingsEvent event) {
         event.register(KeyBinding.GLOWING_MOBS_KEY.get()); // Glowing Mobs custom enchantment
@@ -100,7 +112,7 @@ public class ModClientEvents {
         event.register(KeyBinding.UNLOCK_KEY.get()); // Unlock custom enchantment
     }
 
-    // CUSTOM EVENT - Register custom item model property conditionals
+    // CUSTOM EVENT - Register all custom item model property conditionals
     @SubscribeEvent
     public static void registerConditionalProperties(RegisterConditionalItemModelPropertyEvent event) {
         // The name to reference as the type
@@ -135,16 +147,24 @@ public class ModClientEvents {
         event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
     }
 
-    // CUSTOM EVENT - Registry all custom block entity renderer
+    // CUSTOM EVENT - Registry all custom block entity renderers
     @SubscribeEvent
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
     }
 
-    // CUSTOM EVENT - Registry all custom screen
+    // CUSTOM EVENT - Registry all custom screens
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
         event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
+    }
+
+    // CUSTOM EVENT - Registry all custom fluid types
+    @SubscribeEvent
+    public static void registerFluids(RegisterClientExtensionsEvent event) {
+        event.registerFluidType(((BaseFluidType) ModFluidTypes.SOAP_WATER_FLUID_TYPE.get())
+                                .getClientFluidTypeExtensions(),
+                                ModFluidTypes.SOAP_WATER_FLUID_TYPE.get());
     }
 }

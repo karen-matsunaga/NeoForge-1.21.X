@@ -50,7 +50,8 @@ public class ModEntityTypeTagGenerator extends EntityTypeTagsProvider {
                                                EntityType.DONKEY, EntityType.SKELETON_HORSE, EntityType.TURTLE,
                                                EntityType.AXOLOTL, EntityType.SNIFFER, EntityType.WOLF, EntityType.PARROT,
                                                EntityType.CAT, EntityType.POLAR_BEAR, EntityType.SHEEP, EntityType.SNOW_GOLEM,
-                                               EntityType.ALLAY, EntityType.BAT, EntityType.HAPPY_GHAST, ModEntities.GECKO.get());
+                                               EntityType.ALLAY, EntityType.BAT, EntityType.HAPPY_GHAST, ModEntities.GECKO.get(),
+                                               ModEntities.RHINO.get());
 
         // Villager entities
         this.tag(ModTags.Entities.VILLAGER).add(EntityType.IRON_GOLEM, EntityType.VILLAGER,

@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.fluid.ModFluids;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -19,6 +20,7 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider lookupProvider) {
+        // ** CUSTOM pickaxe mineable blocks **
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ENCHANT.get(),
                                                       ModBlocks.DISENCHANT_INDIVIDUAL.get(),
                                                       ModBlocks.DISENCHANT_GROUPED.get(),
@@ -36,6 +38,12 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                  .addTag(ModTags.Blocks.BISMUTH_BLOCKS)
                                                  .addTag(ModTags.Blocks.ALEXANDRITE_BLOCKS);
 
+        // Paxel break
+        this.tag(ModTags.Blocks.MINEABLE_WITH_PAXEL).addTag(BlockTags.MINEABLE_WITH_AXE)
+                                                    .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
+                                                    .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
+
+        // ** CUSTOM ores **
         // Mccourse Mod Ores
         this.tag(ModTags.Blocks.MCCOURSE_MOD_ORES).add(ModBlocks.BISMUTH_ORE.get(),
                                                        ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),
@@ -54,6 +62,7 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         tag(ModTags.Blocks.NEEDS_ALEXANDRITE_TOOL);
         tag(ModTags.Blocks.INCORRECT_FOR_ALEXANDRITE_TOOL);
 
+        // ** CUSTOM enchantments **
         // Auto Smelt enchantment effect
         this.tag(ModTags.Blocks.AUTO_SMELT_ORES).addTag(Tags.Blocks.ORES).addTag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE);
 
@@ -71,18 +80,13 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                     .addTag(ModTags.Blocks.MORE_ORES_FOUR_DROPS)
                                                     .addTag(ModTags.Blocks.MORE_ORES_FIVE_DROPS);
 
-        // Paxel break
-        this.tag(ModTags.Blocks.MINEABLE_WITH_PAXEL).addTag(BlockTags.MINEABLE_WITH_AXE)
-                                                    .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                                                    .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
-
         // Block Fly enchantment effect
         this.tag(ModTags.Blocks.BLOCK_FLY_BLOCK_SPEED).add(Blocks.GRAVEL, Blocks.SAND, Blocks.RED_SAND,
                                                            Blocks.ICE, Blocks.PACKED_ICE,
                                                            Blocks.BLUE_ICE, Blocks.GLOWSTONE)
                                                       .addTag(Tags.Blocks.GLASS_BLOCKS);
 
-        // Block families
+        // ** CUSTOM Block families **
         tag(BlockTags.BUTTONS).add(ModBlocks.BISMUTH_BUTTON.get(), ModBlocks.ALEXANDRITE_BUTTON.get());
         tag(BlockTags.DOORS).add(ModBlocks.BISMUTH_DOOR.get(), ModBlocks.ALEXANDRITE_DOOR.get());
         tag(BlockTags.FENCES).add(ModBlocks.BISMUTH_FENCE.get(), ModBlocks.ALEXANDRITE_FENCE.get());
@@ -113,7 +117,7 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                         ModBlocks.ALEXANDRITE_TRAPDOOR.get(),
                                                         ModBlocks.ALEXANDRITE_WALL.get());
 
-        // Crop
+        // ** CUSTOM Crop blocks **
         tag(BlockTags.CROPS).add(ModBlocks.RADISH_CROP.get(), ModBlocks.KOHLRABI_CROP.get());
 
         // ** CUSTOM log **
@@ -132,12 +136,19 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         this.tag(ModTags.Blocks.WALNUT_LOGS).add(ModBlocks.WALNUT_LOG.get(), ModBlocks.WALNUT_WOOD.get(),
                                                  ModBlocks.STRIPPED_WALNUT_LOG.get(), ModBlocks.STRIPPED_WALNUT_WOOD.get());
 
-        // Glass
+        // ** CUSTOM Glass blocks **
         this.tag(BlockTags.IMPERMEABLE).add(ModBlocks.FORCED_STAINED_GLASS.get());
 
+        // ** CUSTOM Advanced items **
         // METAL DETECTOR
         tag(ModTags.Blocks.METAL_DETECTOR_VALUABLES).addTag(Tags.Blocks.ORES)
                                                     .addTag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE);
         tag(ModTags.Blocks.METAL_DETECTOR_COLORS).addTag(Tags.Blocks.ORES_GOLD).addTag(Tags.Blocks.ORES_COPPER);
+
+        // ** CUSTOM Fluid **
+        tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES).add(ModFluids.SOAP_WATER_BLOCK.get());
+        tag(BlockTags.GEODE_INVALID_BLOCKS).add(ModFluids.SOAP_WATER_BLOCK.get());
+        tag(BlockTags.REPLACEABLE_BY_TREES).add(ModFluids.SOAP_WATER_BLOCK.get());
+        tag(BlockTags.REPLACEABLE_BY_MUSHROOMS).add(ModFluids.SOAP_WATER_BLOCK.get());
     }
 }

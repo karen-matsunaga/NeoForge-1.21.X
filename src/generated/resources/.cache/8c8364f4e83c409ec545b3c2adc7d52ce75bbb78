@@ -1,4 +1,8 @@
-// 1.21.8	2025-08-22T14:23:28.8890746	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-08-23T13:23:48.0359489	Tags for minecraft:item mod id vanilla
+ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets.json
+ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/entity_water.json
+ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/water.json
+e39a63d714d964df94fca0f8733eca55312cb8e8 data/c/tags/item/tools/shield.json
 23322585108afbbd5f20fd5e29aa83527532621d data/mccoursemod/tags/item/alexandrite_armor.json
 3d3bdca569d63dad7a0fcc8bc939e35d82c44881 data/mccoursemod/tags/item/alexandrite_tools.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/alexandrite_tool_materials.json
@@ -24,7 +28,7 @@ b41a72a37404c7dbd6aa6aac08c3c0b04f47cd22 data/mccoursemod/tags/item/special_effe
 24e22c3df2eef1415baa517d488583df527f6a44 data/minecraft/tags/item/beacon_payment_items.json
 3e3e729de1e257b10b665efa6e8b0b8eaae17109 data/minecraft/tags/item/chest_armor.json
 92936013607c18fd6caf8af1edd4580a21f99416 data/minecraft/tags/item/enchantable/bow.json
-92936013607c18fd6caf8af1edd4580a21f99416 data/minecraft/tags/item/enchantable/durability.json
+41aba7425d2a0425f750b13f0c2defa5281b4e70 data/minecraft/tags/item/enchantable/durability.json
 08ef684c3c65ed0540fb5ded9ace78b4c96a0adf data/minecraft/tags/item/foot_armor.json
 373ae76938b0e9fa6b549a2f54043170089b6d6a data/minecraft/tags/item/head_armor.json
 16bd2643ece578b0769f7a7df45778a0026cf4be data/minecraft/tags/item/hoes.json

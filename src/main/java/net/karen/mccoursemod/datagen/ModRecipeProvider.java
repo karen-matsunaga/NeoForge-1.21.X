@@ -7,6 +7,7 @@ import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -127,6 +128,9 @@ public class ModRecipeProvider extends RecipeProvider {
         // ** CUSTOM log **
         log(List.of(ModBlocks.BLOODWOOD_PLANKS, ModBlocks.BLOODWOOD_WOOD, ModBlocks.BLOODWOOD_LOG), ModTags.Items.BLOODWOOD_LOGS);
         log(List.of(ModBlocks.WALNUT_PLANKS, ModBlocks.WALNUT_WOOD, ModBlocks.WALNUT_LOG), ModTags.Items.WALNUT_LOGS);
+
+        // ** CUSTOM shield **
+        shield(List.of(ModItems.ALEXANDRITE_SHIELD, ModItems.ALEXANDRITE));
     }
 
     // CUSTOM METHOD - Block Families
@@ -362,5 +366,18 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void log(List<ItemLike> items, TagKey<Item> itemTag) {
         this.planksFromLogs(items.getFirst(), itemTag, 4);
         this.woodFromLogs(items.get(1), items.get(2));
+    }
+
+    // CUSTOM METHOD - SHIELD
+    protected void shield(List<ItemLike> items) {
+        // 0 -> SHIELD; 1 -> TOOL MATERIAL;
+        this.shaped(RecipeCategory.COMBAT, items.getFirst())
+            .define('W', ItemTags.WOODEN_TOOL_MATERIALS)
+            .define('o', items.get(1))
+            .pattern("WoW")
+            .pattern("WWW")
+            .pattern(" W ")
+            .unlockedBy(getHasName(items.get(1)), this.has(items.get(1))).save(this.output);
+        SpecialRecipeBuilder.special(ShieldDecorationRecipe::new).save(this.output, "shield_decoration");
     }
 }

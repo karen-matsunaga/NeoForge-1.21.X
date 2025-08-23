@@ -10,6 +10,7 @@ import net.karen.mccoursemod.block.custom.KohlrabiCropBlock;
 import net.karen.mccoursemod.block.custom.RadishCropBlock;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.fluid.ModFluids;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.trim.ModTrimMaterials;
 import net.minecraft.client.color.item.Dye;
@@ -36,6 +37,7 @@ import net.minecraft.world.item.equipment.trim.MaterialAssetGroup;
 import net.minecraft.world.item.equipment.trim.TrimMaterial;
 import net.minecraft.world.item.equipment.trim.TrimMaterials;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
@@ -179,6 +181,9 @@ public class ModModelProvider extends ModelProvider {
         createGlassBlocksTransparent(blockModels, ModBlocks.FORCED_STAINED_GLASS.get(),
                                      ModBlocks.FORCED_STAINED_GLASS_PANE.get());
 
+        // ** CUSTOM fluid block **
+        waterTexture(blockModels, ModFluids.SOAP_WATER_BLOCK.get());
+
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
         // BISMUTH
@@ -272,9 +277,21 @@ public class ModModelProvider extends ModelProvider {
 
         // ** CUSTOM Fishing Rod **
         itemModels.generateFishingRod(ModItems.MCCOURSE_MOD_FISHING_ROD.get());
+
+        // ** CUSTOM Shield **
+        itemModels.generateShield(ModItems.ALEXANDRITE_SHIELD.get());
+
+        // ** CUSTOM Fluid **
+        itemModels.generateFlatItem(ModFluids.SOAP_WATER_BUCKET.get(), ModelTemplates.FLAT_ITEM);
     }
 
     // * CUSTOM BLOCKS *
+    // CUSTOM METHOD - Water block texture
+    protected static void waterTexture(BlockModelGenerators blockModels, Block block) {
+        blockModels.createNonTemplateModelBlock(Blocks.BUBBLE_COLUMN, block);
+        blockModels.createNonTemplateModelBlock(block);
+    }
+
     // CUSTOM METHOD - Blockstate Texture
     protected static void blockstateTexture(BlockModelGenerators blockModels, Block block) {
         blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
@@ -561,14 +578,20 @@ public class ModModelProvider extends ModelProvider {
     protected @NotNull Stream<? extends Holder<Block>> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries()
                                .stream().filter(x ->
-                                                !(x.get() == ModBlocks.PEDESTAL.get()) && !(x.get() == ModBlocks.CHAIR.get()));
+                                                !(x.get() == ModBlocks.PEDESTAL.get()) &&
+                                                !(x.get() == ModBlocks.CHAIR.get())
+                                               );
     }
 
     // CUSTOM METHOD - Item models -> Ignore JSON files
     @Override
     protected @NotNull Stream<? extends Holder<Item>> getKnownItems() {
         return ModItems.ITEMS.getEntries()
-                             .stream().filter(x -> x.get() != ModBlocks.PEDESTAL.asItem() &&
-                                              x.get() != ModBlocks.CHAIR.asItem() && !(x.get() == ModItems.TOMAHAWK.get()));
+                             .stream().filter(x ->
+                                              x.get() != ModBlocks.PEDESTAL.asItem() &&
+                                              x.get() != ModBlocks.CHAIR.asItem() &&
+                                              !(x.get() == ModItems.TOMAHAWK.get()) &&
+                                              !(x.get() == ModItems.ALEXANDRITE_SHIELD.get())
+                                             );
     }
 }

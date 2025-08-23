@@ -74,17 +74,25 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
     // Rhino custom entity IA
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new FloatGoal(this)); // Walk animation
-        this.goalSelector.addGoal(1, new RhinoAttackGoal(this, 1.0D, true)); // Attack animation
-        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D)); // Breed animation
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.2D, Ingredient.of(Items.COOKED_BEEF), true));
-        this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this)); // Tamable animation
-        this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.25d, 18f, 7f));
+        // WALK animation
+        this.goalSelector.addGoal(0, new FloatGoal(this));
+        // ATTACK animation
+        this.goalSelector.addGoal(1, new RhinoAttackGoal(this, 1.0D,
+                                                                true));
+        // BREED animation
+        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.2D,
+                                                          Ingredient.of(Items.COOKED_BEEF), true));
+        // TAMABLE animation
+        this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
+        this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.25d,
+                                                                18f, 7f));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1d));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 4f));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this)); // Attack animation
+        // ATTACK animation
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
 
     // Custom attributes of Rhino custom entity
@@ -106,19 +114,21 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
     }
 
     private void setupAnimationStates() {
-        // Walk animation
+        // WALK animation
         if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.tickCount);
-        } else { --this.idleAnimationTimeout; }
-        // Attack animation
+        }
+        else { --this.idleAnimationTimeout; }
+        // ATTACK animation
         if (this.isAttacking() && attackAnimationTimeout <= 0) {
             attackAnimationTimeout = 80; // 20 (ticks) * 4 (seconds) = 80 ticks / 4 seconds - Length in ticks of your animation
             attackAnimationState.start(this.tickCount);
-        } else { --this.attackAnimationTimeout; }
-        if (!this.isAttacking()) { attackAnimationState.stop(); } // None attack
-        // Sit animation
-        if(this.isInSittingPose()) { sitAnimationState.startIfStopped(this.tickCount); }
+        }
+        else { --this.attackAnimationTimeout; }
+        if (!this.isAttacking()) { attackAnimationState.stop(); } // NONE attack
+        // SIT animation
+        if (this.isInSittingPose()) { sitAnimationState.startIfStopped(this.tickCount); }
         else { sitAnimationState.stop(); }
     }
 
@@ -130,12 +140,15 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
     }
 
     @Override
-    public void tick() { super.tick(); if (this.level().isClientSide()) { this.setupAnimationStates(); } }
+    public void tick() {
+        super.tick();
+        if (this.level().isClientSide()) { this.setupAnimationStates(); }
+    }
 
-    // Rhino's attack animation
+    // RHINO attack animation
     public void setAttacking(boolean attacking) {
-        this.entityData.set(ATTACKING, attacking);
-    } // It is attacked
+        this.entityData.set(ATTACKING, attacking); // It is attacked
+    }
 
     public boolean isAttacking() {
         return this.entityData.get(ATTACKING);
@@ -230,7 +243,6 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
     /* RIDEABLE */
     private void setRiding(Player pPlayer) {
         this.setInSittingPose(false);
-
         pPlayer.setYRot(this.getYRot());
         pPlayer.setXRot(this.getXRot());
         pPlayer.startRiding(this);
@@ -252,7 +264,6 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
             this.yHeadRot = this.yBodyRot;
             float f = livingentity.xxa * 0.5F;
             float f1 = livingentity.zza;
-
             // Inside this if statement, we are on the client!
             if (this.isLocalInstanceAuthoritative()) {
                 float newSpeed = (float) this.getAttributeValue(Attributes.MOVEMENT_SPEED);
@@ -272,10 +283,8 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
             int[][] offsets = DismountHelper.offsetsForDirection(direction);
             BlockPos blockpos = this.blockPosition();
             BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
-
             for (Pose pose : entity.getDismountPoses()) {
                 AABB aabb = entity.getLocalBoundsForPose(pose);
-
                 for (int[] offset : offsets) {
                     blockpos$mutableblockpos.set(blockpos.getX() + offset[0], blockpos.getY(), blockpos.getZ() + offset[1]);
                     double d0 = this.level().getBlockFloorHeight(blockpos$mutableblockpos);
@@ -292,9 +301,9 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
         return super.getDismountLocationForPassenger(entity);
     }
 
-    /* BREEDING */
+    /* BREEDING -> COOKED BEEF breedable Rhino entities */
     @Override
-    public boolean isFood(ItemStack pStack) { return pStack.is(Items.COOKED_BEEF); } // COOKED BEEF breedable Rhino entities
+    public boolean isFood(ItemStack pStack) { return pStack.is(Items.COOKED_BEEF); }
 
     /* BOSS BAR */
     @Override

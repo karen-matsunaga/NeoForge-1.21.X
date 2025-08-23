@@ -11,20 +11,27 @@ import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.BlocksAttacks;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
+import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 import static net.karen.mccoursemod.util.ChatUtils.purple;
 
@@ -221,6 +228,25 @@ public class ModItems {
            ITEMS.registerItem("alexandrite_horse_armor",
            (properties) -> new Item(properties.stacksTo(1)
                                                         .horseArmor(ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL)));
+
+    public static final DeferredItem<Item> ALEXANDRITE_SHIELD =
+           ITEMS.registerItem("alexandrite_shield",
+           (properties) -> new Item(properties.durability(2304)
+                                                        .component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
+                                                        .repairable(ItemTags.WOODEN_TOOL_MATERIALS)
+                                                        .equippableUnswappable(EquipmentSlot.OFFHAND)
+                                                        .component(DataComponents.BLOCKS_ATTACKS,
+                                                                   new BlocksAttacks(0.25F,
+                                                                                     1.0F,
+                                                                   List.of(new BlocksAttacks.DamageReduction(90.0F,
+                                                                           Optional.empty(), 0.0F, 1.0F)),
+                                                                           new BlocksAttacks.ItemDamageFunction(3.0F,
+                                                                                                                1.0F,
+                                                                                                                1.0F),
+                                                                           Optional.of(DamageTypeTags.BYPASSES_SHIELD),
+                                                                           Optional.of(SoundEvents.SHIELD_BLOCK),
+                                                                           Optional.of(SoundEvents.SHIELD_BREAK)))
+                                                        .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)));
 
     // ** CUSTOM Smithing Template **
     public static final DeferredItem<Item> KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE =

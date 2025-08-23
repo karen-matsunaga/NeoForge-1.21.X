@@ -51,11 +51,7 @@ public class RhinoAttackGoal extends MeleeAttackGoal {
     }
 
     private boolean isEnemyWithinAttackDistance(LivingEntity entity, double distToEnemySqr) {
-        return distToEnemySqr <= this.getAttackReachSqr(entity);
-    }
-
-    protected double getAttackReachSqr(LivingEntity attackTarget) {
-        return this.mob.getBbWidth() * 2.0F * this.mob.getBbWidth() * 2.0F + attackTarget.getBbWidth();
+        return distToEnemySqr >= this.mob.distanceTo(entity);
     }
 
     protected void resetAttackCooldown() {

@@ -54,6 +54,8 @@ public class DataGenerators {
         generator.addProvider(true, new ModPaintingVariantTagGenerator(packOutput, lookupProvider));
         // Villager Poi Type tags
         generator.addProvider(true, new ModPoiTypeTagsProvider(packOutput, lookupProvider));
+        // Fluid tags
+        generator.addProvider(true, new ModFluidTagGenerator(packOutput, lookupProvider));
         // Loot Modifiers Provider
         generator.addProvider(true, new ModGlobalLootModifierProvider(packOutput, lookupProvider));
         // Particles Provider
@@ -99,6 +101,8 @@ public class DataGenerators {
         generator.addProvider(true, new ModPaintingVariantTagGenerator(packOutput, lookupProvider));
         // Villager Poi Type tags
         generator.addProvider(true, new ModPoiTypeTagsProvider(packOutput, lookupProvider));
+        // Fluid tags
+        generator.addProvider(true, new ModFluidTagGenerator(packOutput, lookupProvider));
         // Loot Modifiers Provider
         generator.addProvider(true, new ModGlobalLootModifierProvider(packOutput, lookupProvider));
         // Particles Provider

@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-22T14:23:28.8890746	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-08-23T16:28:54.2622751	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 d3e0307570b786aa4733b133a1bc9d5453079334 data/mccoursemod/tags/block/bismuth_blocks.json
@@ -25,12 +25,16 @@ a3b034ba6dfc318ff77dbd2fedd47a18e2872e02 data/mccoursemod/tags/block/more_ores_f
 b6bce34447c5b86b5875384bbea66e86500e94e7 data/minecraft/tags/block/doors.json
 ac3ea97eb7084008062714115ad481dcafc2deea data/minecraft/tags/block/fences.json
 0761aacfe0607e7412068df7c869ac507df23878 data/minecraft/tags/block/fence_gates.json
+950fd2db124c5b2a8ecd2d4737fee78abe8776ac data/minecraft/tags/block/geode_invalid_blocks.json
 6a54a0eec9efdf43743f54d093866a1ab5e22da1 data/minecraft/tags/block/impermeable.json
 01ae0750873e04271d670940edf604addec414e9 data/minecraft/tags/block/leaves.json
 4b057e3e5e6f7b9026d5871433fccbb5eb4dfe1a data/minecraft/tags/block/logs_that_burn.json
 3a2e82f8d31a6036380dc03593bcb7e93bb2b802 data/minecraft/tags/block/mineable/pickaxe.json
+950fd2db124c5b2a8ecd2d4737fee78abe8776ac data/minecraft/tags/block/overworld_carver_replaceables.json
 2cb28474625576092652fd1b578b683666883b3a data/minecraft/tags/block/planks.json
 89ee07c9d11c811978886cd16793b2c3549d7bbc data/minecraft/tags/block/pressure_plates.json
+950fd2db124c5b2a8ecd2d4737fee78abe8776ac data/minecraft/tags/block/replaceable_by_mushrooms.json
+950fd2db124c5b2a8ecd2d4737fee78abe8776ac data/minecraft/tags/block/replaceable_by_trees.json
 d8700cb59c359611790eaf34c5351f0bfe3e081e data/minecraft/tags/block/saplings.json
 89b32c57535ad405bb5c6147fd9a5d472eedbc57 data/minecraft/tags/block/slabs.json
 7264921d90885ed8f7d2b502a0f994281cb56b76 data/minecraft/tags/block/stairs.json

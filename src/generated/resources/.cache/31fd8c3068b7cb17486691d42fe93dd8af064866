@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-22T14:23:28.8784126	Mccourse Recipes
+// 1.21.8	2025-08-23T10:02:50.8226998	Mccourse Recipes
 0007e86a60bbd3b0a4baaf013385795221e8513e data/mccoursemod/advancement/recipes/building_blocks/alexandrite_slabs.json
 8f4eac1f86e2a81087b0ad34a987911811b2e48a data/mccoursemod/advancement/recipes/building_blocks/alexandrite_stairs.json
 43c1e827f47c9a2463760730f6cf478f2122bf12 data/mccoursemod/advancement/recipes/building_blocks/alexandrite_wall.json
@@ -14,6 +14,7 @@ c6bd5ff114d655bd0bdf735b7e99a93003cba6e8 data/mccoursemod/advancement/recipes/co
 3a5214395dfd39eb5e7f025afd56fa63aeb73d1c data/mccoursemod/advancement/recipes/combat/alexandrite_chestplate.json
 f90dee637efc3fdb5e8c02a1a10e3c3487a93091 data/mccoursemod/advancement/recipes/combat/alexandrite_helmet.json
 d42f8abc1d18e00e16cd8e4f7c24d251366b3a59 data/mccoursemod/advancement/recipes/combat/alexandrite_leggings.json
+2726cf0519914d53533b178496c1fed2d784f829 data/mccoursemod/advancement/recipes/combat/alexandrite_shield.json
 89c52475d199b014521c6c1394d96cf115f96434 data/mccoursemod/advancement/recipes/combat/alexandrite_sword.json
 83890fcd7b14ad4b8d03fde1330dafe8f1e2e375 data/mccoursemod/advancement/recipes/combat/bismuth_boots.json
 5ea924e0d7ccf1fa166c1e0630ccc486897663e3 data/mccoursemod/advancement/recipes/combat/bismuth_chestplate.json
@@ -90,6 +91,7 @@ cd4f3b16d792a426b02042b73ab19142700ae68a data/mccoursemod/recipe/alexandrite_hel
 f9721b0347c8226a8a531a95fd249873ffe1c6e3 data/mccoursemod/recipe/alexandrite_paxel.json
 900cd2d7e9f5890a2a12eff4c860eea35630469e data/mccoursemod/recipe/alexandrite_pickaxe.json
 63b56f1afea242d0857e48beca125f77c63727cf data/mccoursemod/recipe/alexandrite_pressure_plate.json
+ffbec2c9439c8b5125f2b9424f3cfb9f3fd0badd data/mccoursemod/recipe/alexandrite_shield.json
 55846f6db3d267d321a6a44b952e3bf1d1f13bdc data/mccoursemod/recipe/alexandrite_shovel.json
 d5b41087f247eea37bbe94f868ac9d93ad9467a0 data/mccoursemod/recipe/alexandrite_slabs.json
 42a84d338b8d91407d0e0e8e93d5af280fc2f819 data/mccoursemod/recipe/alexandrite_stairs.json
@@ -147,3 +149,4 @@ fa60ce84c317e47bf185127bb6ddeaec753f8f54 data/minecraft/recipe/anvil.json
 d2217a3657e82978b7adb1b41203f2320eafb15a data/minecraft/recipe/enchant.json
 ef3d73c10fd0e242f12e240e52a8e2fa0a6d85fc data/minecraft/recipe/forced_stained_glass_pane_from_glass_pane.json
 e544e500f0436e2304a08fe8e8c6f01638bb812f data/minecraft/recipe/growth.json
+7610b9dc4d4cb0f4b816eb91f769fa7440fe3d2f data/minecraft/recipe/shield_decoration.json

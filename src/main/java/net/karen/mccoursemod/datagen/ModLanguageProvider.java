@@ -2,6 +2,7 @@ package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.fluid.ModFluids;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -123,6 +124,13 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM Fishing Rod **
         addItem(ModItems.MCCOURSE_MOD_FISHING_ROD, "Mccourse Mod Fishing Rod");
 
+        // ** CUSTOM Shield **
+        addItem(ModItems.ALEXANDRITE_SHIELD, "Alexandrite Shield");
+
+        // ** CUSTOM Fluid **
+        addItem(ModFluids.SOAP_WATER_BUCKET, "Soap Water Bucket");
+        add("fluid_type.mccoursemod.soap_water_fluid", "Soap Water Fluid");
+
         // ** CUSTOM block items **
         add("item.mccoursemod.bismuth_block", "Bismuth Block");
         add("item.mccoursemod.bismuth_ore", "Bismuth Ore");
@@ -183,6 +191,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.forced_stained_glass", "Force Stained Glass Block");
         add("item.mccoursemod.forced_stained_glass_pane", "Force Stained Glass Pane Block");
         add("item.mccoursemod.sound", "Sound Block");
+        add("item.mccoursemod.soap_water_block", "Soap Water Block");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -270,6 +279,9 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM block entity **
         addBlock(ModBlocks.PEDESTAL, "Pedestal Block");
         addBlock(ModBlocks.GROWTH_CHAMBER, "Growth Chamber Block");
+
+        // ** CUSTOM Fluid block **
+        addBlock(ModFluids.SOAP_WATER_BLOCK, "Soap Water Block");
 
         // ** CUSTOM CREATIVE TABS **
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");
