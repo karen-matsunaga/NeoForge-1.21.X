@@ -141,6 +141,7 @@ public class ModItems {
            (properties) -> new Item(properties.stacksTo(1)
                                                         .horseArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL)));
 
+    // ** CUSTOM Fishing Rod **
     public static final DeferredItem<Item> MCCOURSE_MOD_FISHING_ROD =
            ITEMS.registerItem("mccourse_mod_fishing_rod",
                    (properties) -> new FishingRodItem(properties.fireResistant()) {
@@ -256,24 +257,24 @@ public class ModItems {
            ITEMS.registerItem("kaupen_armor_trim_smithing_template",
                               SmithingTemplateItem::createArmorTrimTemplate, (new Item.Properties()).rarity(Rarity.COMMON));
 
-    // ** CUSTOM music disc **
+    // ** CUSTOM Music Disc **
     public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.registerItem("bar_brawl_music_disc",
            (properties) -> new Item(properties.jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).stacksTo(1)));
 
-    // ** CUSTOM seeds **
+    // ** CUSTOM Seeds **
     public static final DeferredItem<Item> RADISH_SEEDS = ITEMS.registerItem("radish_seeds",
            (properties) -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties));
 
     public static final DeferredItem<Item> KOHLRABI_SEEDS = ITEMS.registerItem("kohlrabi_seeds",
            (properties) -> new BlockItem(ModBlocks.KOHLRABI_CROP.get(), properties));
 
-    // ** CUSTOM bush crop **
+    // ** CUSTOM Bush Crop **
     public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",
            (properties) -> new BlockItem(ModBlocks.GOJI_BERRY_BUSH.get(),
                                                    properties.food(new FoodProperties.Builder().nutrition(2)
                                                                                                .saturationModifier(0.15F).build())));
 
-    // ** CUSTOM mob **
+    // ** CUSTOM Mob **
     // GECKO
     public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.registerItem("gecko_spawn_egg",
            (properties) -> new SpawnEggItem(ModEntities.GECKO.get(), properties));
@@ -290,6 +291,7 @@ public class ModItems {
     public static final DeferredItem<Item> RADIATION_STAFF = ITEMS.registerItem("radiation_staff",
            (properties) -> new Item(properties.stacksTo(1)));
 
+    // ** CUSTOM Advanced Items **
     // Auto smelt item
     public static final DeferredItem<Item> AUTO_SMELT = ITEMS.registerItem("auto_smelt",
            (properties) -> new SpecialEffectItem(properties, ModDataComponentTypes.AUTO_SMELT.get(), 10));
@@ -311,6 +313,7 @@ public class ModItems {
            ITEMS.registerItem("level_charger_specif_minus_fortune",
            (properties) -> new LevelChargerSpecifItem(properties.fireResistant(), -1, Enchantments.FORTUNE));
 
+    // ** CUSTOM Foods **
     // Coffee item food
     public static final DeferredItem<Item> COFFEE = ITEMS.registerItem("coffee",
            (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
@@ -346,7 +349,7 @@ public class ModItems {
            ITEMS.registerItem("growth", GrowthItem::new, new Item.Properties().stacksTo(64)
                                                                                     .fireResistant());
 
-    // ** CUSTOM sign and Hanging sign ** (PROBLEMS)
+    // ** CUSTOM sign and Hanging sign **
     public static final DeferredItem<Item> WALNUT_SIGN =
            ITEMS.register("walnut_sign",
            () -> new SignItem(ModBlocks.WALNUT_SIGN.get(), ModBlocks.WALNUT_WALL_SIGN.get(),
