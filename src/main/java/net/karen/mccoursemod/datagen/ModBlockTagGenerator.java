@@ -36,7 +36,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                       ModBlocks.SOUND.get())
                                                  .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES)
                                                  .addTag(ModTags.Blocks.BISMUTH_BLOCKS)
-                                                 .addTag(ModTags.Blocks.ALEXANDRITE_BLOCKS);
+                                                 .addTag(ModTags.Blocks.ALEXANDRITE_BLOCKS)
+                                                 .addTag(ModTags.Blocks.ENDER_PEARL_BLOCKS);
 
         // Paxel break
         this.tag(ModTags.Blocks.MINEABLE_WITH_PAXEL).addTag(BlockTags.MINEABLE_WITH_AXE)
@@ -156,5 +157,22 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         tag(BlockTags.GEODE_INVALID_BLOCKS).add(ModFluids.SOAP_WATER_BLOCK.get());
         tag(BlockTags.REPLACEABLE_BY_TREES).add(ModFluids.SOAP_WATER_BLOCK.get());
         tag(BlockTags.REPLACEABLE_BY_MUSHROOMS).add(ModFluids.SOAP_WATER_BLOCK.get());
+
+        // ** CUSTOM Ender Pearl block **
+        tag(ModTags.Blocks.ENDER_PEARL_BLOCKS).add(ModBlocks.ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.GREEN_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.BLACK_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.MAGENTA_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.PURPLE_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.ORANGE_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.PINK_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.CYAN_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.BROWN_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.GRAY_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.RED_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.LIME_GREEN_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.YELLOW_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.BLUE_ENDER_PEARL_BLOCK.get(),
+                                                   ModBlocks.WHITE_ENDER_PEARL_BLOCK.get());
     }
 }

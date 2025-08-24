@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:yellow_dye",
+    "mccoursemod:ender_pearl_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:yellow_ender_pearl_block"
+  }
+}

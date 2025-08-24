@@ -60,6 +60,9 @@ public class ModTags {
         public static final TagKey<Block> BLOODWOOD_LOGS = createTag("bloodwood_logs");
         public static final TagKey<Block> WALNUT_LOGS = createTag("walnut_logs");
 
+        // ** CUSTOM Ender pearl block **
+        public static final TagKey<Block> ENDER_PEARL_BLOCKS = createTag("ender_pearl_blocks");
+
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));

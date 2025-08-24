@@ -479,7 +479,64 @@ public class ModBlocks {
                                                               .requiresCorrectToolForDrops()
                                                               .sound(SoundType.AMETHYST)));
 
-    // CUSTOM METHOD - Registry all custom blocks
+    // END PEARL blocks
+    public static final DeferredBlock<Block> ENDER_PEARL_BLOCK =
+           enderPearlBlock("ender_pearl_block", MapColor.EMERALD);
+
+    public static final DeferredBlock<Block> GREEN_ENDER_PEARL_BLOCK =
+           enderPearlBlock("green_ender_pearl_block", MapColor.COLOR_GREEN);
+
+    public static final DeferredBlock<Block> LIME_GREEN_ENDER_PEARL_BLOCK =
+           enderPearlBlock("lime_green_ender_pearl_block", MapColor.COLOR_LIGHT_GREEN);
+
+    public static final DeferredBlock<Block> BLACK_ENDER_PEARL_BLOCK =
+           enderPearlBlock("black_ender_pearl_block", MapColor.COLOR_BLACK);
+
+    public static final DeferredBlock<Block> MAGENTA_ENDER_PEARL_BLOCK =
+           enderPearlBlock("magenta_ender_pearl_block", MapColor.COLOR_MAGENTA);
+
+    public static final DeferredBlock<Block> PURPLE_ENDER_PEARL_BLOCK =
+           enderPearlBlock("purple_ender_pearl_block", MapColor.COLOR_PURPLE);
+
+    public static final DeferredBlock<Block> ORANGE_ENDER_PEARL_BLOCK =
+           enderPearlBlock("orange_ender_pearl_block", MapColor.COLOR_ORANGE);
+
+    public static final DeferredBlock<Block> PINK_ENDER_PEARL_BLOCK =
+           enderPearlBlock("pink_ender_pearl_block", MapColor.COLOR_PINK);
+
+    public static final DeferredBlock<Block> CYAN_ENDER_PEARL_BLOCK =
+           enderPearlBlock("cyan_ender_pearl_block", MapColor.COLOR_CYAN);
+
+    public static final DeferredBlock<Block> BROWN_ENDER_PEARL_BLOCK =
+           enderPearlBlock("brown_ender_pearl_block", MapColor.COLOR_BROWN);
+
+    public static final DeferredBlock<Block> GRAY_ENDER_PEARL_BLOCK =
+           enderPearlBlock("gray_ender_pearl_block", MapColor.COLOR_GRAY);
+
+    public static final DeferredBlock<Block> RED_ENDER_PEARL_BLOCK =
+           enderPearlBlock("red_ender_pearl_block", MapColor.COLOR_RED);
+
+    public static final DeferredBlock<Block> YELLOW_ENDER_PEARL_BLOCK =
+           enderPearlBlock("yellow_ender_pearl_block", MapColor.COLOR_YELLOW);
+
+    public static final DeferredBlock<Block> BLUE_ENDER_PEARL_BLOCK =
+           enderPearlBlock("blue_ender_pearl_block", MapColor.COLOR_BLUE);
+
+    public static final DeferredBlock<Block> WHITE_ENDER_PEARL_BLOCK =
+           enderPearlBlock("white_ender_pearl_block", MapColor.COLOR_LIGHT_GRAY);
+
+    // ** CUSTOM METHOD - ENDER PEARL blocks **
+    public static DeferredBlock<Block> enderPearlBlock(String name, MapColor color) {
+        return registerBlock(name, (properties) ->
+                             new Block(properties.mapColor(color)
+                                                 .instrument(NoteBlockInstrument.BELL)
+                                                 .requiresCorrectToolForDrops()
+                                                 .strength(5.0F, 6.0F)
+                                                 .sound(SoundType.METAL)
+                                                 .lightLevel(state -> 50)));
+    }
+
+    // CUSTOM METHOD - Registry all custom BLOCKS
     private static <T extends Block> DeferredBlock<T> registerBlock(String name,
                                                                     Function<BlockBehaviour.Properties, T> block) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, block);
@@ -487,14 +544,14 @@ public class ModBlocks {
         return toReturn;
     }
 
-    // CUSTOM METHOD - Registry all custom block items
+    // CUSTOM METHOD - Registry all custom BLOCK ITEMS
     private static <T extends Block> void registerBlockItem(String name,
                                                             DeferredBlock<T> block) {
-        ModItems.ITEMS.registerItem(name,
-                                    (properties) -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
+        ModItems.ITEMS.registerItem(name, (properties) ->
+                                    new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
     }
 
-    // CUSTOM METHOD - Registry all custom blocks on event bus
+    // CUSTOM METHOD - Registry all custom BLOCKS on EVENT
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }

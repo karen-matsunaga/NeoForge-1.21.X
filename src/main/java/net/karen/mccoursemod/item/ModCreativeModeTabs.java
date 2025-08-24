@@ -203,6 +203,22 @@ public class ModCreativeModeTabs {
                  // ** CUSTOM Sign and Hanging Sing blocks **
                  output.accept(ModBlocks.WALNUT_SIGN.get());
                  output.accept(ModBlocks.WALNUT_HANGING_SIGN.get());
+                 // ** CUSTOM Ender Pearl blocks **
+                 output.accept(ModBlocks.ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.GREEN_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.BLACK_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.MAGENTA_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.PURPLE_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.ORANGE_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.PINK_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.CYAN_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.BROWN_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.GRAY_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.RED_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.LIME_GREEN_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.YELLOW_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.BLUE_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.WHITE_ENDER_PEARL_BLOCK.get());
            }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus

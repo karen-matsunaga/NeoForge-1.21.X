@@ -135,6 +135,24 @@ public class ModRecipeProvider extends RecipeProvider {
         // ** CUSTOM sign and hanging sign **
         sign(List.of(ModItems.WALNUT_SIGN, ModBlocks.WALNUT_PLANKS,
                      ModItems.WALNUT_HANGING_SIGN, ModBlocks.STRIPPED_WALNUT_LOG));
+
+        // ** CUSTOM Ender Pearl blocks **
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.ENDER_PEARL,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENDER_PEARL_BLOCK.get());
+        enderPearlBlock(List.of(ModBlocks.GREEN_ENDER_PEARL_BLOCK.get(), Items.GREEN_DYE));
+        enderPearlBlock(List.of(ModBlocks.LIME_GREEN_ENDER_PEARL_BLOCK.get(), Items.LIME_DYE));
+        enderPearlBlock(List.of(ModBlocks.MAGENTA_ENDER_PEARL_BLOCK.get(), Items.MAGENTA_DYE));
+        enderPearlBlock(List.of(ModBlocks.PINK_ENDER_PEARL_BLOCK.get(), Items.PINK_DYE));
+        enderPearlBlock(List.of(ModBlocks.PURPLE_ENDER_PEARL_BLOCK.get(), Items.PURPLE_DYE));
+        enderPearlBlock(List.of(ModBlocks.BLACK_ENDER_PEARL_BLOCK.get(), Items.BLACK_DYE));
+        enderPearlBlock(List.of(ModBlocks.BLUE_ENDER_PEARL_BLOCK.get(), Items.BLUE_DYE));
+        enderPearlBlock(List.of(ModBlocks.CYAN_ENDER_PEARL_BLOCK.get(), Items.CYAN_DYE));
+        enderPearlBlock(List.of(ModBlocks.GRAY_ENDER_PEARL_BLOCK.get(), Items.GRAY_DYE));
+        enderPearlBlock(List.of(ModBlocks.BROWN_ENDER_PEARL_BLOCK.get(), Items.BROWN_DYE));
+        enderPearlBlock(List.of(ModBlocks.YELLOW_ENDER_PEARL_BLOCK.get(), Items.YELLOW_DYE));
+        enderPearlBlock(List.of(ModBlocks.WHITE_ENDER_PEARL_BLOCK.get(), Items.WHITE_DYE));
+        enderPearlBlock(List.of(ModBlocks.ORANGE_ENDER_PEARL_BLOCK.get(), Items.ORANGE_DYE));
+        enderPearlBlock(List.of(ModBlocks.RED_ENDER_PEARL_BLOCK.get(), Items.RED_DYE));
     }
 
     // CUSTOM METHOD - Block Families
@@ -378,6 +396,13 @@ public class ModRecipeProvider extends RecipeProvider {
         this.signBuilder(items.getFirst(), Ingredient.of(items.get(1)))
             .unlockedBy("has_item", has(items.get(1))).save(this.output);
         this.hangingSign(items.get(2), items.get(3));
+    }
+
+    // CUSTOM METHOD - ENDER PEARL blocks
+    protected void enderPearlBlock(List<ItemLike> item) {
+        this.shapeless(RecipeCategory.BUILDING_BLOCKS, item.get(0), 1)
+                                     .requires(item.get(1)).requires(ModBlocks.ENDER_PEARL_BLOCK.get())
+                                     .unlockedBy("has_item", has(item.get(1))).save(this.output);
     }
 
     // CUSTOM METHOD - SHIELD

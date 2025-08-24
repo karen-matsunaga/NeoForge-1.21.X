@@ -196,6 +196,21 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.walnut_hanging_sign", "Walnut Hanging Sign");
         add("item.mccoursemod.walnut_wall_sign", "Walnut Wall Sign");
         add("item.mccoursemod.walnut_wall_hanging_sign", "Walnut Wall Hanging Sign");
+        add("item.mccoursemod.ender_pearl_block", "Ender Pearl Block");
+        add("item.mccoursemod.green_ender_pearl_block", "Green Ender Pearl Block");
+        add("item.mccoursemod.black_ender_pearl_block", "Black Ender Pearl Block");
+        add("item.mccoursemod.magenta_ender_pearl_block", "Magenta Ender Pearl Block");
+        add("item.mccoursemod.purple_ender_pearl_block", "Purple Ender Pearl Block");
+        add("item.mccoursemod.orange_ender_pearl_block", "Orange Ender Pearl Block");
+        add("item.mccoursemod.pink_ender_pearl_block", "Pink Ender Pearl Block");
+        add("item.mccoursemod.cyan_ender_pearl_block", "Cyan Ender Pearl Block");
+        add("item.mccoursemod.brown_ender_pearl_block", "Brown Ender Pearl Block");
+        add("item.mccoursemod.gray_ender_pearl_block", "Gray Ender Pearl Block");
+        add("item.mccoursemod.red_ender_pearl_block", "Red Ender Pearl Block");
+        add("item.mccoursemod.lime_green_ender_pearl_block", "Lime Green Ender Pearl Block");
+        add("item.mccoursemod.yellow_ender_pearl_block", "Yellow Ender Pearl Block");
+        add("item.mccoursemod.blue_ender_pearl_block", "Blue Ender Pearl Block");
+        add("item.mccoursemod.white_ender_pearl_block", "White Ender Pearl Block");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -292,6 +307,23 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // ** CUSTOM Fluid block **
         addBlock(ModFluids.SOAP_WATER_BLOCK, "Soap Water Block");
+
+        // ** CUSTOM Ender Pearl blocks **
+        addBlock(ModBlocks.ENDER_PEARL_BLOCK, "Ender Pearl Block");
+        addBlock(ModBlocks.GREEN_ENDER_PEARL_BLOCK, "Green Ender Pearl Block");
+        addBlock(ModBlocks.BLACK_ENDER_PEARL_BLOCK, "Black Ender Pearl Block");
+        addBlock(ModBlocks.MAGENTA_ENDER_PEARL_BLOCK, "Magenta Ender Pearl Block");
+        addBlock(ModBlocks.PURPLE_ENDER_PEARL_BLOCK, "Purple Ender Pearl Block");
+        addBlock(ModBlocks.ORANGE_ENDER_PEARL_BLOCK, "Orange Ender Pearl Block");
+        addBlock(ModBlocks.PINK_ENDER_PEARL_BLOCK, "Pink Ender Pearl Block");
+        addBlock(ModBlocks.CYAN_ENDER_PEARL_BLOCK, "Cyan Ender Pearl Block");
+        addBlock(ModBlocks.BROWN_ENDER_PEARL_BLOCK, "Brown Ender Pearl Block");
+        addBlock(ModBlocks.GRAY_ENDER_PEARL_BLOCK, "Gray Ender Pearl Block");
+        addBlock(ModBlocks.RED_ENDER_PEARL_BLOCK, "Red Ender Pearl Block");
+        addBlock(ModBlocks.LIME_GREEN_ENDER_PEARL_BLOCK, "Lime Green Ender Pearl Block");
+        addBlock(ModBlocks.YELLOW_ENDER_PEARL_BLOCK, "Yellow Ender Pearl Block");
+        addBlock(ModBlocks.BLUE_ENDER_PEARL_BLOCK, "Blue Ender Pearl Block");
+        addBlock(ModBlocks.WHITE_ENDER_PEARL_BLOCK, "White Ender Pearl Block");
 
         // ** CUSTOM CREATIVE TABS **
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

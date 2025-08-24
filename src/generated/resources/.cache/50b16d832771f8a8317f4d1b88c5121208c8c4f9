@@ -1,9 +1,10 @@
-// 1.21.8	2025-08-24T10:22:00.7377044	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-08-24T15:35:13.2972676	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 d3e0307570b786aa4733b133a1bc9d5453079334 data/mccoursemod/tags/block/bismuth_blocks.json
 fb04ce601bdbe167eef745f4fb188a2bb2d4ca6a data/mccoursemod/tags/block/block_fly_block_speed.json
 81d61840f7e470498e0b50066a57efdb7c293248 data/mccoursemod/tags/block/bloodwood_logs.json
+8e6cce5eed1236b9e18574f335fa54a449c6458b data/mccoursemod/tags/block/ender_pearl_blocks.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_alexandrite_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_bismuth_tool.json
 f4f952d6af206987759c5ac1ba1cbfb8ef9f9544 data/mccoursemod/tags/block/mccourse_mod_ores.json
@@ -30,7 +31,7 @@ ac3ea97eb7084008062714115ad481dcafc2deea data/minecraft/tags/block/fences.json
 6a54a0eec9efdf43743f54d093866a1ab5e22da1 data/minecraft/tags/block/impermeable.json
 01ae0750873e04271d670940edf604addec414e9 data/minecraft/tags/block/leaves.json
 4b057e3e5e6f7b9026d5871433fccbb5eb4dfe1a data/minecraft/tags/block/logs_that_burn.json
-3a2e82f8d31a6036380dc03593bcb7e93bb2b802 data/minecraft/tags/block/mineable/pickaxe.json
+6f4fded170ce64e1abf3a0587a8e57195e2c664c data/minecraft/tags/block/mineable/pickaxe.json
 950fd2db124c5b2a8ecd2d4737fee78abe8776ac data/minecraft/tags/block/overworld_carver_replaceables.json
 2cb28474625576092652fd1b578b683666883b3a data/minecraft/tags/block/planks.json
 89ee07c9d11c811978886cd16793b2c3549d7bbc data/minecraft/tags/block/pressure_plates.json

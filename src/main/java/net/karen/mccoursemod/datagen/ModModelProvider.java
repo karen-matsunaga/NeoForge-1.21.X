@@ -191,6 +191,23 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createHangingSign(ModBlocks.WALNUT_PLANKS.get(),
                                       ModBlocks.WALNUT_WALL_SIGN.get(), ModBlocks.WALNUT_SIGN.get());
 
+        // ** CUSTOM Ender Pearl block **
+        blockModels.createTrivialCube(ModBlocks.ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.GREEN_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.BLACK_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.MAGENTA_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.PURPLE_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.ORANGE_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.PINK_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.CYAN_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.BROWN_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.GRAY_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.RED_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.LIME_GREEN_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.YELLOW_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.BLUE_ENDER_PEARL_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.WHITE_ENDER_PEARL_BLOCK.get());
+
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
         // BISMUTH
