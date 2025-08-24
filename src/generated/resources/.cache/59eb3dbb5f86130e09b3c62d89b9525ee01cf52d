@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-22T18:06:37.1361006	Loot Tables
+// 1.21.8	2025-08-24T10:22:00.7377044	Loot Tables
 cdb697b4f47740809ecdb90e81e8e5d2f56cfc86 data/mccoursemod/loot_table/blocks/alexandrite_block.json
 291a785f3fc73335884718fec6c7d2db06eb0048 data/mccoursemod/loot_table/blocks/alexandrite_button.json
 d0ad4d5e3aeabf77ec2d12530e2bc9b7e6bef80e data/mccoursemod/loot_table/blocks/alexandrite_door.json
@@ -53,11 +53,15 @@ dbe24e619188e9f9d646155a2684fdd0dd6c2e6a data/mccoursemod/loot_table/blocks/radi
 91cc1bd25b436e6e28dc659bfa172742c912f5c1 data/mccoursemod/loot_table/blocks/stripped_bloodwood_wood.json
 eb127af46a71d84752f28a7eeddea8d5d463ba80 data/mccoursemod/loot_table/blocks/stripped_walnut_log.json
 7d08fac97be8c1f7f36ce7d1d8570792fb919f68 data/mccoursemod/loot_table/blocks/stripped_walnut_wood.json
+15b725a94e0cbbe968fe057e57aa9612b59dc7c9 data/mccoursemod/loot_table/blocks/walnut_hanging_sign.json
 f477c162fedcf31bc746f63efabc7cd3f986100b data/mccoursemod/loot_table/blocks/walnut_leaves.json
 afecd10e8de6b35d9d4eb7f382bae6aecd0ee74c data/mccoursemod/loot_table/blocks/walnut_log.json
 aee862a9dd8884c8a83698175bb47fe35d0d87be data/mccoursemod/loot_table/blocks/walnut_planks.json
 a37689b1674492d652930f1409a58bd0a706b0d8 data/mccoursemod/loot_table/blocks/walnut_sapling.json
+1a4888f0cd52a3c5eb64c4dacd2acd1ae5f1f053 data/mccoursemod/loot_table/blocks/walnut_sign.json
 fee5fe17e2c9572bae322093b0918d1f9aa1a1d5 data/mccoursemod/loot_table/blocks/walnut_wood.json
+141f48e6348ba3cdf4e4f2d0cd8cbac4381211ef data/minecraft/loot_table/blocks/oak_hanging_sign.json
+598914a08f3657907f2828cb2fa3297c91756ce8 data/minecraft/loot_table/blocks/oak_sign.json
 03b27250656a8ed2a03d2904a7479159fc4aad05 data/minecraft/loot_table/entities/chair_entity.json
 25c6460083bd65f7ff23bba165ba4e494b940536 data/minecraft/loot_table/entities/gecko.json
 bbbb99a3c6cd580fd7782ad7dbe3519a3cb5755f data/minecraft/loot_table/entities/rhino.json

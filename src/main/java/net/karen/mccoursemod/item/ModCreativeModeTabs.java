@@ -200,6 +200,9 @@ public class ModCreativeModeTabs {
                  // ** CUSTOM Glass blocks **
                  output.accept(ModBlocks.FORCED_STAINED_GLASS);
                  output.accept(ModBlocks.FORCED_STAINED_GLASS_PANE);
+                 // ** CUSTOM Sign and Hanging Sing blocks **
+                 output.accept(ModBlocks.WALNUT_SIGN.get());
+                 output.accept(ModBlocks.WALNUT_HANGING_SIGN.get());
            }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus

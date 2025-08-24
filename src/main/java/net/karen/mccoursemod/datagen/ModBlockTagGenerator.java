@@ -136,6 +136,12 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         this.tag(ModTags.Blocks.WALNUT_LOGS).add(ModBlocks.WALNUT_LOG.get(), ModBlocks.WALNUT_WOOD.get(),
                                                  ModBlocks.STRIPPED_WALNUT_LOG.get(), ModBlocks.STRIPPED_WALNUT_WOOD.get());
 
+        // ** CUSTOM Sign and Hanging sign **
+        this.tag(BlockTags.STANDING_SIGNS).add(ModBlocks.WALNUT_SIGN.get());
+        this.tag(BlockTags.CEILING_HANGING_SIGNS).add(ModBlocks.WALNUT_HANGING_SIGN.get());
+        this.tag(BlockTags.WALL_HANGING_SIGNS).add(ModBlocks.WALNUT_WALL_HANGING_SIGN.get());
+        this.tag(BlockTags.WALL_SIGNS).add(ModBlocks.WALNUT_WALL_SIGN.get());
+
         // ** CUSTOM Glass blocks **
         this.tag(BlockTags.IMPERMEABLE).add(ModBlocks.FORCED_STAINED_GLASS.get());
 

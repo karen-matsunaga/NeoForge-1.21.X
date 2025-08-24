@@ -20,8 +20,12 @@ import net.karen.mccoursemod.screen.custom.PedestalScreen;
 import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
+import net.karen.mccoursemod.worldgen.tree.ModWoodTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
@@ -62,8 +66,10 @@ public class ModClientEvents {
         EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
         // ** CUSTOM Sittable blocks **
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
-        // ** CUSTOM Fluid **
         event.enqueueWork(() -> {
+            // ** CUSTOM Wood types -> Sign and Hanging Sign **
+            Sheets.addWoodType(ModWoodTypes.WALNUT);
+            // ** CUSTOM Fluid **
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_SOAP_WATER.get(), ChunkSectionLayer.TRANSLUCENT);
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_SOAP_WATER.get(), ChunkSectionLayer.TRANSLUCENT);
         });
@@ -150,7 +156,11 @@ public class ModClientEvents {
     // CUSTOM EVENT - Registry all custom block entity renderers
     @SubscribeEvent
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+        // ** CUSTOM Block entity renderers **
         event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
+        // ** CUSTOM Sign and Hanging Sing renderers **
+        event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
     }
 
     // CUSTOM EVENT - Registry all custom screens

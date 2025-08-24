@@ -9,7 +9,10 @@ import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.trim.ModTrimMaterials;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.ItemTags;
@@ -342,6 +345,23 @@ public class ModItems {
     public static final DeferredItem<Item> GROWTH =
            ITEMS.registerItem("growth", GrowthItem::new, new Item.Properties().stacksTo(64)
                                                                                     .fireResistant());
+
+    // ** CUSTOM sign and Hanging sign ** (PROBLEMS)
+    public static final DeferredItem<Item> WALNUT_SIGN =
+           ITEMS.register("walnut_sign",
+           () -> new SignItem(ModBlocks.WALNUT_SIGN.get(), ModBlocks.WALNUT_WALL_SIGN.get(),
+                              new Item.Properties().stacksTo(16)
+                                                   .setId(ResourceKey.create(Registries.ITEM,
+                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                          "walnut_sign")))));
+
+    public static final DeferredItem<Item> WALNUT_HANGING_SIGN =
+           ITEMS.register("walnut_hanging_sign",
+           () -> new HangingSignItem(ModBlocks.WALNUT_HANGING_SIGN.get(), ModBlocks.WALNUT_WALL_HANGING_SIGN.get(),
+                                     new Item.Properties().stacksTo(16)
+                                             .setId(ResourceKey.create(Registries.ITEM,
+                                                    ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                    "walnut_hanging_sign")))));
 
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {

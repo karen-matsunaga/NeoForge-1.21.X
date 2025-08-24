@@ -184,6 +184,13 @@ public class ModModelProvider extends ModelProvider {
         // ** CUSTOM fluid block **
         waterTexture(blockModels, ModFluids.SOAP_WATER_BLOCK.get());
 
+        // ** CUSTOM Sign and Hanging sign **
+        blockModels.createHangingSign(ModBlocks.STRIPPED_WALNUT_LOG.get(),
+                                      ModBlocks.WALNUT_HANGING_SIGN.get(), ModBlocks.WALNUT_WALL_HANGING_SIGN.get());
+
+        blockModels.createHangingSign(ModBlocks.WALNUT_PLANKS.get(),
+                                      ModBlocks.WALNUT_WALL_SIGN.get(), ModBlocks.WALNUT_SIGN.get());
+
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
         // BISMUTH

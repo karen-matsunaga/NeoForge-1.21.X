@@ -192,6 +192,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.forced_stained_glass_pane", "Force Stained Glass Pane Block");
         add("item.mccoursemod.sound", "Sound Block");
         add("item.mccoursemod.soap_water_block", "Soap Water Block");
+        add("item.mccoursemod.walnut_sign", "Walnut Sign");
+        add("item.mccoursemod.walnut_hanging_sign", "Walnut Hanging Sign");
+        add("item.mccoursemod.walnut_wall_sign", "Walnut Wall Sign");
+        add("item.mccoursemod.walnut_wall_hanging_sign", "Walnut Wall Hanging Sign");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -272,6 +276,12 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.STRIPPED_WALNUT_WOOD, "Stripped Walnut Wood");
         addBlock(ModBlocks.WALNUT_LEAVES, "Walnut Leaves");
         addBlock(ModBlocks.WALNUT_SAPLING, "Walnut Sapling");
+
+        // ** CUSTOM Sign and Hanging sign **
+        addBlock(ModBlocks.WALNUT_SIGN, "Walnut Sign");
+        addBlock(ModBlocks.WALNUT_HANGING_SIGN, "Walnut Hanging Sign");
+        addBlock(ModBlocks.WALNUT_WALL_SIGN, "Walnut Wall Sign");
+        addBlock(ModBlocks.WALNUT_WALL_HANGING_SIGN, "Walnut Wall Hanging Sign");
 
         // ** CUSTOM sittable block model **
         addBlock(ModBlocks.CHAIR, "Chair Block");
@@ -522,12 +532,21 @@ public class ModLanguageProvider extends LanguageProvider {
         add("key.mccoursemod_unlock", "Unlock");
 
         // ** CUSTOM mob **
+        // GECKO
         add("entity.mccoursemod.gecko", "Gecko");
+        add("entity.mccoursemod.blue_gecko", "Blue Gecko");
+        add("entity.mccoursemod.green_gecko", "Green Gecko");
+        add("entity.mccoursemod.pink_gecko", "Pink Gecko");
+        add("entity.mccoursemod.brown_gecko", "Brown Gecko");
+        // RHINO
+        add("entity.mccoursemod.rhino", "Rhino");
+        add("entity.mccoursemod.white_rhino", "White Rhino");
 
         // ** CUSTOM Throwable Projectiles **
         add("entity.mccoursemod.tomahawk", "Tomahawk");
 
         // ** CUSTOM villager **
         add("entity.minecraft.villager.mccoursemod.kaupenger", "Kaupenger");
+        add("entity.minecraft.villager.mccoursemod.soundmaster", "Soundmaster");
     }
 }

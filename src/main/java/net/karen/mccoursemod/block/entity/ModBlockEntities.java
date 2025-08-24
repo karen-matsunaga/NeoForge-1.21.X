@@ -21,6 +21,17 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("growth_chamber_be",
             () -> new BlockEntityType<>(GrowthChamberBlockEntity::new, ModBlocks.GROWTH_CHAMBER.get()));
 
+    // Register all custom SIGN and HANGING SIGN
+    public static final Supplier<BlockEntityType<ModSignBlockEntity>> MOD_SIGN =
+           BLOCK_ENTITIES.register("mod_sign",
+           () -> new BlockEntityType<>(ModSignBlockEntity::new,
+                                       ModBlocks.WALNUT_SIGN.get(), ModBlocks.WALNUT_WALL_SIGN.get()));
+
+    public static final Supplier<BlockEntityType<ModHangingSignBlockEntity>> MOD_HANGING_SIGN =
+           BLOCK_ENTITIES.register("mod_hanging_sign",
+           () -> new BlockEntityType<>(ModHangingSignBlockEntity::new,
+                                       ModBlocks.WALNUT_HANGING_SIGN.get(), ModBlocks.WALNUT_WALL_HANGING_SIGN.get()));
+
     // CUSTOM METHOD - Registry all custom BLOCK ENTITIES on event
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

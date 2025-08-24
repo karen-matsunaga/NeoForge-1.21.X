@@ -3,6 +3,10 @@
     {
       "id": "mccoursemod:kaupen_poi",
       "required": false
+    },
+    {
+      "id": "mccoursemod:sound_poi",
+      "required": false
     }
   ]
 }

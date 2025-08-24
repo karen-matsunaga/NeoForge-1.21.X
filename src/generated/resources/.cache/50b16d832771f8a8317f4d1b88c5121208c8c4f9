@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-23T16:28:54.2622751	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-08-24T10:22:00.7377044	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 d3e0307570b786aa4733b133a1bc9d5453079334 data/mccoursemod/tags/block/bismuth_blocks.json
@@ -21,6 +21,7 @@ a3b034ba6dfc318ff77dbd2fedd47a18e2872e02 data/mccoursemod/tags/block/more_ores_f
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_bismuth_tool.json
 774205992e78cc4b0cce335e5a396e3a2426ecab data/mccoursemod/tags/block/walnut_logs.json
 46172a7dfe90d415693950b0619498a485358fdc data/minecraft/tags/block/buttons.json
+1c8058d9cdcbb6ea08ee8d97e5759858cebc0fbf data/minecraft/tags/block/ceiling_hanging_signs.json
 307c4855891ef2f0ca7fdacf47440d31e5f444c5 data/minecraft/tags/block/crops.json
 b6bce34447c5b86b5875384bbea66e86500e94e7 data/minecraft/tags/block/doors.json
 ac3ea97eb7084008062714115ad481dcafc2deea data/minecraft/tags/block/fences.json
@@ -38,5 +39,8 @@ ac3ea97eb7084008062714115ad481dcafc2deea data/minecraft/tags/block/fences.json
 d8700cb59c359611790eaf34c5351f0bfe3e081e data/minecraft/tags/block/saplings.json
 89b32c57535ad405bb5c6147fd9a5d472eedbc57 data/minecraft/tags/block/slabs.json
 7264921d90885ed8f7d2b502a0f994281cb56b76 data/minecraft/tags/block/stairs.json
+fefc6e413446a79179b7c3eae6a22f1607a2ec02 data/minecraft/tags/block/standing_signs.json
 6e93d9db58743704d71f87de79042a1e75fcf361 data/minecraft/tags/block/trapdoors.json
 f999e8b3f042ebcc1648a174dac3a90f03d56ae3 data/minecraft/tags/block/walls.json
+991b3fac6ff5ea559d707c561fcace0f82fd6c7f data/minecraft/tags/block/wall_hanging_signs.json
+8e2dd5cfbbc92b6f561ca13e5a5ae66b440be73e data/minecraft/tags/block/wall_signs.json

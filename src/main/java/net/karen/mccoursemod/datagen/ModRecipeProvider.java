@@ -131,6 +131,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
         // ** CUSTOM shield **
         shield(List.of(ModItems.ALEXANDRITE_SHIELD, ModItems.ALEXANDRITE));
+
+        // ** CUSTOM sign and hanging sign **
+        sign(List.of(ModItems.WALNUT_SIGN, ModBlocks.WALNUT_PLANKS,
+                     ModItems.WALNUT_HANGING_SIGN, ModBlocks.STRIPPED_WALNUT_LOG));
     }
 
     // CUSTOM METHOD - Block Families
@@ -366,6 +370,14 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void log(List<ItemLike> items, TagKey<Item> itemTag) {
         this.planksFromLogs(items.getFirst(), itemTag, 4);
         this.woodFromLogs(items.get(1), items.get(2));
+    }
+
+    // CUSTOM METHOD - SIGN
+    protected void sign(List<ItemLike> items) {
+        // 0 -> SIGN; 1 -> PLANKS; 2 -> HANGING SING; 3 -> STRIPPED LOG.
+        this.signBuilder(items.getFirst(), Ingredient.of(items.get(1)))
+            .unlockedBy("has_item", has(items.get(1))).save(this.output);
+        this.hangingSign(items.get(2), items.get(3));
     }
 
     // CUSTOM METHOD - SHIELD

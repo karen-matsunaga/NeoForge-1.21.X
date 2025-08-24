@@ -610,7 +610,7 @@ public class ModEvents {
     // CUSTOM EVENT - Villager trades
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event) {
-        // Farmer trades
+        // Vanilla trade -> FARMER trades
         if (event.getType() == VillagerProfession.FARMER) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             // Trade level one
@@ -626,7 +626,7 @@ public class ModEvents {
                                new ItemCost(Items.ENDER_PEARL, 1),
                                new ItemStack(ModItems.RADISH_SEEDS.get(), 1), 2, 8, 0.05f));
         }
-        // Kaupenger trades
+        // Mccourse Mod trade -> KAUPENGER trades
         if (event.getType() == ModVillagers.KAUPENGER.getKey()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             // Trade level one
@@ -642,6 +642,15 @@ public class ModEvents {
                                new ItemCost(Items.ENDER_PEARL, 2),
                                new ItemStack(ModItems.BISMUTH_SWORD.get(), 1), 2, 8, 0.05f));
         }
+        // Mccourse Mod trade -> SOUND MASTER trades
+        if (event.getType() == ModVillagers.SOUND_MASTER.getKey()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            // Trade level one
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.EMERALD, 25),
+                               new ItemStack(ModBlocks.SOUND.get().asItem(), 1),
+                                             2, 5, 0.06f));
+        }
     }
 
     // CUSTOM EVENT - Wandering trades
@@ -652,7 +661,8 @@ public class ModEvents {
         // Generic trades
         genericTrades.add((entity, randomSource) -> new MerchantOffer(
                            new ItemCost(Items.EMERALD, 16),
-                           new ItemStack(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 1), 1, 10, 0.2f));
+                           new ItemStack(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 1),
+                                         1, 10, 0.2f));
         // Rare trades
         rareTrades.add((entity, randomSource) -> new MerchantOffer(
                         new ItemCost(Items.NETHERITE_INGOT, 1),

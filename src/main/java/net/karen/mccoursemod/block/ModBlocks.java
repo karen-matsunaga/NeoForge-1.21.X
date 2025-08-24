@@ -6,9 +6,13 @@ import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.block.custom.GrowthChamberBlock;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.worldgen.tree.ModTreeGrowers;
+import net.karen.mccoursemod.worldgen.tree.ModWoodTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
@@ -400,6 +404,40 @@ public class ModBlocks {
                                                                    .instabreak().sound(SoundType.GRASS)
                                                                    .pushReaction(PushReaction.DESTROY),
                                                          () -> Blocks.END_STONE));
+
+    // ** CUSTOM sign and hanging sign **
+    public static final DeferredBlock<Block> WALNUT_SIGN =
+           BLOCKS.register("walnut_sign",
+           () -> new ModStandingSignBlock(ModWoodTypes.WALNUT,
+                                          BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)
+                                                                   .setId(ResourceKey.create(Registries.BLOCK,
+                                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                          "walnut_sign")))));
+
+    public static final DeferredBlock<Block> WALNUT_WALL_SIGN =
+           BLOCKS.register("walnut_wall_sign",
+           () -> new ModWallSignBlock(ModWoodTypes.WALNUT,
+                                      BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)
+                                                               .setId(ResourceKey.create(Registries.BLOCK,
+                                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                      "walnut_wall_sign")))));
+
+    public static final DeferredBlock<Block> WALNUT_HANGING_SIGN =
+           BLOCKS.register("walnut_hanging_sign",
+           () -> new ModHangingSignBlock(ModWoodTypes.WALNUT,
+                                         BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)
+                                                                  .setId(ResourceKey.create(Registries.BLOCK,
+                                                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                         "walnut_hanging_sign")))));
+
+    public static final DeferredBlock<Block> WALNUT_WALL_HANGING_SIGN =
+           BLOCKS.register("walnut_wall_hanging_sign",
+           () -> new ModWallHangingSignBlock(ModWoodTypes.WALNUT,
+                                             BlockBehaviour.Properties
+                                                           .ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)
+                                                           .setId(ResourceKey.create(Registries.BLOCK,
+                                                                  ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                  "walnut_wall_hanging_sign")))));
 
     // ** CUSTOM sittable block model **
     public static final DeferredBlock<Block> CHAIR = registerBlock("chair",
