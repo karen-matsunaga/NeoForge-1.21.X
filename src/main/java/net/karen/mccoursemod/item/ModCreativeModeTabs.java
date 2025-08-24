@@ -223,6 +223,17 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.YELLOW_ENDER_PEARL_BLOCK.get());
                  output.accept(ModBlocks.BLUE_ENDER_PEARL_BLOCK.get());
                  output.accept(ModBlocks.WHITE_ENDER_PEARL_BLOCK.get());
+                 // ** CUSTOM mob blocks **
+                 output.accept(ModBlocks.NETHER_STAR_BLOCK.get());
+                 output.accept(ModBlocks.GUNPOWDER_BLOCK.get());
+                 output.accept(ModBlocks.ROTTEN_FLESH_BLOCK.get());
+                 output.accept(ModBlocks.BLAZE_ROD_BLOCK.get());
+                 output.accept(ModBlocks.PHANTOM_MEMBRANE_BLOCK.get());
+                 output.accept(ModBlocks.STRING_BLOCK.get());
+                 output.accept(ModBlocks.SPIDER_EYE_BLOCK.get());
+                 output.accept(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK.get());
+                 output.accept(ModBlocks.SUGAR_BLOCK.get());
+                 output.accept(ModBlocks.SUGAR_CANE_BLOCK.get());
            }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus

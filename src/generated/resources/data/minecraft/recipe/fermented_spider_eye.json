@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "mccoursemod:fermented_spider_eye_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:fermented_spider_eye"
+  }
+}

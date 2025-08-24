@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-24T15:35:13.2972676	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-08-24T19:51:17.086698	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 d3e0307570b786aa4733b133a1bc9d5453079334 data/mccoursemod/tags/block/bismuth_blocks.json
@@ -11,6 +11,7 @@ f4f952d6af206987759c5ac1ba1cbfb8ef9f9544 data/mccoursemod/tags/block/mccourse_mo
 466b621472b729d2dbcd2872b39f03117f28ef8b data/mccoursemod/tags/block/metal_detector_colors.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/metal_detector_valuables.json
 13cf1fe06cf159d32d074144254a0d375f6b20e7 data/mccoursemod/tags/block/mineable_with_paxel.json
+1463a95305ac2cc5a789ae41031b4d2ae081d74e data/mccoursemod/tags/block/mobs_blocks_drops.json
 53d229458fe5c66b06115505277e4434612432d9 data/mccoursemod/tags/block/more_ores_all_drops.json
 ae3b4c6513932cf9e82044de3f1e90f2c997fd31 data/mccoursemod/tags/block/more_ores_break_block.json
 a3b034ba6dfc318ff77dbd2fedd47a18e2872e02 data/mccoursemod/tags/block/more_ores_five_drops.json
@@ -31,7 +32,7 @@ ac3ea97eb7084008062714115ad481dcafc2deea data/minecraft/tags/block/fences.json
 6a54a0eec9efdf43743f54d093866a1ab5e22da1 data/minecraft/tags/block/impermeable.json
 01ae0750873e04271d670940edf604addec414e9 data/minecraft/tags/block/leaves.json
 4b057e3e5e6f7b9026d5871433fccbb5eb4dfe1a data/minecraft/tags/block/logs_that_burn.json
-6f4fded170ce64e1abf3a0587a8e57195e2c664c data/minecraft/tags/block/mineable/pickaxe.json
+ee44103e579f980564805eeeab19f6d6d4be4a99 data/minecraft/tags/block/mineable/pickaxe.json
 950fd2db124c5b2a8ecd2d4737fee78abe8776ac data/minecraft/tags/block/overworld_carver_replaceables.json
 2cb28474625576092652fd1b578b683666883b3a data/minecraft/tags/block/planks.json
 89ee07c9d11c811978886cd16793b2c3549d7bbc data/minecraft/tags/block/pressure_plates.json

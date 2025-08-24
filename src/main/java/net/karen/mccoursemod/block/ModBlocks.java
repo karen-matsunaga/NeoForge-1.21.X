@@ -525,8 +525,39 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WHITE_ENDER_PEARL_BLOCK =
            enderPearlBlock("white_ender_pearl_block", MapColor.COLOR_LIGHT_GRAY);
 
+    // ** CUSTOM mob blocks **
+    public static final DeferredBlock<Block> NETHER_STAR_BLOCK =
+           mobBlock("nether_star_block", MapColor.METAL, NoteBlockInstrument.BELL, SoundType.METAL);
+
+    public static final DeferredBlock<Block> GUNPOWDER_BLOCK =
+           mobBlock("gunpowder_block", MapColor.METAL, NoteBlockInstrument.CREEPER, SoundType.METAL);
+
+    public static final DeferredBlock<Block> ROTTEN_FLESH_BLOCK =
+           mobBlock("rotten_flesh_block", MapColor.METAL, NoteBlockInstrument.ZOMBIE, SoundType.METAL);
+
+    public static final DeferredBlock<Block> BLAZE_ROD_BLOCK =
+           mobBlock("blaze_rod_block", MapColor.METAL, NoteBlockInstrument.BIT, SoundType.METAL);
+
+    public static final DeferredBlock<Block> PHANTOM_MEMBRANE_BLOCK =
+           mobBlock("phantom_membrane_block", MapColor.METAL, NoteBlockInstrument.BIT, SoundType.METAL);
+
+    public static final DeferredBlock<Block> STRING_BLOCK =
+           mobBlock("string_block", MapColor.WOOL, NoteBlockInstrument.DIDGERIDOO, SoundType.WOOL);
+
+    public static final DeferredBlock<Block> SPIDER_EYE_BLOCK =
+           mobBlock("spider_eye_block", MapColor.COLOR_RED, NoteBlockInstrument.GUITAR, SoundType.SLIME_BLOCK);
+
+    public static final DeferredBlock<Block> FERMENTED_SPIDER_EYE_BLOCK =
+           mobBlock("fermented_spider_eye_block", MapColor.COLOR_RED, NoteBlockInstrument.GUITAR, SoundType.SLIME_BLOCK);
+
+    public static final DeferredBlock<Block> SUGAR_BLOCK =
+           mobBlock("sugar_block", MapColor.COLOR_LIGHT_GRAY, NoteBlockInstrument.BELL, SoundType.SAND);
+
+    public static final DeferredBlock<Block> SUGAR_CANE_BLOCK =
+           mobBlock("sugar_cane_block", MapColor.METAL, NoteBlockInstrument.BELL, SoundType.SAND);
+
     // ** CUSTOM METHOD - ENDER PEARL blocks **
-    public static DeferredBlock<Block> enderPearlBlock(String name, MapColor color) {
+    protected static DeferredBlock<Block> enderPearlBlock(String name, MapColor color) {
         return registerBlock(name, (properties) ->
                              new Block(properties.mapColor(color)
                                                  .instrument(NoteBlockInstrument.BELL)
@@ -534,6 +565,17 @@ public class ModBlocks {
                                                  .strength(5.0F, 6.0F)
                                                  .sound(SoundType.METAL)
                                                  .lightLevel(state -> 50)));
+    }
+
+    // ** CUSTOM METHOD - Mob nine blocks **
+    protected static DeferredBlock<Block> mobBlock(String name, MapColor color,
+                                                   NoteBlockInstrument noteBlock, SoundType soundType) {
+       return registerBlock(name, (properties) ->
+                            new Block(properties.mapColor(color)
+                                                .instrument(noteBlock)
+                                                .requiresCorrectToolForDrops()
+                                                .strength(5.0F, 6.0F)
+                                                .sound(soundType)));
     }
 
     // CUSTOM METHOD - Registry all custom BLOCKS

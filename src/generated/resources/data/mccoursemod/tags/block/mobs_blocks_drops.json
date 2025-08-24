@@ -1,0 +1,15 @@
+{
+  "values": [
+    "mccoursemod:ender_pearl_block",
+    "mccoursemod:nether_star_block",
+    "mccoursemod:gunpowder_block",
+    "mccoursemod:rotten_flesh_block",
+    "mccoursemod:blaze_rod_block",
+    "mccoursemod:phantom_membrane_block",
+    "mccoursemod:string_block",
+    "mccoursemod:spider_eye_block",
+    "mccoursemod:fermented_spider_eye_block",
+    "mccoursemod:sugar_block",
+    "mccoursemod:sugar_cane_block"
+  ]
+}

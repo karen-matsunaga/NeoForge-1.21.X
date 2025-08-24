@@ -208,6 +208,18 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.BLUE_ENDER_PEARL_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.WHITE_ENDER_PEARL_BLOCK.get());
 
+        // ** CUSTOM mob blocks **
+        blockModels.createTrivialCube(ModBlocks.NETHER_STAR_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.GUNPOWDER_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.ROTTEN_FLESH_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.BLAZE_ROD_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.PHANTOM_MEMBRANE_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.STRING_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.SPIDER_EYE_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.SUGAR_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.SUGAR_CANE_BLOCK.get());
+
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
         // BISMUTH

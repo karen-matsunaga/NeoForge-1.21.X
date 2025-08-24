@@ -214,6 +214,16 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.yellow_ender_pearl_block", "Yellow Ender Pearl Block");
         add("item.mccoursemod.blue_ender_pearl_block", "Blue Ender Pearl Block");
         add("item.mccoursemod.white_ender_pearl_block", "White Ender Pearl Block");
+        add("item.mccoursemod.nether_star_block", "Nether Star Block");
+        add("item.mccoursemod.gunpowder_block", "Gunpowder Block");
+        add("item.mccoursemod.rotten_flesh_block", "Rotten Flesh Block");
+        add("item.mccoursemod.blaze_rod_block", "Blaze Rod Block");
+        add("item.mccoursemod.phantom_membrane_block", "Phantom Membrane Block");
+        add("item.mccoursemod.string_block", "String Block");
+        add("item.mccoursemod.spider_eye_block", "Spider Eye Block");
+        add("item.mccoursemod.fermented_spider_eye_block", "Fermented Spider Eye Block");
+        add("item.mccoursemod.sugar_block", "Sugar Block");
+        add("item.mccoursemod.sugar_cane_block", "Sugar Cane Block");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -327,6 +337,18 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.YELLOW_ENDER_PEARL_BLOCK, "Yellow Ender Pearl Block");
         addBlock(ModBlocks.BLUE_ENDER_PEARL_BLOCK, "Blue Ender Pearl Block");
         addBlock(ModBlocks.WHITE_ENDER_PEARL_BLOCK, "White Ender Pearl Block");
+
+        // ** CUSTOM mob blocks **
+        addBlock(ModBlocks.NETHER_STAR_BLOCK, "Nether Star Block");
+        addBlock(ModBlocks.GUNPOWDER_BLOCK, "Gunpowder Block");
+        addBlock(ModBlocks.ROTTEN_FLESH_BLOCK, "Rotten Flesh Block");
+        addBlock(ModBlocks.BLAZE_ROD_BLOCK, "Blaze Rod Block");
+        addBlock(ModBlocks.PHANTOM_MEMBRANE_BLOCK, "Phantom Membrane Block");
+        addBlock(ModBlocks.STRING_BLOCK, "String Block");
+        addBlock(ModBlocks.SPIDER_EYE_BLOCK, "Spider Eye Block");
+        addBlock(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK, "Fermented Spider Eye Block");
+        addBlock(ModBlocks.SUGAR_BLOCK, "Sugar Block");
+        addBlock(ModBlocks.SUGAR_CANE_BLOCK, "Sugar Cane Block");
 
         // ** CUSTOM CREATIVE TABS **
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

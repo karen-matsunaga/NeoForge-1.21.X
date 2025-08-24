@@ -153,6 +153,37 @@ public class ModRecipeProvider extends RecipeProvider {
         enderPearlBlock(List.of(ModBlocks.WHITE_ENDER_PEARL_BLOCK.get(), Items.WHITE_DYE));
         enderPearlBlock(List.of(ModBlocks.ORANGE_ENDER_PEARL_BLOCK.get(), Items.ORANGE_DYE));
         enderPearlBlock(List.of(ModBlocks.RED_ENDER_PEARL_BLOCK.get(), Items.RED_DYE));
+
+        // ** CUSTOM mob blocks **
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.NETHER_STAR,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.NETHER_STAR_BLOCK.get());
+
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.ROTTEN_FLESH,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROTTEN_FLESH_BLOCK.get());
+
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.GUNPOWDER,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.GUNPOWDER_BLOCK.get());
+
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.BLAZE_ROD,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLAZE_ROD_BLOCK.get());
+
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.PHANTOM_MEMBRANE,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.PHANTOM_MEMBRANE_BLOCK.get());
+
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.STRING,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.STRING_BLOCK.get());
+
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.SPIDER_EYE,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.SPIDER_EYE_BLOCK.get());
+
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.FERMENTED_SPIDER_EYE,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.FERMENTED_SPIDER_EYE_BLOCK.get());
+
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.SUGAR,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.SUGAR_BLOCK.get());
+
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.SUGAR_CANE,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.SUGAR_CANE_BLOCK.get());
     }
 
     // CUSTOM METHOD - Block Families

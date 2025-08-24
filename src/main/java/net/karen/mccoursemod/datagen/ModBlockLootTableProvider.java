@@ -204,6 +204,18 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.YELLOW_ENDER_PEARL_BLOCK.get());
         this.dropSelf(ModBlocks.BLUE_ENDER_PEARL_BLOCK.get());
         this.dropSelf(ModBlocks.WHITE_ENDER_PEARL_BLOCK.get());
+
+        // CUSTOM mob blocks
+        this.dropSelf(ModBlocks.NETHER_STAR_BLOCK.get());
+        this.dropSelf(ModBlocks.GUNPOWDER_BLOCK.get());
+        this.dropSelf(ModBlocks.ROTTEN_FLESH_BLOCK.get());
+        this.dropSelf(ModBlocks.BLAZE_ROD_BLOCK.get());
+        this.dropSelf(ModBlocks.PHANTOM_MEMBRANE_BLOCK.get());
+        this.dropSelf(ModBlocks.STRING_BLOCK.get());
+        this.dropSelf(ModBlocks.SPIDER_EYE_BLOCK.get());
+        this.dropSelf(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK.get());
+        this.dropSelf(ModBlocks.SUGAR_BLOCK.get());
+        this.dropSelf(ModBlocks.SUGAR_CANE_BLOCK.get());
     }
 
     // CUSTOM METHOD - Custom ore loot table drops

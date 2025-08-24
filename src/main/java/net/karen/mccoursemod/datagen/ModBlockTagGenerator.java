@@ -37,7 +37,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                  .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES)
                                                  .addTag(ModTags.Blocks.BISMUTH_BLOCKS)
                                                  .addTag(ModTags.Blocks.ALEXANDRITE_BLOCKS)
-                                                 .addTag(ModTags.Blocks.ENDER_PEARL_BLOCKS);
+                                                 .addTag(ModTags.Blocks.ENDER_PEARL_BLOCKS)
+                                                 .addTag(ModTags.Blocks.MOBS_BLOCKS_DROPS);
 
         // Paxel break
         this.tag(ModTags.Blocks.MINEABLE_WITH_PAXEL).addTag(BlockTags.MINEABLE_WITH_AXE)
@@ -174,5 +175,18 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                    ModBlocks.YELLOW_ENDER_PEARL_BLOCK.get(),
                                                    ModBlocks.BLUE_ENDER_PEARL_BLOCK.get(),
                                                    ModBlocks.WHITE_ENDER_PEARL_BLOCK.get());
+
+        // ** CUSTOM mob block **
+        this.tag(ModTags.Blocks.MOBS_BLOCKS_DROPS).add(ModBlocks.ENDER_PEARL_BLOCK.get(),
+                                                       ModBlocks.NETHER_STAR_BLOCK.get(),
+                                                       ModBlocks.GUNPOWDER_BLOCK.get(),
+                                                       ModBlocks.ROTTEN_FLESH_BLOCK.get(),
+                                                       ModBlocks.BLAZE_ROD_BLOCK.get(),
+                                                       ModBlocks.PHANTOM_MEMBRANE_BLOCK.get(),
+                                                       ModBlocks.STRING_BLOCK.get(),
+                                                       ModBlocks.SPIDER_EYE_BLOCK.get(),
+                                                       ModBlocks.FERMENTED_SPIDER_EYE_BLOCK.get(),
+                                                       ModBlocks.SUGAR_BLOCK.get(),
+                                                       ModBlocks.SUGAR_CANE_BLOCK.get());
     }
 }
