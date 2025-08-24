@@ -16,6 +16,9 @@ public class ModParticles {
     public static final Supplier<SimpleParticleType> BISMUTH_PARTICLES =
            PARTICLE_TYPES.register("bismuth_particles", () -> new SimpleParticleType(true));
 
+    public static final Supplier<SimpleParticleType> BOUNCY_BALLS_PARTICLES =
+           PARTICLE_TYPES.register("bouncy_balls_particles", () -> new SimpleParticleType(true));
+
     // CUSTOM METHOD - Registry all custom particles types on event
     public static void register(IEventBus eventBus) {
         PARTICLE_TYPES.register(eventBus);

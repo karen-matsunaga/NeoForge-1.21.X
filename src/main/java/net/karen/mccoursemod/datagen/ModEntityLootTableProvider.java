@@ -42,6 +42,7 @@ public class ModEntityLootTableProvider extends EntityLootSubProvider {
         // ** CUSTOM Throwable Projectiles **
         add(ModEntities.TOMAHAWK.get(), LootTable.lootTable());
         add(ModEntities.TORCH_BALL.get(), LootTable.lootTable());
+        add(ModEntities.BOUNCY_BALLS.get(), LootTable.lootTable());
         // ** CUSTOM Sittable Block Model **
         add(ModEntities.CHAIR_ENTITY.get(), LootTable.lootTable());
     }

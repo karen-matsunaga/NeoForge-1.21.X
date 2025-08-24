@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-24T16:23:42.7978972	Model Definitions - mccoursemod
+// 1.21.8	2025-08-24T17:47:02.6282503	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -142,6 +142,8 @@ b1b910b2fd997ca3483843e8298b3be3c154fb0a assets/mccoursemod/items/bismuth_wall.j
 e7871ea4c90d160dcdac90a834a8867cd6e7af37 assets/mccoursemod/items/bloodwood_sapling.json
 7d24e67090a8b75c035b45339064d6cde549eae1 assets/mccoursemod/items/bloodwood_wood.json
 1d5ca26953938da94a24982685bd3522f1abd55c assets/mccoursemod/items/blue_ender_pearl_block.json
+d62ef81644524dbfd7ad8cb8b7504d35c196ebcf assets/mccoursemod/items/bouncy_balls.json
+96323bba3a8957cc0f1a11957882a2a58e95975c assets/mccoursemod/items/bouncy_balls_particles.json
 ffd76fd9012904eebd28778198e22f89cb0ce346 assets/mccoursemod/items/brown_ender_pearl_block.json
 d2b9a628c74d630b8276101f8a0f04626db1a47e assets/mccoursemod/items/chair.json
 75e724a0c073e339ce30f90f294a184beb4da809 assets/mccoursemod/items/chisel.json
@@ -490,6 +492,8 @@ c0d1f8e69879adec59df18c6cf6a472c85c042d6 assets/mccoursemod/models/item/bismuth_
 76c9117cd683bb605e5584674a4915ba260f1901 assets/mccoursemod/models/item/bismuth_pickaxe.json
 005b426d4e28a48bd8e12840d2c41fe10340f07b assets/mccoursemod/models/item/bismuth_shovel.json
 333409fddd8c4e68a2e05d5293b5ce7916ee5e65 assets/mccoursemod/models/item/bismuth_sword.json
+1f1a96511b27c33d5d6283f742b156bfa0ac17ae assets/mccoursemod/models/item/bouncy_balls.json
+cdef8baa921efefb593d910227ce24df8e85c67e assets/mccoursemod/models/item/bouncy_balls_particles.json
 0667590b478aa28ad039666e24244c92e2b3a485 assets/mccoursemod/models/item/chisel.json
 8f1e5531b8694e0358bfd9a168c2352c5aa67dbb assets/mccoursemod/models/item/chisel_used.json
 1b5bb5f0295c0222714426faf4cb56cdbf27c730 assets/mccoursemod/models/item/coffee.json

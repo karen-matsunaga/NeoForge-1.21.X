@@ -118,6 +118,8 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM Throwable Projectiles **
         addItem(ModItems.TOMAHAWK, "Tomahawk");
         addItem(ModItems.TORCH_BALL, "Torch Ball");
+        addItem(ModItems.BOUNCY_BALLS, "Bouncy Balls");
+        addItem(ModItems.BOUNCY_BALLS_PARTICLES, "Bouncy Balls Particles");
 
         // ** CUSTOM Animated Textures **
         addItem(ModItems.RADIATION_STAFF, "Radiation Staff");

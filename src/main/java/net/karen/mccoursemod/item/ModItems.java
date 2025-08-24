@@ -371,6 +371,14 @@ public class ModItems {
            ITEMS.registerItem("torch_ball", TorchBallItem::new,
                               new Item.Properties().fireResistant().stacksTo(1));
 
+    public static final DeferredItem<Item> BOUNCY_BALLS =
+           ITEMS.registerItem("bouncy_balls", BouncyBallsItem::new,
+                              new Item.Properties().fireResistant().stacksTo(1));
+
+    public static final DeferredItem<Item> BOUNCY_BALLS_PARTICLES =
+           ITEMS.registerItem("bouncy_balls_particles", Item::new,
+           new Item.Properties().stacksTo(64).fireResistant());
+
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

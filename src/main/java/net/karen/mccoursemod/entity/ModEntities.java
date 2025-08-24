@@ -29,7 +29,11 @@ public class ModEntities {
 
     public static ResourceKey<EntityType<?>> TORCH_BALL_KEY =
            ResourceKey.create(Registries.ENTITY_TYPE,
-                              ResourceLocation.withDefaultNamespace("torch_ball_projectile"));
+                              ResourceLocation.withDefaultNamespace("torch_ball"));
+
+    public static ResourceKey<EntityType<?>> BOUNCY_BALLS_KEY =
+           ResourceKey.create(Registries.ENTITY_TYPE,
+                              ResourceLocation.withDefaultNamespace("bouncy_balls"));
 
     // Registry all custom sittable blocks -> Resource Key
     public static ResourceKey<EntityType<?>> CHAIR_KEY =
@@ -51,12 +55,20 @@ public class ModEntities {
                                    .sized(0.5f, 1.15f).build(TOMAHAWK_KEY));
 
     public static final Supplier<EntityType<TorchBallProjectileEntity>> TORCH_BALL =
-           ENTITY_TYPES.register("torch_ball_projectile",
+           ENTITY_TYPES.register("torch_ball",
            () -> EntityType.Builder.<TorchBallProjectileEntity>of(TorchBallProjectileEntity::new, MobCategory.MISC)
                            .sized(0.5f, 0.5f)
                            .clientTrackingRange(4)
                            .updateInterval(20)
                            .build(TORCH_BALL_KEY));
+
+    public static final Supplier<EntityType<BouncyBallsProjectileEntity>> BOUNCY_BALLS =
+           ENTITY_TYPES.register("bouncy_balls",
+           () -> EntityType.Builder.<BouncyBallsProjectileEntity>of(BouncyBallsProjectileEntity::new, MobCategory.MISC)
+                           .sized(0.5f, 0.5f)
+                           .clientTrackingRange(4)
+                           .updateInterval(20)
+                           .build(BOUNCY_BALLS_KEY));
 
     // Registry all custom sittable blocks -> Entity Type
     public static final Supplier<EntityType<ChairEntity>> CHAIR_ENTITY =
