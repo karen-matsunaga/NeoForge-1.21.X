@@ -28,6 +28,7 @@ import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
@@ -64,6 +65,7 @@ public class ModClientEvents {
         EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
         // ** CUSTOM Throwable Projectiles **
         EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
+        EntityRenderers.register(ModEntities.TORCH_BALL.get(), ThrownItemRenderer::new);
         // ** CUSTOM Sittable blocks **
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
         event.enqueueWork(() -> {

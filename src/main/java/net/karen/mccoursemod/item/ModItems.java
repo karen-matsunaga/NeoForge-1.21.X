@@ -366,6 +366,11 @@ public class ModItems {
                                                     ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                     "walnut_hanging_sign")))));
 
+    // TORCH BALL item
+    public static final DeferredItem<Item> TORCH_BALL =
+           ITEMS.registerItem("torch_ball", TorchBallItem::new,
+                              new Item.Properties().fireResistant().stacksTo(1));
+
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

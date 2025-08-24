@@ -49,6 +49,13 @@ public class Utils {
         player.level().playSound(null, player.blockPosition(), sound, SoundSource.PLAYERS, volume, pitch);
     }
 
+    // CUSTOM METHOD - Level neutral sounds with PITCH value
+    public static void neutralSoundValue(Level level, Player player, SoundEvent sound, float volume) {
+        double x = player.getX(), y = player.getY(), z = player.getZ();
+        float pitch = 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F);
+        level.playSound(null, x, y, z, sound, SoundSource.NEUTRAL, 0.5F + volume, pitch);
+    }
+
     // CUSTOM METHOD - Item used has on slot
     public static ItemStack has(Player player, EquipmentSlot slot) {
         return player.getItemBySlot(slot); // Xray items - Enchanted Helmet or Metal Detector

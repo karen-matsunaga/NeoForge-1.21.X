@@ -1,10 +1,7 @@
 package net.karen.mccoursemod.entity;
 
 import net.karen.mccoursemod.MccourseMod;
-import net.karen.mccoursemod.entity.custom.ChairEntity;
-import net.karen.mccoursemod.entity.custom.GeckoEntity;
-import net.karen.mccoursemod.entity.custom.RhinoEntity;
-import net.karen.mccoursemod.entity.custom.TomahawkProjectileEntity;
+import net.karen.mccoursemod.entity.custom.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -30,6 +27,10 @@ public class ModEntities {
     public static ResourceKey<EntityType<?>> TOMAHAWK_KEY =
            ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace("tomahawk"));
 
+    public static ResourceKey<EntityType<?>> TORCH_BALL_KEY =
+           ResourceKey.create(Registries.ENTITY_TYPE,
+                              ResourceLocation.withDefaultNamespace("torch_ball_projectile"));
+
     // Registry all custom sittable blocks -> Resource Key
     public static ResourceKey<EntityType<?>> CHAIR_KEY =
            ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace("chair_entity"));
@@ -48,6 +49,14 @@ public class ModEntities {
            ENTITY_TYPES.register("tomahawk",
            () -> EntityType.Builder.<TomahawkProjectileEntity>of(TomahawkProjectileEntity::new, MobCategory.MISC)
                                    .sized(0.5f, 1.15f).build(TOMAHAWK_KEY));
+
+    public static final Supplier<EntityType<TorchBallProjectileEntity>> TORCH_BALL =
+           ENTITY_TYPES.register("torch_ball_projectile",
+           () -> EntityType.Builder.<TorchBallProjectileEntity>of(TorchBallProjectileEntity::new, MobCategory.MISC)
+                           .sized(0.5f, 0.5f)
+                           .clientTrackingRange(4)
+                           .updateInterval(20)
+                           .build(TORCH_BALL_KEY));
 
     // Registry all custom sittable blocks -> Entity Type
     public static final Supplier<EntityType<ChairEntity>> CHAIR_ENTITY =

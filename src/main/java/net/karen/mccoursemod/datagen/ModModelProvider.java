@@ -295,6 +295,7 @@ public class ModModelProvider extends ModelProvider {
 
         // ** CUSTOM Throwable Projectiles **
         itemModels.declareCustomModelItem(ModItems.TOMAHAWK.get());
+        itemModels.generateFlatItem(ModItems.TORCH_BALL.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM Animated Textures **
         itemModels.generateFlatItem(ModItems.RADIATION_STAFF.get(), ModelTemplates.FLAT_ITEM);

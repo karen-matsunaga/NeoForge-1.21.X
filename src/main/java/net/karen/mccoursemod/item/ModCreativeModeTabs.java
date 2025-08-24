@@ -104,6 +104,7 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.RHINO_SPAWN_EGG);
                  // ** CUSTOM Throwable Projectiles **
                  output.accept(ModItems.TOMAHAWK);
+                 output.accept(ModItems.TORCH_BALL);
                  // ** CUSTOM Animated Textures **
                  output.accept(ModItems.RADIATION_STAFF);
                  // ** CUSTOM Fishing Rod **
