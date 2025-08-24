@@ -223,7 +223,6 @@ public class RhinoModel extends EntityModel<RhinoRenderState> {
         return LayerDefinition.create(meshdefinition, 128, 128);
     }
 
-
     // Rhino's animation methods
     @Override
     public void setupAnim(@NotNull RhinoRenderState state) {
@@ -243,12 +242,15 @@ public class RhinoModel extends EntityModel<RhinoRenderState> {
     private void applyHeadRotation(float netHeadYaw, float headPitch) {
         netHeadYaw = Mth.clamp(netHeadYaw, -30.0F, 30.0F);
         headPitch = Mth.clamp(headPitch, -25.0F, 45.0F);
-
         this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
         this.head.xRot = headPitch * ((float)Math.PI / 180F);
     }
 
     public ModelPart getHead() {
         return head;
+    }
+
+    public ModelPart getRhino() {
+        return rhino;
     }
 }

@@ -1,12 +1,10 @@
 package net.karen.mccoursemod.entity.ai;
 
 import net.karen.mccoursemod.entity.custom.RhinoEntity;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class RhinoAttackGoal extends MeleeAttackGoal {
@@ -31,8 +29,7 @@ public class RhinoAttackGoal extends MeleeAttackGoal {
     // Rhino's attack animation ticks
     @Override
     protected void checkAndPerformAttack(@NotNull LivingEntity enemy) {
-        double distToEnemySqr = this.mob.distanceToSqr(enemy);
-        if (isEnemyWithinAttackDistance(enemy, distToEnemySqr)) {
+        if (isEnemyWithinAttackDistance(enemy)) {
             shouldCountTillNextAttack = true;
             if (isTimeToStartAttackAnimation()) {
                 entity.setAttacking(true);
@@ -50,8 +47,13 @@ public class RhinoAttackGoal extends MeleeAttackGoal {
         }
     }
 
-    private boolean isEnemyWithinAttackDistance(LivingEntity entity, double distToEnemySqr) {
-        return distToEnemySqr >= this.mob.distanceTo(entity);
+    private boolean isEnemyWithinAttackDistance(LivingEntity entity) {
+        return this.mob.distanceTo(entity) <= 3F;
+    }
+
+    @Override
+    protected boolean canPerformAttack(@NotNull LivingEntity entity) {
+        return super.canPerformAttack(entity);
     }
 
     protected void resetAttackCooldown() {
@@ -72,10 +74,8 @@ public class RhinoAttackGoal extends MeleeAttackGoal {
 
     protected void performAttack(LivingEntity entity) {
         this.resetAttackCooldown();
-        Level level = entity.level();
-        if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {
-            this.mob.swing(InteractionHand.MAIN_HAND); this.mob.doHurtTarget(serverLevel, entity);
-        }
+        this.mob.swing(InteractionHand.MAIN_HAND);
+        this.mob.doHurtTarget(getServerLevel(this.entity), entity);
     }
 
     @Override
@@ -87,5 +87,8 @@ public class RhinoAttackGoal extends MeleeAttackGoal {
     }
 
     @Override
-    public void stop() { entity.setAttacking(false); super.stop(); } // Entity data save false as default
+    public void stop() {
+        entity.setAttacking(false); // Entity data save false as default
+        super.stop();
+    }
 }
