@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-24T19:51:17.0711091	Mccourse Recipes
+// 1.21.8	2025-08-25T14:34:54.678181	Mccourse Recipes
 0007e86a60bbd3b0a4baaf013385795221e8513e data/mccoursemod/advancement/recipes/building_blocks/alexandrite_slabs.json
 8f4eac1f86e2a81087b0ad34a987911811b2e48a data/mccoursemod/advancement/recipes/building_blocks/alexandrite_stairs.json
 43c1e827f47c9a2463760730f6cf478f2122bf12 data/mccoursemod/advancement/recipes/building_blocks/alexandrite_wall.json
@@ -83,6 +83,8 @@ aa97979d2059cf86974907de44e31696e185dadd data/mccoursemod/advancement/recipes/to
 959ea88c2b3393035719d93c678eb27abbf1bc88 data/mccoursemod/advancement/recipes/tools/bismuth_paxel.json
 dc7a39d4cc4b9cb9934723a4900e2e9e3bdcfef8 data/mccoursemod/advancement/recipes/tools/bismuth_pickaxe.json
 9d575e1381a0e05ee5cc5b134cdfae2493a2c9d7 data/mccoursemod/advancement/recipes/tools/bismuth_shovel.json
+cc95e8c176a7666c1665e76ca07704f8551f2880 data/mccoursemod/advancement/recipes/transportation/walnut_boat.json
+d899c4ef688529c4a0edfb2b56b8a600a75760f3 data/mccoursemod/advancement/recipes/transportation/walnut_chest_boat.json
 22d0ef9f83cb90366948c8f0c675408063c845d6 data/mccoursemod/recipe/alexandrite_axe.json
 aa2ae3125f9469dca155c97a2cef0f278c97ef4b data/mccoursemod/recipe/alexandrite_boots.json
 c0c51fcd434ab8ee2f58bc5b0cfd322d14ff3b48 data/mccoursemod/recipe/alexandrite_button.json
@@ -161,6 +163,8 @@ ce1e28b94145805b58ef1c4dce59a3d2b15f9193 data/mccoursemod/recipe/magenta_ender_p
 f966a1ca5517ee9d41ac8d974b6c2f0997e6e26d data/mccoursemod/recipe/pink_ender_pearl_block.json
 4c663199fcdd49886fd0bc0a7ecece9b07bc6edc data/mccoursemod/recipe/purple_ender_pearl_block.json
 0aedf9bf596e9debef3f73ad02178f94ae4a5b50 data/mccoursemod/recipe/red_ender_pearl_block.json
+d446f79ba9ad63d5b430e09e00eeb6079786f904 data/mccoursemod/recipe/walnut_boat.json
+e13bd04fb4d2c35869d4d95176055cf3515297db data/mccoursemod/recipe/walnut_chest_boat.json
 d3272792d34c2419e9db84cb449197c3863a7f40 data/mccoursemod/recipe/walnut_hanging_sign.json
 de72b35dd974156a3c32b7b2c26406787365d266 data/mccoursemod/recipe/walnut_planks.json
 f9e4bace81a46e10050f1e1723e05cc32b8c5eb9 data/mccoursemod/recipe/walnut_sign.json

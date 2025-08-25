@@ -379,6 +379,15 @@ public class ModItems {
            ITEMS.registerItem("bouncy_balls_particles", Item::new,
            new Item.Properties().stacksTo(64).fireResistant());
 
+    // ** CUSTOM boats **
+    public static final DeferredItem<Item> WALNUT_BOAT =
+           ITEMS.registerItem("walnut_boat",
+           (properties) -> new ModBoatItem(ModEntities.MOD_BOAT.get(), properties.stacksTo(1)));
+
+    public static final DeferredItem<Item> WALNUT_CHEST_BOAT =
+           ITEMS.registerItem("walnut_chest_boat",
+           (properties) -> new ModBoatItem(ModEntities.MOD_CHEST_BOAT.get(), properties.stacksTo(1)));
+
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

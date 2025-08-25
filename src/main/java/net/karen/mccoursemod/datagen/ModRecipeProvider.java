@@ -184,6 +184,9 @@ public class ModRecipeProvider extends RecipeProvider {
 
         this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.SUGAR_CANE,
                                      RecipeCategory.BUILDING_BLOCKS, ModBlocks.SUGAR_CANE_BLOCK.get());
+
+        // ** CUSTOM boat **
+        boat(List.of(ModItems.WALNUT_BOAT, ModItems.WALNUT_CHEST_BOAT, ModBlocks.WALNUT_PLANKS));
     }
 
     // CUSTOM METHOD - Block Families
@@ -447,5 +450,12 @@ public class ModRecipeProvider extends RecipeProvider {
             .pattern(" W ")
             .unlockedBy(getHasName(items.get(1)), this.has(items.get(1))).save(this.output);
         SpecialRecipeBuilder.special(ShieldDecorationRecipe::new).save(this.output, "shield_decoration");
+    }
+
+    // CUSTOM METHOD - BOAT
+    protected void boat(List<ItemLike> items) {
+        // 0 -> BOAT; 1 -> CHEST BOAT; 2 -> PLANKS;
+        this.woodenBoat(items.getFirst(), items.get(2)); // Boat block
+        this.chestBoat(items.get(1), items.getFirst()); // Chest boat block
     }
 }

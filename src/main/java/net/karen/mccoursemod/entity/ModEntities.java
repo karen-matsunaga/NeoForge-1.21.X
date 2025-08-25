@@ -2,6 +2,7 @@ package net.karen.mccoursemod.entity;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.entity.custom.*;
+import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -34,6 +35,14 @@ public class ModEntities {
     public static ResourceKey<EntityType<?>> BOUNCY_BALLS_KEY =
            ResourceKey.create(Registries.ENTITY_TYPE,
                               ResourceLocation.withDefaultNamespace("bouncy_balls"));
+
+    public static ResourceKey<EntityType<?>> MOD_BOAT_KEY =
+           ResourceKey.create(Registries.ENTITY_TYPE,
+                              ResourceLocation.withDefaultNamespace("mod_boat"));
+
+    public static ResourceKey<EntityType<?>> MOD_CHEST_KEY =
+           ResourceKey.create(Registries.ENTITY_TYPE,
+                              ResourceLocation.withDefaultNamespace("mod_chest_boat"));
 
     // Registry all custom sittable blocks -> Resource Key
     public static ResourceKey<EntityType<?>> CHAIR_KEY =
@@ -72,8 +81,39 @@ public class ModEntities {
 
     // Registry all custom sittable blocks -> Entity Type
     public static final Supplier<EntityType<ChairEntity>> CHAIR_ENTITY =
-           ENTITY_TYPES.register("chair_entity", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC)
-                                                                       .sized(0.5f, 0.5f).build(CHAIR_KEY));
+           ENTITY_TYPES.register("chair_entity",
+           () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC)
+                           .sized(0.5f, 0.5f).build(CHAIR_KEY));
+
+    // Register all custom boats
+    public static final Supplier<EntityType<ModBoatEntity>> MOD_BOAT =
+           ENTITY_TYPES.register("mod_boat",
+           () -> EntityType.Builder.of(boatFactory(), MobCategory.MISC)
+                           .sized(1.375f, 0.5625f)
+                           .eyeHeight(0.5625F)
+                           .clientTrackingRange(10)
+                           .build(MOD_BOAT_KEY));
+
+    public static final Supplier<EntityType<ModChestBoatEntity>> MOD_CHEST_BOAT =
+           ENTITY_TYPES.register("mod_chest_boat",
+           () -> EntityType.Builder.of(chestBoatFactory(), MobCategory.MISC)
+                           .sized(1.375f, 0.5625f)
+                           .eyeHeight(0.5625F)
+                           .clientTrackingRange(10)
+                           .build(MOD_CHEST_KEY));
+
+
+    // CUSTOM METHOD - Register all Boat entity types
+    private static EntityType.EntityFactory<ModBoatEntity> boatFactory() {
+        return (boatEntityType, level) ->
+                new ModBoatEntity(boatEntityType, level, ModItems.WALNUT_BOAT);
+    }
+
+    // CUSTOM METHOD - Register all Chest Boat entity types
+    private static EntityType.EntityFactory<ModChestBoatEntity> chestBoatFactory() {
+        return (chestBoatEntityType, level) ->
+                new ModChestBoatEntity(chestBoatEntityType, level, ModItems.WALNUT_CHEST_BOAT);
+    }
 
     // CUSTOM METHOD - Registry all entity types on event
     public static void register(IEventBus eventBus) {

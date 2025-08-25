@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-24T19:51:17.0773239	Model Definitions - mccoursemod
+// 1.21.8	2025-08-25T14:34:54.7287061	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -223,6 +223,8 @@ ce761683e2eb5faaba29b79ffb94003c1db905dd assets/mccoursemod/items/stripped_walnu
 956fc2e77613c2d510cf9edcc90df4705388723b assets/mccoursemod/items/sugar_cane_block.json
 6ffa3088847fd2040eabd23900fda15cb5df052b assets/mccoursemod/items/tomahawk.json
 5de53c55c5acfa166fc3c7b8490b8e9a4d22c15b assets/mccoursemod/items/torch_ball.json
+d7d0ff5a9b50435a14bc23e02bc81a45c838a0a0 assets/mccoursemod/items/walnut_boat.json
+9e5a66b965da026e04b97a7835ff3bedae6ceaa4 assets/mccoursemod/items/walnut_chest_boat.json
 9fbbcf02683601d7de4a052170c62f87e452a3bf assets/mccoursemod/items/walnut_hanging_sign.json
 1fd1f4363dd151fcc7c6dd8fa67335943fcdf5c7 assets/mccoursemod/items/walnut_leaves.json
 7d578b4b0662a9fadf9b69e2891e81232ac4d76a assets/mccoursemod/items/walnut_log.json
@@ -560,6 +562,8 @@ d84cb676f120f5f30936cc48c5415d8686d35849 assets/mccoursemod/models/item/mccourse
 8c67c142feb7ba5656de162fad4aa682ab323cd1 assets/mccoursemod/models/item/soap_water_bucket.json
 a6b51f4159f4654e658ca1aaceec18a5fbf715fb assets/mccoursemod/models/item/starlight_ashes.json
 3eae795914deb8d1731f880ac93c02ea753da55c assets/mccoursemod/models/item/torch_ball.json
+4ab2cfd99ebf1cdbfcced556e3143edd592ad148 assets/mccoursemod/models/item/walnut_boat.json
+79b59a528ac95f6e70d561344ed0b44d633712d8 assets/mccoursemod/models/item/walnut_chest_boat.json
 6f97dbb8af50cced3c2002a22e528d2ab5873a21 assets/mccoursemod/models/item/walnut_hanging_sign.json
 7b3b1be67d70097be780e2b4f1b109d2f10732f7 assets/mccoursemod/models/item/walnut_sign.json
 d0ad5fa81f0d2689a3e68e5ae59e767f4667f48c assets/minecraft/blockstates/bubble_column.json

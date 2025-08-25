@@ -5,6 +5,7 @@ import net.karen.mccoursemod.block.entity.ModBlockEntities;
 import net.karen.mccoursemod.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.entity.ModEntities;
+import net.karen.mccoursemod.entity.layers.ModModelLayers;
 import net.karen.mccoursemod.entity.client.*;
 import net.karen.mccoursemod.fluid.BaseFluidType;
 import net.karen.mccoursemod.fluid.ModFluidTypes;
@@ -23,6 +24,7 @@ import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
 import net.karen.mccoursemod.worldgen.tree.ModWoodTypes;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
@@ -70,6 +72,11 @@ public class ModClientEvents {
         EntityRenderers.register(ModEntities.BOUNCY_BALLS.get(), ThrownItemRenderer::new);
         // ** CUSTOM Sittable blocks **
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
+        // ** CUSTOM Boats **
+        EntityRenderers.register(ModEntities.MOD_BOAT.get(),
+                                 context -> new ModBoatRenderer(context, ModModelLayers.WALNUT_BOAT_LAYER));
+        EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(),
+                                 context -> new ModBoatRenderer(context, ModModelLayers.WALNUT_CHEST_BOAT_LAYER));
         event.enqueueWork(() -> {
             // ** CUSTOM Wood types -> Sign and Hanging Sign **
             Sheets.addWoodType(ModWoodTypes.WALNUT);
@@ -156,6 +163,9 @@ public class ModClientEvents {
         event.registerLayerDefinition(RhinoModel.LAYER_LOCATION, RhinoModel::createBodyLayer);
         // CUSTOM Throwable Projectiles
         event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
+        // CUSTOM Boat and Chest Boat
+        event.registerLayerDefinition(ModModelLayers.WALNUT_BOAT_LAYER, BoatModel::createBoatModel);
+        event.registerLayerDefinition(ModModelLayers.WALNUT_CHEST_BOAT_LAYER, BoatModel::createChestBoatModel);
     }
 
     // CUSTOM EVENT - Registry all custom block entity renderers

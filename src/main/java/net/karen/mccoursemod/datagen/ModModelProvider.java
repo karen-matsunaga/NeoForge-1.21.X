@@ -322,6 +322,10 @@ public class ModModelProvider extends ModelProvider {
 
         // ** CUSTOM Fluid **
         itemModels.generateFlatItem(ModFluids.SOAP_WATER_BUCKET.get(), ModelTemplates.FLAT_ITEM);
+
+        // ** CUSTOM Boat **
+        itemModels.generateFlatItem(ModItems.WALNUT_BOAT.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.WALNUT_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
     }
 
     // * CUSTOM BLOCKS *

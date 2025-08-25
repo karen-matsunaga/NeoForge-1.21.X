@@ -116,6 +116,9 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.ALEXANDRITE_SHIELD);
                  // ** CUSTOM Fluid **
                  output.accept(ModFluids.SOAP_WATER_BUCKET);
+                 // ** CUSTOM boats **
+                 output.accept(ModItems.WALNUT_BOAT.get());
+                 output.accept(ModItems.WALNUT_CHEST_BOAT.get());
            }).build());
 
     // Show all blocks in Creative Mode -> Second Creative Mode Tab

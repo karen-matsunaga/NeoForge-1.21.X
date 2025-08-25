@@ -134,6 +134,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModFluids.SOAP_WATER_BUCKET, "Soap Water Bucket");
         add("fluid_type.mccoursemod.soap_water_fluid", "Soap Water Fluid");
 
+        // ** CUSTOM Boat **
+        addItem(ModItems.WALNUT_BOAT, "Walnut Boat");
+        addItem(ModItems.WALNUT_CHEST_BOAT, "Walnut Chest Boat");
+
         // ** CUSTOM block items **
         add("item.mccoursemod.bismuth_block", "Bismuth Block");
         add("item.mccoursemod.bismuth_ore", "Bismuth Ore");
@@ -605,5 +609,8 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM villager **
         add("entity.minecraft.villager.mccoursemod.kaupenger", "Kaupenger");
         add("entity.minecraft.villager.mccoursemod.soundmaster", "Soundmaster");
+
+        // ** CUSTOM boat and chest boat**
+        add("entity.minecraft.mod_chest_boat", "Chest Boat");
     }
 }
