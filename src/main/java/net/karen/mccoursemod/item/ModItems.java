@@ -234,23 +234,20 @@ public class ModItems {
                                                         .horseArmor(ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL)));
 
     public static final DeferredItem<Item> ALEXANDRITE_SHIELD =
-           ITEMS.registerItem("alexandrite_shield",
-           (properties) -> new Item(properties.durability(2304)
-                                                        .component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
-                                                        .repairable(ItemTags.WOODEN_TOOL_MATERIALS)
-                                                        .equippableUnswappable(EquipmentSlot.OFFHAND)
-                                                        .component(DataComponents.BLOCKS_ATTACKS,
-                                                                   new BlocksAttacks(0.25F,
-                                                                                     1.0F,
-                                                                   List.of(new BlocksAttacks.DamageReduction(90.0F,
-                                                                           Optional.empty(), 0.0F, 1.0F)),
-                                                                           new BlocksAttacks.ItemDamageFunction(3.0F,
-                                                                                                                1.0F,
-                                                                                                                1.0F),
-                                                                           Optional.of(DamageTypeTags.BYPASSES_SHIELD),
-                                                                           Optional.of(SoundEvents.SHIELD_BLOCK),
-                                                                           Optional.of(SoundEvents.SHIELD_BREAK)))
-                                                        .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)));
+           ITEMS.registerItem("alexandrite_shield", (properties) ->
+           new ShieldItem(properties.durability(2304)
+                                    .component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
+                                    .repairable(ItemTags.WOODEN_TOOL_MATERIALS)
+                                    .equippableUnswappable(EquipmentSlot.OFFHAND)
+                                    .component(DataComponents.BLOCKS_ATTACKS,
+                                               new BlocksAttacks(0.25F, 1.0F,
+                                               List.of(new BlocksAttacks.DamageReduction(90.0F,
+                                                       Optional.empty(), 0.0F, 1.0F)),
+                                                       new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F),
+                                                       Optional.of(DamageTypeTags.BYPASSES_SHIELD),
+                                                       Optional.of(SoundEvents.SHIELD_BLOCK),
+                                                       Optional.of(SoundEvents.SHIELD_BREAK)))
+                                    .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)));
 
     // ** CUSTOM Smithing Template **
     public static final DeferredItem<Item> KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE =
