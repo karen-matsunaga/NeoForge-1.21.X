@@ -129,6 +129,22 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // ** CUSTOM Shield **
         addItem(ModItems.ALEXANDRITE_SHIELD, "Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.black", "Black Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.white", "White Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.blue", "Blue Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.brown", "Brown Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.cyan", "Cyan Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.gray", "Gray Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.green", "Green Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.light_blue", "Light Blue Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.light_gray", "Light Gray Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.lime", "Light Blue Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.magenta", "Magenta Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.orange", "Orange Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.pink", "Pink Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.purple", "Purple Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.red", "Red Alexandrite Shield");
+        add("item.mccoursemod.alexandrite_shield.yellow", "Yellow Alexandrite Shield");
 
         // ** CUSTOM Fluid **
         addItem(ModFluids.SOAP_WATER_BUCKET, "Soap Water Bucket");

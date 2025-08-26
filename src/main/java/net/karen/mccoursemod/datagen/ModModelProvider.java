@@ -10,6 +10,7 @@ import net.karen.mccoursemod.block.custom.KohlrabiCropBlock;
 import net.karen.mccoursemod.block.custom.RadishCropBlock;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.entity.client.ShieldSpecialModelRenderer;
 import net.karen.mccoursemod.fluid.ModFluids;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.trim.ModTrimMaterials;
@@ -318,7 +319,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFishingRod(ModItems.MCCOURSE_MOD_FISHING_ROD.get());
 
         // ** CUSTOM Shield **
-        itemModels.generateShield(ModItems.ALEXANDRITE_SHIELD.get());
+        shieldTexture(itemModels, ModItems.ALEXANDRITE_SHIELD.get());
 
         // ** CUSTOM Fluid **
         itemModels.generateFlatItem(ModFluids.SOAP_WATER_BUCKET.get(), ModelTemplates.FLAT_ITEM);
@@ -614,6 +615,17 @@ public class ModModelProvider extends ModelProvider {
             itemModelUnbakedTwo = ItemModelUtils.plainModel(itemName);
         }
         itemModels.itemModelOutput.accept(item, ItemModelUtils.select(new TrimMaterialProperty(), itemModelUnbakedTwo, list));
+    }
+
+    // CUSTOM METHOD - Shield model
+    protected static void shieldTexture(ItemModelGenerators itemModels, Item item) {
+        ItemModel.Unbaked shield =
+            ItemModelUtils.specialModel(ModelLocationUtils.getModelLocation(item),
+                                        new ShieldSpecialModelRenderer.Unbaked());
+        ItemModel.Unbaked shieldBlocking =
+            ItemModelUtils.specialModel(ModelLocationUtils.getModelLocation(item, "_blocking"),
+                                        new ShieldSpecialModelRenderer.Unbaked());
+        itemModels.generateBooleanDispatch(item, ItemModelUtils.isUsingItem(), shieldBlocking, shield);
     }
 
     // CUSTOM METHOD - Block models -> Ignore JSON files

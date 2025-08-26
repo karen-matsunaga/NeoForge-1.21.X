@@ -449,7 +449,6 @@ public class ModRecipeProvider extends RecipeProvider {
             .pattern("WWW")
             .pattern(" W ")
             .unlockedBy(getHasName(items.get(1)), this.has(items.get(1))).save(this.output);
-        SpecialRecipeBuilder.special(ShieldDecorationRecipe::new).save(this.output, "shield_decoration");
     }
 
     // CUSTOM METHOD - BOAT

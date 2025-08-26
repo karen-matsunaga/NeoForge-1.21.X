@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-25T14:34:54.7287061	Model Definitions - mccoursemod
+// 1.21.8	2025-08-26T10:39:31.902407	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -108,7 +108,7 @@ eed8e658a83e15c793650bca78f351734960e9bb assets/mccoursemod/items/alexandrite_or
 09b6ae38000571f0ed4d65620b176f9d07c0cce6 assets/mccoursemod/items/alexandrite_paxel.json
 e82a4e5c97168718392a15f5dcd481de70acb1aa assets/mccoursemod/items/alexandrite_pickaxe.json
 1dfaeebb896e7b8a08f70842acf812e25f5233ba assets/mccoursemod/items/alexandrite_pressure_plate.json
-8327e495438c35713ca50a2ca48ab38fef855cc1 assets/mccoursemod/items/alexandrite_shield.json
+0113c5fb61a75de7e2dccab292ca146e7e86b69e assets/mccoursemod/items/alexandrite_shield.json
 d5aa344fc500ef2d480f2900cf12854002e19dd8 assets/mccoursemod/items/alexandrite_shovel.json
 40e3f05fea68dbd58a2dd19c9b60d24835388ade assets/mccoursemod/items/alexandrite_slabs.json
 5ab1f8aed13085b99b48f447279754324d00504c assets/mccoursemod/items/alexandrite_stairs.json

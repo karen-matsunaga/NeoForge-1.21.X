@@ -16,6 +16,7 @@
     "LivingEntityMixin",
     "SculkShriekerBlockEntityMixin",
     "ServerPlayerMixin",
+    "ShieldDecorationRecipeMixin",
     "VibrationListenerMixin"
   ],
   "client": [

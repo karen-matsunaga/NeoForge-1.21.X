@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-25T14:34:54.678181	Mccourse Recipes
+// 1.21.8	2025-08-26T12:46:56.8058177	Mccourse Recipes
 0007e86a60bbd3b0a4baaf013385795221e8513e data/mccoursemod/advancement/recipes/building_blocks/alexandrite_slabs.json
 8f4eac1f86e2a81087b0ad34a987911811b2e48a data/mccoursemod/advancement/recipes/building_blocks/alexandrite_stairs.json
 43c1e827f47c9a2463760730f6cf478f2122bf12 data/mccoursemod/advancement/recipes/building_blocks/alexandrite_wall.json
@@ -221,7 +221,6 @@ cbea8c71597b8529a3f97a88ba009329f382d8c5 data/minecraft/recipe/gunpowder_block.j
 8845cbc20df8b44fd2d9a5a90fcc416980875363 data/minecraft/recipe/phantom_membrane_block.json
 ead98160e88808bf5669960cb63558d1f9ff71c4 data/minecraft/recipe/rotten_flesh.json
 304c5521220457daec1f06f7956bf631785d802d data/minecraft/recipe/rotten_flesh_block.json
-7610b9dc4d4cb0f4b816eb91f769fa7440fe3d2f data/minecraft/recipe/shield_decoration.json
 f3c26dd78f3b470cb0b2b84c41c4cecaa41a1c49 data/minecraft/recipe/spider_eye.json
 66376481dacaa7f31432366075c41458490859d7 data/minecraft/recipe/spider_eye_block.json
 923dbdf68fbc7f634677b072e80c59ce6d34c6a4 data/minecraft/recipe/string.json

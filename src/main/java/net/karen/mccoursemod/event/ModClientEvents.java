@@ -192,4 +192,11 @@ public class ModClientEvents {
                                 .getClientFluidTypeExtensions(),
                                 ModFluidTypes.SOAP_WATER_FLUID_TYPE.get());
     }
+
+    // CUSTOM EVENT - Registry all custom shield special model renderers
+    @SubscribeEvent
+    public static void registerSpecialModelRenderers(RegisterSpecialModelRendererEvent event) {
+        event.register(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "alexandrite_shield"),
+                       ShieldSpecialModelRenderer.Unbaked.MAP_CODEC);
+    }
 }
