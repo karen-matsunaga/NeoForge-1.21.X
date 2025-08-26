@@ -2,7 +2,7 @@
   "type": "mccoursemod:growth_chamber",
   "ingredient": "minecraft:stick",
   "result": {
-    "id": "minecraft:end_rod",
-    "count": 2
+    "count": 1,
+    "id": "minecraft:end_rod"
   }
 }

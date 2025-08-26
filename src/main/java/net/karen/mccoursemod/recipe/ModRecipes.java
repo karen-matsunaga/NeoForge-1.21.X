@@ -14,7 +14,7 @@ public class ModRecipes {
            DeferredRegister.create(Registries.RECIPE_SERIALIZER, MccourseMod.MOD_ID);
 
     // Registry all custom recipe types
-    public static final DeferredRegister<RecipeType<?>> TYPES =
+    public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES =
            DeferredRegister.create(Registries.RECIPE_TYPE, MccourseMod.MOD_ID);
 
     // Registry all custom recipes serializers
@@ -23,14 +23,16 @@ public class ModRecipes {
 
     // Registry all custom recipes types
     public static final DeferredHolder<RecipeType<?>, RecipeType<GrowthChamberRecipe>> GROWTH_CHAMBER_TYPE =
-           TYPES.register("growth_chamber", () -> new RecipeType<GrowthChamberRecipe>() {
-                @Override
-                public String toString() { return "growth_chamber"; }
+           RECIPE_TYPES.register("growth_chamber", () -> new RecipeType<>() {
+               @Override
+               public String toString() {
+                   return "growth_chamber";
+               }
            });
 
     // CUSTOM METHOD - Registry all custom recipes on event bus
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);
-        TYPES.register(eventBus);
+        RECIPE_TYPES.register(eventBus);
     }
 }

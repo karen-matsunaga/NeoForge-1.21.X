@@ -2,6 +2,7 @@
   "type": "mccoursemod:growth_chamber",
   "ingredient": "mccoursemod:raw_bismuth",
   "result": {
+    "count": 1,
     "id": "mccoursemod:bismuth"
   }
 }

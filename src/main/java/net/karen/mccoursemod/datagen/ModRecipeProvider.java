@@ -3,6 +3,7 @@ package net.karen.mccoursemod.datagen;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.recipe.GrowthChamberRecipeBuilder;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -10,6 +11,7 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
@@ -187,6 +189,23 @@ public class ModRecipeProvider extends RecipeProvider {
 
         // ** CUSTOM boat **
         boat(List.of(ModItems.WALNUT_BOAT, ModItems.WALNUT_CHEST_BOAT, ModBlocks.WALNUT_PLANKS));
+
+        // ** GROWTH CHAMBER recipes **
+        growthChamberRecipe(List.of(Items.DIAMOND, Items.DIAMOND_BLOCK));
+        growthChamberRecipe(List.of(ModItems.RAW_BISMUTH.get(), ModItems.BISMUTH.get()));
+        growthChamberRecipe(List.of(Items.STICK, Items.END_ROD));
+    }
+
+    // CUSTOM METHOD - GROWTH CHAMBER custom recipes
+    protected void growthChamberRecipe(List<ItemLike> items) {
+        // 0 -> INPUT; 1 -> OUTPUT
+        ItemLike input = items.getFirst();
+        ItemLike output = items.get(1);
+        new GrowthChamberRecipeBuilder(Ingredient.of(input), new ItemStack(output))
+                                                 .unlockedBy(getHasName(input), has(input))
+                                                 .save(this.output,
+                                                       MccourseMod.MOD_ID + ":" + getItemName(output) +
+                                                       "_from_growth_chamber");
     }
 
     // CUSTOM METHOD - Block Families
