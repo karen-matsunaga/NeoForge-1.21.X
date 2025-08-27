@@ -115,9 +115,6 @@ public class ModRecipeProvider extends RecipeProvider {
         // ** CUSTOM Trim Smithing **
         // CRAFTING TABLE
         this.copySmithingTemplate(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModItems.BISMUTH.get());
-        // SMITHING TABLE -> ERROR
-        //this.trimSmithing(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModTrimPatterns.KAUPEN,
-        //                  ResourceKey.create(Registries.RECIPE, ModTrimPatterns.KAUPEN.location()));
 
         // ** CUSTOM glass block **
         this.glassBlocks(List.of(ModBlocks.FORCED_STAINED_GLASS.get(),

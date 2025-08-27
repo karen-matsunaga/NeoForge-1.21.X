@@ -11,7 +11,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.equipment.trim.MaterialAssetGroup;
 import net.minecraft.world.item.equipment.trim.TrimMaterial;
-import java.util.List;
 
 public class ModTrimMaterials {
     // Registry all custom TRIM MATERIAL textures
@@ -28,9 +27,6 @@ public class ModTrimMaterials {
     // Registry all custom MATERIAL ASSET GROUP ingredients
     public static final MaterialAssetGroup BISMUTH_MATERIAL = MaterialAssetGroup.create("bismuth");
     public static final MaterialAssetGroup ALEXANDRITE_MATERIAL = MaterialAssetGroup.create("alexandrite");
-
-    public static final List<MaterialAssetGroup> MCCOURSE_MATERIAL_ASSETS =
-           List.of(BISMUTH_MATERIAL, ALEXANDRITE_MATERIAL);
 
     // CUSTOM METHOD - Registry all custom TRIM MATERIALS -> Data Generation with JSON file
     public static void bootstrap(BootstrapContext<TrimMaterial> context) {

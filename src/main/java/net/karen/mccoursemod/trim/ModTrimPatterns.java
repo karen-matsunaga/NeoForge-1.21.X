@@ -11,8 +11,9 @@ import net.minecraft.world.item.equipment.trim.TrimPattern;
 
 public class ModTrimPatterns {
     // Registry all custom TRIM PATTERN textures
-    public static final ResourceKey<TrimPattern> KAUPEN = ResourceKey.create(Registries.TRIM_PATTERN,
-           ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "kaupen"));
+    public static final ResourceKey<TrimPattern> KAUPEN =
+           ResourceKey.create(Registries.TRIM_PATTERN,
+                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "kaupen"));
 
     // CUSTOM METHOD - Registry all custom TRIM PATTERNS -> Data Generation with JSON file
     public static void bootstrap(BootstrapContext<TrimPattern> context) {

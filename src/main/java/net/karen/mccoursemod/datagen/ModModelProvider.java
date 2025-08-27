@@ -280,29 +280,10 @@ public class ModModelProvider extends ModelProvider {
 
         // ** CUSTOM ARMORS **
         // BISMUTH
-//        trimmedArmorItem(itemModels, "helmet", ModItems.BISMUTH_HELMET.get(),
-//                         ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
-//        trimmedArmorItem(itemModels, "chestplate", ModItems.BISMUTH_CHESTPLATE.get(),
-//                         ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
-//        trimmedArmorItem(itemModels, "leggings", ModItems.BISMUTH_LEGGINGS.get(),
-//                         ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
-//        trimmedArmorItem(itemModels, "boots", ModItems.BISMUTH_BOOTS.get(),
-//                         ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
-
-        // ALEXANDRITE
-//        trimmedArmorItem(itemModels, "helmet", ModItems.ALEXANDRITE_HELMET.get(),
-//                         ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
-//        trimmedArmorItem(itemModels, "chestplate", ModItems.ALEXANDRITE_CHESTPLATE.get(),
-//                         ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
-//        trimmedArmorItem(itemModels, "leggings", ModItems.ALEXANDRITE_LEGGINGS.get(),
-//                         ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
-//        trimmedArmorItem(itemModels, "boots", ModItems.ALEXANDRITE_BOOTS.get(),
-//                         ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
-
         createArmorTrim(itemModels, ModEquipmentAssetProvider.BISMUTH,
                         List.of(ModItems.BISMUTH_HELMET.get(), ModItems.BISMUTH_CHESTPLATE.get(),
                                 ModItems.BISMUTH_LEGGINGS.get(), ModItems.BISMUTH_BOOTS.get()));
-
+        // ALEXANDRITE
         createArmorTrim(itemModels, ModEquipmentAssetProvider.ALEXANDRITE,
                         List.of(ModItems.ALEXANDRITE_HELMET.get(), ModItems.ALEXANDRITE_CHESTPLATE.get(),
                                 ModItems.ALEXANDRITE_LEGGINGS.get(), ModItems.ALEXANDRITE_BOOTS.get()));
@@ -587,15 +568,7 @@ public class ModModelProvider extends ModelProvider {
         pieceArmorTrim(itemModels, item.get(3), equipmentAsset, TRIM_PREFIX_BOOTS, false);
     }
 
-//    private void trimmedArmorItem(ItemModelGenerators itemModels, String name,
-//                                  Item item, ArmorMaterial armorMaterial) {
-//        pieceArmorTrim(itemModels, item, armorMaterial.assetId(),
-//                       ResourceLocation.parse("trims/items/" + name + "_trim"),
-//                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-//                                                             "trims/items/" + name + "_trim"),
-//                       false);
-//    }
-
+    // TRIM MATERIAL MODELS
     public static final List<ItemModelGenerators.TrimMaterialData> TRIM_MATERIAL_MODELS =
            List.of(new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.QUARTZ, TrimMaterials.QUARTZ),
                    new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.IRON, TrimMaterials.IRON),
@@ -612,43 +585,7 @@ public class ModModelProvider extends ModelProvider {
                    new ItemModelGenerators.TrimMaterialData(ModTrimMaterials.ALEXANDRITE_MATERIAL, ModTrimMaterials.ALEXANDRITE)
                   );
 
-//    public static void pieceArmorTrim(ItemModelGenerators itemModels, Item item,
-//                                      ResourceKey<EquipmentAsset> equipmentAsset,
-//                                      ResourceLocation vanillaId, ResourceLocation modelId, boolean usesSecondLayer) {
-//        ResourceLocation itemName = ModelLocationUtils.getModelLocation(item);
-//        ResourceLocation armorItem = TextureMapping.getItemTexture(item);
-//        ResourceLocation armorRender = TextureMapping.getItemTexture(item, "_overlay");
-//        List<SelectItemModel.SwitchCase<ResourceKey<TrimMaterial>>> list = new ArrayList<>(TRIM_MATERIAL_MODELS.size());
-//        for (TrimMaterialData armorTrimMaterials : TRIM_MATERIAL_MODELS) {
-//            ResourceLocation ingredientItem =
-//                    itemName.withSuffix("_" + armorTrimMaterials.assets().base().suffix() + "_trim");
-//            ResourceLocation materialAssets =
-//                    ModTrimMaterials.MCCOURSE_MATERIAL_ASSETS.contains(armorTrimMaterials.assets())
-//                    ? modelId.withSuffix("_" + armorTrimMaterials.assets().assetId(equipmentAsset).suffix())
-//                    : vanillaId.withSuffix("_" + armorTrimMaterials.assets().assetId(equipmentAsset).suffix());
-//            ItemModel.Unbaked itemModelUnbaked;
-//            if (usesSecondLayer) {
-//                itemModels.generateLayeredItem(ingredientItem, armorItem, armorRender, materialAssets);
-//                itemModelUnbaked = ItemModelUtils.tintedModel(ingredientItem, new Dye(-6265536));
-//            }
-//            else {
-//                itemModels.generateLayeredItem(ingredientItem, armorItem, materialAssets);
-//                itemModelUnbaked = ItemModelUtils.plainModel(ingredientItem);
-//            }
-//            list.add(ItemModelUtils.when(armorTrimMaterials.materialKey(), itemModelUnbaked));
-//        }
-//        ItemModel.Unbaked itemModelUnbakedTwo;
-//        if (usesSecondLayer) { // LAYER 1
-//            ModelTemplates.TWO_LAYERED_ITEM.create(itemName, TextureMapping.layered(armorItem, armorRender), itemModels.modelOutput);
-//            itemModelUnbakedTwo = ItemModelUtils.tintedModel(itemName, new Dye(-6265536));
-//        }
-//        else { // LAYER 0
-//            ModelTemplates.FLAT_ITEM.create(itemName, TextureMapping.layer0(armorItem), itemModels.modelOutput);
-//            itemModelUnbakedTwo = ItemModelUtils.plainModel(itemName);
-//        }
-//        itemModels.itemModelOutput.accept(item, ItemModelUtils.select(new TrimMaterialProperty(), itemModelUnbakedTwo, list));
-//    }
-
+    // ARMOR TRIM MATERIAL MODELS
     public static void pieceArmorTrim(ItemModelGenerators itemModels, Item item,
                                       ResourceKey<EquipmentAsset> equipmentAsset,
                                       ResourceLocation modelId, boolean usesSecondLayer) {
