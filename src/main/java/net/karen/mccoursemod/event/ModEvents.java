@@ -156,20 +156,95 @@ public class ModEvents {
         builder.addMix(Potions.AWKWARD, Items.CARROT, ModPotions.HASTE_POTION);
     }
 
-    // CUSTOM EVENT - Registry all custom entity attributes
+    // CUSTOM EVENT - Registry all custom entities attributes
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
-        // GECKO
+        // GECKO ATTRIBUTES
         event.put(ModEntities.GECKO.get(), GeckoEntity.createAttributes().build());
-        // RHINO
+        // RHINO ATTRIBUTES
         event.put(ModEntities.RHINO.get(), RhinoEntity.createAttributes().build());
     }
 
+    // CUSTOM EVENT - Registry all custom entities spawn placements
     @SubscribeEvent
     public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
+        // SPAWN GECKO
         event.register(ModEntities.GECKO.get(), SpawnPlacementTypes.ON_GROUND,
                        Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules,
                        RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        // SPAWN RHINO
+        event.register(ModEntities.RHINO.get(), SpawnPlacementTypes.ON_GROUND,
+                       Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules,
+                       RegisterSpawnPlacementsEvent.Operation.REPLACE);
+    }
+
+    // CUSTOM EVENT - Villager trades
+    @SubscribeEvent
+    public static void addCustomTrades(VillagerTradesEvent event) {
+        // Vanilla trade -> FARMER trades
+        if (event.getType() == VillagerProfession.FARMER) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            // Trade level one
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.EMERALD, 3),
+                               new ItemStack(ModItems.GOJI_BERRIES.get(), 18),
+                               6, 3, 0.05F));
+            // Trade level one
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.DIAMOND, 12),
+                               new ItemStack(ModItems.RADISH.get(), 1),
+                               6, 3, 0.05F));
+            // Trade level two
+            trades.get(2).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.ENDER_PEARL, 1),
+                               new ItemStack(ModItems.RADISH_SEEDS.get(), 1),
+                               2, 8, 0.05F));
+        }
+        // Mccourse Mod trade -> KAUPENGER trades
+        if (event.getType() == ModVillagers.KAUPENGER.getKey()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            // Trade level one
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.EMERALD, 2),
+                               new ItemStack(ModItems.RAW_BISMUTH.get(), 18),
+                               6, 3, 0.05F));
+            // Trade level one
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.DIAMOND, 16),
+                               new ItemStack(ModItems.RADIATION_STAFF.get(), 1),
+                               6, 3, 0.05F));
+            // Trade level two
+            trades.get(2).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.ENDER_PEARL, 2),
+                               new ItemStack(ModItems.BISMUTH_SWORD.get(), 1),
+                               2, 8, 0.05F));
+        }
+        // Mccourse Mod trade -> SOUND MASTER trades
+        if (event.getType() == ModVillagers.SOUND_MASTER.getKey()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            // Trade level one
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(Items.EMERALD, 25),
+                               new ItemStack(ModBlocks.SOUND.get().asItem(), 1),
+                               2, 5, 0.06F));
+        }
+    }
+
+    // CUSTOM EVENT - Wandering trades
+    @SubscribeEvent
+    public static void addWanderingTrades(WandererTradesEvent event) {
+        List<VillagerTrades.ItemListing> genericTrades = event.getGenericTrades();
+        List<VillagerTrades.ItemListing> rareTrades = event.getRareTrades();
+        // Generic trades
+        genericTrades.add((entity, randomSource) -> new MerchantOffer(
+                           new ItemCost(Items.EMERALD, 16),
+                           new ItemStack(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 1),
+                           1, 10, 0.2F));
+        // Rare trades
+        rareTrades.add((entity, randomSource) -> new MerchantOffer(
+                        new ItemCost(Items.NETHERITE_INGOT, 1),
+                        new ItemStack(ModItems.BAR_BRAWL_MUSIC_DISC.get(), 1),
+                        1, 10, 0.2F));
     }
 
     // CUSTOM EVENT -> AUTO SMELT, MAGNET, MORE ORES, MULTIPLIER and RAINBOW custom effects
@@ -605,67 +680,5 @@ public class ModEvents {
                                                      shift ? 100 : 10));
             }
         }
-    }
-
-    // CUSTOM EVENT - Villager trades
-    @SubscribeEvent
-    public static void addCustomTrades(VillagerTradesEvent event) {
-        // Vanilla trade -> FARMER trades
-        if (event.getType() == VillagerProfession.FARMER) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            // Trade level one
-            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                               new ItemCost(Items.EMERALD, 3),
-                               new ItemStack(ModItems.GOJI_BERRIES.get(), 18), 6, 3, 0.05f));
-            // Trade level one
-            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                               new ItemCost(Items.DIAMOND, 12),
-                               new ItemStack(ModItems.RADISH.get(), 1), 6, 3, 0.05f));
-            // Trade level two
-            trades.get(2).add((entity, randomSource) -> new MerchantOffer(
-                               new ItemCost(Items.ENDER_PEARL, 1),
-                               new ItemStack(ModItems.RADISH_SEEDS.get(), 1), 2, 8, 0.05f));
-        }
-        // Mccourse Mod trade -> KAUPENGER trades
-        if (event.getType() == ModVillagers.KAUPENGER.getKey()) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            // Trade level one
-            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                               new ItemCost(Items.EMERALD, 2),
-                               new ItemStack(ModItems.RAW_BISMUTH.get(), 18), 6, 3, 0.05f));
-            // Trade level one
-            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                               new ItemCost(Items.DIAMOND, 16),
-                               new ItemStack(ModItems.RADIATION_STAFF.get(), 1), 6, 3, 0.05f));
-            // Trade level two
-            trades.get(2).add((entity, randomSource) -> new MerchantOffer(
-                               new ItemCost(Items.ENDER_PEARL, 2),
-                               new ItemStack(ModItems.BISMUTH_SWORD.get(), 1), 2, 8, 0.05f));
-        }
-        // Mccourse Mod trade -> SOUND MASTER trades
-        if (event.getType() == ModVillagers.SOUND_MASTER.getKey()) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            // Trade level one
-            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                               new ItemCost(Items.EMERALD, 25),
-                               new ItemStack(ModBlocks.SOUND.get().asItem(), 1),
-                                             2, 5, 0.06f));
-        }
-    }
-
-    // CUSTOM EVENT - Wandering trades
-    @SubscribeEvent
-    public static void addWanderingTrades(WandererTradesEvent event) {
-        List<VillagerTrades.ItemListing> genericTrades = event.getGenericTrades();
-        List<VillagerTrades.ItemListing> rareTrades = event.getRareTrades();
-        // Generic trades
-        genericTrades.add((entity, randomSource) -> new MerchantOffer(
-                           new ItemCost(Items.EMERALD, 16),
-                           new ItemStack(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 1),
-                                         1, 10, 0.2f));
-        // Rare trades
-        rareTrades.add((entity, randomSource) -> new MerchantOffer(
-                        new ItemCost(Items.NETHERITE_INGOT, 1),
-                        new ItemStack(ModItems.BAR_BRAWL_MUSIC_DISC.get(), 1), 1, 10, 0.2f));
     }
 }
