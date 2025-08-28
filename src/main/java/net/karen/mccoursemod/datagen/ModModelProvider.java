@@ -33,7 +33,9 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.equipment.EquipmentAsset;
+import net.minecraft.world.item.equipment.EquipmentAssets;
 import net.minecraft.world.item.equipment.trim.MaterialAssetGroup;
 import net.minecraft.world.item.equipment.trim.TrimMaterial;
 import net.minecraft.world.item.equipment.trim.TrimMaterials;
@@ -287,6 +289,33 @@ public class ModModelProvider extends ModelProvider {
         createArmorTrim(itemModels, ModEquipmentAssetProvider.ALEXANDRITE,
                         List.of(ModItems.ALEXANDRITE_HELMET.get(), ModItems.ALEXANDRITE_CHESTPLATE.get(),
                                 ModItems.ALEXANDRITE_LEGGINGS.get(), ModItems.ALEXANDRITE_BOOTS.get()));
+
+        // ** VANILLA ARMORS **
+        createArmorTrim(itemModels, EquipmentAssets.CHAINMAIL,
+                        List.of(Items.CHAINMAIL_HELMET, Items.CHAINMAIL_CHESTPLATE,
+                                Items.CHAINMAIL_LEGGINGS, Items.CHAINMAIL_BOOTS));
+
+        createArmorTrim(itemModels, EquipmentAssets.DIAMOND,
+                        List.of(Items.DIAMOND_HELMET, Items.DIAMOND_CHESTPLATE,
+                                Items.DIAMOND_LEGGINGS, Items.DIAMOND_BOOTS));
+
+        createArmorTrim(itemModels, EquipmentAssets.GOLD,
+                        List.of(Items.GOLDEN_HELMET, Items.GOLDEN_CHESTPLATE,
+                                Items.GOLDEN_LEGGINGS, Items.GOLDEN_BOOTS));
+
+        createArmorTrim(itemModels, EquipmentAssets.IRON,
+                        List.of(Items.IRON_HELMET, Items.IRON_CHESTPLATE,
+                                Items.IRON_LEGGINGS, Items.IRON_BOOTS));
+
+        createArmorTrim(itemModels, EquipmentAssets.LEATHER,
+                        List.of(Items.LEATHER_HELMET, Items.LEATHER_CHESTPLATE,
+                                Items.LEATHER_LEGGINGS, Items.LEATHER_BOOTS));
+
+        createArmorTrim(itemModels, EquipmentAssets.NETHERITE,
+                        List.of(Items.NETHERITE_HELMET, Items.NETHERITE_CHESTPLATE,
+                                Items.NETHERITE_LEGGINGS, Items.NETHERITE_BOOTS));
+
+        pieceArmorTrim(itemModels, Items.TURTLE_HELMET, EquipmentAssets.TURTLE_SCUTE, TRIM_PREFIX_HELMET, false);
 
         // ** CUSTOM Smithing Template **
         itemModels.generateFlatItem(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
