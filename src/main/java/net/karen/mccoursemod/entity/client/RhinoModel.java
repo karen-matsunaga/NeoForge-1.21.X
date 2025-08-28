@@ -13,24 +13,26 @@ import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 
 public class RhinoModel extends EntityModel<RhinoRenderState> {
+    // RHINO layer
     public static final ModelLayerLocation LAYER_LOCATION =
            new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "rhino"), "main");
+
     // RHINO animations
-    private final ModelPart rhino;
+    private final ModelPart body;
     private final ModelPart head;
-    private final KeyframeAnimation idlingAnimation;
-    private final KeyframeAnimation attackingAnimation;
-    private final KeyframeAnimation sittingAnimation;
     private final KeyframeAnimation walkingAnimation;
+    private final KeyframeAnimation sittingAnimation;
+    private final KeyframeAnimation attackingAnimation;
+    private final KeyframeAnimation idlingAnimation;
 
     public RhinoModel(ModelPart root) {
         super(root);
-        this.rhino = root.getChild("rhino");
-        this.head = rhino.getChild("body").getChild("torso").getChild("head");
-        this.idlingAnimation = RhinoAnimations.RHINO_IDLE.bake(root);
+        this.body = root.getChild("rhino");
+        this.head = body.getChild("body").getChild("torso").getChild("head");
         this.walkingAnimation = RhinoAnimations.RHINO_WALK.bake(root);
         this.sittingAnimation = RhinoAnimations.RHINO_SIT.bake(root);
         this.attackingAnimation = RhinoAnimations.RHINO_ATTACK.bake(root);
+        this.idlingAnimation = RhinoAnimations.RHINO_IDLE.bake(root);
     }
 
     // RHINO body layer model
@@ -228,15 +230,14 @@ public class RhinoModel extends EntityModel<RhinoRenderState> {
     public void setupAnim(@NotNull RhinoRenderState state) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.applyHeadRotation(state.yRot, state.xRot);
-        // Rhino idling
-        this.idlingAnimation.apply(state.idleAnimationState, state.ageInTicks, 1F);
-        // Rhino's attack animation
-        this.attackingAnimation.apply(state.attackAnimationState, state.ageInTicks, 1F);
-        // Rhino's walk animation
+        // Rhino's WALK animation
         this.walkingAnimation.applyWalk(state.walkAnimationPos, state.walkAnimationSpeed, 2F, 2.5F);
-        // Rhino's sit animation
+        // Rhino's SIT animation
         this.sittingAnimation.apply(state.sitAnimationState, state.ageInTicks, 1F);
-        super.setupAnim(state);
+        // Rhino's ATTACK animation
+        this.attackingAnimation.apply(state.attackAnimationState, state.ageInTicks, 1F);
+        // Rhino IDLING
+        this.idlingAnimation.apply(state.idleAnimationState, state.ageInTicks, 1F);
     }
 
     private void applyHeadRotation(float netHeadYaw, float headPitch) {
@@ -244,13 +245,5 @@ public class RhinoModel extends EntityModel<RhinoRenderState> {
         headPitch = Mth.clamp(headPitch, -25.0F, 45.0F);
         this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
         this.head.xRot = headPitch * ((float)Math.PI / 180F);
-    }
-
-    public ModelPart getHead() {
-        return head;
-    }
-
-    public ModelPart getRhino() {
-        return rhino;
     }
 }

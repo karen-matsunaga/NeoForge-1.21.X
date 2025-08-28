@@ -52,19 +52,22 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(RhinoEntity.class, EntityDataSerializers.INT);
 
-    // RHINO custom entity animation
-    public final AnimationState idleAnimationState = new AnimationState(); // Rhino custom walk animation
+    // RHINO custom entity animations
+    // Rhino custom WALK animation
+    public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
-    public final AnimationState attackAnimationState = new AnimationState(); // Rhino custom attack animation
+    // Rhino custom ATTACK animation
+    public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
 
-    public final AnimationState sitAnimationState = new AnimationState(); // Rhino custom sit animation
+    // Rhino custom SIT animation
+    public final AnimationState sitAnimationState = new AnimationState();
 
     /* BOSS BAR */
-     private final ServerBossEvent bossEvent =
-             new ServerBossEvent(Component.literal("Our Cool Rhino"),
-                                 BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.NOTCHED_12);
+    private final ServerBossEvent bossEvent =
+            new ServerBossEvent(Component.literal("Our Cool Rhino"),
+                                BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.NOTCHED_12);
 
     public RhinoEntity(EntityType<? extends TamableAnimal> entityType, Level level) {
         super(entityType, level);
@@ -85,11 +88,11 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
                                                           Ingredient.of(Items.COOKED_BEEF), true));
         // TAMABLE animation
         this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
-        this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.25d,
-                                                                18f, 7f));
-        this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1d));
+        this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.25D,
+                                                                18F, 7F));
+        this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 4f));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 4F));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         // ATTACK animation
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
@@ -100,10 +103,10 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
         return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH, 35D)
                                               .add(Attributes.MOVEMENT_SPEED, 0.15D)
                                               .add(Attributes.FOLLOW_RANGE, 24D)
-                                              .add(Attributes.ARMOR_TOUGHNESS, 0.1f)
-                                              .add(Attributes.ATTACK_KNOCKBACK, 0.5f)
-                                              .add(Attributes.ATTACK_DAMAGE, 2f)
-                                              .add(Attributes.TEMPT_RANGE, 16d);
+                                              .add(Attributes.ARMOR_TOUGHNESS, 0.1F)
+                                              .add(Attributes.ATTACK_KNOCKBACK, 0.5F)
+                                              .add(Attributes.ATTACK_DAMAGE, 2F)
+                                              .add(Attributes.TEMPT_RANGE, 16D);
     }
 
     // Walk custom entity animation
@@ -145,11 +148,12 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
         if (this.level().isClientSide()) { this.setupAnimationStates(); }
     }
 
-    // RHINO attack animation
+    // CUSTOM METHOD - RHINO attack animation -> DEFAULT (False)
     public void setAttacking(boolean attacking) {
         this.entityData.set(ATTACKING, attacking); // It is attacked
     }
 
+    // CUSTOM METHOD - RHINO is attacking
     public boolean isAttacking() {
         return this.entityData.get(ATTACKING);
     }
@@ -219,7 +223,6 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
             if (this.level().isClientSide()) { return InteractionResult.CONSUME; }
             else {
                 if (!player.getAbilities().instabuild) { itemstack.shrink(1); }
-
                 if (!onAnimalTame(this, player)) {
                     super.tame(player);
                     this.navigation.recomputePath();
@@ -231,7 +234,6 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
                 return InteractionResult.SUCCESS;
             }
         }
-
         if (isTame() && hand == InteractionHand.MAIN_HAND && !isFood(itemstack)) {
             if (!player.isCrouching()) { setRiding(player); }
             else { setOrderedToSit(!isOrderedToSit()); setInSittingPose(!isOrderedToSit()); }  // TOGGLES SITTING FOR OUR ENTITY
@@ -241,11 +243,11 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
     }
 
     /* RIDEABLE */
-    private void setRiding(Player pPlayer) {
+    private void setRiding(Player player) {
         this.setInSittingPose(false);
-        pPlayer.setYRot(this.getYRot());
-        pPlayer.setXRot(this.getXRot());
-        pPlayer.startRiding(this);
+        player.setYRot(this.getYRot());
+        player.setXRot(this.getXRot());
+        player.startRiding(this);
     }
 
     @Nullable
@@ -269,11 +271,11 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
                 float newSpeed = (float) this.getAttributeValue(Attributes.MOVEMENT_SPEED);
                 // increasing speed by 100% if the spring key is held down (number for testing purposes)
                 if (Minecraft.getInstance().options.keySprint.isDown()) { newSpeed *= 2f; }
-
                 this.setSpeed(newSpeed);
                 super.travel(new Vec3(f, vec3.y, f1));
             }
-        } else { super.travel(vec3); }
+        }
+        else { super.travel(vec3); }
     }
 
     @Override
@@ -282,14 +284,14 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
         if (direction.getAxis() != Direction.Axis.Y) {
             int[][] offsets = DismountHelper.offsetsForDirection(direction);
             BlockPos blockpos = this.blockPosition();
-            BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+            BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
             for (Pose pose : entity.getDismountPoses()) {
                 AABB aabb = entity.getLocalBoundsForPose(pose);
                 for (int[] offset : offsets) {
-                    blockpos$mutableblockpos.set(blockpos.getX() + offset[0], blockpos.getY(), blockpos.getZ() + offset[1]);
-                    double d0 = this.level().getBlockFloorHeight(blockpos$mutableblockpos);
+                    mutableBlockPos.set(blockpos.getX() + offset[0], blockpos.getY(), blockpos.getZ() + offset[1]);
+                    double d0 = this.level().getBlockFloorHeight(mutableBlockPos);
                     if (DismountHelper.isBlockFloorValid(d0)) {
-                        Vec3 vec3 = Vec3.upFromBottomCenterOf(blockpos$mutableblockpos, d0);
+                        Vec3 vec3 = Vec3.upFromBottomCenterOf(mutableBlockPos, d0);
                         if (DismountHelper.canDismountTo(this.level(), entity, aabb.move(vec3))) {
                             entity.setPose(pose);
                             return vec3;

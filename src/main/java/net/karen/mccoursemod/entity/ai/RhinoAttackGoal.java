@@ -29,11 +29,9 @@ public class RhinoAttackGoal extends MeleeAttackGoal {
     // Rhino's attack animation ticks
     @Override
     protected void checkAndPerformAttack(@NotNull LivingEntity enemy) {
-        if (isEnemyWithinAttackDistance(enemy)) {
+        if (canPerformAttack(enemy)) {
             shouldCountTillNextAttack = true;
-            if (isTimeToStartAttackAnimation()) {
-                entity.setAttacking(true);
-            }
+            if (isTimeToStartAttackAnimation()) { entity.setAttacking(true); }
             if (isTimeToAttack()) {
                 this.mob.getLookControl().setLookAt(enemy.getX(), enemy.getEyeY(), enemy.getZ());
                 performAttack(enemy);
@@ -45,10 +43,6 @@ public class RhinoAttackGoal extends MeleeAttackGoal {
             entity.setAttacking(false);
             entity.attackAnimationTimeout = 0;
         }
-    }
-
-    private boolean isEnemyWithinAttackDistance(LivingEntity entity) {
-        return this.mob.distanceTo(entity) <= 3F;
     }
 
     @Override
