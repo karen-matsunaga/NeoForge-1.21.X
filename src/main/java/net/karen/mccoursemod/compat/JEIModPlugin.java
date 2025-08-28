@@ -8,14 +8,11 @@ import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.recipe.GrowthChamberRecipe;
 import net.karen.mccoursemod.recipe.ModRecipes;
 import net.karen.mccoursemod.screen.custom.GrowthChamberScreen;
-import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @JeiPlugin
 public class JEIModPlugin implements IModPlugin {
@@ -31,20 +28,15 @@ public class JEIModPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(@NotNull IRecipeRegistration registration) {
-        Level level = Minecraft.getInstance().level;
-        if (level != null) {
-            MinecraftServer server = level.getServer();
-            if (server != null) {
-                RecipeManager recipeManager = server.getRecipeManager();
-                List<GrowthChamberRecipe> growthChamberRecipes =
-                    recipeManager.getRecipes().stream()
-                                 .filter(recipe ->
-                                         recipe.value().getType() == ModRecipes.GROWTH_CHAMBER_TYPE.get())
-                                 .map(recipe ->
-                                      (GrowthChamberRecipe) recipe.value())
-                                 .collect(Collectors.toList());
-                registration.addRecipes(GrowthChamberRecipeCategory.GROWTH_CHAMBER_RECIPE_TYPE, growthChamberRecipes);
-            }
+        MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+        if (server != null) {
+            server.getRecipeManager().recipeMap().byType(ModRecipes.GROWTH_CHAMBER_TYPE.get())
+                  .forEach(holder -> {
+                           var recipe = holder.value();
+                           registration.addRecipes(GrowthChamberRecipeCategory.GROWTH_CHAMBER_RECIPE_TYPE,
+                                                   List.of(new GrowthChamberRecipe(recipe.inputItem(),
+                                                                                   recipe.output())));
+                  });
         }
     }
 
