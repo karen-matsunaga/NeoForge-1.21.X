@@ -38,14 +38,11 @@ public class JEIModPlugin implements IModPlugin {
                 RecipeManager recipeManager = server.getRecipeManager();
                 List<GrowthChamberRecipe> growthChamberRecipes =
                     recipeManager.getRecipes().stream()
-                                 .filter(recipe -> recipe.value().getType() == ModRecipes.GROWTH_CHAMBER_TYPE.get())
-                                 .map(recipe -> (GrowthChamberRecipe) recipe.value())
+                                 .filter(recipe ->
+                                         recipe.value().getType() == ModRecipes.GROWTH_CHAMBER_TYPE.get())
+                                 .map(recipe ->
+                                      (GrowthChamberRecipe) recipe.value())
                                  .collect(Collectors.toList());
-//                List<GrowthChamberRecipe> growthChamberRecipes =
-//                    recipeManager.getRecipes().stream().map(RecipeHolder::value)
-//                                 .filter(recipe -> recipe.getType() == ModRecipes.GROWTH_CHAMBER_TYPE.get())
-//                                 .filter(recipe -> recipe instanceof GrowthChamberRecipe)
-//                                 .map(recipe -> (GrowthChamberRecipe) recipe).toList();
                 registration.addRecipes(GrowthChamberRecipeCategory.GROWTH_CHAMBER_RECIPE_TYPE, growthChamberRecipes);
             }
         }
