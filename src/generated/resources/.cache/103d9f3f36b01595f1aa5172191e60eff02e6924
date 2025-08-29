@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-29T14:21:20.9001759	Registries
+// 1.21.8	2025-08-29T16:14:13.3312535	Registries
 778a53eddc0e88e780920dd383acc5db2b6fb18b data/mccoursemod/enchantment/auto_smelt.json
 68c8972713bd2f8573bdb6a5243b656083670f9a data/mccoursemod/enchantment/block_fly.json
 cbd0b27b43670f6e9f36c7202c532b56233a27c6 data/mccoursemod/enchantment/glowing_mobs.json
@@ -47,5 +47,9 @@ b1cadb6719080f3edbcfb2adb58d5688b0a2d26d data/mccoursemod/worldgen/placed_featur
 e213f153c6e29b336c91d69e043bda9bcb88e865 data/mccoursemod/worldgen/placed_feature/nether_bismuth_ore_placed.json
 c9082df440110c79a28a68fb5f2b18a9c0f7e36a data/mccoursemod/worldgen/placed_feature/walnut_placed.json
 29e4c660dd1d0e8181ebe7920bea20c34583e888 data/mccoursemod/worldgen/structure/kaupen_house.json
+b43f020e6ba03d0f15e8e1fd16894a2ca0821732 data/mccoursemod/worldgen/structure/storage_platform.json
 6b39a39bd0c25859f750ac4465a5bf57d9f83021 data/mccoursemod/worldgen/structure_set/kaupen_house.json
+ef8c94260002306e439fd5f85560008f063d86bf data/mccoursemod/worldgen/structure_set/storage_platform.json
 8aa5abc6f3ff3e8a30b61e20be232afac36342e3 data/mccoursemod/worldgen/template_pool/kaupen_house/start_pool.json
+508836dc89bfce3d03642b9b451d7ee873494186 data/mccoursemod/worldgen/template_pool/storage_platform/side_pool.json
+2c63c6e73824a2fb8d76811d9ed89d6f88700663 data/mccoursemod/worldgen/template_pool/storage_platform/start_pool.json

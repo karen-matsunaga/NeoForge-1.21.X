@@ -164,7 +164,10 @@ public class ModTags {
     // Biomes
     public static class Biomes {
         // Created Biome's tags HERE
+        // CUSTOM STRUCTURES
         public static final TagKey<Biome> HAS_KAUPEN_HOUSE = create("has_structure/kaupen_house");
+        // CUSTOM JIGSAW STRUCTURES
+        public static final TagKey<Biome> HAS_STORAGE_PLATFORM = create("has_structure/storage_platform");
 
         // CUSTOM METHOD - Registry all custom biome tags
         private static TagKey<Biome> create(String name) {

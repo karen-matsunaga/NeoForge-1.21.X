@@ -30,6 +30,19 @@ public class ModBiomeTagsProvider extends BiomeTagsProvider {
                                                  .add(Biomes.SAVANNA_PLATEAU)
                                                  .add(Biomes.WINDSWEPT_SAVANNA)
                                                  .replace(false);
+
+        // STORAGE PLATFORM JIGSAW STRUCTURE
+        this.tag(ModTags.Biomes.HAS_STORAGE_PLATFORM).addTag(BiomeTags.IS_JUNGLE)
+                                                     .addTag(BiomeTags.IS_FOREST)
+                                                     .addTag(BiomeTags.IS_TAIGA)
+                                                     .add(Biomes.DESERT)
+                                                     .add(Biomes.PLAINS)
+                                                     .add(Biomes.SNOWY_PLAINS)
+                                                     .add(Biomes.SUNFLOWER_PLAINS)
+                                                     .add(Biomes.SAVANNA)
+                                                     .add(Biomes.SAVANNA_PLATEAU)
+                                                     .add(Biomes.WINDSWEPT_SAVANNA)
+                                                     .replace(false);
     }
 
     @Override
