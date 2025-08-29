@@ -9,14 +9,15 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
+import net.minecraft.world.level.levelgen.GeodeBlockSettings;
+import net.minecraft.world.level.levelgen.GeodeCrackSettings;
+import net.minecraft.world.level.levelgen.GeodeLayerSettings;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer;
@@ -63,6 +64,11 @@ public class ModConfiguredFeatures {
     // Goji Berry custom bush
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOJI_BERRY_BUSH_KEY =
            registerKey("goji_berry_bush");
+
+    // ** CUSTOM Geodes **
+    // ALEXANDRITE
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ALEXANDRITE_GEODE_KEY =
+           registerKey("alexandrite_geode");
 
     // CUSTOM METHOD - Registry all custom configured features
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -131,6 +137,24 @@ public class ModConfiguredFeatures {
                                                                 .defaultBlockState()
                                                                 .setValue(SweetBerryBushBlock.AGE, 3))),
                                               List.of(Blocks.GRASS_BLOCK)));
+
+        // CUSTOM geodes
+        register(context, ALEXANDRITE_GEODE_KEY, Feature.GEODE,
+                 new GeodeConfiguration(new GeodeBlockSettings(BlockStateProvider.simple(Blocks.AIR),
+                                        BlockStateProvider.simple(Blocks.DEEPSLATE),
+                                        BlockStateProvider.simple(ModBlocks.ALEXANDRITE_ORE.get()),
+                                        BlockStateProvider.simple(Blocks.DIRT),
+                                        BlockStateProvider.simple(Blocks.EMERALD_BLOCK),
+                                        List.of(ModBlocks.ALEXANDRITE_BLOCK.get().defaultBlockState()),
+                                        BlockTags.FEATURES_CANNOT_REPLACE , BlockTags.GEODE_INVALID_BLOCKS),
+                                        new GeodeLayerSettings(1.7D, 1.2D,
+                                                               2.5D, 3.5D),
+                                        new GeodeCrackSettings(0.25D,
+                                                               1.5D, 1),
+                                        0.5D, 0.1D,
+                                        true,
+                                        UniformInt.of(3, 8), UniformInt.of(2, 6), UniformInt.of(1, 2),
+                                        -18, 18, 0.075D, 1));
     }
 
     // CUSTOM METHOD - Registry all configured features (JSON file)

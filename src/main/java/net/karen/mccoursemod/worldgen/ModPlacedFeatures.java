@@ -48,6 +48,11 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GOJI_BERRY_BUSH_PLACED_KEY =
            registerKey("goji_berry_bush_placed");
 
+    // ** CUSTOM Geodes **
+    // ALEXANDRITE
+    public static final ResourceKey<PlacedFeature> ALEXANDRITE_GEODE_PLACED_KEY =
+           registerKey("alexandrite_geode_placed");
+
     // CUSTOM METHOD - Registry all custom placed features
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -107,6 +112,12 @@ public class ModPlacedFeatures {
         register(context, GOJI_BERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.GOJI_BERRY_BUSH_KEY),
                  List.of(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(),
                          PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+
+        // CUSTOM geodes
+        register(context, ALEXANDRITE_GEODE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.ALEXANDRITE_GEODE_KEY),
+                 List.of(RarityFilter.onAverageOnceEvery(50), InSquarePlacement.spread(),
+                         HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(6), VerticalAnchor.absolute(50)),
+                         BiomeFilter.biome()));
     }
 
     // CUSTOM METHOD - Registry all custom placed features (JSON file)

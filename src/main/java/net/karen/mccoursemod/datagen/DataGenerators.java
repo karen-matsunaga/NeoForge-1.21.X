@@ -58,6 +58,8 @@ public class DataGenerators {
         generator.addProvider(true, new ModFluidTagGenerator(packOutput, lookupProvider));
         // Biome tags
         generator.addProvider(true, new ModBiomeTagsProvider(packOutput, lookupProvider));
+        // Structure tags
+        generator.addProvider(true, new ModStructureTagsProvider(packOutput, lookupProvider));
         // Loot Modifiers Provider
         generator.addProvider(true, new ModGlobalLootModifierProvider(packOutput, lookupProvider));
         // Particles Provider
@@ -109,6 +111,8 @@ public class DataGenerators {
         generator.addProvider(true, new ModFluidTagGenerator(packOutput, lookupProvider));
         // Biome tags
         generator.addProvider(true, new ModBiomeTagsProvider(packOutput, lookupProvider));
+        // Structure tags
+        generator.addProvider(true, new ModStructureTagsProvider(packOutput, lookupProvider));
         // Loot Modifiers Provider
         generator.addProvider(true, new ModGlobalLootModifierProvider(packOutput, lookupProvider));
         // Particles Provider

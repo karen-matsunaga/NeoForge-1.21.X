@@ -11,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class ModTags {
     // CUSTOM CLASS - Registry all custom block tags
@@ -172,6 +173,17 @@ public class ModTags {
         // CUSTOM METHOD - Registry all custom biome tags
         private static TagKey<Biome> create(String name) {
             return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
+        }
+    }
+
+    // Structures
+    public static class Structures {
+        // Created Structure's tags HERE
+        public static TagKey<Structure> MCCOURSEMOD_STRUCTURES = create("mccoursemod_structures");
+
+        // CUSTOM METHOD - Registry all custom structure tags
+        private static TagKey<Structure> create(String name) {
+            return TagKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
         }
     }
 }

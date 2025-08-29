@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "mccoursemod:kaupen_house",
+      "required": false
+    },
+    {
+      "id": "mccoursemod:storage_platform",
+      "required": false
+    }
+  ]
+}

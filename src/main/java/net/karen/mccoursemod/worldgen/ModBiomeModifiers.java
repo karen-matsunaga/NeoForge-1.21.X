@@ -55,6 +55,11 @@ public class ModBiomeModifiers {
     // Gecko custom mob
     public static final ResourceKey<BiomeModifier> SPAWN_GECKO = registerKey("spawn_gecko");
 
+    // ** CUSTOM Geodes **
+    // ALEXANDRITE
+    public static final ResourceKey<BiomeModifier> ADD_ALEXANDRITE_GEODE =
+           registerKey("add_alexandrite_geode");
+
     // CUSTOM METHOD - Registry all custom biome modifiers
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         // CF -> PF -> BM
@@ -117,14 +122,20 @@ public class ModBiomeModifiers {
 
         // CUSTOM bush
         context.register(ADD_GOJI_BERRY_BUSH, new BiomeModifiers.AddFeaturesBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.FOREST)),
-                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.GOJI_BERRY_BUSH_PLACED_KEY)),
-                GenerationStep.Decoration.VEGETAL_DECORATION));
+                         HolderSet.direct(biomes.getOrThrow(Biomes.FOREST)),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.GOJI_BERRY_BUSH_PLACED_KEY)),
+                         GenerationStep.Decoration.VEGETAL_DECORATION));
 
         // CUSTOM mob
         context.register(SPAWN_GECKO, new BiomeModifiers.AddSpawnsBiomeModifier(
                          HolderSet.direct(biomes.getOrThrow(Biomes.SWAMP), biomes.getOrThrow(Biomes.PLAINS)),
                          WeightedList.of(new MobSpawnSettings.SpawnerData(ModEntities.GECKO.get(), 2, 4))));
+
+        // CUSTOM geodes
+        context.register(ADD_ALEXANDRITE_GEODE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                         biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.ALEXANDRITE_GEODE_PLACED_KEY)),
+                         GenerationStep.Decoration.LOCAL_MODIFICATIONS));
     }
 
     // CUSTOM METHOD - Registry all custom biome modifiers (JSON file)
