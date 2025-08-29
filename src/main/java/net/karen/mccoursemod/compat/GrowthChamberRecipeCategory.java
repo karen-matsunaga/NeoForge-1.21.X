@@ -3,7 +3,7 @@ package net.karen.mccoursemod.compat;
 import com.mojang.serialization.Codec;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
+import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.helpers.ICodecHelper;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
@@ -13,19 +13,17 @@ import mezz.jei.api.recipe.types.IRecipeType;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.recipe.GrowthChamberRecipe;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 
 public class GrowthChamberRecipeCategory implements IRecipeCategory<GrowthChamberRecipe> {
-    public static final ResourceLocation UID =
-           ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "growth_chamber");
+    private static final ResourceLocation UID =
+            ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "growth_chamber");
 
-    public static final ResourceLocation TEXTURE =
-           ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+    private static final ResourceLocation GUI_TEXTURE =
+            ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                  "textures/gui/growth_chamber/growth_chamber_gui.png");
 
     public static final IRecipeType<GrowthChamberRecipe> GROWTH_CHAMBER_RECIPE_TYPE =
@@ -35,8 +33,8 @@ public class GrowthChamberRecipeCategory implements IRecipeCategory<GrowthChambe
     private final IDrawable icon;
 
     public GrowthChamberRecipeCategory(IGuiHelper helper) {
-        this.background = helper.drawableBuilder(TEXTURE,0 ,0, 176, 85).build();
-        this.icon = helper.createDrawableItemLike(ModBlocks.GROWTH_CHAMBER);
+        this.background = helper.drawableBuilder(GUI_TEXTURE,0 ,0, 176, 83).build(); // Background
+        this.icon = helper.createDrawableItemLike(ModBlocks.GROWTH_CHAMBER); // Icon
     }
 
     @Override
@@ -55,18 +53,17 @@ public class GrowthChamberRecipeCategory implements IRecipeCategory<GrowthChambe
     public int getWidth() { return background.getWidth(); }
 
     @Override
-    public void draw(@NotNull GrowthChamberRecipe recipe, @NotNull IRecipeSlotsView recipeSlotsView,
-                     @NotNull GuiGraphics guiGraphics, double mouseX, double mouseY) {
-        background.draw(guiGraphics, 0, 0);
-        guiGraphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE,
-                         0, 0, 0, 0, 176, 85, 256, 256);
+    public void setRecipe(@NotNull IRecipeLayoutBuilder builder,
+                          @NotNull GrowthChamberRecipe recipe, @NotNull IFocusGroup focuses) {
+        builder.addInputSlot(54, 34).add(recipe.inputItem()).setStandardSlotBackground(); // Input slot
+        builder.addOutputSlot(104, 34).add(recipe.output().getItem()).setOutputSlotBackground(); // Output slot
     }
 
     @Override
-    public void setRecipe(@NotNull IRecipeLayoutBuilder builder,
-                          @NotNull GrowthChamberRecipe recipe, @NotNull IFocusGroup focuses) {
-        builder.addInputSlot(54, 34).add(recipe.inputItem()).setStandardSlotBackground();
-        builder.addOutputSlot(104, 34).add(recipe.output().getItem()).setOutputSlotBackground();
+    public void createRecipeExtras(IRecipeExtrasBuilder builder,
+                                   @NotNull GrowthChamberRecipe recipe,
+                                   @NotNull IFocusGroup focuses) {
+        builder.addAnimatedRecipeArrow(200).setPosition(73, 33); // Arrow animation
     }
 
     @Override
