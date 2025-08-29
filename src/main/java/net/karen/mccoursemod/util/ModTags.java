@@ -9,6 +9,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class ModTags {
@@ -157,6 +158,17 @@ public class ModTags {
         // CUSTOM METHOD - Registry all custom entities tags
         private static TagKey<EntityType<?>> createTag(String name) {
             return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
+        }
+    }
+
+    // Biomes
+    public static class Biomes {
+        // Created Biome's tags HERE
+        public static final TagKey<Biome> HAS_KAUPEN_HOUSE = create("has_structure/kaupen_house");
+
+        // CUSTOM METHOD - Registry all custom biome tags
+        private static TagKey<Biome> create(String name) {
+            return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
         }
     }
 }

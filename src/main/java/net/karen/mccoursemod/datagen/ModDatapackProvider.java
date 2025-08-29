@@ -9,6 +9,9 @@ import net.karen.mccoursemod.trim.ModTrimPatterns;
 import net.karen.mccoursemod.worldgen.ModBiomeModifiers;
 import net.karen.mccoursemod.worldgen.ModConfiguredFeatures;
 import net.karen.mccoursemod.worldgen.ModPlacedFeatures;
+import net.karen.mccoursemod.worldgen.structure.ModPools;
+import net.karen.mccoursemod.worldgen.structure.ModStructureSets;
+import net.karen.mccoursemod.worldgen.structure.ModStructures;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -22,15 +25,22 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
     // Registry all custom trims, enchantments, world generations, jukebox songs, painting variants, etc.
     public static final RegistrySetBuilder BUILDER =
            new RegistrySetBuilder().add(Registries.TRIM_MATERIAL, ModTrimMaterials::bootstrap) // Trim materials
-                                   .add(Registries.TRIM_PATTERN, ModTrimPatterns::bootstrap) // Trim patterns
+                                   // Trim patterns
+                                   .add(Registries.TRIM_PATTERN, ModTrimPatterns::bootstrap)
                                    // Enchantments
                                    .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap)
                                    // World Generation
                                    .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
                                    .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
                                    .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
-                                   .add(Registries.JUKEBOX_SONG, ModSounds::bootstrap) // Jukebox Songs
-                                   .add(Registries.PAINTING_VARIANT, ModPaintingVariants::bootstrap); // Painting Variants
+                                   // Jukebox Songs
+                                   .add(Registries.JUKEBOX_SONG, ModSounds::bootstrap)
+                                   // Painting Variants
+                                   .add(Registries.PAINTING_VARIANT, ModPaintingVariants::bootstrap)
+                                   // Structure
+                                   .add(Registries.TEMPLATE_POOL, ModPools::bootstrap)
+                                   .add(Registries.STRUCTURE, ModStructures::bootstrap)
+                                   .add(Registries.STRUCTURE_SET, ModStructureSets::bootstrap);
 
     // CUSTOM METHOD - Registry all custom trims, enchantments, world generations, jukebox songs, painting variants, etc.
     public ModDatapackProvider(PackOutput output,
