@@ -17,6 +17,7 @@
     "#mccoursemod:bismuth_blocks",
     "#mccoursemod:alexandrite_blocks",
     "#mccoursemod:ender_pearl_blocks",
-    "#mccoursemod:mobs_blocks_drops"
+    "#mccoursemod:mobs_blocks_drops",
+    "#mccoursemod:mccourse_mod_oxidizable_blocks"
   ]
 }

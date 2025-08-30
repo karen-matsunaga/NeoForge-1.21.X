@@ -237,6 +237,15 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK.get());
                  output.accept(ModBlocks.SUGAR_BLOCK.get());
                  output.accept(ModBlocks.SUGAR_CANE_BLOCK.get());
+                 // ** CUSTOM oxidizable blocks **
+                 output.accept(ModBlocks.RUBY_BLOCK.get());
+                 output.accept(ModBlocks.RUBY_BLOCK_1.get());
+                 output.accept(ModBlocks.RUBY_BLOCK_2.get());
+                 output.accept(ModBlocks.RUBY_BLOCK_3.get());
+                 output.accept(ModBlocks.WAXED_RUBY_BLOCK.get());
+                 output.accept(ModBlocks.WAXED_RUBY_BLOCK_1.get());
+                 output.accept(ModBlocks.WAXED_RUBY_BLOCK_2.get());
+                 output.accept(ModBlocks.WAXED_RUBY_BLOCK_3.get());
            }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus

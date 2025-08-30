@@ -68,6 +68,10 @@ public class ModTags {
         // ** CUSTOM mob blocks **
         public static final TagKey<Block> MOBS_BLOCKS_DROPS = createTag("mobs_blocks_drops");
 
+        // ** CUSTOM oxidizable block **
+        public static final TagKey<Block> MCCOURSE_MOD_OXIDIZABLE_BLOCKS =
+               createTag("mccourse_mod_oxidizable_blocks");
+
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));

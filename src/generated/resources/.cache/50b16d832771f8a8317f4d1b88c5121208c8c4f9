@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-24T19:51:17.086698	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-08-29T19:45:07.2977242	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 d3e0307570b786aa4733b133a1bc9d5453079334 data/mccoursemod/tags/block/bismuth_blocks.json
@@ -8,6 +8,7 @@ fb04ce601bdbe167eef745f4fb188a2bb2d4ca6a data/mccoursemod/tags/block/block_fly_b
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_alexandrite_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_bismuth_tool.json
 f4f952d6af206987759c5ac1ba1cbfb8ef9f9544 data/mccoursemod/tags/block/mccourse_mod_ores.json
+49f663589d2830dcc6487229a16a525f65234b44 data/mccoursemod/tags/block/mccourse_mod_oxidizable_blocks.json
 466b621472b729d2dbcd2872b39f03117f28ef8b data/mccoursemod/tags/block/metal_detector_colors.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/metal_detector_valuables.json
 13cf1fe06cf159d32d074144254a0d375f6b20e7 data/mccoursemod/tags/block/mineable_with_paxel.json
@@ -32,7 +33,7 @@ ac3ea97eb7084008062714115ad481dcafc2deea data/minecraft/tags/block/fences.json
 6a54a0eec9efdf43743f54d093866a1ab5e22da1 data/minecraft/tags/block/impermeable.json
 01ae0750873e04271d670940edf604addec414e9 data/minecraft/tags/block/leaves.json
 4b057e3e5e6f7b9026d5871433fccbb5eb4dfe1a data/minecraft/tags/block/logs_that_burn.json
-ee44103e579f980564805eeeab19f6d6d4be4a99 data/minecraft/tags/block/mineable/pickaxe.json
+8e3c67b7d48d76fd1afda6f5d5774d631f34916f data/minecraft/tags/block/mineable/pickaxe.json
 950fd2db124c5b2a8ecd2d4737fee78abe8776ac data/minecraft/tags/block/overworld_carver_replaceables.json
 2cb28474625576092652fd1b578b683666883b3a data/minecraft/tags/block/planks.json
 89ee07c9d11c811978886cd16793b2c3549d7bbc data/minecraft/tags/block/pressure_plates.json

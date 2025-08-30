@@ -244,6 +244,14 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.fermented_spider_eye_block", "Fermented Spider Eye Block");
         add("item.mccoursemod.sugar_block", "Sugar Block");
         add("item.mccoursemod.sugar_cane_block", "Sugar Cane Block");
+        add("item.mccoursemod.ruby_block", "Block of Ruby");
+        add("item.mccoursemod.ruby_block_1", "Block of Ruby 1");
+        add("item.mccoursemod.ruby_block_2", "Block of Ruby 2");
+        add("item.mccoursemod.ruby_block_3", "Block of Ruby 3");
+        add("item.mccoursemod.waxed_ruby_block", "Waxed Block of Ruby");
+        add("item.mccoursemod.waxed_ruby_block_1", "Waxed Block of Ruby 1");
+        add("item.mccoursemod.waxed_ruby_block_2", "Waxed Block of Ruby 2");
+        add("item.mccoursemod.waxed_ruby_block_3", "Waxed Block of Ruby 3");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -369,6 +377,16 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK, "Fermented Spider Eye Block");
         addBlock(ModBlocks.SUGAR_BLOCK, "Sugar Block");
         addBlock(ModBlocks.SUGAR_CANE_BLOCK, "Sugar Cane Block");
+
+        // ** CUSTOM oxidizable blocks **
+        addBlock(ModBlocks.RUBY_BLOCK, "Block of Ruby");
+        addBlock(ModBlocks.RUBY_BLOCK_1, "Block of Ruby 1");
+        addBlock(ModBlocks.RUBY_BLOCK_2, "Block of Ruby 2");
+        addBlock(ModBlocks.RUBY_BLOCK_3, "Block of Ruby 3");
+        addBlock(ModBlocks.WAXED_RUBY_BLOCK, "Waxed Block of Ruby");
+        addBlock(ModBlocks.WAXED_RUBY_BLOCK_1, "Waxed Block of Ruby 1");
+        addBlock(ModBlocks.WAXED_RUBY_BLOCK_2, "Waxed Block of Ruby 2");
+        addBlock(ModBlocks.WAXED_RUBY_BLOCK_3, "Waxed Block of Ruby 3");
 
         // ** CUSTOM CREATIVE TABS **
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

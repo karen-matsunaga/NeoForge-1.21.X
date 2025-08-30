@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-25T14:34:54.802254	Loot Tables
+// 1.21.8	2025-08-29T19:45:07.2977242	Loot Tables
 cdb697b4f47740809ecdb90e81e8e5d2f56cfc86 data/mccoursemod/loot_table/blocks/alexandrite_block.json
 291a785f3fc73335884718fec6c7d2db06eb0048 data/mccoursemod/loot_table/blocks/alexandrite_button.json
 d0ad4d5e3aeabf77ec2d12530e2bc9b7e6bef80e data/mccoursemod/loot_table/blocks/alexandrite_door.json
@@ -67,6 +67,10 @@ dbe24e619188e9f9d646155a2684fdd0dd6c2e6a data/mccoursemod/loot_table/blocks/radi
 12ba5f65cca09ac6d67fec4f02e44af6bef3161c data/mccoursemod/loot_table/blocks/raw_alexandrite_block.json
 5defc56f7eeaf2d981c95727a07a8c5221989b36 data/mccoursemod/loot_table/blocks/red_ender_pearl_block.json
 89ea3d2fe2956c223c089136bae1bb2bebfeba85 data/mccoursemod/loot_table/blocks/rotten_flesh_block.json
+4d4cc5c82dd61ef2b94b52fa2f448b0af49ffa24 data/mccoursemod/loot_table/blocks/ruby_block.json
+2ba9e8513dcbff2eb457d8c5224a159c3790710a data/mccoursemod/loot_table/blocks/ruby_block_1.json
+273eedfd41a5c4a58c2659ea3c19589063292397 data/mccoursemod/loot_table/blocks/ruby_block_2.json
+598ef1af9fbb27adf36116586e50f89ad02c5419 data/mccoursemod/loot_table/blocks/ruby_block_3.json
 3bf626e03b5f390f584aa128c9acc60d59c92227 data/mccoursemod/loot_table/blocks/sound.json
 94ed054e6403385f48d540795da4663d82473403 data/mccoursemod/loot_table/blocks/spider_eye_block.json
 db2b780babdc379176afebc6a98f1298f9bb781a data/mccoursemod/loot_table/blocks/string_block.json
@@ -83,6 +87,10 @@ aee862a9dd8884c8a83698175bb47fe35d0d87be data/mccoursemod/loot_table/blocks/waln
 a37689b1674492d652930f1409a58bd0a706b0d8 data/mccoursemod/loot_table/blocks/walnut_sapling.json
 1a4888f0cd52a3c5eb64c4dacd2acd1ae5f1f053 data/mccoursemod/loot_table/blocks/walnut_sign.json
 fee5fe17e2c9572bae322093b0918d1f9aa1a1d5 data/mccoursemod/loot_table/blocks/walnut_wood.json
+6834a8c50abd92143ea1f3a04af82c0908e36515 data/mccoursemod/loot_table/blocks/waxed_ruby_block.json
+2a8edb22fcf4525de2c4e709d2f0734534c3dbe2 data/mccoursemod/loot_table/blocks/waxed_ruby_block_1.json
+7b980267cdbd2f38617da4b7119da7db172cea19 data/mccoursemod/loot_table/blocks/waxed_ruby_block_2.json
+63a37a3e6eea2cbca2d0e9a5a36c96b3cdcf7376 data/mccoursemod/loot_table/blocks/waxed_ruby_block_3.json
 c724437bc6a06d9debf2a664d8888093c5ec432e data/mccoursemod/loot_table/blocks/white_ender_pearl_block.json
 b3ad607b52cf2e3fa0a5a4c49bf686930e2dbf16 data/mccoursemod/loot_table/blocks/yellow_ender_pearl_block.json
 141f48e6348ba3cdf4e4f2d0cd8cbac4381211ef data/minecraft/loot_table/blocks/oak_hanging_sign.json

@@ -38,7 +38,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                  .addTag(ModTags.Blocks.BISMUTH_BLOCKS)
                                                  .addTag(ModTags.Blocks.ALEXANDRITE_BLOCKS)
                                                  .addTag(ModTags.Blocks.ENDER_PEARL_BLOCKS)
-                                                 .addTag(ModTags.Blocks.MOBS_BLOCKS_DROPS);
+                                                 .addTag(ModTags.Blocks.MOBS_BLOCKS_DROPS)
+                                                 .addTag(ModTags.Blocks.MCCOURSE_MOD_OXIDIZABLE_BLOCKS);
 
         // Paxel break
         this.tag(ModTags.Blocks.MINEABLE_WITH_PAXEL).addTag(BlockTags.MINEABLE_WITH_AXE)
@@ -188,5 +189,15 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                        ModBlocks.FERMENTED_SPIDER_EYE_BLOCK.get(),
                                                        ModBlocks.SUGAR_BLOCK.get(),
                                                        ModBlocks.SUGAR_CANE_BLOCK.get());
+
+        // ** CUSTOM oxidizable block **
+        this.tag(ModTags.Blocks.MCCOURSE_MOD_OXIDIZABLE_BLOCKS).add(ModBlocks.RUBY_BLOCK.get(),
+                                                                    ModBlocks.RUBY_BLOCK_1.get(),
+                                                                    ModBlocks.RUBY_BLOCK_2.get(),
+                                                                    ModBlocks.RUBY_BLOCK_3.get(),
+                                                                    ModBlocks.WAXED_RUBY_BLOCK.get(),
+                                                                    ModBlocks.WAXED_RUBY_BLOCK_1.get(),
+                                                                    ModBlocks.WAXED_RUBY_BLOCK_2.get(),
+                                                                    ModBlocks.WAXED_RUBY_BLOCK_3.get());
     }
 }

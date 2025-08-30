@@ -223,6 +223,17 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.SUGAR_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.SUGAR_CANE_BLOCK.get());
 
+        // ** CUSTOM oxidizable block **
+        blockModels.createTrivialCube(ModBlocks.RUBY_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.RUBY_BLOCK_1.get());
+        blockModels.createTrivialCube(ModBlocks.RUBY_BLOCK_2.get());
+        blockModels.createTrivialCube(ModBlocks.RUBY_BLOCK_3.get());
+
+        blockModels.createTrivialCube(ModBlocks.WAXED_RUBY_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.WAXED_RUBY_BLOCK_1.get());
+        blockModels.createTrivialCube(ModBlocks.WAXED_RUBY_BLOCK_2.get());
+        blockModels.createTrivialCube(ModBlocks.WAXED_RUBY_BLOCK_3.get());
+
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
         // BISMUTH

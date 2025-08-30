@@ -556,6 +556,67 @@ public class ModBlocks {
     public static final DeferredBlock<Block> SUGAR_CANE_BLOCK =
            mobBlock("sugar_cane_block", MapColor.METAL, NoteBlockInstrument.BELL, SoundType.SAND);
 
+    // ** CUSTOM oxidizable block **
+    public static final DeferredBlock<Block> RUBY_BLOCK = registerBlock("ruby_block",
+           (properties) ->
+           new DegradableRubyBlock(GemDegradable.GemDegradationLevel.UNAFFECTED,
+                                   BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                                            .setId(ResourceKey.create(Registries.BLOCK,
+                                                                   ResourceLocation.fromNamespaceAndPath(
+                                                                   MccourseMod.MOD_ID, "ruby_block")))));
+
+    public static final DeferredBlock<Block> RUBY_BLOCK_1 = registerBlock("ruby_block_1",
+           (properties) ->
+           new DegradableRubyBlock(GemDegradable.GemDegradationLevel.EXPOSED,
+                                   BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                                            .setId(ResourceKey.create(Registries.BLOCK,
+                                                                   ResourceLocation.fromNamespaceAndPath(
+                                                                   MccourseMod.MOD_ID, "ruby_block_1")))));
+
+    public static final DeferredBlock<Block> RUBY_BLOCK_2 = registerBlock("ruby_block_2",
+           (properties) ->
+           new DegradableRubyBlock(GemDegradable.GemDegradationLevel.WEATHERED,
+                                   BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                                            .setId(ResourceKey.create(Registries.BLOCK,
+                                                                   ResourceLocation.fromNamespaceAndPath(
+                                                                   MccourseMod.MOD_ID, "ruby_block_2")))));
+
+    public static final DeferredBlock<Block> RUBY_BLOCK_3 = registerBlock("ruby_block_3",
+           (properties) ->
+           new DegradableRubyBlock(GemDegradable.GemDegradationLevel.DEGRADED,
+                                   BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                                 .setId(ResourceKey.create(Registries.BLOCK,
+                                                        ResourceLocation.fromNamespaceAndPath(
+                                                        MccourseMod.MOD_ID, "ruby_block_3")))));
+
+    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK = registerBlock("waxed_ruby_block",
+           (properties) ->
+           new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                              .setId(ResourceKey.create(Registries.BLOCK,
+                                                     ResourceLocation.fromNamespaceAndPath(
+                                                     MccourseMod.MOD_ID, "waxed_ruby_block")))));
+
+    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK_1 = registerBlock("waxed_ruby_block_1",
+           (properties) ->
+           new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                              .setId(ResourceKey.create(Registries.BLOCK,
+                                                     ResourceLocation.fromNamespaceAndPath(
+                                                     MccourseMod.MOD_ID, "waxed_ruby_block_1")))));
+
+    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK_2 = registerBlock("waxed_ruby_block_2",
+           (properties) ->
+           new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                              .setId(ResourceKey.create(Registries.BLOCK,
+                                                     ResourceLocation.fromNamespaceAndPath(
+                                                     MccourseMod.MOD_ID, "waxed_ruby_block_2")))));
+
+    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK_3 = registerBlock("waxed_ruby_block_3",
+           (properties) ->
+           new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                              .setId(ResourceKey.create(Registries.BLOCK,
+                                                                        ResourceLocation.fromNamespaceAndPath(
+                                                                        MccourseMod.MOD_ID, "waxed_ruby_block_3")))));
+
     // ** CUSTOM METHOD - ENDER PEARL blocks **
     protected static DeferredBlock<Block> enderPearlBlock(String name, MapColor color) {
         return registerBlock(name, (properties) ->
