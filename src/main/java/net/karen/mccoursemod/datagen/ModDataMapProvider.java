@@ -1,5 +1,6 @@
 package net.karen.mccoursemod.datagen;
 
+import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -7,6 +8,7 @@ import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
+import net.neoforged.neoforge.registries.datamaps.builtin.Waxable;
 import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
 
@@ -32,5 +34,12 @@ public class ModDataMapProvider extends DataMapProvider {
             .add(ModItems.KOHLRABI_SEEDS.getId(), new Compostable(0.25F), false)
             .add(ModItems.KOHLRABI.getId(), new Compostable(0.45F), false)
             .add(ModItems.GROWTH.getId(), new Compostable(0.5F), false);
+
+        // ** CUSTOM waxable blocks **
+        this.builder(NeoForgeDataMaps.WAXABLES)
+            .add(ModBlocks.RUBY_BLOCK.getId(), new Waxable(ModBlocks.WAXED_RUBY_BLOCK.get()), false)
+            .add(ModBlocks.RUBY_BLOCK_1.getId(), new Waxable(ModBlocks.WAXED_RUBY_BLOCK_1.get()), false)
+            .add(ModBlocks.RUBY_BLOCK_2.getId(), new Waxable(ModBlocks.WAXED_RUBY_BLOCK_2.get()), false)
+            .add(ModBlocks.RUBY_BLOCK_3.getId(), new Waxable(ModBlocks.WAXED_RUBY_BLOCK_3.get()), false);
     }
 }

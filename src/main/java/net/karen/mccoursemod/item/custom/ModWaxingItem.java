@@ -1,9 +1,5 @@
 package net.karen.mccoursemod.item.custom;
 
-import com.google.common.base.Suppliers;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.ImmutableBiMap;
-import net.karen.mccoursemod.block.ModBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -13,31 +9,18 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.common.DataMapHooks;
 import org.jetbrains.annotations.NotNull;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 public class ModWaxingItem extends Item {
-    // Depends on Ruby's stage block transform onto other Ruby stage block
-    public static final Supplier<BiMap<Block, Block>> WAXABLES =
-           Suppliers.memoize(() ->
-           (BiMap) ImmutableBiMap.builder().put(ModBlocks.RUBY_BLOCK.get(), ModBlocks.WAXED_RUBY_BLOCK.get())
-                                           .put(ModBlocks.RUBY_BLOCK_1.get(), ModBlocks.WAXED_RUBY_BLOCK_1.get())
-                                           .put(ModBlocks.RUBY_BLOCK_2.get(), ModBlocks.WAXED_RUBY_BLOCK_2.get())
-                                           .put(ModBlocks.RUBY_BLOCK_3.get(), ModBlocks.WAXED_RUBY_BLOCK_3.get())
-                                           .build());
-
-    public static final Supplier<BiMap<Block, Block>> WAX_OFF_BY_BLOCK =
-           Suppliers.memoize(() -> ((BiMap)WAXABLES.get()).inverse());
-
     public ModWaxingItem(Properties properties) {
         super(properties);
     }
 
+    // DEFAULT METHOD - Depends on Ruby's stage NORMAL block transform onto other Ruby stage WAXED blocK
     public @NotNull InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockPos blockpos = context.getClickedPos();

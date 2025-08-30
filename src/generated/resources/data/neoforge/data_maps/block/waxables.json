@@ -1,0 +1,16 @@
+{
+  "values": {
+    "mccoursemod:ruby_block": {
+      "waxed": "mccoursemod:waxed_ruby_block"
+    },
+    "mccoursemod:ruby_block_1": {
+      "waxed": "mccoursemod:waxed_ruby_block_1"
+    },
+    "mccoursemod:ruby_block_2": {
+      "waxed": "mccoursemod:waxed_ruby_block_2"
+    },
+    "mccoursemod:ruby_block_3": {
+      "waxed": "mccoursemod:waxed_ruby_block_3"
+    }
+  }
+}
