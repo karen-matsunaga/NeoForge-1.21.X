@@ -87,6 +87,9 @@ public class ModItems {
                                                               new MobEffectInstance(MobEffects.SPEED, 200),
                                                               0.1F)).build())));
 
+    public static final DeferredItem<Item> CATTAIL =
+           ITEMS.registerItem("cattail", ModWaxingItem::new, new Item.Properties());
+
     // ** CUSTOM fuels **
     public static final DeferredItem<Item> FROSTFIRE_ICE = ITEMS.registerItem("frostfire_ice",
            (properties) -> new FuelItem(properties, 800));
@@ -264,6 +267,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> KOHLRABI_SEEDS = ITEMS.registerItem("kohlrabi_seeds",
            (properties) -> new BlockItem(ModBlocks.KOHLRABI_CROP.get(), properties));
+
+    public static final DeferredItem<Item> CATTAIL_SEEDS = ITEMS.registerItem("cattail_seeds",
+           (properties) -> new BlockItem(ModBlocks.CATTAIL_CROP.get(), properties));
 
     // ** CUSTOM Bush Crop **
     public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",

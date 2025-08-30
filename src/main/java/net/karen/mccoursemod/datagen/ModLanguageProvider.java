@@ -100,6 +100,8 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.RADISH_SEEDS, "Radish Seeds");
         addItem(ModItems.KOHLRABI, "Kohlrabi");
         addItem(ModItems.KOHLRABI_SEEDS, "Kohlrabi Seeds");
+        addItem(ModItems.CATTAIL, "Cattail");
+        addItem(ModItems.CATTAIL_SEEDS, "Cattail Seeds");
 
         // ** CUSTOM fuels **
         addItem(ModItems.FROSTFIRE_ICE, "Frostfire Ice");
@@ -193,6 +195,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.alexandrite_lamp", "Alexandrite Lamp Block");
         add("item.mccoursemod.radish_crop", "Radish Crop Block");
         add("item.mccoursemod.kohlrabi_crop", "Kohlrabi Crop Block");
+        add("item.mccoursemod.cattail_crop", "Cattail Crop Block");
         add("item.mccoursemod.goji_berry_bush", "Goji Berry Bush Block");
         add("item.mccoursemod.bloodwood_log", "Bloodwood Log");
         add("item.mccoursemod.bloodwood_planks", "Bloodwood Planks");
@@ -310,6 +313,9 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM Crop block **
         addBlock(ModBlocks.RADISH_CROP, "Radish Crop Block");
         addBlock(ModBlocks.KOHLRABI_CROP, "Kohlrabi Crop Block");
+
+        // ** CUSTOM Crop block with two height **
+        addBlock(ModBlocks.CATTAIL_CROP, "Cattail Crop Block");
 
         // ** CUSTOM Bush block **
         addBlock(ModBlocks.GOJI_BERRY_BUSH, "Goji Berry Bush Block");

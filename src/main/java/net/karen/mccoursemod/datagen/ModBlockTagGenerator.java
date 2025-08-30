@@ -121,7 +121,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                         ModBlocks.ALEXANDRITE_WALL.get());
 
         // ** CUSTOM Crop blocks **
-        tag(BlockTags.CROPS).add(ModBlocks.RADISH_CROP.get(), ModBlocks.KOHLRABI_CROP.get());
+        tag(BlockTags.CROPS).add(ModBlocks.RADISH_CROP.get(), ModBlocks.KOHLRABI_CROP.get(),
+                                 ModBlocks.CATTAIL_CROP.get());
 
         // ** CUSTOM log **
         // Bloodwood and Walnut logs

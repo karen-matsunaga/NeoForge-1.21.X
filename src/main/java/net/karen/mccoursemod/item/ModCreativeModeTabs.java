@@ -83,6 +83,7 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.COFFEE);
                  output.accept(ModItems.RADISH);
                  output.accept(ModItems.KOHLRABI);
+                 output.accept(ModItems.CATTAIL);
                  // ** CUSTOM advanced items **
                  output.accept(ModItems.MCCOURSE_MOD_BOTTLE);
                  output.accept(ModItems.CHISEL);
@@ -93,6 +94,7 @@ public class ModCreativeModeTabs {
                  // ** CUSTOM seeds **
                  output.accept(ModItems.RADISH_SEEDS);
                  output.accept(ModItems.KOHLRABI_SEEDS);
+                 output.accept(ModItems.CATTAIL_SEEDS);
                  // ** CUSTOM fuels **
                  output.accept(ModItems.FROSTFIRE_ICE);
                  output.accept(ModItems.STARLIGHT_ASHES);
@@ -180,6 +182,8 @@ public class ModCreativeModeTabs {
                  // ** CUSTOM Crop block **
                  output.accept(ModBlocks.RADISH_CROP);
                  output.accept(ModBlocks.KOHLRABI_CROP);
+                 // ** CUSTOM Crop block with two height **
+                 output.accept(ModBlocks.CATTAIL_CROP);
                  // Bush crop block
                  output.accept(ModBlocks.GOJI_BERRY_BUSH);
                  // ** CUSTOM log **

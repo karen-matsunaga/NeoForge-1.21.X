@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.block.custom.CattailCropBlock;
 import net.karen.mccoursemod.block.custom.KohlrabiCropBlock;
 import net.karen.mccoursemod.block.custom.RadishCropBlock;
 import net.karen.mccoursemod.item.ModItems;
@@ -131,6 +132,22 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.add(ModBlocks.KOHLRABI_CROP.get(),
                  this.createCropDrops(ModBlocks.KOHLRABI_CROP.get(), ModItems.KOHLRABI.get(),
                                       ModItems.KOHLRABI_SEEDS.get(), kohlrabiLootItemConditionBuilder));
+
+        // ** CUSTOM Crop block with two height **
+        // CATTAIL Crop loot item drop
+        LootItemCondition.Builder cattailLootItemConditionBuilder =
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.CATTAIL_CROP.get())
+                                                   .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                   .hasProperty(CattailCropBlock.AGE, 7))
+                                                   .or(LootItemBlockStatePropertyCondition
+                                                   .hasBlockStateProperties(ModBlocks.CATTAIL_CROP.get())
+                                                   .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                   .hasProperty(CattailCropBlock.AGE, 8)));
+
+        // CATTAIL Crop drop
+        this.add(ModBlocks.CATTAIL_CROP.get(),
+                 this.createCropDrops(ModBlocks.CATTAIL_CROP.get(), ModItems.CATTAIL.get(),
+                                      ModItems.CATTAIL_SEEDS.get(), cattailLootItemConditionBuilder));
 
         // Bush crop
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);

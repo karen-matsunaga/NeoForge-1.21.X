@@ -4,10 +4,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
-import net.karen.mccoursemod.block.custom.BismuthLampBlock;
-import net.karen.mccoursemod.block.custom.GojiBerryBushBlock;
-import net.karen.mccoursemod.block.custom.KohlrabiCropBlock;
-import net.karen.mccoursemod.block.custom.RadishCropBlock;
+import net.karen.mccoursemod.block.custom.*;
 import net.karen.mccoursemod.component.AlternateTexture;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.entity.client.ShieldSpecialModelRenderer;
@@ -123,11 +120,18 @@ public class ModModelProvider extends ModelProvider {
         blockstateTexture(blockModels, ModBlocks.ALEXANDRITE_LAMP.get());
 
         // ** CUSTOM crop **
+        // RADISH
         createCropBlock(blockModels, ModBlocks.RADISH_CROP.get(),
                         RadishCropBlock.AGE, 0, 1, 2, 3);
 
+        // KOHLRABI
         createCropBlock(blockModels, ModBlocks.KOHLRABI_CROP.get(),
                         KohlrabiCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
+
+        // ** CUSTOM Crop block with two height **
+        // CATTAIL
+        createCropBlock(blockModels, ModBlocks.CATTAIL_CROP.get(),
+                        CattailCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6, 7, 8);
 
         // ** CUSTOM bush crop **
         createCropBlock(blockModels, ModBlocks.GOJI_BERRY_BUSH.get(),
@@ -334,6 +338,7 @@ public class ModModelProvider extends ModelProvider {
         // ** CUSTOM seeds **
         itemModels.generateFlatItem(ModItems.RADISH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.KOHLRABI.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.CATTAIL.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM fuels **
         itemModels.generateFlatItem(ModItems.FROSTFIRE_ICE.get(), ModelTemplates.FLAT_ITEM);

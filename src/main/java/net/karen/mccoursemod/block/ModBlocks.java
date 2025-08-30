@@ -214,15 +214,23 @@ public class ModBlocks {
                                                                                                ? 15 : 0)));
 
     // ** CUSTOM crop block **
+    // RADISH
     public static final DeferredBlock<Block> RADISH_CROP = BLOCKS.registerBlock("radish_crop",
            (properties) -> new RadishCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
                                                                    .randomTicks().instabreak().sound(SoundType.CROP)
                                                                    .pushReaction(PushReaction.DESTROY)));
-
+    // KOHLRABI
     public static final DeferredBlock<Block> KOHLRABI_CROP = BLOCKS.registerBlock("kohlrabi_crop",
            (properties) -> new KohlrabiCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
                                                                      .randomTicks().instabreak().sound(SoundType.CROP)
                                                                      .pushReaction(PushReaction.DESTROY)));
+
+    // ** CUSTOM Crop block with two height **
+    // CATTAIL
+    public static final DeferredBlock<Block> CATTAIL_CROP = BLOCKS.registerBlock("cattail_crop",
+           (properties) -> new CattailCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
+                                                                    .randomTicks().instabreak().sound(SoundType.CROP)
+                                                                    .pushReaction(PushReaction.DESTROY)));
 
     // ** CUSTOM bush crop block **
     public static final DeferredBlock<Block> GOJI_BERRY_BUSH = BLOCKS.registerBlock("goji_berry_bush",
