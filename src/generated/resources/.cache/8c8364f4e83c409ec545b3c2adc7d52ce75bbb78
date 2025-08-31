@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-30T22:23:45.7067505	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-08-31T16:47:13.5560605	Tags for minecraft:item mod id vanilla
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/entity_water.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/water.json
@@ -34,7 +34,7 @@ b41a72a37404c7dbd6aa6aac08c3c0b04f47cd22 data/mccoursemod/tags/item/special_effe
 08ef684c3c65ed0540fb5ded9ace78b4c96a0adf data/minecraft/tags/item/foot_armor.json
 373ae76938b0e9fa6b549a2f54043170089b6d6a data/minecraft/tags/item/head_armor.json
 16bd2643ece578b0769f7a7df45778a0026cf4be data/minecraft/tags/item/hoes.json
-01ae0750873e04271d670940edf604addec414e9 data/minecraft/tags/item/leaves.json
+7a5dd8815002431512c87ae04041ff84e1a05cd2 data/minecraft/tags/item/leaves.json
 f23c23d3cd640263f497c9181aeb9a36af2ac2cb data/minecraft/tags/item/leg_armor.json
 4b057e3e5e6f7b9026d5871433fccbb5eb4dfe1a data/minecraft/tags/item/logs_that_burn.json
 0f7ca4d0e583b5df95ded47d78301e92a3df2dc5 data/minecraft/tags/item/pickaxes.json

@@ -23,9 +23,12 @@ import net.karen.mccoursemod.screen.custom.PedestalScreen;
 import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
+import net.karen.mccoursemod.worldgen.biome.ModBiomes;
+import net.karen.mccoursemod.worldgen.biome.ModSurfaceRules;
 import net.karen.mccoursemod.worldgen.tree.ModWoodTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
@@ -35,6 +38,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.api.distmarker.Dist;
@@ -49,9 +53,9 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import terrablender.api.SurfaceRuleManager;
 import java.util.function.Function;
 
-// This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = MccourseMod.MOD_ID, dist = Dist.CLIENT)
 @EventBusSubscriber(modid = MccourseMod.MOD_ID, value = Dist.CLIENT)
 public class ModClientEvents {
@@ -88,6 +92,10 @@ public class ModClientEvents {
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_SOAP_WATER.get(), ChunkSectionLayer.TRANSLUCENT);
             // ** CUSTOM Flower and Pot Flowers **
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.SNAPDRAGON.getId(), ModBlocks.POTTED_SNAPDRAGON);
+            // ** CUSTOM Biomes and Surface Rules **
+            ModBiomes.registerBiomes();
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD,
+                                               MccourseMod.MOD_ID, ModSurfaceRules.makeRules());
         });
     }
 
@@ -203,5 +211,14 @@ public class ModClientEvents {
     public static void registerSpecialModelRenderers(RegisterSpecialModelRendererEvent event) {
         event.register(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "alexandrite_shield"),
                        ShieldSpecialModelRenderer.Unbaked.MAP_CODEC);
+    }
+
+    // CUSTOM EVENT - Register all custom colored blocks
+    @SubscribeEvent
+    public static void registerColoredBlocks(RegisterColorHandlersEvent.Block event) {
+        event.register((state, level, pos, tintIndex) ->
+                        level != null && pos != null
+                        ? BiomeColors.getAverageFoliageColor(level, pos)
+                        : FoliageColor.FOLIAGE_DEFAULT, ModBlocks.COLORED_LEAVES.get());
     }
 }

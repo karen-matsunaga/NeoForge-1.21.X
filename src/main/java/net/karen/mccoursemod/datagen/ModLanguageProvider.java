@@ -211,6 +211,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.stripped_walnut_wood", "Stripped Walnut Wood");
         add("item.mccoursemod.walnut_leaves", "Walnut Leaves");
         add("item.mccoursemod.walnut_sapling", "Walnut Sapling");
+        add("item.mccoursemod.colored_leaves", "Colored Leaves");
         add("item.mccoursemod.chair", "Chair Block");
         add("item.mccoursemod.pedestal", "Pedestal Block");
         add("item.mccoursemod.growth_chamber", "Growth Chamber Block");
@@ -340,6 +341,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.STRIPPED_WALNUT_WOOD, "Stripped Walnut Wood");
         addBlock(ModBlocks.WALNUT_LEAVES, "Walnut Leaves");
         addBlock(ModBlocks.WALNUT_SAPLING, "Walnut Sapling");
+
+        // ** CUSTOM colored blocks **
+        addBlock(ModBlocks.COLORED_LEAVES, "Colored Leaves");
 
         // ** CUSTOM Sign and Hanging sign **
         addBlock(ModBlocks.WALNUT_SIGN, "Walnut Sign");

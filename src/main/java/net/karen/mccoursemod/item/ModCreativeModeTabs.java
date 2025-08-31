@@ -253,6 +253,8 @@ public class ModCreativeModeTabs {
                  // ** CUSTOM flowers and pot flowers **
                  output.accept(ModBlocks.SNAPDRAGON);
                  output.accept(ModBlocks.POTTED_SNAPDRAGON);
+                 // ** CUSTOM colored blocks **
+                 output.accept(ModBlocks.COLORED_LEAVES);
            }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus

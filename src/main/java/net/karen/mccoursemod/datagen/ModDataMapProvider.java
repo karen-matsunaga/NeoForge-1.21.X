@@ -34,6 +34,7 @@ public class ModDataMapProvider extends DataMapProvider {
             .add(ModItems.COFFEE.getId(), new Compostable(0.65F), false)
             .add(ModBlocks.WALNUT_LEAVES.getId(), new Compostable(0.3F), false)
             .add(ModBlocks.BLOODWOOD_LEAVES.getId(), new Compostable(0.3F), false)
+            .add(ModBlocks.COLORED_LEAVES.getId(), new Compostable(0.3F), false)
             .add(ModBlocks.WALNUT_SAPLING.getId(), new Compostable(0.3F), false)
             .add(ModBlocks.BLOODWOOD_SAPLING.getId(), new Compostable(0.3F), false)
             .add(ModBlocks.SNAPDRAGON.getId(), new Compostable(0.65F), false);

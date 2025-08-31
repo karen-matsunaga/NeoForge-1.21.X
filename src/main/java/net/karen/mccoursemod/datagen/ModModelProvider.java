@@ -175,6 +175,12 @@ public class ModModelProvider extends ModelProvider {
 
         createSaplingTexture(blockModels, ModBlocks.WALNUT_SAPLING.get()); // WALNUT SAPLING -> Used End block
 
+        // ** CUSTOM colored blocks **
+        blockModels.createTintedLeaves(ModBlocks.COLORED_LEAVES.get(),
+                                       TexturedModel.LEAVES.updateTemplate(template ->
+                                                                           template.extend().renderType("cutout_mipped").build()),
+                                                                           -12012264);
+
         // ** CUSTOM sittable block model **
         createChairTexture(blockModels, itemModels, ModBlocks.CHAIR.get());
 

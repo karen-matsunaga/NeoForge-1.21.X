@@ -132,7 +132,8 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
                                               ModBlocks.STRIPPED_WALNUT_WOOD.asItem());
         this.tag(ItemTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.asItem(), ModBlocks.WALNUT_PLANKS.asItem());
         this.tag(ItemTags.SAPLINGS).add(ModBlocks.BLOODWOOD_SAPLING.asItem(), ModBlocks.WALNUT_SAPLING.asItem());
-        this.tag(ItemTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.asItem(), ModBlocks.WALNUT_LEAVES.asItem());
+        this.tag(ItemTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.asItem(), ModBlocks.WALNUT_LEAVES.asItem(),
+                                      ModBlocks.COLORED_LEAVES.asItem());
         this.tag(ModTags.Items.BLOODWOOD_LOGS).add(ModBlocks.BLOODWOOD_LOG.asItem(),
                                                    ModBlocks.BLOODWOOD_WOOD.asItem(),
                                                    ModBlocks.STRIPPED_BLOODWOOD_LOG.asItem(),

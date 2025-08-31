@@ -646,6 +646,34 @@ public class ModBlocks {
                                                    ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                                          "potted_snapdragon")))));
 
+    // ** CUSTOM colored block **
+    public static final DeferredBlock<Block> COLORED_LEAVES = registerBlock("colored_leaves",
+           (properties) ->
+           new UntintedParticleLeavesBlock(0.01F, ParticleTypes.PALE_OAK_LEAVES,
+                                           BlockBehaviour.Properties
+                                                         .ofFullCopy(Blocks.OAK_LEAVES)
+                                                         .setId(ResourceKey.create(Registries.BLOCK,
+                                                                ResourceLocation.fromNamespaceAndPath(
+                                                                MccourseMod.MOD_ID, "colored_leaves")))) {
+               @Override
+               public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level,
+                                          @NotNull BlockPos pos, @NotNull Direction direction) {
+                   return true;
+               }
+
+               @Override
+               public int getFlammability(@NotNull BlockState state, @NotNull BlockGetter level,
+                                          @NotNull BlockPos pos, @NotNull Direction direction) {
+                   return 60;
+               }
+
+               @Override
+               public int getFireSpreadSpeed(@NotNull BlockState state, @NotNull BlockGetter level,
+                                             @NotNull BlockPos pos, @NotNull Direction direction) {
+                   return 30;
+               }
+           });
+
     // ** CUSTOM METHOD - ENDER PEARL blocks **
     protected static DeferredBlock<Block> enderPearlBlock(String name, MapColor color) {
         return registerBlock(name, (properties) ->

@@ -131,7 +131,8 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                           .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.get(), ModBlocks.STRIPPED_WALNUT_LOG.get())
                                           .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get(), ModBlocks.STRIPPED_WALNUT_WOOD.get());
         this.tag(BlockTags.SAPLINGS).add(ModBlocks.BLOODWOOD_SAPLING.get(), ModBlocks.WALNUT_SAPLING.get());
-        this.tag(BlockTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.get(), ModBlocks.WALNUT_LEAVES.get());
+        this.tag(BlockTags.LEAVES).add(ModBlocks.BLOODWOOD_LEAVES.get(), ModBlocks.WALNUT_LEAVES.get(),
+                                       ModBlocks.COLORED_LEAVES.get());
         this.tag(BlockTags.PLANKS).add(ModBlocks.BLOODWOOD_PLANKS.get(), ModBlocks.WALNUT_PLANKS.get());
 
         this.tag(ModTags.Blocks.BLOODWOOD_LOGS).add(ModBlocks.BLOODWOOD_LOG.get(), ModBlocks.BLOODWOOD_WOOD.get(),
