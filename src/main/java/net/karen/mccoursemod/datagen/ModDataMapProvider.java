@@ -5,10 +5,7 @@ import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.DataMapProvider;
-import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
-import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
-import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
-import net.neoforged.neoforge.registries.datamaps.builtin.Waxable;
+import net.neoforged.neoforge.registries.datamaps.builtin.*;
 import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
 
@@ -47,5 +44,12 @@ public class ModDataMapProvider extends DataMapProvider {
             .add(ModBlocks.RUBY_BLOCK_1.getId(), new Waxable(ModBlocks.WAXED_RUBY_BLOCK_1.get()), false)
             .add(ModBlocks.RUBY_BLOCK_2.getId(), new Waxable(ModBlocks.WAXED_RUBY_BLOCK_2.get()), false)
             .add(ModBlocks.RUBY_BLOCK_3.getId(), new Waxable(ModBlocks.WAXED_RUBY_BLOCK_3.get()), false);
+
+        // ** CUSTOM strippable blocks **
+        this.builder(NeoForgeDataMaps.STRIPPABLES)
+            .add(ModBlocks.WALNUT_WOOD.getId(), new Strippable(ModBlocks.STRIPPED_WALNUT_WOOD.get()), false)
+            .add(ModBlocks.BLOODWOOD_WOOD.getId(), new Strippable(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get()), false)
+            .add(ModBlocks.WALNUT_LOG.getId(), new Strippable(ModBlocks.STRIPPED_WALNUT_LOG.get()), false)
+            .add(ModBlocks.BLOODWOOD_LOG.getId(), new Strippable(ModBlocks.STRIPPED_BLOODWOOD_LOG.get()), false);
     }
 }

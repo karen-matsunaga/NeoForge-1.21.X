@@ -1,0 +1,16 @@
+{
+  "values": {
+    "mccoursemod:bloodwood_log": {
+      "stripped_block": "mccoursemod:stripped_bloodwood_log"
+    },
+    "mccoursemod:bloodwood_wood": {
+      "stripped_block": "mccoursemod:stripped_bloodwood_wood"
+    },
+    "mccoursemod:walnut_log": {
+      "stripped_block": "mccoursemod:stripped_walnut_log"
+    },
+    "mccoursemod:walnut_wood": {
+      "stripped_block": "mccoursemod:stripped_walnut_wood"
+    }
+  }
+}
