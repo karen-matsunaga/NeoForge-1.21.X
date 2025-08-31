@@ -33,7 +33,13 @@ public class ModDataMapProvider extends DataMapProvider {
             .add(ModItems.RADISH.getId(), new Compostable(0.45F), false)
             .add(ModItems.KOHLRABI_SEEDS.getId(), new Compostable(0.25F), false)
             .add(ModItems.KOHLRABI.getId(), new Compostable(0.45F), false)
-            .add(ModItems.GROWTH.getId(), new Compostable(0.5F), false);
+            .add(ModItems.GROWTH.getId(), new Compostable(0.5F), false)
+            .add(ModItems.COFFEE.getId(), new Compostable(0.65F), false)
+            .add(ModBlocks.WALNUT_LEAVES.getId(), new Compostable(0.3F), false)
+            .add(ModBlocks.BLOODWOOD_LEAVES.getId(), new Compostable(0.3F), false)
+            .add(ModBlocks.WALNUT_SAPLING.getId(), new Compostable(0.3F), false)
+            .add(ModBlocks.BLOODWOOD_SAPLING.getId(), new Compostable(0.3F), false)
+            .add(ModBlocks.SNAPDRAGON.getId(), new Compostable(0.65F), false);
 
         // ** CUSTOM waxable blocks **
         this.builder(NeoForgeDataMaps.WAXABLES)

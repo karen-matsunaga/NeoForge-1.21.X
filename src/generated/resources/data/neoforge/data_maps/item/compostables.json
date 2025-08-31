@@ -1,5 +1,14 @@
 {
   "values": {
+    "mccoursemod:bloodwood_leaves": {
+      "chance": 0.3
+    },
+    "mccoursemod:bloodwood_sapling": {
+      "chance": 0.3
+    },
+    "mccoursemod:coffee": {
+      "chance": 0.65
+    },
     "mccoursemod:growth": {
       "chance": 0.5
     },
@@ -14,6 +23,15 @@
     },
     "mccoursemod:radish_seeds": {
       "chance": 0.25
+    },
+    "mccoursemod:snapdragon": {
+      "chance": 0.65
+    },
+    "mccoursemod:walnut_leaves": {
+      "chance": 0.3
+    },
+    "mccoursemod:walnut_sapling": {
+      "chance": 0.3
     }
   }
 }
