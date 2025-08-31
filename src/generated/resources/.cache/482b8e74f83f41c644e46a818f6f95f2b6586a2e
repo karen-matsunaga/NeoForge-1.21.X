@@ -1,6 +1,7 @@
-// 1.21.8	2025-08-15T14:44:08.0560331	Global Loot Modifiers : mccoursemod
+// 1.21.8	2025-08-31T17:23:59.1078148	Global Loot Modifiers : mccoursemod
 e8068807b8f8a12d86ce19bf7e997f237668392f data/mccoursemod/loot_modifiers/berry_from_creeper.json
 7ab73be2b1da196587841bdafc5e4d57f31c6689 data/mccoursemod/loot_modifiers/chisel_from_jungle_temple.json
+e7dbd54861fc92a496ceb15290f3773430202cf5 data/mccoursemod/loot_modifiers/metal_detector_from_suspicious_sand.json
 b4049a32c0247123c25e07c8b224d1b89679be0e data/mccoursemod/loot_modifiers/radish_seeds_to_short_grass.json
 429f2ce04c26fb975fc264bf9283bda4d70ba8f5 data/mccoursemod/loot_modifiers/radish_seeds_to_tall_grass.json
-a46680eaec5c80892e4e84720e230f7d04699af2 data/neoforge/loot_modifiers/global_loot_modifiers.json
+08656bf6e10b461417fae1d7d728025794dd5dd2 data/neoforge/loot_modifiers/global_loot_modifiers.json

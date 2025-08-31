@@ -3,6 +3,7 @@ package net.karen.mccoursemod.datagen;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.loot.AddItemModifier;
+import net.karen.mccoursemod.loot.AddSusSandItemModifier;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -22,6 +23,7 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
+        // ** CUSTOM LOOT TABLE items **
         this.add("radish_seeds_to_short_grass",
                  new AddItemModifier(new LootItemCondition[] {
                                      LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.SHORT_GRASS).build(),
@@ -41,5 +43,12 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                  new AddItemModifier(new LootItemCondition[] {
                                      new LootTableIdCondition.Builder(ResourceLocation.withDefaultNamespace("entities/creeper"))
                                      .build()}, ModItems.GOJI_BERRIES.get()));
+
+        // ** CUSTOM SUSPICIOUS SAND items **
+        this.add("metal_detector_from_suspicious_sand",
+                 new AddSusSandItemModifier(new LootItemCondition[] {
+                                            new LootTableIdCondition.Builder(
+                                            ResourceLocation.withDefaultNamespace("archaeology/desert_pyramid"))
+                                            .build() }, ModItems.METAL_DETECTOR.get()));
     }
 }

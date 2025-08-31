@@ -3,7 +3,8 @@
     "mccoursemod:radish_seeds_to_short_grass",
     "mccoursemod:radish_seeds_to_tall_grass",
     "mccoursemod:chisel_from_jungle_temple",
-    "mccoursemod:berry_from_creeper"
+    "mccoursemod:berry_from_creeper",
+    "mccoursemod:metal_detector_from_suspicious_sand"
   ],
   "replace": false
 }

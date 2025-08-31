@@ -13,8 +13,13 @@ public class ModLootModifiers {
            DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, MccourseMod.MOD_ID);
 
     // Register all custom loot table modifiers
+    // CUSTOM loot table Structures, Entities, Blocks, Items etc.
     public static final Supplier<MapCodec<? extends IGlobalLootModifier>> ADD_ITEM =
            LOOT_MODIFIER_SERIALIZERS.register("add_item", () -> AddItemModifier.CODEC);
+
+    // CUSTOM loot table Suspicious Sand item
+    public static final Supplier<MapCodec<? extends IGlobalLootModifier>> ADD_SUS_SAND_ITEM =
+           LOOT_MODIFIER_SERIALIZERS.register("add_sus_sand_item", () -> AddSusSandItemModifier.CODEC);
 
     // CUSTOM METHOD - Registry all custom loot table modifiers
     public static void register(IEventBus eventBus) {
