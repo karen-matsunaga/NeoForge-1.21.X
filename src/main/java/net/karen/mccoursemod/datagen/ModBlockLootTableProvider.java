@@ -244,6 +244,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.WAXED_RUBY_BLOCK_1.get());
         this.dropSelf(ModBlocks.WAXED_RUBY_BLOCK_2.get());
         this.dropSelf(ModBlocks.WAXED_RUBY_BLOCK_3.get());
+
+        // ** CUSTOM flowers and pot flowers **
+        this.dropSelf(ModBlocks.SNAPDRAGON.get());
+        this.dropPottedContents(ModBlocks.POTTED_SNAPDRAGON.get());
     }
 
     // CUSTOM METHOD - Custom ore loot table drops

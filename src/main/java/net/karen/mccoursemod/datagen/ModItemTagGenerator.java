@@ -145,5 +145,10 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         this.tag(Tags.Items.BUCKETS).add(ModFluids.SOAP_WATER_BUCKET.get());
         this.tag(Tags.Items.BUCKETS_WATER).add(ModFluids.SOAP_WATER_BUCKET.get());
         this.tag(Tags.Items.BUCKETS_ENTITY_WATER).add(ModFluids.SOAP_WATER_BUCKET.get());
+
+        // ** CUSTOM flowers and pot flowers **
+        this.tag(ItemTags.FLOWERS).add(ModBlocks.SNAPDRAGON.asItem());
+        this.tag(ItemTags.SMALL_FLOWERS).add(ModBlocks.SNAPDRAGON.asItem());
+        this.tag(ItemTags.BEE_FOOD).add(ModBlocks.SNAPDRAGON.asItem());
     }
 }

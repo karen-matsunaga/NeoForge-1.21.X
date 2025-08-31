@@ -119,8 +119,8 @@ public class ModCreativeModeTabs {
                  // ** CUSTOM Fluid **
                  output.accept(ModFluids.SOAP_WATER_BUCKET);
                  // ** CUSTOM boats **
-                 output.accept(ModItems.WALNUT_BOAT.get());
-                 output.accept(ModItems.WALNUT_CHEST_BOAT.get());
+                 output.accept(ModItems.WALNUT_BOAT);
+                 output.accept(ModItems.WALNUT_CHEST_BOAT);
            }).build());
 
     // Show all blocks in Creative Mode -> Second Creative Mode Tab
@@ -212,44 +212,47 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.FORCED_STAINED_GLASS);
                  output.accept(ModBlocks.FORCED_STAINED_GLASS_PANE);
                  // ** CUSTOM Sign and Hanging Sing blocks **
-                 output.accept(ModBlocks.WALNUT_SIGN.get());
-                 output.accept(ModBlocks.WALNUT_HANGING_SIGN.get());
+                 output.accept(ModBlocks.WALNUT_SIGN);
+                 output.accept(ModBlocks.WALNUT_HANGING_SIGN);
                  // ** CUSTOM Ender Pearl blocks **
-                 output.accept(ModBlocks.ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.GREEN_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.BLACK_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.MAGENTA_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.PURPLE_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.ORANGE_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.PINK_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.CYAN_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.BROWN_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.GRAY_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.RED_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.LIME_GREEN_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.YELLOW_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.BLUE_ENDER_PEARL_BLOCK.get());
-                 output.accept(ModBlocks.WHITE_ENDER_PEARL_BLOCK.get());
+                 output.accept(ModBlocks.ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.GREEN_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.BLACK_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.MAGENTA_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.PURPLE_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.ORANGE_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.PINK_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.CYAN_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.BROWN_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.GRAY_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.RED_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.LIME_GREEN_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.YELLOW_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.BLUE_ENDER_PEARL_BLOCK);
+                 output.accept(ModBlocks.WHITE_ENDER_PEARL_BLOCK);
                  // ** CUSTOM mob blocks **
-                 output.accept(ModBlocks.NETHER_STAR_BLOCK.get());
-                 output.accept(ModBlocks.GUNPOWDER_BLOCK.get());
-                 output.accept(ModBlocks.ROTTEN_FLESH_BLOCK.get());
-                 output.accept(ModBlocks.BLAZE_ROD_BLOCK.get());
-                 output.accept(ModBlocks.PHANTOM_MEMBRANE_BLOCK.get());
-                 output.accept(ModBlocks.STRING_BLOCK.get());
-                 output.accept(ModBlocks.SPIDER_EYE_BLOCK.get());
-                 output.accept(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK.get());
-                 output.accept(ModBlocks.SUGAR_BLOCK.get());
-                 output.accept(ModBlocks.SUGAR_CANE_BLOCK.get());
+                 output.accept(ModBlocks.NETHER_STAR_BLOCK);
+                 output.accept(ModBlocks.GUNPOWDER_BLOCK);
+                 output.accept(ModBlocks.ROTTEN_FLESH_BLOCK);
+                 output.accept(ModBlocks.BLAZE_ROD_BLOCK);
+                 output.accept(ModBlocks.PHANTOM_MEMBRANE_BLOCK);
+                 output.accept(ModBlocks.STRING_BLOCK);
+                 output.accept(ModBlocks.SPIDER_EYE_BLOCK);
+                 output.accept(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK);
+                 output.accept(ModBlocks.SUGAR_BLOCK);
+                 output.accept(ModBlocks.SUGAR_CANE_BLOCK);
                  // ** CUSTOM oxidizable blocks **
-                 output.accept(ModBlocks.RUBY_BLOCK.get());
-                 output.accept(ModBlocks.RUBY_BLOCK_1.get());
-                 output.accept(ModBlocks.RUBY_BLOCK_2.get());
-                 output.accept(ModBlocks.RUBY_BLOCK_3.get());
-                 output.accept(ModBlocks.WAXED_RUBY_BLOCK.get());
-                 output.accept(ModBlocks.WAXED_RUBY_BLOCK_1.get());
-                 output.accept(ModBlocks.WAXED_RUBY_BLOCK_2.get());
-                 output.accept(ModBlocks.WAXED_RUBY_BLOCK_3.get());
+                 output.accept(ModBlocks.RUBY_BLOCK);
+                 output.accept(ModBlocks.RUBY_BLOCK_1);
+                 output.accept(ModBlocks.RUBY_BLOCK_2);
+                 output.accept(ModBlocks.RUBY_BLOCK_3);
+                 output.accept(ModBlocks.WAXED_RUBY_BLOCK);
+                 output.accept(ModBlocks.WAXED_RUBY_BLOCK_1);
+                 output.accept(ModBlocks.WAXED_RUBY_BLOCK_2);
+                 output.accept(ModBlocks.WAXED_RUBY_BLOCK_3);
+                 // ** CUSTOM flowers and pot flowers **
+                 output.accept(ModBlocks.SNAPDRAGON);
+                 output.accept(ModBlocks.POTTED_SNAPDRAGON);
            }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus

@@ -53,6 +53,10 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ALEXANDRITE_GEODE_PLACED_KEY =
            registerKey("alexandrite_geode_placed");
 
+    // ** CUSTOM flowers **
+    public static final ResourceKey<PlacedFeature> SNAPDRAGON_PLACED_KEY =
+           registerKey("snapdragon_placed");
+
     // CUSTOM METHOD - Registry all custom placed features
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -118,6 +122,11 @@ public class ModPlacedFeatures {
                  List.of(RarityFilter.onAverageOnceEvery(50), InSquarePlacement.spread(),
                          HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(6), VerticalAnchor.absolute(50)),
                          BiomeFilter.biome()));
+
+        // CUSTOM flowers
+        register(context, SNAPDRAGON_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNAPDRAGON_KEY),
+                 List.of(RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(),
+                         PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     }
 
     // CUSTOM METHOD - Registry all custom placed features (JSON file)

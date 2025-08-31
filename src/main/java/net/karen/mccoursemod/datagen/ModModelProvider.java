@@ -238,6 +238,10 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.WAXED_RUBY_BLOCK_2.get());
         blockModels.createTrivialCube(ModBlocks.WAXED_RUBY_BLOCK_3.get());
 
+        // ** CUSTOM flowers and pot flowers **
+        flowerTexture(blockModels, ModBlocks.SNAPDRAGON.get(),
+                      ModBlocks.POTTED_SNAPDRAGON.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
         // BISMUTH
@@ -375,6 +379,39 @@ public class ModModelProvider extends ModelProvider {
     }
 
     // * CUSTOM BLOCKS *
+    // CUSTOM METHOD - Flower and Pot Flower block textures
+    protected static void flowerTexture(BlockModelGenerators blockModels,
+                                        Block flower, Block pottedFlower,
+                                        PlantType plantType) {
+        // FLOWER
+        // assets\mccoursemod\items + assets\mccoursemod\models\item
+        blockModels.registerSimpleItemModel(flower.asItem(),
+                                            blockModels.createFlatItemModelWithBlockTexture(flower.asItem(), flower));
+
+        TextureMapping textureMapping = plantType.getTextureMapping(flower);
+
+        MultiVariant flowerMultivariant =
+             plainVariant(plantType.getCross().extend().renderType("cutout").build()
+                                   .create(flower, textureMapping, blockModels.modelOutput));
+
+        // assets\mccoursemod\blockstates + assets\mccoursemod\models\block
+        blockModels.blockStateOutput.accept(createSimpleBlock(flower, flowerMultivariant));
+
+        // POT FLOWER
+        // assets\mccoursemod\items
+        ResourceLocation modelLoc = getBlockTexture(pottedFlower);
+        ItemModel.Unbaked pottedFlowerModel = ItemModelUtils.plainModel(modelLoc);
+        blockModels.itemModelOutput.accept(pottedFlower.asItem(), pottedFlowerModel);
+
+        TextureMapping flowerTextureMapping = plantType.getPlantTextureMapping(flower);
+        MultiVariant pottedMultivariant =
+             plainVariant(plantType.getCrossPot().extend().renderType("cutout").build()
+                                   .create(pottedFlower, flowerTextureMapping, blockModels.modelOutput));
+
+        // assets\mccoursemod\blockstates
+        blockModels.blockStateOutput.accept(createSimpleBlock(pottedFlower, pottedMultivariant));
+    }
+
     // CUSTOM METHOD - Water block texture
     protected static void waterTexture(BlockModelGenerators blockModels, Block block) {
         blockModels.createNonTemplateModelBlock(Blocks.BUBBLE_COLUMN, block);
@@ -405,8 +442,8 @@ public class ModModelProvider extends ModelProvider {
                    .select(Direction.EAST, multiVariant.with(Y_ROT_90))
                    .select(Direction.WEST, multiVariant.with(Y_ROT_270))));
         // assets\mccoursemod\items
-        ItemModel.Unbaked pedestalModel = ItemModelUtils.plainModel(modelLoc);
-        itemModels.itemModelOutput.accept(block.asItem(), pedestalModel);
+        ItemModel.Unbaked chairModel = ItemModelUtils.plainModel(modelLoc);
+        itemModels.itemModelOutput.accept(block.asItem(), chairModel);
     }
 
     // CUSTOM METHOD - Pedestal texture

@@ -12,6 +12,7 @@ import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
@@ -59,6 +60,9 @@ public class ModBiomeModifiers {
     // ALEXANDRITE
     public static final ResourceKey<BiomeModifier> ADD_ALEXANDRITE_GEODE =
            registerKey("add_alexandrite_geode");
+
+    // ** CUSTOM flowers **
+    public static final ResourceKey<BiomeModifier> ADD_SNAPDRAGON = registerKey("add_snapdragon");
 
     // CUSTOM METHOD - Registry all custom biome modifiers
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
@@ -136,6 +140,12 @@ public class ModBiomeModifiers {
                          biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                          HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.ALEXANDRITE_GEODE_PLACED_KEY)),
                          GenerationStep.Decoration.LOCAL_MODIFICATIONS));
+
+        // CUSTOM flowers
+        context.register(ADD_SNAPDRAGON, new BiomeModifiers.AddFeaturesBiomeModifier(
+                         biomes.getOrThrow(Tags.Biomes.IS_PLAINS),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.SNAPDRAGON_PLACED_KEY)),
+                         GenerationStep.Decoration.VEGETAL_DECORATION));
     }
 
     // CUSTOM METHOD - Registry all custom biome modifiers (JSON file)

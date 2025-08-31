@@ -5,6 +5,7 @@ import net.karen.mccoursemod.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -69,6 +70,10 @@ public class ModConfiguredFeatures {
     // ALEXANDRITE
     public static final ResourceKey<ConfiguredFeature<?, ?>> ALEXANDRITE_GEODE_KEY =
            registerKey("alexandrite_geode");
+
+    // ** CUSTOM flowers **
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SNAPDRAGON_KEY =
+           registerKey("snapdragon");
 
     // CUSTOM METHOD - Registry all custom configured features
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -155,6 +160,12 @@ public class ModConfiguredFeatures {
                                         true,
                                         UniformInt.of(3, 8), UniformInt.of(2, 6), UniformInt.of(1, 2),
                                         -18, 18, 0.075D, 1));
+
+        // CUSTOM flowers
+        register(context, SNAPDRAGON_KEY, Feature.FLOWER,
+                 new RandomPatchConfiguration(32, 6, 2,
+                                              PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
+                                              new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.SNAPDRAGON.get())))));
     }
 
     // CUSTOM METHOD - Registry all configured features (JSON file)

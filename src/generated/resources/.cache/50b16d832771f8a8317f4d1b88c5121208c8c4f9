@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-30T16:01:19.9166914	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-08-31T10:41:41.5135846	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 d3e0307570b786aa4733b133a1bc9d5453079334 data/mccoursemod/tags/block/bismuth_blocks.json
@@ -23,12 +23,15 @@ a3b034ba6dfc318ff77dbd2fedd47a18e2872e02 data/mccoursemod/tags/block/more_ores_f
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_alexandrite_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_bismuth_tool.json
 774205992e78cc4b0cce335e5a396e3a2426ecab data/mccoursemod/tags/block/walnut_logs.json
+7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/block/bee_attractive.json
 46172a7dfe90d415693950b0619498a485358fdc data/minecraft/tags/block/buttons.json
 1c8058d9cdcbb6ea08ee8d97e5759858cebc0fbf data/minecraft/tags/block/ceiling_hanging_signs.json
 f79e3a200630680e183fb2b47e860846f22ae068 data/minecraft/tags/block/crops.json
 b6bce34447c5b86b5875384bbea66e86500e94e7 data/minecraft/tags/block/doors.json
 ac3ea97eb7084008062714115ad481dcafc2deea data/minecraft/tags/block/fences.json
 0761aacfe0607e7412068df7c869ac507df23878 data/minecraft/tags/block/fence_gates.json
+7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/block/flowers.json
+be5791d9499b3d7d689990c9fc2a4c4e856a05ac data/minecraft/tags/block/flower_pots.json
 950fd2db124c5b2a8ecd2d4737fee78abe8776ac data/minecraft/tags/block/geode_invalid_blocks.json
 6a54a0eec9efdf43743f54d093866a1ab5e22da1 data/minecraft/tags/block/impermeable.json
 01ae0750873e04271d670940edf604addec414e9 data/minecraft/tags/block/leaves.json
@@ -41,6 +44,7 @@ ac3ea97eb7084008062714115ad481dcafc2deea data/minecraft/tags/block/fences.json
 950fd2db124c5b2a8ecd2d4737fee78abe8776ac data/minecraft/tags/block/replaceable_by_trees.json
 d8700cb59c359611790eaf34c5351f0bfe3e081e data/minecraft/tags/block/saplings.json
 89b32c57535ad405bb5c6147fd9a5d472eedbc57 data/minecraft/tags/block/slabs.json
+7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/block/small_flowers.json
 7264921d90885ed8f7d2b502a0f994281cb56b76 data/minecraft/tags/block/stairs.json
 fefc6e413446a79179b7c3eae6a22f1607a2ec02 data/minecraft/tags/block/standing_signs.json
 6e93d9db58743704d71f87de79042a1e75fcf361 data/minecraft/tags/block/trapdoors.json

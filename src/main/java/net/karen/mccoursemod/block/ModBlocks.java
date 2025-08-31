@@ -14,6 +14,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.BlockGetter;
@@ -624,6 +625,26 @@ public class ModBlocks {
                                               .setId(ResourceKey.create(Registries.BLOCK,
                                                                         ResourceLocation.fromNamespaceAndPath(
                                                                         MccourseMod.MOD_ID, "waxed_ruby_block_3")))));
+
+    // ** CUSTOM flowers and pot flowers **
+    // SNAPDRAGON
+    public static final DeferredBlock<Block> SNAPDRAGON = registerBlock("snapdragon",
+           (properties) ->
+           new FlowerBlock(MobEffects.BLINDNESS, 6.0F,
+                           BlockBehaviour.Properties
+                                         .ofFullCopy(Blocks.ALLIUM)
+                                         .setId(ResourceKey.create(Registries.BLOCK,
+                                                ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                                      "snapdragon")))));
+
+    public static final DeferredBlock<Block> POTTED_SNAPDRAGON = registerBlock("potted_snapdragon",
+           (properties) ->
+           new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SNAPDRAGON,
+                              BlockBehaviour.Properties
+                                            .ofFullCopy(Blocks.POTTED_ALLIUM)
+                                            .setId(ResourceKey.create(Registries.BLOCK,
+                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                                         "potted_snapdragon")))));
 
     // ** CUSTOM METHOD - ENDER PEARL blocks **
     protected static DeferredBlock<Block> enderPearlBlock(String name, MapColor color) {

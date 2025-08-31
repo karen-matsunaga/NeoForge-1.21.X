@@ -200,5 +200,11 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                                     ModBlocks.WAXED_RUBY_BLOCK_1.get(),
                                                                     ModBlocks.WAXED_RUBY_BLOCK_2.get(),
                                                                     ModBlocks.WAXED_RUBY_BLOCK_3.get());
+
+        // ** CUSTOM flower and pot flowers **
+        this.tag(BlockTags.FLOWERS).add(ModBlocks.SNAPDRAGON.get());
+        this.tag(BlockTags.SMALL_FLOWERS).add(ModBlocks.SNAPDRAGON.get());
+        this.tag(BlockTags.FLOWER_POTS).add(ModBlocks.POTTED_SNAPDRAGON.get());
+        this.tag(BlockTags.BEE_ATTRACTIVE).add(ModBlocks.SNAPDRAGON.get());
     }
 }

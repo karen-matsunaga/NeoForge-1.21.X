@@ -255,6 +255,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.waxed_ruby_block_1", "Waxed Block of Ruby 1");
         add("item.mccoursemod.waxed_ruby_block_2", "Waxed Block of Ruby 2");
         add("item.mccoursemod.waxed_ruby_block_3", "Waxed Block of Ruby 3");
+        add("item.mccoursemod.snapdragon", "Snapdragon");
+        add("item.mccoursemod.potted_snapdragon", "Snapdragon Potted");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -393,6 +395,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.WAXED_RUBY_BLOCK_1, "Waxed Block of Ruby 1");
         addBlock(ModBlocks.WAXED_RUBY_BLOCK_2, "Waxed Block of Ruby 2");
         addBlock(ModBlocks.WAXED_RUBY_BLOCK_3, "Waxed Block of Ruby 3");
+
+        // ** CUSTOM flowers and pot flowers **
+        addBlock(ModBlocks.SNAPDRAGON, "Snapdragon");
+        addBlock(ModBlocks.POTTED_SNAPDRAGON, "Snapdragon Potted");
 
         // ** CUSTOM CREATIVE TABS **
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");
