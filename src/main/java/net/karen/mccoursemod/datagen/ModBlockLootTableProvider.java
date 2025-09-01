@@ -49,6 +49,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         // ALEXANDRITE
         dropSelf(ModBlocks.ALEXANDRITE_BLOCK.get());
         dropSelf(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
+        // PINK
+        dropSelf(ModBlocks.PINK_BLOCK.get());
 
         // BISMUTH ores
         add(ModBlocks.BISMUTH_ORE.get(), block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));

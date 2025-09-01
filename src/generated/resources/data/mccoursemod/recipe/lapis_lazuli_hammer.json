@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": "minecraft:stick",
+    "W": "minecraft:lapis_block"
+  },
+  "pattern": [
+    "WWW",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:lapis_lazuli_hammer"
+  }
+}

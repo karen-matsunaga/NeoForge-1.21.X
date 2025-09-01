@@ -87,6 +87,18 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LAPIS_LAZULI_PAXEL, "Lapis Lazuli Paxel");
         addItem(ModItems.REDSTONE_PAXEL, "Redstone Paxel");
 
+        // ** CUSTOM Hammer **
+        addItem(ModItems.PINK_HAMMER, "Pink Hammer");
+        addItem(ModItems.COPPER_HAMMER, "Copper Hammer");
+        addItem(ModItems.DIAMOND_HAMMER, "Diamond Hammer");
+        addItem(ModItems.GOLD_HAMMER, "Gold Hammer");
+        addItem(ModItems.IRON_HAMMER, "Iron Hammer");
+        addItem(ModItems.STONE_HAMMER, "Stone Hammer");
+        addItem(ModItems.WOODEN_HAMMER, "Wooden Hammer");
+        addItem(ModItems.NETHERITE_HAMMER, "Netherite Hammer");
+        addItem(ModItems.LAPIS_LAZULI_HAMMER, "Lapis Lazuli Hammer");
+        addItem(ModItems.REDSTONE_HAMMER, "Redstone Hammer");
+
         // ** CUSTOM Horse armor **
         // BISMUTH
         addItem(ModItems.BISMUTH_HORSE_ARMOR, "Bismuth Horse Armor");

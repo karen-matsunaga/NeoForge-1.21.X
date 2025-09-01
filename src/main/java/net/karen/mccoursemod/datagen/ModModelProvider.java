@@ -72,6 +72,9 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.END_STONE_ALEXANDRITE_ORE.get());
         blockModels.createTrivialCube(ModBlocks.NETHER_ALEXANDRITE_ORE.get());
 
+        // PINK
+        blockModels.createTrivialCube(ModBlocks.PINK_BLOCK.get());
+
         // ** CUSTOM Advanced blocks **
         blockModels.createTrivialCube(ModBlocks.MAGIC.get());
         blockModels.createTrivialCube(ModBlocks.ENCHANT.get());
@@ -315,6 +318,18 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.NETHERITE_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.LAPIS_LAZULI_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.REDSTONE_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+
+        // ** CUSTOM hammer **
+        itemModels.generateFlatItem(ModItems.PINK_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.COPPER_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.DIAMOND_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.GOLD_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.IRON_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.STONE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.WOODEN_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.NETHERITE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.LAPIS_LAZULI_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.REDSTONE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
         // ** CUSTOM Horse Armor **
         // BISMUTH

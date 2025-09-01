@@ -33,7 +33,9 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                       ModBlocks.ALEXANDRITE_LAMP.get(),
                                                       ModBlocks.ALEXANDRITE_BLOCK.get(),
                                                       ModBlocks.RAW_ALEXANDRITE_BLOCK.get(),
-                                                      ModBlocks.SOUND.get(), ModBlocks.KAUPEN_PORTAL.get())
+                                                      ModBlocks.SOUND.get(),
+                                                      ModBlocks.KAUPEN_PORTAL.get(),
+                                                      ModBlocks.PINK_BLOCK.get())
                                                  .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES)
                                                  .addTag(ModTags.Blocks.BISMUTH_BLOCKS)
                                                  .addTag(ModTags.Blocks.ALEXANDRITE_BLOCKS)

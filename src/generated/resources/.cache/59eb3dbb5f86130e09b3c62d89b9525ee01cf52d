@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-31T16:47:13.5401701	Loot Tables
+// 1.21.8	2025-09-01T17:22:32.9181847	Loot Tables
 cdb697b4f47740809ecdb90e81e8e5d2f56cfc86 data/mccoursemod/loot_table/blocks/alexandrite_block.json
 291a785f3fc73335884718fec6c7d2db06eb0048 data/mccoursemod/loot_table/blocks/alexandrite_button.json
 d0ad4d5e3aeabf77ec2d12530e2bc9b7e6bef80e data/mccoursemod/loot_table/blocks/alexandrite_door.json
@@ -63,6 +63,7 @@ bd4c989a2ebf2dd90a718e3757e417175a859472 data/mccoursemod/loot_table/blocks/neth
 b4c2f9341aa991f4b256569788e0fee731187584 data/mccoursemod/loot_table/blocks/orange_ender_pearl_block.json
 89ea5ed091b6961b413e844e7a9f345594a2e9a9 data/mccoursemod/loot_table/blocks/pedestal.json
 a1458b236d9bbf0b33086879b210d588311303ea data/mccoursemod/loot_table/blocks/phantom_membrane_block.json
+43e916a43066446137d7901f6072535e18f45da0 data/mccoursemod/loot_table/blocks/pink_block.json
 baa41de781be127d3c98710f56c197156244bb6b data/mccoursemod/loot_table/blocks/pink_ender_pearl_block.json
 88eb248b8efe26443cb8091f6fc1623233b18847 data/mccoursemod/loot_table/blocks/potted_snapdragon.json
 3e066b5a370043100da854e8cbd072b068531403 data/mccoursemod/loot_table/blocks/purple_ender_pearl_block.json

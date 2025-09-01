@@ -16,6 +16,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -70,6 +71,9 @@ public class ModRecipeProvider extends RecipeProvider {
         this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.BISMUTH.get(),
                                      RecipeCategory.BUILDING_BLOCKS, ModBlocks.BISMUTH_BLOCK.get());
 
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.PINK.get(),
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.PINK_BLOCK.get());
+
         // ** CUSTOM tools **
         this.allTools(List.of(ModItems.BISMUTH_SWORD.get(), ModItems.BISMUTH_PICKAXE.get(),
                               ModItems.BISMUTH_SHOVEL.get(), ModItems.BISMUTH_AXE.get(),
@@ -79,8 +83,19 @@ public class ModRecipeProvider extends RecipeProvider {
                               ModItems.ALEXANDRITE_SHOVEL.get(), ModItems.ALEXANDRITE_AXE.get(),
                               ModItems.ALEXANDRITE_HOE.get(), ModItems.ALEXANDRITE.get()));
 
+        // ** CUSTOM hammer **
         this.hammerTool(List.of(ModItems.BISMUTH_HAMMER.get(), ModBlocks.BISMUTH_BLOCK.get()));
         this.hammerTool(List.of(ModItems.ALEXANDRITE_HAMMER.get(), ModBlocks.ALEXANDRITE_BLOCK.get()));
+        this.hammerTool(List.of(ModItems.PINK_HAMMER.get(), ModBlocks.PINK_BLOCK.get()));
+        this.hammerTool(List.of(ModItems.COPPER_HAMMER.get(), Blocks.COPPER_BLOCK));
+        this.hammerTool(List.of(ModItems.DIAMOND_HAMMER.get(), Blocks.DIAMOND_BLOCK));
+        this.hammerTool(List.of(ModItems.GOLD_HAMMER.get(), Blocks.GOLD_BLOCK));
+        this.hammerTool(List.of(ModItems.IRON_HAMMER.get(), Blocks.IRON_BLOCK));
+        this.hammerTool(List.of(ModItems.STONE_HAMMER.get(), Blocks.STONE));
+        this.hammerTool(List.of(ModItems.WOODEN_HAMMER.get(), ModBlocks.WALNUT_LOG));
+        this.hammerTool(List.of(ModItems.NETHERITE_HAMMER.get(), Blocks.NETHERITE_BLOCK));
+        this.hammerTool(List.of(ModItems.LAPIS_LAZULI_HAMMER.get(), Blocks.LAPIS_BLOCK));
+        this.hammerTool(List.of(ModItems.REDSTONE_HAMMER.get(), Blocks.REDSTONE_BLOCK));
 
         this.paxelTool(List.of(ModItems.BISMUTH_PAXEL.get(), ModItems.BISMUTH_PICKAXE.get(),
                                ModItems.BISMUTH_AXE.get(), ModItems.BISMUTH_SHOVEL.get()));

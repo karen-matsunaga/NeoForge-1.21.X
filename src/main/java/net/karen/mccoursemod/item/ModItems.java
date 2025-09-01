@@ -298,6 +298,47 @@ public class ModItems {
            paxelItem("redstone_paxel", ModToolMaterials.REDSTONE,
                      1.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS);
 
+    // ** CUSTOM Hammer tools **
+    public static final DeferredItem<Item> PINK_HAMMER =
+           hammerItem("pink_hammer", ModToolMaterials.PINK,
+                      2.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> COPPER_HAMMER =
+           hammerItem("copper_hammer", ModToolMaterials.COPPER,
+                      2.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> DIAMOND_HAMMER =
+           hammerItem("diamond_hammer", ToolMaterial.DIAMOND,
+                      2.0F, 4.5F, ItemTags.DIAMOND_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> GOLD_HAMMER =
+           hammerItem("gold_hammer", ToolMaterial.GOLD,
+                      2.0F, 4.0F, ItemTags.GOLD_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> IRON_HAMMER =
+           hammerItem("iron_hammer", ToolMaterial.IRON,
+                      2.0F, 3.0F, ItemTags.IRON_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> STONE_HAMMER =
+           hammerItem("stone_hammer", ToolMaterial.STONE,
+                      2.0F, 1.5F, ItemTags.STONE_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> WOODEN_HAMMER =
+           hammerItem("wooden_hammer", ToolMaterial.WOOD,
+                      2.0F, 1.0F, ItemTags.WOODEN_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> NETHERITE_HAMMER =
+           hammerItem("netherite_hammer", ToolMaterial.NETHERITE,
+                      2.0F, 5.0F, ItemTags.NETHERITE_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> LAPIS_LAZULI_HAMMER =
+           hammerItem("lapis_lazuli_hammer", ModToolMaterials.LAPIS_LAZULI,
+                      2.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> REDSTONE_HAMMER =
+           hammerItem("redstone_hammer", ModToolMaterials.REDSTONE,
+                      2.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS);
+
     // ** CUSTOM Smithing Template **
     public static final DeferredItem<Item> KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE =
            ITEMS.registerItem("kaupen_armor_trim_smithing_template",
@@ -444,6 +485,14 @@ public class ModItems {
                                                TagKey<Item> repair) {
         return ITEMS.registerItem(name, (properties) -> new PaxelItem(material, attackDamage, attackSpeed,
                                                                                 properties.fireResistant().repairable(repair)));
+    }
+
+    // ** CUSTOM METHOD - Hammer tool **
+    public static DeferredItem<Item> hammerItem(String name, ToolMaterial material,
+                                               float attackDamage, float attackSpeed,
+                                               TagKey<Item> repair) {
+        return ITEMS.registerItem(name, (properties) -> new HammerItem(material, attackDamage, attackSpeed,
+                                                                                 properties.fireResistant().repairable(repair)));
     }
 
     // CUSTOM METHOD - Registry all items on event bus

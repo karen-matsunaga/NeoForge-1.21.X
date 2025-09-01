@@ -96,6 +96,14 @@ public class ModBlocks {
            (properties) -> new DropExperienceBlock(UniformInt.of(3, 6),
                                                              properties.strength(5F).requiresCorrectToolForDrops()));
 
+    // PINK
+    public static final DeferredBlock<Block> PINK_BLOCK = registerBlock("pink_block",
+           (properties) -> new Block(properties.mapColor(MapColor.METAL)
+                                                         .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+                                                         .requiresCorrectToolForDrops()
+                                                         .strength(5.0F, 6.0F)
+                                                         .sound(SoundType.METAL)));
+
     // ** CUSTOM advanced block **
     public static final DeferredBlock<Block> MAGIC = registerBlock("magic",
            (properties) -> new MagicBlock(properties.strength(2F).sound(ModSounds.MAGIC_BLOCK_SOUNDS)));

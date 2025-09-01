@@ -87,6 +87,17 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.NETHERITE_PAXEL);
                  output.accept(ModItems.LAPIS_LAZULI_PAXEL);
                  output.accept(ModItems.REDSTONE_PAXEL);
+                 // HAMMER
+                 output.accept(ModItems.PINK_HAMMER);
+                 output.accept(ModItems.COPPER_HAMMER);
+                 output.accept(ModItems.DIAMOND_HAMMER);
+                 output.accept(ModItems.GOLD_HAMMER);
+                 output.accept(ModItems.IRON_HAMMER);
+                 output.accept(ModItems.STONE_HAMMER);
+                 output.accept(ModItems.WOODEN_HAMMER);
+                 output.accept(ModItems.NETHERITE_HAMMER);
+                 output.accept(ModItems.LAPIS_LAZULI_HAMMER);
+                 output.accept(ModItems.REDSTONE_HAMMER);
                  // ** CUSTOM horse armor **
                  // BISMUTH
                  output.accept(ModItems.BISMUTH_HORSE_ARMOR);
@@ -160,6 +171,8 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE);
                  output.accept(ModBlocks.END_STONE_ALEXANDRITE_ORE);
                  output.accept(ModBlocks.NETHER_ALEXANDRITE_ORE);
+                 // PINK
+                 output.accept(ModBlocks.PINK_BLOCK);
                  // ** CUSTOM advanced blocks **
                  output.accept(ModBlocks.MAGIC);
                  output.accept(ModBlocks.ENCHANT);
