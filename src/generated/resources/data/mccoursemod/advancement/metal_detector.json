@@ -1,5 +1,5 @@
 {
-  "parent": "mccoursemod:alexandrite",
+  "parent": "mccoursemod:root",
   "criteria": {
     "has_metal_detector": {
       "conditions": {
