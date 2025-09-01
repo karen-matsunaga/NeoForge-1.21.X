@@ -677,11 +677,15 @@ public class ModBlocks {
     // Kaupen custom portal block
     public static final DeferredBlock<Block> KAUPEN_PORTAL = registerBlock("kaupen_portal",
            (properties) ->
-           new KaupenPortalBlock(BlockPos.ZERO, true,
-                                 BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL).noLootTable().noOcclusion()
-                                               .noCollission().setId(ResourceKey.create(Registries.BLOCK,
-                                                                     ResourceLocation.fromNamespaceAndPath(
-                                                                     MccourseMod.MOD_ID, "kaupen_portal")))));
+           new KaupenPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL)
+                                                          .liquid()
+                                                          .forceSolidOn()
+                                                          .noLootTable()
+                                                          .noOcclusion()
+                                                          .noCollission()
+                                                          .setId(ResourceKey.create(Registries.BLOCK,
+                                                                 ResourceLocation.fromNamespaceAndPath(
+                                                                 MccourseMod.MOD_ID, "kaupen_portal")))));
 
     // ** CUSTOM METHOD - ENDER PEARL blocks **
     protected static DeferredBlock<Block> enderPearlBlock(String name, MapColor color) {
