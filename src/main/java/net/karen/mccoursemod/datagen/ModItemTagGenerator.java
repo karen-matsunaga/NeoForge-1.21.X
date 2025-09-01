@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.VanillaItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
@@ -67,6 +68,10 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         // TOOL MATERIALS
         tag(ModTags.Items.BISMUTH_TOOL_MATERIALS).add(ModItems.BISMUTH.get());
         tag(ModTags.Items.ALEXANDRITE_TOOL_MATERIALS).add(ModItems.ALEXANDRITE.get());
+        tag(ModTags.Items.PINK_TOOL_MATERIALS).add(ModItems.PINK.get());
+        tag(ModTags.Items.COPPER_TOOL_MATERIALS).add(Items.COPPER_INGOT);
+        tag(ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS).add(Items.LAPIS_LAZULI);
+        tag(ModTags.Items.REDSTONE_TOOL_MATERIALS).add(Items.REDSTONE);
         // ARMOR MATERIALS
         tag(ModTags.Items.REPAIRS_BISMUTH_ARMOR).add(ModItems.BISMUTH.get());
         tag(ModTags.Items.REPAIRS_ALEXANDRITE_ARMOR).add(ModItems.ALEXANDRITE.get());

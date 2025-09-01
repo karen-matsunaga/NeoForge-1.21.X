@@ -27,11 +27,22 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_BISMUTH_TOOL = createTag("needs_bismuth_tool");
         public static final TagKey<Block> NEEDS_ALEXANDRITE_TOOL =
                createTag("needs_alexandrite_tool");
+        public static final TagKey<Block> NEEDS_PINK_TOOL = createTag("needs_pink_tool");
+        public static final TagKey<Block> NEEDS_COPPER_TOOL = createTag("needs_copper_tool");
+        public static final TagKey<Block> NEEDS_LAPIS_LAZULI_TOOL =
+               createTag("needs_lapis_lazuli_tool");
+        public static final TagKey<Block> NEEDS_REDSTONE_TOOL = createTag("needs_redstone_tool");
 
         // TOOL MATERIALS -> Blocks not break
         public static final TagKey<Block> INCORRECT_FOR_BISMUTH_TOOL = createTag("incorrect_for_bismuth_tool");
         public static final TagKey<Block> INCORRECT_FOR_ALEXANDRITE_TOOL =
                createTag("incorrect_for_alexandrite_tool");
+        public static final TagKey<Block> INCORRECT_FOR_PINK_TOOL = createTag("incorrect_for_pink_tool");
+        public static final TagKey<Block> INCORRECT_FOR_COPPER_TOOL = createTag("incorrect_for_copper_tool");
+        public static final TagKey<Block> INCORRECT_FOR_LAPIS_LAZULI_TOOL =
+               createTag("incorrect_for_lapis_lazuli_tool");
+        public static final TagKey<Block> INCORRECT_FOR_REDSTONE_TOOL =
+               createTag("incorrect_for_redstone_tool");
 
         // Created More Ores's drops - More Ores I, II, III, IV, V, Max Level
         public static final TagKey<Block> MORE_ORES_ONE_DROPS = createTag("more_ores_one_drops");
@@ -108,6 +119,11 @@ public class ModTags {
         public static final TagKey<Item> BISMUTH_TOOL_MATERIALS = createTag("bismuth_tool_materials");
         public static final TagKey<Item> ALEXANDRITE_TOOL_MATERIALS =
                createTag("alexandrite_tool_materials");
+        public static final TagKey<Item> PINK_TOOL_MATERIALS = createTag("pink_tool_materials");
+        public static final TagKey<Item> COPPER_TOOL_MATERIALS = createTag("copper_tool_materials");
+        public static final TagKey<Item> LAPIS_LAZULI_TOOL_MATERIALS =
+               createTag("lapis_lazuli_tool_materials");
+        public static final TagKey<Item> REDSTONE_TOOL_MATERIALS = createTag("redstone_tool_materials");
 
         // ARMOR MATERIALS items - REPAIR ARMOR ingredients
         public static final TagKey<Item> REPAIRS_BISMUTH_ARMOR = createTag("repairs_bismuth_armor");

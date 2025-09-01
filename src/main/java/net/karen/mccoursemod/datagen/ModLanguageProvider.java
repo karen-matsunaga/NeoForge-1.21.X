@@ -22,6 +22,8 @@ public class ModLanguageProvider extends LanguageProvider {
         // ALEXANDRITE
         addItem(ModItems.ALEXANDRITE, "Alexandrite");
         addItem(ModItems.RAW_ALEXANDRITE, "Raw Alexandrite");
+        // PINK
+        addItem(ModItems.PINK, "Pink");
 
         // ** CUSTOM ADVANCED ITEMS **
         addItem(ModItems.AUTO_SMELT, "Auto Smelt");
@@ -72,6 +74,18 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.ALEXANDRITE_CHESTPLATE, "Alexandrite Chestplate");
         addItem(ModItems.ALEXANDRITE_LEGGINGS, "Alexandrite Leggings");
         addItem(ModItems.ALEXANDRITE_BOOTS, "Alexandrite Boots");
+
+        // ** CUSTOM Paxel **
+        addItem(ModItems.PINK_PAXEL, "Pink Paxel");
+        addItem(ModItems.COPPER_PAXEL, "Copper Paxel");
+        addItem(ModItems.DIAMOND_PAXEL, "Diamond Paxel");
+        addItem(ModItems.GOLD_PAXEL, "Gold Paxel");
+        addItem(ModItems.IRON_PAXEL, "Iron Paxel");
+        addItem(ModItems.STONE_PAXEL, "Stone Paxel");
+        addItem(ModItems.WOODEN_PAXEL, "Wooden Paxel");
+        addItem(ModItems.NETHERITE_PAXEL, "Netherite Paxel");
+        addItem(ModItems.LAPIS_LAZULI_PAXEL, "Lapis Lazuli Paxel");
+        addItem(ModItems.REDSTONE_PAXEL, "Redstone Paxel");
 
         // ** CUSTOM Horse armor **
         // BISMUTH

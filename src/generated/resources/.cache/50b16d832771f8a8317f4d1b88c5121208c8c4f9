@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-01T10:37:36.0551321	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-09-01T16:42:19.2687585	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 d3e0307570b786aa4733b133a1bc9d5453079334 data/mccoursemod/tags/block/bismuth_blocks.json
@@ -7,6 +7,10 @@ fb04ce601bdbe167eef745f4fb188a2bb2d4ca6a data/mccoursemod/tags/block/block_fly_b
 8e6cce5eed1236b9e18574f335fa54a449c6458b data/mccoursemod/tags/block/ender_pearl_blocks.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_alexandrite_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_bismuth_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_copper_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_lapis_lazuli_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_pink_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_redstone_tool.json
 f4f952d6af206987759c5ac1ba1cbfb8ef9f9544 data/mccoursemod/tags/block/mccourse_mod_ores.json
 49f663589d2830dcc6487229a16a525f65234b44 data/mccoursemod/tags/block/mccourse_mod_oxidizable_blocks.json
 466b621472b729d2dbcd2872b39f03117f28ef8b data/mccoursemod/tags/block/metal_detector_colors.json
@@ -22,6 +26,10 @@ a3b034ba6dfc318ff77dbd2fedd47a18e2872e02 data/mccoursemod/tags/block/more_ores_f
 76e1074a2f2f826c8f45cc1ab2a7d876f28710d8 data/mccoursemod/tags/block/more_ores_two_drops.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_alexandrite_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_bismuth_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_copper_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_lapis_lazuli_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_pink_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_redstone_tool.json
 774205992e78cc4b0cce335e5a396e3a2426ecab data/mccoursemod/tags/block/walnut_logs.json
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/block/bee_attractive.json
 46172a7dfe90d415693950b0619498a485358fdc data/minecraft/tags/block/buttons.json

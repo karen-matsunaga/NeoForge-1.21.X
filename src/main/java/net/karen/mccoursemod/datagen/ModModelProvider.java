@@ -259,6 +259,8 @@ public class ModModelProvider extends ModelProvider {
         // ALEXANDRITE
         itemModels.generateFlatItem(ModItems.ALEXANDRITE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_ALEXANDRITE.get(), ModelTemplates.FLAT_ITEM);
+        // PINK
+        itemModels.generateFlatItem(ModItems.PINK.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM ADVANCED ITEMS **
         itemModels.generateFlatItem(ModItems.AUTO_SMELT.get(), ModelTemplates.FLAT_ITEM);
@@ -301,6 +303,18 @@ public class ModModelProvider extends ModelProvider {
         createBowTexture(itemModels, ModItems.KAUPEN_BOW.get());
         // ALEXANDRITE
         createBowTexture(itemModels, ModItems.ALEXANDRITE_BOW.get());
+
+        // ** CUSTOM paxel **
+        itemModels.generateFlatItem(ModItems.PINK_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.COPPER_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.DIAMOND_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.GOLD_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.IRON_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.STONE_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.WOODEN_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.NETHERITE_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.LAPIS_LAZULI_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.REDSTONE_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
         // ** CUSTOM Horse Armor **
         // BISMUTH

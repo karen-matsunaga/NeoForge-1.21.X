@@ -64,6 +64,18 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         // ALEXANDRITE as Diamond tier
         tag(ModTags.Blocks.NEEDS_ALEXANDRITE_TOOL);
         tag(ModTags.Blocks.INCORRECT_FOR_ALEXANDRITE_TOOL);
+        // PINK
+        tag(ModTags.Blocks.NEEDS_PINK_TOOL);
+        tag(ModTags.Blocks.INCORRECT_FOR_PINK_TOOL);
+        // COPPER
+        tag(ModTags.Blocks.NEEDS_COPPER_TOOL);
+        tag(ModTags.Blocks.INCORRECT_FOR_COPPER_TOOL);
+        // LAPIS LAZULI
+        tag(ModTags.Blocks.NEEDS_LAPIS_LAZULI_TOOL);
+        tag(ModTags.Blocks.INCORRECT_FOR_LAPIS_LAZULI_TOOL);
+        // REDSTONE
+        tag(ModTags.Blocks.NEEDS_REDSTONE_TOOL);
+        tag(ModTags.Blocks.INCORRECT_FOR_REDSTONE_TOOL);
 
         // ** CUSTOM enchantments **
         // Auto Smelt enchantment effect

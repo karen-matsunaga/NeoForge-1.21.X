@@ -16,6 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -57,6 +58,10 @@ public class ModItems {
 
     public static final DeferredItem<Item> RAW_ALEXANDRITE =
            ITEMS.registerItem("raw_alexandrite", Item::new, new Item.Properties());
+
+    // PINK
+    public static final DeferredItem<Item> PINK =
+           ITEMS.registerItem("pink", Item::new, new Item.Properties());
 
     // ** CUSTOM advanced items **
     public static final DeferredItem<Item> CHISEL =
@@ -252,6 +257,47 @@ public class ModItems {
                                                        Optional.of(SoundEvents.SHIELD_BREAK)))
                                     .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)));
 
+    // ** CUSTOM Paxel tools **
+    public static final DeferredItem<Item> PINK_PAXEL =
+           paxelItem("pink_paxel", ModToolMaterials.PINK,
+                     1.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> COPPER_PAXEL =
+           paxelItem("copper_paxel", ModToolMaterials.COPPER,
+                     1.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> DIAMOND_PAXEL =
+           paxelItem("diamond_paxel", ToolMaterial.DIAMOND,
+                     1.0F, 4.5F, ItemTags.DIAMOND_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> GOLD_PAXEL =
+           paxelItem("gold_paxel", ToolMaterial.GOLD,
+                     1.0F, 4.0F, ItemTags.GOLD_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> IRON_PAXEL =
+           paxelItem("iron_paxel", ToolMaterial.IRON, 1.0F,
+                     3.0F, ItemTags.IRON_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> STONE_PAXEL =
+           paxelItem("stone_paxel", ToolMaterial.STONE,
+                     1.0F, 1.5F, ItemTags.STONE_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> WOODEN_PAXEL =
+           paxelItem("wooden_paxel", ToolMaterial.WOOD,
+                     1.0F, 1.0F, ItemTags.WOODEN_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> NETHERITE_PAXEL =
+           paxelItem("netherite_paxel", ToolMaterial.NETHERITE,
+                     1.0F, 5.0F, ItemTags.NETHERITE_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> LAPIS_LAZULI_PAXEL =
+           paxelItem("lapis_lazuli_paxel", ModToolMaterials.LAPIS_LAZULI,
+                     1.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS);
+
+    public static final DeferredItem<Item> REDSTONE_PAXEL =
+           paxelItem("redstone_paxel", ModToolMaterials.REDSTONE,
+                     1.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS);
+
     // ** CUSTOM Smithing Template **
     public static final DeferredItem<Item> KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE =
            ITEMS.registerItem("kaupen_armor_trim_smithing_template",
@@ -390,6 +436,15 @@ public class ModItems {
     public static final DeferredItem<Item> WALNUT_CHEST_BOAT =
            ITEMS.registerItem("walnut_chest_boat",
            (properties) -> new ModBoatItem(ModEntities.MOD_CHEST_BOAT.get(), properties.stacksTo(1)));
+
+
+    // ** CUSTOM METHOD - Paxel tool **
+    public static DeferredItem<Item> paxelItem(String name, ToolMaterial material,
+                                               float attackDamage, float attackSpeed,
+                                               TagKey<Item> repair) {
+        return ITEMS.registerItem(name, (properties) -> new PaxelItem(material, attackDamage, attackSpeed,
+                                                                                properties.fireResistant().repairable(repair)));
+    }
 
     // CUSTOM METHOD - Registry all items on event bus
     public static void register(IEventBus eventBus) {

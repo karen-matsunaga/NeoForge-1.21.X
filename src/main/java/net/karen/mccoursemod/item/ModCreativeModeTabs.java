@@ -31,6 +31,8 @@ public class ModCreativeModeTabs {
                  // ALEXANDRITE
                  output.accept(ModItems.ALEXANDRITE);
                  output.accept(ModItems.RAW_ALEXANDRITE);
+                 // PINK
+                 output.accept(ModItems.PINK);
                  // ** CUSTOM Advanced items **
                  // CUSTOM Special Effect items
                  output.accept(ModItems.AUTO_SMELT);
@@ -74,6 +76,17 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.ALEXANDRITE_CHESTPLATE);
                  output.accept(ModItems.ALEXANDRITE_LEGGINGS);
                  output.accept(ModItems.ALEXANDRITE_BOOTS);
+                 // PAXEL
+                 output.accept(ModItems.PINK_PAXEL);
+                 output.accept(ModItems.COPPER_PAXEL);
+                 output.accept(ModItems.DIAMOND_PAXEL);
+                 output.accept(ModItems.GOLD_PAXEL);
+                 output.accept(ModItems.IRON_PAXEL);
+                 output.accept(ModItems.STONE_PAXEL);
+                 output.accept(ModItems.WOODEN_PAXEL);
+                 output.accept(ModItems.NETHERITE_PAXEL);
+                 output.accept(ModItems.LAPIS_LAZULI_PAXEL);
+                 output.accept(ModItems.REDSTONE_PAXEL);
                  // ** CUSTOM horse armor **
                  // BISMUTH
                  output.accept(ModItems.BISMUTH_HORSE_ARMOR);
