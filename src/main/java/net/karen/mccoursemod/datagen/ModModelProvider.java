@@ -248,6 +248,9 @@ public class ModModelProvider extends ModelProvider {
         flowerTexture(blockModels, ModBlocks.SNAPDRAGON.get(),
                       ModBlocks.POTTED_SNAPDRAGON.get(), BlockModelGenerators.PlantType.NOT_TINTED);
 
+        // ** CUSTOM portal **
+        blockModels.createTrivialCube(ModBlocks.KAUPEN_PORTAL.get());
+
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
         // BISMUTH

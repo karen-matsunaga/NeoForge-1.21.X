@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-31T16:47:13.0613379	Model Definitions - mccoursemod
+// 1.21.8	2025-09-01T10:34:15.811939	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -53,6 +53,7 @@ d8dbf9ee5426d834c61d532fff32bb128bf208e0 assets/mccoursemod/blockstates/goji_ber
 9b92fc34fe1b689e1d69a7e4d1296cdac44e0ae5 assets/mccoursemod/blockstates/green_ender_pearl_block.json
 82d492e2ed177166a162d9797f6366a2ffbbd4d2 assets/mccoursemod/blockstates/growth_chamber.json
 7d74992c626a14be67bff83519aa58c780b0c510 assets/mccoursemod/blockstates/gunpowder_block.json
+025876c8456b05d12a0c770cff47675b1ff3a990 assets/mccoursemod/blockstates/kaupen_portal.json
 b798e3f98a14cb82b5f13c7ee19986f914339bc5 assets/mccoursemod/blockstates/kohlrabi_crop.json
 d217d19b9aeace11d3f098c97893e87d9f250356 assets/mccoursemod/blockstates/lime_green_ender_pearl_block.json
 360dbf4b25605da7df0e7ef5e7b7d49450ffdb0c assets/mccoursemod/blockstates/magenta_ender_pearl_block.json
@@ -195,6 +196,7 @@ e71d88faaee34c31d7df7ae2a4b85fd6f301eec3 assets/mccoursemod/items/green_ender_pe
 24a29a37c47fd82af627a55d3edb85f756a67b65 assets/mccoursemod/items/gunpowder_block.json
 24903ede3671a35b74fdec66f35dc9eec5eebb64 assets/mccoursemod/items/kaupen_armor_trim_smithing_template.json
 1017fda44dab724e54ad236adf749d3ee1d1f97c assets/mccoursemod/items/kaupen_bow.json
+4c839b49b09046a7788298923e2574bdaeb8f337 assets/mccoursemod/items/kaupen_portal.json
 77712be9d4754f5fbc03a16fba3fdb8110adf1a8 assets/mccoursemod/items/kohlrabi.json
 98d209ceb38ae46ae73ebf48f622087c3f6c5112 assets/mccoursemod/items/kohlrabi_seeds.json
 eab7f2c5f04d122f1b4b8a99efd397286953c77f assets/mccoursemod/items/level_charger_generic_minus.json
@@ -376,6 +378,7 @@ d8d3fa05285e9954c3bc2725d5f5b0af24a9108a assets/mccoursemod/models/block/gray_en
 00e05ac7540514f25ab72d142269f5bbe29e62c9 assets/mccoursemod/models/block/green_ender_pearl_block.json
 fde30d0d4c47eeba4ea51e17e009ec3f25e5361e assets/mccoursemod/models/block/growth_chamber.json
 a2075a7f15fab1d42b7846a989ef2c7fc60e3607 assets/mccoursemod/models/block/gunpowder_block.json
+c408c3c7d215ce5fae53b88571bb23d3b9086010 assets/mccoursemod/models/block/kaupen_portal.json
 acab9d8a24f3e206b134f3478d044c15216e02d1 assets/mccoursemod/models/block/kohlrabi_crop_stage0.json
 fb0f3c2d0baee96e8a45c48591d1722da112ac8a assets/mccoursemod/models/block/kohlrabi_crop_stage1.json
 47355a88ddeea1484109177dbca7fed0aa562f0c assets/mccoursemod/models/block/kohlrabi_crop_stage2.json

@@ -255,6 +255,8 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.POTTED_SNAPDRAGON);
                  // ** CUSTOM colored blocks **
                  output.accept(ModBlocks.COLORED_LEAVES);
+                 // ** CUSTOM portal **
+                 output.accept(ModBlocks.KAUPEN_PORTAL);
            }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus
