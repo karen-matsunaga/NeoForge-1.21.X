@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "has_alexandrite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccoursemod:alexandrite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "mccoursemod:textures/block/alexandrite_ore.png",
+    "description": "The Power lies in the Alexandrite!",
+    "icon": {
+      "count": 1,
+      "id": "mccoursemod:alexandrite"
+    },
+    "title": "Alexandrite"
+  },
+  "requirements": [
+    [
+      "has_alexandrite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

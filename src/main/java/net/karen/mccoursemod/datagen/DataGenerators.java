@@ -66,6 +66,8 @@ public class DataGenerators {
         generator.addProvider(true, new ModParticleDescriptionProvider(packOutput));
         // Atlas Provider
         generator.addProvider(true, new ModAtlasProvider(packOutput));
+        // Advancement Provider
+        generator.addProvider(true, new ModAdvancementProvider(packOutput, lookupProvider));
     }
 
     // ** SERVER DATA **
@@ -119,5 +121,7 @@ public class DataGenerators {
         generator.addProvider(true, new ModParticleDescriptionProvider(packOutput));
         // Atlas Provider
         generator.addProvider(true, new ModAtlasProvider(packOutput));
+        // Advancement Provider
+        generator.addProvider(true, new ModAdvancementProvider(packOutput, lookupProvider));
     }
 }

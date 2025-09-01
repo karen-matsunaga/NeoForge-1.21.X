@@ -1,0 +1,29 @@
+{
+  "parent": "mccoursemod:alexandrite",
+  "criteria": {
+    "has_metal_detector": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccoursemod:metal_detector"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Batteries not included! (Actually doesn't need batteries)",
+    "icon": {
+      "count": 1,
+      "id": "mccoursemod:metal_detector"
+    },
+    "title": "Metal Detector"
+  },
+  "requirements": [
+    [
+      "has_metal_detector"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
