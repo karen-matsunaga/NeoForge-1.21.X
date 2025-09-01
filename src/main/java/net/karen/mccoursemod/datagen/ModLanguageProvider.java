@@ -99,6 +99,18 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LAPIS_LAZULI_HAMMER, "Lapis Lazuli Hammer");
         addItem(ModItems.REDSTONE_HAMMER, "Redstone Hammer");
 
+        // ** CUSTOM Hammer **
+        addItem(ModItems.PINK_SHOVEL, "Pink Shovel");
+        addItem(ModItems.COPPER_SHOVEL, "Copper Shovel");
+        addItem(ModItems.DIAMOND_SHOVEL, "Diamond Shovel");
+        addItem(ModItems.GOLD_SHOVEL, "Gold Shovel");
+        addItem(ModItems.IRON_SHOVEL, "Iron Shovel");
+        addItem(ModItems.STONE_SHOVEL, "Stone Shovel");
+        addItem(ModItems.WOODEN_SHOVEL, "Wooden Shovel");
+        addItem(ModItems.NETHERITE_SHOVEL, "Netherite Shovel");
+        addItem(ModItems.LAPIS_LAZULI_SHOVEL, "Lapis Lazuli Shovel");
+        addItem(ModItems.REDSTONE_SHOVEL, "Redstone Shovel");
+
         // ** CUSTOM Horse armor **
         // BISMUTH
         addItem(ModItems.BISMUTH_HORSE_ARMOR, "Bismuth Horse Armor");
@@ -285,6 +297,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.snapdragon", "Snapdragon");
         add("item.mccoursemod.potted_snapdragon", "Snapdragon Potted");
         add("item.mccoursemod.kaupen_portal", "Kaupen Portal");
+        add("item.mccoursemod.pink_block", "Pink Block");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -301,6 +314,8 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE, "Alexandrite Deepslate Ore");
         addBlock(ModBlocks.END_STONE_ALEXANDRITE_ORE, "Alexandrite End Ore");
         addBlock(ModBlocks.NETHER_ALEXANDRITE_ORE, "Alexandrite Nether Ore");
+        // PINK
+        addBlock(ModBlocks.PINK_BLOCK, "Pink Block");
 
         // ** CUSTOM Advanced blocks **
         addBlock(ModBlocks.ENCHANT, "§2Enchant Block");

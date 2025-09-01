@@ -98,6 +98,17 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.NETHERITE_HAMMER);
                  output.accept(ModItems.LAPIS_LAZULI_HAMMER);
                  output.accept(ModItems.REDSTONE_HAMMER);
+                 // SHOVEL
+                 output.accept(ModItems.PINK_SHOVEL);
+                 output.accept(ModItems.COPPER_SHOVEL);
+                 output.accept(ModItems.DIAMOND_SHOVEL);
+                 output.accept(ModItems.GOLD_SHOVEL);
+                 output.accept(ModItems.IRON_SHOVEL);
+                 output.accept(ModItems.STONE_SHOVEL);
+                 output.accept(ModItems.WOODEN_SHOVEL);
+                 output.accept(ModItems.NETHERITE_SHOVEL);
+                 output.accept(ModItems.LAPIS_LAZULI_SHOVEL);
+                 output.accept(ModItems.REDSTONE_SHOVEL);
                  // ** CUSTOM horse armor **
                  // BISMUTH
                  output.accept(ModItems.BISMUTH_HORSE_ARMOR);

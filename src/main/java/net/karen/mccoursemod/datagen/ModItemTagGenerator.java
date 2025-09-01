@@ -22,7 +22,7 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         // CUSTOM Items
-        tag(ItemTags.BEACON_PAYMENT_ITEMS).add(ModItems.BISMUTH.get(), ModItems.ALEXANDRITE.get());
+        tag(ItemTags.BEACON_PAYMENT_ITEMS).add(ModItems.BISMUTH.get(), ModItems.ALEXANDRITE.get(), ModItems.PINK.get());
 
         // ** CUSTOM Tools **
         // BISMUTH
@@ -41,15 +41,49 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         tag(ItemTags.AXES).add(ModItems.BISMUTH_AXE.get(), ModItems.ALEXANDRITE_AXE.get());
 
         // CUSTOM Pickaxe
-        tag(ItemTags.PICKAXES).add(ModItems.BISMUTH_PICKAXE.get(), ModItems.BISMUTH_HAMMER.get(),
-                                   ModItems.BISMUTH_PAXEL.get(), ModItems.ALEXANDRITE_PICKAXE.get(),
-                                   ModItems.ALEXANDRITE_HAMMER.get(), ModItems.ALEXANDRITE_PAXEL.get());
+        tag(ItemTags.PICKAXES).add(ModItems.BISMUTH_PICKAXE.get(),
+                                   ModItems.ALEXANDRITE_PICKAXE.get(),
+                                   ModItems.BISMUTH_HAMMER.get(),
+                                   ModItems.ALEXANDRITE_HAMMER.get(),
+                                   ModItems.PINK_HAMMER.get(),
+                                   ModItems.COPPER_HAMMER.get(),
+                                   ModItems.DIAMOND_HAMMER.get(),
+                                   ModItems.GOLD_HAMMER.get(),
+                                   ModItems.IRON_HAMMER.get(),
+                                   ModItems.STONE_HAMMER.get(),
+                                   ModItems.WOODEN_HAMMER.get(),
+                                   ModItems.NETHERITE_HAMMER.get(),
+                                   ModItems.LAPIS_LAZULI_HAMMER.get(),
+                                   ModItems.REDSTONE_HAMMER.get(),
+                                   ModItems.BISMUTH_PAXEL.get(),
+                                   ModItems.ALEXANDRITE_PAXEL.get(),
+                                   ModItems.PINK_PAXEL.get(),
+                                   ModItems.COPPER_PAXEL.get(),
+                                   ModItems.DIAMOND_PAXEL.get(),
+                                   ModItems.GOLD_PAXEL.get(),
+                                   ModItems.IRON_PAXEL.get(),
+                                   ModItems.STONE_PAXEL.get(),
+                                   ModItems.WOODEN_PAXEL.get(),
+                                   ModItems.NETHERITE_PAXEL.get(),
+                                   ModItems.LAPIS_LAZULI_PAXEL.get(),
+                                   ModItems.REDSTONE_PAXEL.get());
 
         // CUSTOM Sword
         tag(ItemTags.SWORDS).add(ModItems.BISMUTH_SWORD.get(), ModItems.ALEXANDRITE_SWORD.get());
 
         // CUSTOM Shovel
-        tag(ItemTags.SHOVELS).add(ModItems.BISMUTH_SHOVEL.get(), ModItems.ALEXANDRITE_SHOVEL.get());
+        tag(ItemTags.SHOVELS).add(ModItems.BISMUTH_SHOVEL.get(),
+                                  ModItems.ALEXANDRITE_SHOVEL.get(),
+                                  ModItems.PINK_SHOVEL.get(),
+                                  ModItems.COPPER_SHOVEL.get(),
+                                  ModItems.DIAMOND_SHOVEL.get(),
+                                  ModItems.GOLD_SHOVEL.get(),
+                                  ModItems.IRON_SHOVEL.get(),
+                                  ModItems.STONE_SHOVEL.get(),
+                                  ModItems.WOODEN_SHOVEL.get(),
+                                  ModItems.NETHERITE_SHOVEL.get(),
+                                  ModItems.LAPIS_LAZULI_SHOVEL.get(),
+                                  ModItems.REDSTONE_SHOVEL.get());
 
         // CUSTOM Hoe
         tag(ItemTags.HOES).add(ModItems.BISMUTH_HOE.get(), ModItems.ALEXANDRITE_HOE.get());

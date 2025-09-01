@@ -1,10 +1,30 @@
 {
   "values": [
     "mccoursemod:bismuth_pickaxe",
-    "mccoursemod:bismuth_hammer",
-    "mccoursemod:bismuth_paxel",
     "mccoursemod:alexandrite_pickaxe",
+    "mccoursemod:bismuth_hammer",
     "mccoursemod:alexandrite_hammer",
-    "mccoursemod:alexandrite_paxel"
+    "mccoursemod:pink_hammer",
+    "mccoursemod:copper_hammer",
+    "mccoursemod:diamond_hammer",
+    "mccoursemod:gold_hammer",
+    "mccoursemod:iron_hammer",
+    "mccoursemod:stone_hammer",
+    "mccoursemod:wooden_hammer",
+    "mccoursemod:netherite_hammer",
+    "mccoursemod:lapis_lazuli_hammer",
+    "mccoursemod:redstone_hammer",
+    "mccoursemod:bismuth_paxel",
+    "mccoursemod:alexandrite_paxel",
+    "mccoursemod:pink_paxel",
+    "mccoursemod:copper_paxel",
+    "mccoursemod:diamond_paxel",
+    "mccoursemod:gold_paxel",
+    "mccoursemod:iron_paxel",
+    "mccoursemod:stone_paxel",
+    "mccoursemod:wooden_paxel",
+    "mccoursemod:netherite_paxel",
+    "mccoursemod:lapis_lazuli_paxel",
+    "mccoursemod:redstone_paxel"
   ]
 }
