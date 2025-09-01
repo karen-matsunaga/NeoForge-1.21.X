@@ -1,4 +1,6 @@
-// 1.21.8	2025-08-31T15:18:39.7141393	Registries
+// 1.21.8	2025-08-31T18:37:28.2655985	Registries
+d0783167635e02534117f8b26fc4c57c1563ec96 data/mccoursemod/dimension/kaupendim.json
+25eb87059b46f295c3575650d08271fb73ba8830 data/mccoursemod/dimension_type/kaupendim_type.json
 778a53eddc0e88e780920dd383acc5db2b6fb18b data/mccoursemod/enchantment/auto_smelt.json
 68c8972713bd2f8573bdb6a5243b656083670f9a data/mccoursemod/enchantment/block_fly.json
 cbd0b27b43670f6e9f36c7202c532b56233a27c6 data/mccoursemod/enchantment/glowing_mobs.json
