@@ -74,6 +74,26 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.ALEXANDRITE_CHESTPLATE, "Alexandrite Chestplate");
         addItem(ModItems.ALEXANDRITE_LEGGINGS, "Alexandrite Leggings");
         addItem(ModItems.ALEXANDRITE_BOOTS, "Alexandrite Boots");
+        // PINK
+        addItem(ModItems.PINK_HELMET, "Pink Helmet");
+        addItem(ModItems.PINK_CHESTPLATE, "Pink Chestplate");
+        addItem(ModItems.PINK_LEGGINGS, "Pink Leggings");
+        addItem(ModItems.PINK_BOOTS, "Pink Boots");
+        // COPPER
+        addItem(ModItems.COPPER_HELMET, "Copper Helmet");
+        addItem(ModItems.COPPER_CHESTPLATE, "Copper Chestplate");
+        addItem(ModItems.COPPER_LEGGINGS, "Copper Leggings");
+        addItem(ModItems.COPPER_BOOTS, "Copper Boots");
+        // LAPIS LAZULI
+        addItem(ModItems.LAPIS_LAZULI_HELMET, "Lapis Lazuli Helmet");
+        addItem(ModItems.LAPIS_LAZULI_CHESTPLATE, "Lapis Lazuli Chestplate");
+        addItem(ModItems.LAPIS_LAZULI_LEGGINGS, "Lapis Lazuli Leggings");
+        addItem(ModItems.LAPIS_LAZULI_BOOTS, "Lapis Lazuli Boots");
+        // REDSTONE
+        addItem(ModItems.REDSTONE_HELMET, "Redstone Helmet");
+        addItem(ModItems.REDSTONE_CHESTPLATE, "Redstone Chestplate");
+        addItem(ModItems.REDSTONE_LEGGINGS, "Redstone Leggings");
+        addItem(ModItems.REDSTONE_BOOTS, "Redstone Boots");
 
         // ** CUSTOM Paxel **
         addItem(ModItems.PINK_PAXEL, "Pink Paxel");
@@ -138,9 +158,12 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM SMITHING TEMPLATE **
         addItem(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE, "Kaupen Armor Trim Smithing Template");
 
-        // ** CUSTOM TRIM MATERIAL + TRIM PATTERN **
+        // ** CUSTOM TRIM MATERIAL **
         add("trim_material.mccoursemod.bismuth", "Bismuth Material");
         add("trim_material.mccoursemod.alexandrite", "Alexandrite Material");
+        add("trim_material.mccoursemod.pink", "Pink Material");
+
+        // ** CUSTOM TRIM PATTERN **
         add("trim_pattern.mccoursemod.kaupen", "Kaupen Armor Trim");
 
         // ** CUSTOM Painting Variant **

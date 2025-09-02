@@ -114,6 +114,10 @@ public class ModTags {
         // ARMOR MATERIALS items - ARMORS
         public static final TagKey<Item> BISMUTH_ARMOR = createTag("bismuth_armor");
         public static final TagKey<Item> ALEXANDRITE_ARMOR = createTag("alexandrite_armor");
+        public static final TagKey<Item> PINK_ARMOR = createTag("pink_armor");
+        public static final TagKey<Item> COPPER_ARMOR = createTag("copper_armor");
+        public static final TagKey<Item> LAPIS_LAZULI_ARMOR = createTag("lapis_lazuli_armor");
+        public static final TagKey<Item> REDSTONE_ARMOR = createTag("redstone_armor");
 
         // TOOL MATERIALS items - REPAIR TOOL ingredients
         public static final TagKey<Item> BISMUTH_TOOL_MATERIALS = createTag("bismuth_tool_materials");
@@ -128,6 +132,11 @@ public class ModTags {
         // ARMOR MATERIALS items - REPAIR ARMOR ingredients
         public static final TagKey<Item> REPAIRS_BISMUTH_ARMOR = createTag("repairs_bismuth_armor");
         public static final TagKey<Item> REPAIRS_ALEXANDRITE_ARMOR = createTag("repairs_alexandrite_armor");
+        public static final TagKey<Item> REPAIRS_PINK_ARMOR = createTag("repairs_pink_armor");
+        public static final TagKey<Item> REPAIRS_COPPER_ARMOR = createTag("repairs_copper_armor");
+        public static final TagKey<Item> REPAIRS_LAPIS_LAZULI_ARMOR =
+               createTag("repairs_lapis_lazuli_armor");
+        public static final TagKey<Item> REPAIRS_REDSTONE_ARMOR = createTag("repairs_redstone_armor");
 
         // Data Component tags
         public static final TagKey<Item> SPECIAL_EFFECT_ITEMS = createTag("special_effect_items");

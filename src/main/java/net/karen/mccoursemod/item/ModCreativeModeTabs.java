@@ -76,6 +76,26 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.ALEXANDRITE_CHESTPLATE);
                  output.accept(ModItems.ALEXANDRITE_LEGGINGS);
                  output.accept(ModItems.ALEXANDRITE_BOOTS);
+                 // PINK
+                 output.accept(ModItems.PINK_HELMET);
+                 output.accept(ModItems.PINK_CHESTPLATE);
+                 output.accept(ModItems.PINK_LEGGINGS);
+                 output.accept(ModItems.PINK_BOOTS);
+                 // COPPER
+                 output.accept(ModItems.COPPER_HELMET);
+                 output.accept(ModItems.COPPER_CHESTPLATE);
+                 output.accept(ModItems.COPPER_LEGGINGS);
+                 output.accept(ModItems.COPPER_BOOTS);
+                 // LAPIS LAZULI
+                 output.accept(ModItems.LAPIS_LAZULI_HELMET);
+                 output.accept(ModItems.LAPIS_LAZULI_CHESTPLATE);
+                 output.accept(ModItems.LAPIS_LAZULI_LEGGINGS);
+                 output.accept(ModItems.LAPIS_LAZULI_BOOTS);
+                 // REDSTONE
+                 output.accept(ModItems.REDSTONE_HELMET);
+                 output.accept(ModItems.REDSTONE_CHESTPLATE);
+                 output.accept(ModItems.REDSTONE_LEGGINGS);
+                 output.accept(ModItems.REDSTONE_BOOTS);
                  // PAXEL
                  output.accept(ModItems.PINK_PAXEL);
                  output.accept(ModItems.COPPER_PAXEL);

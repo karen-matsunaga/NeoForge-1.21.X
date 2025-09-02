@@ -92,6 +92,13 @@
           "model": "minecraft:item/leather_chestplate_alexandrite_trim"
         },
         "when": "mccoursemod:alexandrite"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/leather_chestplate_pink_trim"
+        },
+        "when": "mccoursemod:pink"
       }
     ],
     "fallback": {

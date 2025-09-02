@@ -28,6 +28,7 @@ import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.neoforged.bus.api.IEventBus;
@@ -61,7 +62,7 @@ public class ModItems {
 
     // PINK
     public static final DeferredItem<Item> PINK =
-           ITEMS.registerItem("pink", Item::new, new Item.Properties());
+           ITEMS.registerItem("pink", Item::new, new Item.Properties().trimMaterial(ModTrimMaterials.PINK));
 
     // ** CUSTOM advanced items **
     public static final DeferredItem<Item> CHISEL =
@@ -231,6 +232,58 @@ public class ModItems {
     public static final DeferredItem<Item> ALEXANDRITE_BOOTS = ITEMS.registerItem("alexandrite_boots",
            (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL,
                                                                                ArmorType.BOOTS)));
+
+    // PINK
+    public static final DeferredItem<Item> PINK_HELMET =
+           helmetArmor("pink_helmet", ModArmorMaterials.PINK_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> PINK_CHESTPLATE =
+           chestplateArmor("pink_chestplate", ModArmorMaterials.PINK_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> PINK_LEGGINGS =
+           leggingsArmor("pink_leggings", ModArmorMaterials.PINK_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> PINK_BOOTS =
+           bootsArmor("pink_boots", ModArmorMaterials.PINK_ARMOR_MATERIAL);
+
+    // COPPER
+    public static final DeferredItem<Item> COPPER_HELMET =
+           helmetArmor("copper_helmet", ModArmorMaterials.COPPER_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> COPPER_CHESTPLATE =
+           chestplateArmor("copper_chestplate", ModArmorMaterials.COPPER_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> COPPER_LEGGINGS =
+           leggingsArmor("copper_leggings", ModArmorMaterials.COPPER_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> COPPER_BOOTS =
+           bootsArmor("copper_boots", ModArmorMaterials.COPPER_ARMOR_MATERIAL);
+
+    // LAPIS LAZULI
+    public static final DeferredItem<Item> LAPIS_LAZULI_HELMET =
+           helmetArmor("lapis_lazuli_helmet", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> LAPIS_LAZULI_CHESTPLATE =
+           chestplateArmor("lapis_lazuli_chestplate", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> LAPIS_LAZULI_LEGGINGS =
+           leggingsArmor("lapis_lazuli_leggings", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> LAPIS_LAZULI_BOOTS =
+           bootsArmor("lapis_lazuli_boots", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL);
+
+    // REDSTONE
+    public static final DeferredItem<Item> REDSTONE_HELMET =
+           helmetArmor("redstone_helmet", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> REDSTONE_CHESTPLATE =
+           chestplateArmor("redstone_chestplate", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> REDSTONE_LEGGINGS =
+           leggingsArmor("redstone_leggings", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL);
+
+    public static final DeferredItem<Item> REDSTONE_BOOTS =
+           bootsArmor("redstone_boots", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL);
 
     public static final DeferredItem<Item> ALEXANDRITE_BOW = ITEMS.registerItem("alexandrite_bow",
            (properties) -> new BowItem(properties.durability(2304)
@@ -614,10 +667,38 @@ public class ModItems {
 
     // ** CUSTOM METHOD - Sword tool **
     public static DeferredItem<Item> swordItem(String name, ToolMaterial material,
-                                                 float attackDamage, float attackSpeed,
-                                                 TagKey<Item> repair) {
+                                               float attackDamage, float attackSpeed,
+                                               TagKey<Item> repair) {
         return ITEMS.registerItem(name, (properties) ->
                new Item(properties.sword(material, attackDamage, attackSpeed).fireResistant().repairable(repair)));
+    }
+
+    // ** CUSTOM METHOD - Helmet armor **
+    public static DeferredItem<Item> helmetArmor(String name,
+                                                 ArmorMaterial material) {
+        return ITEMS.registerItem(name, (properties) -> new ModArmorItem(properties.humanoidArmor(material,
+                                                                                   ArmorType.HELMET).fireResistant()));
+    }
+
+    // ** CUSTOM METHOD - Chestplate armor **
+    public static DeferredItem<Item> chestplateArmor(String name,
+                                                     ArmorMaterial material) {
+        return ITEMS.registerItem(name, (properties) -> new ModArmorItem(properties.humanoidArmor(material,
+                                                                                   ArmorType.CHESTPLATE).fireResistant()));
+    }
+
+    // ** CUSTOM METHOD - Leggings armor **
+    public static DeferredItem<Item> leggingsArmor(String name,
+                                                   ArmorMaterial material) {
+        return ITEMS.registerItem(name, (properties) -> new ModArmorItem(properties.humanoidArmor(material,
+                                                                                   ArmorType.LEGGINGS).fireResistant()));
+    }
+
+    // ** CUSTOM METHOD - Boots armor **
+    public static DeferredItem<Item> bootsArmor(String name,
+                                                ArmorMaterial material) {
+        return ITEMS.registerItem(name, (properties) -> new ModArmorItem(properties.humanoidArmor(material,
+                                                                                   ArmorType.BOOTS).fireResistant()));
     }
 
     // CUSTOM METHOD - Registry all items on event bus

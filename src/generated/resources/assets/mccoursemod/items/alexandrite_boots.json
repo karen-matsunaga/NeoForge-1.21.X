@@ -92,6 +92,13 @@
           "model": "mccoursemod:item/alexandrite_boots_alexandrite_trim"
         },
         "when": "mccoursemod:alexandrite"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "mccoursemod:item/alexandrite_boots_pink_trim"
+        },
+        "when": "mccoursemod:pink"
       }
     ],
     "fallback": {

@@ -36,7 +36,8 @@ public class ModAtlasProvider extends AtlasProvider {
     private static final ResourceLocation TRIM_PALETTE_KEY =
             ResourceLocation.withDefaultNamespace("trims/color_palettes/trim_palette");
 
-    private static final List<String> items = List.of("alexandrite", "bismuth");
+    private static final List<String> items = List.of("alexandrite", "bismuth",
+                                                      "pink");
 
     private static final Map<String, ResourceLocation> TRIM_PALETTE_VALUES =
            extractAllMaterialAssets().collect(Collectors.toMap(MaterialAssetGroup.AssetInfo::suffix,

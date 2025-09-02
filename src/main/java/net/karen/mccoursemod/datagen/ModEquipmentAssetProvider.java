@@ -27,6 +27,10 @@ public class ModEquipmentAssetProvider extends EquipmentAssetProvider {
     // List of EQUIPMENT ASSET
     public static final ResourceKey<EquipmentAsset> BISMUTH = createId("bismuth");
     public static final ResourceKey<EquipmentAsset> ALEXANDRITE = createId("alexandrite");
+    public static final ResourceKey<EquipmentAsset> PINK = createId("pink");
+    public static final ResourceKey<EquipmentAsset> COPPER = createId("copper");
+    public static final ResourceKey<EquipmentAsset> LAPIS_LAZULI = createId("lapis_lazuli");
+    public static final ResourceKey<EquipmentAsset> REDSTONE = createId("redstone");
 
     // CUSTOM METHOD - Register all custom equipment assets -> Resource Key
     private static ResourceKey<EquipmentAsset> createId(String name) {
@@ -39,6 +43,10 @@ public class ModEquipmentAssetProvider extends EquipmentAssetProvider {
                                  EquipmentClientInfo> consumer) {
         registerAssetWithLayers(consumer, BISMUTH, "bismuth");
         registerAssetWithLayers(consumer, ALEXANDRITE, "alexandrite");
+        registerAssetWithLayers(consumer, PINK, "pink");
+        registerAssetWithLayers(consumer, COPPER, "copper");
+        registerAssetWithLayers(consumer, LAPIS_LAZULI, "lapis_lazuli");
+        registerAssetWithLayers(consumer, REDSTONE, "redstone");
     }
 
     // CUSTOM METHOD - Register all custom Horse EQUIPMENT ASSETS

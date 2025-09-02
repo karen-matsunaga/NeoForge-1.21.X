@@ -92,6 +92,13 @@
           "model": "minecraft:item/chainmail_leggings_alexandrite_trim"
         },
         "when": "mccoursemod:alexandrite"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/chainmail_leggings_pink_trim"
+        },
+        "when": "mccoursemod:pink"
       }
     ],
     "fallback": {

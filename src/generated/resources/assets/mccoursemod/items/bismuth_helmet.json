@@ -92,6 +92,13 @@
           "model": "mccoursemod:item/bismuth_helmet_alexandrite_trim"
         },
         "when": "mccoursemod:alexandrite"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "mccoursemod:item/bismuth_helmet_pink_trim"
+        },
+        "when": "mccoursemod:pink"
       }
     ],
     "fallback": {

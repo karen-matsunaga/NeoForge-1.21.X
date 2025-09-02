@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-01T21:54:36.6246401	Registries
+// 1.21.8	2025-09-02T09:58:27.5030245	Registries
 d0783167635e02534117f8b26fc4c57c1563ec96 data/mccoursemod/dimension/kaupendim.json
 25eb87059b46f295c3575650d08271fb73ba8830 data/mccoursemod/dimension_type/kaupendim_type.json
 778a53eddc0e88e780920dd383acc5db2b6fb18b data/mccoursemod/enchantment/auto_smelt.json
@@ -34,6 +34,7 @@ dc7ea963e15326ef54d857e78fc648987447a66b data/mccoursemod/neoforge/biome_modifie
 d1fb24e076d65d44d4a322fee1a56413ebdd3f36 data/mccoursemod/painting_variant/world.json
 014010fb8d8fdaeaadd30c7daa13970366da44a0 data/mccoursemod/trim_material/alexandrite.json
 bf8cb1ebb6c0da25ab66ad9f31a52448df725dcb data/mccoursemod/trim_material/bismuth.json
+98fafefc16b1c9ac35e17f7bcd88cf4d93bef81b data/mccoursemod/trim_material/pink.json
 9c4d4bd2070ea5fff3cadfe2f02ecbaf345aad59 data/mccoursemod/trim_pattern/kaupen.json
 530af381942bdb09427e42a98d3939f3d1a3715b data/mccoursemod/worldgen/biome/test_biome.json
 530af381942bdb09427e42a98d3939f3d1a3715b data/mccoursemod/worldgen/biome/test_biome_2.json

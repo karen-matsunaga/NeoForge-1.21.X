@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "mccoursemod:lapis_lazuli"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "mccoursemod:lapis_lazuli"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "mccoursemod:lapis_lazuli"
+      }
+    ]
+  }
+}

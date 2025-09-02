@@ -120,6 +120,22 @@ public class ModRecipeProvider extends RecipeProvider {
                                ModItems.ALEXANDRITE_LEGGINGS.get(), ModItems.ALEXANDRITE_BOOTS.get(),
                                ModItems.ALEXANDRITE.get()));
 
+        this.fullArmor(List.of(ModItems.PINK_HELMET.get(), ModItems.PINK_CHESTPLATE.get(),
+                               ModItems.PINK_LEGGINGS.get(), ModItems.PINK_BOOTS.get(),
+                               ModItems.PINK.get()));
+
+        this.fullArmor(List.of(ModItems.COPPER_HELMET.get(), ModItems.COPPER_CHESTPLATE.get(),
+                               ModItems.COPPER_LEGGINGS.get(), ModItems.COPPER_BOOTS.get(),
+                               Items.COPPER_INGOT));
+
+        this.fullArmor(List.of(ModItems.LAPIS_LAZULI_HELMET.get(), ModItems.LAPIS_LAZULI_CHESTPLATE.get(),
+                               ModItems.LAPIS_LAZULI_LEGGINGS.get(), ModItems.LAPIS_LAZULI_BOOTS.get(),
+                               Items.LAPIS_LAZULI));
+
+        this.fullArmor(List.of(ModItems.REDSTONE_HELMET.get(), ModItems.REDSTONE_CHESTPLATE.get(),
+                               ModItems.REDSTONE_LEGGINGS.get(), ModItems.REDSTONE_BOOTS.get(),
+                               Items.REDSTONE));
+
         // ** CUSTOM Block Families **
         this.blockFamilies(List.of(ModBlocks.BISMUTH_STAIRS.get(), ModBlocks.BISMUTH_SLAB.get(),
                                    ModBlocks.BISMUTH_BUTTON.get(), ModBlocks.BISMUTH_PRESSURE_PLATE.get(),

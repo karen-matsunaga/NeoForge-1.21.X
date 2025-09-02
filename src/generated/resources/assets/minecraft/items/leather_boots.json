@@ -92,6 +92,13 @@
           "model": "minecraft:item/leather_boots_alexandrite_trim"
         },
         "when": "mccoursemod:alexandrite"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/leather_boots_pink_trim"
+        },
+        "when": "mccoursemod:pink"
       }
     ],
     "fallback": {

@@ -27,6 +27,15 @@ public class ModArmorItem extends Item {
             .put(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
                  List.of(new MobEffectInstance(MobEffects.JUMP_BOOST, 200, 1, true, true),
                          new MobEffectInstance(MobEffects.GLOWING, 200, 1, true, true)))
+            .put(ModArmorMaterials.PINK_ARMOR_MATERIAL,
+                 List.of(new MobEffectInstance(MobEffects.SPEED, 200, 1, true, true)))
+            .put(ModArmorMaterials.COPPER_ARMOR_MATERIAL,
+                 List.of(new MobEffectInstance(MobEffects.REGENERATION, 200, 1, true, true)))
+            .put(ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL,
+                 List.of(new MobEffectInstance(MobEffects.SATURATION, 200, 1, true, true)))
+            .put(ModArmorMaterials.REDSTONE_ARMOR_MATERIAL,
+                 List.of(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 1, true, true),
+                         new MobEffectInstance(MobEffects.GLOWING, 200, 1, true, true)))
             .build();
 
     public ModArmorItem(Properties properties) {

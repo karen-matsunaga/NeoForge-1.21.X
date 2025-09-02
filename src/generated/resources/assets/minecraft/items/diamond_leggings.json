@@ -92,6 +92,13 @@
           "model": "minecraft:item/diamond_leggings_alexandrite_trim"
         },
         "when": "mccoursemod:alexandrite"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/diamond_leggings_pink_trim"
+        },
+        "when": "mccoursemod:pink"
       }
     ],
     "fallback": {

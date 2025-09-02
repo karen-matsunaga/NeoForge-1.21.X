@@ -381,6 +381,26 @@ public class ModModelProvider extends ModelProvider {
                         List.of(ModItems.ALEXANDRITE_HELMET.get(), ModItems.ALEXANDRITE_CHESTPLATE.get(),
                                 ModItems.ALEXANDRITE_LEGGINGS.get(), ModItems.ALEXANDRITE_BOOTS.get()));
 
+        // PINK
+        createArmorTrim(itemModels, ModEquipmentAssetProvider.PINK,
+                        List.of(ModItems.PINK_HELMET.get(), ModItems.PINK_CHESTPLATE.get(),
+                                ModItems.PINK_LEGGINGS.get(), ModItems.PINK_BOOTS.get()));
+
+        // COPPER
+        createArmorTrim(itemModels, ModEquipmentAssetProvider.COPPER,
+                        List.of(ModItems.COPPER_HELMET.get(), ModItems.COPPER_CHESTPLATE.get(),
+                                ModItems.COPPER_LEGGINGS.get(), ModItems.COPPER_BOOTS.get()));
+
+        // LAPIS LAZULI
+        createArmorTrim(itemModels, ModEquipmentAssetProvider.LAPIS_LAZULI,
+                        List.of(ModItems.LAPIS_LAZULI_HELMET.get(), ModItems.LAPIS_LAZULI_CHESTPLATE.get(),
+                                ModItems.LAPIS_LAZULI_LEGGINGS.get(), ModItems.LAPIS_LAZULI_BOOTS.get()));
+
+        // REDSTONE
+        createArmorTrim(itemModels, ModEquipmentAssetProvider.REDSTONE,
+                        List.of(ModItems.REDSTONE_HELMET.get(), ModItems.REDSTONE_CHESTPLATE.get(),
+                                ModItems.REDSTONE_LEGGINGS.get(), ModItems.REDSTONE_BOOTS.get()));
+
         // ** VANILLA ARMORS **
         createArmorTrim(itemModels, EquipmentAssets.CHAINMAIL,
                         List.of(Items.CHAINMAIL_HELMET, Items.CHAINMAIL_CHESTPLATE,
@@ -736,8 +756,8 @@ public class ModModelProvider extends ModelProvider {
                    new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.AMETHYST, TrimMaterials.AMETHYST),
                    new ItemModelGenerators.TrimMaterialData(MaterialAssetGroup.RESIN, TrimMaterials.RESIN),
                    new ItemModelGenerators.TrimMaterialData(ModTrimMaterials.BISMUTH_MATERIAL, ModTrimMaterials.BISMUTH),
-                   new ItemModelGenerators.TrimMaterialData(ModTrimMaterials.ALEXANDRITE_MATERIAL, ModTrimMaterials.ALEXANDRITE)
-                  );
+                   new ItemModelGenerators.TrimMaterialData(ModTrimMaterials.ALEXANDRITE_MATERIAL, ModTrimMaterials.ALEXANDRITE),
+                   new ItemModelGenerators.TrimMaterialData(ModTrimMaterials.PINK_MATERIAL, ModTrimMaterials.PINK));
 
     // ARMOR TRIM MATERIAL MODELS
     public static void pieceArmorTrim(ItemModelGenerators itemModels, Item item,

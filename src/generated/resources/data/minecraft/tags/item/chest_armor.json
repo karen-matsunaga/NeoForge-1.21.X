@@ -1,6 +1,10 @@
 {
   "values": [
     "mccoursemod:bismuth_chestplate",
-    "mccoursemod:alexandrite_chestplate"
+    "mccoursemod:alexandrite_chestplate",
+    "mccoursemod:pink_chestplate",
+    "mccoursemod:copper_chestplate",
+    "mccoursemod:lapis_lazuli_chestplate",
+    "mccoursemod:redstone_chestplate"
   ]
 }

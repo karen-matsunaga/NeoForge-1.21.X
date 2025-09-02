@@ -122,6 +122,10 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         // ARMOR MATERIALS
         tag(ModTags.Items.REPAIRS_BISMUTH_ARMOR).add(ModItems.BISMUTH.get());
         tag(ModTags.Items.REPAIRS_ALEXANDRITE_ARMOR).add(ModItems.ALEXANDRITE.get());
+        tag(ModTags.Items.REPAIRS_PINK_ARMOR).add(ModItems.PINK.get());
+        tag(ModTags.Items.REPAIRS_COPPER_ARMOR).add(Items.COPPER_INGOT);
+        tag(ModTags.Items.REPAIRS_LAPIS_LAZULI_ARMOR).add(Items.LAPIS_LAZULI);
+        tag(ModTags.Items.REPAIRS_REDSTONE_ARMOR).add(Items.REDSTONE);
 
         // CUSTOM Armors -> Trimmable armor + Enchanted Armor
         tag(ModTags.Items.BISMUTH_ARMOR).add(ModItems.BISMUTH_HELMET.get(), ModItems.BISMUTH_CHESTPLATE.get(),
@@ -130,20 +134,54 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         tag(ModTags.Items.ALEXANDRITE_ARMOR).add(ModItems.ALEXANDRITE_HELMET.get(), ModItems.ALEXANDRITE_CHESTPLATE.get(),
                                                  ModItems.ALEXANDRITE_LEGGINGS.get(), ModItems.ALEXANDRITE_BOOTS.get());
 
+        tag(ModTags.Items.PINK_ARMOR).add(ModItems.PINK_HELMET.get(), ModItems.PINK_CHESTPLATE.get(),
+                                          ModItems.PINK_LEGGINGS.get(), ModItems.PINK_BOOTS.get());
+
+        tag(ModTags.Items.COPPER_ARMOR).add(ModItems.COPPER_HELMET.get(), ModItems.COPPER_CHESTPLATE.get(),
+                                            ModItems.COPPER_LEGGINGS.get(), ModItems.COPPER_BOOTS.get());
+
+        tag(ModTags.Items.LAPIS_LAZULI_ARMOR).add(ModItems.LAPIS_LAZULI_HELMET.get(), ModItems.LAPIS_LAZULI_CHESTPLATE.get(),
+                                                  ModItems.LAPIS_LAZULI_LEGGINGS.get(), ModItems.LAPIS_LAZULI_BOOTS.get());
+
+        tag(ModTags.Items.REDSTONE_ARMOR).add(ModItems.REDSTONE_HELMET.get(), ModItems.REDSTONE_CHESTPLATE.get(),
+                                              ModItems.REDSTONE_LEGGINGS.get(), ModItems.REDSTONE_BOOTS.get());
+
         // CUSTOM TRIM MATERIALS
-        tag(ItemTags.TRIM_MATERIALS).add(ModItems.BISMUTH.get(), ModItems.ALEXANDRITE.get());
+        tag(ItemTags.TRIM_MATERIALS).add(ModItems.BISMUTH.get(),
+                                         ModItems.ALEXANDRITE.get(),
+                                         ModItems.PINK.get());
 
         // CUSTOM Boots
-        tag(ItemTags.FOOT_ARMOR).add(ModItems.BISMUTH_BOOTS.get(), ModItems.ALEXANDRITE_BOOTS.get());
+        tag(ItemTags.FOOT_ARMOR).add(ModItems.BISMUTH_BOOTS.get(),
+                                     ModItems.ALEXANDRITE_BOOTS.get(),
+                                     ModItems.PINK_BOOTS.get(),
+                                     ModItems.COPPER_BOOTS.get(),
+                                     ModItems.LAPIS_LAZULI_BOOTS.get(),
+                                     ModItems.REDSTONE_BOOTS.get());
 
         // CUSTOM Leggings
-        tag(ItemTags.LEG_ARMOR).add(ModItems.BISMUTH_LEGGINGS.get(), ModItems.ALEXANDRITE_LEGGINGS.get());
+        tag(ItemTags.LEG_ARMOR).add(ModItems.BISMUTH_LEGGINGS.get(),
+                                    ModItems.ALEXANDRITE_LEGGINGS.get(),
+                                    ModItems.PINK_LEGGINGS.get(),
+                                    ModItems.COPPER_LEGGINGS.get(),
+                                    ModItems.LAPIS_LAZULI_LEGGINGS.get(),
+                                    ModItems.REDSTONE_LEGGINGS.get());
 
         // CUSTOM Chestplate
-        tag(ItemTags.CHEST_ARMOR).add(ModItems.BISMUTH_CHESTPLATE.get(), ModItems.ALEXANDRITE_CHESTPLATE.get());
+        tag(ItemTags.CHEST_ARMOR).add(ModItems.BISMUTH_CHESTPLATE.get(),
+                                      ModItems.ALEXANDRITE_CHESTPLATE.get(),
+                                      ModItems.PINK_CHESTPLATE.get(),
+                                      ModItems.COPPER_CHESTPLATE.get(),
+                                      ModItems.LAPIS_LAZULI_CHESTPLATE.get(),
+                                      ModItems.REDSTONE_CHESTPLATE.get());
 
         // CUSTOM Helmet
-        tag(ItemTags.HEAD_ARMOR).add(ModItems.BISMUTH_HELMET.get(), ModItems.ALEXANDRITE_HELMET.get());
+        tag(ItemTags.HEAD_ARMOR).add(ModItems.BISMUTH_HELMET.get(),
+                                     ModItems.ALEXANDRITE_HELMET.get(),
+                                     ModItems.PINK_HELMET.get(),
+                                     ModItems.COPPER_HELMET.get(),
+                                     ModItems.LAPIS_LAZULI_HELMET.get(),
+                                     ModItems.REDSTONE_HELMET.get());
 
         // ** CUSTOM Advanced items **
         // Level Charger item tags

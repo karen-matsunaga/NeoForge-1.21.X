@@ -92,6 +92,13 @@
           "model": "minecraft:item/netherite_boots_alexandrite_trim"
         },
         "when": "mccoursemod:alexandrite"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/netherite_boots_pink_trim"
+        },
+        "when": "mccoursemod:pink"
       }
     ],
     "fallback": {
