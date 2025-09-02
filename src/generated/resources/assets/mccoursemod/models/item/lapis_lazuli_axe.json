@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "mccoursemod:item/wooden_shovel"
+    "layer0": "mccoursemod:item/lapis_lazuli_axe"
   }
 }

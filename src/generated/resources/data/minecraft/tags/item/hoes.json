@@ -1,6 +1,10 @@
 {
   "values": [
     "mccoursemod:bismuth_hoe",
-    "mccoursemod:alexandrite_hoe"
+    "mccoursemod:alexandrite_hoe",
+    "mccoursemod:pink_hoe",
+    "mccoursemod:copper_hoe",
+    "mccoursemod:lapis_lazuli_hoe",
+    "mccoursemod:redstone_hoe"
   ]
 }

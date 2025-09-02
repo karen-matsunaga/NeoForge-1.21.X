@@ -101,14 +101,28 @@ public class ModCreativeModeTabs {
                  // SHOVEL
                  output.accept(ModItems.PINK_SHOVEL);
                  output.accept(ModItems.COPPER_SHOVEL);
-                 output.accept(ModItems.DIAMOND_SHOVEL);
-                 output.accept(ModItems.GOLD_SHOVEL);
-                 output.accept(ModItems.IRON_SHOVEL);
-                 output.accept(ModItems.STONE_SHOVEL);
-                 output.accept(ModItems.WOODEN_SHOVEL);
-                 output.accept(ModItems.NETHERITE_SHOVEL);
                  output.accept(ModItems.LAPIS_LAZULI_SHOVEL);
                  output.accept(ModItems.REDSTONE_SHOVEL);
+                 // AXE
+                 output.accept(ModItems.PINK_AXE);
+                 output.accept(ModItems.COPPER_AXE);
+                 output.accept(ModItems.LAPIS_LAZULI_AXE);
+                 output.accept(ModItems.REDSTONE_AXE);
+                 // HOE
+                 output.accept(ModItems.PINK_HOE);
+                 output.accept(ModItems.COPPER_HOE);
+                 output.accept(ModItems.LAPIS_LAZULI_HOE);
+                 output.accept(ModItems.REDSTONE_HOE);
+                 // PICKAXE
+                 output.accept(ModItems.PINK_PICKAXE);
+                 output.accept(ModItems.COPPER_PICKAXE);
+                 output.accept(ModItems.LAPIS_LAZULI_PICKAXE);
+                 output.accept(ModItems.REDSTONE_PICKAXE);
+                 // SWORD
+                 output.accept(ModItems.PINK_SWORD);
+                 output.accept(ModItems.COPPER_SWORD);
+                 output.accept(ModItems.LAPIS_LAZULI_SWORD);
+                 output.accept(ModItems.REDSTONE_SWORD);
                  // ** CUSTOM horse armor **
                  // BISMUTH
                  output.accept(ModItems.BISMUTH_HORSE_ARMOR);

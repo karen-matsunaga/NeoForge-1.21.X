@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "mccoursemod:item/iron_shovel"
+    "model": "mccoursemod:item/redstone_pickaxe"
   }
 }

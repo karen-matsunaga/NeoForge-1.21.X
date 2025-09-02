@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "mccoursemod:item/diamond_shovel"
+    "layer0": "mccoursemod:item/copper_axe"
   }
 }

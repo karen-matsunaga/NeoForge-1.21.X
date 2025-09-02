@@ -38,11 +38,20 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
                                                  ModItems.ALEXANDRITE_PAXEL.get(), ModItems.ALEXANDRITE_BOW.get());
 
         // CUSTOM Axe
-        tag(ItemTags.AXES).add(ModItems.BISMUTH_AXE.get(), ModItems.ALEXANDRITE_AXE.get());
+        tag(ItemTags.AXES).add(ModItems.BISMUTH_AXE.get(),
+                               ModItems.ALEXANDRITE_AXE.get(),
+                               ModItems.PINK_AXE.get(),
+                               ModItems.COPPER_AXE.get(),
+                               ModItems.LAPIS_LAZULI_AXE.get(),
+                               ModItems.REDSTONE_AXE.get());
 
         // CUSTOM Pickaxe
         tag(ItemTags.PICKAXES).add(ModItems.BISMUTH_PICKAXE.get(),
                                    ModItems.ALEXANDRITE_PICKAXE.get(),
+                                   ModItems.PINK_PICKAXE.get(),
+                                   ModItems.COPPER_PICKAXE.get(),
+                                   ModItems.LAPIS_LAZULI_PICKAXE.get(),
+                                   ModItems.REDSTONE_PICKAXE.get(),
                                    ModItems.BISMUTH_HAMMER.get(),
                                    ModItems.ALEXANDRITE_HAMMER.get(),
                                    ModItems.PINK_HAMMER.get(),
@@ -69,24 +78,28 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
                                    ModItems.REDSTONE_PAXEL.get());
 
         // CUSTOM Sword
-        tag(ItemTags.SWORDS).add(ModItems.BISMUTH_SWORD.get(), ModItems.ALEXANDRITE_SWORD.get());
+        tag(ItemTags.SWORDS).add(ModItems.BISMUTH_SWORD.get(),
+                                 ModItems.ALEXANDRITE_SWORD.get(),
+                                 ModItems.PINK_SWORD.get(),
+                                 ModItems.COPPER_SWORD.get(),
+                                 ModItems.LAPIS_LAZULI_SWORD.get(),
+                                 ModItems.REDSTONE_SWORD.get());
 
         // CUSTOM Shovel
         tag(ItemTags.SHOVELS).add(ModItems.BISMUTH_SHOVEL.get(),
                                   ModItems.ALEXANDRITE_SHOVEL.get(),
                                   ModItems.PINK_SHOVEL.get(),
                                   ModItems.COPPER_SHOVEL.get(),
-                                  ModItems.DIAMOND_SHOVEL.get(),
-                                  ModItems.GOLD_SHOVEL.get(),
-                                  ModItems.IRON_SHOVEL.get(),
-                                  ModItems.STONE_SHOVEL.get(),
-                                  ModItems.WOODEN_SHOVEL.get(),
-                                  ModItems.NETHERITE_SHOVEL.get(),
                                   ModItems.LAPIS_LAZULI_SHOVEL.get(),
                                   ModItems.REDSTONE_SHOVEL.get());
 
         // CUSTOM Hoe
-        tag(ItemTags.HOES).add(ModItems.BISMUTH_HOE.get(), ModItems.ALEXANDRITE_HOE.get());
+        tag(ItemTags.HOES).add(ModItems.BISMUTH_HOE.get(),
+                               ModItems.ALEXANDRITE_HOE.get(),
+                               ModItems.PINK_HOE.get(),
+                               ModItems.COPPER_HOE.get(),
+                               ModItems.LAPIS_LAZULI_HOE.get(),
+                               ModItems.REDSTONE_HOE.get());
 
         // CUSTOM Bow
         tag(ItemTags.SKELETON_PREFERRED_WEAPONS).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());

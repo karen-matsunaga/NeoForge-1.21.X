@@ -99,17 +99,35 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LAPIS_LAZULI_HAMMER, "Lapis Lazuli Hammer");
         addItem(ModItems.REDSTONE_HAMMER, "Redstone Hammer");
 
-        // ** CUSTOM Hammer **
+        // ** CUSTOM Shovel **
         addItem(ModItems.PINK_SHOVEL, "Pink Shovel");
         addItem(ModItems.COPPER_SHOVEL, "Copper Shovel");
-        addItem(ModItems.DIAMOND_SHOVEL, "Diamond Shovel");
-        addItem(ModItems.GOLD_SHOVEL, "Gold Shovel");
-        addItem(ModItems.IRON_SHOVEL, "Iron Shovel");
-        addItem(ModItems.STONE_SHOVEL, "Stone Shovel");
-        addItem(ModItems.WOODEN_SHOVEL, "Wooden Shovel");
-        addItem(ModItems.NETHERITE_SHOVEL, "Netherite Shovel");
         addItem(ModItems.LAPIS_LAZULI_SHOVEL, "Lapis Lazuli Shovel");
         addItem(ModItems.REDSTONE_SHOVEL, "Redstone Shovel");
+
+        // ** CUSTOM Axe **
+        addItem(ModItems.PINK_AXE, "Pink Axe");
+        addItem(ModItems.COPPER_AXE, "Copper Axe");
+        addItem(ModItems.LAPIS_LAZULI_AXE, "Lapis Lazuli Axe");
+        addItem(ModItems.REDSTONE_AXE, "Redstone Axe");
+
+        // ** CUSTOM Hoe **
+        addItem(ModItems.PINK_HOE, "Pink Hoe");
+        addItem(ModItems.COPPER_HOE, "Copper Hoe");
+        addItem(ModItems.LAPIS_LAZULI_HOE, "Lapis Lazuli Hoe");
+        addItem(ModItems.REDSTONE_HOE, "Redstone Hoe");
+
+        // ** CUSTOM Pickaxe **
+        addItem(ModItems.PINK_PICKAXE, "Pink Pickaxe");
+        addItem(ModItems.COPPER_PICKAXE, "Copper Pickaxe");
+        addItem(ModItems.LAPIS_LAZULI_PICKAXE, "Lapis Lazuli Pickaxe");
+        addItem(ModItems.REDSTONE_PICKAXE, "Redstone Pickaxe");
+
+        // ** CUSTOM Pickaxe **
+        addItem(ModItems.PINK_SWORD, "Pink Sword");
+        addItem(ModItems.COPPER_SWORD, "Copper Sword");
+        addItem(ModItems.LAPIS_LAZULI_SWORD, "Lapis Lazuli Sword");
+        addItem(ModItems.REDSTONE_SWORD, "Redstone Sword");
 
         // ** CUSTOM Horse armor **
         // BISMUTH

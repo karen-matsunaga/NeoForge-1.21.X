@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-01T17:52:42.5426498	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-09-01T21:17:00.256001	Tags for minecraft:item mod id vanilla
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/entity_water.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/water.json
@@ -28,7 +28,7 @@ e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/magic_block.
 e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/repairs_bismuth_armor.json
 b41a72a37404c7dbd6aa6aac08c3c0b04f47cd22 data/mccoursemod/tags/item/special_effect_items.json
 774205992e78cc4b0cce335e5a396e3a2426ecab data/mccoursemod/tags/item/walnut_logs.json
-7b7c5fdac6a16afdf27b30e9697f6021bee1b063 data/minecraft/tags/item/axes.json
+e93cb59488f4738d6dc22dd512bf06d233348acd data/minecraft/tags/item/axes.json
 6d293387f3262b8aeb04e2d80777c0b69c807e6e data/minecraft/tags/item/beacon_payment_items.json
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/item/bee_food.json
 3e3e729de1e257b10b665efa6e8b0b8eaae17109 data/minecraft/tags/item/chest_armor.json
@@ -37,16 +37,16 @@ b41a72a37404c7dbd6aa6aac08c3c0b04f47cd22 data/mccoursemod/tags/item/special_effe
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/item/flowers.json
 08ef684c3c65ed0540fb5ded9ace78b4c96a0adf data/minecraft/tags/item/foot_armor.json
 373ae76938b0e9fa6b549a2f54043170089b6d6a data/minecraft/tags/item/head_armor.json
-16bd2643ece578b0769f7a7df45778a0026cf4be data/minecraft/tags/item/hoes.json
+8d0539b4159e132c2f5f1b26c8c441832169a329 data/minecraft/tags/item/hoes.json
 7a5dd8815002431512c87ae04041ff84e1a05cd2 data/minecraft/tags/item/leaves.json
 f23c23d3cd640263f497c9181aeb9a36af2ac2cb data/minecraft/tags/item/leg_armor.json
 4b057e3e5e6f7b9026d5871433fccbb5eb4dfe1a data/minecraft/tags/item/logs_that_burn.json
-d2e40c0430825497ca794cc8afc41b625c25b792 data/minecraft/tags/item/pickaxes.json
+5da4fdf6d5d84cba59e635943de9d06c743bed36 data/minecraft/tags/item/pickaxes.json
 2cb28474625576092652fd1b578b683666883b3a data/minecraft/tags/item/planks.json
 d8700cb59c359611790eaf34c5351f0bfe3e081e data/minecraft/tags/item/saplings.json
-0e5a9141c77c2efd7cde4cec9562158a920e2507 data/minecraft/tags/item/shovels.json
+2080ae34aaa3fe9624e4d4fedf561d773ec79943 data/minecraft/tags/item/shovels.json
 92936013607c18fd6caf8af1edd4580a21f99416 data/minecraft/tags/item/skeleton_preferred_weapons.json
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/item/small_flowers.json
-bc61bb0ea476b9c9758755ae8f5ffb8132cec47a data/minecraft/tags/item/swords.json
+bb4f15549dce284a9fde19c40689f08605e19993 data/minecraft/tags/item/swords.json
 24e22c3df2eef1415baa517d488583df527f6a44 data/minecraft/tags/item/trim_materials.json
 92936013607c18fd6caf8af1edd4580a21f99416 data/minecraft/tags/item/wither_skeleton_disliked_weapons.json

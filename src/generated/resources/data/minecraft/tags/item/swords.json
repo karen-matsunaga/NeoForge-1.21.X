@@ -1,6 +1,10 @@
 {
   "values": [
     "mccoursemod:bismuth_sword",
-    "mccoursemod:alexandrite_sword"
+    "mccoursemod:alexandrite_sword",
+    "mccoursemod:pink_sword",
+    "mccoursemod:copper_sword",
+    "mccoursemod:lapis_lazuli_sword",
+    "mccoursemod:redstone_sword"
   ]
 }
