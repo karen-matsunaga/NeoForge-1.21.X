@@ -83,6 +83,22 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
             block -> createMultipleOreDrops(ModBlocks.NETHER_ALEXANDRITE_ORE.get(),
                                                   ModItems.RAW_ALEXANDRITE.get(), 4, 8));
 
+        // PINK ores
+        add(ModBlocks.PINK_ORE.get(), block -> createOreDrop(ModBlocks.PINK_ORE.get(),
+                                                                   ModItems.PINK.get()));
+
+        add(ModBlocks.DEEPSLATE_PINK_ORE.get(),
+            block -> createMultipleOreDrops(ModBlocks.DEEPSLATE_PINK_ORE.get(),
+                                                  ModItems.PINK.get(), 2, 5));
+
+        add(ModBlocks.END_STONE_PINK_ORE.get(),
+            block -> createMultipleOreDrops(ModBlocks.END_STONE_PINK_ORE.get(),
+                                                  ModItems.PINK.get(), 3, 6));
+
+        add(ModBlocks.NETHER_PINK_ORE.get(),
+            block -> createMultipleOreDrops(ModBlocks.NETHER_PINK_ORE.get(),
+                                                  ModItems.PINK.get(), 4, 8));
+
         // Block families
         // BISMUTH
         dropSelf(ModBlocks.BISMUTH_STAIRS.get());

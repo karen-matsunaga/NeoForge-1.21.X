@@ -198,6 +198,10 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.NETHER_ALEXANDRITE_ORE);
                  // PINK
                  output.accept(ModBlocks.PINK_BLOCK);
+                 output.accept(ModBlocks.PINK_ORE);
+                 output.accept(ModBlocks.DEEPSLATE_PINK_ORE);
+                 output.accept(ModBlocks.END_STONE_PINK_ORE);
+                 output.accept(ModBlocks.NETHER_PINK_ORE);
                  // ** CUSTOM advanced blocks **
                  output.accept(ModBlocks.MAGIC);
                  output.accept(ModBlocks.ENCHANT);

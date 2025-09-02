@@ -40,6 +40,16 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_END_ALEXANDRITE_ORE =
            registerKey("add_end_alexandrite_ore");
 
+    // PINK
+    public static final ResourceKey<BiomeModifier> ADD_PINK_ORE =
+           registerKey("add_pink_ore");
+
+    public static final ResourceKey<BiomeModifier> ADD_NETHER_PINK_ORE =
+           registerKey("add_nether_pink_ore");
+
+    public static final ResourceKey<BiomeModifier> ADD_END_PINK_ORE =
+           registerKey("add_end_pink_ore");
+
     // ** CUSTOM trees **
     // BLOODWOOD
     public static final ResourceKey<BiomeModifier> ADD_TREE_BLOODWOOD =
@@ -108,6 +118,22 @@ public class ModBiomeModifiers {
         context.register(ADD_END_ALEXANDRITE_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
                          biomes.getOrThrow(BiomeTags.IS_END),
                          HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.END_ALEXANDRITE_ORE_PLACED_KEY)),
+                         GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        // PINK
+        context.register(ADD_PINK_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                         biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.PINK_ORE_PLACED_KEY)),
+                         GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_NETHER_PINK_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                         biomes.getOrThrow(BiomeTags.IS_NETHER),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.NETHER_PINK_ORE_PLACED_KEY)),
+                         GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_END_PINK_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                         biomes.getOrThrow(BiomeTags.IS_END),
+                         HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.PINK_ORE_PLACED_KEY)),
                          GenerationStep.Decoration.UNDERGROUND_ORES));
 
         // World to generate all custom tree on biomes selected

@@ -74,6 +74,10 @@ public class ModModelProvider extends ModelProvider {
 
         // PINK
         blockModels.createTrivialCube(ModBlocks.PINK_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.PINK_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.DEEPSLATE_PINK_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.END_STONE_PINK_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.NETHER_PINK_ORE.get());
 
         // ** CUSTOM Advanced blocks **
         blockModels.createTrivialCube(ModBlocks.MAGIC.get());

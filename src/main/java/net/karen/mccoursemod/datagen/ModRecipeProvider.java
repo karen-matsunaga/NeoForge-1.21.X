@@ -53,6 +53,9 @@ public class ModRecipeProvider extends RecipeProvider {
                                                         ModBlocks.END_STONE_ALEXANDRITE_ORE,
                                                         ModBlocks.NETHER_ALEXANDRITE_ORE);
 
+        List<ItemLike> PINK_SMELTABLES = List.of(ModBlocks.PINK_ORE, ModBlocks.DEEPSLATE_PINK_ORE,
+                                                 ModBlocks.END_STONE_PINK_ORE, ModBlocks.NETHER_PINK_ORE);
+
         // ** CUSTOM Smelting + Blasting blocks, items, etc. **
         oreSmelting(BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(),
                     0.25F, 200, "bismuth");
@@ -63,6 +66,11 @@ public class ModRecipeProvider extends RecipeProvider {
                     0.25F, 200, "alexandrite");
         oreBlasting(ALEXANDRITE_SMELTABLES, RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),
                     0.25F, 100, "alexandrite");
+
+        oreSmelting(PINK_SMELTABLES, RecipeCategory.MISC, ModItems.PINK.get(),
+                    0.5F, 400, "pink");
+        oreBlasting(PINK_SMELTABLES, RecipeCategory.MISC, ModItems.PINK.get(),
+                    0.5F, 200, "pink");
 
         // ** CUSTOM block **
         this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.ANVIL,

@@ -104,6 +104,26 @@ public class ModBlocks {
                                                          .strength(5.0F, 6.0F)
                                                          .sound(SoundType.METAL)));
 
+    public static final DeferredBlock<Block> PINK_ORE =
+           registerBlock("pink_ore",
+           (properties) -> new DropExperienceBlock(UniformInt.of(2, 5),
+                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> DEEPSLATE_PINK_ORE =
+           registerBlock("deepslate_pink_ore",
+           (properties) -> new DropExperienceBlock(UniformInt.of(3, 7),
+                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> END_STONE_PINK_ORE =
+           registerBlock("end_stone_pink_ore",
+           (properties) -> new DropExperienceBlock(UniformInt.of(5, 8),
+                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> NETHER_PINK_ORE =
+           registerBlock("nether_pink_ore",
+           (properties) -> new DropExperienceBlock(UniformInt.of(3, 6),
+                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+
     // ** CUSTOM advanced block **
     public static final DeferredBlock<Block> MAGIC = registerBlock("magic",
            (properties) -> new MagicBlock(properties.strength(2F).sound(ModSounds.MAGIC_BLOCK_SOUNDS)));

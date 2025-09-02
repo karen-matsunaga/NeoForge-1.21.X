@@ -53,6 +53,16 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> END_ALEXANDRITE_ORE_KEY =
            registerKey("end_alexandrite_ore");
 
+    // PINK -> STONE, NETHER and END
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_PINK_ORE_KEY =
+           registerKey("pink_ore");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_PINK_ORE_KEY =
+           registerKey("nether_pink_ore");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> END_PINK_ORE_KEY =
+           registerKey("end_pink_ore");
+
     // ** CUSTOM trees **
     // BLOODWOOD
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLOODWOOD_KEY =
@@ -94,6 +104,11 @@ public class ModConfiguredFeatures {
             List.of(OreConfiguration.target(stoneReplaceables, ModBlocks.ALEXANDRITE_ORE.get().defaultBlockState()),
                     OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get().defaultBlockState()));
 
+        // PINK
+        List<OreConfiguration.TargetBlockState> overworldPinkOres =
+            List.of(OreConfiguration.target(stoneReplaceables, ModBlocks.PINK_ORE.get().defaultBlockState()),
+                    OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_PINK_ORE.get().defaultBlockState()));
+
         // Register all custom ores and define the amount of ores to generate on overworld
         // BISMUTH
         register(context, OVERWORLD_BISMUTH_ORE_KEY, Feature.ORE, new OreConfiguration(overworldBismuthOres, 9));
@@ -112,6 +127,15 @@ public class ModConfiguredFeatures {
 
         register(context, END_ALEXANDRITE_ORE_KEY, Feature.ORE,
                  new OreConfiguration(endReplaceables, ModBlocks.END_STONE_ALEXANDRITE_ORE.get().defaultBlockState(), 9));
+
+        // PINK
+        register(context, OVERWORLD_PINK_ORE_KEY, Feature.ORE, new OreConfiguration(overworldPinkOres, 20));
+
+        register(context, NETHER_PINK_ORE_KEY, Feature.ORE,
+                 new OreConfiguration(netherrackReplaceables, ModBlocks.NETHER_PINK_ORE.get().defaultBlockState(), 20));
+
+        register(context, END_PINK_ORE_KEY, Feature.ORE,
+                 new OreConfiguration(endReplaceables, ModBlocks.END_STONE_PINK_ORE.get().defaultBlockState(), 20));
 
         // ** CUSTOM trees **
         // BLOODWOOD

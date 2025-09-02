@@ -35,6 +35,14 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> END_ALEXANDRITE_ORE_PLACED_KEY =
            registerKey("end_alexandrite_ore_placed");
 
+    // PINK
+    public static final ResourceKey<PlacedFeature> PINK_ORE_PLACED_KEY =
+           registerKey("pink_ore_placed");
+    public static final ResourceKey<PlacedFeature> NETHER_PINK_ORE_PLACED_KEY =
+           registerKey("nether_pink_ore_placed");
+    public static final ResourceKey<PlacedFeature> END_PINK_ORE_PLACED_KEY =
+           registerKey("end_pink_ore_placed");
+
     // ** CUSTOM trees **
     // BLOODWOOD
     public static final ResourceKey<PlacedFeature> BLOODWOOD_PLACED_KEY =
@@ -97,6 +105,22 @@ public class ModPlacedFeatures {
         register(context, END_ALEXANDRITE_ORE_PLACED_KEY,
                  configuredFeatures.getOrThrow(ModConfiguredFeatures.END_ALEXANDRITE_ORE_KEY),
                  ModOrePlacement.commonOrePlacement(7,
+                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
+                 VerticalAnchor.absolute(80))));
+
+        // PINK
+        register(context, PINK_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_PINK_ORE_KEY),
+                 ModOrePlacement.rareOrePlacement(20,
+                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
+                 VerticalAnchor.absolute(80))));
+
+        register(context, NETHER_PINK_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_PINK_ORE_KEY),
+                 ModOrePlacement.rareOrePlacement(15,
+                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
+                 VerticalAnchor.absolute(80))));
+
+        register(context, END_PINK_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.END_PINK_ORE_KEY),
+                 ModOrePlacement.rareOrePlacement(10,
                  HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
                  VerticalAnchor.absolute(80))));
 

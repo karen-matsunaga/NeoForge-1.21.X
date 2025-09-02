@@ -224,6 +224,11 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.deepslate_alexandrite_ore", "Alexandrite Deepslate Ore");
         add("item.mccoursemod.end_stone_alexandrite_ore", "Alexandrite End Ore");
         add("item.mccoursemod.nether_alexandrite_ore", "Alexandrite Nether Ore");
+        add("item.mccoursemod.pink_block", "Pink Block");
+        add("item.mccoursemod.pink_ore", "Pink Ore");
+        add("item.mccoursemod.deepslate_pink_ore", "Pink Deepslate Ore");
+        add("item.mccoursemod.end_stone_pink_ore", "Pink End Ore");
+        add("item.mccoursemod.nether_pink_ore", "Pink Nether Ore");
         add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.disenchant_individual", "Disenchant Individual Block");
         add("item.mccoursemod.disenchant_grouped", "Disenchant Grouped Block");
@@ -315,7 +320,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.snapdragon", "Snapdragon");
         add("item.mccoursemod.potted_snapdragon", "Snapdragon Potted");
         add("item.mccoursemod.kaupen_portal", "Kaupen Portal");
-        add("item.mccoursemod.pink_block", "Pink Block");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -332,8 +336,13 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE, "Alexandrite Deepslate Ore");
         addBlock(ModBlocks.END_STONE_ALEXANDRITE_ORE, "Alexandrite End Ore");
         addBlock(ModBlocks.NETHER_ALEXANDRITE_ORE, "Alexandrite Nether Ore");
+
         // PINK
         addBlock(ModBlocks.PINK_BLOCK, "Pink Block");
+        addBlock(ModBlocks.PINK_ORE, "Pink Ore");
+        addBlock(ModBlocks.DEEPSLATE_PINK_ORE, "Pink Deepslate Ore");
+        addBlock(ModBlocks.END_STONE_PINK_ORE, "Pink End Ore");
+        addBlock(ModBlocks.NETHER_PINK_ORE, "Pink Nether Ore");
 
         // ** CUSTOM Advanced blocks **
         addBlock(ModBlocks.ENCHANT, "§2Enchant Block");

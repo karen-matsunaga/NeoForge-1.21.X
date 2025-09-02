@@ -7,6 +7,10 @@
     "mccoursemod:alexandrite_ore",
     "mccoursemod:deepslate_alexandrite_ore",
     "mccoursemod:end_stone_alexandrite_ore",
-    "mccoursemod:nether_alexandrite_ore"
+    "mccoursemod:nether_alexandrite_ore",
+    "mccoursemod:pink_ore",
+    "mccoursemod:deepslate_pink_ore",
+    "mccoursemod:end_stone_pink_ore",
+    "mccoursemod:nether_pink_ore"
   ]
 }

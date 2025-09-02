@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 0.5,
+  "group": "pink",
+  "ingredient": "mccoursemod:end_stone_pink_ore",
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:pink"
+  }
+}

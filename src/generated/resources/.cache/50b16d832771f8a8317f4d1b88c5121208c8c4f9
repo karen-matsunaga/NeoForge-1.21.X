@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-01T17:22:32.9171791	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-09-01T21:54:36.6089933	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 d3e0307570b786aa4733b133a1bc9d5453079334 data/mccoursemod/tags/block/bismuth_blocks.json
@@ -11,7 +11,7 @@ fb04ce601bdbe167eef745f4fb188a2bb2d4ca6a data/mccoursemod/tags/block/block_fly_b
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_lapis_lazuli_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_pink_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_redstone_tool.json
-f4f952d6af206987759c5ac1ba1cbfb8ef9f9544 data/mccoursemod/tags/block/mccourse_mod_ores.json
+cf8f0d34dc0b5cba616ad43e03a0cf2fd5de202b data/mccoursemod/tags/block/mccourse_mod_ores.json
 49f663589d2830dcc6487229a16a525f65234b44 data/mccoursemod/tags/block/mccourse_mod_oxidizable_blocks.json
 466b621472b729d2dbcd2872b39f03117f28ef8b data/mccoursemod/tags/block/metal_detector_colors.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/metal_detector_valuables.json

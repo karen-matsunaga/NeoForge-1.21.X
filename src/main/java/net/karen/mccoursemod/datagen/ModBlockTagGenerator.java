@@ -57,7 +57,11 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                        ModBlocks.ALEXANDRITE_ORE.get(),
                                                        ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get(),
                                                        ModBlocks.END_STONE_ALEXANDRITE_ORE.get(),
-                                                       ModBlocks.NETHER_ALEXANDRITE_ORE.get() );
+                                                       ModBlocks.NETHER_ALEXANDRITE_ORE.get(),
+                                                       ModBlocks.PINK_ORE.get(),
+                                                       ModBlocks.DEEPSLATE_PINK_ORE.get(),
+                                                       ModBlocks.END_STONE_PINK_ORE.get(),
+                                                       ModBlocks.NETHER_PINK_ORE.get());
 
         // ** CUSTOM TIER TOOLS **
         // BISMUTH as Netherite tier
