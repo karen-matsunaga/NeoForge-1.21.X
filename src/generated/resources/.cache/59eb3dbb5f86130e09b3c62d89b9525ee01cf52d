@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-01T21:54:36.6246401	Loot Tables
+// 1.21.8	2025-09-02T18:56:18.2733319	Loot Tables
 cdb697b4f47740809ecdb90e81e8e5d2f56cfc86 data/mccoursemod/loot_table/blocks/alexandrite_block.json
 291a785f3fc73335884718fec6c7d2db06eb0048 data/mccoursemod/loot_table/blocks/alexandrite_button.json
 d0ad4d5e3aeabf77ec2d12530e2bc9b7e6bef80e data/mccoursemod/loot_table/blocks/alexandrite_door.json
@@ -55,6 +55,7 @@ e5c81ae611ce4baa03350fca9be57894c05936ab data/mccoursemod/loot_table/blocks/goji
 1d42384377fd3fa6218e36e08e0df22e0ddf33e8 data/mccoursemod/loot_table/blocks/green_ender_pearl_block.json
 5bc0f7fdabf49e0706ec349b80cb0c8e998b3089 data/mccoursemod/loot_table/blocks/growth_chamber.json
 2d8735674b3cffa61a071cc6c66c6ce9b2202271 data/mccoursemod/loot_table/blocks/gunpowder_block.json
+3570dc237ba4a818df4813a8d6053a98ec17533b data/mccoursemod/loot_table/blocks/kaupen_furnace.json
 00e4a04ba409dd03072964c902038e664a84a7e3 data/mccoursemod/loot_table/blocks/kohlrabi_crop.json
 bd6c6444a3f37bb6dddd5a850a4fc59a8046d8e2 data/mccoursemod/loot_table/blocks/lime_green_ender_pearl_block.json
 c23473535b17e59483b60022cc55860fe6031949 data/mccoursemod/loot_table/blocks/magenta_ender_pearl_block.json

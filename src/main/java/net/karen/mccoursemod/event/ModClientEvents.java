@@ -19,6 +19,7 @@ import net.karen.mccoursemod.particle.BouncyBallsParticles;
 import net.karen.mccoursemod.particle.ModParticles;
 import net.karen.mccoursemod.screen.ModMenuTypes;
 import net.karen.mccoursemod.screen.custom.GrowthChamberScreen;
+import net.karen.mccoursemod.screen.custom.KaupenFurnaceScreen;
 import net.karen.mccoursemod.screen.custom.PedestalScreen;
 import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.karen.mccoursemod.util.KeyBinding;
@@ -196,6 +197,7 @@ public class ModClientEvents {
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
         event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
+        event.register(ModMenuTypes.KAUPEN_FURNACE_MENU.get(), KaupenFurnaceScreen::new);
     }
 
     // CUSTOM EVENT - Registry all custom fluid types

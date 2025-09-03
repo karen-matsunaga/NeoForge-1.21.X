@@ -332,6 +332,8 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.COLORED_LEAVES);
                  // ** CUSTOM portal **
                  output.accept(ModBlocks.KAUPEN_PORTAL);
+                 // ** CUSTOM furnace **
+                 output.accept(ModBlocks.KAUPEN_FURNACE_BLOCK);
            }).build());
 
     // CUSTOM METHOD - Registry Creative Mode Tab on event bus

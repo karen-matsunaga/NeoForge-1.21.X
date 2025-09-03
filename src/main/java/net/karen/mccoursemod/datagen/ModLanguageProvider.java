@@ -343,6 +343,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.snapdragon", "Snapdragon");
         add("item.mccoursemod.potted_snapdragon", "Snapdragon Potted");
         add("item.mccoursemod.kaupen_portal", "Kaupen Portal");
+        add("item.mccoursemod.kaupen_furnace", "Kaupen Furnace");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -498,6 +499,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // ** CUSTOM portal **
         addBlock(ModBlocks.KAUPEN_PORTAL, "Kaupen Portal");
+
+        // ** CUSTOM furnace **
+        addBlock(ModBlocks.KAUPEN_FURNACE_BLOCK, "Kaupen Furnace");
 
         // ** CUSTOM CREATIVE TABS **
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

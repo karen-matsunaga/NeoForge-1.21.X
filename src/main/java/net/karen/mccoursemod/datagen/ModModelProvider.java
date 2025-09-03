@@ -258,6 +258,9 @@ public class ModModelProvider extends ModelProvider {
         // ** CUSTOM portal **
         blockModels.createTrivialCube(ModBlocks.KAUPEN_PORTAL.get());
 
+        // ** CUSTOM furnace **
+        blockModels.createFurnace(ModBlocks.KAUPEN_FURNACE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
+
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
         // BISMUTH

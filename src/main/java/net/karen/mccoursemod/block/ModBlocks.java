@@ -488,6 +488,8 @@ public class ModBlocks {
     public static final DeferredBlock<Block> GROWTH_CHAMBER =
            registerBlock("growth_chamber", GrowthChamberBlock::new);
 
+    public static final DeferredBlock<Block> KAUPEN_FURNACE_BLOCK =
+           registerBlock("kaupen_furnace", KaupenFurnaceBlock::new);
 
     // ** CUSTOM glass block **
     public static final DeferredBlock<Block> FORCED_STAINED_GLASS =

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "mccoursemod:block/kaupen_furnace_front",
+    "side": "mccoursemod:block/kaupen_furnace_side",
+    "top": "mccoursemod:block/kaupen_furnace_top"
+  }
+}

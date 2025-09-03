@@ -21,12 +21,25 @@ public class ModRecipes {
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<GrowthChamberRecipe>>
            GROWTH_CHAMBER_SERIALIZER = SERIALIZERS.register("growth_chamber", GrowthChamberRecipe.Serializer::new);
 
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<KaupenFurnaceRecipe>>
+           KAUPEN_FURNACE_SERIALIZER =
+           SERIALIZERS.register("kaupen_furnace",
+           () -> new KaupenFurnaceRecipe.Serializer(200));
+
     // Registry all custom recipes types
     public static final DeferredHolder<RecipeType<?>, RecipeType<GrowthChamberRecipe>> GROWTH_CHAMBER_TYPE =
            RECIPE_TYPES.register("growth_chamber", () -> new RecipeType<>() {
                @Override
                public String toString() {
                    return "growth_chamber";
+               }
+           });
+
+    public static final DeferredHolder<RecipeType<?>, RecipeType<KaupenFurnaceRecipe>> KAUPEN_FURNACE_TYPE =
+           RECIPE_TYPES.register("kaupen_furnace", () -> new RecipeType<>() {
+               @Override
+               public String toString() {
+                   return "kaupen_furnace";
                }
            });
 

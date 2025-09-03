@@ -1,0 +1,12 @@
+{
+  "type": "mccoursemod:kaupen_furnace",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 10.0,
+  "group": "misc",
+  "ingredient": "minecraft:bone_meal",
+  "result": {
+    "count": 1,
+    "id": "minecraft:phantom_membrane"
+  }
+}

@@ -4,6 +4,7 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.recipe.GrowthChamberRecipeBuilder;
+import net.karen.mccoursemod.recipe.KaupenFurnaceRecipeBuilder;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -230,6 +231,26 @@ public class ModRecipeProvider extends RecipeProvider {
         growthChamberRecipe(List.of(Items.DIAMOND, Items.DIAMOND_BLOCK));
         growthChamberRecipe(List.of(ModItems.RAW_BISMUTH.get(), ModItems.BISMUTH.get()));
         growthChamberRecipe(List.of(Items.STICK, Items.END_ROD));
+
+        // ** KAUPEN FURNACE recipes **
+        kaupenFurnace("ores", CookingBookCategory.BLOCKS,
+                      Ingredient.of(Items.IRON_INGOT), Items.RAW_IRON, 0.5F, 50);
+
+        kaupenFurnace("ores", CookingBookCategory.MISC,
+                      Ingredient.of(Items.COAL), Items.DIAMOND, 0.5F, 50);
+
+        kaupenFurnace("misc", CookingBookCategory.MISC,
+                      Ingredient.of(Items.BONE_MEAL), Items.PHANTOM_MEMBRANE, 10.0F, 100);
+    }
+
+    // CUSTOM METHOD - KAUPEN FURNACE custom recipes
+    protected void kaupenFurnace(@NotNull String group, @NotNull CookingBookCategory category,
+                                 Ingredient ingredient, Item result, float experience, int cookingTime) {
+        new KaupenFurnaceRecipeBuilder(group, category, ingredient,
+                                       result, experience, cookingTime)
+                                      .unlockedBy("has_item", has(result))
+                                      .save(this.output, MccourseMod.MOD_ID + ":" +
+                                            getItemName(result) + "_from_kaupen_furnace");
     }
 
     // CUSTOM METHOD - GROWTH CHAMBER custom recipes
