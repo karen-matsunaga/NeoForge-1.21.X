@@ -261,6 +261,9 @@ public class ModModelProvider extends ModelProvider {
         // ** CUSTOM furnace **
         blockModels.createFurnace(ModBlocks.KAUPEN_FURNACE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
 
+        // ** CUSTOM block projectile **
+        dynamicProjectile(blockModels, ModBlocks.DICE.get());
+
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
         // BISMUTH
@@ -455,6 +458,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.TORCH_BALL.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.BOUNCY_BALLS.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.BOUNCY_BALLS_PARTICLES.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.DICE_ITEM.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM Animated Textures **
         itemModels.generateFlatItem(ModItems.RADIATION_STAFF.get(), ModelTemplates.FLAT_ITEM);
@@ -705,6 +709,54 @@ public class ModModelProvider extends ModelProvider {
         }
     }
 
+    // CUSTOM METHOD - Dynamic projectiles
+    protected static void dynamicProjectile(BlockModelGenerators blockModels,
+                                            Block block) {
+
+        // Model names -> Example: dice_1, dice_2, dice_3, dice_4, dice_5, dice_6.
+        String[] modelNames = {"_1", "_2", "_3", "_4", "_5", "_6"};
+
+        // List of textures per model, in order: DOWN, EAST, NORTH, SOUTH, UP, WEST
+        List<String[]> diceTextures =
+            List.of(new String[]{"_1", "_6", "_2", "_3", "_5", "_4"},
+                    new String[]{"_2", "_5", "_6", "_3", "_1", "_4"},
+                    new String[]{"_3", "_4", "_6", "_2", "_1", "_5"},
+                    new String[]{"_4", "_3", "_1", "_5", "_6", "_2"},
+                    new String[]{"_5", "_2", "_1", "_4", "_6", "_3"},
+                    new String[]{"_6", "_1", "_2", "_4", "_5", "_3"});
+
+        List<MultiVariant> variants = new ArrayList<>();
+
+        for (int i = 0; i < modelNames.length; i++) {
+            String[] textures = diceTextures.get(i);
+
+            TextureMapping projectile =
+                   new TextureMapping().put(TextureSlot.DOWN, getBlockTexture(block, textures[0]))
+                                       .put(TextureSlot.EAST, getBlockTexture(block, textures[1]))
+                                       .put(TextureSlot.NORTH, getBlockTexture(block, textures[2]))
+                                       .put(TextureSlot.PARTICLE, getBlockTexture(block, textures[3]))
+                                       .put(TextureSlot.SOUTH, getBlockTexture(block, textures[4]))
+                                       .put(TextureSlot.UP, getBlockTexture(block, textures[5]))
+                                       .put(TextureSlot.WEST, getBlockTexture(block, textures[0]));
+
+            ModelTemplates.CUBE.createWithSuffix(block, "_" + (i + 1), projectile, blockModels.modelOutput);
+
+            // assets\mccoursemod\blockstates
+            // dice_1, dice_2, dice_3, dice_4, dice_5, dice_6
+            variants.add(plainVariant(getBlockTexture(block, modelNames[i])));
+            if (variants.size() == 6) {
+                blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
+                                            .with(PropertyDispatch.initial(BlockStateProperties.FACING)
+                                            .select(Direction.DOWN, variants.get(5))     // dice_6
+                                            .select(Direction.EAST, variants.get(2))     // dice_3
+                                            .select(Direction.NORTH, variants.get(1))    // dice_2
+                                            .select(Direction.SOUTH, variants.get(4))    // dice_5
+                                            .select(Direction.UP, variants.get(0))       // dice_1
+                                            .select(Direction.WEST, variants.get(3))));  // dice_4
+            }
+        }
+    }
+
     // * CUSTOM ITEMS *
     // CUSTOM METHOD - Alternate item textures
     protected static void alternateItemTexture(ItemModelGenerators itemModels, Item item) {
@@ -814,7 +866,8 @@ public class ModModelProvider extends ModelProvider {
         return ModBlocks.BLOCKS.getEntries()
                                .stream().filter(x ->
                                                 !(x.get() == ModBlocks.PEDESTAL.get()) &&
-                                                !(x.get() == ModBlocks.CHAIR.get())
+                                                !(x.get() == ModBlocks.CHAIR.get()) //&&
+                                                //!(x.get() == ModBlocks.DICE.get())
                                                );
     }
 
@@ -825,8 +878,10 @@ public class ModModelProvider extends ModelProvider {
                              .stream().filter(x ->
                                               x.get() != ModBlocks.PEDESTAL.asItem() &&
                                               x.get() != ModBlocks.CHAIR.asItem() &&
+                                              //x.get() != ModBlocks.DICE.asItem() &&
                                               !(x.get() == ModItems.TOMAHAWK.get()) &&
-                                              !(x.get() == ModItems.ALEXANDRITE_SHIELD.get())
+                                              !(x.get() == ModItems.ALEXANDRITE_SHIELD.get()) &&
+                                              !(x.get() == ModItems.DICE_ITEM.get())
                                              );
     }
 }

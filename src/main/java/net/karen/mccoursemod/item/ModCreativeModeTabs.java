@@ -177,6 +177,7 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.TOMAHAWK);
                  output.accept(ModItems.TORCH_BALL);
                  output.accept(ModItems.BOUNCY_BALLS);
+                 output.accept(ModItems.DICE_ITEM);
                  // ** CUSTOM Particles **
                  output.accept(ModItems.BOUNCY_BALLS_PARTICLES);
                  // ** CUSTOM Animated Textures **

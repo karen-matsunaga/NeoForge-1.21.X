@@ -704,7 +704,7 @@ public class ModBlocks {
                }
            });
 
-    // Kaupen custom portal block
+    // ** CUSTOM portal block **
     public static final DeferredBlock<Block> KAUPEN_PORTAL = registerBlock("kaupen_portal",
            (properties) ->
            new KaupenPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL)
@@ -716,6 +716,15 @@ public class ModBlocks {
                                                           .setId(ResourceKey.create(Registries.BLOCK,
                                                                  ResourceLocation.fromNamespaceAndPath(
                                                                  MccourseMod.MOD_ID, "kaupen_portal")))));
+
+    // ** CUSTOM block projectile **
+    public static final DeferredBlock<Block> DICE =
+           BLOCKS.register("dice", (properties) ->
+                           new DiceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                                                  .noLootTable()
+                                                                  .setId(ResourceKey.create(Registries.BLOCK,
+                                                                         ResourceLocation.fromNamespaceAndPath(
+                                                                         MccourseMod.MOD_ID, "dice")))));
 
     // ** CUSTOM METHOD - ENDER PEARL blocks **
     protected static DeferredBlock<Block> enderPearlBlock(String name, MapColor color) {
@@ -751,7 +760,10 @@ public class ModBlocks {
     private static <T extends Block> void registerBlockItem(String name,
                                                             DeferredBlock<T> block) {
         ModItems.ITEMS.registerItem(name, (properties) ->
-                                    new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
+                                    new BlockItem(block.get(), properties.useBlockDescriptionPrefix()
+                                                                         .setId(ResourceKey.create(Registries.ITEM,
+                                                                                ResourceLocation.fromNamespaceAndPath(
+                                                                                MccourseMod.MOD_ID, name)))));
     }
 
     // CUSTOM METHOD - Registry all custom BLOCKS on EVENT

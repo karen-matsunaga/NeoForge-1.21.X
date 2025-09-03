@@ -515,6 +515,9 @@ public class ModItems {
     public static final DeferredItem<Item> TOMAHAWK = ITEMS.registerItem("tomahawk",
            (properties) -> new TomahawkItem(properties.stacksTo(16)));
 
+    public static final DeferredItem<Item> DICE_ITEM =
+           ITEMS.registerItem("dice_item", DiceItem::new, new Item.Properties());
+
     // ** CUSTOM Animated Textures **
     public static final DeferredItem<Item> RADIATION_STAFF = ITEMS.registerItem("radiation_staff",
            (properties) -> new Item(properties.stacksTo(1)));

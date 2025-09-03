@@ -36,6 +36,10 @@ public class ModEntities {
            ResourceKey.create(Registries.ENTITY_TYPE,
                               ResourceLocation.withDefaultNamespace("bouncy_balls"));
 
+    public static ResourceKey<EntityType<?>> DICE_PROJECTILE_KEY =
+           ResourceKey.create(Registries.ENTITY_TYPE,
+                              ResourceLocation.withDefaultNamespace("dice_projectile"));
+
     public static ResourceKey<EntityType<?>> MOD_BOAT_KEY =
            ResourceKey.create(Registries.ENTITY_TYPE,
                               ResourceLocation.withDefaultNamespace("mod_boat"));
@@ -78,6 +82,14 @@ public class ModEntities {
                            .clientTrackingRange(4)
                            .updateInterval(20)
                            .build(BOUNCY_BALLS_KEY));
+
+    public static final Supplier<EntityType<DiceProjectileEntity>> DICE_PROJECTILE =
+           ENTITY_TYPES.register("dice_projectile",
+           () -> EntityType.Builder.<DiceProjectileEntity>of(DiceProjectileEntity::new, MobCategory.MISC)
+                           .sized(0.5f, 0.5f)
+                           .clientTrackingRange(4)
+                           .updateInterval(20)
+                           .build(DICE_PROJECTILE_KEY));
 
     // Registry all custom sittable blocks -> Entity Type
     public static final Supplier<EntityType<ChairEntity>> CHAIR_ENTITY =

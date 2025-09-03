@@ -201,6 +201,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.TORCH_BALL, "Torch Ball");
         addItem(ModItems.BOUNCY_BALLS, "Bouncy Balls");
         addItem(ModItems.BOUNCY_BALLS_PARTICLES, "Bouncy Balls Particles");
+        addItem(ModItems.DICE_ITEM, "Dice Item");
 
         // ** CUSTOM Animated Textures **
         addItem(ModItems.RADIATION_STAFF, "Radiation Staff");
@@ -344,6 +345,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.potted_snapdragon", "Snapdragon Potted");
         add("item.mccoursemod.kaupen_portal", "Kaupen Portal");
         add("item.mccoursemod.kaupen_furnace", "Kaupen Furnace");
+        add("item.mccoursemod.dice", "Dice");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -502,6 +504,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // ** CUSTOM furnace **
         addBlock(ModBlocks.KAUPEN_FURNACE_BLOCK, "Kaupen Furnace");
+
+        // ** CUSTOM block projectile **
+        addBlock(ModBlocks.DICE, "Dice");
 
         // ** CUSTOM CREATIVE TABS **
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");

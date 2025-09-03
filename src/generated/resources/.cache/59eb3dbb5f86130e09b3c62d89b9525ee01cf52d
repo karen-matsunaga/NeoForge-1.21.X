@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-02T18:56:18.2733319	Loot Tables
+// 1.21.8	2025-09-02T22:25:27.1665514	Loot Tables
 cdb697b4f47740809ecdb90e81e8e5d2f56cfc86 data/mccoursemod/loot_table/blocks/alexandrite_block.json
 291a785f3fc73335884718fec6c7d2db06eb0048 data/mccoursemod/loot_table/blocks/alexandrite_button.json
 d0ad4d5e3aeabf77ec2d12530e2bc9b7e6bef80e data/mccoursemod/loot_table/blocks/alexandrite_door.json
@@ -107,6 +107,7 @@ b3ad607b52cf2e3fa0a5a4c49bf686930e2dbf16 data/mccoursemod/loot_table/blocks/yell
 598914a08f3657907f2828cb2fa3297c91756ce8 data/minecraft/loot_table/blocks/oak_sign.json
 149ce9402d1aef86c8b9033e329a62acea0cc9f7 data/minecraft/loot_table/entities/bouncy_balls.json
 03b27250656a8ed2a03d2904a7479159fc4aad05 data/minecraft/loot_table/entities/chair_entity.json
+f2b9e33b59332dc4ea8dcdf4bb25d59fa4ce557c data/minecraft/loot_table/entities/dice_projectile.json
 25c6460083bd65f7ff23bba165ba4e494b940536 data/minecraft/loot_table/entities/gecko.json
 7577e22587b7cb95e7473930f051cb0dfacf22f7 data/minecraft/loot_table/entities/mod_boat.json
 dbe5e7171f27224290cce06fcf8af7cb91423bca data/minecraft/loot_table/entities/mod_chest_boat.json

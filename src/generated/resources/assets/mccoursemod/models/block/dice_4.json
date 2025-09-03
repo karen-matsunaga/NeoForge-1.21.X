@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "mccoursemod:block/dice_4",
+    "east": "mccoursemod:block/dice_3",
+    "north": "mccoursemod:block/dice_1",
+    "particle": "mccoursemod:block/dice_5",
+    "south": "mccoursemod:block/dice_6",
+    "up": "mccoursemod:block/dice_2",
+    "west": "mccoursemod:block/dice_4"
+  }
+}

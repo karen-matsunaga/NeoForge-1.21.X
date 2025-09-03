@@ -78,6 +78,7 @@ public class ModClientEvents {
         EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
         EntityRenderers.register(ModEntities.TORCH_BALL.get(), ThrownItemRenderer::new);
         EntityRenderers.register(ModEntities.BOUNCY_BALLS.get(), ThrownItemRenderer::new);
+        EntityRenderers.register(ModEntities.DICE_PROJECTILE.get(), ThrownItemRenderer::new);
         // ** CUSTOM Sittable blocks **
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
         // ** CUSTOM Boats **
