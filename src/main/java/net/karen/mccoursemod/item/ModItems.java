@@ -718,17 +718,18 @@ public class ModItems {
                                                  TagKey<Item> repair, Holder<MobEffect> effectHolder,
                                                  int effectAmplifier) {
         return ITEMS.registerItem(name, (properties) ->
-                                  new ElytraPlus(effectHolder, effectAmplifier,
-                                                 properties.fireResistant()
-                                                           .durability(durability)
-                                                           .rarity(Rarity.EPIC)
-                                                           .component(DataComponents.GLIDER, Unit.INSTANCE)
-                                                           .component(DataComponents.EQUIPPABLE,
-                                                                      Equippable.builder(EquipmentSlot.CHEST)
-                                                           .setEquipSound(SoundEvents.ARMOR_EQUIP_ELYTRA)
-                                                           .setAsset(equipAsset)
-                                                           .setDamageOnHurt(false).build())
-                                                           .repairable(repair)));
+                                  new ElytraPlusItem(effectHolder, effectAmplifier,
+                                                     properties.fireResistant()
+                                                               .durability(durability)
+                                                               .rarity(Rarity.EPIC)
+                                                               .component(DataComponents.GLIDER, Unit.INSTANCE)
+                                                               .component(DataComponents.EQUIPPABLE,
+                                                                          Equippable.builder(EquipmentSlot.CHEST)
+                                                                                    .setEquipSound(SoundEvents.ARMOR_EQUIP_ELYTRA)
+                                                                                    .setAsset(equipAsset)
+                                                                                    .setDamageOnHurt(false)
+                                                                                    .build())
+                                                               .repairable(repair)));
     }
 
     // CUSTOM METHOD - Registry all items on event bus

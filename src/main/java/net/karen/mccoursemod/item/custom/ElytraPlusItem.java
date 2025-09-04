@@ -18,15 +18,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Consumer;
 import static net.karen.mccoursemod.util.ChatUtils.*;
 
-public class ElytraPlus extends Item {
+public class ElytraPlusItem extends Item {
     private final Holder<MobEffect> effectHolder; // EFFECT
     private final int effectAmplifier; // EFFECT LEVEL
 
     private static final int[] COLORS = { 0xff5555, 0xffaa00, 0xffff55, 0x55ff55,
                                           0x55ffff, 0x5555ff, 0xff55ff };
 
-    public ElytraPlus(Holder<MobEffect> effectHolder, int effectAmplifier,
-                      Item.Properties properties) {
+    public ElytraPlusItem(Holder<MobEffect> effectHolder, int effectAmplifier,
+                          Item.Properties properties) {
         super(properties);
         this.effectHolder = effectHolder;
         this.effectAmplifier = effectAmplifier;
