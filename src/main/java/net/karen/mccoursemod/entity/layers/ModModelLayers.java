@@ -5,7 +5,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
 
 public class ModModelLayers {
-    // Registry all custom boats and chest boats
+    // Registry all custom BOATS and CHEST BOATS
     public static final ModelLayerLocation WALNUT_BOAT_LAYER =
            new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "boat/walnut"),
                                   "main"); // Custom boat
@@ -13,4 +13,10 @@ public class ModModelLayers {
     public static final ModelLayerLocation WALNUT_CHEST_BOAT_LAYER =
            new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "chest_boat/walnut"),
                                   "main"); // Custom chest boat
+
+    // Registry all custom ELYTRA
+    public static final ModelLayerLocation DIAMOND_ELYTRA_LAYER =
+           new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                        "textures/entity/equipment/wings/diamond_elytra.png"),
+                                  "main");
 }

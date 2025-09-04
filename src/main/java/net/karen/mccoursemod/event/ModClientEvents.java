@@ -29,6 +29,7 @@ import net.karen.mccoursemod.worldgen.biome.ModSurfaceRules;
 import net.karen.mccoursemod.worldgen.tree.ModWoodTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.ElytraModel;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.Sheets;
@@ -181,6 +182,9 @@ public class ModClientEvents {
         // CUSTOM Boat and Chest Boat
         event.registerLayerDefinition(ModModelLayers.WALNUT_BOAT_LAYER, BoatModel::createBoatModel);
         event.registerLayerDefinition(ModModelLayers.WALNUT_CHEST_BOAT_LAYER, BoatModel::createChestBoatModel);
+        // CUSTOM ELYTRA
+        // DIAMOND Elytra
+        event.registerLayerDefinition(ModModelLayers.DIAMOND_ELYTRA_LAYER, ElytraModel::createLayer);
     }
 
     // CUSTOM EVENT - Registry all custom block entity renderers

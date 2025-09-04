@@ -149,6 +149,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LAPIS_LAZULI_SWORD, "Lapis Lazuli Sword");
         addItem(ModItems.REDSTONE_SWORD, "Redstone Sword");
 
+        // ** CUSTOM Elytra armor **
+        addItem(ModItems.DIAMOND_ELYTRA, "Diamond Elytra");
+
         // ** CUSTOM Horse armor **
         // BISMUTH
         addItem(ModItems.BISMUTH_HORSE_ARMOR, "Bismuth Horse Armor");

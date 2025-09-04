@@ -13,6 +13,7 @@ import net.minecraft.world.item.equipment.EquipmentAssets;
 import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
@@ -31,6 +32,7 @@ public class ModEquipmentAssetProvider extends EquipmentAssetProvider {
     public static final ResourceKey<EquipmentAsset> COPPER = createId("copper");
     public static final ResourceKey<EquipmentAsset> LAPIS_LAZULI = createId("lapis_lazuli");
     public static final ResourceKey<EquipmentAsset> REDSTONE = createId("redstone");
+    public static final ResourceKey<EquipmentAsset> DIAMOND_ELYTRA = createId("diamond_elytra");
 
     // CUSTOM METHOD - Register all custom equipment assets -> Resource Key
     private static ResourceKey<EquipmentAsset> createId(String name) {
@@ -47,6 +49,7 @@ public class ModEquipmentAssetProvider extends EquipmentAssetProvider {
         registerAssetWithLayers(consumer, COPPER, "copper");
         registerAssetWithLayers(consumer, LAPIS_LAZULI, "lapis_lazuli");
         registerAssetWithLayers(consumer, REDSTONE, "redstone");
+        registerElytraAssetWithLayers(consumer, DIAMOND_ELYTRA, "diamond_elytra");
     }
 
     // CUSTOM METHOD - Register all custom Horse EQUIPMENT ASSETS
@@ -57,6 +60,19 @@ public class ModEquipmentAssetProvider extends EquipmentAssetProvider {
                 .addHumanoidLayers(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name))
                 .addLayers(EquipmentClientInfo.LayerType.HORSE_BODY,
                            new EquipmentClientInfo.Layer(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name)))
+                .build());
+    }
+
+    // CUSTOM METHOD - Register all custom elytra EQUIPMENT ASSETS
+    private static void registerElytraAssetWithLayers(BiConsumer<ResourceKey<EquipmentAsset>,
+                                                      EquipmentClientInfo> consumer,
+                                                      ResourceKey<EquipmentAsset> asset, String name) {
+        consumer.accept(asset, EquipmentClientInfo.builder()
+                .addLayers(EquipmentClientInfo.LayerType.WINGS,
+                           new EquipmentClientInfo.Layer[] {
+                               new EquipmentClientInfo.Layer(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name),
+                               Optional.empty(), true)
+                           })
                 .build());
     }
 

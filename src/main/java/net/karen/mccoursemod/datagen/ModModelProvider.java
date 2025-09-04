@@ -470,6 +470,9 @@ public class ModModelProvider extends ModelProvider {
         // ** CUSTOM Shield **
         shieldTexture(itemModels, ModItems.ALEXANDRITE_SHIELD.get());
 
+        // ** CUSTOM Elytra **
+        itemModels.generateElytra(ModItems.DIAMOND_ELYTRA.get());
+
         // ** CUSTOM Fluid **
         itemModels.generateFlatItem(ModFluids.SOAP_WATER_BUCKET.get(), ModelTemplates.FLAT_ITEM);
 
@@ -867,9 +870,7 @@ public class ModModelProvider extends ModelProvider {
         return ModBlocks.BLOCKS.getEntries()
                                .stream().filter(x ->
                                                 !(x.get() == ModBlocks.PEDESTAL.get()) &&
-                                                !(x.get() == ModBlocks.CHAIR.get()) //&&
-                                                //!(x.get() == ModBlocks.DICE.get())
-                                               );
+                                                !(x.get() == ModBlocks.CHAIR.get()));
     }
 
     // CUSTOM METHOD - Item models -> Ignore JSON files
@@ -879,10 +880,8 @@ public class ModModelProvider extends ModelProvider {
                              .stream().filter(x ->
                                               x.get() != ModBlocks.PEDESTAL.asItem() &&
                                               x.get() != ModBlocks.CHAIR.asItem() &&
-                                              //x.get() != ModBlocks.DICE.asItem() &&
                                               !(x.get() == ModItems.TOMAHAWK.get()) &&
                                               !(x.get() == ModItems.ALEXANDRITE_SHIELD.get()) &&
-                                              !(x.get() == ModItems.DICE_ITEM.get())
-                                             );
+                                              !(x.get() == ModItems.DICE_ITEM.get()));
     }
 }

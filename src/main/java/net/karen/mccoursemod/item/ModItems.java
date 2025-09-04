@@ -3,11 +3,13 @@ package net.karen.mccoursemod.item;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.datagen.ModEquipmentAssetProvider;
 import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.item.custom.*;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.trim.ModTrimMaterials;
 import net.karen.mccoursemod.util.ModTags;
+import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -17,6 +19,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.Unit;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -28,8 +32,7 @@ import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.item.equipment.ArmorMaterial;
-import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.item.equipment.*;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -477,6 +480,11 @@ public class ModItems {
            swordItem("redstone_sword", ModToolMaterials.REDSTONE,
                      2.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS);
 
+    // ** CUSTOM Elytra armor **
+    public static final DeferredItem<Item> DIAMOND_ELYTRA =
+           elytraArmor("diamond_elytra", 10000, ModEquipmentAssetProvider.DIAMOND_ELYTRA,
+                       ItemTags.DIAMOND_TOOL_MATERIALS, MobEffects.REGENERATION, 4);
+
     // ** CUSTOM Smithing Template **
     public static final DeferredItem<Item> KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE =
            ITEMS.registerItem("kaupen_armor_trim_smithing_template",
@@ -702,6 +710,25 @@ public class ModItems {
                                                 ArmorMaterial material) {
         return ITEMS.registerItem(name, (properties) -> new ModArmorItem(properties.humanoidArmor(material,
                                                                                    ArmorType.BOOTS).fireResistant()));
+    }
+
+    // ** CUSTOM METHOD - Elytra armor **
+    public static DeferredItem<Item> elytraArmor(String name,
+                                                 int durability, ResourceKey<EquipmentAsset> equipAsset,
+                                                 TagKey<Item> repair, Holder<MobEffect> effectHolder,
+                                                 int effectAmplifier) {
+        return ITEMS.registerItem(name, (properties) ->
+                                  new ElytraPlus(effectHolder, effectAmplifier,
+                                                 properties.fireResistant()
+                                                           .durability(durability)
+                                                           .rarity(Rarity.EPIC)
+                                                           .component(DataComponents.GLIDER, Unit.INSTANCE)
+                                                           .component(DataComponents.EQUIPPABLE,
+                                                                      Equippable.builder(EquipmentSlot.CHEST)
+                                                           .setEquipSound(SoundEvents.ARMOR_EQUIP_ELYTRA)
+                                                           .setAsset(equipAsset)
+                                                           .setDamageOnHurt(false).build())
+                                                           .repairable(repair)));
     }
 
     // CUSTOM METHOD - Registry all items on event bus

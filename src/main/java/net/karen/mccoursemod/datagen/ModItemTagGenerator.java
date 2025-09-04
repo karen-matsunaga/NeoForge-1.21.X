@@ -105,8 +105,13 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         tag(ItemTags.SKELETON_PREFERRED_WEAPONS).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
         tag(ItemTags.WITHER_SKELETON_DISLIKED_WEAPONS).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
         tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get(),
-                                                 ModItems.ALEXANDRITE_BOW.get(), ModItems.ALEXANDRITE_SHIELD.get());
+                                                 ModItems.ALEXANDRITE_BOW.get(),
+                                                 ModItems.ALEXANDRITE_SHIELD.get(),
+                                                 ModItems.DIAMOND_ELYTRA.get());
         tag(ItemTags.BOW_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
+
+        // CUSTOM Elytra
+        tag(ItemTags.EQUIPPABLE_ENCHANTABLE).add(ModItems.DIAMOND_ELYTRA.get());
 
         // CUSTOM Shield
         this.tag(Tags.Items.TOOLS_SHIELD).add(ModItems.ALEXANDRITE_SHIELD.get());

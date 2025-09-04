@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-02T09:58:27.501015	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-09-04T16:48:58.438158	Tags for minecraft:item mod id vanilla
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/entity_water.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/water.json
@@ -41,7 +41,8 @@ e93cb59488f4738d6dc22dd512bf06d233348acd data/minecraft/tags/item/axes.json
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/item/bee_food.json
 0ccfe8b0103e383fbc010deee56e45064df8eaa0 data/minecraft/tags/item/chest_armor.json
 92936013607c18fd6caf8af1edd4580a21f99416 data/minecraft/tags/item/enchantable/bow.json
-41aba7425d2a0425f750b13f0c2defa5281b4e70 data/minecraft/tags/item/enchantable/durability.json
+ee6bc87491626bc4ba6b05c4b7c36225ebea75dd data/minecraft/tags/item/enchantable/durability.json
+d8fc688e10164d96802c427816aa052fd193a01c data/minecraft/tags/item/enchantable/equippable.json
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/item/flowers.json
 72a3558c1039f29ac6ab4a4bb84b860a5bffd3ca data/minecraft/tags/item/foot_armor.json
 c0979c1ed814e6f634ca7191bcf8f5a649cfea3f data/minecraft/tags/item/head_armor.json

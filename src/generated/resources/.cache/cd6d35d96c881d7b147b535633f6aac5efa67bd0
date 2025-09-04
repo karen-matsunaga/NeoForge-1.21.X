@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-04T10:35:06.3114954	Model Definitions - mccoursemod
+// 1.21.8	2025-09-04T16:48:58.3182863	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -198,6 +198,7 @@ cf9b91a2b1b0d7cbdde7590338bb3cc50944ea45 assets/mccoursemod/items/copper_pickaxe
 f2086c138ed4b922bce40b818104fe94bf86f1a1 assets/mccoursemod/items/data_tablet.json
 4a1ee8e87d8a82726d9f60201212c8ecb0a82fd7 assets/mccoursemod/items/deepslate_alexandrite_ore.json
 538e6a5be1d57da47d2240114fc5cb626e5cde63 assets/mccoursemod/items/deepslate_pink_ore.json
+f3fa4462a1f58bfb3022f3206a294e9fd5340986 assets/mccoursemod/items/diamond_elytra.json
 6c463694b5d878943497adb026210aafa0e9ad55 assets/mccoursemod/items/diamond_hammer.json
 7d2dec974d4d5a9687cb60d115b0043b1491083a assets/mccoursemod/items/diamond_paxel.json
 0200d5351b549cd936e5e3bd8ba4f163aac898f0 assets/mccoursemod/items/dice_item.json
@@ -743,6 +744,8 @@ b6d9446d5e2e7820b03b6a194f7ef741fe1c8ece assets/mccoursemod/models/item/copper_l
 db9e0c2ad3d45dda7460c2d2d2a84d2f9a89647b assets/mccoursemod/models/item/copper_sword.json
 f92d6b1a7b4ec66ff5d806fe06ed5da88bdba765 assets/mccoursemod/models/item/data_tablet.json
 b697e7685f5c3ea819307d479ba39799ddc6d074 assets/mccoursemod/models/item/data_tablet_used.json
+57d1059f1fb7e64fc7af64597b6b076f5132f135 assets/mccoursemod/models/item/diamond_elytra.json
+676f8db78d02f110724ba9bad1615072f89a5d99 assets/mccoursemod/models/item/diamond_elytra_broken.json
 bc1a52e4867dbc776728609c617034e7b0cbc0ee assets/mccoursemod/models/item/diamond_hammer.json
 b38bca2b9eae8f4d4834a1a880dfc2c7e6c4dd82 assets/mccoursemod/models/item/diamond_paxel.json
 fdd1861973de212ee6525cae7368369b9119ca70 assets/mccoursemod/models/item/dice_item.json

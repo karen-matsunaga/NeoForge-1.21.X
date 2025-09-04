@@ -143,6 +143,8 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.COPPER_SWORD);
                  output.accept(ModItems.LAPIS_LAZULI_SWORD);
                  output.accept(ModItems.REDSTONE_SWORD);
+                 // ** CUSTOM elytra **
+                 output.accept(ModItems.DIAMOND_ELYTRA);
                  // ** CUSTOM horse armor **
                  // BISMUTH
                  output.accept(ModItems.BISMUTH_HORSE_ARMOR);
