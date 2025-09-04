@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_redstone_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccoursemod:redstone_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mccoursemod:redstone_paxel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_redstone_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mccoursemod:redstone_paxel"
+    ]
+  }
+}

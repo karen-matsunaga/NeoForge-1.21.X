@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "mccoursemod:pink_pickaxe",
+    "mccoursemod:pink_axe",
+    "mccoursemod:pink_shovel"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:pink_paxel"
+  }
+}

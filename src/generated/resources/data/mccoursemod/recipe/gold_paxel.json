@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:golden_pickaxe",
+    "minecraft:golden_axe",
+    "minecraft:golden_shovel"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:gold_paxel"
+  }
+}

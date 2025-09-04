@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "S": "minecraft:stick",
-    "W": "minecraft:netherite_block"
+    "#": "minecraft:stick",
+    "X": "minecraft:lapis_lazuli"
   },
   "pattern": [
-    "WWW",
-    " S ",
-    " S "
+    "XXX",
+    " # ",
+    " # "
   ],
   "result": {
     "count": 1,
-    "id": "mccoursemod:netherite_hammer"
+    "id": "mccoursemod:lapis_lazuli_pickaxe"
   }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pink_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccoursemod:pink_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mccoursemod:pink_paxel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pink_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mccoursemod:pink_paxel"
+    ]
+  }
+}

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bismuth": {
+    "has_alexandrite": {
       "conditions": {
         "items": [
           {
-            "items": "mccoursemod:bismuth"
+            "items": "mccoursemod:alexandrite"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_bismuth"
+      "has_alexandrite"
     ]
   ],
   "rewards": {

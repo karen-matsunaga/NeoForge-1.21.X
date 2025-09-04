@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:stone_pickaxe",
+    "minecraft:stone_axe",
+    "minecraft:stone_shovel"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:stone_paxel"
+  }
+}

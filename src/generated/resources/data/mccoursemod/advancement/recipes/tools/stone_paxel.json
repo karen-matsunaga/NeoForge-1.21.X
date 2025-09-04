@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_netherite_block": {
+    "has_stone_pickaxe": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:netherite_block"
+            "items": "minecraft:stone_pickaxe"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccoursemod:netherite_hammer"
+        "recipe": "mccoursemod:stone_paxel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_netherite_block"
+      "has_stone_pickaxe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mccoursemod:netherite_hammer"
+      "mccoursemod:stone_paxel"
     ]
   }
 }

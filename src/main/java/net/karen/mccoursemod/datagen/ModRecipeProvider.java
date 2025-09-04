@@ -23,7 +23,8 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider {
-    protected ModRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
+    protected ModRecipeProvider(HolderLookup.Provider registries,
+                                RecipeOutput output) {
         super(registries, output);
     }
 
@@ -80,6 +81,12 @@ public class ModRecipeProvider extends RecipeProvider {
         this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.BISMUTH.get(),
                                      RecipeCategory.BUILDING_BLOCKS, ModBlocks.BISMUTH_BLOCK.get());
 
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALEXANDRITE_BLOCK.get());
+
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.RAW_ALEXANDRITE.get(),
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
+
         this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.PINK.get(),
                                      RecipeCategory.BUILDING_BLOCKS, ModBlocks.PINK_BLOCK.get());
 
@@ -92,6 +99,22 @@ public class ModRecipeProvider extends RecipeProvider {
                               ModItems.ALEXANDRITE_SHOVEL.get(), ModItems.ALEXANDRITE_AXE.get(),
                               ModItems.ALEXANDRITE_HOE.get(), ModItems.ALEXANDRITE.get()));
 
+        this.allTools(List.of(ModItems.PINK_SWORD.get(), ModItems.PINK_PICKAXE.get(),
+                              ModItems.PINK_SHOVEL.get(), ModItems.PINK_AXE.get(),
+                              ModItems.PINK_HOE.get(), ModItems.PINK.get()));
+
+        this.allTools(List.of(ModItems.COPPER_SWORD.get(), ModItems.COPPER_PICKAXE.get(),
+                              ModItems.COPPER_SHOVEL.get(), ModItems.COPPER_AXE.get(),
+                              ModItems.COPPER_HOE.get(), Items.COPPER_INGOT));
+
+        this.allTools(List.of(ModItems.LAPIS_LAZULI_SWORD.get(), ModItems.LAPIS_LAZULI_PICKAXE.get(),
+                              ModItems.LAPIS_LAZULI_SHOVEL.get(), ModItems.LAPIS_LAZULI_AXE.get(),
+                              ModItems.LAPIS_LAZULI_HOE.get(), Items.LAPIS_LAZULI));
+
+        this.allTools(List.of(ModItems.REDSTONE_SWORD.get(), ModItems.REDSTONE_PICKAXE.get(),
+                              ModItems.REDSTONE_SHOVEL.get(), ModItems.REDSTONE_AXE.get(),
+                              ModItems.REDSTONE_HOE.get(), Items.REDSTONE));
+
         // ** CUSTOM hammer **
         this.hammerTool(List.of(ModItems.BISMUTH_HAMMER.get(), ModBlocks.BISMUTH_BLOCK.get()));
         this.hammerTool(List.of(ModItems.ALEXANDRITE_HAMMER.get(), ModBlocks.ALEXANDRITE_BLOCK.get()));
@@ -102,15 +125,49 @@ public class ModRecipeProvider extends RecipeProvider {
         this.hammerTool(List.of(ModItems.IRON_HAMMER.get(), Blocks.IRON_BLOCK));
         this.hammerTool(List.of(ModItems.STONE_HAMMER.get(), Blocks.STONE));
         this.hammerTool(List.of(ModItems.WOODEN_HAMMER.get(), ModBlocks.WALNUT_LOG));
-        this.hammerTool(List.of(ModItems.NETHERITE_HAMMER.get(), Blocks.NETHERITE_BLOCK));
         this.hammerTool(List.of(ModItems.LAPIS_LAZULI_HAMMER.get(), Blocks.LAPIS_BLOCK));
         this.hammerTool(List.of(ModItems.REDSTONE_HAMMER.get(), Blocks.REDSTONE_BLOCK));
+        this.netheriteSmithing(ModItems.DIAMOND_HAMMER.get(), RecipeCategory.TOOLS, ModItems.NETHERITE_HAMMER.get());
 
+        // ** CUSTOM paxel **
         this.paxelTool(List.of(ModItems.BISMUTH_PAXEL.get(), ModItems.BISMUTH_PICKAXE.get(),
                                ModItems.BISMUTH_AXE.get(), ModItems.BISMUTH_SHOVEL.get()));
 
         this.paxelTool(List.of(ModItems.ALEXANDRITE_PAXEL.get(), ModItems.ALEXANDRITE_PICKAXE.get(),
                                ModItems.ALEXANDRITE_AXE.get(), ModItems.ALEXANDRITE_SHOVEL.get()));
+
+        this.paxelTool(List.of(ModItems.PINK_PAXEL.get(), ModItems.PINK_PICKAXE.get(),
+                               ModItems.PINK_AXE.get(), ModItems.PINK_SHOVEL.get()));
+
+        this.paxelTool(List.of(ModItems.COPPER_PAXEL.get(), ModItems.COPPER_PICKAXE.get(),
+                               ModItems.COPPER_AXE.get(), ModItems.COPPER_SHOVEL.get()));
+
+        this.paxelTool(List.of(ModItems.LAPIS_LAZULI_PAXEL.get(), ModItems.LAPIS_LAZULI_PICKAXE.get(),
+                               ModItems.LAPIS_LAZULI_AXE.get(), ModItems.LAPIS_LAZULI_SHOVEL.get()));
+
+        this.paxelTool(List.of(ModItems.REDSTONE_PAXEL.get(), ModItems.REDSTONE_PICKAXE.get(),
+                               ModItems.REDSTONE_AXE.get(), ModItems.REDSTONE_SHOVEL.get()));
+
+        this.paxelTool(List.of(ModItems.WOODEN_PAXEL.get(), Items.WOODEN_PICKAXE,
+                               Items.WOODEN_AXE, Items.WOODEN_SHOVEL));
+
+        this.paxelTool(List.of(ModItems.STONE_PAXEL.get(), Items.STONE_PICKAXE,
+                               Items.STONE_AXE, Items.STONE_SHOVEL));
+
+        this.paxelTool(List.of(ModItems.GOLD_PAXEL.get(), Items.GOLDEN_PICKAXE,
+                               Items.GOLDEN_AXE, Items.GOLDEN_SHOVEL));
+
+        this.paxelTool(List.of(ModItems.IRON_PAXEL.get(), Items.IRON_PICKAXE,
+                               Items.IRON_AXE, Items.IRON_SHOVEL));
+
+        this.paxelTool(List.of(ModItems.DIAMOND_PAXEL.get(), Items.DIAMOND_PICKAXE,
+                               Items.DIAMOND_AXE, Items.DIAMOND_SHOVEL));
+
+        this.netheriteSmithing(ModItems.DIAMOND_PAXEL.get(), RecipeCategory.TOOLS, ModItems.NETHERITE_PAXEL.get());
+
+        // ** CUSTOM bow **
+        this.bow(List.of(ModItems.KAUPEN_BOW.get(), ModItems.BISMUTH.get()));
+        this.bow(List.of(ModItems.ALEXANDRITE_BOW.get(), ModItems.ALEXANDRITE.get()));
 
         // ** CUSTOM armors **
         this.fullArmor(List.of(ModItems.BISMUTH_HELMET.get(), ModItems.BISMUTH_CHESTPLATE.get(),
@@ -150,7 +207,7 @@ public class ModRecipeProvider extends RecipeProvider {
                                    ModBlocks.ALEXANDRITE_FENCE.get(), ModBlocks.ALEXANDRITE_FENCE_GATE.get(),
                                    ModBlocks.ALEXANDRITE_WALL.get(), ModBlocks.ALEXANDRITE_DOOR.get(),
                                    ModBlocks.ALEXANDRITE_TRAPDOOR.get()),
-                           ModItems.BISMUTH.get(), "alexandrite", this.output);
+                           ModItems.ALEXANDRITE.get(), "alexandrite", this.output);
 
         // ** CUSTOM Trim Smithing **
         // CRAFTING TABLE
@@ -525,6 +582,20 @@ public class ModRecipeProvider extends RecipeProvider {
             .pattern("WWW")
             .pattern(" W ")
             .unlockedBy(getHasName(items.get(1)), this.has(items.get(1))).save(this.output);
+    }
+
+    // CUSTOM METHOD - BOW
+    protected void bow(List<ItemLike> items) {
+        // 0 -> BOW; 1 -> TOOL MATERIAL;
+        Item string = Items.STRING;
+        this.shaped(RecipeCategory.COMBAT, items.getFirst())
+            .define('#', items.get(1))
+            .define('X', string)
+            .pattern(" #X")
+            .pattern("# X")
+            .pattern(" #X")
+            .unlockedBy(getHasName(string), this.has(string))
+            .save(this.output);
     }
 
     // CUSTOM METHOD - BOAT

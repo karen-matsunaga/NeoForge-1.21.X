@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "mccoursemod:copper_pickaxe",
+    "mccoursemod:copper_axe",
+    "mccoursemod:copper_shovel"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:copper_paxel"
+  }
+}
