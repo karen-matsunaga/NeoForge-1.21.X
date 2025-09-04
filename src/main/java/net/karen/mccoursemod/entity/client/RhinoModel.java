@@ -243,7 +243,11 @@ public class RhinoModel extends EntityModel<RhinoRenderState> {
     private void applyHeadRotation(float netHeadYaw, float headPitch) {
         netHeadYaw = Mth.clamp(netHeadYaw, -30.0F, 30.0F);
         headPitch = Mth.clamp(headPitch, -25.0F, 45.0F);
-        this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
-        this.head.xRot = headPitch * ((float)Math.PI / 180F);
+        this.head.yRot = netHeadYaw * 0.017453292F;
+        this.head.xRot = headPitch * 0.017453292F;
+    }
+
+    public ModelPart getHead() {
+        return head;
     }
 }

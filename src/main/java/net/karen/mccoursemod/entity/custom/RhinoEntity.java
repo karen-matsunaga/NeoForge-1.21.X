@@ -69,9 +69,9 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
             new ServerBossEvent(Component.literal("Our Cool Rhino"),
                                 BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.NOTCHED_12);
 
-    public RhinoEntity(EntityType<? extends TamableAnimal> entityType, Level level) {
+    public RhinoEntity(EntityType<? extends TamableAnimal> entityType,
+                       Level level) {
         super(entityType, level);
-        this.maxUpStep();
     }
 
     // Rhino custom entity IA
@@ -85,7 +85,7 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
         // BREED animation
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.2D,
-                                                          Ingredient.of(Items.COOKED_BEEF), true));
+                                                          Ingredient.of(Items.COOKED_BEEF), false));
         // TAMABLE animation
         this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
         this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.25D,
@@ -125,7 +125,8 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
         else { --this.idleAnimationTimeout; }
         // ATTACK animation
         if (this.isAttacking() && attackAnimationTimeout <= 0) {
-            attackAnimationTimeout = 80; // 20 (ticks) * 4 (seconds) = 80 ticks / 4 seconds - Length in ticks of your animation
+            // 20 (ticks) * 4 (seconds) = 80 ticks / 4 seconds - Length in ticks of your animation
+            attackAnimationTimeout = 80;
             attackAnimationState.start(this.tickCount);
         }
         else { --this.attackAnimationTimeout; }
@@ -216,9 +217,9 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
     /* TAMABLE */
     @Override
     public @NotNull InteractionResult mobInteract(Player player, @NotNull InteractionHand hand) {
-        ItemStack itemstack = player.getItemInHand(hand); // Player has an Apple on main hand
-        Item item = itemstack.getItem(); // Player has an Apple item
-        Item itemForTaming = Items.APPLE; // When the player used Apple to tamable Rhino entity
+        ItemStack itemstack = player.getItemInHand(hand); // Player has an APPLE on main hand
+        Item item = itemstack.getItem(); // Player has an APPLE item
+        Item itemForTaming = Items.APPLE; // When the player used APPLE to tamable RHINO entity
         if (item == itemForTaming && !isTame()) {
             if (this.level().isClientSide()) { return InteractionResult.CONSUME; }
             else {
@@ -236,7 +237,11 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
         }
         if (isTame() && hand == InteractionHand.MAIN_HAND && !isFood(itemstack)) {
             if (!player.isCrouching()) { setRiding(player); }
-            else { setOrderedToSit(!isOrderedToSit()); setInSittingPose(!isOrderedToSit()); }  // TOGGLES SITTING FOR OUR ENTITY
+            // TOGGLES SITTING FOR OUR ENTITY
+            else {
+                setOrderedToSit(!isOrderedToSit());
+                setInSittingPose(!isOrderedToSit());
+            }
             return InteractionResult.SUCCESS;
         }
         return super.mobInteract(player, hand);
@@ -266,10 +271,11 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
             this.yHeadRot = this.yBodyRot;
             float f = livingentity.xxa * 0.5F;
             float f1 = livingentity.zza;
+            if (f1 <= 0.0F) { f1 *= 0.25F; }
             // Inside this if statement, we are on the client!
             if (this.isLocalInstanceAuthoritative()) {
                 float newSpeed = (float) this.getAttributeValue(Attributes.MOVEMENT_SPEED);
-                // increasing speed by 100% if the spring key is held down (number for testing purposes)
+                // Increasing speed by 100% if the spring key is held down (number for testing purposes)
                 if (Minecraft.getInstance().options.keySprint.isDown()) { newSpeed *= 2f; }
                 this.setSpeed(newSpeed);
                 super.travel(new Vec3(f, vec3.y, f1));
@@ -305,7 +311,7 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable {
 
     /* BREEDING -> COOKED BEEF breedable Rhino entities */
     @Override
-    public boolean isFood(ItemStack pStack) { return pStack.is(Items.COOKED_BEEF); }
+    public boolean isFood(ItemStack stack) { return stack.is(Items.COOKED_BEEF); }
 
     /* BOSS BAR */
     @Override
