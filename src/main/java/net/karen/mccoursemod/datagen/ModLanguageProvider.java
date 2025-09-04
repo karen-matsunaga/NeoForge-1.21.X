@@ -151,6 +151,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // ** CUSTOM Elytra armor **
         addItem(ModItems.DIAMOND_ELYTRA, "Diamond Elytra");
+        add("item.mccoursemod.diamond_elytra_broken", "Broken Diamond Elytra");
 
         // ** CUSTOM Horse armor **
         // BISMUTH
@@ -758,12 +759,20 @@ public class ModLanguageProvider extends LanguageProvider {
         add("entity.mccoursemod.green_gecko", "Green Gecko");
         add("entity.mccoursemod.pink_gecko", "Pink Gecko");
         add("entity.mccoursemod.brown_gecko", "Brown Gecko");
+        add("entity.minecraft.gecko", "Gecko");
+        add("entity.minecraft.blue_gecko", "Blue Gecko");
+        add("entity.minecraft.green_gecko", "Green Gecko");
+        add("entity.minecraft.pink_gecko", "Pink Gecko");
+        add("entity.minecraft.brown_gecko", "Brown Gecko");
         // RHINO
         add("entity.mccoursemod.rhino", "Rhino");
         add("entity.mccoursemod.white_rhino", "White Rhino");
+        add("entity.minecraft.rhino", "Rhino");
+        add("entity.minecraft.white_rhino", "White Rhino");
 
         // ** CUSTOM Throwable Projectiles **
         add("entity.mccoursemod.tomahawk", "Tomahawk");
+        add("entity.minecraft.tomahawk", "Tomahawk");
 
         // ** CUSTOM villager **
         add("entity.minecraft.villager.mccoursemod.kaupenger", "Kaupenger");
@@ -771,5 +780,19 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // ** CUSTOM boat and chest boat**
         add("entity.minecraft.mod_chest_boat", "Chest Boat");
+
+        // ** CUSTOM sounds **
+        add("sounds.mccoursemod.chisel_use", "Chisel Use");
+        add("sounds.mccoursemod.metal_detector_found_ore", "Metal Detector Found Ore");
+        add("sounds.mccoursemod.magic_block_break", "Magic Block Break");
+        add("sounds.mccoursemod.magic_block_step", "Magic Block Step");
+        add("sounds.mccoursemod.magic_block_place", "Magic Block Place");
+        add("sounds.mccoursemod.magic_block_hit", "Magic Block Hit");
+        add("sounds.mccoursemod.magic_block_fall", "Magic Block Fall");
+        add("sounds.mccoursemod.alexandrite_lamp_break", "Alexandrite Block Break");
+        add("sounds.mccoursemod.alexandrite_lamp_step", "Alexandrite Block Step");
+        add("sounds.mccoursemod.alexandrite_lamp_place", "Alexandrite Block Place");
+        add("sounds.mccoursemod.alexandrite_lamp_hit", "Alexandrite Block Hit");
+        add("sounds.mccoursemod.alexandrite_lamp_fall", "Alexandrite Block Fall");
     }
 }
