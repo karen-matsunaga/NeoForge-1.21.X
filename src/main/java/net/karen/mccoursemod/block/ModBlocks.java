@@ -4,7 +4,7 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.custom.*;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.block.custom.GrowthChamberBlock;
-import net.karen.mccoursemod.item.custom.MccourseModGeneratorBlock;
+import net.karen.mccoursemod.block.custom.MccourseModGeneratorBlock;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.util.ModTags;
 import net.karen.mccoursemod.worldgen.tree.ModTreeGrowers;

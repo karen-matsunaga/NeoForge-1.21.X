@@ -12,17 +12,18 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public record MoreOresEnchantmentEffect(List<TagKey<Block>> blockTagKey,
-                                        HolderSet<Block> block,
-                                        List<Float> chance) {
+                                        HolderSet<Block> block, List<Float> chance) {
     // CODEC
     public static final Codec<MoreOresEnchantmentEffect> CODEC =
            RecordCodecBuilder.create(instance ->
@@ -57,11 +58,9 @@ public record MoreOresEnchantmentEffect(List<TagKey<Block>> blockTagKey,
                 Holder<Block> stoneHolder = blockHolderSet.get(0), netherrackHolder = blockHolderSet.get(1);
                 Float stoneChance = chances.getFirst(), netherrackChance = chances.get(1);
                 moreOresEffect(state.is(stoneHolder) && holderLvl > 0 || holderLvl <= 5,
-                                blockTag, holderLvl - 1, serverLevel, stoneChance, hasFortune,
-                                holderLvl, finalDrops);
-                moreOresEffect(state.is(netherrackHolder) && holderLvl > 6,
-                               blockTag, 5, serverLevel, netherrackChance, hasFortune,
-                               holderLvl, finalDrops);
+                               blockTag, holderLvl - 1, serverLevel, stoneChance, hasFortune, holderLvl, finalDrops);
+                moreOresEffect(state.is(netherrackHolder) && holderLvl >= 6, blockTag, 5,
+                               serverLevel, netherrackChance, hasFortune, holderLvl, finalDrops);
             }
             // Break block and ore chance drop
             finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
@@ -69,23 +68,21 @@ public record MoreOresEnchantmentEffect(List<TagKey<Block>> blockTagKey,
         });
     }
 
-
     // CUSTOM METHOD - MORE ORES Enchantment Effect
     public static void moreOresEffect(boolean bool,
                                       List<TagKey<Block>> blockTag, int index,
                                       ServerLevel serverLevel, Float blockChance,
-                                      int hasFortune, int holderLvl,
-                                      List<ItemStack> finalDrops) {
-        if (bool) {
-            Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(blockTag.get(index));
-            for (Holder<Block> blockHolder : tagBlock) {
-                if (serverLevel.random.nextFloat() < blockChance) {
-                    // Increase ore drop with Fortune and More Ores enchantments
-                    ItemStack drop = new ItemStack(blockHolder.value().asItem());
-                    drop.setCount((drop.getCount() * hasFortune) * holderLvl);
-                    finalDrops.add(drop); // Break block and ore chance drop
-                }
-            }
+                                      int hasFortune, int holderLvl, List<ItemStack> finalDrops) {
+        if (bool && serverLevel.random.nextFloat() < blockChance) {
+            Optional<HolderSet.Named<Block>> tagBlock = BuiltInRegistries.BLOCK.get(blockTag.get(index));
+            tagBlock.flatMap(block ->
+                             block.getRandomElement(RandomSource.create())).ifPresent(holder -> {
+                                  // Increase ore drop with FORTUNE and MORE ORES enchantments
+                                  ItemStack drop = new ItemStack(holder.value().asItem());
+                                  drop.setCount((drop.getCount() * hasFortune) * holderLvl);
+                                  finalDrops.add(drop); // Break block and ore chance drop
+                             });
+
         }
     }
 }

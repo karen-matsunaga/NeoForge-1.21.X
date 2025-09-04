@@ -1,4 +1,4 @@
-package net.karen.mccoursemod.item.custom;
+package net.karen.mccoursemod.block.custom;
 
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.util.Utils;
@@ -39,7 +39,7 @@ public class MccourseModGeneratorBlock extends Block {
                 if (state.getBlock().equals(this)) { // Is MCCOURSE GENERATOR custom block
                     Optional<HolderSet.Named<Block>> blockTag = BuiltInRegistries.BLOCK.get(blocks);
                     if (blockTag.isPresent()) {
-                        var block = blockTag.get();
+                        HolderSet.Named<Block> block = blockTag.get();
                         int x = pos.getX(), y = pos.getY(), z = pos.getZ();
                         switch (type) {
                             // 1. RANDOM TYPE -> DROP RANDOM BLOCK;
