@@ -80,6 +80,14 @@ public class Utils {
         world.addFreshEntity(drop);
     }
 
+    // CUSTOM METHOD - Drop items
+    public static void dropItems(Level level,
+                                 double x, double y, double z, ItemStack item) {
+        ItemEntity drop = new ItemEntity(level, x, y, z, item);
+        drop.setDeltaMovement(Vec3.ZERO);
+        level.addFreshEntity(drop);
+    }
+
     // CUSTOM METHOD - Cancel vanilla drop
     public static void block(LevelAccessor world, BlockPos pos, Block block,
                              BlockEvent.BreakEvent event) {

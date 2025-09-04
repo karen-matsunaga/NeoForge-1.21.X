@@ -27,6 +27,7 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                       ModBlocks.BISMUTH_BLOCK.get(),
                                                       ModBlocks.MAGIC.get(),
                                                       ModBlocks.MCCOURSEMOD_ELEVATOR.get(),
+                                                      ModBlocks.MCCOURSEMOD_GENERATOR.get(),
                                                       ModBlocks.BISMUTH_LAMP.get(),
                                                       ModBlocks.FORCED_STAINED_GLASS.get(),
                                                       ModBlocks.FORCED_STAINED_GLASS_PANE.get(),
@@ -64,6 +65,11 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                        ModBlocks.DEEPSLATE_PINK_ORE.get(),
                                                        ModBlocks.END_STONE_PINK_ORE.get(),
                                                        ModBlocks.NETHER_PINK_ORE.get());
+
+        // All ores
+        this.tag(ModTags.Blocks.ALL_ORES).addTag(Tags.Blocks.ORES)
+                                         .addTag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE)
+                                         .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES);
 
         // ** CUSTOM TIER TOOLS **
         // BISMUTH as Netherite tier

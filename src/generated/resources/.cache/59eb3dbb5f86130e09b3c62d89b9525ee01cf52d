@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-02T22:25:27.1665514	Loot Tables
+// 1.21.8	2025-09-04T10:35:06.4228788	Loot Tables
 cdb697b4f47740809ecdb90e81e8e5d2f56cfc86 data/mccoursemod/loot_table/blocks/alexandrite_block.json
 291a785f3fc73335884718fec6c7d2db06eb0048 data/mccoursemod/loot_table/blocks/alexandrite_button.json
 d0ad4d5e3aeabf77ec2d12530e2bc9b7e6bef80e data/mccoursemod/loot_table/blocks/alexandrite_door.json
@@ -61,6 +61,7 @@ bd6c6444a3f37bb6dddd5a850a4fc59a8046d8e2 data/mccoursemod/loot_table/blocks/lime
 c23473535b17e59483b60022cc55860fe6031949 data/mccoursemod/loot_table/blocks/magenta_ender_pearl_block.json
 a86d60eb39e4eea7c84b4a5c09af41fd54d07ad6 data/mccoursemod/loot_table/blocks/magic.json
 73e90d341b2cffa8028568f35563cc66e5536a38 data/mccoursemod/loot_table/blocks/mccoursemod_elevator.json
+588817f4b7c8bb7b804298cba91f8fff6e0aacec data/mccoursemod/loot_table/blocks/mccoursemod_generator.json
 c1239efba4c7e03871208eaae09e67d7f955eb05 data/mccoursemod/loot_table/blocks/nether_alexandrite_ore.json
 87032aa84c586f3ee9b1d8a014c18e06d6086d1b data/mccoursemod/loot_table/blocks/nether_pink_ore.json
 bd4c989a2ebf2dd90a718e3757e417175a859472 data/mccoursemod/loot_table/blocks/nether_star_block.json

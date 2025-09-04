@@ -4,7 +4,9 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.custom.*;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.block.custom.GrowthChamberBlock;
+import net.karen.mccoursemod.item.custom.MccourseModGeneratorBlock;
 import net.karen.mccoursemod.sound.ModSounds;
+import net.karen.mccoursemod.util.ModTags;
 import net.karen.mccoursemod.worldgen.tree.ModTreeGrowers;
 import net.karen.mccoursemod.worldgen.tree.ModWoodTypes;
 import net.minecraft.core.BlockPos;
@@ -148,6 +150,13 @@ public class ModBlocks {
            (properties) -> new MccourseElevatorBlock(properties.mapColor(MapColor.WOOL).sound(SoundType.WOOL)
                                                                          .strength(5F, 1200.F)
                                                                          .requiresCorrectToolForDrops()));
+
+    // CUSTOM Mccourse Mod Generator block
+    public static final DeferredBlock<Block> MCCOURSEMOD_GENERATOR = registerBlock("mccoursemod_generator",
+           (properties) -> new MccourseModGeneratorBlock(properties.mapColor(MapColor.STONE)
+                                                                             .instrument(NoteBlockInstrument.BASEDRUM)
+                                                                             .strength(5F, 3600000.0F),
+                                                                                       "ALL", ModTags.Blocks.ALL_ORES));
 
     // ** CUSTOM Block Family -> (Button, Door, Fence, Fence Gate, Pressure Plate, Slab, Stairs, Trapdoor and Wall) **
     // BISMUTH

@@ -18,6 +18,7 @@ public class ModTags {
     public static class Blocks {
         // ** CUSTOM ores -> Mccourse Mod ores **
         public static final TagKey<Block> MCCOURSE_MOD_ORES = createTag("mccourse_mod_ores");
+        public static final TagKey<Block> ALL_ORES = createTag("all_ores");
 
         // ** CUSTOM TOOLS **
         // PAXEL tool

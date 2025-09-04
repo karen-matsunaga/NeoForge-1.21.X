@@ -258,6 +258,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.disenchant_grouped", "Disenchant Grouped Block");
         add("item.mccoursemod.magic", "Magic Block");
         add("item.mccoursemod.mccoursemod_elevator", "Mccourse Mod Elevator Block");
+        add("item.mccoursemod.mccoursemod_generator", "Mccourse Mod Generator Block");
         add("item.mccoursemod.bismuth_button", "Bismuth Button Block");
         add("item.mccoursemod.bismuth_door", "Bismuth Door Block");
         add("item.mccoursemod.bismuth_fence", "Bismuth Fence Block");
@@ -376,6 +377,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.DISENCHANT_GROUPED, "Disenchant Grouped Block");
         addBlock(ModBlocks.MAGIC, "Magic Block");
         addBlock(ModBlocks.MCCOURSEMOD_ELEVATOR, "Mccourse Mod Elevator Block");
+        addBlock(ModBlocks.MCCOURSEMOD_GENERATOR, "Mccourse Mod Generator Block");
         addBlock(ModBlocks.SOUND, "Sound Block");
 
         // ** CUSTOM Block Families **

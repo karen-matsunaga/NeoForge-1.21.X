@@ -229,6 +229,7 @@ public class ModCreativeModeTabs {
                  output.accept(ModBlocks.DISENCHANT_GROUPED);
                  output.accept(ModBlocks.DISENCHANT_INDIVIDUAL);
                  output.accept(ModBlocks.MCCOURSEMOD_ELEVATOR);
+                 output.accept(ModBlocks.MCCOURSEMOD_GENERATOR);
                  // ** CUSTOM Block families **
                  // BISMUTH
                  output.accept(ModBlocks.BISMUTH_STAIRS);

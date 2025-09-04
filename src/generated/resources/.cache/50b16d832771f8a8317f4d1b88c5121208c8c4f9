@@ -1,5 +1,6 @@
-// 1.21.8	2025-09-02T22:02:15.9217725	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-09-04T10:37:57.67553	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
+45f418e9ccfb34f690fcedb40b1602003ab6f053 data/mccoursemod/tags/block/all_ores.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
 d3e0307570b786aa4733b133a1bc9d5453079334 data/mccoursemod/tags/block/bismuth_blocks.json
 fb04ce601bdbe167eef745f4fb188a2bb2d4ca6a data/mccoursemod/tags/block/block_fly_block_speed.json
@@ -44,7 +45,7 @@ be5791d9499b3d7d689990c9fc2a4c4e856a05ac data/minecraft/tags/block/flower_pots.j
 6a54a0eec9efdf43743f54d093866a1ab5e22da1 data/minecraft/tags/block/impermeable.json
 7a5dd8815002431512c87ae04041ff84e1a05cd2 data/minecraft/tags/block/leaves.json
 4b057e3e5e6f7b9026d5871433fccbb5eb4dfe1a data/minecraft/tags/block/logs_that_burn.json
-4f33d0ba5f2727a4c668ac5a98a33c0bde86a726 data/minecraft/tags/block/mineable/pickaxe.json
+e85f0c4309549310333e2419a5a968237a385cd7 data/minecraft/tags/block/mineable/pickaxe.json
 950fd2db124c5b2a8ecd2d4737fee78abe8776ac data/minecraft/tags/block/overworld_carver_replaceables.json
 2cb28474625576092652fd1b578b683666883b3a data/minecraft/tags/block/planks.json
 89ee07c9d11c811978886cd16793b2c3549d7bbc data/minecraft/tags/block/pressure_plates.json
