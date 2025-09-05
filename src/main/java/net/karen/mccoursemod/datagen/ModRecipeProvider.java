@@ -90,6 +90,9 @@ public class ModRecipeProvider extends RecipeProvider {
         this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.PINK.get(),
                                      RecipeCategory.BUILDING_BLOCKS, ModBlocks.PINK_BLOCK.get());
 
+        this.nineBlockStorageRecipes(RecipeCategory.BUILDING_BLOCKS, Items.CRAFTING_TABLE,
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRAFTING_PLUS.get());
+
         // ** CUSTOM tools **
         this.allTools(List.of(ModItems.BISMUTH_SWORD.get(), ModItems.BISMUTH_PICKAXE.get(),
                               ModItems.BISMUTH_SHOVEL.get(), ModItems.BISMUTH_AXE.get(),
@@ -298,6 +301,46 @@ public class ModRecipeProvider extends RecipeProvider {
 
         kaupenFurnace("misc", CookingBookCategory.MISC,
                       Ingredient.of(Items.BONE_MEAL), Items.PHANTOM_MEMBRANE, 10.0F, 100);
+
+        // ** CRAFTING PLUS recipes **
+        // Crafting Plus 7x7 - (One item)
+        craftSeven(List.of(ModBlocks.KAUPEN_FURNACE_BLOCK.get(), Items.FURNACE));
+        craftSeven(List.of(ModBlocks.MCCOURSEMOD_ELEVATOR.get(), Items.WHITE_WOOL));
+        craftSeven(List.of(ModBlocks.ENCHANT.get(), Items.ENCHANTING_TABLE));
+        craftSeven(List.of(ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.DISENCHANT_INDIVIDUAL.get()));
+        craftSeven(List.of(ModBlocks.DISENCHANT_INDIVIDUAL.get(), Items.ANVIL));
+        // Crafting Plus 7x7 - (Three items)
+        craftSevenItems(List.of(ModBlocks.MCCOURSEMOD_GENERATOR.get(), ModBlocks.CRAFTING_PLUS.get(),
+                                Items.NETHER_STAR, Items.ENCHANTED_GOLDEN_APPLE));
+    }
+
+    // ** CUSTOM METHOD - CRAFTING PLUS custom recipes **
+    // CUSTOM METHOD - Crafting Plus 7x7 (One item/recipe)
+    protected void craftSeven(List<ItemLike> item) {
+        // 0 -> RESULT; 1 -> Main recipe;
+        ItemLike ingredient = item.get(1);
+        this.shaped(RecipeCategory.MISC, item.get(0))
+            .pattern("AAAAAAA").pattern("AAAAAAA").pattern("AAAAAAA")
+            .pattern("AAAAAAA").pattern("AAAAAAA").pattern("AAAAAAA")
+            .pattern("AAAAAAA")
+            .define('A', ingredient)
+            .unlockedBy(getHasName(ingredient), has(ingredient))
+            .save(this.output);
+    }
+
+    // CUSTOM METHOD - Crafting Plus 7x7 (Three items/recipes)
+    protected void craftSevenItems(List<ItemLike> item) {
+        // 0 -> RESULT; 1 -> Main recipe; 2 -> Addition recipe; 3 -> Addition recipe;
+        ItemLike ingredient = item.get(1);
+        this.shaped(RecipeCategory.MISC, item.get(0))
+            .pattern("AAAAAAA").pattern("ABBBBBA").pattern("ABBBBBA")
+            .pattern("ABBCBBA").pattern("ABBBBBA").pattern("ABBBBBA")
+            .pattern("AAAAAAA")
+            .define('A', ingredient)
+            .define('B', item.get(2))
+            .define('C', item.get(3)) // Center ingredient
+            .unlockedBy(getHasName(ingredient), has(ingredient))
+            .save(this.output);
     }
 
     // CUSTOM METHOD - KAUPEN FURNACE custom recipes
@@ -305,7 +348,7 @@ public class ModRecipeProvider extends RecipeProvider {
                                  Ingredient ingredient, Item result, float experience, int cookingTime) {
         new KaupenFurnaceRecipeBuilder(group, category, ingredient,
                                        result, experience, cookingTime)
-                                      .unlockedBy("has_item", has(result))
+                                      .unlockedBy(getHasName(result), has(result))
                                       .save(this.output, MccourseMod.MOD_ID + ":" +
                                             getItemName(result) + "_from_kaupen_furnace");
     }

@@ -26,6 +26,9 @@ public class ModRecipes {
            SERIALIZERS.register("kaupen_furnace",
            () -> new KaupenFurnaceRecipe.Serializer(200));
 
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<CraftingPlusRecipe>>
+           CRAFTING_PLUS_SERIALIZER = SERIALIZERS.register("crafting_plus", CraftingPlusRecipe.Serializer::new);
+
     // Registry all custom recipes types
     public static final DeferredHolder<RecipeType<?>, RecipeType<GrowthChamberRecipe>> GROWTH_CHAMBER_TYPE =
            RECIPE_TYPES.register("growth_chamber", () -> new RecipeType<>() {
@@ -41,6 +44,14 @@ public class ModRecipes {
                public String toString() {
                    return "kaupen_furnace";
                }
+           });
+
+    public static final DeferredHolder<RecipeType<?>, RecipeType<CraftingPlusRecipe>> CRAFTING_PLUS_TYPE =
+           RECIPE_TYPES.register("crafting_plus", () -> new RecipeType<>() {
+                @Override
+                public String toString() {
+                    return "crafting_plus";
+                }
            });
 
     // CUSTOM METHOD - Registry all custom recipes on event bus

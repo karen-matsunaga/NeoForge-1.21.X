@@ -1,7 +1,6 @@
 {
   "values": [
-    "mccoursemod:kaupen_bow",
-    "mccoursemod:alexandrite_bow",
+    "#mccoursemod:bow_tools",
     "mccoursemod:alexandrite_shield",
     "mccoursemod:diamond_elytra"
   ]

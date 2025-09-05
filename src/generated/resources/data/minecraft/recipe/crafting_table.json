@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "mccoursemod:crafting_plus"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:crafting_table"
+  }
+}

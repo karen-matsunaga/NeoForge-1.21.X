@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_phantom_membrane": {
+    "has_crafting_plus": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:phantom_membrane"
+            "items": "mccoursemod:crafting_plus"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccoursemod:phantom_membrane_from_kaupen_furnace"
+        "recipe": "mccoursemod:mccoursemod_generator"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_phantom_membrane"
+      "has_crafting_plus"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mccoursemod:phantom_membrane_from_kaupen_furnace"
+      "mccoursemod:mccoursemod_generator"
     ]
   }
 }

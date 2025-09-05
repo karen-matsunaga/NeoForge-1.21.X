@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_phantom_membrane": {
+    "has_anvil": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:phantom_membrane"
+            "items": "minecraft:anvil"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccoursemod:phantom_membrane_from_kaupen_furnace"
+        "recipe": "mccoursemod:disenchant_individual"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_phantom_membrane"
+      "has_anvil"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mccoursemod:phantom_membrane_from_kaupen_furnace"
+      "mccoursemod:disenchant_individual"
     ]
   }
 }

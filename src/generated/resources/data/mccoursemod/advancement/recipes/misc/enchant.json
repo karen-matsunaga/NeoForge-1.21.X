@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_phantom_membrane": {
+    "has_enchanting_table": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:phantom_membrane"
+            "items": "minecraft:enchanting_table"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccoursemod:phantom_membrane_from_kaupen_furnace"
+        "recipe": "mccoursemod:enchant"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_phantom_membrane"
+      "has_enchanting_table"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mccoursemod:phantom_membrane_from_kaupen_furnace"
+      "mccoursemod:enchant"
     ]
   }
 }

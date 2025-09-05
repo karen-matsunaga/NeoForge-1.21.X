@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "mccoursemod:crafting_plus",
+    "B": "minecraft:nether_star",
+    "C": "minecraft:enchanted_golden_apple"
+  },
+  "pattern": [
+    "AAAAAAA",
+    "ABBBBBA",
+    "ABBBBBA",
+    "ABBCBBA",
+    "ABBBBBA",
+    "ABBBBBA",
+    "AAAAAAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:mccoursemod_generator"
+  }
+}

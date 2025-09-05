@@ -2,21 +2,25 @@ package net.karen.mccoursemod.compat;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.registration.*;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.recipe.CraftingPlusRecipe;
 import net.karen.mccoursemod.recipe.GrowthChamberRecipe;
 import net.karen.mccoursemod.recipe.KaupenFurnaceRecipe;
 import net.karen.mccoursemod.recipe.ModRecipes;
 import net.karen.mccoursemod.screen.ModMenuTypes;
-import net.karen.mccoursemod.screen.custom.GrowthChamberScreen;
-import net.karen.mccoursemod.screen.custom.KaupenFurnaceMenu;
-import net.karen.mccoursemod.screen.custom.KaupenFurnaceScreen;
+import net.karen.mccoursemod.screen.custom.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.*;
 import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
+import java.util.Optional;
 
 @JeiPlugin
 public class JEIModPlugin implements IModPlugin {
@@ -27,8 +31,10 @@ public class JEIModPlugin implements IModPlugin {
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new GrowthChamberRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
-        registration.addRecipeCategories(new KaupenFurnaceRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        IGuiHelper guiHelper = registration.getJeiHelpers().getGuiHelper();
+        registration.addRecipeCategories(new GrowthChamberRecipeCategory(guiHelper));
+        registration.addRecipeCategories(new KaupenFurnaceRecipeCategory(guiHelper));
+        registration.addRecipeCategories(new CraftingPlusRecipeCategory(guiHelper));
     }
 
     @Override
@@ -43,6 +49,7 @@ public class JEIModPlugin implements IModPlugin {
                                                    List.of(new GrowthChamberRecipe(recipe.inputItem(),
                                                                                    recipe.output())));
                   });
+
             // KAUPEN FURNACE
             server.getRecipeManager().recipeMap().byType(ModRecipes.KAUPEN_FURNACE_TYPE.get())
                   .forEach(holder -> {
@@ -52,6 +59,32 @@ public class JEIModPlugin implements IModPlugin {
                                                                                    null,
                                                                                    recipe.experience(), recipe.cookingTime())));
                   });
+
+            // CRAFTING PLUS
+            List<ShapedRecipe> recipes =
+                server.getRecipeManager().recipeMap().byType(RecipeType.CRAFTING)
+                      .stream()
+                      .map(RecipeHolder::value)
+                      .filter(recipe -> recipe instanceof ShapedRecipe)
+                      .map(recipe -> (ShapedRecipe) recipe)
+                      .toList();
+
+            for (Recipe<?> ing : recipes) {
+                if (ing instanceof ShapedRecipe shaped) {
+                    List<Optional<Ingredient>> shapedRecipe = shaped.getIngredients();
+                    Optional<Ingredient> item = shapedRecipe.getFirst();
+                    if (!shapedRecipe.isEmpty() && item.isPresent()) {
+                        Item output = item.get().getValues().get(0).value();
+                        registration.addRecipes(CraftingPlusRecipeCategory.CRAFTING_PLUS_TYPE,
+                                                List.of(new CraftingPlusRecipe(shaped.group(), shaped.category(),
+                                                                               new ShapedRecipePattern(shaped.getWidth(),
+                                                                                                       shaped.getHeight(),
+                                                                                                       shapedRecipe,
+                                                                                                       Optional.empty()),
+                                                                               new ItemStack(output), true)));
+                    }
+                }
+            }
         }
     }
 
@@ -64,6 +97,10 @@ public class JEIModPlugin implements IModPlugin {
         // KAUPEN FURNACE
         registration.addRecipeClickArea(KaupenFurnaceScreen.class, 60, 30, 20, 30,
                                         KaupenFurnaceRecipeCategory.KAUPEN_FURNACE_TYPE);
+
+        // CRAFTING PLUS
+        registration.addRecipeClickArea(CraftingPlusScreen.class, 140, 18, 18, 18,
+                                        CraftingPlusRecipeCategory.CRAFTING_PLUS_TYPE);
     }
 
     @Override
@@ -75,6 +112,10 @@ public class JEIModPlugin implements IModPlugin {
         // KAUPEN FURNACE
         registration.addCraftingStation(KaupenFurnaceRecipeCategory.KAUPEN_FURNACE_TYPE,
                                         ModBlocks.KAUPEN_FURNACE_BLOCK.get());
+
+        // CRAFTING PLUS
+        registration.addCraftingStation(CraftingPlusRecipeCategory.CRAFTING_PLUS_TYPE,
+                                        ModBlocks.CRAFTING_PLUS.get());
     }
 
     @Override

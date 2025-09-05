@@ -158,6 +158,15 @@ public class ModBlocks {
                                                                              .strength(5F, 3600000.0F),
                                                                                        "ALL", ModTags.Blocks.ALL_ORES));
 
+    // CUSTOM Crafting Plus custom Crafting Table
+    public static final DeferredBlock<Block> CRAFTING_PLUS = registerBlock("crafting_plus",
+           (properties) ->
+           new CraftingPlusBlock(BlockBehaviour.Properties
+                                               .ofFullCopy(Blocks.CRAFTING_TABLE)
+                                               .setId(ResourceKey.create(Registries.BLOCK,
+                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                                            "crafting_plus")))));
+
     // ** CUSTOM Block Family -> (Button, Door, Fence, Fence Gate, Pressure Plate, Slab, Stairs, Trapdoor and Wall) **
     // BISMUTH
     public static final DeferredBlock<StairBlock> BISMUTH_STAIRS = registerBlock("bismuth_stairs",

@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-04T16:48:58.3182863	Model Definitions - mccoursemod
+// 1.21.8	2025-09-04T19:35:09.1707365	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -38,6 +38,7 @@ c05fe58464844dd2111175207107221077a14de4 assets/mccoursemod/blockstates/brown_en
 354d169af569f8e980f07fce23b5878a14da4ebd assets/mccoursemod/blockstates/cattail_crop.json
 ff9043da6429d54da45740e04585885cdb513611 assets/mccoursemod/blockstates/chair.json
 0bf3d28e98ea815622864fce8b9c4d2a4fce40b8 assets/mccoursemod/blockstates/colored_leaves.json
+58ca418a7bd3639c273b46690357a7fde6a4e4fd assets/mccoursemod/blockstates/crafting_plus.json
 3f25c787be3164eef992ad9c8aafb36998e16863 assets/mccoursemod/blockstates/cyan_ender_pearl_block.json
 2c65d65e39e8723985776d51c63d81480edf2b67 assets/mccoursemod/blockstates/deepslate_alexandrite_ore.json
 5174acf4d8dbc86f4c8fb45f724cfec156c6f666 assets/mccoursemod/blockstates/deepslate_pink_ore.json
@@ -194,6 +195,7 @@ f5087f6fe72eb71aeb5fd2017def8203bbc163a4 assets/mccoursemod/items/copper_axe.jso
 cf9b91a2b1b0d7cbdde7590338bb3cc50944ea45 assets/mccoursemod/items/copper_pickaxe.json
 1a0facbebc1271130eb172368bedb252264bfb7d assets/mccoursemod/items/copper_shovel.json
 8f911a05a12b9b4e7f1e4de32c0b016e3214e098 assets/mccoursemod/items/copper_sword.json
+546d9abeafd1441e3c8c811d2972c6cbdfbc224b assets/mccoursemod/items/crafting_plus.json
 28eb53e3a3cf2727d380d6c58e213e3bcf51ebaa assets/mccoursemod/items/cyan_ender_pearl_block.json
 f2086c138ed4b922bce40b818104fe94bf86f1a1 assets/mccoursemod/items/data_tablet.json
 4a1ee8e87d8a82726d9f60201212c8ecb0a82fd7 assets/mccoursemod/items/deepslate_alexandrite_ore.json
@@ -430,6 +432,7 @@ afc1ffe7e1c22016a015f455a42d0ab79411f5b5 assets/mccoursemod/models/block/cattail
 4e9e64edbf86962e1199d24c7ddc7826c3cb626b assets/mccoursemod/models/block/cattail_crop_stage7.json
 848043f26c247ba3416b24e72a2c2041f289d27d assets/mccoursemod/models/block/cattail_crop_stage8.json
 aec56f7736a0e0f3ed7778128643fd66e3f925bc assets/mccoursemod/models/block/colored_leaves.json
+5c0114b9f06928f93d177be767a99e47b60100c3 assets/mccoursemod/models/block/crafting_plus.json
 cd134c68c92697a6de63ed05dd54422880bd836e assets/mccoursemod/models/block/cyan_ender_pearl_block.json
 a572bf2411a8bf7098dc6f2cdc93399083759c7f assets/mccoursemod/models/block/deepslate_alexandrite_ore.json
 97f3c8ef6c2c7f8ff4778fd54d6ccc7e072ab16b assets/mccoursemod/models/block/deepslate_pink_ore.json

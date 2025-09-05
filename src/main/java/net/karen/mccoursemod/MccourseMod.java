@@ -17,6 +17,7 @@ import net.karen.mccoursemod.recipe.ModRecipes;
 import net.karen.mccoursemod.screen.ModMenuTypes;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.villager.ModVillagers;
+import net.minecraft.world.item.crafting.ShapedRecipePattern;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -101,6 +102,9 @@ public class MccourseMod {
         }
         LOGGER.info("{}{}", MccourseModConfig.MAGIC_NUMBER_INTRODUCTION.get(), MccourseModConfig.MAGIC_NUMBER.getAsInt());
         MccourseModConfig.ITEM_STRINGS.get().forEach((item) -> LOGGER.info("ITEM >> {}", item));
+
+        // ** CUSTOM Crafting Plus 7x7 size **
+        event.enqueueWork(() -> ShapedRecipePattern.setCraftingSize(7, 7));
     }
 
     // Add the example block item to the building blocks tab

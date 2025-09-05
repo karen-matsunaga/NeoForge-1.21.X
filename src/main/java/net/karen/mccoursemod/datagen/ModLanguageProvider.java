@@ -351,6 +351,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.kaupen_portal", "Kaupen Portal");
         add("item.mccoursemod.kaupen_furnace", "Kaupen Furnace");
         add("item.mccoursemod.dice", "Dice");
+        add("item.mccoursemod.crafting_plus", "Crafting Plus");
 
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
@@ -382,6 +383,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.MAGIC, "Magic Block");
         addBlock(ModBlocks.MCCOURSEMOD_ELEVATOR, "Mccourse Mod Elevator Block");
         addBlock(ModBlocks.MCCOURSEMOD_GENERATOR, "Mccourse Mod Generator Block");
+        addBlock(ModBlocks.CRAFTING_PLUS, "Crafting Plus Block");
         addBlock(ModBlocks.SOUND, "Sound Block");
 
         // ** CUSTOM Block Families **
@@ -794,5 +796,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add("sounds.mccoursemod.alexandrite_lamp_place", "Alexandrite Block Place");
         add("sounds.mccoursemod.alexandrite_lamp_hit", "Alexandrite Block Hit");
         add("sounds.mccoursemod.alexandrite_lamp_fall", "Alexandrite Block Fall");
+
+        // ** CUSTOM block entity container **
+        add("mccoursemod.container.crafting", "");
+        add("container.inventory", "");
     }
 }

@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.screen;
 
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.screen.custom.CraftingPlusMenu;
 import net.karen.mccoursemod.screen.custom.GrowthChamberMenu;
 import net.karen.mccoursemod.screen.custom.KaupenFurnaceMenu;
 import net.karen.mccoursemod.screen.custom.PedestalMenu;
@@ -26,6 +27,9 @@ public class ModMenuTypes {
 
     public static final DeferredHolder<MenuType<?>, MenuType<KaupenFurnaceMenu>> KAUPEN_FURNACE_MENU =
            registerMenuType("kaupen_furnace_menu", KaupenFurnaceMenu::new);
+
+    public static final DeferredHolder<MenuType<?>, MenuType<CraftingPlusMenu>> CRAFTING_PLUS_MENU =
+           registerMenuType("crafting_plus_menu", CraftingPlusMenu::new);
 
     // CUSTOM METHOD - Registry all custom menus
     private static <T extends AbstractContainerMenu> DeferredHolder<MenuType<?>, MenuType<T>>

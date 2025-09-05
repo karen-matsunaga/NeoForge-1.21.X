@@ -11,18 +11,19 @@ import net.karen.mccoursemod.entity.client.*;
 import net.karen.mccoursemod.fluid.BaseFluidType;
 import net.karen.mccoursemod.fluid.ModFluidTypes;
 import net.karen.mccoursemod.fluid.ModFluids;
-import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.particle.BismuthParticles;
 import net.karen.mccoursemod.particle.BouncyBallsParticles;
 import net.karen.mccoursemod.particle.ModParticles;
 import net.karen.mccoursemod.screen.ModMenuTypes;
+import net.karen.mccoursemod.screen.custom.CraftingPlusScreen;
 import net.karen.mccoursemod.screen.custom.GrowthChamberScreen;
 import net.karen.mccoursemod.screen.custom.KaupenFurnaceScreen;
 import net.karen.mccoursemod.screen.custom.PedestalScreen;
 import net.karen.mccoursemod.util.ImageTooltipComponent;
 import net.karen.mccoursemod.util.KeyBinding;
+import net.karen.mccoursemod.util.ModTags;
 import net.karen.mccoursemod.util.MultiImageTooltipComponent;
 import net.karen.mccoursemod.worldgen.biome.ModBiomes;
 import net.karen.mccoursemod.worldgen.biome.ModSurfaceRules;
@@ -158,7 +159,7 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void onComputeFovModifierEvent(ComputeFovModifierEvent event) {
         Player player = event.getPlayer();
-        if (player.isUsingItem() && player.getUseItem().getItem() == ModItems.KAUPEN_BOW.get()) {
+        if (player.isUsingItem() && player.getUseItem().is(ModTags.Items.BOW_TOOLS)) {
             float fovModifier = 1f;
             int ticksUsingItem = player.getTicksUsingItem();
             float deltaTicks = (float) ticksUsingItem / 20f;
@@ -203,6 +204,7 @@ public class ModClientEvents {
         event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
         event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
         event.register(ModMenuTypes.KAUPEN_FURNACE_MENU.get(), KaupenFurnaceScreen::new);
+        event.register(ModMenuTypes.CRAFTING_PLUS_MENU.get(), CraftingPlusScreen::new);
     }
 
     // CUSTOM EVENT - Registry all custom fluid types

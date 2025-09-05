@@ -87,6 +87,8 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.MCCOURSEMOD_ELEVATOR.get());
         blockModels.createTrivialCube(ModBlocks.MCCOURSEMOD_GENERATOR.get());
         blockModels.createTrivialCube(ModBlocks.SOUND.get());
+        blockModels.createCraftingTableLike(ModBlocks.CRAFTING_PLUS.get(),
+                                            Blocks.OAK_LOG, TextureMapping::craftingTable);
 
         // ** BLOCK FAMILIES **
         // BISMUTH

@@ -42,6 +42,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.MAGIC.get());
         dropSelf(ModBlocks.MCCOURSEMOD_ELEVATOR.get());
         dropSelf(ModBlocks.MCCOURSEMOD_GENERATOR.get());
+        dropSelf(ModBlocks.CRAFTING_PLUS.get());
         dropSelf(ModBlocks.SOUND.get());
 
         // ** CUSTOM ORES ** -> Mccourse Mod Ores

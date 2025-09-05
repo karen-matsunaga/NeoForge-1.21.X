@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/oak_log",
+    "east": "mccoursemod:block/crafting_plus_side",
+    "north": "mccoursemod:block/crafting_plus_front",
+    "particle": "mccoursemod:block/crafting_plus_front",
+    "south": "mccoursemod:block/crafting_plus_side",
+    "up": "mccoursemod:block/crafting_plus_top",
+    "west": "mccoursemod:block/crafting_plus_front"
+  }
+}

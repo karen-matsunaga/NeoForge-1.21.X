@@ -108,6 +108,9 @@ public class ModTags {
         // Magic block
         public static final TagKey<Item> MAGIC_BLOCK = createTag("magic_block");
 
+        // Bow items
+        public static final TagKey<Item> BOW_TOOLS = createTag("bow_tools");
+
         // TOOL MATERIALS items - TOOLS
         public static final TagKey<Item> BISMUTH_TOOLS = createTag("bismuth_tools");
         public static final TagKey<Item> ALEXANDRITE_TOOLS = createTag("alexandrite_tools");
