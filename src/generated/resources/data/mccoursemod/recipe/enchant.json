@@ -1,6 +1,7 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "mccoursemod:crafting_plus",
   "category": "misc",
+  "group": "crafting_plus",
   "key": {
     "A": "minecraft:enchanting_table"
   },

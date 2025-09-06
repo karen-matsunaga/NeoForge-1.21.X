@@ -4,11 +4,16 @@ import com.google.common.annotations.VisibleForTesting;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.karen.mccoursemod.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.display.RecipeDisplay;
+import net.minecraft.world.item.crafting.display.ShapedCraftingRecipeDisplay;
+import net.minecraft.world.item.crafting.display.SlotDisplay;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
@@ -47,7 +52,9 @@ public class CraftingPlusRecipe implements Recipe<CraftingInput> {
     public boolean showNotification() { return this.showNotification; }
 
     @Override
-    public boolean matches(@NotNull CraftingInput input, @NotNull Level level) { return this.pattern.matches(input); }
+    public boolean matches(@NotNull CraftingInput input, @NotNull Level level) {
+        return this.pattern.matches(input);
+    }
 
     @Override
     public @NotNull ItemStack assemble(@NotNull CraftingInput input,
@@ -75,6 +82,21 @@ public class CraftingPlusRecipe implements Recipe<CraftingInput> {
 
     public CraftingBookCategory getCategory() { return this.category; }
 
+    public NonNullList<ItemStack> getRemainingItems(CraftingInput input) {
+        return defaultCraftingReminder(input);
+    }
+
+    static NonNullList<ItemStack> defaultCraftingReminder(CraftingInput input) {
+        NonNullList<ItemStack> nonnulllist = NonNullList.withSize(input.size(), ItemStack.EMPTY);
+
+        for(int i = 0; i < nonnulllist.size(); ++i) {
+            ItemStack item = input.getItem(i);
+            nonnulllist.set(i, item.getCraftingRemainder());
+        }
+
+        return nonnulllist;
+    }
+
     @Override
     public @NotNull RecipeBookCategory recipeBookCategory() {
         RecipeBookCategory recipeBookCategory;
@@ -88,21 +110,39 @@ public class CraftingPlusRecipe implements Recipe<CraftingInput> {
         return recipeBookCategory;
     }
 
+    public @NotNull List<RecipeDisplay> display() {
+        return List.of(new ShapedCraftingRecipeDisplay(
+                       this.pattern.width(), this.pattern.height(),
+                       this.pattern.ingredients().stream().map((ingredient) ->
+                                                               ingredient.map(Ingredient::display)
+                                                                       .orElse(SlotDisplay.Empty.INSTANCE))
+                                                                       .toList(),
+                       new SlotDisplay.ItemStackSlotDisplay(this.result),
+                       new SlotDisplay.ItemSlotDisplay(ModBlocks.CRAFTING_PLUS.asItem())));
+    }
+
+    public int getWidth() { return this.pattern.width(); }
+
+    public int getHeight() { return this.pattern.height(); }
+
     public static class Serializer implements RecipeSerializer<CraftingPlusRecipe> {
         public static final MapCodec<CraftingPlusRecipe> CODEC =
                RecordCodecBuilder.mapCodec(instance ->
                          instance.group(Codec.STRING.optionalFieldOf("group", "") // GROUP
                                                     .forGetter(CraftingPlusRecipe::group),
-                                        CraftingBookCategory.CODEC.fieldOf("category") // CATEGORY
+                                        // CATEGORY
+                                        CraftingBookCategory.CODEC.fieldOf("category")
                                                             .orElse(CraftingBookCategory.MISC)
                                                             .forGetter(CraftingPlusRecipe::getCategory),
                                                                        ShapedRecipePattern.MAP_CODEC
                                                                                           .forGetter(recipe ->
                                                                                                      recipe.pattern),
+                                        // RESULT
                                         ItemStack.STRICT_CODEC
-                                                 .fieldOf("result") // RESULT
+                                                 .fieldOf("result")
                                                  .forGetter(CraftingPlusRecipe::getResult),
-                                        Codec.BOOL.optionalFieldOf("show_notification", true) // NOTIFICATION
+                                        // NOTIFICATION
+                                        Codec.BOOL.optionalFieldOf("show_notification", true)
                                                   .forGetter(CraftingPlusRecipe::showNotification))
                                                   .apply(instance, CraftingPlusRecipe::new));
         public static final StreamCodec<RegistryFriendlyByteBuf, CraftingPlusRecipe> STREAM_CODEC =
@@ -110,7 +150,9 @@ public class CraftingPlusRecipe implements Recipe<CraftingInput> {
 
         public @NotNull MapCodec<CraftingPlusRecipe> codec() { return CODEC; }
 
-        public @NotNull StreamCodec<RegistryFriendlyByteBuf, CraftingPlusRecipe> streamCodec() { return STREAM_CODEC; }
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, CraftingPlusRecipe> streamCodec() {
+            return STREAM_CODEC;
+        }
 
         // CUSTOM METHOD - Read NETWORK
         private static CraftingPlusRecipe fromNetwork(RegistryFriendlyByteBuf buffer) {
@@ -123,7 +165,8 @@ public class CraftingPlusRecipe implements Recipe<CraftingInput> {
         }
 
         // CUSTOM METHOD - Write NETWORK
-        private static void toNetwork(RegistryFriendlyByteBuf buffer, CraftingPlusRecipe recipe) {
+        private static void toNetwork(RegistryFriendlyByteBuf buffer,
+                                      CraftingPlusRecipe recipe) {
             buffer.writeUtf(recipe.group);
             buffer.writeEnum(recipe.category);
             ShapedRecipePattern.STREAM_CODEC.encode(buffer, recipe.pattern);

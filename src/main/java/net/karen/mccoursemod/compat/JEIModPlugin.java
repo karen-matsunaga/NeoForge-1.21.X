@@ -44,8 +44,7 @@ public class JEIModPlugin implements IModPlugin {
                   .forEach(holder -> {
                            GrowthChamberRecipe recipe = holder.value();
                            registration.addRecipes(GrowthChamberRecipeCategory.GROWTH_CHAMBER_RECIPE_TYPE,
-                                                   List.of(new GrowthChamberRecipe(recipe.inputItem(),
-                                                                                   recipe.output())));
+                                                   List.of(new GrowthChamberRecipe(recipe.inputItem(), recipe.output())));
                   });
 
             // KAUPEN FURNACE
@@ -53,48 +52,31 @@ public class JEIModPlugin implements IModPlugin {
                   .forEach(holder -> {
                            KaupenFurnaceRecipe recipe = holder.value();
                            registration.addRecipes(KaupenFurnaceRecipeCategory.KAUPEN_FURNACE_TYPE,
-                                                   List.of(new KaupenFurnaceRecipe(recipe.group(),
-                                                                                   recipe.category(),
-                                                                                   recipe.input(),
-                                                                                   new ItemStack(
+                                                   List.of(new KaupenFurnaceRecipe(recipe.group(), recipe.category(),
+                                                                                   recipe.input(), new ItemStack(
                                                                                    recipe.assemble(new SingleRecipeInput(
-                                                                                   new ItemStack(recipe.input()
-                                                                                                       .getValues()
-                                                                                                       .get(0)
-                                                                                                       .value())),
-                                                                                   server.registryAccess())
-                                                                                         .getItem()),
-                                                                                   recipe.experience(),
-                                                                                   recipe.cookingTime())));
+                                                                                   new ItemStack(recipe.input().getValues()
+                                                                                                       .get(0).value())),
+                                                                                   server.registryAccess()).getItem()),
+                                                                                   recipe.experience(), recipe.cookingTime())));
                   });
 
             // CRAFTING PLUS
-            List<ShapedRecipe> recipes =
-                server.getRecipeManager().recipeMap().byType(RecipeType.CRAFTING)
-                      .stream().map(RecipeHolder::value)
-                      .filter(recipe -> recipe instanceof ShapedRecipe shapedRecipe &&
-                                                     shapedRecipe.getWidth() == 7 && shapedRecipe.getHeight() == 7)
-                      .map(recipe -> (ShapedRecipe) recipe)
-                      .toList();
-
-            for (ShapedRecipe shaped : recipes) {
-                List<Optional<Ingredient>> shapedRecipe = shaped.getIngredients();
-                Optional<Ingredient> item = shapedRecipe.getFirst();
-                if (!shapedRecipe.isEmpty() && item.isPresent()) {
-                    registration.addRecipes(CraftingPlusRecipeCategory.CRAFTING_PLUS_TYPE,
-                                            List.of(new CraftingPlusRecipe(shaped.group(), shaped.category(),
-                                                                           new ShapedRecipePattern(7,
-                                                                                                   7,
-                                                                                                   shapedRecipe,
-                                                                                                   Optional.empty()),
-                                                                           new ItemStack(shaped.assemble(
-                                                                                         CraftingInput.of(0, 0,
-                                                                                                          List.of()),
-                                                                                         server.registryAccess())
-                                                                                               .getItem()),
-                                                                           true)));
-                }
-            }
+            server.getRecipeManager().recipeMap().byType(ModRecipes.CRAFTING_PLUS_TYPE.get())
+                  .forEach(holder -> {
+                           CraftingPlusRecipe recipe = holder.value();
+                           List<Optional<Ingredient>> craftingPlusRecipe = recipe.getIngredients();
+                           Optional<Ingredient> item = craftingPlusRecipe.getFirst();
+                           if (!craftingPlusRecipe.isEmpty() && item.isPresent()) {
+                               registration.addRecipes(CraftingPlusRecipeCategory.CRAFTING_PLUS_TYPE,
+                                                       List.of(new CraftingPlusRecipe(recipe.group(), recipe.getCategory(),
+                                                               new ShapedRecipePattern(7, 7, craftingPlusRecipe,
+                                                                                       Optional.empty()),
+                                                               new ItemStack(recipe.assemble(CraftingInput.of(0, 0,
+                                                                                                              List.of()),
+                                                               server.registryAccess()).getItem()), true)));
+                           }
+                  });
         }
     }
 

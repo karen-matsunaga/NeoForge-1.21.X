@@ -1,9 +1,12 @@
 package net.karen.mccoursemod.compat;
 
+import com.mojang.serialization.Codec;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.helpers.ICodecHelper;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.IRecipeManager;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.recipe.types.IRecipeType;
@@ -56,6 +59,7 @@ public class CraftingPlusRecipeCategory implements IRecipeCategory<CraftingPlusR
                           @NotNull CraftingPlusRecipe recipe, @NotNull IFocusGroup focuses) {
         List<Optional<Ingredient>> ingredients = recipe.getIngredients();
         int slotIndex = 0;
+
         // INPUT
         for (int row = 0; row < 7; row++) {
             for (int col = 0; col < 7; col++) {
@@ -64,18 +68,14 @@ public class CraftingPlusRecipeCategory implements IRecipeCategory<CraftingPlusR
                 int y = 6 + row * 18;
                 Optional<Ingredient> ingredient = ingredients.get(slotIndex);
                 if (ingredient.isPresent()) {
-                    builder.addSlot(RecipeIngredientRole.INPUT, x, y)
-                           .add(ingredient.get())
-                           .setStandardSlotBackground();
+                    builder.addSlot(RecipeIngredientRole.INPUT, x, y).add(ingredient.get()).setStandardSlotBackground();
                     slotIndex++;
                 }
             }
         }
 
         // OUTPUT
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 148, 35)
-               .add(recipe.getResult())
-               .setOutputSlotBackground();
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 148, 35).add(recipe.getResult()).setOutputSlotBackground();
     }
 
     @Override
@@ -87,5 +87,11 @@ public class CraftingPlusRecipeCategory implements IRecipeCategory<CraftingPlusR
     @Override
     public @Nullable ResourceLocation getRegistryName(@NotNull CraftingPlusRecipe recipe) {
         return getRecipeType().getUid();
+    }
+
+    @Override
+    public @NotNull Codec<CraftingPlusRecipe> getCodec(@NotNull ICodecHelper codecHelper,
+                                                       @NotNull IRecipeManager recipeManager) {
+        return CraftingPlusRecipe.Serializer.CODEC.codec();
     }
 }

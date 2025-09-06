@@ -3,10 +3,13 @@ package net.karen.mccoursemod.datagen;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.recipe.CraftingPlusRecipeBuilder;
 import net.karen.mccoursemod.recipe.GrowthChamberRecipeBuilder;
 import net.karen.mccoursemod.recipe.KaupenFurnaceRecipeBuilder;
 import net.karen.mccoursemod.util.ModTags;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
@@ -23,9 +26,12 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider {
+    private final HolderGetter<Item> items;
+
     protected ModRecipeProvider(HolderLookup.Provider registries,
                                 RecipeOutput output) {
         super(registries, output);
+        this.items = registries.lookupOrThrow(Registries.ITEM);
     }
 
     public static class Runner extends RecipeProvider.Runner {
@@ -315,16 +321,25 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     // ** CUSTOM METHOD - CRAFTING PLUS custom recipes **
+    protected CraftingPlusRecipeBuilder plusShaped(RecipeCategory category, ItemLike result) {
+        return CraftingPlusRecipeBuilder.plusShaped(this.items, category, result);
+    }
+
+    protected CraftingPlusRecipeBuilder plusShaped(RecipeCategory category, ItemLike result, int count) {
+        return CraftingPlusRecipeBuilder.plusShaped(this.items, category, result, count);
+    }
+
     // CUSTOM METHOD - Crafting Plus 7x7 (One item/recipe)
     protected void craftSeven(List<ItemLike> item) {
         // 0 -> RESULT; 1 -> Main recipe;
         ItemLike ingredient = item.get(1);
-        this.shaped(RecipeCategory.MISC, item.get(0))
+        this.plusShaped(RecipeCategory.MISC, item.get(0))
             .pattern("AAAAAAA").pattern("AAAAAAA").pattern("AAAAAAA")
             .pattern("AAAAAAA").pattern("AAAAAAA").pattern("AAAAAAA")
             .pattern("AAAAAAA")
-            .define('A', ingredient)
+            .plusDefine('A', ingredient)
             .unlockedBy(getHasName(ingredient), has(ingredient))
+            .group("crafting_plus")
             .save(this.output);
     }
 
@@ -332,14 +347,15 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void craftSevenItems(List<ItemLike> item) {
         // 0 -> RESULT; 1 -> Main recipe; 2 -> Addition recipe; 3 -> Addition recipe;
         ItemLike ingredient = item.get(1);
-        this.shaped(RecipeCategory.MISC, item.get(0))
+        this.plusShaped(RecipeCategory.MISC, item.get(0))
             .pattern("AAAAAAA").pattern("ABBBBBA").pattern("ABBBBBA")
             .pattern("ABBCBBA").pattern("ABBBBBA").pattern("ABBBBBA")
             .pattern("AAAAAAA")
-            .define('A', ingredient)
-            .define('B', item.get(2))
-            .define('C', item.get(3)) // Center ingredient
+            .plusDefine('A', ingredient)
+            .plusDefine('B', item.get(2))
+            .plusDefine('C', item.get(3)) // Center ingredient
             .unlockedBy(getHasName(ingredient), has(ingredient))
+            .group("crafting_plus")
             .save(this.output);
     }
 

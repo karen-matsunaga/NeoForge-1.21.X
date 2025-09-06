@@ -38,8 +38,8 @@ public class CraftingPlusMenu extends AbstractCraftingMenu {
         super(ModMenuTypes.CRAFTING_PLUS_MENU.get(), containerId, 7, 7);
         this.access = access;
         this.player = playerInventory.player;
-        this.addSlot(new ResultSlot(playerInventory.player, this.craftSlots, this.resultSlots,
-                     0, 148, 35));
+        this.addSlot(new CraftingPlusResultSlot(playerInventory.player, this.craftSlots, this.resultSlots,
+                                                0, 148, 35));
 
         // Crafting Plus 7x7 size
         for (int i = 0; i < craftSlots.getHeight(); ++i) {
