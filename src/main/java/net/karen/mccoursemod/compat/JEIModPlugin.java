@@ -145,5 +145,11 @@ public class JEIModPlugin implements IModPlugin {
                                               ModMenuTypes.CRAFTING_PLUS_MENU.get(),
                                               CraftingPlusRecipeCategory.CRAFTING_PLUS_TYPE,
                                               1, 49, 50, 36);
+
+        // GROWTH CHAMBER - Menu Class, Menu Type and Recipe Type
+        registration.addRecipeTransferHandler(GrowthChamberMenu.class,
+                                              ModMenuTypes.GROWTH_CHAMBER_MENU.get(),
+                                              GrowthChamberRecipeCategory.GROWTH_CHAMBER_RECIPE_TYPE,
+                                              36, 2, 0, 36);
     }
 }
