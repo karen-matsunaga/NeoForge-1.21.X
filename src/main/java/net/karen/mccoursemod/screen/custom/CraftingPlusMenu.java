@@ -72,27 +72,12 @@ public class CraftingPlusMenu extends AbstractCraftingMenu {
 
         CraftingInput customInput = CraftingInput.of(7, 7, craftSlots.getItems());
 
-        // CRAFTING RECIPE
-        Optional<RecipeHolder<CraftingRecipe>> optionalCrafting =
-                recipes.getRecipeFor(RecipeType.CRAFTING, customInput, level, recipe);
-
         // CRAFTING PLUS
         Optional<RecipeHolder<CraftingPlusRecipe>> optional =
                 recipes.getRecipeFor(ModRecipes.CRAFTING_PLUS_TYPE.get(), customInput, level);
 
-        // VANILLA CRAFTING RECIPE
-        if (optionalCrafting.isPresent()) {
-            RecipeHolder<CraftingRecipe> recipeholder = optionalCrafting.get();
-            if (resultSlots.setRecipeUsed(serverplayer, recipeholder)) {
-                ItemStack itemstack1 = recipeholder.value().assemble(customInput, level.registryAccess());
-                if (itemstack1.isItemEnabled(level.enabledFeatures())) {
-                    itemstack = itemstack1;
-                }
-            }
-        }
-
         // CRAFTING PLUS RECIPE
-        else if (optional.isPresent()) {
+        if (optional.isPresent()) {
             RecipeHolder<CraftingPlusRecipe> recipeholder = optional.get();
             if (resultSlots.setRecipeUsed(serverplayer, recipeholder)) {
                 ItemStack itemStack2 = recipeholder.value().assemble(customInput, level.registryAccess());
@@ -107,7 +92,7 @@ public class CraftingPlusMenu extends AbstractCraftingMenu {
                                                                            0, itemstack));
     }
 
-    public void slotsChanged(@NotNull Container pInventory) {
+    public void slotsChanged(@NotNull Container inventory) {
         if (!this.placingRecipe) {
             this.access.execute((level, pos) -> {
                 if (level instanceof ServerLevel serverlevel) {
@@ -158,7 +143,7 @@ public class CraftingPlusMenu extends AbstractCraftingMenu {
             itemstack = itemstack1.copy();
             if (index == RESULT_SLOT) {
                 this.access.execute((level, pos) -> itemstack1.getItem().onCraftedBy(itemstack1, player));
-                // Result -> Player Inventory
+                // RESULT -> Player Inventory
                 if (!this.moveItemStackTo(itemstack1, PLAYER_INV_FIRST_SLOT,
                                           PLAYER_INV_LAST_SLOT + 1, true)) {
                     return ItemStack.EMPTY;
@@ -166,22 +151,20 @@ public class CraftingPlusMenu extends AbstractCraftingMenu {
                 slot.onQuickCraft(itemstack1, itemstack);
             }
             else if (index >= PLAYER_INV_FIRST_SLOT && index <= PLAYER_INV_LAST_SLOT) {
-                // Player inventory -> crafting grid
+                // PLAYER INVENTORY -> crafting grid
                 if (!this.moveItemStackTo(itemstack1, CRAFTING_FIRST_SLOT,
                                           CRAFTING_LAST_SLOT + 1, false)) {
                     return ItemStack.EMPTY;
                 }
             }
             else if (index >= CRAFTING_FIRST_SLOT && index <= CRAFTING_LAST_SLOT) {
-                // Crafting grid -> Player's Inventory
+                // CRAFTING GRID -> Player's Inventory
                 if (!this.moveItemStackTo(itemstack1, PLAYER_INV_FIRST_SLOT,
                                           PLAYER_INV_LAST_SLOT + 1, false)) {
                     return ItemStack.EMPTY;
                 }
             }
-            else { // Invalid index
-                return ItemStack.EMPTY;
-            }
+            else { return ItemStack.EMPTY; } // INVALID index
             if (itemstack1.isEmpty()) { slot.setByPlayer(ItemStack.EMPTY); }
             else { slot.setChanged(); }
             if (itemstack1.getCount() == itemstack.getCount()) { return ItemStack.EMPTY; }

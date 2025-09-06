@@ -2,24 +2,21 @@ package net.karen.mccoursemod.screen.custom;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.navigation.ScreenPosition;
-import net.minecraft.client.gui.screens.inventory.AbstractRecipeBookScreen;
-import net.minecraft.client.gui.screens.recipebook.*;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
-public class CraftingPlusScreen extends AbstractRecipeBookScreen<CraftingPlusMenu>
-                                implements RecipeUpdateListener {
+public class CraftingPlusScreen extends AbstractContainerScreen<CraftingPlusMenu> {
     private static final ResourceLocation CRAFTING_TABLE_LOCATION =
             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                   "textures/gui/crafting_plus/crafting_plus_gui.png");
 
     public CraftingPlusScreen(CraftingPlusMenu menu,
                               Inventory inventory, Component title) {
-        super(menu, new CraftingRecipeBookComponent(menu), inventory, title);
+        super(menu, inventory, title);
     }
 
     @Override
@@ -39,7 +36,10 @@ public class CraftingPlusScreen extends AbstractRecipeBookScreen<CraftingPlusMen
     }
 
     @Override
-    protected @NotNull ScreenPosition getRecipeBookButtonPosition() {
-        return new ScreenPosition(this.leftPos + 148, this.topPos + 70);
+    public void render(@NotNull GuiGraphics graphics, int mouseX,
+                       int mouseY, float partialTick) {
+        this.renderBackground(graphics, mouseX, mouseY, partialTick);
+        this.renderTooltip(graphics, mouseX, mouseY);
+        super.render(graphics, mouseX, mouseY, partialTick);
     }
 }
