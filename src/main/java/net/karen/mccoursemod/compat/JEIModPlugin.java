@@ -14,13 +14,11 @@ import net.karen.mccoursemod.screen.ModMenuTypes;
 import net.karen.mccoursemod.screen.custom.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import org.jetbrains.annotations.NotNull;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @JeiPlugin
 public class JEIModPlugin implements IModPlugin {
@@ -44,7 +42,7 @@ public class JEIModPlugin implements IModPlugin {
             // GROWTH CHAMBER
             server.getRecipeManager().recipeMap().byType(ModRecipes.GROWTH_CHAMBER_TYPE.get())
                   .forEach(holder -> {
-                           var recipe = holder.value();
+                           GrowthChamberRecipe recipe = holder.value();
                            registration.addRecipes(GrowthChamberRecipeCategory.GROWTH_CHAMBER_RECIPE_TYPE,
                                                    List.of(new GrowthChamberRecipe(recipe.inputItem(),
                                                                                    recipe.output())));
@@ -53,36 +51,48 @@ public class JEIModPlugin implements IModPlugin {
             // KAUPEN FURNACE
             server.getRecipeManager().recipeMap().byType(ModRecipes.KAUPEN_FURNACE_TYPE.get())
                   .forEach(holder -> {
-                           var recipe = holder.value();
+                           KaupenFurnaceRecipe recipe = holder.value();
                            registration.addRecipes(KaupenFurnaceRecipeCategory.KAUPEN_FURNACE_TYPE,
-                                                   List.of(new KaupenFurnaceRecipe(recipe.group(), recipe.category(), recipe.input(),
-                                                                                   null,
-                                                                                   recipe.experience(), recipe.cookingTime())));
+                                                   List.of(new KaupenFurnaceRecipe(recipe.group(),
+                                                                                   recipe.category(),
+                                                                                   recipe.input(),
+                                                                                   new ItemStack(
+                                                                                   recipe.assemble(new SingleRecipeInput(
+                                                                                   new ItemStack(recipe.input()
+                                                                                                       .getValues()
+                                                                                                       .get(0)
+                                                                                                       .value())),
+                                                                                   server.registryAccess())
+                                                                                         .getItem()),
+                                                                                   recipe.experience(),
+                                                                                   recipe.cookingTime())));
                   });
 
             // CRAFTING PLUS
             List<ShapedRecipe> recipes =
                 server.getRecipeManager().recipeMap().byType(RecipeType.CRAFTING)
-                      .stream()
-                      .map(RecipeHolder::value)
-                      .filter(recipe -> recipe instanceof ShapedRecipe)
+                      .stream().map(RecipeHolder::value)
+                      .filter(recipe -> recipe instanceof ShapedRecipe shapedRecipe &&
+                                                     shapedRecipe.getWidth() == 7 && shapedRecipe.getHeight() == 7)
                       .map(recipe -> (ShapedRecipe) recipe)
                       .toList();
 
-            for (Recipe<?> ing : recipes) {
-                if (ing instanceof ShapedRecipe shaped) {
-                    List<Optional<Ingredient>> shapedRecipe = shaped.getIngredients();
-                    Optional<Ingredient> item = shapedRecipe.getFirst();
-                    if (!shapedRecipe.isEmpty() && item.isPresent()) {
-                        Item output = item.get().getValues().get(0).value();
-                        registration.addRecipes(CraftingPlusRecipeCategory.CRAFTING_PLUS_TYPE,
-                                                List.of(new CraftingPlusRecipe(shaped.group(), shaped.category(),
-                                                                               new ShapedRecipePattern(shaped.getWidth(),
-                                                                                                       shaped.getHeight(),
-                                                                                                       shapedRecipe,
-                                                                                                       Optional.empty()),
-                                                                               new ItemStack(output), true)));
-                    }
+            for (ShapedRecipe shaped : recipes) {
+                List<Optional<Ingredient>> shapedRecipe = shaped.getIngredients();
+                Optional<Ingredient> item = shapedRecipe.getFirst();
+                if (!shapedRecipe.isEmpty() && item.isPresent()) {
+                    registration.addRecipes(CraftingPlusRecipeCategory.CRAFTING_PLUS_TYPE,
+                                            List.of(new CraftingPlusRecipe(shaped.group(), shaped.category(),
+                                                                           new ShapedRecipePattern(7,
+                                                                                                   7,
+                                                                                                   shapedRecipe,
+                                                                                                   Optional.empty()),
+                                                                           new ItemStack(shaped.assemble(
+                                                                                         CraftingInput.of(0, 0,
+                                                                                                          List.of()),
+                                                                                         server.registryAccess())
+                                                                                               .getItem()),
+                                                                           true)));
                 }
             }
         }
@@ -123,10 +133,17 @@ public class JEIModPlugin implements IModPlugin {
         // Register all custom recipe transfer handlers
         // [CUSTOM ITEM] Input Start [i] - Input End [i1]
         // Player's Inventory Start [i2] (9 hotbar + 27 inventory slots) - Inventory End [i3]
+
         // KAUPEN FURNACE - Menu Class, Menu Type and Recipe Type
         registration.addRecipeTransferHandler(KaupenFurnaceMenu.class,
                                               ModMenuTypes.KAUPEN_FURNACE_MENU.get(),
                                               KaupenFurnaceRecipeCategory.KAUPEN_FURNACE_TYPE,
                                               0, 1, 3, 36);
+
+        // CRAFTING PLUS - Menu Class, Menu Type and Recipe Type
+        registration.addRecipeTransferHandler(CraftingPlusMenu.class,
+                                              ModMenuTypes.CRAFTING_PLUS_MENU.get(),
+                                              CraftingPlusRecipeCategory.CRAFTING_PLUS_TYPE,
+                                              1, 49, 50, 36);
     }
 }

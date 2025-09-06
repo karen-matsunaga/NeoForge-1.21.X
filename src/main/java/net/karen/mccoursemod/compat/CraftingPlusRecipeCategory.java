@@ -62,10 +62,10 @@ public class CraftingPlusRecipeCategory implements IRecipeCategory<CraftingPlusR
                 if (slotIndex >= ingredients.size()) { break; }
                 int x = 8 + col * 18;
                 int y = 6 + row * 18;
-                Optional<Ingredient> optionalIng = ingredients.get(slotIndex);
-                if (optionalIng.isPresent()) {
+                Optional<Ingredient> ingredient = ingredients.get(slotIndex);
+                if (ingredient.isPresent()) {
                     builder.addSlot(RecipeIngredientRole.INPUT, x, y)
-                           .add(optionalIng.get())
+                           .add(ingredient.get())
                            .setStandardSlotBackground();
                     slotIndex++;
                 }

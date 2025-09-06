@@ -18,6 +18,8 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.display.FurnaceRecipeDisplay;
+import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 
@@ -54,15 +56,22 @@ public class KaupenFurnaceRecipeCategory implements IRecipeCategory<KaupenFurnac
     public int getWidth() { return background.getWidth(); }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, KaupenFurnaceRecipe recipe, @NotNull IFocusGroup focuses) {
-        // Input 0 -> Item | Input 1 - Fuel item | Output 2 -> Result item
-        builder.addInputSlot(56, 17).add(recipe.input()).setStandardSlotBackground();
+    public void setRecipe(@NotNull IRecipeLayoutBuilder builder,
+                          KaupenFurnaceRecipe recipe, @NotNull IFocusGroup focuses) {
+        RecipeDisplay display = recipe.display().getFirst();
+        if (display instanceof FurnaceRecipeDisplay furnace) {
+            // INPUT 0 -> BLOCK / ITEM
+            builder.addInputSlot(56, 17).add(recipe.input()).setStandardSlotBackground();
 
-        builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 56, 53)
-               .addItemStacks(KaupenFurnaceBlockEntity.getValidFuels()).setStandardSlotBackground();
+            // INPUT 1 -> FUEL BLOCK / FUEL ITEM
+            builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 56, 53)
+                   .addItemStacks(KaupenFurnaceBlockEntity.getValidFuels())
+                   .setStandardSlotBackground();
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35)
-               .add(recipe.input()).setOutputSlotBackground();
+            // OUTPUT -> RESULT BLOCK / ITEM
+            builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35)
+                   .add(furnace.result()).setOutputSlotBackground();
+        }
     }
 
     @Override
