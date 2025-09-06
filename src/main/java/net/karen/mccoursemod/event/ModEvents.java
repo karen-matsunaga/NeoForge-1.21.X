@@ -5,6 +5,10 @@ import com.mojang.datafixers.util.Either;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.command.DeleteHomeCommand;
+import net.karen.mccoursemod.command.ListHomesCommand;
+import net.karen.mccoursemod.command.ReturnHomeCommand;
+import net.karen.mccoursemod.command.SetHomeCommand;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
@@ -73,6 +77,7 @@ import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
@@ -93,6 +98,7 @@ import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
+import net.neoforged.neoforge.server.command.ConfigCommand;
 import org.lwjgl.glfw.GLFW;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -125,6 +131,24 @@ public class ModEvents {
                 HARVESTED_BLOCKS.remove(pos);
             }
         }
+    }
+
+    // CUSTOM EVENT - Home's commands -> Register all custom commands
+    @SubscribeEvent
+    public static void onCommandsRegister(RegisterCommandsEvent event) {
+        new SetHomeCommand(event.getDispatcher()); // SET HOME command
+        new ReturnHomeCommand(event.getDispatcher()); // RETURN HOME command
+        new DeleteHomeCommand(event.getDispatcher()); // DELETE HOME command
+        new ListHomesCommand(event.getDispatcher()); // LIST ALL HOMES command
+        ConfigCommand.register(event.getDispatcher());
+    }
+
+    @SubscribeEvent
+    public static void onPlayerCloned(PlayerEvent.Clone event) { // If player dies is respawned where saved the SET HOME
+        Player oldPlayer = event.getEntity(); // OLD player
+        Player newPlayer = event.getOriginal(); // NEW player
+        Optional<int[]> newPlayerData = newPlayer.getPersistentData().getIntArray("mccoursemod.homepos");
+        newPlayerData.ifPresent(pos -> oldPlayer.getPersistentData().putIntArray("mccoursemod.homepos", pos));
     }
 
     // CUSTOM EVENT - Living Damage Event -> Sheep's poison effect
