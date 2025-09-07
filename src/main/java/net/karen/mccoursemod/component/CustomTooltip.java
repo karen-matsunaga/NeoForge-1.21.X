@@ -27,15 +27,16 @@ public record CustomTooltip(Component line1) implements TooltipProvider {
     public static final StreamCodec<RegistryFriendlyByteBuf, CustomTooltip> STREAM_CODEC =
            StreamCodec.composite(ComponentSerialization.STREAM_CODEC, CustomTooltip::line1, CustomTooltip::new);
 
-    @Override
-    public Component line1() {
-        return line1;
-    }
 
+    // DEFAULT METHOD - Adds TOOLTIP any line
+    @Override
+    public Component line1() { return line1; }
+
+    // DEFAULT METHOD - Adds TOOLTIP at the beginning
     @Override
     public void addToTooltip(Item.@NotNull TooltipContext context, @NotNull Consumer<Component> consumer,
                              @NotNull TooltipFlag flag, @NotNull DataComponentGetter dataComp) {
         consumer.accept(line1);
-        consumer.accept(componentLiteral("tooltip.mccoursemod.auto_smelt.tooltip", gold));
+        consumer.accept(componentTranslatable("tooltip.mccoursemod.auto_smelt.tooltip", gold));
     }
 }

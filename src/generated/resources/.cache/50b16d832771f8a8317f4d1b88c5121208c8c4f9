@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-04T19:35:09.2347926	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-09-07T10:50:05.1531367	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 45f418e9ccfb34f690fcedb40b1602003ab6f053 data/mccoursemod/tags/block/all_ores.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
@@ -18,11 +18,12 @@ cf8f0d34dc0b5cba616ad43e03a0cf2fd5de202b data/mccoursemod/tags/block/mccourse_mo
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/metal_detector_valuables.json
 13cf1fe06cf159d32d074144254a0d375f6b20e7 data/mccoursemod/tags/block/mineable_with_paxel.json
 1463a95305ac2cc5a789ae41031b4d2ae081d74e data/mccoursemod/tags/block/mobs_blocks_drops.json
-53d229458fe5c66b06115505277e4434612432d9 data/mccoursemod/tags/block/more_ores_all_drops.json
+d53a1ca3e352dd9176fcf72b95b10a426b2047a5 data/mccoursemod/tags/block/more_ores_all_drops.json
 ae3b4c6513932cf9e82044de3f1e90f2c997fd31 data/mccoursemod/tags/block/more_ores_break_block.json
-a3b034ba6dfc318ff77dbd2fedd47a18e2872e02 data/mccoursemod/tags/block/more_ores_five_drops.json
+ec8dac89768c5623a8b46eeb7dc28abce01ccc83 data/mccoursemod/tags/block/more_ores_five_drops.json
 0abc82aa03f891a64f49dc09081006eeac8be8e0 data/mccoursemod/tags/block/more_ores_four_drops.json
 402e2ec91b2030071324095365da7c8e3573c790 data/mccoursemod/tags/block/more_ores_one_drops.json
+a3b034ba6dfc318ff77dbd2fedd47a18e2872e02 data/mccoursemod/tags/block/more_ores_six_drops.json
 7b9951a96f44c21b24724332c83c49c1dc358b0a data/mccoursemod/tags/block/more_ores_three_drops.json
 76e1074a2f2f826c8f45cc1ab2a7d876f28710d8 data/mccoursemod/tags/block/more_ores_two_drops.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_alexandrite_tool.json

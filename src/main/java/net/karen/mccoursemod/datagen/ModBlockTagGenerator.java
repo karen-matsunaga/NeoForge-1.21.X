@@ -102,13 +102,15 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         this.tag(ModTags.Blocks.MORE_ORES_TWO_DROPS).add(Blocks.IRON_ORE, Blocks.LAPIS_ORE);
         this.tag(ModTags.Blocks.MORE_ORES_THREE_DROPS).add(Blocks.REDSTONE_ORE, Blocks.GOLD_ORE);
         this.tag(ModTags.Blocks.MORE_ORES_FOUR_DROPS).add(Blocks.DIAMOND_ORE, Blocks.EMERALD_ORE);
-        this.tag(ModTags.Blocks.MORE_ORES_FIVE_DROPS).add(Blocks.ANCIENT_DEBRIS, Blocks.NETHER_GOLD_ORE,
-                                                          Blocks.NETHER_QUARTZ_ORE);
+        this.tag(ModTags.Blocks.MORE_ORES_FIVE_DROPS).add(ModBlocks.PINK_ORE.get(), ModBlocks.ALEXANDRITE_ORE.get());
+        this.tag(ModTags.Blocks.MORE_ORES_SIX_DROPS).add(Blocks.ANCIENT_DEBRIS, Blocks.NETHER_GOLD_ORE,
+                                                         Blocks.NETHER_QUARTZ_ORE);
         this.tag(ModTags.Blocks.MORE_ORES_ALL_DROPS).addTag(ModTags.Blocks.MORE_ORES_ONE_DROPS)
                                                     .addTag(ModTags.Blocks.MORE_ORES_TWO_DROPS)
                                                     .addTag(ModTags.Blocks.MORE_ORES_THREE_DROPS)
                                                     .addTag(ModTags.Blocks.MORE_ORES_FOUR_DROPS)
-                                                    .addTag(ModTags.Blocks.MORE_ORES_FIVE_DROPS);
+                                                    .addTag(ModTags.Blocks.MORE_ORES_FIVE_DROPS)
+                                                    .addTag(ModTags.Blocks.MORE_ORES_SIX_DROPS);
 
         // Block Fly enchantment effect
         this.tag(ModTags.Blocks.BLOCK_FLY_BLOCK_SPEED).add(Blocks.GRAVEL, Blocks.SAND, Blocks.RED_SAND,

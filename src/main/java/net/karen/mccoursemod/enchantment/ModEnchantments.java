@@ -140,6 +140,7 @@ public class ModEnchantments {
                                                        ModTags.Blocks.MORE_ORES_THREE_DROPS,
                                                        ModTags.Blocks.MORE_ORES_FOUR_DROPS,
                                                        ModTags.Blocks.MORE_ORES_FIVE_DROPS,
+                                                       ModTags.Blocks.MORE_ORES_SIX_DROPS,
                                                        ModTags.Blocks.MORE_ORES_ALL_DROPS),
                                                blocks.getOrThrow(ModTags.Blocks.MORE_ORES_BREAK_BLOCK),
                                                List.of(0.1F, 0.05F))));

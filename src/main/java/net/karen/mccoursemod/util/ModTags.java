@@ -45,12 +45,13 @@ public class ModTags {
         public static final TagKey<Block> INCORRECT_FOR_REDSTONE_TOOL =
                createTag("incorrect_for_redstone_tool");
 
-        // Created More Ores's drops - More Ores I, II, III, IV, V, Max Level
+        // Created More Ores's drops - More Ores I, II, III, IV, V, VI and Max Level
         public static final TagKey<Block> MORE_ORES_ONE_DROPS = createTag("more_ores_one_drops");
         public static final TagKey<Block> MORE_ORES_TWO_DROPS = createTag("more_ores_two_drops");
         public static final TagKey<Block> MORE_ORES_THREE_DROPS = createTag("more_ores_three_drops");
         public static final TagKey<Block> MORE_ORES_FOUR_DROPS = createTag("more_ores_four_drops");
         public static final TagKey<Block> MORE_ORES_FIVE_DROPS = createTag("more_ores_five_drops");
+        public static final TagKey<Block> MORE_ORES_SIX_DROPS = createTag("more_ores_six_drops");
         public static final TagKey<Block> MORE_ORES_ALL_DROPS = createTag("more_ores_all_drops");
         public static final TagKey<Block> MORE_ORES_BREAK_BLOCK = createTag("more_ores_break_block");
 
