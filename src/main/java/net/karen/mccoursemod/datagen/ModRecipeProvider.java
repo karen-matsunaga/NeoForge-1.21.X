@@ -312,9 +312,13 @@ public class ModRecipeProvider extends RecipeProvider {
         // Crafting Plus 7x7 - (One item)
         craftSeven(List.of(ModBlocks.KAUPEN_FURNACE_BLOCK.get(), Items.FURNACE));
         craftSeven(List.of(ModBlocks.MCCOURSEMOD_ELEVATOR.get(), Items.WHITE_WOOL));
+        // ** ENCHANTMENT recipes **
         craftSeven(List.of(ModBlocks.ENCHANT.get(), Items.ENCHANTING_TABLE));
         craftSeven(List.of(ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.DISENCHANT_INDIVIDUAL.get()));
         craftSeven(List.of(ModBlocks.DISENCHANT_INDIVIDUAL.get(), Items.ANVIL));
+        // ** COMPACTOR recipes **
+        craftSeven(List.of(ModItems.ULTRA_COMPACTOR.get(), Items.NETHERITE_PICKAXE));
+        craftSeven(List.of(ModItems.PINK_ULTRA_COMPACTOR.get(), ModItems.PINK_PICKAXE));
         // Crafting Plus 7x7 - (Three items)
         craftSevenItems(List.of(ModBlocks.MCCOURSEMOD_GENERATOR.get(), ModBlocks.CRAFTING_PLUS.get(),
                                 Items.NETHER_STAR, Items.ENCHANTED_GOLDEN_APPLE));

@@ -1,12 +1,14 @@
-// 1.21.8	2025-09-05T08:54:23.693884	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-09-07T13:50:17.7419573	Tags for minecraft:item mod id vanilla
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/entity_water.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/water.json
 e39a63d714d964df94fca0f8733eca55312cb8e8 data/c/tags/item/tools/shield.json
 23322585108afbbd5f20fd5e29aa83527532621d data/mccoursemod/tags/item/alexandrite_armor.json
+02a8fa743728513eae3772a21bbbbbd390fe2b02 data/mccoursemod/tags/item/alexandrite_ores_items.json
 3d3bdca569d63dad7a0fcc8bc939e35d82c44881 data/mccoursemod/tags/item/alexandrite_tools.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/alexandrite_tool_materials.json
 c493e5b615f47368e4252c52b5de3c2ae6022862 data/mccoursemod/tags/item/bismuth_armor.json
+83f1d198debe436e00fd10ceb9777ef57144aa68 data/mccoursemod/tags/item/bismuth_ores_items.json
 4b871022427b857c0a8019c84f1074ecd45cfcb4 data/mccoursemod/tags/item/bismuth_tools.json
 e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/bismuth_tool_materials.json
 81d61840f7e470498e0b50066a57efdb7c293248 data/mccoursemod/tags/item/bloodwood_logs.json
@@ -25,8 +27,14 @@ a1801fb48088e0b13ff96e868cf4ddff58f63594 data/mccoursemod/tags/item/lapis_lazuli
 565fa3bcd84d88f945f7ac9e622a8db2910916a1 data/mccoursemod/tags/item/level_charger_red.json
 e1296da21ce7727ca34c6b4ca53792959f1c4ce3 data/mccoursemod/tags/item/level_charger_specif.json
 e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/magic_block.json
+5340d93704cf8f41ac0bcd7f16c9c87c400cc4a1 data/mccoursemod/tags/item/mccourse_items.json
+fd4ba36105b3973764412e8710f1a946175f3718 data/mccoursemod/tags/item/mccourse_ores_items.json
+14f2f0d7fa0b19b565d7a9c81210b119d89bc447 data/mccoursemod/tags/item/ore_block_items.json
 b799448fd5a626cc55f379f0901d69ac4de7bfe6 data/mccoursemod/tags/item/pink_armor.json
+a3b4cff51dd73b8974e3ec3fdab8b7be46b6be82 data/mccoursemod/tags/item/pink_ores_items.json
 204eeee6677118a4984bd1e17ff2bdfd176a3b66 data/mccoursemod/tags/item/pink_tool_materials.json
+4cb6fa7444000c790bd1bda6b1b1eebc38a9c1e1 data/mccoursemod/tags/item/pink_ultra_compactor_items.json
+b69801be3566a43aed4fd30f97751579532cdbc7 data/mccoursemod/tags/item/pink_ultra_compactor_result.json
 530fee9114be17a9aacef50d410690b170b96525 data/mccoursemod/tags/item/redstone_armor.json
 5db69586b6c50b2befacf44de1aedc4a5af092fe data/mccoursemod/tags/item/redstone_tool_materials.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/repairs_alexandrite_armor.json
@@ -36,9 +44,11 @@ e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/repairs_bism
 204eeee6677118a4984bd1e17ff2bdfd176a3b66 data/mccoursemod/tags/item/repairs_pink_armor.json
 5db69586b6c50b2befacf44de1aedc4a5af092fe data/mccoursemod/tags/item/repairs_redstone_armor.json
 b41a72a37404c7dbd6aa6aac08c3c0b04f47cd22 data/mccoursemod/tags/item/special_effect_items.json
+2fdbd2b6ab32e20c3a31fb2a55581d4c364be123 data/mccoursemod/tags/item/ultra_compactor_items.json
+1dd942f7a578100b857661b20a19c22aee5dae48 data/mccoursemod/tags/item/ultra_compactor_result.json
 774205992e78cc4b0cce335e5a396e3a2426ecab data/mccoursemod/tags/item/walnut_logs.json
 e93cb59488f4738d6dc22dd512bf06d233348acd data/minecraft/tags/item/axes.json
-6d293387f3262b8aeb04e2d80777c0b69c807e6e data/minecraft/tags/item/beacon_payment_items.json
+d3450747fa065931cf4ea3f9bf415f885c981dfc data/minecraft/tags/item/beacon_payment_items.json
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/item/bee_food.json
 0ccfe8b0103e383fbc010deee56e45064df8eaa0 data/minecraft/tags/item/chest_armor.json
 641d6e9ec6e02fb870479de7da76c7020aa5ee61 data/minecraft/tags/item/enchantable/bow.json

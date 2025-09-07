@@ -552,6 +552,21 @@ public class ModItems {
            ITEMS.registerItem("level_charger_specif_minus_fortune",
            (properties) -> new LevelChargerSpecifItem(properties.fireResistant(), -1, Enchantments.FORTUNE));
 
+    // ** CUSTOM Compactor items **
+    // Ultra Compactor
+    public static final DeferredItem<Item> ULTRA_COMPACTOR =
+           ITEMS.registerItem("ultra_compactor",
+           (properties) -> new CompactorItem(properties.stacksTo(1).fireResistant(),
+                                                      true, ModTags.Items.ULTRA_COMPACTOR_ITEMS,
+                                                      ModTags.Items.ULTRA_COMPACTOR_RESULT));
+
+    // Pink Ultra Compactor
+    public static final DeferredItem<Item> PINK_ULTRA_COMPACTOR =
+           ITEMS.registerItem("pink_ultra_compactor",
+           (properties) -> new CompactorItem(properties.stacksTo(1).fireResistant(),
+                                                      false, ModTags.Items.PINK_ULTRA_COMPACTOR_ITEMS,
+                                                      ModTags.Items.PINK_ULTRA_COMPACTOR_RESULT));
+
     // ** CUSTOM Foods **
     // Coffee item food
     public static final DeferredItem<Item> COFFEE = ITEMS.registerItem("coffee",

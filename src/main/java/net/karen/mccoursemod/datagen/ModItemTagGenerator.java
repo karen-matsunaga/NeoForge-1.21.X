@@ -9,6 +9,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.VanillaItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
@@ -22,7 +23,44 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         // CUSTOM Items
-        tag(ItemTags.BEACON_PAYMENT_ITEMS).add(ModItems.BISMUTH.get(), ModItems.ALEXANDRITE.get(), ModItems.PINK.get());
+        tag(ItemTags.BEACON_PAYMENT_ITEMS).addTag(ModTags.Items.MCCOURSEMOD_ITEMS);
+
+        // MCCOURSE custom items
+        this.tag(ModTags.Items.MCCOURSEMOD_ITEMS).add(ModItems.PINK.get(),
+                                                      ModItems.ALEXANDRITE.get(), ModItems.RAW_ALEXANDRITE.get(),
+                                                      ModItems.BISMUTH.get(), ModItems.RAW_BISMUTH.get());
+
+        this.tag(ModTags.Items.MCCOURSE_ORES_ITEMS).addTag(ModTags.Items.PINK_ORES_ITEMS)
+                                                   .addTag(ModTags.Items.ALEXANDRITE_ORES_ITEMS)
+                                                   .addTag(ModTags.Items.BISMUTH_ORES_ITEMS);
+
+        this.tag(ModTags.Items.ALEXANDRITE_ORES_ITEMS).add(ModBlocks.ALEXANDRITE_BLOCK.get().asItem(),
+                                                           ModBlocks.ALEXANDRITE_ORE.get().asItem(),
+                                                           ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get().asItem(),
+                                                           ModBlocks.END_STONE_ALEXANDRITE_ORE.get().asItem(),
+                                                           ModBlocks.NETHER_ALEXANDRITE_ORE.get().asItem());
+
+        this.tag(ModTags.Items.PINK_ORES_ITEMS).add(ModBlocks.PINK_BLOCK.get().asItem(),
+                                                    ModBlocks.PINK_ORE.get().asItem(),
+                                                    ModBlocks.DEEPSLATE_PINK_ORE.get().asItem(),
+                                                    ModBlocks.END_STONE_PINK_ORE.get().asItem(),
+                                                    ModBlocks.NETHER_PINK_ORE.get().asItem());
+
+        this.tag(ModTags.Items.BISMUTH_ORES_ITEMS).add(ModBlocks.BISMUTH_BLOCK.get().asItem(),
+                                                       ModBlocks.BISMUTH_ORE.get().asItem(),
+                                                       ModBlocks.BISMUTH_DEEPSLATE_ORE.get().asItem(),
+                                                       ModBlocks.BISMUTH_END_ORE.get().asItem(),
+                                                       ModBlocks.BISMUTH_NETHER_ORE.get().asItem());
+
+        this.tag(ModTags.Items.ORE_BLOCK_ITEMS).addTag(Tags.Items.STORAGE_BLOCKS_COAL)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_COPPER)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_DIAMOND)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_EMERALD)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_GOLD)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_IRON)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_LAPIS)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_NETHERITE)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_REDSTONE);
 
         // ** CUSTOM Tools **
         // BISMUTH
@@ -246,5 +284,48 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         this.tag(ItemTags.FLOWERS).add(ModBlocks.SNAPDRAGON.asItem());
         this.tag(ItemTags.SMALL_FLOWERS).add(ModBlocks.SNAPDRAGON.asItem());
         this.tag(ItemTags.BEE_FOOD).add(ModBlocks.SNAPDRAGON.asItem());
+
+        // ** CUSTOM Compactor items **
+        // Ultra Compactor Input
+        this.tag(ModTags.Items.ULTRA_COMPACTOR_ITEMS).addTag(Tags.Items.INGOTS_COPPER)
+                                                     .addTag(Tags.Items.INGOTS_GOLD)
+                                                     .addTag(ItemTags.COALS)
+                                                     .addTag(Tags.Items.INGOTS_IRON)
+                                                     .addTag(Tags.Items.INGOTS_NETHERITE)
+                                                     .addTag(Tags.Items.GEMS_DIAMOND)
+                                                     .addTag(Tags.Items.GEMS_EMERALD)
+                                                     .addTag(Tags.Items.GEMS_LAPIS)
+                                                     .addTag(Tags.Items.DUSTS_REDSTONE)
+                                                     .addTag(ModTags.Items.MCCOURSEMOD_ITEMS)
+                                                     .addTag(Tags.Items.RAW_MATERIALS)
+                                                     .add(Items.ENDER_PEARL, Items.BLAZE_ROD, Items.ROTTEN_FLESH,
+                                                          Items.GUNPOWDER, Items.NETHER_STAR, Items.PHANTOM_MEMBRANE,
+                                                          Items.STRING, Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE);
+
+        // Ultra Compactor Output
+        this.tag(ModTags.Items.ULTRA_COMPACTOR_RESULT).addTag(Tags.Items.STORAGE_BLOCKS_RAW_COPPER)
+                                                      .addTag(Tags.Items.STORAGE_BLOCKS_RAW_GOLD)
+                                                      .addTag(Tags.Items.STORAGE_BLOCKS_RAW_IRON)
+                                                      .addTag(ModTags.Items.ORE_BLOCK_ITEMS)
+                                                      .add(ModBlocks.ALEXANDRITE_BLOCK.get().asItem(),
+                                                           ModBlocks.RAW_ALEXANDRITE_BLOCK.get().asItem(),
+                                                           ModBlocks.PINK_BLOCK.get().asItem(),
+                                                           ModBlocks.ENDER_PEARL_BLOCK.get().asItem(),
+                                                           ModBlocks.NETHER_STAR_BLOCK.get().asItem(),
+                                                           ModBlocks.GUNPOWDER_BLOCK.get().asItem(),
+                                                           ModBlocks.ROTTEN_FLESH_BLOCK.get().asItem(),
+                                                           ModBlocks.BLAZE_ROD_BLOCK.get().asItem(),
+                                                           ModBlocks.PHANTOM_MEMBRANE_BLOCK.get().asItem(),
+                                                           ModBlocks.STRING_BLOCK.get().asItem(),
+                                                           ModBlocks.SPIDER_EYE_BLOCK.get().asItem(),
+                                                           ModBlocks.FERMENTED_SPIDER_EYE_BLOCK.get().asItem());
+
+        // Pink Ultra Compactor Input
+        this.tag(ModTags.Items.PINK_ULTRA_COMPACTOR_ITEMS).add(Items.SUGAR, Items.SUGAR_CANE, Items.WHEAT);
+
+        // Pink Ultra Compactor Output
+        this.tag(ModTags.Items.PINK_ULTRA_COMPACTOR_RESULT).add(ModBlocks.SUGAR_BLOCK.get().asItem(),
+                                                                ModBlocks.SUGAR_CANE_BLOCK.get().asItem(),
+                                                                Blocks.HAY_BLOCK.asItem());
     }
 }

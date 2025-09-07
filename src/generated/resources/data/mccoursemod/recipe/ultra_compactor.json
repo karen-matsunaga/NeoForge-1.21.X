@@ -1,0 +1,21 @@
+{
+  "type": "mccoursemod:crafting_plus",
+  "category": "misc",
+  "group": "crafting_plus",
+  "key": {
+    "A": "minecraft:netherite_pickaxe"
+  },
+  "pattern": [
+    "AAAAAAA",
+    "AAAAAAA",
+    "AAAAAAA",
+    "AAAAAAA",
+    "AAAAAAA",
+    "AAAAAAA",
+    "AAAAAAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:ultra_compactor"
+  }
+}

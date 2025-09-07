@@ -1,7 +1,5 @@
 {
   "values": [
-    "mccoursemod:bismuth",
-    "mccoursemod:alexandrite",
-    "mccoursemod:pink"
+    "#mccoursemod:mccourse_items"
   ]
 }

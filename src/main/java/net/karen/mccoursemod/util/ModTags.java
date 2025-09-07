@@ -93,6 +93,16 @@ public class ModTags {
 
     // CUSTOM CLASS - Registry all custom item tags
     public static class Items {
+        // ** CUSTOM ores -> Mccourse Mod ores **
+        public static final TagKey<Item> MCCOURSEMOD_ITEMS = createTag("mccourse_items");
+
+        // Created Mccourse ores tags
+        public static final TagKey<Item> BISMUTH_ORES_ITEMS = createTag("bismuth_ores_items");
+        public static final TagKey<Item> PINK_ORES_ITEMS = createTag("pink_ores_items");
+        public static final TagKey<Item> ALEXANDRITE_ORES_ITEMS = createTag("alexandrite_ores_items");
+        public static final TagKey<Item> MCCOURSE_ORES_ITEMS = createTag("mccourse_ores_items");
+        public static final TagKey<Item> ORE_BLOCK_ITEMS = createTag("ore_block_items");
+
         // Created Fly effect item tag
         public static final TagKey<Item> HELMET_FLY = createTag("helmet_fly");
         public static final TagKey<Item> CHESTPLATE_FLY = createTag("chestplate_fly");
@@ -149,6 +159,21 @@ public class ModTags {
         // ** CUSTOM log **
         public static final TagKey<Item> BLOODWOOD_LOGS = createTag("bloodwood_logs");
         public static final TagKey<Item> WALNUT_LOGS = createTag("walnut_logs");
+
+        // ** CUSTOM Compactor items **
+        // Ultra Compactor item
+        public static final TagKey<Item> ULTRA_COMPACTOR_ITEMS =
+               createTag("ultra_compactor_items");
+
+        public static final TagKey<Item> ULTRA_COMPACTOR_RESULT =
+               createTag("ultra_compactor_result");
+
+        // Pink Ultra Compactor item
+        public static final TagKey<Item> PINK_ULTRA_COMPACTOR_ITEMS =
+               createTag("pink_ultra_compactor_items");
+
+        public static final TagKey<Item> PINK_ULTRA_COMPACTOR_RESULT =
+               createTag("pink_ultra_compactor_result");
 
         // CUSTOM METHOD - Registry all custom item tags
         private static TagKey<Item> createTag(String name) {

@@ -1,0 +1,24 @@
+{
+  "values": [
+    "#c:ingots/copper",
+    "#c:ingots/gold",
+    "#minecraft:coals",
+    "#c:ingots/iron",
+    "#c:ingots/netherite",
+    "#c:gems/diamond",
+    "#c:gems/emerald",
+    "#c:gems/lapis",
+    "#c:dusts/redstone",
+    "#mccoursemod:mccourse_items",
+    "#c:raw_materials",
+    "minecraft:ender_pearl",
+    "minecraft:blaze_rod",
+    "minecraft:rotten_flesh",
+    "minecraft:gunpowder",
+    "minecraft:nether_star",
+    "minecraft:phantom_membrane",
+    "minecraft:string",
+    "minecraft:spider_eye",
+    "minecraft:fermented_spider_eye"
+  ]
+}

@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-04T19:35:09.1707365	Model Definitions - mccoursemod
+// 1.21.8	2025-09-07T13:50:17.7261517	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -278,6 +278,7 @@ ab1b86fbe035169d40c894b78bdf9af7659f35d9 assets/mccoursemod/items/pink_paxel.jso
 2cd45e80908ae7c8846e511b43f3430ea1e80fc8 assets/mccoursemod/items/pink_pickaxe.json
 9b19ee6183b0cf0d23a0704a3747c7b136491be6 assets/mccoursemod/items/pink_shovel.json
 c2c91f0f918beb8a667f71d418f5629d1ee94ae2 assets/mccoursemod/items/pink_sword.json
+03be0441fd6c5509cfc3150219bb16d2c429b68f assets/mccoursemod/items/pink_ultra_compactor.json
 af14219f111facb105f8ad7152f6baa6da5d2532 assets/mccoursemod/items/potted_snapdragon.json
 c585dfd1e792a0131e74d7a6bdc7cc213644385e assets/mccoursemod/items/purple_ender_pearl_block.json
 d8d7bed06e1dd1e8cd6bcc1a83823f5a108a7e1d assets/mccoursemod/items/radiation_staff.json
@@ -320,6 +321,7 @@ ce761683e2eb5faaba29b79ffb94003c1db905dd assets/mccoursemod/items/stripped_walnu
 956fc2e77613c2d510cf9edcc90df4705388723b assets/mccoursemod/items/sugar_cane_block.json
 6ffa3088847fd2040eabd23900fda15cb5df052b assets/mccoursemod/items/tomahawk.json
 5de53c55c5acfa166fc3c7b8490b8e9a4d22c15b assets/mccoursemod/items/torch_ball.json
+f9f1bdf36f8a81120dd1c4d23e211e70d751ecf3 assets/mccoursemod/items/ultra_compactor.json
 d7d0ff5a9b50435a14bc23e02bc81a45c838a0a0 assets/mccoursemod/items/walnut_boat.json
 9e5a66b965da026e04b97a7835ff3bedae6ceaa4 assets/mccoursemod/items/walnut_chest_boat.json
 9fbbcf02683601d7de4a052170c62f87e452a3bf assets/mccoursemod/items/walnut_hanging_sign.json
@@ -915,6 +917,7 @@ ab1a292b93e83a9602c11540e9e347862639b414 assets/mccoursemod/models/item/pink_pax
 44528500b0188532b98dfc92a1820f160d6c88ac assets/mccoursemod/models/item/pink_pickaxe.json
 94d642a942492ad3c3ca99d04b2944ad2719a4bb assets/mccoursemod/models/item/pink_shovel.json
 7b24ce0c68d3322aff856ea112f5f4c34c503811 assets/mccoursemod/models/item/pink_sword.json
+e587a10a8223e5117deae0a62a572be429ca50c7 assets/mccoursemod/models/item/pink_ultra_compactor.json
 39d6c9aa4fed33e381348147a96d23f84e154e99 assets/mccoursemod/models/item/radiation_staff.json
 9c566763be3a3a7e2b92115f731cecc2be946de4 assets/mccoursemod/models/item/radish.json
 4b756411260fbcbb14f6cb6e5027205b3e060849 assets/mccoursemod/models/item/radish_seeds.json
@@ -994,6 +997,7 @@ a6b51f4159f4654e658ca1aaceec18a5fbf715fb assets/mccoursemod/models/item/starligh
 e762bbdbdd877b78233e28d052e520cf98ebb852 assets/mccoursemod/models/item/stone_hammer.json
 7c9f2df2883f4a516aba24997cefa9f38663a810 assets/mccoursemod/models/item/stone_paxel.json
 3eae795914deb8d1731f880ac93c02ea753da55c assets/mccoursemod/models/item/torch_ball.json
+02cb4afbba8c7718d0a2bef966a3232638a44fca assets/mccoursemod/models/item/ultra_compactor.json
 4ab2cfd99ebf1cdbfcced556e3143edd592ad148 assets/mccoursemod/models/item/walnut_boat.json
 79b59a528ac95f6e70d561344ed0b44d633712d8 assets/mccoursemod/models/item/walnut_chest_boat.json
 6f97dbb8af50cced3c2002a22e528d2ab5873a21 assets/mccoursemod/models/item/walnut_hanging_sign.json
