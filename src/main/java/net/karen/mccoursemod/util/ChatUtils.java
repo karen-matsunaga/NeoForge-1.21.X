@@ -2,6 +2,7 @@ package net.karen.mccoursemod.util;
 
 import com.mojang.datafixers.util.Either;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.*;
 import net.minecraft.tags.EnchantmentTags;
@@ -10,6 +11,8 @@ import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.StringJoiner;
 import java.util.function.Consumer;
@@ -65,9 +68,14 @@ public class ChatUtils {
         player.displayClientMessage(standardTranslatable(message), true);
     }
 
-    // CUSTOM METHOD - Message appears on screen without BOLD format
+    // CUSTOM METHOD - Message appears on SCREEN without BOLD format
     public static void playDisplayLiteral(Player player, Component message) {
         player.displayClientMessage(message, true);
+    }
+
+    // CUSTOM METHOD - Message appears on CHAT without BOLD format
+    public static void playDisplayLiteralFalse(Player player, Component message) {
+        player.displayClientMessage(message, false);
     }
 
     // CUSTOM METHOD - Using RGB colors and BOLD format
@@ -223,5 +231,14 @@ public class ChatUtils {
                             String message, String message1) {
         player.displayClientMessage(componentLiteral("Glowing " + (test ? message : message1),
                                                      (test ? green : red)), true);
+    }
+
+    // CUSTOM METHOD - Player death message display
+    public static Component chatMessage(Player player, BlockPos pos, ChatFormatting color) {
+        String playerName = player.getGameProfile().getName();
+        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+        String deathTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        return Component.literal(playerName + " died at [X: " + x + ", Y: " + y + ", Z: " + z + "] " + deathTime)
+                        .withStyle(Style.EMPTY.withColor(color).withItalic(false));
     }
 }

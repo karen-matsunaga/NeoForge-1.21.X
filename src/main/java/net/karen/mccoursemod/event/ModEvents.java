@@ -49,6 +49,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.BowItem;
@@ -84,10 +85,7 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.entity.item.ItemExpireEvent;
 import net.neoforged.neoforge.event.entity.item.ItemTossEvent;
-import net.neoforged.neoforge.event.entity.living.EnderManAngerEvent;
-import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
-import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
-import net.neoforged.neoforge.event.entity.living.LivingExperienceDropEvent;
+import net.neoforged.neoforge.event.entity.living.*;
 import net.neoforged.neoforge.event.entity.player.ItemFishedEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerWakeUpEvent;
@@ -702,6 +700,72 @@ public class ModEvents {
                 ClientPacketDistributor.sendToServer(new MccourseModBottlePacketPayload(
                                                      MccourseModBottlePacketPayload.MccourseModBottleEnum.RESTORED,
                                                      shift ? 100 : 10));
+            }
+        }
+    }
+
+    // CUSTOM EVENT - Player inventory PRESERVED items
+    // Map of MAIN INVENTORY, ARMOR, OFFHAND and EXPERIENCE items
+    private static final Map<UUID, Map<Integer, ItemStack>> savedInventory = new HashMap<>();
+    private static final Map<UUID, int[]> savedExperience = new HashMap<>();
+
+    @SubscribeEvent
+    public static void onPlayerDeathStoreItems(LivingDeathEvent event) {
+        if (event.getEntity() instanceof Player player) { // Entity is player
+            UUID uuid = player.getUUID(); // Player UUID
+            // PLAYER INVENTORY items - Added all INVENTORY, ARMOR and OFFHAND slots
+            Inventory inv = player.getInventory();
+            Map<Integer, ItemStack> indexedItems = new HashMap<>();
+            // Get all items on MAIN INVENTORY, ARMOR and OFFHAND slots
+            for (int i = 0; i < inv.getContainerSize(); i++) {
+                ItemStack stack = inv.getItem(i);
+                if (!stack.isEmpty()) {
+                    indexedItems.put(i, stack.copy()); // Saves item with same index
+                    inv.setItem(i, ItemStack.EMPTY);   // After clean item slot
+                }
+            }
+            // Save player INVENTORY, ARMOR and OFFHAND slots
+            savedInventory.put(uuid, indexedItems);
+            // PLAYER EXPERIENCE orbs - Added player experience
+            int[] xp = new int[] { player.experienceLevel,
+                                   Float.floatToIntBits(player.experienceProgress),
+                                   player.totalExperience };
+            // Save player EXPERIENCE
+            savedExperience.put(uuid, xp);
+            // Reset EXPERIENCE to prevent drop
+            player.experienceLevel = 0;
+            player.experienceProgress = 0;
+            player.totalExperience = 0;
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerCloneRestoreItems(PlayerEvent.Clone event) {
+        if (event.isWasDeath()) { // Ensures that it only runs AFTER death
+            Player oldPlayer = event.getOriginal();
+            UUID uuid = oldPlayer.getUUID(); // Get Old player UUID -> BEFORE death
+            Player newPlayer = event.getEntity(); // Entity is New player -> AFTER death
+            BlockPos blockPos = oldPlayer.blockPosition(); // Player position BEFORE death
+            // MESSAGE when player death
+            playDisplayLiteralFalse(newPlayer, chatMessage(newPlayer, blockPos, green));
+            // Restore EXPERIENCE and removed all EXPERIENCE saved
+            int[] xp = savedExperience.remove(uuid);
+            if (xp != null) {
+                newPlayer.experienceLevel = xp[0]; // Restored experience level
+                newPlayer.experienceProgress = Float.intBitsToFloat(xp[1]); // Restored experience progress
+                newPlayer.totalExperience = xp[2]; // Restored total experience
+            }
+            // Restore INVENTORY items in the same indexes
+            Inventory inv = newPlayer.getInventory();
+            // Restore all INVENTORY, ARMOR and OFFHAND saved slots
+            Map<Integer, ItemStack> indexedItems = savedInventory.remove(uuid);
+            // Added ITEMS on MAIN INVENTORY, ARMOR and OFFHAND slots
+            if (indexedItems != null) {
+                for (Map.Entry<Integer, ItemStack> entry : indexedItems.entrySet()) {
+                    int index = entry.getKey(); // Index saved
+                    ItemStack stack = entry.getValue(); // Item saved
+                    inv.setItem(index, stack);
+                }
             }
         }
     }
