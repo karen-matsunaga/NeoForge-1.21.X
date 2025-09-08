@@ -51,46 +51,44 @@ public class CompactorItem extends Item {
         return InteractionResult.PASS;
     }
 
-    protected Item input(Level level) {
-        HolderLookup.RegistryLookup<Item> itemHolder = level.registryAccess().lookupOrThrow(Registries.ITEM);
-        Optional<HolderSet.Named<Item>> items = itemHolder.get(INPUT);
-        if (items.isPresent()) {
-            HolderSet.Named<Item> item = items.get();
-            for (Holder<Item> getItem: item) { return getItem.value().asItem(); }
-        }
-        return ItemStack.EMPTY.getItem();
-    }
-
     // CUSTOM METHOD - Craft items
     private void craftItem(Level level, Player player) {
         MinecraftServer mc = level.getServer();
         if (mc == null) { return; }
         int width = 3;
         int height = 3;
-        CraftingInput input =
-              CraftingInput.of(width, height, NonNullList.withSize(width * height,
-                                                                   new ItemStack(input(level))));
-        Stream<RecipeHolder<CraftingRecipe>> matchingRecipes =
-              mc.getRecipeManager().recipeMap().getRecipesFor(RecipeType.CRAFTING, input, level);
         AtomicInteger totalCrafted = new AtomicInteger();
-        for (RecipeHolder<CraftingRecipe> recipeHolder : matchingRecipes.toList()) {
-            if (!(recipeHolder.value() instanceof ShapedRecipe shaped)) { continue; }
-            ItemStack output = shaped.assemble(input, level.registryAccess());
-            if (output.isEmpty() || !output.is(OUTPUT)) { continue; }
-            List<Optional<Ingredient>> ingredients = shaped.getIngredients();
-            boolean allInputs = ingredients.stream().allMatch(ing ->
-                                                              ing.isPresent() &&
-                                                              ing.get().test(new ItemStack(input(level))));
-            if (!allInputs) { continue; }
-            int countRequired = ingredients.size();
-            int available = countItem(player, new ItemStack(input(level)));
-            if (available >= countRequired) {
-                int maxCrafts = available / countRequired;
-                removeItems(player, new ItemStack(input(level)), countRequired * maxCrafts);
-                ItemStack result = output.copy();
-                result.setCount(maxCrafts);
-                player.getInventory().add(result);
-                totalCrafted.addAndGet(maxCrafts);
+        HolderLookup.RegistryLookup<Item> itemHolder = level.registryAccess().lookupOrThrow(Registries.ITEM);
+        Optional<HolderSet.Named<Item>> items = itemHolder.get(INPUT);
+        if (items.isPresent()) {
+            HolderSet.Named<Item> item = items.get();
+            for (Holder<Item> getItem : item) {
+                Item inputItem = getItem.value().asItem();
+                RecipeManager recipeManager = mc.getRecipeManager();
+                CraftingInput input =
+                        CraftingInput.of(width, height, NonNullList.withSize(width * height, new ItemStack(inputItem)));
+                Stream<RecipeHolder<CraftingRecipe>> matchingRecipes =
+                      recipeManager.recipeMap().getRecipesFor(RecipeType.CRAFTING, input, level);
+                for (RecipeHolder<CraftingRecipe> recipeHolder : matchingRecipes.toList()) {
+                    CraftingRecipe craftingRecipe = recipeHolder.value();
+                    if (!(craftingRecipe instanceof ShapedRecipe shaped)) { continue; }
+                    ItemStack output = shaped.assemble(input, level.registryAccess());
+                    if (output.isEmpty() || !output.is(OUTPUT)) { continue; }
+                    List<Optional<Ingredient>> ingredients = shaped.getIngredients();
+                    boolean allInputs = ingredients.stream().allMatch(ing -> ing.isPresent() &&
+                                                                      ing.get().test(new ItemStack(inputItem)));
+                    if (!allInputs) { continue; }
+                    int countRequired = ingredients.size();
+                    int available = countItem(player, new ItemStack(inputItem));
+                    if (available >= countRequired) {
+                        int maxCrafts = available / countRequired;
+                        removeItems(player, new ItemStack(inputItem), countRequired * maxCrafts);
+                        ItemStack result = output.copy();
+                        result.setCount(maxCrafts);
+                        player.getInventory().add(result);
+                        totalCrafted.addAndGet(maxCrafts);
+                    }
+                }
             }
         }
         if (totalCrafted.get() > 0) { player(player, "§aCompacted " + totalCrafted + " blocks!", green); }
