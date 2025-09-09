@@ -244,11 +244,34 @@ public class ModEvents {
         // Mccourse Mod trade -> SOUND MASTER trades
         if (event.getType() == ModVillagers.SOUND_MASTER.getKey()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            HolderLookup.RegistryLookup<Enchantment> ench = event.getRegistries().lookupOrThrow(Registries.ENCHANTMENT);
             // Trade level one
             trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                               new ItemCost(Items.EMERALD, 25),
-                               new ItemStack(ModBlocks.SOUND.get().asItem(), 1),
-                               2, 5, 0.06F));
+                              new ItemCost(Items.EMERALD, 25),
+                              new ItemStack(ModBlocks.SOUND.get().asItem(), 1),
+                              2, 5, 0.06F));
+            // Trade level two - Received Iron pickaxe with EFFICIENCY 4
+            trades.get(2).add((entity, randomSource) -> new MerchantOffer(
+                              new ItemCost(ModItems.MCCOURSE_MOD_BOTTLE, 1)
+                                          .withComponents(value ->
+                                                          value.expect(ModDataComponentTypes.STORED_LEVELS.get(), 200)),
+                              Optional.of(new ItemCost(Items.IRON_PICKAXE)),
+                              villagerEnchantedItem(Items.IRON_PICKAXE,
+                                                    Map.of(ench.getOrThrow(Enchantments.EFFICIENCY), 4)),
+                              20, 100, 0.08F));
+            // Trade level three - Received Enchanted Book with FORTUNE 4 + GLOWING MOBS 1
+            trades.get(3).add((entity, randomSource) -> new MerchantOffer(
+                              // Item Cost
+                              new ItemCost(ModItems.MCCOURSE_MOD_BOTTLE.get(), 1)
+                                          .withComponents(value ->
+                                                          value.expect(ModDataComponentTypes.STORED_LEVELS.get(), 500)),
+                              // Item Cost
+                              Optional.of(new ItemCost(Items.BOOK)),
+                              // Item Result
+                              villagerEnchantedItem(Items.ENCHANTED_BOOK,
+                                                    Map.of(ench.getOrThrow(Enchantments.FORTUNE), 4,
+                                                           ench.getOrThrow(ModEnchantments.GLOWING_MOBS), 1)),
+                              30, 50, 1F));
         }
     }
 

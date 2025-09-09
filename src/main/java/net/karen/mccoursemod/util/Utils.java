@@ -102,23 +102,14 @@ public class Utils {
         ExperienceOrb.award((ServerLevel) level, position, xp);
     }
 
-    // CUSTOM METHOD - Grouped Enchanted book
-    public static void createGroupedEnchantedBook(Map<Holder<Enchantment>, Integer> enchant,
-                                                  Level level, BlockPos pos) {
-        ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-        enchant.forEach((ench, integer) -> {
-            if (integer > 0) { book.enchant(ench, integer); } });
-        dropEnchanted(level, pos, book);
-    }
-
-    // CUSTOM METHOD - Enchanted item
-    public static void createEnchantedItem(Item item,
-                                           Map<Holder<Enchantment>, Integer> enchantment,
-                                           Level level, BlockPos pos) {
+    // CUSTOM METHOD - Enchanted items (Villager) -> Item / Book
+    public static ItemStack villagerEnchantedItem(Item item,
+                                                  Map<Holder<Enchantment>, Integer> enchantment) {
         ItemStack stack = new ItemStack(item);
         enchantment.forEach((ench, integer) -> {
-            if (integer > 0) { stack.enchant(ench, integer); }});
-        dropEnchanted(level, pos, stack);
+            if (integer > 0) { stack.enchant(ench, integer); }
+        });
+        return stack;
     }
 
     // CUSTOM METHOD - Grouped Enchantment
