@@ -17,7 +17,10 @@ import net.karen.mccoursemod.entity.custom.GeckoEntity;
 import net.karen.mccoursemod.entity.custom.RhinoEntity;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
+import net.karen.mccoursemod.item.custom.LevelChargerGenericItem;
+import net.karen.mccoursemod.item.custom.LevelChargerSpecifItem;
 import net.karen.mccoursemod.item.custom.MccourseModBottleItem;
+import net.karen.mccoursemod.network.LevelChargerInventorySlotPacketPayload;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.potion.ModPotions;
@@ -30,6 +33,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.*;
@@ -53,6 +57,7 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
@@ -79,6 +84,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
+import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -807,6 +813,34 @@ public class ModEvents {
                     ItemStack stack = entry.getValue(); // Item saved
                     inv.setItem(index, stack);
                 }
+            }
+        }
+    }
+
+    // CUSTOM EVENT - LEVEL CHARGER items -> Used item with mouse click on slot
+    @SubscribeEvent
+    public static void onLevelChargerItemsMouseClick(ScreenEvent.MouseButtonPressed.Pre event) {
+        if (!(event.getScreen() instanceof AbstractContainerScreen<?> screen)) { return; }
+        Player player = Minecraft.getInstance().player;
+        if (player == null) { return; }
+        ItemStack carried = player.containerMenu.getCarried();
+        Item item = carried.getItem();
+        boolean generic = item instanceof LevelChargerGenericItem; // Level Charger Generic
+        boolean specif = item instanceof LevelChargerSpecifItem; // Level Charger Specif
+        if (!(generic || specif)) { return; } // Hasn't LEVEL CHARGER items
+        double mouseX = event.getMouseX();
+        double mouseY = event.getMouseY();
+        if (event.getButton() != 0) { return; }
+        for (Slot slot : screen.getMenu().slots) {
+            int x = screen.getGuiLeft() + slot.x, y = screen.getGuiTop() + slot.y;
+            if (mouseX >= x && mouseX < x + 16 && mouseY >= y && mouseY < y + 16) {
+                ItemStack target = slot.getItem();
+                if (target.isEmpty() || target == carried) { return; }
+                // Send to the server -> LEVEL CHARGER items
+                ClientPacketDistributor.sendToServer(new LevelChargerInventorySlotPacketPayload(slot.index));
+                Utils.consumeInfinite(player, carried); // Consume item on client (immediate visual effect)
+                event.setCanceled(true);
+                return;
             }
         }
     }

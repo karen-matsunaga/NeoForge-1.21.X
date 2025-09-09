@@ -35,34 +35,39 @@ public class LevelChargerGenericItem extends Item {
     public @NotNull InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
         InteractionHand otherHand = (hand == mainHand) ? offhand : mainHand; // Player's MAIN HAND and OFFHAND
         ItemStack changerStack = player.getItemInHand(hand), targetStack = player.getItemInHand(otherHand);
-        if (!(changerStack.getItem() instanceof LevelChargerGenericItem self)) { return InteractionResult.FAIL; }
-        if (!player.level().isClientSide() && changerStack.is(ModTags.Items.LEVEL_CHARGER_GENERIC)) {
-            // Get all enchantments and enchantment levels
-            ItemEnchantments allEnch = EnchantmentHelper.getEnchantmentsForCrafting(targetStack);
-            int amount = self.amount; // Amount of enchantment level
-            if (allEnch.isEmpty() || targetStack.is(ModTags.Items.LEVEL_CHARGER_GENERIC)) {
-                player(player, "The item has no enchantments!", darkRed);
-                return InteractionResult.FAIL;
-            }
-            if (amount < 0 && changerStack.is(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get())) { // Check enchantment levels
-                boolean allMin = allEnch.entrySet().stream().allMatch(e -> e.getIntValue() <= 1);
-                if (allMin) { // All enchantment are with min level is 1
-                    player(player, "All enchantments are already at level 1!", aqua);
-                    return InteractionResult.FAIL;
-                }
-            }
-            // Create new map with increased levels and store original enchantment and level
-            Map<Holder<Enchantment>, Integer> upgraded = new HashMap<>();
-            allEnch.entrySet().forEach((enc) -> upgraded.put(enc.getKey(), Math.max(1, enc.getIntValue() + amount)));
-            // Apply the updated enchantments to the original item
-            ItemEnchantments.Mutable enchantments = new ItemEnchantments.Mutable(allEnch);
-            upgraded.forEach(enchantments::set);
-            EnchantmentHelper.setEnchantments(targetStack, enchantments.toImmutable()); // New enchantment level
+        if (!level.isClientSide() && applyTo(player, targetStack, changerStack) &&
+            changerStack.is(ModTags.Items.LEVEL_CHARGER_GENERIC)) {
             itemHurt(player, changerStack); // Message on screen
             changerStack.shrink(1); // Consumes Level Charger
             return InteractionResult.SUCCESS;
         }
         else { return InteractionResult.FAIL; }
+    }
+
+    public static boolean applyTo(Player player, ItemStack targetStack, ItemStack changerStack) {
+        if (!(changerStack.getItem() instanceof LevelChargerGenericItem self)) { return false; }
+        // Get all enchantments and enchantment levels
+        ItemEnchantments allEnch = EnchantmentHelper.getEnchantmentsForCrafting(targetStack);
+        int amount = self.amount; // Amount of enchantment level
+        if (allEnch.isEmpty() || targetStack.is(ModTags.Items.LEVEL_CHARGER_GENERIC)) {
+            player(player, "The item has no enchantments!", darkRed);
+            return false;
+        }
+        if (amount < 0 && changerStack.is(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get())) { // Check enchantment levels
+            boolean allMin = allEnch.entrySet().stream().allMatch(e -> e.getIntValue() <= 1);
+            if (allMin) { // All enchantment are with min level is 1
+                player(player, "All enchantments are already at level 1!", aqua);
+                return false;
+            }
+        }
+        // Create new map with increased levels and store original enchantment and level
+        Map<Holder<Enchantment>, Integer> upgraded = new HashMap<>();
+        allEnch.entrySet().forEach((enc) -> upgraded.put(enc.getKey(), Math.max(1, enc.getIntValue() + amount)));
+        // Apply the updated enchantments to the original item
+        ItemEnchantments.Mutable enchantments = new ItemEnchantments.Mutable(allEnch);
+        upgraded.forEach(enchantments::set);
+        EnchantmentHelper.setEnchantments(targetStack, enchantments.toImmutable()); // New enchantment level
+        return true;
     }
 
     // DEFAULT METHOD - Added TOOLTIP on all Level Charger

@@ -41,46 +41,52 @@ public class LevelChargerSpecifItem extends Item {
         InteractionHand otherHand = (hand == mainHand) ? offhand : mainHand; // Player's MAIN HAND and OFFHAND
         // changerStack -> Level Charger item - OFFHAND || targetStack -> Armor, Tool, Enchanted book, etc. - TARGET MAIN HAND
         ItemStack changerStack = player.getItemInHand(hand), targetStack = player.getItemInHand(otherHand);
-        if (!(changerStack.getItem() instanceof LevelChargerSpecifItem self)) { return InteractionResult.FAIL; }
-        if (!player.level().isClientSide() && changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF)) {
-            // Get all enchantments and enchantment levels
-            ItemEnchantments allEnch = EnchantmentHelper.getEnchantmentsForCrafting(targetStack);
-            HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-            Holder<Enchantment> specifEnch = ench.getOrThrow(self.enchantment).getDelegate(); // SPECIF enchantment
-            int amount = self.amount; // Amount of enchantment level
-            if (allEnch.isEmpty() || targetStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF)) {
-                player(player, "The item has no enchantments!", darkRed);
-                return InteractionResult.FAIL;
-            }
-            if (amount < 0 && changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF)) { // Check enchantment levels
-                // Has specif enchantment and all enchantments are with min level is 1
-                boolean hasSpecifEnchant = allEnch.entrySet().stream().filter(e -> e.getKey().equals(specifEnch))
-                        .allMatch(e -> e.getIntValue() <= 1);
-                if (hasSpecifEnchant) { // All enchantment are with min level is 1
-                    player(player, "All enchantments are already at level 1!", aqua);
-                    return InteractionResult.FAIL;
-                }
-            }
-            // Specif enchantment types
-            if (changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF) && !allEnch.keySet().contains(specifEnch)) {
-                player(player, "This item doesn't have the required enchantment!", gray);
-                return InteractionResult.FAIL;
-            }
-            // Create new map with increased levels and store original enchantment and level
-            Map<Holder<Enchantment>, Integer> upgraded = new HashMap<>();
-            allEnch.entrySet().forEach((enc) -> {
-                // Store new enchantment level of all enchants or Store new specif enchantment level
-                if (enc.getKey().equals(specifEnch)) { upgraded.put(enc.getKey(), Math.max(1, enc.getIntValue() + amount)); }
-            });
-            // Apply the updated enchantments to the original item
-            ItemEnchantments.Mutable enchantments = new ItemEnchantments.Mutable(allEnch);
-            upgraded.forEach(enchantments::set);
-            EnchantmentHelper.setEnchantments(targetStack, enchantments.toImmutable()); // New enchantment level
-            itemHurt(player, changerStack, specifEnch.getRegisteredName()); // Message on screen
+        if (!level.isClientSide() && applyTo(level, player, targetStack, changerStack) &&
+            changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF)) {
             changerStack.shrink(1); // Consumes Level Charger
             return InteractionResult.SUCCESS;
         }
         else { return InteractionResult.FAIL; }
+    }
+
+    public boolean applyTo(Level level, Player player, ItemStack targetStack, ItemStack changerStack) {
+        if (!(changerStack.getItem() instanceof LevelChargerSpecifItem self)) { return false; }
+        // Get all enchantments and enchantment levels
+        ItemEnchantments allEnch = EnchantmentHelper.getEnchantmentsForCrafting(targetStack);
+        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        Holder<Enchantment> specifEnch = ench.getOrThrow(self.enchantment).getDelegate(); // SPECIF enchantment
+        int amount = self.amount; // Amount of enchantment level
+        if (allEnch.isEmpty() || targetStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF)) {
+            player(player, "The item has no enchantments!", darkRed);
+            return false;
+        }
+        if (amount < 0 && changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF)) { // Check enchantment levels
+            // Has specif enchantment and all enchantments are with min level is 1
+            boolean hasSpecifEnchant =
+                    allEnch.entrySet().stream().filter(e -> e.getKey().equals(specifEnch))
+                           .allMatch(e -> e.getIntValue() <= 1);
+            if (hasSpecifEnchant) { // All enchantment are with min level is 1
+                player(player, "All enchantments are already at level 1!", aqua);
+                return false;
+            }
+        }
+        // Specif enchantment types
+        if (changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF) && !allEnch.keySet().contains(specifEnch)) {
+            player(player, "This item doesn't have the required enchantment!", gray);
+            return false;
+        }
+        // Create new map with increased levels and store original enchantment and level
+        Map<Holder<Enchantment>, Integer> upgraded = new HashMap<>();
+        allEnch.entrySet().forEach((enc) -> {
+            // Store new enchantment level of all enchants or Store new specif enchantment level
+            if (enc.getKey().equals(specifEnch)) { upgraded.put(enc.getKey(), Math.max(1, enc.getIntValue() + amount)); }
+        });
+        // Apply the updated enchantments to the original item
+        ItemEnchantments.Mutable enchantments = new ItemEnchantments.Mutable(allEnch);
+        upgraded.forEach(enchantments::set);
+        EnchantmentHelper.setEnchantments(targetStack, enchantments.toImmutable()); // New enchantment level
+        itemHurt(player, changerStack, specifEnch.getRegisteredName()); // Message on screen
+        return true;
     }
 
     // DEFAULT METHOD - Added TOOLTIP on all Level Charger
