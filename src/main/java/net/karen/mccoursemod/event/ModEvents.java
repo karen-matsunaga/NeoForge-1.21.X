@@ -31,9 +31,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FormattedText;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -64,6 +66,7 @@ import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -352,10 +355,25 @@ public class ModEvents {
     public static void onRenderGuiScreenOverlay(RenderGuiEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
         GuiGraphics guiGraphics = event.getGuiGraphics();
-        int x = 10, y = 10;
+        LocalPlayer player = mc.player;
+        int a = 10, b = 10;
         ItemStack itemStack = new ItemStack(Items.DIAMOND);
-        guiGraphics.renderItem(itemStack, x, y);
-        guiGraphics.renderItemDecorations(mc.font, itemStack, x + 20, y + 10, "§bDiamond");
+        guiGraphics.renderItem(itemStack, a, b);
+        guiGraphics.renderItemDecorations(mc.font, itemStack, a + 20, b + 10, "§bDiamond");
+        if (mc.screen == null) {
+            if (player != null && mc.level != null) { // Render only when the player is in the game and not in the menu
+                double x = player.getX(), y = player.getY(), z = player.getZ(); // Player x, y, z coordinates
+                BlockPos pos = player.blockPosition();
+                int blockLight = Utils.light(mc, LightLayer.BLOCK, pos);
+                int skyLight = Utils.light(mc, LightLayer.SKY, pos);
+                int totalLight = Math.max(blockLight, skyLight);
+                // Text to be displayed on screen - LIGHT, SKY, BLOCK
+                Component coordinate = ChatUtils.literal(x, y, z);
+                Component light = ChatUtils.numbers(totalLight, skyLight, blockLight);
+                guiGraphics.renderItemDecorations(mc.font, itemStack, a + 165, b + 20, coordinate.getString());
+                guiGraphics.renderItemDecorations(mc.font, itemStack, a + 165, b + 30, light.getString());
+            }
+        }
     }
 
     // CUSTOM EVENT - Double Jump

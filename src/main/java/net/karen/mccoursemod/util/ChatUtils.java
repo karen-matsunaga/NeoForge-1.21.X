@@ -241,4 +241,23 @@ public class ChatUtils {
         return Component.literal(playerName + " died at [X: " + x + ", Y: " + y + ", Z: " + z + "] " + deathTime)
                         .withStyle(Style.EMPTY.withColor(color).withItalic(false));
     }
+
+    // CUSTOM METHOD - Total light, Skylight and Block light + [X, Y, Z] Coordinates
+    public static Component literal(double x, double y, double z) {
+        return Component.literal("X: ").append(componentLiteral(String.format("%.3f", x), aqua))
+                        .append(standardLiteral("  Y: ")).append(componentLiteral(String.format("%.5f", y), purple))
+                        .append(standardLiteral("  Z: ")).append(componentLiteral(String.format("%.3f", z), gold));
+    }
+
+    // CUSTOM METHOD - Total light, Skylight and Block light numbers
+    public static Component numbers(int totalLight, int skyLight, int blockLight) {
+        return Component.literal("Light:").append(customStyle(" " + totalLight, totalLight))
+                        .append(standardLiteral("  Sky:")).append(customStyle(" " + skyLight, skyLight))
+                        .append(standardLiteral("  Block:")).append(customStyle(" " + blockLight, blockLight));
+    }
+
+    // CUSTOM METHOD - Total light, Skylight and Block light colors numbers
+    public static Component customStyle(String number, int light) {
+        return Component.literal(String.valueOf(number)).setStyle(Style.EMPTY.withColor(light > 6 ? 0x32FC76 : 0xFF1818));
+    }
 }

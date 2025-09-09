@@ -1,5 +1,6 @@
 package net.karen.mccoursemod.util;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -23,6 +24,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -211,5 +213,11 @@ public class Utils {
     public static List<LivingEntity> getPlayer(Player player, TagKey<EntityType<?>> tag) {
         return player.level().getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(10),
                 entity -> entity.getType().is(tag) && entity != player);
+    }
+
+    // CUSTOM METHOD - Render Overlay LIGHT, SKY, BLOCK numbers
+    public static int light(Minecraft mc, LightLayer type, BlockPos pos) {
+        Level level = mc.level;
+        return level != null ? level.getLightEngine().getLayerListener(type).getLightValue(pos) : 0;
     }
 }
