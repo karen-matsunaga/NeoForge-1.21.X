@@ -45,6 +45,7 @@ public abstract class ItemStackMixin {
                                  TooltipFlag flag, CallbackInfoReturnable<List<Component>> cir) {
         ItemStack stack = (ItemStack) (Object) this; // Get all blocks, items, etc.
         List<Component> tooltip = new ArrayList<>(cir.getReturnValue()); // Old tooltip
+        Level level = Minecraft.getInstance().level;
         // Item checked is MAGIC block
         if (stack.is(ModBlocks.MAGIC.get().asItem())) {
             Component original = tooltip.getFirst(), // Original tooltip line 0
@@ -57,15 +58,26 @@ public abstract class ItemStackMixin {
         if (stack.is(ModBlocks.SOUND.get().asItem())) {
             tooltip.add(standardTranslatable("tooltip.mccoursemod.sound")); // Added more information about SOUND block
         }
-        // Item checked is AUTO SMELT custom effect
-        Level level = Minecraft.getInstance().level;
         if (level != null) {
         HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            // Item checked is AUTO SMELT enchantment
             if (Utils.toolEnchant(ench, ModEnchantments.AUTO_SMELT, stack) > 0) {
-                stack.set(ModDataComponentTypes.CUSTOM_TOOLTIP, new CustomTooltip(Component.nullToEmpty("[Auto Smelt]")));
+                stack.set(ModDataComponentTypes.CUSTOM_TOOLTIP,
+                          new CustomTooltip(Component.nullToEmpty("[Auto Smelt]")));
                 CustomTooltip value = stack.get(ModDataComponentTypes.CUSTOM_TOOLTIP);
                 if (stack.has(ModDataComponentTypes.CUSTOM_TOOLTIP.get()) && value != null) {
                     tooltip.add(value.line1());
+                }
+            }
+            // Item checked is UNLOCK enchantment
+            if (Utils.toolEnchant(ench, ModEnchantments.UNLOCK, stack) > 0) {
+                if (stack.has(ModDataComponentTypes.UNLOCK)) {
+                    Boolean values = stack.get(ModDataComponentTypes.UNLOCK);
+                    if (values != null) {
+                        boolean locked = values; // Locked Data Component change stage
+                        tooltip.add(standardLiteral(locked ? "§cItem locked! §7- Press §eV§7 §cto unlock " + locked
+                                                           : "§aItem unlocked! §7- Press §eV§7 §ato lock " + !locked));
+                    }
                 }
             }
         }

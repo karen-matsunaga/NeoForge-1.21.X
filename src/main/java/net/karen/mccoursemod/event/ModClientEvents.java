@@ -14,6 +14,7 @@ import net.karen.mccoursemod.fluid.ModFluids;
 import net.karen.mccoursemod.network.LevelChargerInventorySlotPacketPayload;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
+import net.karen.mccoursemod.network.UnlockEnchantmentPacketPayload;
 import net.karen.mccoursemod.particle.BismuthParticles;
 import net.karen.mccoursemod.particle.BouncyBallsParticles;
 import net.karen.mccoursemod.particle.ModParticles;
@@ -22,10 +23,7 @@ import net.karen.mccoursemod.screen.custom.CraftingPlusScreen;
 import net.karen.mccoursemod.screen.custom.GrowthChamberScreen;
 import net.karen.mccoursemod.screen.custom.KaupenFurnaceScreen;
 import net.karen.mccoursemod.screen.custom.PedestalScreen;
-import net.karen.mccoursemod.util.ImageTooltipComponent;
-import net.karen.mccoursemod.util.KeyBinding;
-import net.karen.mccoursemod.util.ModTags;
-import net.karen.mccoursemod.util.MultiImageTooltipComponent;
+import net.karen.mccoursemod.util.*;
 import net.karen.mccoursemod.worldgen.biome.ModBiomes;
 import net.karen.mccoursemod.worldgen.biome.ModSurfaceRules;
 import net.karen.mccoursemod.worldgen.tree.ModWoodTypes;
@@ -143,6 +141,13 @@ public class ModClientEvents {
                                LevelChargerInventorySlotPacketPayload.STREAM_CODEC,
                                // Server Payload Handler
                                LevelChargerInventorySlotPacketPayload::onLevelChargerServerPayloadHandler);
+
+        // Network -> Unlock enchantment
+        registrar.playToServer(UnlockEnchantmentPacketPayload.TYPE,
+                               // STREAM CODEC
+                               UnlockEnchantmentPacketPayload.STREAM_CODEC,
+                               // Server Payload Handler
+                               UnlockEnchantmentPacketPayload::onUnlockEnchantmentServerPayloadHandler);
     }
 
     // CUSTOM EVENT - Register all custom Key Inputs

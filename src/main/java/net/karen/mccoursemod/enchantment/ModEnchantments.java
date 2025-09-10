@@ -2,21 +2,21 @@ package net.karen.mccoursemod.enchantment;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
-import net.karen.mccoursemod.enchantment.custom.AutoSmeltEnchantmentEffect;
-import net.karen.mccoursemod.enchantment.custom.LightningStrikerEnchantmentEffect;
-import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
-import net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect;
+import net.karen.mccoursemod.enchantment.custom.*;
 import net.karen.mccoursemod.util.ModTags;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import java.util.List;
@@ -36,11 +36,12 @@ public class ModEnchantments {
     public static final ResourceKey<Enchantment> MORE_ORES = createTag("more_ores");
     public static final ResourceKey<Enchantment> RAINBOW = createTag("rainbow");
     public static final ResourceKey<Enchantment> XP_BOOST = createTag("xp_boost");
+    public static final ResourceKey<Enchantment> UNLOCK = createTag("unlock");
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
-        var items = context.lookup(Registries.ITEM);
-        var blocks = context.lookup(Registries.BLOCK);
+        HolderGetter<Item> items = context.lookup(Registries.ITEM);
+        HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
 
         // Lightning Striker - Sword tool
         register(context, LIGHTNING_STRIKER,
@@ -167,6 +168,14 @@ public class ModEnchantments {
 
         // Xp Boost Enchantment Effect - Armor and Tools
         register(context, XP_BOOST,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.ANY)));
+
+        // Unlock Enchantment Effect - Armor and Tools
+        register(context, UNLOCK,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE),
                                                                 5, 2,
                                                                 Enchantment.dynamicCost(5, 7),

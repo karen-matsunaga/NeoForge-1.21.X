@@ -47,6 +47,10 @@
     {
       "id": "mccoursemod:xp_boost",
       "required": false
+    },
+    {
+      "id": "mccoursemod:unlock",
+      "required": false
     }
   ]
 }

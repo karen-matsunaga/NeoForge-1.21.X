@@ -63,6 +63,11 @@ public class ChatUtils {
         player.displayClientMessage(componentLiteral(message, color), true);
     }
 
+    // CUSTOM METHOD - Message appears on screen without COLOR
+    public static void playerDefault(Player player, String message) {
+        player.displayClientMessage(standardLiteral(message), true);
+    }
+
     // CUSTOM METHOD - Message appears on screen without BOLD format (en_us.json file)
     public static void playerDisplayTranslatable(Player player, String message) {
         player.displayClientMessage(standardTranslatable(message), true);

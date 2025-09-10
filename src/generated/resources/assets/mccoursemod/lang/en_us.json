@@ -138,6 +138,8 @@
   "enchantment.mccoursemod.peaceful_mobs.desc": "When applied on leggings armor all entities not attack Player.",
   "enchantment.mccoursemod.rainbow": "Rainbow",
   "enchantment.mccoursemod.rainbow.desc": "When applied on pickaxe the broken ore is replaced and turned on an ore block.",
+  "enchantment.mccoursemod.unlock": "Unlock",
+  "enchantment.mccoursemod.unlock.desc": "When applied to tools, armor, etc., item is locked from being dropped until you press the V key to unlock the item drop.",
   "enchantment.mccoursemod.xp_boost": "Xp Boost",
   "enchantment.mccoursemod.xp_boost.desc": "When applied to tools, armor, etc. gain more experience orb when killing mobs, mining blocks, cooking items, walking, mining, attacking, etc.",
   "enchantment.minecraft.aqua_affinity.desc": "When applied on helmet armor increases underwater mining speed.",

@@ -535,6 +535,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.glowing_mobs", "Glowing Mobs");
         add("enchantment.mccoursemod.magnetism", "Magnetism");
         add("enchantment.mccoursemod.xp_boost", "Xp Boost");
+        add("enchantment.mccoursemod.unlock", "Unlock");
 
         // ** CUSTOM DESCRIPTIONS **
         // ** CUSTOM MUSIC DISC **
@@ -593,6 +594,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.xp_boost.desc",
             "When applied to tools, armor, etc. gain more experience orb when killing mobs, mining blocks, " +
             "cooking items, walking, mining, attacking, etc.");
+        add("enchantment.mccoursemod.unlock.desc",
+            "When applied to tools, armor, etc., item is locked from being dropped " +
+            "until you press the V key to unlock the item drop.");
 
         // ARMOR EXCLUSIVE
         add("enchantment.minecraft.protection.desc", "When applied on armor add bonus damage reduction.");

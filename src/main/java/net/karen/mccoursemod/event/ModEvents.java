@@ -23,13 +23,16 @@ import net.karen.mccoursemod.item.custom.MccourseModBottleItem;
 import net.karen.mccoursemod.network.LevelChargerInventorySlotPacketPayload;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
+import net.karen.mccoursemod.network.UnlockEnchantmentPacketPayload;
 import net.karen.mccoursemod.potion.ModPotions;
 import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.KeyBinding;
 import net.karen.mccoursemod.util.ModTags;
 import net.karen.mccoursemod.util.Utils;
 import net.karen.mccoursemod.villager.ModVillagers;
+import net.karen.mccoursemod.worldgen.dimension.ModDimensions;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
@@ -41,6 +44,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FormattedText;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -841,6 +845,100 @@ public class ModEvents {
                 Utils.consumeInfinite(player, carried); // Consume item on client (immediate visual effect)
                 event.setCanceled(true);
                 return;
+            }
+        }
+    }
+
+    // CUSTOM EVENT - UNLOCK custom enchantment
+    @SubscribeEvent
+    public static void activatedUnlockOnKeyPress(InputEvent.Key event) {
+        Minecraft mc = Minecraft.getInstance();
+        Player player = mc.player;
+        KeyMapping map = KeyBinding.UNLOCK_KEY.get();
+        if (player == null || !map.isDown() || !map.consumeClick()) { return; }
+        if (mc.screen == null) {
+            Inventory inv = player.getInventory();
+            for (int i = 0; i < inv.getContainerSize(); i++) { // MAIN, ARMOR and OFFHAND slots
+                ItemStack main = inv.getItem(i);
+                Utils.unlockOnKeyPress(main, i);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void activatedUnlockOnGuiKeyPress(ScreenEvent.KeyPressed.Pre event) {
+        Minecraft mc = Minecraft.getInstance();
+        Player player = mc.player;
+        if (!(event.getScreen() instanceof AbstractContainerScreen<?> screen)) { return; }
+        if (player == null) { return; }
+        if (event.getKeyCode() != KeyBinding.UNLOCK_KEY.get().getKey().getValue()) { return; }
+        Slot hovered = screen.getSlotUnderMouse();
+        if (hovered == null || !hovered.hasItem()) {
+            ChatUtils.player(player, "No item under mouse!", red);
+            return;
+        }
+        ItemStack hoveredStack = hovered.getItem();
+        int index = -1;
+        Inventory inv = player.getInventory();
+        for (int i = 0; i < inv.getContainerSize(); i++) {
+            if (ItemStack.isSameItemSameComponents(inv.getItem(i), hoveredStack)) {
+                index = i;
+                break;
+            }
+        }
+        boolean locked = false;
+        Boolean effect = hoveredStack.get(ModDataComponentTypes.UNLOCK);
+        if (effect != null) { locked = effect; }
+        ClientPacketDistributor.sendToServer(new UnlockEnchantmentPacketPayload(!locked, index));
+        event.setCanceled(true); // Prevents other mods or the game from consuming the key
+    }
+
+    @SubscribeEvent
+    public static void activatedUnlockOnDropKey(ScreenEvent.KeyPressed.Pre event) {
+        Minecraft mc = Minecraft.getInstance();
+        Player player = mc.player;
+        if (!(event.getScreen() instanceof AbstractContainerScreen<?> screen)) { return; }
+        if (player == null) { return; }
+        if (event.getKeyCode() != mc.options.keyDrop.getKey().getValue()) { return; } // Check if the PRESSED key is DROP
+        Slot hoveredSlot = screen.getSlotUnderMouse();
+        if (hoveredSlot == null) { return; }
+        ItemStack stack = hoveredSlot.getItem();
+        if (stack.isEmpty()) { return; }
+        if (stack.has(ModDataComponentTypes.UNLOCK)) { // Check if the item is LOCKED
+            event.setCanceled(true); // Prevents item movement
+            player(player, "\uD83D\uDD12 This item is locked!", red);
+        }
+    }
+
+    @SubscribeEvent
+    public static void activatedUnlockItemToss(ItemTossEvent event) {
+        ItemStack stack = event.getEntity().getItem();
+        ItemStack safeCopy = stack.copy(); // Original item and make a safe copy first
+        Player player = event.getPlayer();
+        Boolean unlockValue = stack.get(ModDataComponentTypes.UNLOCK);
+        if (unlockValue != null && unlockValue) {
+            event.setCanceled(true);
+            // If the item is LOCKED, and you try to play the item a warning is shown on the screen
+            player(player, "\uD83D\uDD12 This item is locked!", red);
+            boolean added = player.getInventory().add(safeCopy);
+            if (!added) {
+                // Try to put in slots
+                for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                    player.getInventory().setItem(i, safeCopy.copy());
+                    safeCopy.setCount(0); // Empties after moving
+                }
+                // If there is any left, throw it on the floor
+                MinecraftServer server = player.level().getServer();
+                if (!safeCopy.isEmpty() && server != null) {
+                    ServerLevel kaupen = server.getLevel(ModDimensions.KAUPENDIM_LEVEL_KEY);
+                    ServerLevel over = server.getLevel(Level.OVERWORLD);
+                    ServerLevel nether = server.getLevel(Level.NETHER);
+                    ServerLevel end = server.getLevel(Level.END);
+                    if (kaupen != null) { player.spawnAtLocation(kaupen, safeCopy); }
+                    if (over != null) { player.spawnAtLocation(over, safeCopy); }
+                    if (nether != null) { player.spawnAtLocation(nether, safeCopy); }
+                    if (end != null) { player.spawnAtLocation(end, safeCopy); }
+                }
             }
         }
     }

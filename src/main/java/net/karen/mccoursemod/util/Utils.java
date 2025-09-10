@@ -1,5 +1,7 @@
 package net.karen.mccoursemod.util;
 
+import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.network.UnlockEnchantmentPacketPayload;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -29,6 +31,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
@@ -219,5 +222,16 @@ public class Utils {
     public static int light(Minecraft mc, LightLayer type, BlockPos pos) {
         Level level = mc.level;
         return level != null ? level.getLightEngine().getLayerListener(type).getLightValue(pos) : 0;
+    }
+
+    // CUSTOM METHOD - UNLOCK enchantment on key press
+    public static void unlockOnKeyPress(ItemStack main, int index) {
+        if (!main.isEmpty() && main.has(ModDataComponentTypes.UNLOCK)) { // MAIN HAND, ARMOR and OFFHAND
+            Boolean unlockData = main.get(ModDataComponentTypes.UNLOCK);
+            if (unlockData != null) {
+                boolean locked = unlockData;
+                ClientPacketDistributor.sendToServer(new UnlockEnchantmentPacketPayload(!locked, index));
+            }
+        }
     }
 }
