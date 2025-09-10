@@ -904,7 +904,8 @@ public class ModEvents {
         if (hoveredSlot == null) { return; }
         ItemStack stack = hoveredSlot.getItem();
         if (stack.isEmpty()) { return; }
-        if (stack.has(ModDataComponentTypes.UNLOCK)) { // Check if the item is LOCKED
+        Boolean unlockValue = stack.get(ModDataComponentTypes.UNLOCK);
+        if (unlockValue != null && unlockValue) { // Check if the item is LOCKED
             event.setCanceled(true); // Prevents item movement
             player(player, "\uD83D\uDD12 This item is locked!", red);
         }

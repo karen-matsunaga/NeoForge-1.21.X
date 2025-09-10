@@ -75,8 +75,10 @@ public abstract class ItemStackMixin {
                     Boolean values = stack.get(ModDataComponentTypes.UNLOCK);
                     if (values != null) {
                         boolean locked = values; // Locked Data Component change stage
-                        tooltip.add(standardLiteral(locked ? "§cItem locked! §7- Press §eV§7 §cto unlock " + locked
-                                                           : "§aItem unlocked! §7- Press §eV§7 §ato lock " + !locked));
+                        tooltip.add(standardLiteral(locked ? "§c\uD83D\uDD12 Item locked! " +
+                                                              "§7- Press §eV§7 §cto unlock " + locked
+                                                           : "§a\uD83D\uDD13 Item unlocked! " +
+                                                             "§7- Press §eV§7 §ato lock " + !locked));
                     }
                 }
             }
