@@ -24,12 +24,14 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -233,5 +235,10 @@ public class Utils {
                 ClientPacketDistributor.sendToServer(new UnlockEnchantmentPacketPayload(!locked, index));
             }
         }
+    }
+
+    // CUSTOM METHOD - TELEPORT effect when click on a block
+    public static BlockHitResult hitBlock(ServerLevel level, Vec3 eye, Vec3 reach, Player player) {
+        return level.clip(new ClipContext(eye, reach, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
     }
 }
