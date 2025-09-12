@@ -2,12 +2,15 @@ package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.component.ShiftTooltip;
+import net.karen.mccoursemod.component.ItemTooltip;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.datagen.ModEquipmentAssetProvider;
 import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.item.custom.*;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.trim.ModTrimMaterials;
+import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
@@ -29,7 +32,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.BlocksAttacks;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.equipment.*;
@@ -40,8 +42,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
-import static net.karen.mccoursemod.util.ChatUtils.purple;
+import static net.karen.mccoursemod.util.ChatUtils.*;
 
 public class ModItems {
     // Registry all custom ITEMS
@@ -76,20 +77,15 @@ public class ModItems {
 
     // ** CUSTOM foods **
     public static final DeferredItem<Item> RADISH = ITEMS.registerItem("radish",
-           (properties) -> new Item(properties.food(new FoodProperties.Builder()
-                                                                                .nutrition(3).saturationModifier(0.25F).build(),
+           (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
+                                                                                .saturationModifier(0.25F).build(),
                                                               Consumables.defaultFood().onConsume(
                                                               new ApplyStatusEffectsConsumeEffect(
                                                               new MobEffectInstance(MobEffects.HEALTH_BOOST, 400),
-                                                              0.35F)).build())) {
-               @Override
-               public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context,
-                                           @NotNull TooltipDisplay display, @NotNull Consumer<Component> consumer,
-                                           @NotNull TooltipFlag flag) {
-                   consumer.accept(Component.translatable("tooltip.mccoursemod.radish"));
-                   super.appendHoverText(stack, context, display, consumer, flag);
-               }
-           });
+                                                              0.35F)).build())
+                                                        .component(ModDataComponentTypes.ITEM_TOOLTIP,
+                                                                   new ItemTooltip("tooltip.mccoursemod.radish",
+                                                                                   ChatUtils.green, true))));
 
     public static final DeferredItem<Item> KOHLRABI = ITEMS.registerItem("kohlrabi",
            (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
@@ -594,7 +590,14 @@ public class ModItems {
     // METAL DETECTOR item
     public static final DeferredItem<Item> METAL_DETECTOR =
            ITEMS.registerItem("metal_detector",
-           (properties) -> new MetalDetectorItem(properties.fireResistant().stacksTo(1),
+           (properties) -> new MetalDetectorItem(properties.fireResistant().stacksTo(1)
+                                                                     .component(ModDataComponentTypes.SHIFT_TOOLTIP,
+                                                                                new ShiftTooltip(
+                                                                                List.of(
+                                                                                "tooltip.mccoursemod.metal_detector.tooltip.shift",
+                                                                                "tooltip.mccoursemod.metal_detector.tooltip"),
+                                                                                List.of(ChatUtils.yellow, ChatUtils.white),
+                                                                                true)),
                                                            ModTags.Blocks.METAL_DETECTOR_VALUABLES));
 
     // DATA TABLET item

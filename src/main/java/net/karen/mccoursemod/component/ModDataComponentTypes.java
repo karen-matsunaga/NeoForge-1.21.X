@@ -42,10 +42,15 @@ public class ModDataComponentTypes {
            register("auto_smelt", builder ->
                     builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
 
-    // Custom tooltip data component
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<CustomTooltip>> CUSTOM_TOOLTIP =
-           register("custom_tooltip", builder ->
-                    builder.persistent(CustomTooltip.CODEC).networkSynchronized(CustomTooltip.STREAM_CODEC));
+    // Shift tooltip data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ShiftTooltip>> SHIFT_TOOLTIP =
+           register("shift_tooltip", builder ->
+                    builder.persistent(ShiftTooltip.CODEC).networkSynchronized(ShiftTooltip.STREAM_CODEC));
+
+    // Item tooltip data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ItemTooltip>> ITEM_TOOLTIP =
+           register("item_tooltip", builder ->
+                    builder.persistent(ItemTooltip.CODEC).networkSynchronized(ItemTooltip.STREAM_CODEC));
 
     // Mccourse Mod Bottle data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> STORED_LEVELS =

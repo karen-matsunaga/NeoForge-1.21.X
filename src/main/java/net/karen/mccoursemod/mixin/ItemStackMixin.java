@@ -1,7 +1,6 @@
 package net.karen.mccoursemod.mixin;
 
 import net.karen.mccoursemod.block.ModBlocks;
-import net.karen.mccoursemod.component.CustomTooltip;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.util.Utils;
@@ -34,11 +33,12 @@ import static net.karen.mccoursemod.util.ChatUtils.*;
 public abstract class ItemStackMixin {
     @Shadow public abstract String toString();
 
-    @Shadow public abstract <T extends TooltipProvider> void addToTooltip(DataComponentType<T> component,
-                                                                          Item.TooltipContext context,
-                                                                          TooltipDisplay display,
-                                                                          Consumer<Component> consumer,
-                                                                          TooltipFlag flag);
+    @Shadow public abstract <T extends TooltipProvider>
+                            void addToTooltip(DataComponentType<T> component,
+                                              Item.TooltipContext context,
+                                              TooltipDisplay display,
+                                              Consumer<Component> consumer,
+                                              TooltipFlag flag);
 
     @Inject(method = "getTooltipLines", at = @At("RETURN"), cancellable = true)
     private void getTooltipLines(Item.TooltipContext context, Player player,
@@ -59,16 +59,7 @@ public abstract class ItemStackMixin {
             tooltip.add(standardTranslatable("tooltip.mccoursemod.sound")); // Added more information about SOUND block
         }
         if (level != null) {
-        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-            // Item checked is AUTO SMELT enchantment
-            if (Utils.toolEnchant(ench, ModEnchantments.AUTO_SMELT, stack) > 0) {
-                stack.set(ModDataComponentTypes.CUSTOM_TOOLTIP,
-                          new CustomTooltip(Component.nullToEmpty("[Auto Smelt]")));
-                CustomTooltip value = stack.get(ModDataComponentTypes.CUSTOM_TOOLTIP);
-                if (stack.has(ModDataComponentTypes.CUSTOM_TOOLTIP.get()) && value != null) {
-                    tooltip.add(value.line1());
-                }
-            }
+            HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
             // Item checked is UNLOCK enchantment
             if (Utils.toolEnchant(ench, ModEnchantments.UNLOCK, stack) > 0) {
                 if (stack.has(ModDataComponentTypes.UNLOCK)) {
@@ -91,7 +82,8 @@ public abstract class ItemStackMixin {
     private void addDetailsToTooltip$mccoursemod(Item.TooltipContext context, TooltipDisplay display,
                                                  Player player, TooltipFlag flag,
                                                  Consumer<Component> consumer, CallbackInfo ci) {
-       this.addToTooltip(ModDataComponentTypes.CUSTOM_TOOLTIP.get(), context, display, consumer, flag);
+       this.addToTooltip(ModDataComponentTypes.SHIFT_TOOLTIP.get(), context, display, consumer, flag);
+       this.addToTooltip(ModDataComponentTypes.ITEM_TOOLTIP.get(), context, display, consumer, flag);
     }
 
     // DEFAULT METHOD - LAPIS LAZULI consumption is blocked
