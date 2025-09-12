@@ -12,7 +12,7 @@
     }
   },
   "display": {
-    "background": "mccoursemod:textures/item/alexandrite.png",
+    "background": "mccoursemod:block/alexandrite_ore",
     "description": "Collect all exclusive ores, armors, tools, etc. on your journey! The Power lies in the Alexandrite!",
     "icon": {
       "count": 1,

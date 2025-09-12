@@ -34,10 +34,9 @@ public class ModAdvancementProvider extends AdvancementProvider {
                 Advancement.Builder.advancement()
                            .display(ModItems.ALEXANDRITE.get(),
                                     Component.literal("Mccourse Mod"),
-                                    Component.literal("Collect all exclusive ores, armors, tools, etc. on your journey!"
-                                                      + " The Power lies in the Alexandrite!"),
-                                    ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                          "textures/item/alexandrite.png"),
+                                    Component.literal("Collect all exclusive ores, armors, tools, etc. on your journey!" +
+                                                      " The Power lies in the Alexandrite!"),
+                                    ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "block/alexandrite_ore"),
                                     AdvancementType.TASK, true, true, false)
                            .addCriterion("has_alexandrite",
                                          InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ALEXANDRITE.get()))
