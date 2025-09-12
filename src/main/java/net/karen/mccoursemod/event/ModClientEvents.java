@@ -15,6 +15,7 @@ import net.karen.mccoursemod.network.LevelChargerInventorySlotPacketPayload;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.network.UnlockEnchantmentPacketPayload;
+import net.karen.mccoursemod.particle.AlexandriteParticles;
 import net.karen.mccoursemod.particle.BismuthParticles;
 import net.karen.mccoursemod.particle.BouncyBallsParticles;
 import net.karen.mccoursemod.particle.ModParticles;
@@ -80,6 +81,7 @@ public class ModClientEvents {
         EntityRenderers.register(ModEntities.TORCH_BALL.get(), ThrownItemRenderer::new);
         EntityRenderers.register(ModEntities.BOUNCY_BALLS.get(), ThrownItemRenderer::new);
         EntityRenderers.register(ModEntities.DICE_PROJECTILE.get(), ThrownItemRenderer::new);
+        EntityRenderers.register(ModEntities.MAGIC_PROJECTILE.get(), MagicProjectileRenderer::new);
         // ** CUSTOM Sittable blocks **
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
         // ** CUSTOM Boats **
@@ -106,6 +108,7 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ModParticles.BISMUTH_PARTICLES.get(), BismuthParticles.Provider::new);
+        event.registerSpriteSet(ModParticles.ALEXANDRITE_PARTICLES.get(), AlexandriteParticles.Provider::new);
         event.registerSpriteSet(ModParticles.BOUNCY_BALLS_PARTICLES.get(), BouncyBallsParticles.Provider::new);
     }
 
@@ -193,6 +196,7 @@ public class ModClientEvents {
         event.registerLayerDefinition(RhinoModel.LAYER_LOCATION, RhinoModel::createBodyLayer);
         // CUSTOM Throwable Projectiles
         event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
+        event.registerLayerDefinition(MagicProjectileModel.MAGIC_PROJECTILE_LAYER, MagicProjectileModel::createBodyLayer);
         // CUSTOM Boat and Chest Boat
         event.registerLayerDefinition(ModModelLayers.WALNUT_BOAT_LAYER, BoatModel::createBoatModel);
         event.registerLayerDefinition(ModModelLayers.WALNUT_CHEST_BOAT_LAYER, BoatModel::createChestBoatModel);

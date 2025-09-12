@@ -56,6 +56,12 @@ public class Utils {
         player.level().playSound(null, player.blockPosition(), sound, SoundSource.PLAYERS, volume, pitch);
     }
 
+    // CUSTOM METHOD - Level neutral sounds
+    public static void neutralSound(Level level, Player player,
+                                    SoundEvent sound, float volume, float pitch) {
+        level.playSound(null, player.getX(), player.getY(), player.getZ(), sound, SoundSource.NEUTRAL, volume, pitch);
+    }
+
     // CUSTOM METHOD - Level neutral sounds with PITCH value
     public static void neutralSoundValue(Level level, Player player, SoundEvent sound, float volume) {
         double x = player.getX(), y = player.getY(), z = player.getZ();

@@ -526,8 +526,9 @@ public class ModItems {
            ITEMS.registerItem("dice_item", DiceItem::new, new Item.Properties());
 
     // ** CUSTOM Animated Textures **
-    public static final DeferredItem<Item> RADIATION_STAFF = ITEMS.registerItem("radiation_staff",
-           (properties) -> new Item(properties.stacksTo(1)));
+    public static final DeferredItem<Item> RADIATION_STAFF =
+           ITEMS.registerItem("radiation_staff", RadiationStaffItem::new,
+                              new Item.Properties().stacksTo(1).durability(1024));
 
     // ** CUSTOM Advanced Items **
     // Auto smelt item

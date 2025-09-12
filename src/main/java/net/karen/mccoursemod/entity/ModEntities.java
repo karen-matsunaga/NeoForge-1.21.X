@@ -40,6 +40,10 @@ public class ModEntities {
            ResourceKey.create(Registries.ENTITY_TYPE,
                               ResourceLocation.withDefaultNamespace("dice_projectile"));
 
+    public static ResourceKey<EntityType<?>> MAGIC_PROJECTILE_KEY =
+           ResourceKey.create(Registries.ENTITY_TYPE,
+                              ResourceLocation.withDefaultNamespace("magic_projectile"));
+
     public static ResourceKey<EntityType<?>> MOD_BOAT_KEY =
            ResourceKey.create(Registries.ENTITY_TYPE,
                               ResourceLocation.withDefaultNamespace("mod_boat"));
@@ -90,6 +94,14 @@ public class ModEntities {
                            .clientTrackingRange(4)
                            .updateInterval(20)
                            .build(DICE_PROJECTILE_KEY));
+
+    public static final Supplier<EntityType<MagicProjectileEntity>> MAGIC_PROJECTILE =
+           ENTITY_TYPES.register("magic_projectile",
+           () -> EntityType.Builder.<MagicProjectileEntity>of(MagicProjectileEntity::new, MobCategory.MISC)
+                                   .sized(0.5f, 0.5f)
+                                   .clientTrackingRange(4)
+                                   .updateInterval(20)
+                                   .build(MAGIC_PROJECTILE_KEY));
 
     // Registry all custom sittable blocks -> Entity Type
     public static final Supplier<EntityType<ChairEntity>> CHAIR_ENTITY =

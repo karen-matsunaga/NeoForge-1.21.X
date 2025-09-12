@@ -16,6 +16,9 @@ public class ModParticles {
     public static final Supplier<SimpleParticleType> BISMUTH_PARTICLES =
            PARTICLE_TYPES.register("bismuth_particles", () -> new SimpleParticleType(true));
 
+    public static final Supplier<SimpleParticleType> ALEXANDRITE_PARTICLES =
+           PARTICLE_TYPES.register("alexandrite_particles", () -> new SimpleParticleType(true));
+
     public static final Supplier<SimpleParticleType> BOUNCY_BALLS_PARTICLES =
            PARTICLE_TYPES.register("bouncy_balls_particles", () -> new SimpleParticleType(true));
 

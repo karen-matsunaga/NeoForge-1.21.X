@@ -16,5 +16,9 @@ public class ModParticleDescriptionProvider extends ParticleDescriptionProvider 
         // Bismuth particles
         sprite(ModParticles.BISMUTH_PARTICLES.get(),
                ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "bismuth"));
+
+        // Alexandrite particles
+        sprite(ModParticles.ALEXANDRITE_PARTICLES.get(),
+               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "alexandrite"));
     }
 }
