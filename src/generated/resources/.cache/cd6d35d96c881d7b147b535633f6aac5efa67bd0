@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-07T13:50:17.7261517	Model Definitions - mccoursemod
+// 1.21.8	2025-09-11T12:25:27.7212352	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -299,6 +299,7 @@ f0a24493aaefe1e5377dee9fd94108a9d043a724 assets/mccoursemod/items/redstone_paxel
 1d16229dbd3b5c9294c4129d03c0d8ae36e1b634 assets/mccoursemod/items/redstone_shovel.json
 47f8fe4d8657e546a7ddb2794fb30fc45070548f assets/mccoursemod/items/redstone_sword.json
 7bf022683d9e0a31073c46d873901f79c7a34539 assets/mccoursemod/items/red_ender_pearl_block.json
+1483040c3f6fbc91c2bdc9ff46565dd497ae4697 assets/mccoursemod/items/restore.json
 d3c475577fc61505503ae2b8475fb65c2cbaac6e assets/mccoursemod/items/rhino_spawn_egg.json
 33f2302b4175fa84a33f4e8ae601be051bc66aeb assets/mccoursemod/items/rotten_flesh_block.json
 0291c8af8a379805828679a3189b3ca0b2bf5f4e assets/mccoursemod/items/ruby_block.json
@@ -990,6 +991,7 @@ be85462b9da70e9fd1cad2c4aadc9a48bd58f7bd assets/mccoursemod/models/item/redstone
 3fe10e0b96ea83a020fd086b24b44d848af48652 assets/mccoursemod/models/item/redstone_pickaxe.json
 b062c75c2b898df3dc70e433e5a5962e138a13e7 assets/mccoursemod/models/item/redstone_shovel.json
 caa371f175c5a773b930a4cd500fbf88de6b5a9f assets/mccoursemod/models/item/redstone_sword.json
+02d7734fdd2de4b8ad99275e44cd0a80a628d000 assets/mccoursemod/models/item/restore.json
 201cdbdd1d7c0f29ede2af341f8d1772b0743ba6 assets/mccoursemod/models/item/rhino_spawn_egg.json
 1b5b7406d71657a3b386f600c17d41a6c1b17598 assets/mccoursemod/models/item/snapdragon.json
 8c67c142feb7ba5656de162fad4aa682ab323cd1 assets/mccoursemod/models/item/soap_water_bucket.json

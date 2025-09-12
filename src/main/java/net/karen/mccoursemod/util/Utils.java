@@ -241,4 +241,9 @@ public class Utils {
     public static BlockHitResult hitBlock(ServerLevel level, Vec3 eye, Vec3 reach, Player player) {
         return level.clip(new ClipContext(eye, reach, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
     }
+
+    // CUSTOM METHOD - RESTORE -> Item used is on offhand or main hand
+    public static ItemStack hasItem(Player player, InteractionHand hand) {
+        return player.getItemInHand(hand);
+    }
 }
