@@ -316,6 +316,8 @@ public class ModRecipeProvider extends RecipeProvider {
         craftSeven(List.of(ModBlocks.ENCHANT.get(), Items.ENCHANTING_TABLE));
         craftSeven(List.of(ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.DISENCHANT_INDIVIDUAL.get()));
         craftSeven(List.of(ModBlocks.DISENCHANT_INDIVIDUAL.get(), Items.ANVIL));
+        // ** Advanced items recipes **
+        craftSeven(List.of(ModItems.FARMER.get(), Items.BONE_MEAL));
         // ** COMPACTOR recipes **
         craftSeven(List.of(ModItems.ULTRA_COMPACTOR.get(), Items.NETHERITE_PICKAXE));
         craftSeven(List.of(ModItems.PINK_ULTRA_COMPACTOR.get(), ModItems.PINK_PICKAXE));
@@ -329,7 +331,8 @@ public class ModRecipeProvider extends RecipeProvider {
         return CraftingPlusRecipeBuilder.plusShaped(this.items, category, result);
     }
 
-    protected CraftingPlusRecipeBuilder plusShaped(RecipeCategory category, ItemLike result, int count) {
+    protected CraftingPlusRecipeBuilder plusShaped(RecipeCategory category,
+                                                   ItemLike result, int count) {
         return CraftingPlusRecipeBuilder.plusShaped(this.items, category, result, count);
     }
 

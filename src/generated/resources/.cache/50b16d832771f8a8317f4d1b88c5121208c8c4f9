@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-07T10:50:05.1531367	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-09-13T12:25:41.3616356	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 45f418e9ccfb34f690fcedb40b1602003ab6f053 data/mccoursemod/tags/block/all_ores.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
@@ -6,6 +6,11 @@ d3e0307570b786aa4733b133a1bc9d5453079334 data/mccoursemod/tags/block/bismuth_blo
 fb04ce601bdbe167eef745f4fb188a2bb2d4ca6a data/mccoursemod/tags/block/block_fly_block_speed.json
 81d61840f7e470498e0b50066a57efdb7c293248 data/mccoursemod/tags/block/bloodwood_logs.json
 8e6cce5eed1236b9e18574f335fa54a449c6458b data/mccoursemod/tags/block/ender_pearl_blocks.json
+98a6b17f43b7700939b408265be7513b394137da data/mccoursemod/tags/block/farmer_age_growables.json
+e1d55fadbbd33dbc8f6a0633cd7bba1fe0b0cf33 data/mccoursemod/tags/block/farmer_bonemeal_growables.json
+18d2b1c71d5860dec818d77bccace8d39e91895d data/mccoursemod/tags/block/farmer_crops_growables.json
+347d7db9633b91359c616fd62d97385b7de8bc73 data/mccoursemod/tags/block/farmer_tree_growables.json
+bdfaf45f7d896dd00ff9bfc6f785659fc3569a4c data/mccoursemod/tags/block/farmer_vertical_growables.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_alexandrite_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_bismuth_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_copper_tool.json
@@ -26,12 +31,15 @@ ec8dac89768c5623a8b46eeb7dc28abce01ccc83 data/mccoursemod/tags/block/more_ores_f
 a3b034ba6dfc318ff77dbd2fedd47a18e2872e02 data/mccoursemod/tags/block/more_ores_six_drops.json
 7b9951a96f44c21b24724332c83c49c1dc358b0a data/mccoursemod/tags/block/more_ores_three_drops.json
 76e1074a2f2f826c8f45cc1ab2a7d876f28710d8 data/mccoursemod/tags/block/more_ores_two_drops.json
+08f949771eaf1ded6903b40b92c0af47fb25828b data/mccoursemod/tags/block/mushroom_blocks.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_alexandrite_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_bismuth_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_copper_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_lapis_lazuli_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_pink_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_redstone_tool.json
+7d78d30b1cc01fb43cfb8364ed31026ee0640387 data/mccoursemod/tags/block/vertical_blocks.json
+1042355386c9659aa330e3a97a816b5e088c7648 data/mccoursemod/tags/block/vertical_grow_blocks.json
 774205992e78cc4b0cce335e5a396e3a2426ecab data/mccoursemod/tags/block/walnut_logs.json
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/block/bee_attractive.json
 46172a7dfe90d415693950b0619498a485358fdc data/minecraft/tags/block/buttons.json

@@ -85,6 +85,27 @@ public class ModTags {
         public static final TagKey<Block> MCCOURSE_MOD_OXIDIZABLE_BLOCKS =
                createTag("mccourse_mod_oxidizable_blocks");
 
+        // ** CUSTOM Farmer **
+        public static final TagKey<Block> FARMER_BONEMEAL_GROWABLES =
+               createTag("farmer_bonemeal_growables");
+
+        public static final TagKey<Block> FARMER_CROPS_GROWABLES =
+               createTag("farmer_crops_growables");
+
+        public static final TagKey<Block> FARMER_TREE_GROWABLES =
+               createTag("farmer_tree_growables");
+
+        public static final TagKey<Block> FARMER_VERTICAL_GROWABLES =
+               createTag("farmer_vertical_growables");
+
+        public static final TagKey<Block> FARMER_AGE_GROWABLES =
+               createTag("farmer_age_growables");
+
+        // ** CUSTOM Crop replant **
+        public static final TagKey<Block> MUSHROOM_BLOCKS = createTag("mushroom_blocks");
+        public static final TagKey<Block> VERTICAL_BLOCKS = createTag("vertical_blocks");
+        public static final TagKey<Block> VERTICAL_GROW_BLOCKS = createTag("vertical_grow_blocks");
+
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));

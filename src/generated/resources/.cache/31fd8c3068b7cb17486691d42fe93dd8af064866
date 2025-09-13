@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-07T13:50:17.7105074	Mccourse Recipes
+// 1.21.8	2025-09-13T12:25:41.1499539	Mccourse Recipes
 4791b16da0c9ab1aa82bbb7d699e7ee74ede08c4 data/mccoursemod/advancement/recipes/bismuth_from_growth_chamber.json
 71db3072a7df5eeb556fe03bf2154ca020825fd3 data/mccoursemod/advancement/recipes/building_blocks/alexandrite_slabs.json
 64a3f81015048f8519d40af525ac966a99374aa4 data/mccoursemod/advancement/recipes/building_blocks/alexandrite_stairs.json
@@ -89,6 +89,7 @@ e51ec4a1d41eaf45fca8a71ec3155b770c9b173c data/mccoursemod/advancement/recipes/mi
 bed52c9bc4622b86b68fd1bfb8905d9264b06e7e data/mccoursemod/advancement/recipes/misc/disenchant_grouped.json
 2ee58635568375ee17f183b558c69f3e4b93803b data/mccoursemod/advancement/recipes/misc/disenchant_individual.json
 27a129949b57e38ad09251c785399a2f8784648c data/mccoursemod/advancement/recipes/misc/enchant.json
+8a4c96cebc7574c07db217f49fe775f6fc84a4ec data/mccoursemod/advancement/recipes/misc/farmer.json
 9c672b506553cdb9e3b5073b555c622861333515 data/mccoursemod/advancement/recipes/misc/kaupen_armor_trim_smithing_template.json
 8d05820369f7916d8fd1768e13d286b14524293a data/mccoursemod/advancement/recipes/misc/kaupen_furnace.json
 6ac989663636a58192283571f465368393b7eef4 data/mccoursemod/advancement/recipes/misc/mccoursemod_elevator.json
@@ -251,6 +252,7 @@ d60f817e48d3b2d1143f630d4d6f0540d0441bfc data/mccoursemod/recipe/disenchant_grou
 dbb9fcb8c7bfdf55681bf02e7a7dd660b49d839a data/mccoursemod/recipe/disenchant_individual.json
 469c3d69e9a6b1a23b88f16150dfd0b98420ddbc data/mccoursemod/recipe/enchant.json
 a1a300f4b2d9c90dea478377852f8f8c3809814b data/mccoursemod/recipe/end_rod_from_growth_chamber.json
+4f62ba0497e4cb005833b13798ab34088d163ea1 data/mccoursemod/recipe/farmer.json
 b6b4e326c79157900d715d3036f3670f339af088 data/mccoursemod/recipe/forced_stained_glass.json
 019d499eacca056cc215e06bdd91d388f4c4ad95 data/mccoursemod/recipe/forced_stained_glass_pane.json
 a423447bda3e78b41eefdd2143fc65884238ae3c data/mccoursemod/recipe/gold_hammer.json

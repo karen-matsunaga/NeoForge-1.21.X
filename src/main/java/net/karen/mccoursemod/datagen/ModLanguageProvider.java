@@ -39,6 +39,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.ULTRA_COMPACTOR, "Ultra Compactor");
         addItem(ModItems.PINK_ULTRA_COMPACTOR, "Pink Ultra Compactor");
         addItem(ModItems.RESTORE, "Restore");
+        addItem(ModItems.FARMER, "Farmer");
 
         // ** CUSTOM MUSIC DISC **
         addItem(ModItems.BAR_BRAWL_MUSIC_DISC, "Bar Brawl Music Disc");

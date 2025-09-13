@@ -236,5 +236,21 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         this.tag(BlockTags.SMALL_FLOWERS).add(ModBlocks.SNAPDRAGON.get());
         this.tag(BlockTags.FLOWER_POTS).add(ModBlocks.POTTED_SNAPDRAGON.get());
         this.tag(BlockTags.BEE_ATTRACTIVE).add(ModBlocks.SNAPDRAGON.get());
+
+        // ** CUSTOM bone meals **
+        this.tag(ModTags.Blocks.FARMER_BONEMEAL_GROWABLES).addTag(ModTags.Blocks.FARMER_CROPS_GROWABLES)
+                                                          .addTag(ModTags.Blocks.FARMER_TREE_GROWABLES);
+        this.tag(ModTags.Blocks.FARMER_CROPS_GROWABLES).add(ModBlocks.KOHLRABI_CROP.get(), ModBlocks.CATTAIL_CROP.get())
+                                                       .addTag(BlockTags.CROPS);
+        this.tag(ModTags.Blocks.FARMER_TREE_GROWABLES).addTag(BlockTags.SAPLINGS);
+        this.tag(ModTags.Blocks.FARMER_VERTICAL_GROWABLES).addTag(ModTags.Blocks.VERTICAL_BLOCKS);
+        this.tag(ModTags.Blocks.FARMER_AGE_GROWABLES).add(Blocks.NETHER_WART, Blocks.TWISTING_VINES, Blocks.WEEPING_VINES,
+                                                          Blocks.CRIMSON_FUNGUS, Blocks.WARPED_FUNGUS);
+
+        // ** CUSTOM Crop replant **
+        this.tag(ModTags.Blocks.MUSHROOM_BLOCKS).add(Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM,
+                                                     Blocks.CRIMSON_FUNGUS, Blocks.WARPED_FUNGUS);
+        this.tag(ModTags.Blocks.VERTICAL_BLOCKS).add(Blocks.BAMBOO, Blocks.SUGAR_CANE, Blocks.CACTUS);
+        this.tag(ModTags.Blocks.VERTICAL_GROW_BLOCKS).add(Blocks.GRASS_BLOCK, Blocks.SAND, Blocks.DIRT);
     }
 }

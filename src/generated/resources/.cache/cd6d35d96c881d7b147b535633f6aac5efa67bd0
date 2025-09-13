@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-11T12:25:27.7212352	Model Definitions - mccoursemod
+// 1.21.8	2025-09-13T12:25:41.2320221	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -210,6 +210,7 @@ c781befbb88c42517afc059c36c95b3d1712bbdb assets/mccoursemod/items/enchant.json
 2c7c8b63ef735ab016e0767ffac9c875d7172529 assets/mccoursemod/items/ender_pearl_block.json
 7c958277b3feb049630bf2177822bc92ff14eaa0 assets/mccoursemod/items/end_stone_alexandrite_ore.json
 fc1b04c5f81533fae32e10845abcd1ce5e2a7295 assets/mccoursemod/items/end_stone_pink_ore.json
+c34fa9b891b684f111dfc924b4cd6fab05203761 assets/mccoursemod/items/farmer.json
 f3f00561d436294e6c205d6df3c671141ebae232 assets/mccoursemod/items/fermented_spider_eye_block.json
 424943f6f69274a439b477d129906e26520fda62 assets/mccoursemod/items/forced_stained_glass.json
 f3eebc082c2c88ea97bea7a98d4deeceeb66d2c8 assets/mccoursemod/items/forced_stained_glass_pane.json
@@ -755,6 +756,7 @@ b697e7685f5c3ea819307d479ba39799ddc6d074 assets/mccoursemod/models/item/data_tab
 bc1a52e4867dbc776728609c617034e7b0cbc0ee assets/mccoursemod/models/item/diamond_hammer.json
 b38bca2b9eae8f4d4834a1a880dfc2c7e6c4dd82 assets/mccoursemod/models/item/diamond_paxel.json
 fdd1861973de212ee6525cae7368369b9119ca70 assets/mccoursemod/models/item/dice_item.json
+cfef5e4b006bab9fe27cd276d7a5d74a898155d7 assets/mccoursemod/models/item/farmer.json
 627d1a15dd252d7d5697ccfe1384d2229de1f7f5 assets/mccoursemod/models/item/forced_stained_glass_pane.json
 b76f16fdd036f042e4e703d6fe5a8ad8eb860d18 assets/mccoursemod/models/item/frostfire_ice.json
 0af77c03355d63ba8d8f826247d6ff618b01c0ef assets/mccoursemod/models/item/gecko_spawn_egg.json

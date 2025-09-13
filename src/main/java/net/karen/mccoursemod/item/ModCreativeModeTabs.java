@@ -162,6 +162,7 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.MCCOURSE_MOD_BOTTLE);
                  output.accept(ModItems.CHISEL);
                  output.accept(ModItems.RESTORE);
+                 output.accept(ModItems.FARMER);
                  // ** CUSTOM music disc **
                  output.accept(ModItems.BAR_BRAWL_MUSIC_DISC);
                  // CUSTOM Smithing Template

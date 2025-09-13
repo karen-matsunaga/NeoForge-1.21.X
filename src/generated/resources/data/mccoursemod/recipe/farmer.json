@@ -1,0 +1,21 @@
+{
+  "type": "mccoursemod:crafting_plus",
+  "category": "misc",
+  "group": "crafting_plus",
+  "key": {
+    "A": "minecraft:bone_meal"
+  },
+  "pattern": [
+    "AAAAAAA",
+    "AAAAAAA",
+    "AAAAAAA",
+    "AAAAAAA",
+    "AAAAAAA",
+    "AAAAAAA",
+    "AAAAAAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccoursemod:farmer"
+  }
+}

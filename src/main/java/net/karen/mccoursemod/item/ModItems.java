@@ -75,6 +75,9 @@ public class ModItems {
     public static final DeferredItem<Item> RESTORE =
            ITEMS.registerItem("restore", RestoreItem::new, new Item.Properties().fireResistant());
 
+    public static final DeferredItem<Item> FARMER =
+           ITEMS.registerItem("farmer", FarmerItem::new, new Item.Properties().fireResistant());
+
     // ** CUSTOM foods **
     public static final DeferredItem<Item> RADISH = ITEMS.registerItem("radish",
            (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
