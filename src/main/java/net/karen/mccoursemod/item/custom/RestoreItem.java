@@ -2,9 +2,7 @@ package net.karen.mccoursemod.item.custom;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -30,9 +28,8 @@ public class RestoreItem extends Item {
     @Override
     public @NotNull InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
         if (level.isClientSide()) { return InteractionResult.PASS; }
-        // MAIN HAND -> Restore item || OFFHAND -> Target item (Block, item, tools or armors to UNCRAFT)
-        InteractionHand offhand = InteractionHand.OFF_HAND;
-        InteractionHand mainHand = InteractionHand.MAIN_HAND;
+        InteractionHand offhand = InteractionHand.OFF_HAND; // MAIN HAND -> Restore item
+        InteractionHand mainHand = InteractionHand.MAIN_HAND; // OFFHAND -> Target item (Block, item, tools or armors to UNCRAFT)
         ItemStack target = hasItem(player, (hand == mainHand) ? offhand : mainHand);
         ItemStack restore = hasItem(player, mainHand);
         int itemsGiven = 0; // Items restored on Player's inventory
@@ -54,44 +51,23 @@ public class RestoreItem extends Item {
                 if (player.getInventory().add(itemBook)) { itemsGiven++; }
             }
             // Filters recipes that create the same base item -> Crafting recipe
-            HolderLookup.RegistryLookup<Item> itemHolder = level.registryAccess().lookupOrThrow(Registries.ITEM);
-            List<Holder.Reference<Item>> list = itemHolder.listElements().toList();
-            for (Holder.Reference<Item> value : list) {
-                Holder<Item> items = value.getDelegate();
-                Item item = items.value();
-                List<RecipeHolder<?>> matchingRecipes =
-                    serverLevel.recipeAccess().getRecipes().stream()
-                               .filter(recipeHolder -> recipeHolder.value().getType() == RecipeType.CRAFTING)
-                               .filter(recipeHolder -> recipeHolder.value() instanceof CraftingRecipe)
-                               .filter(recipeHolder -> {
-                                         Recipe<?> values = recipeHolder.value();
-                                         if (values instanceof ShapedRecipe recipe) {
-                                             int width = recipe.getWidth();
-                                             int height = recipe.getHeight();
-                                             int gridSize = width * height;
-                                             List<ItemStack> inputItems = new ArrayList<>(gridSize);
-                                             for (int i = 0; i < gridSize; i++) {
-                                                 inputItems.add(new ItemStack(item));
-                                             }
-                                             CraftingInput input = CraftingInput.of(width, height, inputItems);
-                                             ItemStack output = recipe.assemble(input, serverLevel.registryAccess());
-                                             return target.getItem() == output.getItem();
-                                         }
-                                         return false;
-                                      }).toList();
-
-                if (matchingRecipes.isEmpty()) { return screen(player, "No recipes found for this item.", darkRed); }
-                for (RecipeHolder<?> recipeHolder : matchingRecipes) {
-                    Recipe<?> recipes = recipeHolder.value();
+            List<RecipeHolder<?>> matchingRecipes = serverLevel.recipeAccess().getRecipes().stream().toList();
+            if (matchingRecipes.isEmpty()) { return screen(player, "No recipes found for this item.", darkRed); }
+            for (RecipeHolder<?> recipeHolder : matchingRecipes) {
+                Recipe<?> recipes = recipeHolder.value();
+                if (recipes.getType() == RecipeType.CRAFTING && recipes instanceof CraftingRecipe craftingRecipe) {
                     if (recipes instanceof ShapedRecipe shapedRecipe) {
-                        List<Optional<Ingredient>> ingredients = shapedRecipe.getIngredients();
-                        for (Optional<Ingredient> ingredient : ingredients) {
-                            if (ingredient.isEmpty()) { continue; }
-                            HolderSet<Item> possibleItems = ingredient.get().getValues();
-                            if (possibleItems.size() > 0) {
-                                ItemStack stackToGive = new ItemStack(possibleItems.get(0).value()).copy();
-                                stackToGive.setCount(1);
-                                if (player.getInventory().add(stackToGive)) { itemsGiven++; }
+                        ItemStack output = craftingRecipe.assemble(CraftingInput.EMPTY, serverLevel.registryAccess());
+                        if (target.getItem() == output.getItem()) {
+                            List<Optional<Ingredient>> ingredients = shapedRecipe.getIngredients();
+                            for (Optional<Ingredient> ingredient : ingredients) {
+                                if (ingredient.isEmpty()) { continue; }
+                                HolderSet<Item> possibleItems = ingredient.get().getValues();
+                                if (possibleItems.size() > 0) {
+                                    ItemStack stackToGive = new ItemStack(possibleItems.get(0).value()).copy();
+                                    stackToGive.setCount(1);
+                                    if (player.getInventory().add(stackToGive)) { itemsGiven++; }
+                                }
                             }
                         }
                     }
@@ -101,9 +77,7 @@ public class RestoreItem extends Item {
             restore.shrink(1);
             return screen(player, "Restore accomplished! Items recovered: " + itemsGiven + " item(s)!", green);
         }
-        else {
-            return InteractionResult.PASS;
-        }
+        else { return InteractionResult.PASS; }
     }
 
     // CUSTOM METHOD - Messages on SCREEN
