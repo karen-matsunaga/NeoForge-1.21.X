@@ -151,6 +151,10 @@ public class ModItems {
            (properties) -> new BowItem(properties.durability(500)
                                                            .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
 
+    public static final DeferredItem<Item> MINER_BOW = ITEMS.registerItem("miner_bow",
+           (properties) -> new MinerBowItem(properties.durability(2000)
+                                                                .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+
     public static final DeferredItem<Item> BISMUTH_HORSE_ARMOR = ITEMS.registerItem("bismuth_horse_armor",
            (properties) -> new Item(properties.stacksTo(1)
                                                         .horseArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL)));

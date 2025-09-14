@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-12T18:52:19.9411339	Loot Tables
+// 1.21.8	2025-09-13T18:50:26.2768819	Loot Tables
 cdb697b4f47740809ecdb90e81e8e5d2f56cfc86 data/mccoursemod/loot_table/blocks/alexandrite_block.json
 291a785f3fc73335884718fec6c7d2db06eb0048 data/mccoursemod/loot_table/blocks/alexandrite_button.json
 d0ad4d5e3aeabf77ec2d12530e2bc9b7e6bef80e data/mccoursemod/loot_table/blocks/alexandrite_door.json
@@ -112,6 +112,7 @@ b3ad607b52cf2e3fa0a5a4c49bf686930e2dbf16 data/mccoursemod/loot_table/blocks/yell
 f2b9e33b59332dc4ea8dcdf4bb25d59fa4ce557c data/minecraft/loot_table/entities/dice_projectile.json
 25c6460083bd65f7ff23bba165ba4e494b940536 data/minecraft/loot_table/entities/gecko.json
 3673bb1f0b2ec77a022e0ddc8a4fc18b4a110867 data/minecraft/loot_table/entities/magic_projectile.json
+a56674f23721d83b0df260f0a1483575c226d205 data/minecraft/loot_table/entities/miner_bow_arrow_entity.json
 7577e22587b7cb95e7473930f051cb0dfacf22f7 data/minecraft/loot_table/entities/mod_boat.json
 dbe5e7171f27224290cce06fcf8af7cb91423bca data/minecraft/loot_table/entities/mod_chest_boat.json
 bbbb99a3c6cd580fd7782ad7dbe3519a3cb5755f data/minecraft/loot_table/entities/rhino.json

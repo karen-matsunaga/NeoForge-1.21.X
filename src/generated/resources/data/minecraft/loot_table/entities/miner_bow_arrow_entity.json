@@ -1,0 +1,4 @@
+{
+  "type": "minecraft:entity",
+  "random_sequence": "minecraft:entities/miner_bow_arrow_entity"
+}

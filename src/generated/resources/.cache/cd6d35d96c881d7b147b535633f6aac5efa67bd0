@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-13T12:25:41.2320221	Model Definitions - mccoursemod
+// 1.21.8	2025-09-13T18:50:26.2570732	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -255,6 +255,7 @@ c2387d52e387dbf791b463a2d0c1f627dc616110 assets/mccoursemod/items/level_charger_
 a33fdc1092fa423bf247380062149416cb1374e7 assets/mccoursemod/items/mccourse_mod_bottle.json
 25342023c4799ea43bffd715785d95aefc165f06 assets/mccoursemod/items/mccourse_mod_fishing_rod.json
 19ac3cb83f5367f89d744334427415cfda292188 assets/mccoursemod/items/metal_detector.json
+9bcc3935cb10d4c4bbd8e3401879676ce7a8667c assets/mccoursemod/items/miner_bow.json
 8642b35297deba17a0949fd197629cfed549d226 assets/mccoursemod/items/netherite_hammer.json
 5c7ce38d851f275e9d7b324088684fe5653c2fd9 assets/mccoursemod/items/netherite_paxel.json
 1f4c1972b284d872be756cf2e58ecde8e66fd4e0 assets/mccoursemod/items/nether_alexandrite_ore.json
@@ -849,6 +850,10 @@ b1b2377b4f2b8cb5f3ed27769ec348976d3191af assets/mccoursemod/models/item/mccourse
 d84cb676f120f5f30936cc48c5415d8686d35849 assets/mccoursemod/models/item/mccourse_mod_fishing_rod.json
 6b3d6d19dbd0e0dbdb0e0091dfa2e5b2ebf7d866 assets/mccoursemod/models/item/mccourse_mod_fishing_rod_cast.json
 439a8fb1f55590b6fc5aaf8667bf67da0afff665 assets/mccoursemod/models/item/metal_detector.json
+50b01f081f2d306859f2c037c73094ec774ca1f8 assets/mccoursemod/models/item/miner_bow.json
+e5c5df199c6a752046b01f5be68b4cdc1fa4f7e8 assets/mccoursemod/models/item/miner_bow_pulling_0.json
+ae74073dbb1080e3124d239871607cc2756853e3 assets/mccoursemod/models/item/miner_bow_pulling_1.json
+214895ef57efc38de9a4d393f022d495b761670f assets/mccoursemod/models/item/miner_bow_pulling_2.json
 b31a04f27f63896603eb5bc6fc8507f6cea3a07a assets/mccoursemod/models/item/netherite_hammer.json
 9e084febb70d456c4594bf1c681127ff6a8f12ef assets/mccoursemod/models/item/netherite_paxel.json
 39fc8b83448cca2cf588db4a4ec7b5c925df9153 assets/mccoursemod/models/item/peat_brick.json

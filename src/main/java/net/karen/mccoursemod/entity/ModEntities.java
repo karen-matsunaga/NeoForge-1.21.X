@@ -44,6 +44,10 @@ public class ModEntities {
            ResourceKey.create(Registries.ENTITY_TYPE,
                               ResourceLocation.withDefaultNamespace("magic_projectile"));
 
+    public static ResourceKey<EntityType<?>> MINER_BOW_ARROW_KEY =
+           ResourceKey.create(Registries.ENTITY_TYPE,
+                              ResourceLocation.withDefaultNamespace("miner_bow_arrow_entity"));
+
     public static ResourceKey<EntityType<?>> MOD_BOAT_KEY =
            ResourceKey.create(Registries.ENTITY_TYPE,
                               ResourceLocation.withDefaultNamespace("mod_boat"));
@@ -102,6 +106,14 @@ public class ModEntities {
                                    .clientTrackingRange(4)
                                    .updateInterval(20)
                                    .build(MAGIC_PROJECTILE_KEY));
+
+    public static final Supplier<EntityType<MinerBowArrowEntity>> MINER_BOW_ARROW_ENTITY =
+           ENTITY_TYPES.register("miner_bow_arrow_entity",
+           () -> EntityType.Builder.<MinerBowArrowEntity>of(MinerBowArrowEntity::new, MobCategory.MISC)
+                                   .sized(0.5f, 0.5f)
+                                   .clientTrackingRange(4)
+                                   .updateInterval(20)
+                                   .build(MINER_BOW_ARROW_KEY));
 
     // Registry all custom sittable blocks -> Entity Type
     public static final Supplier<EntityType<ChairEntity>> CHAIR_ENTITY =

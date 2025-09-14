@@ -57,6 +57,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.BISMUTH_AXE, "Bismuth Axe");
         addItem(ModItems.BISMUTH_HOE, "Bismuth Hoe");
         addItem(ModItems.KAUPEN_BOW, "Kaupen Bow");
+        addItem(ModItems.MINER_BOW, "Miner Bow");
         // ALEXANDRITE
         addItem(ModItems.ALEXANDRITE_HAMMER, "Alexandrite Hammer");
         addItem(ModItems.ALEXANDRITE_PAXEL, "Alexandrite Paxel");
@@ -785,6 +786,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add("entity.minecraft.tomahawk", "Tomahawk");
         add("entity.mccoursemod.magic_projectile", "Magic Projectile");
         add("entity.minecraft.magic_projectile", "Magic Projectile");
+        add("entity.mccoursemod.miner_bow_arrow_entity", "Miner Bow Arrow Projectile");
+        add("entity.minecraft.miner_bow_arrow_entity", "Miner Bow Arrow Projectile");
 
         // ** CUSTOM villager **
         add("entity.minecraft.villager.mccoursemod.kaupenger", "Kaupenger");

@@ -140,7 +140,7 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
                                ModItems.REDSTONE_HOE.get());
 
         // CUSTOM Bow
-        tag(ModTags.Items.BOW_TOOLS).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get());
+        tag(ModTags.Items.BOW_TOOLS).add(ModItems.KAUPEN_BOW.get(), ModItems.ALEXANDRITE_BOW.get(), ModItems.MINER_BOW.get());
         tag(ItemTags.SKELETON_PREFERRED_WEAPONS).addTag(ModTags.Items.BOW_TOOLS);
         tag(ItemTags.WITHER_SKELETON_DISLIKED_WEAPONS).addTag(ModTags.Items.BOW_TOOLS);
         tag(ItemTags.DURABILITY_ENCHANTABLE).addTag(ModTags.Items.BOW_TOOLS)

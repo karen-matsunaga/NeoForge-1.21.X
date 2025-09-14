@@ -177,6 +177,7 @@ public class ModRecipeProvider extends RecipeProvider {
         // ** CUSTOM bow **
         this.bow(List.of(ModItems.KAUPEN_BOW.get(), ModItems.BISMUTH.get()));
         this.bow(List.of(ModItems.ALEXANDRITE_BOW.get(), ModItems.ALEXANDRITE.get()));
+        this.bow(List.of(ModItems.MINER_BOW.get(), ModItems.BISMUTH.get()));
 
         // ** CUSTOM armors **
         this.fullArmor(List.of(ModItems.BISMUTH_HELMET.get(), ModItems.BISMUTH_CHESTPLATE.get(),

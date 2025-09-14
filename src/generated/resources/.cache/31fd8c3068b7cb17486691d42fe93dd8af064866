@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-13T12:25:41.1499539	Mccourse Recipes
+// 1.21.8	2025-09-13T18:50:26.2435621	Mccourse Recipes
 4791b16da0c9ab1aa82bbb7d699e7ee74ede08c4 data/mccoursemod/advancement/recipes/bismuth_from_growth_chamber.json
 71db3072a7df5eeb556fe03bf2154ca020825fd3 data/mccoursemod/advancement/recipes/building_blocks/alexandrite_slabs.json
 64a3f81015048f8519d40af525ac966a99374aa4 data/mccoursemod/advancement/recipes/building_blocks/alexandrite_stairs.json
@@ -48,6 +48,7 @@ d6b4f4f908b2ff9c2f6260555a3dbb6cedc2da01 data/mccoursemod/advancement/recipes/co
 fe27537a21cd20d59cccac55585d56246b8f887c data/mccoursemod/advancement/recipes/combat/lapis_lazuli_helmet.json
 4dae6a738c90989cc9a168d52521e9af41b5f195 data/mccoursemod/advancement/recipes/combat/lapis_lazuli_leggings.json
 ec9b86facda838528fab78e7f2966e95e0ae5d27 data/mccoursemod/advancement/recipes/combat/lapis_lazuli_sword.json
+dabe22be131b7286585348e4a816a8f09398e605 data/mccoursemod/advancement/recipes/combat/miner_bow.json
 ce4439a33a141994b3a42b99d79bfe4d5bbb7921 data/mccoursemod/advancement/recipes/combat/pink_boots.json
 15506c82c783f7e1bae81ba022365736a14fb811 data/mccoursemod/advancement/recipes/combat/pink_chestplate.json
 d3745f9e05fd34e6933f67df5a8a9238338c1628 data/mccoursemod/advancement/recipes/combat/pink_helmet.json
@@ -279,6 +280,7 @@ b9be979956e68d66dc5acaf0762860ca0d481ed2 data/mccoursemod/recipe/lapis_lazuli_pi
 ce1e28b94145805b58ef1c4dce59a3d2b15f9193 data/mccoursemod/recipe/magenta_ender_pearl_block.json
 dc506362b713a0e09a24413284ba234aff773bfc data/mccoursemod/recipe/mccoursemod_elevator.json
 a4045027a733dae438f7168b5e917a4a829a5c82 data/mccoursemod/recipe/mccoursemod_generator.json
+fbf5388f43bd0bf871b852d71196e03075510c3b data/mccoursemod/recipe/miner_bow.json
 7c6fb0d628f485b2f41fba11f8035500c5499149 data/mccoursemod/recipe/orange_ender_pearl_block.json
 02a35d84e8feef9a1547c1cb8f302aa087e88a96 data/mccoursemod/recipe/phantom_membrane_from_kaupen_furnace.json
 c7970ba1f65da175ca143523e96699696f8a7961 data/mccoursemod/recipe/pink_axe.json

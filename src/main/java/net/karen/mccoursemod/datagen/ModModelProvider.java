@@ -323,6 +323,8 @@ public class ModModelProvider extends ModelProvider {
         createBowTexture(itemModels, ModItems.KAUPEN_BOW.get());
         // ALEXANDRITE
         createBowTexture(itemModels, ModItems.ALEXANDRITE_BOW.get());
+        // MINER
+        createBowTexture(itemModels, ModItems.MINER_BOW.get());
 
         // ** CUSTOM paxel **
         itemModels.generateFlatItem(ModItems.PINK_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);

@@ -59,6 +59,7 @@ public class ModCreativeModeTabs {
                  output.accept(ModItems.BISMUTH_AXE);
                  output.accept(ModItems.BISMUTH_HOE);
                  output.accept(ModItems.KAUPEN_BOW);
+                 output.accept(ModItems.MINER_BOW);
                  // ALEXANDRITE
                  output.accept(ModItems.ALEXANDRITE_HAMMER);
                  output.accept(ModItems.ALEXANDRITE_PAXEL);
