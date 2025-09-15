@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.event;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.datafixers.util.Either;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.karen.mccoursemod.MccourseMod;
@@ -25,13 +26,11 @@ import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.network.UnlockEnchantmentPacketPayload;
 import net.karen.mccoursemod.potion.ModPotions;
-import net.karen.mccoursemod.util.ChatUtils;
-import net.karen.mccoursemod.util.KeyBinding;
-import net.karen.mccoursemod.util.ModTags;
-import net.karen.mccoursemod.util.Utils;
+import net.karen.mccoursemod.util.*;
 import net.karen.mccoursemod.villager.ModVillagers;
 import net.karen.mccoursemod.worldgen.dimension.ModDimensions;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Camera;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -39,6 +38,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -87,10 +87,7 @@ import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.InputEvent;
-import net.neoforged.neoforge.client.event.RenderGuiEvent;
-import net.neoforged.neoforge.client.event.RenderTooltipEvent;
-import net.neoforged.neoforge.client.event.ScreenEvent;
+import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -132,7 +129,7 @@ public class ModEvents {
         if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayer serverPlayer) {
             BlockPos initialBlockPos = event.getPos();
             if (HARVESTED_BLOCKS.contains(initialBlockPos)) { return; }
-            for (BlockPos pos : HammerItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
+            for (BlockPos pos : HammerItem.getBlocksToBeDestroyed(hammer.getRadius(), initialBlockPos, serverPlayer)) {
                 if (pos == initialBlockPos || !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
                     continue;
                 }
@@ -141,6 +138,17 @@ public class ModEvents {
                 HARVESTED_BLOCKS.remove(pos);
             }
         }
+    }
+
+    // Credits by nanite (Just Hammers) - https://github.com/nanite/JustHammers/blob/main/LICENSE.md
+    @SubscribeEvent
+    public static void onWorldRenderLast(RenderLevelStageEvent.AfterTranslucentBlocks event) {
+        Minecraft instance = Minecraft.getInstance();
+        ClientLevel level = instance.level;
+        Camera camera = event.getCamera();
+        PoseStack poseStack = event.getPoseStack();
+        MultiBufferSource.BufferSource bufferSource = instance.renderBuffers().bufferSource();
+        SelectionOutlineRender.render(level, camera, poseStack, bufferSource);
     }
 
     // CUSTOM EVENT - Home's commands -> Register all custom commands
