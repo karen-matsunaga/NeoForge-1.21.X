@@ -148,7 +148,7 @@ public class ModEvents {
         Camera camera = event.getCamera();
         PoseStack poseStack = event.getPoseStack();
         MultiBufferSource.BufferSource bufferSource = instance.renderBuffers().bufferSource();
-        SelectionOutlineRender.render(level, camera, poseStack, bufferSource);
+        BlockBoxRender.render(level, camera, poseStack, bufferSource);
     }
 
     // CUSTOM EVENT - Home's commands -> Register all custom commands

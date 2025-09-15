@@ -84,6 +84,7 @@ public abstract class ItemStackMixin {
                                                  Consumer<Component> consumer, CallbackInfo ci) {
        this.addToTooltip(ModDataComponentTypes.SHIFT_TOOLTIP.get(), context, display, consumer, flag);
        this.addToTooltip(ModDataComponentTypes.ITEM_TOOLTIP.get(), context, display, consumer, flag);
+       this.addToTooltip(ModDataComponentTypes.HAMMER_TOOLTIP.get(), context, display, consumer, flag);
     }
 
     // DEFAULT METHOD - LAPIS LAZULI consumption is blocked

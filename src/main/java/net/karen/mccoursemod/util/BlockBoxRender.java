@@ -23,7 +23,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.Iterator;
 
 // Credits by nanite (Just Hammers) - https://github.com/nanite/JustHammers/blob/main/LICENSE.md
-public class SelectionOutlineRender {
+public class BlockBoxRender {
     public static void render(ClientLevel world, Camera camera,
                               PoseStack poseStack, MultiBufferSource consumers) {
         Player player = Minecraft.getInstance().player;
@@ -31,24 +31,26 @@ public class SelectionOutlineRender {
         ItemStack heldItem = player.getMainHandItem();
         ItemStack offHandItem = player.getOffhandItem();
         if (heldItem.isEmpty() && offHandItem.isEmpty()) { return; }
-        if (!(heldItem.getItem() instanceof HammerItem) && !(offHandItem.getItem() instanceof HammerItem)) {
-            return;
-        }
+        Item heldHand = heldItem.getItem();
+        Item offHand = offHandItem.getItem();
+        if (!(heldHand instanceof HammerItem) && !(offHand instanceof HammerItem)) { return; }
         HitResult blockHitResult = Minecraft.getInstance().hitResult;
         if (blockHitResult == null || blockHitResult.getType() != HitResult.Type.BLOCK) { return; }
-        Item item = heldItem.getItem() instanceof HammerItem ? heldItem.getItem() : offHandItem.getItem();
-        ItemStack itemStack = heldItem.getItem() instanceof HammerItem ? heldItem : offHandItem;
+        Item item = heldHand instanceof HammerItem ? heldHand : offHand;
+        ItemStack itemStack = heldHand instanceof HammerItem ? heldItem : offHandItem;
         HammerItem hammer = (HammerItem) item;
         BlockPos blockPos = ((BlockHitResult) blockHitResult).getBlockPos();
         Direction direction = ((BlockHitResult) blockHitResult).getDirection();
         BlockState block = world.getBlockState(blockPos);
         Tool toolComponent = itemStack.get(DataComponents.TOOL);
         if (toolComponent == null) { return; }
-        boolean correctForDrops = toolComponent.isCorrectForDrops(block);
-        if (!correctForDrops) { return; }
-        BoundingBox boundingBox = HammerItem.getAreaOfEffect(blockPos, direction, hammer.getRadius() * 3);
+        if (!toolComponent.isCorrectForDrops(block)) { return; }
+        BoundingBox boundingBox = HammerItem.getAreaOfEffect(blockPos, direction, hammer.getRadius() * 2 + 1);
         poseStack.pushPose();
-        poseStack.translate(-camera.getPosition().x(), -camera.getPosition().y(), -camera.getPosition().z());
+        double camX = -camera.getPosition().x();
+        double camY = -camera.getPosition().y();
+        double camZ = -camera.getPosition().z();
+        poseStack.translate(camX, camY, camZ);
         Iterator<BlockPos> blockPosStream = BlockPos.betweenClosedStream(boundingBox).iterator();
         while (blockPosStream.hasNext()) {
             BlockPos pos = blockPosStream.next();
@@ -60,7 +62,7 @@ public class SelectionOutlineRender {
             poseStack.pushPose();
             poseStack.translate(pos.getX(), pos.getY(), pos.getZ());
             ShapeRenderer.renderShape(poseStack, consumers.getBuffer(RenderType.lines()),
-                                      renderShape, 0, 0, 0, 0x59000000);
+                                      renderShape, 0, 0, 0, hammer.getArgbColors());
             poseStack.popPose();
         }
         poseStack.popPose();

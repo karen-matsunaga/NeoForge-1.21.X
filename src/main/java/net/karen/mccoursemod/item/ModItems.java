@@ -2,6 +2,7 @@ package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.component.HammerTooltip;
 import net.karen.mccoursemod.component.ShiftTooltip;
 import net.karen.mccoursemod.component.ItemTooltip;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
@@ -22,6 +23,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.ARGB;
 import net.minecraft.util.Unit;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -139,7 +141,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> BISMUTH_HAMMER =
            hammerItem("bismuth_hammer", ModToolMaterials.BISMUTH, 7F, -3.5F,
-                      ModTags.Items.BISMUTH_TOOL_MATERIALS, 2);
+                      ModTags.Items.BISMUTH_TOOL_MATERIALS, 2, ARGB.color(255, 232, 84, 128),
+                      0xE85480);
 
     public static final DeferredItem<Item> BISMUTH_PAXEL = ITEMS.registerItem("bismuth_paxel",
            (properties) -> new PaxelItem(ModToolMaterials.BISMUTH, 1F, -2.8F,
@@ -198,7 +201,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> ALEXANDRITE_HAMMER =
            hammerItem("alexandrite_hammer", ModToolMaterials.ALEXANDRITE, 2, 3,
-                      ModTags.Items.BISMUTH_TOOL_MATERIALS, 2);
+                      ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 2, ARGB.color(255, 48, 213, 200),
+                      0x30D5C8);
 
     public static final DeferredItem<Item> ALEXANDRITE_PAXEL = ITEMS.registerItem("alexandrite_paxel",
            (properties) -> new PaxelItem(ModToolMaterials.ALEXANDRITE, 2, 3,
@@ -361,43 +365,53 @@ public class ModItems {
     // ** CUSTOM Hammer tools **
     public static final DeferredItem<Item> PINK_HAMMER =
            hammerItem("pink_hammer", ModToolMaterials.PINK,
-                      2.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS, 2);
+                      2.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS, 3,
+                      ARGB.color(255, 244, 51, 193), 0xF433C1);
 
     public static final DeferredItem<Item> COPPER_HAMMER =
            hammerItem("copper_hammer", ModToolMaterials.COPPER,
-                      2.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS, 2);
+                      2.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS, 2,
+                      ARGB.color(255, 156, 69, 41), 0x9C4529);
 
     public static final DeferredItem<Item> DIAMOND_HAMMER =
            hammerItem("diamond_hammer", ToolMaterial.DIAMOND,
-                      2.0F, 4.5F, ItemTags.DIAMOND_TOOL_MATERIALS, 3);
+                      2.0F, 4.5F, ItemTags.DIAMOND_TOOL_MATERIALS, 3,
+                      ARGB.color(255, 39, 178, 154), 0x27B29A);
 
     public static final DeferredItem<Item> GOLD_HAMMER =
            hammerItem("gold_hammer", ToolMaterial.GOLD,
-                      2.0F, 4.0F, ItemTags.GOLD_TOOL_MATERIALS, 2);
+                      2.0F, 4.0F, ItemTags.GOLD_TOOL_MATERIALS, 2,
+                      ARGB.color(255, 255, 255, 35), 0xFFFF23);
 
     public static final DeferredItem<Item> IRON_HAMMER =
            hammerItem("iron_hammer", ToolMaterial.IRON,
-                      2.0F, 3.0F, ItemTags.IRON_TOOL_MATERIALS, 2);
+                      2.0F, 3.0F, ItemTags.IRON_TOOL_MATERIALS, 2,
+                      ARGB.color(255, 130, 130, 130), 0x828282);
 
     public static final DeferredItem<Item> STONE_HAMMER =
            hammerItem("stone_hammer", ToolMaterial.STONE,
-                      2.0F, 1.5F, ItemTags.STONE_TOOL_MATERIALS, 1);
+                      2.0F, 1.5F, ItemTags.STONE_TOOL_MATERIALS, 1,
+                      ARGB.color(255, 99, 99, 99), 0x636363);
 
     public static final DeferredItem<Item> WOODEN_HAMMER =
            hammerItem("wooden_hammer", ToolMaterial.WOOD,
-                      2.0F, 1.0F, ItemTags.WOODEN_TOOL_MATERIALS, 1);
+                      2.0F, 1.0F, ItemTags.WOODEN_TOOL_MATERIALS, 1,
+                      ARGB.color(255, 136, 102, 38), 0x886626);
 
     public static final DeferredItem<Item> NETHERITE_HAMMER =
            hammerItem("netherite_hammer", ToolMaterial.NETHERITE,
-                      2.0F, 5.0F, ItemTags.NETHERITE_TOOL_MATERIALS, 5);
+                      2.0F, 5.0F, ItemTags.NETHERITE_TOOL_MATERIALS, 5,
+                      ARGB.color(255, 74, 41, 64), 0x4A2940);
 
     public static final DeferredItem<Item> LAPIS_LAZULI_HAMMER =
            hammerItem("lapis_lazuli_hammer", ModToolMaterials.LAPIS_LAZULI,
-                      2.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS, 5);
+                      2.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS, 4,
+                      ARGB.color(255, 39, 63, 178), 0x273FB2);
 
     public static final DeferredItem<Item> REDSTONE_HAMMER =
            hammerItem("redstone_hammer", ModToolMaterials.REDSTONE,
-                      2.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS, 3);
+                      2.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS, 4,
+                      ARGB.color(255, 218, 48, 75), 0xDA304B);
 
     // ** CUSTOM Shovel tools **
     public static final DeferredItem<Item> PINK_SHOVEL =
@@ -666,17 +680,14 @@ public class ModItems {
     // ** CUSTOM METHOD - Hammer tool **
     public static DeferredItem<Item> hammerItem(String name, ToolMaterial material,
                                                float attackDamage, float attackSpeed,
-                                               TagKey<Item> repair, int radius) {
+                                               TagKey<Item> repair, int radius,
+                                               int argbColors, int textColor) {
         return ITEMS.registerItem(name, (properties) ->
                new HammerItem(material, attackDamage, attackSpeed, properties.fireResistant()
                                                                              .repairable(repair)
-                                                                             .component(ModDataComponentTypes.ITEM_TOOLTIP,
-                                                                                        new ItemTooltip("Radius: " +
-                                                                                                        radius + " x " +
-                                                                                                        radius,
-                                                                                                        white,
-                                                                                                        false)),
-                              radius));
+                                                                             .component(ModDataComponentTypes.HAMMER_TOOLTIP,
+                                                                                        new HammerTooltip(radius, textColor)),
+                              radius, argbColors, textColor));
     }
 
     // ** CUSTOM METHOD - Shovel tool **

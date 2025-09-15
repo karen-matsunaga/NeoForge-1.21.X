@@ -43,9 +43,19 @@ public class ChatUtils {
         return Component.literal(message).withStyle(color);
     }
 
-    // CUSTOM METHOD - COMPONENT LITERAL with one color
+    // CUSTOM METHOD - COMPONENT LITERAL with int color
+    public static Component componentLiteralIntColor(String message, int color) {
+        return Component.literal(message).withStyle(Style.EMPTY).withColor(color);
+    }
+
+    // CUSTOM METHOD - COMPONENT TRANSLATABLE with one color
     public static Component componentTranslatable(String message, ChatFormatting color) {
         return Component.translatable(message).withStyle(color);
+    }
+
+    // CUSTOM METHOD - COMPONENT TRANSLATABLE with int color
+    public static Component componentTranslatableIntColor(String message, int color) {
+        return Component.translatable(message).withStyle(Style.EMPTY).withColor(color);
     }
 
     // CUSTOM METHOD - COMPONENT LITERAL with one color

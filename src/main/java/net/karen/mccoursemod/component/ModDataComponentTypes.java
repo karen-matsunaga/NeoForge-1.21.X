@@ -52,6 +52,11 @@ public class ModDataComponentTypes {
            register("item_tooltip", builder ->
                     builder.persistent(ItemTooltip.CODEC).networkSynchronized(ItemTooltip.STREAM_CODEC));
 
+    // Hammer tooltip data component
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<HammerTooltip>> HAMMER_TOOLTIP =
+           register("hammer_tooltip", builder ->
+                    builder.persistent(HammerTooltip.CODEC).networkSynchronized(HammerTooltip.STREAM_CODEC));
+
     // Mccourse Mod Bottle data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> STORED_LEVELS =
            register("stored_levels", builder ->
