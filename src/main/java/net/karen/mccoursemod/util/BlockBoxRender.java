@@ -22,7 +22,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.Iterator;
 
-// Credits by nanite (Just Hammers) - https://github.com/nanite/JustHammers/blob/main/LICENSE.md
+/* Credits by nanite (Just Hammers) GNU General Public License v3.0 - https://github.com/nanite/JustHammers/blob/main/LICENSE.md
+   https://github.com/nanite/JustHammers/blob/main/common/src/main/java/pro/mikey/justhammers/client/SelectionOutlineRender.java */
 public class BlockBoxRender {
     public static void render(ClientLevel world, Camera camera,
                               PoseStack poseStack, MultiBufferSource consumers) {

@@ -140,9 +140,11 @@ public class ModEvents {
         }
     }
 
-    // Credits by nanite (Just Hammers) - https://github.com/nanite/JustHammers/blob/main/LICENSE.md
+    /* Credits by nanite (Just Hammers) GNU General Public License v3.0 - https://github.com/nanite/JustHammers/blob/main/LICENSE.md
+       https://github.com/nanite/JustHammers/blob/main/neoforge/src/main/java/pro/mikey/justhammers/neoforge/HammersClientEvents.java
+    */
     @SubscribeEvent
-    public static void onWorldRenderLast(RenderLevelStageEvent.AfterTranslucentBlocks event) {
+    public static void blockRenderLast(RenderLevelStageEvent.AfterTranslucentBlocks event) {
         Minecraft instance = Minecraft.getInstance();
         ClientLevel level = instance.level;
         Camera camera = event.getCamera();
