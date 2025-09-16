@@ -13,6 +13,7 @@ import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.trim.ModTrimMaterials;
 import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.ModTags;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -81,24 +82,13 @@ public class ModItems {
            ITEMS.registerItem("farmer", FarmerItem::new, new Item.Properties().fireResistant());
 
     // ** CUSTOM foods **
-    public static final DeferredItem<Item> RADISH = ITEMS.registerItem("radish",
-           (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
-                                                                                .saturationModifier(0.25F).build(),
-                                                              Consumables.defaultFood().onConsume(
-                                                              new ApplyStatusEffectsConsumeEffect(
-                                                              new MobEffectInstance(MobEffects.HEALTH_BOOST, 400),
-                                                              0.35F)).build())
-                                                        .component(ModDataComponentTypes.ITEM_TOOLTIP,
-                                                                   new ItemTooltip("tooltip.mccoursemod.radish",
-                                                                                   ChatUtils.green, true))));
+    public static final DeferredItem<Item> RADISH =
+           foodItem("radish", 3, 0.25F, MobEffects.HEALTH_BOOST, 400, 0.35F,
+                    "tooltip.mccoursemod.radish", green);
 
-    public static final DeferredItem<Item> KOHLRABI = ITEMS.registerItem("kohlrabi",
-           (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
-                                                                                          .saturationModifier(0.25F).build(),
-                                                              Consumables.defaultFood().onConsume(
-                                                              new ApplyStatusEffectsConsumeEffect(
-                                                              new MobEffectInstance(MobEffects.SPEED, 200),
-                                                              0.1F)).build())));
+    public static final DeferredItem<Item> KOHLRABI =
+           foodItem("kohlrabi", 3, 0.25F, MobEffects.SPEED, 200, 0.1F,
+                    "tooltip.mccoursemod.kohlrabi", darkGreen);
 
     public static final DeferredItem<Item> CATTAIL =
            ITEMS.registerItem("cattail", ModWaxingItem::new, new Item.Properties());
@@ -668,6 +658,20 @@ public class ModItems {
            ITEMS.registerItem("walnut_chest_boat",
            (properties) -> new ModBoatItem(ModEntities.MOD_CHEST_BOAT.get(), properties.stacksTo(1)));
 
+    // ** CUSTOM METHOD - Food **
+    public static DeferredItem<Item> foodItem(String name, int nutrition,
+                                              float saturation, Holder<MobEffect> effect,
+                                              int duration, float chance,
+                                              String text, ChatFormatting color) {
+        return ITEMS.registerItem(name, (properties) ->
+               new Item(properties.food(new FoodProperties.Builder().nutrition(nutrition)
+                                                                    .saturationModifier(saturation).build(),
+                                        Consumables.defaultFood()
+                                                   .onConsume(new ApplyStatusEffectsConsumeEffect(
+                                                              new MobEffectInstance(effect, duration), chance)).build())
+                                  .component(ModDataComponentTypes.ITEM_TOOLTIP,
+                                             new ItemTooltip(text, color, true))));
+    }
 
     // ** CUSTOM METHOD - Paxel tool **
     public static DeferredItem<Item> paxelItem(String name, ToolMaterial material,
