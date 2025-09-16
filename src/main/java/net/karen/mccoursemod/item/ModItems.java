@@ -33,7 +33,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.BlocksAttacks;
-import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -81,7 +80,10 @@ public class ModItems {
     public static final DeferredItem<Item> FARMER =
            ITEMS.registerItem("farmer", FarmerItem::new, new Item.Properties().fireResistant());
 
-    // ** CUSTOM foods **
+    public static final DeferredItem<Item> CATTAIL =
+           ITEMS.registerItem("cattail", ModWaxingItem::new, new Item.Properties());
+
+    // ** CUSTOM Foods **
     public static final DeferredItem<Item> RADISH =
            foodItem("radish", 3, 0.25F, MobEffects.HEALTH_BOOST, 400, 0.35F,
                     "tooltip.mccoursemod.radish", green);
@@ -90,17 +92,19 @@ public class ModItems {
            foodItem("kohlrabi", 3, 0.25F, MobEffects.SPEED, 200, 0.1F,
                     "tooltip.mccoursemod.kohlrabi", darkGreen);
 
-    public static final DeferredItem<Item> CATTAIL =
-           ITEMS.registerItem("cattail", ModWaxingItem::new, new Item.Properties());
+    public static final DeferredItem<Item> COFFEE =
+           foodItem("coffee", 5, 0.1F, MobEffects.NIGHT_VISION, 600, 0.5F,
+                    "tooltip.mccoursemod.coffee", white);
 
-    // ** CUSTOM fuels **
-    public static final DeferredItem<Item> FROSTFIRE_ICE = ITEMS.registerItem("frostfire_ice",
-           (properties) -> new FuelItem(properties, 800));
+    // ** CUSTOM fuels (Custom FURNACE) **
+    public static final DeferredItem<Item> FROSTFIRE_ICE =
+           fuelItem("frostfire_ice", 800);
 
-    public static final DeferredItem<Item> STARLIGHT_ASHES = ITEMS.registerItem("starlight_ashes", Item::new);
+    public static final DeferredItem<Item> STARLIGHT_ASHES =
+           fuelItem("starlight_ashes", 1200);
 
     public static final DeferredItem<Item> PEAT_BRICK =
-           ITEMS.registerItem("peat_brick", (properties) -> new FuelItem(properties, 200));
+           fuelItem("peat_brick", 200);
 
     // ** CUSTOM tools (Sword, Pickaxe, Shovel, Axe, Hoe, Hammer, Paxel, Bow, etc.) **
     // BISMUTH
@@ -576,21 +580,7 @@ public class ModItems {
                                                       false, ModTags.Items.PINK_ULTRA_COMPACTOR_ITEMS,
                                                       ModTags.Items.PINK_ULTRA_COMPACTOR_RESULT));
 
-    // ** CUSTOM Foods **
-    // Coffee item food
-    public static final DeferredItem<Item> COFFEE = ITEMS.registerItem("coffee",
-           (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3)
-                                                                                          .saturationModifier(0.25F).build())
-                                                        .component(DataComponents.CONSUMABLE,
-                                                                   Consumable.builder().consumeSeconds(2F)
-                                                                             .animation(ItemUseAnimation.EAT)
-                                                                             .sound(SoundEvents.GENERIC_EAT)
-                                                                             .hasConsumeParticles(false)
-                                                                             .onConsume(new ApplyStatusEffectsConsumeEffect(
-                                                                                        new MobEffectInstance(
-                                                                                        MobEffects.HEALTH_BOOST,
-                                                                                        600, 0), 0.35F))
-                                                                             .build())));
+
 
     // Mccourse Mod Bottle item
     public static final DeferredItem<Item> MCCOURSE_MOD_BOTTLE = ITEMS.registerItem("mccourse_mod_bottle",
@@ -658,12 +648,21 @@ public class ModItems {
            ITEMS.registerItem("walnut_chest_boat",
            (properties) -> new ModBoatItem(ModEntities.MOD_CHEST_BOAT.get(), properties.stacksTo(1)));
 
+    // ** CUSTOM METHOD - Fuel **
+    public static DeferredItem<Item> fuelItem(String name, int burnTime) {
+        return ITEMS.registerItem(name, properties ->
+                                  new FuelItem(properties.component(ModDataComponentTypes.ITEM_TOOLTIP,
+                                                                    new ItemTooltip("§6Burn: §r" + burnTime,
+                                                                                    yellow, true)),
+                                               burnTime));
+    }
+
     // ** CUSTOM METHOD - Food **
     public static DeferredItem<Item> foodItem(String name, int nutrition,
                                               float saturation, Holder<MobEffect> effect,
                                               int duration, float chance,
                                               String text, ChatFormatting color) {
-        return ITEMS.registerItem(name, (properties) ->
+        return ITEMS.registerItem(name, properties ->
                new Item(properties.food(new FoodProperties.Builder().nutrition(nutrition)
                                                                     .saturationModifier(saturation).build(),
                                         Consumables.defaultFood()
