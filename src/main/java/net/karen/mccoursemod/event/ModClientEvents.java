@@ -4,7 +4,7 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.block.entity.ModBlockEntities;
 import net.karen.mccoursemod.block.entity.renderer.PedestalBlockEntityRenderer;
-import net.karen.mccoursemod.component.AlternateTexture;
+import net.karen.mccoursemod.component.custom.AlternateTexture;
 import net.karen.mccoursemod.entity.ModEntities;
 import net.karen.mccoursemod.entity.layers.ModModelLayers;
 import net.karen.mccoursemod.entity.client.*;

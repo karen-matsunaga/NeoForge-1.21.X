@@ -2,9 +2,9 @@ package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
-import net.karen.mccoursemod.component.HammerTooltip;
-import net.karen.mccoursemod.component.ShiftTooltip;
-import net.karen.mccoursemod.component.ItemTooltip;
+import net.karen.mccoursemod.component.custom.HammerTooltip;
+import net.karen.mccoursemod.component.custom.ShiftTooltip;
+import net.karen.mccoursemod.component.custom.ItemTooltip;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.datagen.ModEquipmentAssetProvider;
 import net.karen.mccoursemod.entity.ModEntities;

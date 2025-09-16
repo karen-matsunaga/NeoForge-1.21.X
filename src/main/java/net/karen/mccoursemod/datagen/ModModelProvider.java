@@ -5,7 +5,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.block.custom.*;
-import net.karen.mccoursemod.component.AlternateTexture;
+import net.karen.mccoursemod.component.custom.AlternateTexture;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.entity.client.ShieldSpecialModelRenderer;
 import net.karen.mccoursemod.fluid.ModFluids;

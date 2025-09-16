@@ -1,6 +1,6 @@
 package net.karen.mccoursemod.item.custom;
 
-import net.karen.mccoursemod.component.FoundBlock;
+import net.karen.mccoursemod.component.custom.FoundBlock;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;

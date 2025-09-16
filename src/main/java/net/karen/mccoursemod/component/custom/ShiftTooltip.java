@@ -1,4 +1,4 @@
-package net.karen.mccoursemod.component;
+package net.karen.mccoursemod.component.custom;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

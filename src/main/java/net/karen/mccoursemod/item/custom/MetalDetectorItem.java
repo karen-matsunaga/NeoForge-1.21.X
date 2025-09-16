@@ -1,6 +1,6 @@
 package net.karen.mccoursemod.item.custom;
 
-import net.karen.mccoursemod.component.FoundBlock;
+import net.karen.mccoursemod.component.custom.FoundBlock;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.sound.ModSounds;

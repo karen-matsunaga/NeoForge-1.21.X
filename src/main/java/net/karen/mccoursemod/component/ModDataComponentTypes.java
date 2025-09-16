@@ -2,6 +2,10 @@ package net.karen.mccoursemod.component;
 
 import com.mojang.serialization.Codec;
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.component.custom.FoundBlock;
+import net.karen.mccoursemod.component.custom.HammerTooltip;
+import net.karen.mccoursemod.component.custom.ItemTooltip;
+import net.karen.mccoursemod.component.custom.ShiftTooltip;
 import net.karen.mccoursemod.enchantment.custom.AutoSmeltEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.MoreOresEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.RainbowEnchantmentEffect;
