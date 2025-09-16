@@ -37,6 +37,7 @@ import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.equipment.*;
+import net.minecraft.world.item.equipment.trim.TrimMaterial;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -54,21 +55,21 @@ public class ModItems {
     // ** CUSTOM ore items **
     // BISMUTH
     public static final DeferredItem<Item> BISMUTH =
-           ITEMS.registerItem("bismuth", Item::new, new Item.Properties().trimMaterial(ModTrimMaterials.BISMUTH));
+           trimMaterialItem("bismuth", ModTrimMaterials.BISMUTH);
 
     public static final DeferredItem<Item> RAW_BISMUTH =
            ITEMS.registerItem("raw_bismuth", Item::new, new Item.Properties());
 
     // ALEXANDRITE
     public static final DeferredItem<Item> ALEXANDRITE =
-           ITEMS.registerItem("alexandrite", Item::new, new Item.Properties().trimMaterial(ModTrimMaterials.ALEXANDRITE));
+           trimMaterialItem("alexandrite", ModTrimMaterials.ALEXANDRITE);
 
     public static final DeferredItem<Item> RAW_ALEXANDRITE =
            ITEMS.registerItem("raw_alexandrite", Item::new, new Item.Properties());
 
     // PINK
     public static final DeferredItem<Item> PINK =
-           ITEMS.registerItem("pink", Item::new, new Item.Properties().trimMaterial(ModTrimMaterials.PINK));
+           trimMaterialItem("pink", ModTrimMaterials.PINK);
 
     // ** CUSTOM advanced items **
     public static final DeferredItem<Item> CHISEL =
@@ -580,8 +581,6 @@ public class ModItems {
                                                       false, ModTags.Items.PINK_ULTRA_COMPACTOR_ITEMS,
                                                       ModTags.Items.PINK_ULTRA_COMPACTOR_RESULT));
 
-
-
     // Mccourse Mod Bottle item
     public static final DeferredItem<Item> MCCOURSE_MOD_BOTTLE = ITEMS.registerItem("mccourse_mod_bottle",
            (properties) -> new MccourseModBottleItem(properties.fireResistant().stacksTo(1),
@@ -660,24 +659,31 @@ public class ModItems {
     // ** CUSTOM METHOD - Food **
     public static DeferredItem<Item> foodItem(String name, int nutrition,
                                               float saturation, Holder<MobEffect> effect,
-                                              int duration, float chance,
-                                              String text, ChatFormatting color) {
+                                              int duration, float chance, String text, ChatFormatting color) {
         return ITEMS.registerItem(name, properties ->
-               new Item(properties.food(new FoodProperties.Builder().nutrition(nutrition)
-                                                                    .saturationModifier(saturation).build(),
-                                        Consumables.defaultFood()
-                                                   .onConsume(new ApplyStatusEffectsConsumeEffect(
-                                                              new MobEffectInstance(effect, duration), chance)).build())
-                                  .component(ModDataComponentTypes.ITEM_TOOLTIP,
-                                             new ItemTooltip(text, color, true))));
+                                  new Item(properties.food(new FoodProperties.Builder()
+                                                                             .nutrition(nutrition)
+                                                                             .saturationModifier(saturation).build(),
+                                                           Consumables.defaultFood()
+                                                                      .onConsume(new ApplyStatusEffectsConsumeEffect(
+                                                                                 new MobEffectInstance(effect, duration),
+                                                                                 chance)).build())
+                                                     .component(ModDataComponentTypes.ITEM_TOOLTIP,
+                                                                new ItemTooltip(text, color, true))));
+    }
+
+    // ** CUSTOM METHOD - Trim Material **
+    public static DeferredItem<Item> trimMaterialItem(String name, ResourceKey<TrimMaterial> trim) {
+        return ITEMS.registerItem(name, Item::new, new Item.Properties().trimMaterial(trim));
     }
 
     // ** CUSTOM METHOD - Paxel tool **
     public static DeferredItem<Item> paxelItem(String name, ToolMaterial material,
                                                float attackDamage, float attackSpeed,
                                                TagKey<Item> repair) {
-        return ITEMS.registerItem(name, (properties) ->
-               new PaxelItem(material, attackDamage, attackSpeed, properties.fireResistant().repairable(repair)));
+        return ITEMS.registerItem(name, properties ->
+                                  new PaxelItem(material, attackDamage, attackSpeed,
+                                                properties.fireResistant().repairable(repair)));
     }
 
     // ** CUSTOM METHOD - Hammer tool **
@@ -685,11 +691,11 @@ public class ModItems {
                                                float attackDamage, float attackSpeed,
                                                TagKey<Item> repair, int radius,
                                                int argbColors, int textColor) {
-        return ITEMS.registerItem(name, (properties) ->
-               new HammerItem(material, attackDamage, attackSpeed, properties.fireResistant()
-                                                                             .repairable(repair)
-                                                                             .component(ModDataComponentTypes.HAMMER_TOOLTIP,
-                                                                                        new HammerTooltip(radius, textColor)),
+        return ITEMS.registerItem(name, properties ->
+               new HammerItem(material, attackDamage, attackSpeed,
+                              properties.fireResistant().repairable(repair)
+                                                        .component(ModDataComponentTypes.HAMMER_TOOLTIP,
+                                                                   new HammerTooltip(radius, textColor)),
                               radius, argbColors, textColor));
     }
 
@@ -697,68 +703,73 @@ public class ModItems {
     public static DeferredItem<Item> shovelItem(String name, ToolMaterial material,
                                                 float attackDamage, float attackSpeed,
                                                 TagKey<Item> repair) {
-        return ITEMS.registerItem(name, (properties) ->
-               new ShovelItem(material, attackDamage, attackSpeed, properties.fireResistant().repairable(repair)));
+        return ITEMS.registerItem(name, properties ->
+                                  new ShovelItem(material, attackDamage, attackSpeed,
+                                                 properties.fireResistant().repairable(repair)));
     }
 
     // ** CUSTOM METHOD - Axe tool **
     public static DeferredItem<Item> axeItem(String name, ToolMaterial material,
                                              float attackDamage, float attackSpeed,
                                              TagKey<Item> repair) {
-        return ITEMS.registerItem(name, (properties) ->
-               new AxeItem(material, attackDamage, attackSpeed, properties.fireResistant().repairable(repair)));
+        return ITEMS.registerItem(name, properties ->
+                                  new AxeItem(material, attackDamage, attackSpeed,
+                                              properties.fireResistant().repairable(repair)));
     }
 
     // ** CUSTOM METHOD - Hoe tool **
     public static DeferredItem<Item> hoeItem(String name, ToolMaterial material,
                                              float attackDamage, float attackSpeed,
                                              TagKey<Item> repair) {
-        return ITEMS.registerItem(name, (properties) ->
-               new HoeItem(material, attackDamage, attackSpeed, properties.fireResistant().repairable(repair)));
+        return ITEMS.registerItem(name, properties ->
+                                  new HoeItem(material, attackDamage, attackSpeed,
+                                              properties.fireResistant().repairable(repair)));
     }
 
     // ** CUSTOM METHOD - Pickaxe tool **
     public static DeferredItem<Item> pickaxeItem(String name, ToolMaterial material,
                                                  float attackDamage, float attackSpeed,
                                                  TagKey<Item> repair) {
-        return ITEMS.registerItem(name, (properties) ->
-               new Item(properties.pickaxe(material, attackDamage, attackSpeed).fireResistant().repairable(repair)));
+        return ITEMS.registerItem(name, properties ->
+                                  new Item(properties.pickaxe(material, attackDamage, attackSpeed)
+                                                     .fireResistant().repairable(repair)));
     }
 
     // ** CUSTOM METHOD - Sword tool **
     public static DeferredItem<Item> swordItem(String name, ToolMaterial material,
                                                float attackDamage, float attackSpeed,
                                                TagKey<Item> repair) {
-        return ITEMS.registerItem(name, (properties) ->
-               new Item(properties.sword(material, attackDamage, attackSpeed).fireResistant().repairable(repair)));
+        return ITEMS.registerItem(name, properties ->
+                                  new Item(properties.sword(material, attackDamage, attackSpeed)
+                                                     .fireResistant().repairable(repair)));
     }
 
     // ** CUSTOM METHOD - Helmet armor **
     public static DeferredItem<Item> helmetArmor(String name,
                                                  ArmorMaterial material) {
-        return ITEMS.registerItem(name, (properties) -> new ModArmorItem(properties.humanoidArmor(material,
-                                                                                   ArmorType.HELMET).fireResistant()));
+        return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
+                                                                                 ArmorType.HELMET).fireResistant()));
     }
 
     // ** CUSTOM METHOD - Chestplate armor **
     public static DeferredItem<Item> chestplateArmor(String name,
                                                      ArmorMaterial material) {
-        return ITEMS.registerItem(name, (properties) -> new ModArmorItem(properties.humanoidArmor(material,
-                                                                                   ArmorType.CHESTPLATE).fireResistant()));
+        return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
+                                                                                 ArmorType.CHESTPLATE).fireResistant()));
     }
 
     // ** CUSTOM METHOD - Leggings armor **
     public static DeferredItem<Item> leggingsArmor(String name,
                                                    ArmorMaterial material) {
-        return ITEMS.registerItem(name, (properties) -> new ModArmorItem(properties.humanoidArmor(material,
-                                                                                   ArmorType.LEGGINGS).fireResistant()));
+        return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
+                                                                                 ArmorType.LEGGINGS).fireResistant()));
     }
 
     // ** CUSTOM METHOD - Boots armor **
     public static DeferredItem<Item> bootsArmor(String name,
                                                 ArmorMaterial material) {
-        return ITEMS.registerItem(name, (properties) -> new ModArmorItem(properties.humanoidArmor(material,
-                                                                                   ArmorType.BOOTS).fireResistant()));
+        return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
+                                                                                 ArmorType.BOOTS).fireResistant()));
     }
 
     // ** CUSTOM METHOD - Elytra armor **
@@ -766,7 +777,7 @@ public class ModItems {
                                                  int durability, ResourceKey<EquipmentAsset> equipAsset,
                                                  TagKey<Item> repair, Holder<MobEffect> effectHolder,
                                                  int effectAmplifier) {
-        return ITEMS.registerItem(name, (properties) ->
+        return ITEMS.registerItem(name, properties ->
                                   new ElytraPlusItem(effectHolder, effectAmplifier,
                                                      properties.fireResistant()
                                                                .durability(durability)
