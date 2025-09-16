@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-13T12:25:41.3616356	Tags for minecraft:block mod id vanilla
+// 1.21.8	2025-09-15T22:00:17.2706963	Tags for minecraft:block mod id vanilla
 3817a93eee232efc110e7d092e075869be80db4b data/mccoursemod/tags/block/alexandrite_blocks.json
 45f418e9ccfb34f690fcedb40b1602003ab6f053 data/mccoursemod/tags/block/all_ores.json
 b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/auto_smelt_ores.json
@@ -20,7 +20,7 @@ bdfaf45f7d896dd00ff9bfc6f785659fc3569a4c data/mccoursemod/tags/block/farmer_vert
 cf8f0d34dc0b5cba616ad43e03a0cf2fd5de202b data/mccoursemod/tags/block/mccourse_mod_ores.json
 49f663589d2830dcc6487229a16a525f65234b44 data/mccoursemod/tags/block/mccourse_mod_oxidizable_blocks.json
 466b621472b729d2dbcd2872b39f03117f28ef8b data/mccoursemod/tags/block/metal_detector_colors.json
-b45f4fd689ee7e0daa2546ad95e2cd1919bb21ea data/mccoursemod/tags/block/metal_detector_valuables.json
+45f418e9ccfb34f690fcedb40b1602003ab6f053 data/mccoursemod/tags/block/metal_detector_valuables.json
 13cf1fe06cf159d32d074144254a0d375f6b20e7 data/mccoursemod/tags/block/mineable_with_paxel.json
 1463a95305ac2cc5a789ae41031b4d2ae081d74e data/mccoursemod/tags/block/mobs_blocks_drops.json
 d53a1ca3e352dd9176fcf72b95b10a426b2047a5 data/mccoursemod/tags/block/more_ores_all_drops.json
@@ -38,6 +38,7 @@ a3b034ba6dfc318ff77dbd2fedd47a18e2872e02 data/mccoursemod/tags/block/more_ores_s
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_lapis_lazuli_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_pink_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_redstone_tool.json
+db54a62a991dd498c37615be9aec236435b1513c data/mccoursemod/tags/block/special_metal_detector_valuables.json
 7d78d30b1cc01fb43cfb8364ed31026ee0640387 data/mccoursemod/tags/block/vertical_blocks.json
 1042355386c9659aa330e3a97a816b5e088c7648 data/mccoursemod/tags/block/vertical_grow_blocks.json
 774205992e78cc4b0cce335e5a396e3a2426ecab data/mccoursemod/tags/block/walnut_logs.json

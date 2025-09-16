@@ -13,7 +13,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -27,7 +26,6 @@ import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 import static net.karen.mccoursemod.util.ChatUtils.*;
-import static net.minecraft.ChatFormatting.*;
 
 public class MetalDetectorItem extends Item {
     TagKey<Block> type;
@@ -111,10 +109,11 @@ public class MetalDetectorItem extends Item {
     private void outputValuableCoordinates(BlockPos pos, Player player, Block block) {
         ChatFormatting color = white; // DEFAULT COLOR
         Map<TagKey<Block>, ChatFormatting> oreColors =
-           Map.ofEntries(Map.entry(Tags.Blocks.ORES_DIAMOND, AQUA), Map.entry(ModTags.Blocks.METAL_DETECTOR_COLORS, GOLD),
-                         Map.entry(Tags.Blocks.ORES_IRON, GRAY), Map.entry(Tags.Blocks.ORES_EMERALD, DARK_GREEN),
-                         Map.entry(Tags.Blocks.ORES_REDSTONE, DARK_RED), Map.entry(Tags.Blocks.ORES_LAPIS, DARK_BLUE),
-                         Map.entry(Tags.Blocks.ORES_COAL, BLACK), Map.entry(BlockTags.FEATURES_CANNOT_REPLACE, RED));
+           Map.ofEntries(Map.entry(Tags.Blocks.ORES_DIAMOND, aqua), Map.entry(ModTags.Blocks.METAL_DETECTOR_COLORS, gold),
+                         Map.entry(Tags.Blocks.ORES_IRON, gray), Map.entry(Tags.Blocks.ORES_EMERALD, darkGreen),
+                         Map.entry(Tags.Blocks.ORES_REDSTONE, darkRed), Map.entry(Tags.Blocks.ORES_LAPIS, darkBlue),
+                         Map.entry(Tags.Blocks.ORES_COAL, black), Map.entry(ModTags.Blocks.MCCOURSE_MOD_ORES, purple),
+                         Map.entry(ModTags.Blocks.SPECIAL_METAL_DETECTOR_VALUABLES, red));
 
         // KEY -> Ores || VALUE -> Ore colors message
         for (Map.Entry<TagKey<Block>, ChatFormatting> entry : oreColors.entrySet()) {
@@ -139,5 +138,7 @@ public class MetalDetectorItem extends Item {
     }
 
     // CUSTOM METHOD - Identifies ALL BLOCKS added in metal_detector_valuables.json on CUSTOM BLOCK TAGS
-    private boolean isValuableBlock(BlockState blockState) { return blockState.is(getType()); }
+    private boolean isValuableBlock(BlockState blockState) {
+        return blockState.is(getType()) || blockState.is(ModTags.Blocks.SPECIAL_METAL_DETECTOR_VALUABLES);
+    }
 }

@@ -37,6 +37,7 @@ public class ModEnchantments {
     public static final ResourceKey<Enchantment> RAINBOW = createTag("rainbow");
     public static final ResourceKey<Enchantment> XP_BOOST = createTag("xp_boost");
     public static final ResourceKey<Enchantment> UNLOCK = createTag("unlock");
+    public static final ResourceKey<Enchantment> GLOWING_BLOCKS = createTag("glowing_blocks");
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
@@ -181,6 +182,14 @@ public class ModEnchantments {
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.ANY)));
+
+        // Glowing Blocks enchantment - Helmet
+        register(context, GLOWING_BLOCKS,
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.HEAD_ARMOR_ENCHANTABLE),
+                                                                5, 2,
+                                                                Enchantment.dynamicCost(5, 7),
+                                                                Enchantment.dynamicCost(25, 7),
+                                                                2, EquipmentSlotGroup.HEAD)));
     }
 
     // CUSTOM METHOD - Registry all custom enchantments -> DATA GEN

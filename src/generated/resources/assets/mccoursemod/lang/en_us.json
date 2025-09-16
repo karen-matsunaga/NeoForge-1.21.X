@@ -120,6 +120,8 @@
   "enchantment.mccoursemod.auto_smelt.desc": "When applied on pickaxe transform all items that can be roasted on furnace.",
   "enchantment.mccoursemod.block_fly": "Block Fly",
   "enchantment.mccoursemod.block_fly.desc": "When applied on pickaxe if player has flying speed mining equals if player has on ground.",
+  "enchantment.mccoursemod.glowing_blocks": "Glowing Blocks",
+  "enchantment.mccoursemod.glowing_blocks.desc": "When applied on helmet armor all ores blocks are detected with X-Ray of blocks. (Press G key to activated or disabled)",
   "enchantment.mccoursemod.glowing_mobs": "Glowing Mobs",
   "enchantment.mccoursemod.glowing_mobs.desc": "When applied on helmet armor all entities are detected with X-Ray of mobs. (Press M key to activated or disabled)",
   "enchantment.mccoursemod.immortal": "Immortal",

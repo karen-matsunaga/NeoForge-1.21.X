@@ -70,6 +70,8 @@ public class ModTags {
         // METAL DETECTOR
         public static final TagKey<Block> METAL_DETECTOR_VALUABLES = createTag("metal_detector_valuables");
         public static final TagKey<Block> METAL_DETECTOR_COLORS = createTag("metal_detector_colors");
+        public static final TagKey<Block> SPECIAL_METAL_DETECTOR_VALUABLES =
+               createTag("special_metal_detector_valuables");
 
         // ** CUSTOM log **
         public static final TagKey<Block> BLOODWOOD_LOGS = createTag("bloodwood_logs");

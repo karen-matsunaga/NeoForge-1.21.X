@@ -182,8 +182,16 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         // ** CUSTOM Advanced items **
         // METAL DETECTOR
         tag(ModTags.Blocks.METAL_DETECTOR_VALUABLES).addTag(Tags.Blocks.ORES)
-                                                    .addTag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE);
-        tag(ModTags.Blocks.METAL_DETECTOR_COLORS).addTag(Tags.Blocks.ORES_GOLD).addTag(Tags.Blocks.ORES_COPPER);
+                                                    .addTag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE)
+                                                    .addTag(ModTags.Blocks.MCCOURSE_MOD_ORES);
+
+        tag(ModTags.Blocks.METAL_DETECTOR_COLORS).addTag(Tags.Blocks.ORES_GOLD)
+                                                 .addTag(Tags.Blocks.ORES_COPPER);
+
+        tag(ModTags.Blocks.SPECIAL_METAL_DETECTOR_VALUABLES).add(Blocks.SPAWNER,
+                                                                 Blocks.END_PORTAL_FRAME,
+                                                                 Blocks.CHEST,
+                                                                 Blocks.TRAPPED_CHEST);
 
         // ** CUSTOM Fluid **
         tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES).add(ModFluids.SOAP_WATER_BLOCK.get());

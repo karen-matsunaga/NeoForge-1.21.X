@@ -539,6 +539,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.magnetism", "Magnetism");
         add("enchantment.mccoursemod.xp_boost", "Xp Boost");
         add("enchantment.mccoursemod.unlock", "Unlock");
+        add("enchantment.mccoursemod.glowing_blocks", "Glowing Blocks");
 
         // ** CUSTOM DESCRIPTIONS **
         // ** CUSTOM MUSIC DISC **
@@ -579,6 +580,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.magnetism.desc",
             "When applied on leggings armor searches for items and Experience Orbs on the ground within " +
             "a radius and returns them to the Player's inventory.");
+
+        add("enchantment.mccoursemod.glowing_blocks.desc",
+            "When applied on helmet armor all ores blocks are detected with X-Ray of blocks. " +
+            "(Press G key to activated or disabled)");
 
         // ** VANILLA ENCHANTMENTS **
         // MINING

@@ -39,6 +39,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.ShapeRenderer;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -83,6 +84,8 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -151,6 +154,72 @@ public class ModEvents {
         PoseStack poseStack = event.getPoseStack();
         MultiBufferSource.BufferSource bufferSource = instance.renderBuffers().bufferSource();
         BlockBoxRender.render(level, camera, poseStack, bufferSource);
+    }
+
+    // CUSTOM EVENT - XRAY item
+    @SubscribeEvent
+    public static void onGlowingBlocksRender(RenderLevelStageEvent.AfterTranslucentBlocks event) {
+        Minecraft mc = Minecraft.getInstance();
+        LocalPlayer player = mc.player;
+        Level world = mc.level;
+        Level level = event.getLevel();
+        HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        if (player == null || world == null || !isXrayEnabled()) { return; }
+        ItemStack mainHand = player.getMainHandItem();
+        ItemStack helmetSlot = player.getItemBySlot(EquipmentSlot.HEAD);
+        boolean metalDetector = !mainHand.isEmpty() && mainHand.is(ModItems.METAL_DETECTOR.get());
+        boolean glowingBlocks = !helmetSlot.isEmpty() && toolEnchant(ench, ModEnchantments.GLOWING_BLOCKS, helmetSlot) > 0;
+        if (metalDetector || glowingBlocks) {
+            PoseStack poseStack = event.getPoseStack();
+            Camera camera = event.getCamera();
+            MultiBufferSource.BufferSource buffer = mc.renderBuffers().bufferSource();
+            double camX = camera.getPosition().x();
+            double camY = camera.getPosition().y();
+            double camZ = camera.getPosition().z();
+            BlockPos center = player.blockPosition();
+            int radius = 10;
+            poseStack.pushPose();
+            poseStack.translate(-camX, -camY, -camZ);
+            for (BlockPos pos : BlockPos.betweenClosed(center.offset(-radius, -radius, -radius),
+                                center.offset(radius, radius, radius))) {
+                BlockState state = world.getBlockState(pos);
+                BlockBoxRender.renderColors.forEach((block, color) -> {
+                    Optional<HolderSet.Named<Block>> tag = BuiltInRegistries.BLOCK.get(block);
+                    tag.ifPresent(block1 ->
+                                  block1.forEach(blockHolder -> {
+                                                 Block block2 = blockHolder.value();
+                                                 if (block2 == state.getBlock()) {
+                                                     VoxelShape shape = Shapes.block();
+                                                     poseStack.pushPose();
+                                                     poseStack.translate(pos.getX(), pos.getY(), pos.getZ());
+                                                     ShapeRenderer.renderShape(poseStack,
+                                                                               buffer.getBuffer(
+                                                                               BlockBoxRender.LINES_NO_DEPTH_RENDER_TYPE),
+                                                                               shape, 0.0F, 0.0F, 0.0F,
+                                                                               color);
+                                                     poseStack.popPose();
+                                                 }
+                    }));
+                });
+            }
+            poseStack.popPose();
+            buffer.endBatch();
+        }
+    }
+
+    private static boolean xrayEnabled = false;
+
+    public static boolean isXrayEnabled() {
+        return xrayEnabled;
+    }
+
+    @SubscribeEvent
+    public static void onGlowingBlockStage(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
+        if (KeyBinding.GLOWING_BLOCKS_KEY.get().isDown() && KeyBinding.GLOWING_BLOCKS_KEY.get().consumeClick()) {
+            xrayEnabled = !xrayEnabled;
+            glow(player, isXrayEnabled(), "Blocks: ON!", "Blocks: OFF!");
+        }
     }
 
     // CUSTOM EVENT - Home's commands -> Register all custom commands

@@ -247,4 +247,10 @@ public class ModClientEvents {
                         ? BiomeColors.getAverageFoliageColor(level, pos)
                         : FoliageColor.FOLIAGE_DEFAULT, ModBlocks.COLORED_LEAVES.get());
     }
+
+    // CUSTOM EVENT - Register all custom RENDER PIPELINES
+    @SubscribeEvent
+    public static void registerRenderPipelines(RegisterRenderPipelinesEvent event) {
+        event.registerPipeline(BlockBoxRender.LINES_NO_DEPTH_RENDER_PIPELINE);
+    }
 }
