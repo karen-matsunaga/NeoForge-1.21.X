@@ -109,135 +109,112 @@ public class ModItems {
 
     // ** CUSTOM tools (Sword, Pickaxe, Shovel, Axe, Hoe, Hammer, Paxel, Bow, etc.) **
     // BISMUTH
-    public static final DeferredItem<Item> BISMUTH_SWORD = ITEMS.registerItem("bismuth_sword",
-           (properties) -> new Item(properties.sword(ModToolMaterials.BISMUTH, 5.0F, -2.4F)
-                                                        .fireResistant()
-                                                        .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> BISMUTH_SWORD =
+           swordItem("bismuth_sword", ModToolMaterials.BISMUTH,
+                     5.0F, -2.4F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> BISMUTH_PICKAXE = ITEMS.registerItem("bismuth_pickaxe",
-           (properties) -> new Item(properties.pickaxe(ModToolMaterials.BISMUTH, 1.0F, -2.8F)
-                                                        .fireResistant()
-                                                        .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> BISMUTH_PICKAXE =
+           pickaxeItem("bismuth_pickaxe", ModToolMaterials.BISMUTH,
+                       1.0F, -2.8F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> BISMUTH_SHOVEL = ITEMS.registerItem("bismuth_shovel",
-           (properties) -> new ShovelItem(ModToolMaterials.BISMUTH, 1.5F, -3.0F,
-                                                    properties.fireResistant()
-                                                              .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> BISMUTH_SHOVEL =
+           shovelItem("bismuth_shovel", ModToolMaterials.BISMUTH,
+                      1.5F, -3.0F,ModTags.Items.BISMUTH_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> BISMUTH_AXE = ITEMS.registerItem("bismuth_axe",
-           (properties) -> new AxeItem(ModToolMaterials.BISMUTH,6.0F, -3.2F,
-                                                 properties.fireResistant()
-                                                           .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> BISMUTH_AXE =
+           axeItem("bismuth_axe", ModToolMaterials.BISMUTH,
+                   6.0F, -3.2F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> BISMUTH_HOE = ITEMS.registerItem("bismuth_hoe",
-           (properties) -> new HoeItem(ModToolMaterials.BISMUTH, 0.0F, -3.0F,
-                                                 properties.fireResistant()
-                                                           .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> BISMUTH_HOE =
+           hoeItem("bismuth_hoe", ModToolMaterials.BISMUTH,
+                   0.0F, -3.0F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
 
     public static final DeferredItem<Item> BISMUTH_HAMMER =
            hammerItem("bismuth_hammer", ModToolMaterials.BISMUTH, 7F, -3.5F,
                       ModTags.Items.BISMUTH_TOOL_MATERIALS, 2, ARGB.color(255, 232, 84, 128),
                       0xE85480);
 
-    public static final DeferredItem<Item> BISMUTH_PAXEL = ITEMS.registerItem("bismuth_paxel",
-           (properties) -> new PaxelItem(ModToolMaterials.BISMUTH, 1F, -2.8F,
-                                                   properties.fireResistant()
-                                                             .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> BISMUTH_PAXEL =
+           paxelItem("bismuth_paxel", ModToolMaterials.BISMUTH,
+                     1F, -2.8F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.registerItem("kaupen_bow",
-           (properties) -> new BowItem(properties.durability(500)
-                                                           .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> KAUPEN_BOW =
+           bowItem("kaupen_bow", ModTags.Items.BISMUTH_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> MINER_BOW = ITEMS.registerItem("miner_bow",
-           (properties) -> new MinerBowItem(properties.durability(2000)
-                                                                .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> MINER_BOW =
+           hammerBowItem("miner_bow", ModTags.Items.BISMUTH_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> BISMUTH_HORSE_ARMOR = ITEMS.registerItem("bismuth_horse_armor",
-           (properties) -> new Item(properties.stacksTo(1)
-                                                        .horseArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL)));
+    public static final DeferredItem<Item> BISMUTH_HORSE_ARMOR =
+           horseArmorItem("bismuth_horse_armor", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
 
     // ** CUSTOM Fishing Rod **
     public static final DeferredItem<Item> MCCOURSE_MOD_FISHING_ROD =
            ITEMS.registerItem("mccourse_mod_fishing_rod",
-                   (properties) -> new FishingRodItem(properties.fireResistant()) {
-                       @Override
-                       public @NotNull Component getName(@NotNull ItemStack stack) { // Appears on name item
-                           return super.getName(stack).copy().withStyle(purple);
-                       }
-                   });
+                              properties ->
+                              new FishingRodItem(properties.fireResistant()) {
+                                  // DEFAULT METHOD - Appears on name item
+                                  @Override
+                                  public @NotNull Component getName(@NotNull ItemStack stack) {
+                                      return super.getName(stack).copy().withStyle(purple);
+                                  }
+                              });
 
     // ALEXANDRITE
-    public static final DeferredItem<Item> ALEXANDRITE_SWORD = ITEMS.registerItem("alexandrite_sword",
-           (properties) -> new Item(properties.sword(ModToolMaterials.ALEXANDRITE,
-                                                               2.0F, 3.0F)
-                                                        .durability(2304).fireResistant()
-                                                        .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> ALEXANDRITE_SWORD =
+           swordItem("alexandrite_sword", ModToolMaterials.ALEXANDRITE,
+                     2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> ALEXANDRITE_PICKAXE = ITEMS.registerItem("alexandrite_pickaxe",
-           (properties) -> new Item(properties.pickaxe(ModToolMaterials.ALEXANDRITE,
-                                                                 1.0F, 2.0F)
-                                                        .durability(2304).fireResistant()
-                                                        .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> ALEXANDRITE_PICKAXE =
+           pickaxeItem("alexandrite_pickaxe", ModToolMaterials.ALEXANDRITE,
+                       1.0F, 2.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> ALEXANDRITE_SHOVEL = ITEMS.registerItem("alexandrite_shovel",
-           (properties) -> new ShovelItem(ModToolMaterials.ALEXANDRITE, 2, 3,
-                                                    properties.durability(2304).fireResistant()
-                                                              .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> ALEXANDRITE_SHOVEL =
+           shovelItem("alexandrite_shovel", ModToolMaterials.ALEXANDRITE,
+                      2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> ALEXANDRITE_AXE = ITEMS.registerItem("alexandrite_axe",
-           (properties) -> new AxeItem(ModToolMaterials.ALEXANDRITE, 2, 3,
-                                                 properties.durability(2304).fireResistant()
-                                                           .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> ALEXANDRITE_AXE =
+           axeItem("alexandrite_axe", ModToolMaterials.ALEXANDRITE,
+                   2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> ALEXANDRITE_HOE = ITEMS.registerItem("alexandrite_hoe",
-           (properties) -> new HoeItem(ModToolMaterials.ALEXANDRITE, 2, 3,
-                                                 properties.durability(2304).fireResistant()
-                                                           .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> ALEXANDRITE_HOE =
+           hoeItem("alexandrite_hoe", ModToolMaterials.ALEXANDRITE,
+                   2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
     public static final DeferredItem<Item> ALEXANDRITE_HAMMER =
-           hammerItem("alexandrite_hammer", ModToolMaterials.ALEXANDRITE, 2, 3,
-                      ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 2, ARGB.color(255, 48, 213, 200),
-                      0x30D5C8);
+           hammerItem("alexandrite_hammer", ModToolMaterials.ALEXANDRITE, 2.0F, 3.0F,
+                      ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 2,
+                      ARGB.color(255, 48, 213, 200), 0x30D5C8);
 
-    public static final DeferredItem<Item> ALEXANDRITE_PAXEL = ITEMS.registerItem("alexandrite_paxel",
-           (properties) -> new PaxelItem(ModToolMaterials.ALEXANDRITE, 2, 3,
-                                                   properties.durability(2304).fireResistant()
-                                                             .repairable(ModTags.Items.BISMUTH_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> ALEXANDRITE_PAXEL =
+           paxelItem("alexandrite_paxel", ModToolMaterials.ALEXANDRITE,
+                     2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
     // ** CUSTOM armors (Helmet, Chestplate, Leggings and Boots) **
     // BISMUTH
-    public static final DeferredItem<Item> BISMUTH_HELMET = ITEMS.registerItem("bismuth_helmet",
-           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
-                                                                               ArmorType.HELMET)));
+    public static final DeferredItem<Item> BISMUTH_HELMET =
+           helmetArmor("bismuth_helmet", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
 
-    public static final DeferredItem<Item> BISMUTH_CHESTPLATE = ITEMS.registerItem("bismuth_chestplate",
-           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
-                                                                               ArmorType.CHESTPLATE)));
+    public static final DeferredItem<Item> BISMUTH_CHESTPLATE =
+           chestplateArmor("bismuth_chestplate", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
 
-    public static final DeferredItem<Item> BISMUTH_LEGGINGS = ITEMS.registerItem("bismuth_leggings",
-           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
-                                                                               ArmorType.LEGGINGS)));
+    public static final DeferredItem<Item> BISMUTH_LEGGINGS =
+           leggingsArmor("bismuth_leggings", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
 
-    public static final DeferredItem<Item> BISMUTH_BOOTS = ITEMS.registerItem("bismuth_boots",
-           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
-                                                                               ArmorType.BOOTS)));
+    public static final DeferredItem<Item> BISMUTH_BOOTS =
+           bootsArmor("bismuth_boots", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
 
     // ALEXANDRITE
-    public static final DeferredItem<Item> ALEXANDRITE_HELMET = ITEMS.registerItem("alexandrite_helmet",
-           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL,
-                                                                               ArmorType.HELMET)));
+    public static final DeferredItem<Item> ALEXANDRITE_HELMET =
+           helmetArmor("alexandrite_helmet", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
 
-    public static final DeferredItem<Item> ALEXANDRITE_CHESTPLATE = ITEMS.registerItem("alexandrite_chestplate",
-           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL,
-                                                                               ArmorType.CHESTPLATE)));
+    public static final DeferredItem<Item> ALEXANDRITE_CHESTPLATE =
+           chestplateArmor("alexandrite_chestplate", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
 
-    public static final DeferredItem<Item> ALEXANDRITE_LEGGINGS = ITEMS.registerItem("alexandrite_leggings",
-           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL,
-                                                                               ArmorType.LEGGINGS)));
+    public static final DeferredItem<Item> ALEXANDRITE_LEGGINGS =
+           leggingsArmor("alexandrite_leggings", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
 
-    public static final DeferredItem<Item> ALEXANDRITE_BOOTS = ITEMS.registerItem("alexandrite_boots",
-           (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL,
-                                                                               ArmorType.BOOTS)));
+    public static final DeferredItem<Item> ALEXANDRITE_BOOTS =
+           bootsArmor("alexandrite_boots", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
 
     // PINK
     public static final DeferredItem<Item> PINK_HELMET =
@@ -291,30 +268,14 @@ public class ModItems {
     public static final DeferredItem<Item> REDSTONE_BOOTS =
            bootsArmor("redstone_boots", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL);
 
-    public static final DeferredItem<Item> ALEXANDRITE_BOW = ITEMS.registerItem("alexandrite_bow",
-           (properties) -> new BowItem(properties.durability(2304)
-                                                           .repairable(ModTags.Items.ALEXANDRITE_TOOL_MATERIALS)));
+    public static final DeferredItem<Item> ALEXANDRITE_BOW =
+           bowItem("alexandrite_bow", ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
     public static final DeferredItem<Item> ALEXANDRITE_HORSE_ARMOR =
-           ITEMS.registerItem("alexandrite_horse_armor",
-           (properties) -> new Item(properties.stacksTo(1)
-                                                        .horseArmor(ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL)));
+           horseArmorItem("alexandrite_horse_armor", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
 
     public static final DeferredItem<Item> ALEXANDRITE_SHIELD =
-           ITEMS.registerItem("alexandrite_shield", (properties) ->
-           new ShieldItem(properties.durability(2304)
-                                    .component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
-                                    .repairable(ItemTags.WOODEN_TOOL_MATERIALS)
-                                    .equippableUnswappable(EquipmentSlot.OFFHAND)
-                                    .component(DataComponents.BLOCKS_ATTACKS,
-                                               new BlocksAttacks(0.25F, 1.0F,
-                                               List.of(new BlocksAttacks.DamageReduction(90.0F,
-                                                       Optional.empty(), 0.0F, 1.0F)),
-                                                       new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F),
-                                                       Optional.of(DamageTypeTags.BYPASSES_SHIELD),
-                                                       Optional.of(SoundEvents.SHIELD_BLOCK),
-                                                       Optional.of(SoundEvents.SHIELD_BREAK)))
-                                    .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)));
+           shieldItem("alexandrite_shield", ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
     // ** CUSTOM Paxel tools **
     public static final DeferredItem<Item> PINK_PAXEL =
@@ -790,6 +751,42 @@ public class ModItems {
                                                                                     .setDamageOnHurt(false)
                                                                                     .build())
                                                                .repairable(repair)));
+    }
+
+    // ** CUSTOM METHOD - Bow tool **
+    public static DeferredItem<Item> bowItem(String name, TagKey<Item> repair) {
+        return ITEMS.registerItem(name, properties ->
+                                  new BowItem(properties.repairable(repair)));
+    }
+
+    // ** CUSTOM METHOD - Hammer Bow tool **
+    public static DeferredItem<Item> hammerBowItem(String name, TagKey<Item> repair) {
+        return ITEMS.registerItem(name, properties ->
+                                  new MinerBowItem(properties.repairable(repair)));
+    }
+
+    // ** CUSTOM METHOD - Horse armor **
+    public static DeferredItem<Item> horseArmorItem(String name, ArmorMaterial armorMaterial) {
+        return ITEMS.registerItem(name, properties ->
+                                  new Item(properties.stacksTo(1).horseArmor(armorMaterial)));
+    }
+
+    // ** CUSTOM METHOD - Shield tool **
+    public static DeferredItem<Item> shieldItem(String name, TagKey<Item> repair) {
+        return ITEMS.registerItem(name, properties ->
+                new ShieldItem(properties.component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
+                                         .repairable(repair)
+                                         .equippableUnswappable(EquipmentSlot.OFFHAND)
+                                         .component(DataComponents.BLOCKS_ATTACKS,
+                                                    new BlocksAttacks(0.25F, 1.0F,
+                                                                      List.of(new BlocksAttacks.DamageReduction(
+                                                                              90.0F,
+                                                                              Optional.empty(), 0.0F, 1.0F)),
+                                                    new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F),
+                                                    Optional.of(DamageTypeTags.BYPASSES_SHIELD),
+                                                    Optional.of(SoundEvents.SHIELD_BLOCK),
+                                                    Optional.of(SoundEvents.SHIELD_BREAK)))
+                                         .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)));
     }
 
     // CUSTOM METHOD - Registry all items on event bus
