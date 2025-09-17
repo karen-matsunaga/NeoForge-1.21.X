@@ -3,6 +3,7 @@ package net.karen.mccoursemod.mixin;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
+import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.util.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
@@ -46,17 +47,20 @@ public abstract class ItemStackMixin {
         ItemStack stack = (ItemStack) (Object) this; // Get all blocks, items, etc.
         List<Component> tooltip = new ArrayList<>(cir.getReturnValue()); // Old tooltip
         Level level = Minecraft.getInstance().level;
-        // Item checked is MAGIC block
+        // Item checked is MAGIC block + Added more information about MAGIC block
         if (stack.is(ModBlocks.MAGIC.get().asItem())) {
             Component original = tooltip.getFirst(), // Original tooltip line 0
                        colored = original.copy().withStyle(style -> style.withColor(0x00ff00));
             tooltip.set(0, colored); // Change only the name (first line of the tooltip) -> Color not appears on screen
-            // Added more information about MAGIC block
             tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block"));
         }
-        // Item checked is SOUND block
+        // Item checked is SOUND block + Added more information about SOUND block
         if (stack.is(ModBlocks.SOUND.get().asItem())) {
-            tooltip.add(standardTranslatable("tooltip.mccoursemod.sound")); // Added more information about SOUND block
+            tooltip.add(standardTranslatable("tooltip.mccoursemod.sound"));
+        }
+        // Added more information about GROWTH item
+        if (stack.is(ModItems.GROWTH.get().asItem())) {
+            tooltip.add(componentTranslatable("tooltip.mccoursemod.growth", aqua));
         }
         if (level != null) {
             HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);

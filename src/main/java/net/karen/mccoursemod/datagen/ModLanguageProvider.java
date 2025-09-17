@@ -727,6 +727,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("tooltip.mccoursemod.metal_detector.tooltip", "Press §eSHIFT§r for more Information");
         add("tooltip.mccoursemod.sound", "Plays nice sounds when walking or right-clicking.");
         add("tooltip.mccoursemod.coffee", "Wake up and have a chance to achieve night vision effect.");
+        add("tooltip.mccoursemod.growth", "Makes a baby animal an adult animal!");
 
         // ** CUSTOM player display screen messages **
         add("item.mccoursemod.metal_detector.no_valuable_values", "§4No Valuables Found!");

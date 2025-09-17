@@ -8,10 +8,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipDisplay;
 import org.jetbrains.annotations.NotNull;
-import java.util.function.Consumer;
 import static net.karen.mccoursemod.util.ChatUtils.*;
 
 public class GrowthItem extends Item {
@@ -32,13 +29,5 @@ public class GrowthItem extends Item {
     @Override
     public @NotNull Component getName(@NotNull ItemStack stack) {
         return componentTranslatable(this.getDescriptionId(), darkAqua);
-    }
-
-    @Override
-    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context,
-                                @NotNull TooltipDisplay display, @NotNull Consumer<Component> consumer,
-                                @NotNull TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, consumer, flag);
-        tooltipLine(consumer, "Makes a baby animal an adult animal!", aqua);
     }
 }
