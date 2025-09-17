@@ -27,15 +27,12 @@ public class CraftingPlusResultSlot extends Slot {
         this.craftSlots = craftSlots;
     }
 
-    public boolean mayPlace(@NotNull ItemStack stack) {
-        return false;
-    }
+    public boolean mayPlace(@NotNull ItemStack stack) { return false; }
 
     public @NotNull ItemStack remove(int amount) {
         if (this.hasItem()) {
             this.removeCount += Math.min(amount, this.getItem().getCount());
         }
-
         return super.remove(amount);
     }
 
@@ -61,25 +58,16 @@ public class CraftingPlusResultSlot extends Slot {
 
     private static NonNullList<ItemStack> copyAllInputItems(CraftingInput input) {
         NonNullList<ItemStack> nonnulllist = NonNullList.withSize(input.size(), ItemStack.EMPTY);
-        for (int i = 0; i < nonnulllist.size(); ++i) {
-            nonnulllist.set(i, input.getItem(i));
-        }
+        for (int i = 0; i < nonnulllist.size(); ++i) { nonnulllist.set(i, input.getItem(i)); }
         return nonnulllist;
     }
 
     private NonNullList<ItemStack> getRemainingItems(CraftingInput input, Level level) {
-        NonNullList list;
+        NonNullList<ItemStack> list;
         if (level instanceof ServerLevel serverlevel) {
-            if (input.width() > 3 || input.height() > 3) {
-                list = serverlevel.recipeAccess().getRecipeFor(ModRecipes.CRAFTING_PLUS_TYPE.get(), input, serverlevel)
-                        .map(holder ->
-                                holder.value().getRemainingItems(input)).orElseGet(() -> copyAllInputItems(input));
-            }
-            else {
-                list = serverlevel.recipeAccess().getRecipeFor(RecipeType.CRAFTING, input, serverlevel)
-                        .map(holder ->
-                                holder.value().getRemainingItems(input)).orElseGet(() -> copyAllInputItems(input));
-            }
+            list = serverlevel.recipeAccess().getRecipeFor(ModRecipes.CRAFTING_PLUS_TYPE.get(), input, serverlevel)
+                              .map(holder ->
+                                   holder.value().getRemainingItems(input)).orElseGet(() -> copyAllInputItems(input));
         }
         else { list = CraftingRecipe.defaultCraftingReminder(input); }
         return list;
@@ -96,7 +84,7 @@ public class CraftingPlusResultSlot extends Slot {
         if (level instanceof ServerLevel) {
             CommonHooks.setCraftingPlayer(player);
             nonnulllist = this.getRemainingItems(craftinginput, level);
-            CommonHooks.setCraftingPlayer(null);
+            CommonHooks.setCraftingPlayer(player); // DEFAULT VALUE -> null
             for(int k = 0; k < craftinginput.height(); ++k) {
                 for(int l = 0; l < craftinginput.width(); ++l) {
                     int i1 = l + i + (k + j) * this.craftSlots.getWidth();
