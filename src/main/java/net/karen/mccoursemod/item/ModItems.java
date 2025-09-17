@@ -653,11 +653,11 @@ public class ModItems {
                                                TagKey<Item> repair, int radius,
                                                int argbColors, int textColor) {
         return ITEMS.registerItem(name, properties ->
-               new HammerItem(material, attackDamage, attackSpeed,
-                              properties.fireResistant().repairable(repair)
-                                                        .component(ModDataComponentTypes.HAMMER_TOOLTIP,
-                                                                   new HammerTooltip(radius, textColor)),
-                              radius, argbColors, textColor));
+                                  new HammerItem(material, attackDamage, attackSpeed,
+                                                 properties.fireResistant().repairable(repair)
+                                                                           .component(ModDataComponentTypes.HAMMER_TOOLTIP,
+                                                                                      new HammerTooltip(radius, textColor)),
+                                                 radius, argbColors, textColor));
     }
 
     // ** CUSTOM METHOD - Shovel tool **
@@ -774,19 +774,25 @@ public class ModItems {
     // ** CUSTOM METHOD - Shield tool **
     public static DeferredItem<Item> shieldItem(String name, TagKey<Item> repair) {
         return ITEMS.registerItem(name, properties ->
-                new ShieldItem(properties.component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
-                                         .repairable(repair)
-                                         .equippableUnswappable(EquipmentSlot.OFFHAND)
-                                         .component(DataComponents.BLOCKS_ATTACKS,
-                                                    new BlocksAttacks(0.25F, 1.0F,
-                                                                      List.of(new BlocksAttacks.DamageReduction(
-                                                                              90.0F,
-                                                                              Optional.empty(), 0.0F, 1.0F)),
-                                                    new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F),
-                                                    Optional.of(DamageTypeTags.BYPASSES_SHIELD),
-                                                    Optional.of(SoundEvents.SHIELD_BLOCK),
-                                                    Optional.of(SoundEvents.SHIELD_BREAK)))
-                                         .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)));
+                                  new ShieldItem(properties.component(DataComponents.BANNER_PATTERNS,
+                                                                      BannerPatternLayers.EMPTY)
+                                                           .repairable(repair)
+                                                           .equippableUnswappable(EquipmentSlot.OFFHAND)
+                                                           .component(DataComponents.BLOCKS_ATTACKS,
+                                                                      new BlocksAttacks(0.25F,
+                                                                                        1.0F,
+                                                                                        List.of(new BlocksAttacks.DamageReduction(
+                                                                                                90.0F,
+                                                                                                Optional.empty(),
+                                                                                                0.0F, 1.0F)),
+                                                                      new BlocksAttacks.ItemDamageFunction(3.0F,
+                                                                                                           1.0F,
+                                                                                                           1.0F),
+                                                                      Optional.of(DamageTypeTags.BYPASSES_SHIELD),
+                                                                      Optional.of(SoundEvents.SHIELD_BLOCK),
+                                                                      Optional.of(SoundEvents.SHIELD_BREAK)))
+                                                           .component(DataComponents.BREAK_SOUND,
+                                                                      SoundEvents.SHIELD_BREAK)));
     }
 
     // CUSTOM METHOD - Registry all items on event bus
