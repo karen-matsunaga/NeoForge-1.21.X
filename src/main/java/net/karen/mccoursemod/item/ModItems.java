@@ -462,40 +462,51 @@ public class ModItems {
     // ** CUSTOM Smithing Template **
     public static final DeferredItem<Item> KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE =
            ITEMS.registerItem("kaupen_armor_trim_smithing_template",
-                              SmithingTemplateItem::createArmorTrimTemplate, (new Item.Properties()).rarity(Rarity.COMMON));
+                              SmithingTemplateItem::createArmorTrimTemplate,
+                              new Item.Properties().rarity(Rarity.COMMON));
 
     // ** CUSTOM Music Disc **
-    public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.registerItem("bar_brawl_music_disc",
-           (properties) -> new Item(properties.jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).stacksTo(1)));
+    public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC =
+           ITEMS.registerItem("bar_brawl_music_disc",
+                              properties -> new Item(properties.jukeboxPlayable(ModSounds.BAR_BRAWL_KEY)
+                                                                         .stacksTo(1)));
 
     // ** CUSTOM Seeds **
-    public static final DeferredItem<Item> RADISH_SEEDS = ITEMS.registerItem("radish_seeds",
-           (properties) -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties));
+    public static final DeferredItem<Item> RADISH_SEEDS =
+           ITEMS.registerItem("radish_seeds", properties -> new BlockItem(ModBlocks.RADISH_CROP.get(),
+                                                                                          properties));
 
-    public static final DeferredItem<Item> KOHLRABI_SEEDS = ITEMS.registerItem("kohlrabi_seeds",
-           (properties) -> new BlockItem(ModBlocks.KOHLRABI_CROP.get(), properties));
+    public static final DeferredItem<Item> KOHLRABI_SEEDS =
+           ITEMS.registerItem("kohlrabi_seeds", properties -> new BlockItem(ModBlocks.KOHLRABI_CROP.get(),
+                                                                                            properties));
 
-    public static final DeferredItem<Item> CATTAIL_SEEDS = ITEMS.registerItem("cattail_seeds",
-           (properties) -> new BlockItem(ModBlocks.CATTAIL_CROP.get(), properties));
+    public static final DeferredItem<Item> CATTAIL_SEEDS =
+           ITEMS.registerItem("cattail_seeds", properties -> new BlockItem(ModBlocks.CATTAIL_CROP.get(),
+                                                                                           properties));
 
     // ** CUSTOM Bush Crop **
-    public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",
-           (properties) -> new BlockItem(ModBlocks.GOJI_BERRY_BUSH.get(),
-                                                   properties.food(new FoodProperties.Builder().nutrition(2)
-                                                                                               .saturationModifier(0.15F).build())));
+    public static final DeferredItem<Item> GOJI_BERRIES =
+           ITEMS.registerItem("goji_berries", properties ->
+                              new BlockItem(ModBlocks.GOJI_BERRY_BUSH.get(),
+                                            properties.food(new FoodProperties.Builder().nutrition(2)
+                                                                                        .saturationModifier(0.15F)
+                                                                                        .build())));
 
     // ** CUSTOM Mob **
     // GECKO
-    public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.registerItem("gecko_spawn_egg",
-           (properties) -> new SpawnEggItem(ModEntities.GECKO.get(), properties));
+    public static final DeferredItem<Item> GECKO_SPAWN_EGG =
+           ITEMS.registerItem("gecko_spawn_egg", properties ->
+                              new SpawnEggItem(ModEntities.GECKO.get(), properties));
 
     // RHINO
-    public static final DeferredItem<Item> RHINO_SPAWN_EGG = ITEMS.registerItem("rhino_spawn_egg",
-           (properties) -> new SpawnEggItem(ModEntities.RHINO.get(), properties));
+    public static final DeferredItem<Item> RHINO_SPAWN_EGG =
+           ITEMS.registerItem("rhino_spawn_egg", properties ->
+                              new SpawnEggItem(ModEntities.RHINO.get(), properties));
 
     // ** CUSTOM Throwable Projectiles **
-    public static final DeferredItem<Item> TOMAHAWK = ITEMS.registerItem("tomahawk",
-           (properties) -> new TomahawkItem(properties.stacksTo(16)));
+    public static final DeferredItem<Item> TOMAHAWK =
+           ITEMS.registerItem("tomahawk", properties ->
+                              new TomahawkItem(properties.stacksTo(16)));
 
     public static final DeferredItem<Item> DICE_ITEM =
            ITEMS.registerItem("dice_item", DiceItem::new, new Item.Properties());
@@ -507,58 +518,70 @@ public class ModItems {
 
     // ** CUSTOM Advanced Items **
     // Auto smelt item
-    public static final DeferredItem<Item> AUTO_SMELT = ITEMS.registerItem("auto_smelt",
-           (properties) -> new SpecialEffectItem(properties, ModDataComponentTypes.AUTO_SMELT.get(), 10));
+    public static final DeferredItem<Item> AUTO_SMELT =
+           ITEMS.registerItem("auto_smelt",
+                              properties -> new SpecialEffectItem(properties,
+                                                                            ModDataComponentTypes.AUTO_SMELT.get(),
+                                                                            10));
 
     // Level Charger items
     public static final DeferredItem<Item> LEVEL_CHARGER_GENERIC_PLUS =
            ITEMS.registerItem("level_charger_generic_plus",
-           (properties) -> new LevelChargerGenericItem(properties.fireResistant(), 1));
+                              properties -> new LevelChargerGenericItem(properties.fireResistant(), 1));
 
     public static final DeferredItem<Item> LEVEL_CHARGER_GENERIC_MINUS =
            ITEMS.registerItem("level_charger_generic_minus",
-           (properties) -> new LevelChargerGenericItem(properties.fireResistant(), -1));
+                              properties -> new LevelChargerGenericItem(properties.fireResistant(), -1));
 
     public static final DeferredItem<Item> LEVEL_CHARGER_SPECIF_PLUS_FORTUNE =
            ITEMS.registerItem("level_charger_specif_plus_fortune",
-           (properties) -> new LevelChargerSpecifItem(properties.fireResistant(), 1, Enchantments.FORTUNE));
+                              properties -> new LevelChargerSpecifItem(properties.fireResistant(), 1,
+                                                                                 Enchantments.FORTUNE));
 
     public static final DeferredItem<Item> LEVEL_CHARGER_SPECIF_MINUS_FORTUNE =
            ITEMS.registerItem("level_charger_specif_minus_fortune",
-           (properties) -> new LevelChargerSpecifItem(properties.fireResistant(), -1, Enchantments.FORTUNE));
+                              properties -> new LevelChargerSpecifItem(properties.fireResistant(), -1,
+                                                                                 Enchantments.FORTUNE));
 
     // ** CUSTOM Compactor items **
     // Ultra Compactor
     public static final DeferredItem<Item> ULTRA_COMPACTOR =
            ITEMS.registerItem("ultra_compactor",
-           (properties) -> new CompactorItem(properties.stacksTo(1).fireResistant(),
-                                                      true, ModTags.Items.ULTRA_COMPACTOR_ITEMS,
-                                                      ModTags.Items.ULTRA_COMPACTOR_RESULT));
+                              properties -> new CompactorItem(properties.stacksTo(1)
+                                                                                  .fireResistant(),
+                                                                        true,
+                                                                        ModTags.Items.ULTRA_COMPACTOR_ITEMS,
+                                                                        ModTags.Items.ULTRA_COMPACTOR_RESULT));
 
     // Pink Ultra Compactor
     public static final DeferredItem<Item> PINK_ULTRA_COMPACTOR =
            ITEMS.registerItem("pink_ultra_compactor",
-           (properties) -> new CompactorItem(properties.stacksTo(1).fireResistant(),
-                                                      false, ModTags.Items.PINK_ULTRA_COMPACTOR_ITEMS,
-                                                      ModTags.Items.PINK_ULTRA_COMPACTOR_RESULT));
+                              properties -> new CompactorItem(properties.stacksTo(1)
+                                                                                  .fireResistant(),
+                                                                        false,
+                                                                        ModTags.Items.PINK_ULTRA_COMPACTOR_ITEMS,
+                                                                        ModTags.Items.PINK_ULTRA_COMPACTOR_RESULT));
 
     // Mccourse Mod Bottle item
-    public static final DeferredItem<Item> MCCOURSE_MOD_BOTTLE = ITEMS.registerItem("mccourse_mod_bottle",
-           (properties) -> new MccourseModBottleItem(properties.fireResistant().stacksTo(1),
-                                                               100000, 1));
+    public static final DeferredItem<Item> MCCOURSE_MOD_BOTTLE =
+           ITEMS.registerItem("mccourse_mod_bottle",
+                              properties -> new MccourseModBottleItem(properties.fireResistant()
+                                                                                          .stacksTo(1),
+                                                                                100000, 1));
 
     // METAL DETECTOR item
     public static final DeferredItem<Item> METAL_DETECTOR =
-           ITEMS.registerItem("metal_detector",
-           (properties) -> new MetalDetectorItem(properties.fireResistant().stacksTo(1)
-                                                                     .component(ModDataComponentTypes.SHIFT_TOOLTIP,
-                                                                                new ShiftTooltip(
-                                                                                List.of(
-                                                                                "tooltip.mccoursemod.metal_detector.tooltip.shift",
-                                                                                "tooltip.mccoursemod.metal_detector.tooltip"),
-                                                                                List.of(ChatUtils.yellow, ChatUtils.white),
-                                                                                true)),
-                                                           ModTags.Blocks.METAL_DETECTOR_VALUABLES));
+           ITEMS.registerItem("metal_detector", properties ->
+                              new MetalDetectorItem(properties.fireResistant()
+                                                              .stacksTo(1)
+                                                              .component(ModDataComponentTypes.SHIFT_TOOLTIP,
+                                                                         new ShiftTooltip(
+                                                                         List.of(
+                                                                         "tooltip.mccoursemod.metal_detector.tooltip.shift",
+                                                                         "tooltip.mccoursemod.metal_detector.tooltip"),
+                                                                         List.of(ChatUtils.yellow, ChatUtils.white),
+                                                                         true)),
+                                                    ModTags.Blocks.METAL_DETECTOR_VALUABLES));
 
     // DATA TABLET item
     public static final DeferredItem<Item> DATA_TABLET =
@@ -571,20 +594,20 @@ public class ModItems {
 
     // ** CUSTOM sign and Hanging sign **
     public static final DeferredItem<Item> WALNUT_SIGN =
-           ITEMS.register("walnut_sign",
-           () -> new SignItem(ModBlocks.WALNUT_SIGN.get(), ModBlocks.WALNUT_WALL_SIGN.get(),
-                              new Item.Properties().stacksTo(16)
-                                                   .setId(ResourceKey.create(Registries.ITEM,
-                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                          "walnut_sign")))));
+           ITEMS.register("walnut_sign", properties ->
+                          new SignItem(ModBlocks.WALNUT_SIGN.get(), ModBlocks.WALNUT_WALL_SIGN.get(),
+                                       new Item.Properties().stacksTo(16)
+                                                            .setId(ResourceKey.create(Registries.ITEM,
+                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                   "walnut_sign")))));
 
     public static final DeferredItem<Item> WALNUT_HANGING_SIGN =
-           ITEMS.register("walnut_hanging_sign",
-           () -> new HangingSignItem(ModBlocks.WALNUT_HANGING_SIGN.get(), ModBlocks.WALNUT_WALL_HANGING_SIGN.get(),
-                                     new Item.Properties().stacksTo(16)
-                                             .setId(ResourceKey.create(Registries.ITEM,
-                                                    ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                    "walnut_hanging_sign")))));
+           ITEMS.register("walnut_hanging_sign", properties ->
+                          new HangingSignItem(ModBlocks.WALNUT_HANGING_SIGN.get(), ModBlocks.WALNUT_WALL_HANGING_SIGN.get(),
+                                              new Item.Properties().stacksTo(16)
+                                                                   .setId(ResourceKey.create(Registries.ITEM,
+                                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                          "walnut_hanging_sign")))));
 
     // TORCH BALL item
     public static final DeferredItem<Item> TORCH_BALL =
@@ -597,16 +620,18 @@ public class ModItems {
 
     public static final DeferredItem<Item> BOUNCY_BALLS_PARTICLES =
            ITEMS.registerItem("bouncy_balls_particles", Item::new,
-           new Item.Properties().stacksTo(64).fireResistant());
+                              new Item.Properties().stacksTo(64).fireResistant());
 
     // ** CUSTOM boats **
     public static final DeferredItem<Item> WALNUT_BOAT =
            ITEMS.registerItem("walnut_boat",
-           (properties) -> new ModBoatItem(ModEntities.MOD_BOAT.get(), properties.stacksTo(1)));
+                              properties -> new ModBoatItem(ModEntities.MOD_BOAT.get(),
+                                                                      properties.stacksTo(1)));
 
     public static final DeferredItem<Item> WALNUT_CHEST_BOAT =
            ITEMS.registerItem("walnut_chest_boat",
-           (properties) -> new ModBoatItem(ModEntities.MOD_CHEST_BOAT.get(), properties.stacksTo(1)));
+                              properties -> new ModBoatItem(ModEntities.MOD_CHEST_BOAT.get(),
+                                                                      properties.stacksTo(1)));
 
     // ** CUSTOM METHOD - Fuel **
     public static DeferredItem<Item> fuelItem(String name, int burnTime) {
