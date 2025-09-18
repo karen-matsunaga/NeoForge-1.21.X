@@ -11,7 +11,7 @@ import net.karen.mccoursemod.entity.client.*;
 import net.karen.mccoursemod.fluid.BaseFluidType;
 import net.karen.mccoursemod.fluid.ModFluidTypes;
 import net.karen.mccoursemod.fluid.ModFluids;
-import net.karen.mccoursemod.network.LevelChargerInventorySlotPacketPayload;
+import net.karen.mccoursemod.network.LevelChargerSlotPacketPayload;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.network.UnlockEnchantmentPacketPayload;
@@ -139,11 +139,11 @@ public class ModClientEvents {
                                MccourseModBottlePacketPayload::onMccourseModBottleServerPayloadHandler);
 
         // Network -> Level Charger items
-        registrar.playToServer(LevelChargerInventorySlotPacketPayload.TYPE,
+        registrar.playToServer(LevelChargerSlotPacketPayload.TYPE,
                                // STREAM CODEC
-                               LevelChargerInventorySlotPacketPayload.STREAM_CODEC,
+                               LevelChargerSlotPacketPayload.STREAM_CODEC,
                                // Server Payload Handler
-                               LevelChargerInventorySlotPacketPayload::onLevelChargerServerPayloadHandler);
+                               LevelChargerSlotPacketPayload::onLevelChargerServerPayloadHandler);
 
         // Network -> Unlock enchantment
         registrar.playToServer(UnlockEnchantmentPacketPayload.TYPE,

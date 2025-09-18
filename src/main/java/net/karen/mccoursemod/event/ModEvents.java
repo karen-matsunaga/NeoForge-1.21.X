@@ -18,10 +18,9 @@ import net.karen.mccoursemod.entity.custom.GeckoEntity;
 import net.karen.mccoursemod.entity.custom.RhinoEntity;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.item.custom.HammerItem;
-import net.karen.mccoursemod.item.custom.LevelChargerGenericItem;
-import net.karen.mccoursemod.item.custom.LevelChargerSpecifItem;
+import net.karen.mccoursemod.item.custom.LevelChargerItem;
 import net.karen.mccoursemod.item.custom.MccourseModBottleItem;
-import net.karen.mccoursemod.network.LevelChargerInventorySlotPacketPayload;
+import net.karen.mccoursemod.network.LevelChargerSlotPacketPayload;
 import net.karen.mccoursemod.network.MccourseModBottlePacketPayload;
 import net.karen.mccoursemod.network.MccourseModElevatorPacketPayload;
 import net.karen.mccoursemod.network.UnlockEnchantmentPacketPayload;
@@ -912,10 +911,7 @@ public class ModEvents {
         Player player = Minecraft.getInstance().player;
         if (player == null) { return; }
         ItemStack carried = player.containerMenu.getCarried();
-        Item item = carried.getItem();
-        boolean generic = item instanceof LevelChargerGenericItem; // Level Charger Generic
-        boolean specif = item instanceof LevelChargerSpecifItem; // Level Charger Specif
-        if (!(generic || specif)) { return; } // Hasn't LEVEL CHARGER items
+        if (!(carried.getItem() instanceof LevelChargerItem)) { return; } // Hasn't LEVEL CHARGER items
         double mouseX = event.getMouseX();
         double mouseY = event.getMouseY();
         if (event.getButton() != 0) { return; }
@@ -925,7 +921,7 @@ public class ModEvents {
                 ItemStack target = slot.getItem();
                 if (target.isEmpty() || target == carried) { return; }
                 // Send to the server -> LEVEL CHARGER items
-                ClientPacketDistributor.sendToServer(new LevelChargerInventorySlotPacketPayload(slot.index));
+                ClientPacketDistributor.sendToServer(new LevelChargerSlotPacketPayload(slot.index));
                 Utils.consumeInfinite(player, carried); // Consume item on client (immediate visual effect)
                 event.setCanceled(true);
                 return;

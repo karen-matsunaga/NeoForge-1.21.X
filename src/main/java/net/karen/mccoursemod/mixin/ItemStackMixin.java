@@ -113,6 +113,13 @@ public abstract class ItemStackMixin {
                 tooltipLineLiteralRGB(tooltip, COLORS, stack, specialEffect.specialEffectItemName());
             }
         }
+        // LEVEL CHARGER GENERIC items
+        if (stack.is(ModTags.Items.LEVEL_CHARGER_ITEMS)) {
+            if (item instanceof LevelChargerItem generic) {
+                tooltip.add(componentLiteral(generic.levelChargerItemDescription(),
+                                             generic.getAmount() == 1 ? green : red));
+            }
+        }
         // ** CUSTOM ENCHANTMENTS **
         if (level != null) {
             HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
@@ -123,9 +130,11 @@ public abstract class ItemStackMixin {
                     if (values != null) {
                         boolean locked = values; // Locked Data Component change stage
                         tooltip.add(standardLiteral(locked ? "§c\uD83D\uDD12 Item locked! " +
-                                                              "§7- Press §eV§7 §ato UNLOCK!"
+                                                             "§7- Press §eV§7 §ato UNLOCK! " +
+                                                             String.valueOf(locked).toUpperCase()
                                                            : "§a\uD83D\uDD13 Item unlocked! " +
-                                                             "§7- Press §eV§7 §cto LOCK!"));
+                                                             "§7- Press §eV§7 §cto LOCK! " +
+                                                             String.valueOf(locked).toUpperCase()));
                     }
                 }
                 else { stack.set(ModDataComponentTypes.UNLOCK, false); }

@@ -35,6 +35,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.BlocksAttacks;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.equipment.*;
 import net.minecraft.world.item.equipment.trim.TrimMaterial;
@@ -43,6 +44,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 import static net.karen.mccoursemod.util.ChatUtils.*;
@@ -526,22 +528,16 @@ public class ModItems {
 
     // Level Charger items
     public static final DeferredItem<Item> LEVEL_CHARGER_GENERIC_PLUS =
-           ITEMS.registerItem("level_charger_generic_plus",
-                              properties -> new LevelChargerGenericItem(properties.fireResistant(), 1));
+           levelChargerItem("level_charger_generic_plus", 1, null);
 
     public static final DeferredItem<Item> LEVEL_CHARGER_GENERIC_MINUS =
-           ITEMS.registerItem("level_charger_generic_minus",
-                              properties -> new LevelChargerGenericItem(properties.fireResistant(), -1));
+           levelChargerItem("level_charger_generic_minus", -1, null);
 
     public static final DeferredItem<Item> LEVEL_CHARGER_SPECIF_PLUS_FORTUNE =
-           ITEMS.registerItem("level_charger_specif_plus_fortune",
-                              properties -> new LevelChargerSpecifItem(properties.fireResistant(), 1,
-                                                                                 Enchantments.FORTUNE));
+           levelChargerItem("level_charger_specif_plus_fortune", 1, Enchantments.FORTUNE);
 
     public static final DeferredItem<Item> LEVEL_CHARGER_SPECIF_MINUS_FORTUNE =
-           ITEMS.registerItem("level_charger_specif_minus_fortune",
-                              properties -> new LevelChargerSpecifItem(properties.fireResistant(), -1,
-                                                                                 Enchantments.FORTUNE));
+           levelChargerItem("level_charger_specif_minus_fortune", -1, Enchantments.FORTUNE);
 
     // ** CUSTOM Compactor items **
     // Ultra Compactor
@@ -632,6 +628,13 @@ public class ModItems {
            ITEMS.registerItem("walnut_chest_boat",
                               properties -> new ModBoatItem(ModEntities.MOD_CHEST_BOAT.get(),
                                                                       properties.stacksTo(1)));
+
+    // ** CUSTOM METHOD - Level Charger items **
+    public static DeferredItem<Item> levelChargerItem(String name, int amount,
+                                                      @Nullable ResourceKey<Enchantment> enchantment) {
+        return ITEMS.registerItem(name, properties ->
+                                  new LevelChargerItem(properties.fireResistant(), amount, enchantment));
+    }
 
     // ** CUSTOM METHOD - Fuel **
     public static DeferredItem<Item> fuelItem(String name, int burnTime) {
