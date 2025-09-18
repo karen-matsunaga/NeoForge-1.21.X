@@ -8,12 +8,9 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import java.util.function.Consumer;
-import static net.karen.mccoursemod.util.ChatUtils.standardLiteral;
+import static net.karen.mccoursemod.util.ChatUtils.*;
 
 public class DataTabletItem extends Item {
     public DataTabletItem(Properties properties) {
@@ -35,11 +32,14 @@ public class DataTabletItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @NotNull TooltipContext context,
-                                @NotNull TooltipDisplay display, @NotNull Consumer<Component> consumer,
-                                @NotNull TooltipFlag flag) {
+    public @NotNull Component getName(@NotNull ItemStack stack) {
+        return componentTranslatable(this.getDescriptionId(), gray);
+    }
+
+    // CUSTOM METHOD - DATA TABLET item description
+    public String getItemName(ItemStack stack) {
         FoundBlock foundBlockData = stack.get(ModDataComponentTypes.FOUND_BLOCK.get());
-        if (foundBlockData != null ) { consumer.accept(standardLiteral(foundBlockData.getOutputString())); }
-        super.appendHoverText(stack, context, display, consumer, flag);
+        if (foundBlockData != null) { return foundBlockData.getOutputString(); }
+        else { return ""; }
     }
 }

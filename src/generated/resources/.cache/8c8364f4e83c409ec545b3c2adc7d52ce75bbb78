@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-13T18:50:26.2792943	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-09-18T09:24:27.2466111	Tags for minecraft:item mod id vanilla
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/entity_water.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/water.json
@@ -15,6 +15,7 @@ e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/bismuth_tool
 070d07f973f1a24a1a41e4e5443ab1cd8b3d8d20 data/mccoursemod/tags/item/boots_fly.json
 3042c75c3334ec4bd86267ec1599a0f75f5d4753 data/mccoursemod/tags/item/bow_tools.json
 0bc8cd739dc46202f2c3e69684cfddc5d38f4292 data/mccoursemod/tags/item/chestplate_fly.json
+8fc8431b2b479ba31487118e6ad2857095824630 data/mccoursemod/tags/item/compactor_items.json
 ea5a825d24352ed6ebb698a7953bba8643e5d8ba data/mccoursemod/tags/item/copper_armor.json
 6222fd0d7d2ce08ee1f70be68a61f4e167dda650 data/mccoursemod/tags/item/copper_tool_materials.json
 9f117baa16a9f576daf317dabbc707d980ef0d7c data/mccoursemod/tags/item/helmet_fly.json

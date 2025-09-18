@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.item.custom;
 
 import net.karen.mccoursemod.entity.custom.TomahawkProjectileEntity;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -11,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import static net.karen.mccoursemod.util.ChatUtils.*;
 
 public class TomahawkItem extends Item {
     public TomahawkItem(Properties properties) {
@@ -31,5 +33,10 @@ public class TomahawkItem extends Item {
         player.awardStat(Stats.ITEM_USED.get(this));
         if (!player.getAbilities().instabuild) { itemstack.shrink(1); }
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public @NotNull Component getName(@NotNull ItemStack stack) {
+        return componentTranslatable(this.getDescriptionId(), gray);
     }
 }

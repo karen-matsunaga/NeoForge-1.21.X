@@ -184,6 +184,8 @@ public class ModTags {
         public static final TagKey<Item> WALNUT_LOGS = createTag("walnut_logs");
 
         // ** CUSTOM Compactor items **
+        public static final TagKey<Item> COMPACTOR_ITEMS = createTag("compactor_items");
+
         // Ultra Compactor item
         public static final TagKey<Item> ULTRA_COMPACTOR_ITEMS =
                createTag("ultra_compactor_items");

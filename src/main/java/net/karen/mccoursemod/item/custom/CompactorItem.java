@@ -1,5 +1,6 @@
 package net.karen.mccoursemod.item.custom;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
@@ -17,16 +18,14 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Consumer;
 import java.util.stream.Stream;
 import static net.karen.mccoursemod.util.ChatUtils.*;
 
@@ -123,19 +122,20 @@ public class CompactorItem extends Item {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context,
-                                @NotNull TooltipDisplay display, @NotNull Consumer<Component> consumer,
-                                @NotNull TooltipFlag flag) {
-        tooltipLine(consumer, "Transform all vanilla gems, raw's, ingots and mobs drops on blocks!", gold);
-        tooltipLine(consumer, "Compact type: 3x3 crafting recipes.", darkAqua);
-    }
-
-    @Override
     public void inventoryTick(@NotNull ItemStack stack, @NotNull ServerLevel level,
                               @NotNull Entity entity, @Nullable EquipmentSlot slot) {
         Player player = (Player) entity;
         if (this.AUTOMATED) { // CRAFT is automated
             for (int i = 0; i < player.getInventory().getContainerSize(); i++) { craftItem(level, player); }
         }
+    }
+
+    // CUSTOM METHOD - COMPACTOR item description
+    public Map<String, ChatFormatting> compactorItemName() {
+        boolean isAutomated = this.AUTOMATED;
+        // Map<String, ChatFormatting> -> String [Message line]; ChatFormatting [Message color line].
+        return Map.of("Craft Automated: " + isAutomated, isAutomated ? green : red,
+                      "Transform all vanilla gems, raw's, ingots and mobs drops on blocks!", gold,
+                      "Compact type: 3x3 crafting recipes.", aqua);
     }
 }

@@ -4,9 +4,11 @@ import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.item.ModItems;
-import net.karen.mccoursemod.item.custom.TorchBallItem;
+import net.karen.mccoursemod.item.custom.*;
+import net.karen.mccoursemod.util.ModTags;
 import net.karen.mccoursemod.util.Utils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
@@ -48,6 +50,7 @@ public abstract class ItemStackMixin {
         ItemStack stack = (ItemStack) (Object) this; // Get all blocks, items, etc.
         List<Component> tooltip = new ArrayList<>(cir.getReturnValue()); // Old tooltip
         Level level = Minecraft.getInstance().level;
+        Item item = stack.getItem();
         // ** CUSTOM BLOCKS **
         // Item checked is MAGIC block + Added more information about MAGIC block
         if (stack.is(ModBlocks.MAGIC.get().asItem())) {
@@ -67,9 +70,47 @@ public abstract class ItemStackMixin {
         }
         // TORCH BALL item
         if (stack.is(ModItems.TORCH_BALL.get().asItem())) {
-            if (stack.getItem() instanceof TorchBallItem torchBall) {
+            if (item instanceof TorchBallItem torchBall) {
                 tooltip.add(componentLiteral("§6 [" + torchBall.getItemName() + "]§r" +
                                              " when hit added torch!", yellow));
+            }
+        }
+        // TOMAHAWK item
+        if (stack.is(ModItems.TOMAHAWK.get().asItem())) {
+            tooltip.add(componentTranslatable("tooltip.mccoursemod.tomahawk", yellow));
+        }
+        // DATA TABLET item
+        if (stack.is(ModItems.DATA_TABLET.get().asItem())) {
+            if (item instanceof DataTabletItem dataTablet) {
+                tooltip.add(componentLiteral(dataTablet.getItemName(stack), darkGray));
+            }
+        }
+        // ELYTRA PLUS item
+        if (stack.is(ModItems.DIAMOND_ELYTRA.get().asItem())) {
+            if (item instanceof ElytraPlusItem elytraPlus) {
+                tooltipLineLiteralRGB(tooltip, COLORS, stack, elytraPlus.elytraItemName());
+            }
+        }
+        // COMPACTOR item
+        if (stack.is(ModTags.Items.COMPACTOR_ITEMS)) {
+            if (item instanceof CompactorItem compactor) {
+                compactor.compactorItemName()
+                         .forEach((message, color) ->
+                                  tooltip.add(componentLiteral(message, color)));
+            }
+        }
+        // CHISEL item
+        if (stack.is(ModItems.CHISEL.get().asItem())) {
+            if (item instanceof ChiselItem chisel) {
+                boolean isShift = Screen.hasShiftDown();
+                tooltip.add(componentTranslatable(chisel.chiselShiftDescription(), isShift ? blue : red));
+                tooltip.add(componentLiteral(chisel.chiselItemDescription(stack), gray));
+            }
+        }
+        // SPECIAL EFFECT item
+        if (stack.is(ModTags.Items.SPECIAL_EFFECT_ITEMS)) {
+            if (item instanceof SpecialEffectItem specialEffect) {
+                tooltipLineLiteralRGB(tooltip, COLORS, stack, specialEffect.specialEffectItemName());
             }
         }
         // ** CUSTOM ENCHANTMENTS **
@@ -82,9 +123,9 @@ public abstract class ItemStackMixin {
                     if (values != null) {
                         boolean locked = values; // Locked Data Component change stage
                         tooltip.add(standardLiteral(locked ? "§c\uD83D\uDD12 Item locked! " +
-                                                              "§7- Press §eV§7 §cto unlock " + locked
+                                                              "§7- Press §eV§7 §ato UNLOCK!"
                                                            : "§a\uD83D\uDD13 Item unlocked! " +
-                                                             "§7- Press §eV§7 §ato lock " + !locked));
+                                                             "§7- Press §eV§7 §cto LOCK!"));
                     }
                 }
                 else { stack.set(ModDataComponentTypes.UNLOCK, false); }

@@ -286,6 +286,9 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         this.tag(ItemTags.BEE_FOOD).add(ModBlocks.SNAPDRAGON.asItem());
 
         // ** CUSTOM Compactor items **
+        this.tag(ModTags.Items.COMPACTOR_ITEMS).add(ModItems.ULTRA_COMPACTOR.get(),
+                                                    ModItems.PINK_ULTRA_COMPACTOR.get());
+
         // Ultra Compactor Input
         this.tag(ModTags.Items.ULTRA_COMPACTOR_ITEMS).addTag(Tags.Items.INGOTS_COPPER)
                                                      .addTag(Tags.Items.INGOTS_GOLD)

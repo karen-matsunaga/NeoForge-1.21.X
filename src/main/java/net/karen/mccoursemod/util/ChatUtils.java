@@ -18,15 +18,20 @@ import java.util.StringJoiner;
 import java.util.function.Consumer;
 
 public class ChatUtils {
+    // VANILLA colors
     public static ChatFormatting blue = ChatFormatting.BLUE, darkBlue = ChatFormatting.DARK_BLUE,
-           aqua = ChatFormatting.AQUA, darkAqua = ChatFormatting.DARK_AQUA,
-           purple = ChatFormatting.LIGHT_PURPLE, darkPurple = ChatFormatting.DARK_PURPLE,
-           green = ChatFormatting.GREEN, darkGreen = ChatFormatting.DARK_GREEN,
-           gray = ChatFormatting.GRAY, darkGray = ChatFormatting.DARK_GRAY,
-           yellow = ChatFormatting.YELLOW, gold = ChatFormatting.GOLD,
-           red = ChatFormatting.RED, darkRed = ChatFormatting.DARK_RED,
-           black = ChatFormatting.BLACK, white = ChatFormatting.WHITE,
-           bold = ChatFormatting.BOLD, italic = ChatFormatting.ITALIC;
+                                 aqua = ChatFormatting.AQUA, darkAqua = ChatFormatting.DARK_AQUA,
+                                 purple = ChatFormatting.LIGHT_PURPLE, darkPurple = ChatFormatting.DARK_PURPLE,
+                                 green = ChatFormatting.GREEN, darkGreen = ChatFormatting.DARK_GREEN,
+                                 gray = ChatFormatting.GRAY, darkGray = ChatFormatting.DARK_GRAY,
+                                 yellow = ChatFormatting.YELLOW, gold = ChatFormatting.GOLD,
+                                 red = ChatFormatting.RED, darkRed = ChatFormatting.DARK_RED,
+                                 black = ChatFormatting.BLACK, white = ChatFormatting.WHITE,
+                                 bold = ChatFormatting.BOLD, italic = ChatFormatting.ITALIC;
+
+    // RGB colors
+    public static final int[] COLORS = { 0xff5555, 0xffaa00, 0xffff55, 0x55ff55,
+                                         0x55ffff, 0x5555ff, 0xff55ff };
 
     // CUSTOM METHOD - COMPONENT LITERAL without color
     public static Component standardLiteral(String message) {
@@ -113,8 +118,14 @@ public class ChatUtils {
         tooltip.accept(componentTranslatable(message, color));
     }
 
+    // CUSTOM METHOD - Text appears on TOOLTIP item -> Component Translatable
+    public static void tooltipLineTranslatable(List<Component> tooltip,
+                                    String message, ChatFormatting color) {
+        tooltip.add(componentTranslatable(message, color));
+    }
+
     // CUSTOM METHOD - Tooltip Line Literal with RGB colors
-    public static void tooltipLineLiteralRGB(Consumer<Component> tooltip,
+    public static void tooltipLineLiteralRGB(List<Component> tooltip,
                                              int[] COLORS, ItemStack stack, String message) {
         int shift = (int) (System.currentTimeMillis() / 200L % COLORS.length); // Calculates color shift based on time
         MutableComponent minerText = Component.literal(""); // Animated text for "Miner Bow" with RGB wave effect
@@ -125,7 +136,7 @@ public class ChatUtils {
             minerText.append(Component.literal(String.valueOf(on.charAt(i)))
                      .setStyle(Style.EMPTY.withColor(TextColor.fromRgb(COLORS[colorIndex]))));
         }
-        tooltip.accept(minerText);
+        tooltip.add(minerText);
     }
 
     // CUSTOM METHOD - Renamed string on TOOLTIP -> Ex: Fortune etc. (Only one word) -> Capitalize First Letters
