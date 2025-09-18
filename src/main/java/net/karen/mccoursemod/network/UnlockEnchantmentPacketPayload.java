@@ -4,6 +4,7 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.util.ChatUtils;
+import net.karen.mccoursemod.util.Utils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -44,7 +45,7 @@ public record UnlockEnchantmentPacketPayload(boolean locked,
                       serverPlayer.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
                 ItemStack target = serverPlayer.getInventory().getItem(payload.index);
                 // Item with UNLOCK enchantment
-                if (!target.isEmpty() && target.getEnchantmentLevel(ench.getOrThrow(ModEnchantments.UNLOCK)) > 0) {
+                if (!target.isEmpty() && Utils.toolEnchant(ench, ModEnchantments.UNLOCK, target) > 0) {
                     target.set(ModDataComponentTypes.UNLOCK, payload.locked);
                     ChatUtils.playerDefault(serverPlayer, payload.locked
                                             ? "§c\uD83D\uDD12 Item locked!" : "§a\uD83D\uDD13 Item unlocked!");

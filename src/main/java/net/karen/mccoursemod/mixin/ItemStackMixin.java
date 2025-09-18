@@ -76,6 +76,7 @@ public abstract class ItemStackMixin {
                                                              "§7- Press §eV§7 §ato lock " + !locked));
                     }
                 }
+                else { stack.set(ModDataComponentTypes.UNLOCK, false); }
             }
         }
         cir.setReturnValue(tooltip); // New tooltip

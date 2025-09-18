@@ -341,6 +341,12 @@ public class ModEvents {
                               new ItemCost(Items.EMERALD, 25),
                               new ItemStack(ModBlocks.SOUND.get().asItem(), 1),
                               2, 5, 0.06F));
+            // Trade level one - Received Enchanted Book with UNLOCK 1
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                               new ItemCost(ModItems.BISMUTH, 64),
+                               villagerEnchantedItem(Items.ENCHANTED_BOOK,
+                                                     Map.of(ench.getOrThrow(ModEnchantments.UNLOCK), 1)),
+                              20, 100, 0.08F));
             // Trade level two - Received Iron pickaxe with EFFICIENCY 4
             trades.get(2).add((entity, randomSource) -> new MerchantOffer(
                               new ItemCost(ModItems.MCCOURSE_MOD_BOTTLE, 1)
@@ -936,9 +942,13 @@ public class ModEvents {
         if (player == null || !map.isDown() || !map.consumeClick()) { return; }
         if (mc.screen == null) {
             Inventory inv = player.getInventory();
+            int hoveredSlot = inv.getSelectedSlot(); // Selected Slot index
+            ItemStack slot = inv.getSelectedItem(); // Selected Slot item
             for (int i = 0; i < inv.getContainerSize(); i++) { // MAIN, ARMOR and OFFHAND slots
-                ItemStack main = inv.getItem(i);
-                Utils.unlockOnKeyPress(main, i);
+                if (hoveredSlot == i) {
+                    ItemStack main = inv.getItem(i);
+                    if (main == slot) { Utils.unlockOnKeyPress(main, i); }
+                }
             }
         }
     }
@@ -951,10 +961,7 @@ public class ModEvents {
         if (player == null) { return; }
         if (event.getKeyCode() != KeyBinding.UNLOCK_KEY.get().getKey().getValue()) { return; }
         Slot hovered = screen.getSlotUnderMouse();
-        if (hovered == null || !hovered.hasItem()) {
-            ChatUtils.player(player, "No item under mouse!", red);
-            return;
-        }
+        if (hovered == null || !hovered.hasItem()) { return; }
         ItemStack hoveredStack = hovered.getItem();
         int index = -1;
         Inventory inv = player.getInventory();
@@ -967,8 +974,11 @@ public class ModEvents {
         boolean locked = false;
         Boolean effect = hoveredStack.get(ModDataComponentTypes.UNLOCK);
         if (effect != null) { locked = effect; }
-        ClientPacketDistributor.sendToServer(new UnlockEnchantmentPacketPayload(!locked, index));
-        event.setCanceled(true); // Prevents other mods or the game from consuming the key
+        if (index > 0) {
+            ClientPacketDistributor.sendToServer(new UnlockEnchantmentPacketPayload(!locked, index));
+            event.setCanceled(true); // Prevents other mods or the game from consuming the key
+        }
+        else { player(player, "Invalid slot index!", red); }
     }
 
     @SubscribeEvent
