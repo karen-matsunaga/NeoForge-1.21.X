@@ -12,17 +12,20 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
-import java.util.function.Consumer;
 import static net.karen.mccoursemod.util.ChatUtils.*;
 import static net.karen.mccoursemod.util.Utils.neutralSoundValue;
 
 public class TorchBallItem extends Item {
     public TorchBallItem(Properties properties) { super(properties); }
+
+    // DEFAULT METHOD - Torch Ball item name
+    public String getItemName() {
+        String upper = itemLine(this.descriptionId, "item.mccoursemod.", "", "_", " ");
+        return itemLines(upper);
+    }
 
     @Override
     public @NotNull InteractionResult use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
@@ -44,14 +47,5 @@ public class TorchBallItem extends Item {
     @Override
     public @NotNull Component getName(@NotNull ItemStack stack) {
         return componentTranslatable(this.descriptionId, ChatUtils.gold);
-    }
-
-    @Override
-    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context,
-                                @NotNull TooltipDisplay display, @NotNull Consumer<Component> consumer,
-                                @NotNull TooltipFlag flag) {
-        String upper = itemLine(this.descriptionId, "item.mccoursemod.", "", "_", " ");
-        tooltipLine(consumer, itemLines(upper) + " when hit added torch!", yellow);
-        super.appendHoverText(stack, context, display, consumer, flag);
     }
 }

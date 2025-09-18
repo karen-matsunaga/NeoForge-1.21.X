@@ -4,6 +4,7 @@ import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.item.custom.TorchBallItem;
 import net.karen.mccoursemod.util.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
@@ -47,6 +48,7 @@ public abstract class ItemStackMixin {
         ItemStack stack = (ItemStack) (Object) this; // Get all blocks, items, etc.
         List<Component> tooltip = new ArrayList<>(cir.getReturnValue()); // Old tooltip
         Level level = Minecraft.getInstance().level;
+        // ** CUSTOM BLOCKS **
         // Item checked is MAGIC block + Added more information about MAGIC block
         if (stack.is(ModBlocks.MAGIC.get().asItem())) {
             Component original = tooltip.getFirst(), // Original tooltip line 0
@@ -58,10 +60,19 @@ public abstract class ItemStackMixin {
         if (stack.is(ModBlocks.SOUND.get().asItem())) {
             tooltip.add(standardTranslatable("tooltip.mccoursemod.sound"));
         }
+        // ** CUSTOM ITEMS **
         // Added more information about GROWTH item
         if (stack.is(ModItems.GROWTH.get().asItem())) {
             tooltip.add(componentTranslatable("tooltip.mccoursemod.growth", aqua));
         }
+        // TORCH BALL item
+        if (stack.is(ModItems.TORCH_BALL.get().asItem())) {
+            if (stack.getItem() instanceof TorchBallItem torchBall) {
+                tooltip.add(componentLiteral("§6 [" + torchBall.getItemName() + "]§r" +
+                                             " when hit added torch!", yellow));
+            }
+        }
+        // ** CUSTOM ENCHANTMENTS **
         if (level != null) {
             HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
             // Item checked is UNLOCK enchantment
