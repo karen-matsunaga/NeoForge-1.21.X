@@ -128,6 +128,14 @@ public abstract class ItemStackMixin {
                                           tooltip.add(componentLiteral(message, color)));
             }
         }
+        // MCCOURSE MOD FISHING ROD item
+        if (stack.is(ModItems.MCCOURSE_MOD_FISHING_ROD)) {
+            tooltip.add(componentLiteral("More faster than vanilla Fishing Rod.", darkGray));
+        }
+        // MINER bow item
+        if (stack.is(ModItems.MINER_BOW)) {
+            tooltipLineLiteralRGB(tooltip, COLORS, stack, " Blocks: " + 3 + " x " + 3 + " x " + 2);
+        }
         // ** CUSTOM ENCHANTMENTS **
         if (level != null) {
             HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);

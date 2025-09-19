@@ -15,7 +15,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.StringJoiner;
-import java.util.function.Consumer;
 
 public class ChatUtils {
     // VANILLA colors
@@ -104,24 +103,6 @@ public class ChatUtils {
         boolean curseFalse = curse.get(0), curseTrue = curse.get(1);
         return Component.translatable(tooltip)
                         .withStyle(Style.EMPTY.withColor(color).withBold(curseFalse).withItalic(curseTrue));
-    }
-
-    // CUSTOM METHOD - Text appears on TOOLTIP item -> Component Literal
-    public static void tooltipLine(Consumer<Component> tooltip,
-                                   String message, ChatFormatting color) {
-        tooltip.accept(componentLiteral(message, color));
-    }
-
-    // CUSTOM METHOD - Text appears on TOOLTIP item -> Component Translatable
-    public static void tooltipLineT(Consumer<Component> tooltip,
-                                    String message, ChatFormatting color) {
-        tooltip.accept(componentTranslatable(message, color));
-    }
-
-    // CUSTOM METHOD - Text appears on TOOLTIP item -> Component Translatable
-    public static void tooltipLineTranslatable(List<Component> tooltip,
-                                    String message, ChatFormatting color) {
-        tooltip.add(componentTranslatable(message, color));
     }
 
     // CUSTOM METHOD - Tooltip Line Literal with RGB colors
@@ -285,5 +266,19 @@ public class ChatUtils {
     // CUSTOM METHOD - Total light, Skylight and Block light colors numbers
     public static Component customStyle(String number, int light) {
         return Component.literal(String.valueOf(number)).setStyle(Style.EMPTY.withColor(light > 6 ? 0x32FC76 : 0xFF1818));
+    }
+
+    // CUSTOM METHOD - ITEM NAME
+    public static Component rgbItemName(ItemStack stack) {
+        int shift = (int) (System.currentTimeMillis() / 200L % COLORS.length); // Calculates color shift based on time
+        MutableComponent minerText = Component.literal(""); // Animated text for "Miner Bow" with RGB wave effect
+        String text = itemLine(stack.getItem().getDescriptionId(), "item.mccoursemod.", "", "_", " ");
+        String on = itemLines(text);
+        for (int i = 0; i < on.length(); i++) {
+            int colorIndex = (i - shift + COLORS.length) % COLORS.length; // Adjust to move colors from left to right
+            minerText.append(Component.translatable(String.valueOf(on.charAt(i)))
+                     .setStyle(Style.EMPTY.withColor(TextColor.fromRgb(COLORS[colorIndex]))));
+        }
+        return minerText;
     }
 }

@@ -1,6 +1,8 @@
 package net.karen.mccoursemod.item.custom;
 
 import net.karen.mccoursemod.entity.custom.MinerBowArrowEntity;
+import net.karen.mccoursemod.util.ChatUtils;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BowItem;
@@ -23,5 +25,10 @@ public class MinerBowItem extends BowItem {
             stack.hurtAndBreak(1, player, player.getUsedItemHand());
         }
         return false;
+    }
+
+    @Override
+    public @NotNull Component getName(@NotNull ItemStack stack) {
+        return ChatUtils.rgbItemName(stack);
     }
 }
