@@ -1,8 +1,8 @@
 package net.karen.mccoursemod.block.custom;
 
+import net.karen.mccoursemod.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -22,13 +22,11 @@ public class SoundBlock extends Block {
         // Sounds when player clicked in block
         if (!level.isClientSide() && player.getUsedItemHand() == InteractionHand.MAIN_HAND) {
             if (player.isCrouching()) { // If crouching on block
-                level.playSound(null, pos, SoundEvents.NOTE_BLOCK_BANJO.value(),
-                                SoundSource.BLOCKS, 1F, 1F);
+                Utils.blockSound(level, false, null, pos, SoundEvents.NOTE_BLOCK_BANJO.value());
                 return InteractionResult.SUCCESS;
             }
             else { // If not crouching on block
-                level.playSound(null, pos, SoundEvents.NOTE_BLOCK_COW_BELL.value(),
-                                SoundSource.BLOCKS, 1F, 1F);
+                Utils.blockSound(level, false, null, pos, SoundEvents.NOTE_BLOCK_COW_BELL.value());
                 return InteractionResult.CONSUME;
             }
         }
@@ -37,10 +35,9 @@ public class SoundBlock extends Block {
 
     // Entity in block
     @Override
-    public void stepOn(Level level, @NotNull BlockPos pos,
+    public void stepOn(@NotNull Level level, @NotNull BlockPos pos,
                        @NotNull BlockState state, @NotNull Entity entity) {
-        level.playSound(entity, pos, SoundEvents.NOTE_BLOCK_BIT.value(),
-                        SoundSource.BLOCKS, 1F, 1F);
+        Utils.blockSound(level, true, entity, pos, SoundEvents.NOTE_BLOCK_BIT.value());
         super.stepOn(level, pos, state, entity);
     }
 }

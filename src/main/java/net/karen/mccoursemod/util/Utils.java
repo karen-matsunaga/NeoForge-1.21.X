@@ -37,6 +37,7 @@ import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
+import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Map;
 
@@ -50,6 +51,12 @@ public class Utils {
     public static void clear() { LAST_BOW_USED.remove(); } // Clear Miner Bow
 
     public static InteractionHand mainHand = InteractionHand.MAIN_HAND, offhand = InteractionHand.OFF_HAND;
+
+    // CUSTOM METHOD - Level block sounds
+    public static void blockSound(Level level, boolean isPlayer, @Nullable Entity entity,
+                                  BlockPos pos, SoundEvent sound) {
+        level.playSound(isPlayer ? entity : null, pos, sound, SoundSource.BLOCKS, 1F, 1F);
+    }
 
     // CUSTOM METHOD - Player item sounds
     public static void sound(Player player, SoundEvent sound, float volume, float pitch) {

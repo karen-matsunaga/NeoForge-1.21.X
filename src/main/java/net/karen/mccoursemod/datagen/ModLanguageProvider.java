@@ -389,7 +389,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.MCCOURSEMOD_ELEVATOR, "Mccourse Mod Elevator Block");
         addBlock(ModBlocks.MCCOURSEMOD_GENERATOR, "Mccourse Mod Generator Block");
         addBlock(ModBlocks.CRAFTING_PLUS, "Crafting Plus Block");
-        addBlock(ModBlocks.SOUND, "Sound Block");
+        addBlock(ModBlocks.SOUND, "§8Sound Block");
 
         // ** CUSTOM Block Families **
         // BISMUTH
