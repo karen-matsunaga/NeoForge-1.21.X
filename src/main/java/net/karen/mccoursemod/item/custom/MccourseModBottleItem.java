@@ -1,7 +1,7 @@
 package net.karen.mccoursemod.item.custom;
 
 import net.karen.mccoursemod.component.ModDataComponentTypes;
-import net.karen.mccoursemod.item.ModItems;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -9,13 +9,11 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import java.util.function.Consumer;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import static net.karen.mccoursemod.util.ChatUtils.*;
-import static net.karen.mccoursemod.util.ChatUtils.componentTranslatable;
 
 public class MccourseModBottleItem extends Item {
     public final int storeXp;
@@ -31,8 +29,9 @@ public class MccourseModBottleItem extends Item {
     public @NotNull InteractionResult use(@NotNull Level level, @NotNull Player player,
                                           @NotNull InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand); // Player has Mccourse Bottle on main hand
-        if (player.level().isClientSide() || stack.isEmpty()) { return InteractionResult.FAIL; }
-        if (!(stack.getItem() instanceof MccourseModBottleItem self)) { return InteractionResult.FAIL; }
+        if (level.isClientSide() || stack.isEmpty() || !(stack.getItem() instanceof MccourseModBottleItem self)) {
+            return InteractionResult.FAIL;
+        }
         if (!stack.has(ModDataComponentTypes.STORED_LEVELS)) {
             stack.set(ModDataComponentTypes.STORED_LEVELS, self.amountXp);
         }
@@ -56,28 +55,19 @@ public class MccourseModBottleItem extends Item {
         return componentTranslatable(this.descriptionId, darkGreen);
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack,
-                                @NotNull TooltipContext context,
-                                @NotNull TooltipDisplay tooltipDisplay,
-                                @NotNull Consumer<Component> consumer,
-                                @NotNull TooltipFlag flag) {
+    // CUSTOM METHOD - Mccourse Bottle tooltip
+    public Map<String, ChatFormatting> mccourseBottleItemDescription(ItemStack stack) {
         Integer xp = stack.get(ModDataComponentTypes.STORED_LEVELS);
-        if (xp != null && xp >= 0) {
-            tooltipLine(consumer, "Stored XP: " + xp + " / " + storeXp, yellow);
-            tooltipLine(consumer, "Stored XP: Left click: 1 level; N: 10 levels;", red);
-            tooltipLine(consumer, "Shift + N: 100 levels; Shift + Left click: All levels.", red);
-            tooltipLine(consumer, "Restored XP: Right click: 1 level; B: 10 levels;", green);
-            tooltipLine(consumer, "Shift + B: 100 levels; Shift + Right click: All levels.", green);
+        Map<String, ChatFormatting> map = new LinkedHashMap<>();
+        if (xp != null && amountXp > 0 && storeXp > 0) {
+           map.put("Stored XP: " + xp + " / " + storeXp, yellow);
+           map.put("Stored XP: Left click: 1 level; N: 10 levels;", red);
+           map.put("Shift + N: 100 levels; Shift + Left click: All levels.", red);
+           map.put("Restored XP: Right click: 1 level; B: 10 levels;", green);
+           map.put("Shift + B: 100 levels; Shift + Right click: All levels.", green);
+           return map;
         }
-        super.appendHoverText(stack, context, tooltipDisplay, consumer, flag);
-    }
-
-    // CUSTOM METHOD - Mccourse Bottle with XP
-    public static ItemStack createMccourseBottleWithXP(int levels) {
-        ItemStack stack = new ItemStack(ModItems.MCCOURSE_MOD_BOTTLE.get());
-        stack.set(ModDataComponentTypes.STORED_LEVELS, levels); // Added levels on Mccourse Bottle item
-        return stack;
+        return map;
     }
 
     // CUSTOM METHOD - Mccourse Bottle RESTORE system

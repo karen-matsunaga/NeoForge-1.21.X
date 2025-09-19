@@ -120,6 +120,14 @@ public abstract class ItemStackMixin {
                                              generic.getAmount() == 1 ? green : red));
             }
         }
+        // MCCOURSE MOD BOTTLE item
+        if (stack.is(ModItems.MCCOURSE_MOD_BOTTLE)) {
+            if (item instanceof MccourseModBottleItem mccoursemodBottle) {
+                mccoursemodBottle.mccourseBottleItemDescription(stack)
+                                 .forEach((message, color) ->
+                                          tooltip.add(componentLiteral(message, color)));
+            }
+        }
         // ** CUSTOM ENCHANTMENTS **
         if (level != null) {
             HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
