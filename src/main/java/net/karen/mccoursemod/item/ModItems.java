@@ -519,13 +519,6 @@ public class ModItems {
                               new Item.Properties().stacksTo(1).durability(1024));
 
     // ** CUSTOM Advanced Items **
-    // Auto smelt item
-    public static final DeferredItem<Item> AUTO_SMELT =
-           ITEMS.registerItem("auto_smelt",
-                              properties -> new SpecialEffectItem(properties,
-                                                                            ModDataComponentTypes.AUTO_SMELT.get(),
-                                                                            10));
-
     // Level Charger items
     public static final DeferredItem<Item> LEVEL_CHARGER_GENERIC_PLUS =
            levelChargerItem("level_charger_generic_plus", 1, null);

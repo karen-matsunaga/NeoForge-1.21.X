@@ -26,7 +26,6 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.PINK, "Pink");
 
         // ** CUSTOM ADVANCED ITEMS **
-        addItem(ModItems.AUTO_SMELT, "Auto Smelt");
         addItem(ModItems.GROWTH, "Growth");
         addItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS, "Level Charger Generic Plus");
         addItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS, "Level Charger Generic Minus");

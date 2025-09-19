@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-13T18:50:26.2570732	Model Definitions - mccoursemod
+// 1.21.8	2025-09-19T10:58:47.7840351	Model Definitions - mccoursemod
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 0cafbe7ae27ac97223742c164d1ec7781a244c03 assets/mccoursemod/blockstates/alexandrite_button.json
 20c64ac30962cfc1d73c994801bea26d04829f07 assets/mccoursemod/blockstates/alexandrite_door.json
@@ -137,7 +137,6 @@ d5aa344fc500ef2d480f2900cf12854002e19dd8 assets/mccoursemod/items/alexandrite_sh
 6c3f1d581493766484d110c3738dc3fe62024862 assets/mccoursemod/items/alexandrite_sword.json
 8f7465ae703d7527072e7d2ae6e2193d6754c803 assets/mccoursemod/items/alexandrite_trapdoor.json
 bd3a47242eb800d22505ec509631cc8eb883726b assets/mccoursemod/items/alexandrite_wall.json
-c2b4d9295d859d3a0327787b1e8bf09d53b79434 assets/mccoursemod/items/auto_smelt.json
 01faff27d45538b35f94e1b7be6b2543a05c771f assets/mccoursemod/items/bar_brawl_music_disc.json
 0cd349c1683ee0871d6856d90d2c83b54a5d0069 assets/mccoursemod/items/bismuth.json
 00c7b619a0bdb3466ef5597bb0146b72cce70cc7 assets/mccoursemod/items/bismuth_axe.json
@@ -604,7 +603,6 @@ fe8aace7b1daef63bdf21a169eebec17f15d1496 assets/mccoursemod/models/item/alexandr
 154b5950542679b676655e45f6e242f6ed830356 assets/mccoursemod/models/item/alexandrite_pickaxe.json
 63815fe16929eaffa64239a1dff3d60990b10a57 assets/mccoursemod/models/item/alexandrite_shovel.json
 8d2f3048ed4d0e022a47cba962c17041ce414dbe assets/mccoursemod/models/item/alexandrite_sword.json
-f87476fe3cdda790db56abc9a59d5dea20b2c519 assets/mccoursemod/models/item/auto_smelt.json
 98c07c10f3185541ad211d209953f1fbdf169704 assets/mccoursemod/models/item/bar_brawl_music_disc.json
 2a992ba870374645f84f37dee1e28fa61670eee2 assets/mccoursemod/models/item/bismuth.json
 40c03c00f3cdcdca33d43d18e74e3473e07ca584 assets/mccoursemod/models/item/bismuth_axe.json

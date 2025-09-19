@@ -279,7 +279,6 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.PINK.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM ADVANCED ITEMS **
-        itemModels.generateFlatItem(ModItems.AUTO_SMELT.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.GROWTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get(), ModelTemplates.FLAT_ITEM);

@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-18T09:24:27.2466111	Tags for minecraft:item mod id vanilla
+// 1.21.8	2025-09-19T10:58:47.8155739	Tags for minecraft:item mod id vanilla
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/entity_water.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/water.json
@@ -44,7 +44,6 @@ e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/repairs_bism
 056929b7ab3fd6b71312bcc7bae8661d4f4a5df0 data/mccoursemod/tags/item/repairs_lapis_lazuli_armor.json
 204eeee6677118a4984bd1e17ff2bdfd176a3b66 data/mccoursemod/tags/item/repairs_pink_armor.json
 5db69586b6c50b2befacf44de1aedc4a5af092fe data/mccoursemod/tags/item/repairs_redstone_armor.json
-b41a72a37404c7dbd6aa6aac08c3c0b04f47cd22 data/mccoursemod/tags/item/special_effect_items.json
 2fdbd2b6ab32e20c3a31fb2a55581d4c364be123 data/mccoursemod/tags/item/ultra_compactor_items.json
 1dd942f7a578100b857661b20a19c22aee5dae48 data/mccoursemod/tags/item/ultra_compactor_result.json
 774205992e78cc4b0cce335e5a396e3a2426ecab data/mccoursemod/tags/item/walnut_logs.json

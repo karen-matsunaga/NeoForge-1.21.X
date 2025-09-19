@@ -253,9 +253,6 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         tag(ModTags.Items.LEGGINGS_FLY).add(ModItems.BISMUTH_LEGGINGS.get());
         tag(ModTags.Items.BOOTS_FLY).add(ModItems.BISMUTH_BOOTS.get());
 
-        // Special Effect items
-        this.tag(ModTags.Items.SPECIAL_EFFECT_ITEMS).add(ModItems.AUTO_SMELT.get());
-
         // Bloodwood item tag
         this.tag(ItemTags.LOGS_THAT_BURN).add(ModBlocks.BLOODWOOD_LOG.asItem(), ModBlocks.WALNUT_LOG.asItem())
                                          .add(ModBlocks.BLOODWOOD_WOOD.asItem(), ModBlocks.WALNUT_WOOD.asItem())

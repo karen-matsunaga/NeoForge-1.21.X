@@ -34,8 +34,6 @@ public class ModCreativeModeTabs {
                  // PINK
                  output.accept(ModItems.PINK);
                  // ** CUSTOM Advanced items **
-                 // CUSTOM Special Effect items
-                 output.accept(ModItems.AUTO_SMELT);
                  // CUSTOM Growth item
                  output.accept(ModItems.GROWTH);
                  // CUSTOM Level Charger items

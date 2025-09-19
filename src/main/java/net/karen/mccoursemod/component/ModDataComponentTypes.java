@@ -37,14 +37,8 @@ public class ModDataComponentTypes {
 
     // Unlock data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> UNLOCK =
-           register("unlock",
-                    builder -> builder.persistent(Codec.BOOL)
-                                                      .networkSynchronized(ByteBufCodecs.BOOL));
-
-    // Auto Smelt custom data component
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> AUTO_SMELT =
-           register("auto_smelt", builder ->
-                    builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
+           register("unlock", builder ->
+                    builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
 
     // Shift tooltip data component
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ShiftTooltip>> SHIFT_TOOLTIP =

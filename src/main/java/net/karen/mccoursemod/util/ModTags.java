@@ -176,9 +176,6 @@ public class ModTags {
                createTag("repairs_lapis_lazuli_armor");
         public static final TagKey<Item> REPAIRS_REDSTONE_ARMOR = createTag("repairs_redstone_armor");
 
-        // Data Component tags
-        public static final TagKey<Item> SPECIAL_EFFECT_ITEMS = createTag("special_effect_items");
-
         // ** CUSTOM log **
         public static final TagKey<Item> BLOODWOOD_LOGS = createTag("bloodwood_logs");
         public static final TagKey<Item> WALNUT_LOGS = createTag("walnut_logs");

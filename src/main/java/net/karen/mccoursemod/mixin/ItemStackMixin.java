@@ -107,12 +107,6 @@ public abstract class ItemStackMixin {
                 tooltip.add(componentLiteral(chisel.chiselItemDescription(stack), gray));
             }
         }
-        // SPECIAL EFFECT item
-        if (stack.is(ModTags.Items.SPECIAL_EFFECT_ITEMS)) {
-            if (item instanceof SpecialEffectItem specialEffect) {
-                tooltipLineLiteralRGB(tooltip, COLORS, stack, specialEffect.specialEffectItemName());
-            }
-        }
         // LEVEL CHARGER GENERIC items
         if (stack.is(ModTags.Items.LEVEL_CHARGER_ITEMS)) {
             if (item instanceof LevelChargerItem generic) {
