@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
@@ -58,20 +57,18 @@ public abstract class LivingEntityMixin extends Entity {
             AABB bb = this.getBoundingBox();
             Iterable<BlockPos> blockPosCoordinates =
                     BlockPos.betweenClosed(Mth.floor(bb.minX), Mth.floor(bb.minY), Mth.floor(bb.minZ),
-                                           Mth.ceil(bb.maxX), Mth.ceil(bb.maxY), Mth.ceil(bb.maxZ));
+                                           Mth.floor(bb.maxX), Mth.floor(bb.maxY), Mth.floor(bb.maxZ));
             for (BlockPos pos : blockPosCoordinates) {
-                BuiltInRegistries.BLOCK.forEach(block -> {
-                    for (Direction direction : Direction.values()) {
-                        BlockPos blockPos = pos.relative(direction);
-                        BlockState state = this.level().getBlockState(blockPos);
-                        if (state.is(BlockTags.CLIMBABLE)) { return; }
-                        if (!state.isAir() && state.is(block)) {
-                            this.lastClimbablePos = Optional.of(blockPos);
-                            cir.setReturnValue(true);
-                            return;
-                        }
+                Direction[] directions = Direction.values();
+                for (Direction direction : directions) {
+                    BlockPos blockPos = pos.relative(direction);
+                    BlockState state = this.level().getBlockState(blockPos);
+                    if (state.is(BlockTags.BASE_STONE_OVERWORLD) || state.is(BlockTags.LOGS) ||
+                        state.is(BlockTags.LEAVES)) {
+                        this.lastClimbablePos = Optional.of(blockPos);
+                        cir.setReturnValue(true);
                     }
-                });
+                }
             }
         }
     }
