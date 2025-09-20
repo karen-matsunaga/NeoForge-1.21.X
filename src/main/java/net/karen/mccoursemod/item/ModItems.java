@@ -56,22 +56,19 @@ public class ModItems {
     // ** CUSTOM items **
     // ** CUSTOM ore items **
     // BISMUTH
-    public static final DeferredItem<Item> BISMUTH =
-           trimMaterialItem("bismuth", ModTrimMaterials.BISMUTH);
+    public static final DeferredItem<Item> BISMUTH = trimMaterialItem("bismuth", ModTrimMaterials.BISMUTH);
 
     public static final DeferredItem<Item> RAW_BISMUTH =
            ITEMS.registerItem("raw_bismuth", Item::new, new Item.Properties());
 
     // ALEXANDRITE
-    public static final DeferredItem<Item> ALEXANDRITE =
-           trimMaterialItem("alexandrite", ModTrimMaterials.ALEXANDRITE);
+    public static final DeferredItem<Item> ALEXANDRITE = trimMaterialItem("alexandrite", ModTrimMaterials.ALEXANDRITE);
 
     public static final DeferredItem<Item> RAW_ALEXANDRITE =
            ITEMS.registerItem("raw_alexandrite", Item::new, new Item.Properties());
 
     // PINK
-    public static final DeferredItem<Item> PINK =
-           trimMaterialItem("pink", ModTrimMaterials.PINK);
+    public static final DeferredItem<Item> PINK = trimMaterialItem("pink", ModTrimMaterials.PINK);
 
     // ** CUSTOM advanced items **
     public static final DeferredItem<Item> CHISEL =
@@ -88,26 +85,20 @@ public class ModItems {
 
     // ** CUSTOM Foods **
     public static final DeferredItem<Item> RADISH =
-           foodItem("radish", 3, 0.25F, MobEffects.HEALTH_BOOST, 400, 0.35F,
-                    "tooltip.mccoursemod.radish", green);
+           foodItem("radish", 3, 0.25F, MobEffects.HEALTH_BOOST, 400, 0.35F, green);
 
     public static final DeferredItem<Item> KOHLRABI =
-           foodItem("kohlrabi", 3, 0.25F, MobEffects.SPEED, 200, 0.1F,
-                    "tooltip.mccoursemod.kohlrabi", darkGreen);
+           foodItem("kohlrabi", 3, 0.25F, MobEffects.SPEED, 200, 0.1F, darkGreen);
 
     public static final DeferredItem<Item> COFFEE =
-           foodItem("coffee", 5, 0.1F, MobEffects.NIGHT_VISION, 600, 0.5F,
-                    "tooltip.mccoursemod.coffee", white);
+           foodItem("coffee", 5, 0.1F, MobEffects.NIGHT_VISION, 600, 0.5F, white);
 
     // ** CUSTOM fuels (Custom FURNACE) **
-    public static final DeferredItem<Item> FROSTFIRE_ICE =
-           fuelItem("frostfire_ice", 800);
+    public static final DeferredItem<Item> FROSTFIRE_ICE = fuelItem("frostfire_ice", 800);
 
-    public static final DeferredItem<Item> STARLIGHT_ASHES =
-           fuelItem("starlight_ashes", 1200);
+    public static final DeferredItem<Item> STARLIGHT_ASHES = fuelItem("starlight_ashes", 1200);
 
-    public static final DeferredItem<Item> PEAT_BRICK =
-           fuelItem("peat_brick", 200);
+    public static final DeferredItem<Item> PEAT_BRICK = fuelItem("peat_brick", 200);
 
     // ** CUSTOM tools (Sword, Pickaxe, Shovel, Axe, Hoe, Hammer, Paxel, Bow, etc.) **
     // BISMUTH
@@ -130,15 +121,6 @@ public class ModItems {
     public static final DeferredItem<Item> BISMUTH_HOE =
            hoeItem("bismuth_hoe", ModToolMaterials.BISMUTH,
                    0.0F, -3.0F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
-
-    public static final DeferredItem<Item> BISMUTH_HAMMER =
-           hammerItem("bismuth_hammer", ModToolMaterials.BISMUTH, 7F, -3.5F,
-                      ModTags.Items.BISMUTH_TOOL_MATERIALS, 2, ARGB.color(255, 232, 84, 128),
-                      0xE85480);
-
-    public static final DeferredItem<Item> BISMUTH_PAXEL =
-           paxelItem("bismuth_paxel", ModToolMaterials.BISMUTH,
-                     1F, -2.8F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
 
     public static final DeferredItem<Item> KAUPEN_BOW =
            bowItem("kaupen_bow", ModTags.Items.BISMUTH_TOOL_MATERIALS);
@@ -181,15 +163,6 @@ public class ModItems {
     public static final DeferredItem<Item> ALEXANDRITE_HOE =
            hoeItem("alexandrite_hoe", ModToolMaterials.ALEXANDRITE,
                    2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
-
-    public static final DeferredItem<Item> ALEXANDRITE_HAMMER =
-           hammerItem("alexandrite_hammer", ModToolMaterials.ALEXANDRITE, 2.0F, 3.0F,
-                      ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 2,
-                      ARGB.color(255, 48, 213, 200), 0x30D5C8);
-
-    public static final DeferredItem<Item> ALEXANDRITE_PAXEL =
-           paxelItem("alexandrite_paxel", ModToolMaterials.ALEXANDRITE,
-                     2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
     // ** CUSTOM armors (Helmet, Chestplate, Leggings and Boots) **
     // BISMUTH
@@ -280,96 +253,114 @@ public class ModItems {
            shieldItem("alexandrite_shield", ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
     // ** CUSTOM Paxel tools **
+    public static final DeferredItem<Item> BISMUTH_PAXEL =
+           paxelItem("bismuth_paxel", ModToolMaterials.BISMUTH, 1F, -2.8F,
+                     ModTags.Items.BISMUTH_TOOL_MATERIALS, 0xE85480);
+
+    public static final DeferredItem<Item> ALEXANDRITE_PAXEL =
+           paxelItem("alexandrite_paxel", ModToolMaterials.ALEXANDRITE, 2.0F, 3.0F,
+                     ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 0x30D5C8);
+
     public static final DeferredItem<Item> PINK_PAXEL =
-           paxelItem("pink_paxel", ModToolMaterials.PINK,
-                     1.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS);
+           paxelItem("pink_paxel", ModToolMaterials.PINK, 1.0F, 2.0F,
+                     ModTags.Items.PINK_TOOL_MATERIALS, 0xF433C1);
 
     public static final DeferredItem<Item> COPPER_PAXEL =
-           paxelItem("copper_paxel", ModToolMaterials.COPPER,
-                     1.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS);
+           paxelItem("copper_paxel", ModToolMaterials.COPPER, 1.0F, 2.5F,
+                     ModTags.Items.COPPER_TOOL_MATERIALS, 0x9C4529);
 
     public static final DeferredItem<Item> DIAMOND_PAXEL =
-           paxelItem("diamond_paxel", ToolMaterial.DIAMOND,
-                     1.0F, 4.5F, ItemTags.DIAMOND_TOOL_MATERIALS);
+           paxelItem("diamond_paxel", ToolMaterial.DIAMOND, 1.0F, 4.5F,
+                     ItemTags.DIAMOND_TOOL_MATERIALS, 0x27B29A);
 
     public static final DeferredItem<Item> GOLD_PAXEL =
-           paxelItem("gold_paxel", ToolMaterial.GOLD,
-                     1.0F, 4.0F, ItemTags.GOLD_TOOL_MATERIALS);
+           paxelItem("gold_paxel", ToolMaterial.GOLD, 1.0F, 4.0F,
+                     ItemTags.GOLD_TOOL_MATERIALS, 0xFFFF23);
 
     public static final DeferredItem<Item> IRON_PAXEL =
-           paxelItem("iron_paxel", ToolMaterial.IRON, 1.0F,
-                     3.0F, ItemTags.IRON_TOOL_MATERIALS);
+           paxelItem("iron_paxel", ToolMaterial.IRON, 1.0F, 3.0F,
+                     ItemTags.IRON_TOOL_MATERIALS, 0x828282);
 
     public static final DeferredItem<Item> STONE_PAXEL =
-           paxelItem("stone_paxel", ToolMaterial.STONE,
-                     1.0F, 1.5F, ItemTags.STONE_TOOL_MATERIALS);
+           paxelItem("stone_paxel", ToolMaterial.STONE, 1.0F, 1.5F,
+                     ItemTags.STONE_TOOL_MATERIALS, 0x636363);
 
     public static final DeferredItem<Item> WOODEN_PAXEL =
-           paxelItem("wooden_paxel", ToolMaterial.WOOD,
-                     1.0F, 1.0F, ItemTags.WOODEN_TOOL_MATERIALS);
+           paxelItem("wooden_paxel", ToolMaterial.WOOD, 1.0F, 1.0F,
+                     ItemTags.WOODEN_TOOL_MATERIALS, 0x886626);
 
     public static final DeferredItem<Item> NETHERITE_PAXEL =
-           paxelItem("netherite_paxel", ToolMaterial.NETHERITE,
-                     1.0F, 5.0F, ItemTags.NETHERITE_TOOL_MATERIALS);
+           paxelItem("netherite_paxel", ToolMaterial.NETHERITE, 1.0F, 5.0F,
+                     ItemTags.NETHERITE_TOOL_MATERIALS, 0x4A2940);
 
     public static final DeferredItem<Item> LAPIS_LAZULI_PAXEL =
-           paxelItem("lapis_lazuli_paxel", ModToolMaterials.LAPIS_LAZULI,
-                     1.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS);
+           paxelItem("lapis_lazuli_paxel", ModToolMaterials.LAPIS_LAZULI, 1.0F, 3.5F,
+                     ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS, 0x273FB2);
 
     public static final DeferredItem<Item> REDSTONE_PAXEL =
-           paxelItem("redstone_paxel", ModToolMaterials.REDSTONE,
-                     1.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS);
+           paxelItem("redstone_paxel", ModToolMaterials.REDSTONE, 1.0F, 4.5F,
+                     ModTags.Items.REDSTONE_TOOL_MATERIALS, 0xDA304B);
 
     // ** CUSTOM Hammer tools **
+    public static final DeferredItem<Item> BISMUTH_HAMMER =
+           hammerItem("bismuth_hammer", ModToolMaterials.BISMUTH, 7F, -3.5F,
+                      ModTags.Items.BISMUTH_TOOL_MATERIALS, 2, ARGB.color(255, 232, 84, 128),
+                      0xE85480);
+
+    public static final DeferredItem<Item> ALEXANDRITE_HAMMER =
+           hammerItem("alexandrite_hammer", ModToolMaterials.ALEXANDRITE, 2.0F, 3.0F,
+                      ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 2, ARGB.color(255, 48, 213, 200),
+                      0x30D5C8);
+
     public static final DeferredItem<Item> PINK_HAMMER =
-           hammerItem("pink_hammer", ModToolMaterials.PINK,
-                      2.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS, 3,
-                      ARGB.color(255, 244, 51, 193), 0xF433C1);
+           hammerItem("pink_hammer", ModToolMaterials.PINK, 2.0F, 2.0F,
+                      ModTags.Items.PINK_TOOL_MATERIALS, 3, ARGB.color(255, 244, 51, 193),
+                      0xF433C1);
 
     public static final DeferredItem<Item> COPPER_HAMMER =
-           hammerItem("copper_hammer", ModToolMaterials.COPPER,
-                      2.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS, 2,
-                      ARGB.color(255, 156, 69, 41), 0x9C4529);
+           hammerItem("copper_hammer", ModToolMaterials.COPPER, 2.0F, 2.5F,
+                      ModTags.Items.COPPER_TOOL_MATERIALS, 2, ARGB.color(255, 156, 69, 41),
+                      0x9C4529);
 
     public static final DeferredItem<Item> DIAMOND_HAMMER =
-           hammerItem("diamond_hammer", ToolMaterial.DIAMOND,
-                      2.0F, 4.5F, ItemTags.DIAMOND_TOOL_MATERIALS, 3,
-                      ARGB.color(255, 39, 178, 154), 0x27B29A);
+           hammerItem("diamond_hammer", ToolMaterial.DIAMOND, 2.0F, 4.5F,
+                      ItemTags.DIAMOND_TOOL_MATERIALS, 3, ARGB.color(255, 39, 178, 154),
+                      0x27B29A);
 
     public static final DeferredItem<Item> GOLD_HAMMER =
-           hammerItem("gold_hammer", ToolMaterial.GOLD,
-                      2.0F, 4.0F, ItemTags.GOLD_TOOL_MATERIALS, 2,
-                      ARGB.color(255, 255, 255, 35), 0xFFFF23);
+           hammerItem("gold_hammer", ToolMaterial.GOLD, 2.0F, 4.0F,
+                      ItemTags.GOLD_TOOL_MATERIALS, 2, ARGB.color(255, 255, 255, 35),
+                      0xFFFF23);
 
     public static final DeferredItem<Item> IRON_HAMMER =
-           hammerItem("iron_hammer", ToolMaterial.IRON,
-                      2.0F, 3.0F, ItemTags.IRON_TOOL_MATERIALS, 2,
-                      ARGB.color(255, 130, 130, 130), 0x828282);
+           hammerItem("iron_hammer", ToolMaterial.IRON, 2.0F, 3.0F,
+                      ItemTags.IRON_TOOL_MATERIALS, 2, ARGB.color(255, 130, 130, 130),
+                      0x828282);
 
     public static final DeferredItem<Item> STONE_HAMMER =
-           hammerItem("stone_hammer", ToolMaterial.STONE,
-                      2.0F, 1.5F, ItemTags.STONE_TOOL_MATERIALS, 1,
-                      ARGB.color(255, 99, 99, 99), 0x636363);
+           hammerItem("stone_hammer", ToolMaterial.STONE, 2.0F, 1.5F,
+                      ItemTags.STONE_TOOL_MATERIALS, 1, ARGB.color(255, 99, 99, 99),
+                      0x636363);
 
     public static final DeferredItem<Item> WOODEN_HAMMER =
-           hammerItem("wooden_hammer", ToolMaterial.WOOD,
-                      2.0F, 1.0F, ItemTags.WOODEN_TOOL_MATERIALS, 1,
-                      ARGB.color(255, 136, 102, 38), 0x886626);
+           hammerItem("wooden_hammer", ToolMaterial.WOOD, 2.0F, 1.0F,
+                      ItemTags.WOODEN_TOOL_MATERIALS, 1, ARGB.color(255, 136, 102, 38),
+                      0x886626);
 
     public static final DeferredItem<Item> NETHERITE_HAMMER =
-           hammerItem("netherite_hammer", ToolMaterial.NETHERITE,
-                      2.0F, 5.0F, ItemTags.NETHERITE_TOOL_MATERIALS, 5,
-                      ARGB.color(255, 74, 41, 64), 0x4A2940);
+           hammerItem("netherite_hammer", ToolMaterial.NETHERITE, 2.0F, 5.0F,
+                      ItemTags.NETHERITE_TOOL_MATERIALS, 5, ARGB.color(255, 74, 41, 64),
+                      0x4A2940);
 
     public static final DeferredItem<Item> LAPIS_LAZULI_HAMMER =
-           hammerItem("lapis_lazuli_hammer", ModToolMaterials.LAPIS_LAZULI,
-                      2.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS, 4,
-                      ARGB.color(255, 39, 63, 178), 0x273FB2);
+           hammerItem("lapis_lazuli_hammer", ModToolMaterials.LAPIS_LAZULI, 2.0F, 3.5F,
+                      ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS, 4, ARGB.color(255, 39, 63, 178),
+                      0x273FB2);
 
     public static final DeferredItem<Item> REDSTONE_HAMMER =
-           hammerItem("redstone_hammer", ModToolMaterials.REDSTONE,
-                      2.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS, 4,
-                      ARGB.color(255, 218, 48, 75), 0xDA304B);
+           hammerItem("redstone_hammer", ModToolMaterials.REDSTONE, 2.0F, 4.5F,
+                      ModTags.Items.REDSTONE_TOOL_MATERIALS, 4, ARGB.color(255, 218, 48, 75),
+                      0xDA304B);
 
     // ** CUSTOM Shovel tools **
     public static final DeferredItem<Item> PINK_SHOVEL =
@@ -641,7 +632,7 @@ public class ModItems {
     // ** CUSTOM METHOD - Food **
     public static DeferredItem<Item> foodItem(String name, int nutrition,
                                               float saturation, Holder<MobEffect> effect,
-                                              int duration, float chance, String text, ChatFormatting color) {
+                                              int duration, float chance, ChatFormatting color) {
         return ITEMS.registerItem(name, properties ->
                                   new Item(properties.food(new FoodProperties.Builder()
                                                                              .nutrition(nutrition)
@@ -651,7 +642,8 @@ public class ModItems {
                                                                                  new MobEffectInstance(effect, duration),
                                                                                  chance)).build())
                                                      .component(ModDataComponentTypes.ITEM_TOOLTIP,
-                                                                new ItemTooltip(text, color, true))));
+                                                                new ItemTooltip("tooltip.mccoursemod." + name,
+                                                                                color, true))));
     }
 
     // ** CUSTOM METHOD - Trim Material **
@@ -662,17 +654,16 @@ public class ModItems {
     // ** CUSTOM METHOD - Paxel tool **
     public static DeferredItem<Item> paxelItem(String name, ToolMaterial material,
                                                float attackDamage, float attackSpeed,
-                                               TagKey<Item> repair) {
+                                               TagKey<Item> repair, int color) {
         return ITEMS.registerItem(name, properties ->
                                   new PaxelItem(material, attackDamage, attackSpeed,
-                                                properties.fireResistant().repairable(repair)));
+                                                properties.fireResistant().repairable(repair), color));
     }
 
     // ** CUSTOM METHOD - Hammer tool **
     public static DeferredItem<Item> hammerItem(String name, ToolMaterial material,
-                                               float attackDamage, float attackSpeed,
-                                               TagKey<Item> repair, int radius,
-                                               int argbColors, int textColor) {
+                                               float attackDamage, float attackSpeed, TagKey<Item> repair,
+                                               int radius, int argbColors, int textColor) {
         return ITEMS.registerItem(name, properties ->
                                   new HammerItem(material, attackDamage, attackSpeed,
                                                  properties.fireResistant().repairable(repair)
@@ -683,8 +674,7 @@ public class ModItems {
 
     // ** CUSTOM METHOD - Shovel tool **
     public static DeferredItem<Item> shovelItem(String name, ToolMaterial material,
-                                                float attackDamage, float attackSpeed,
-                                                TagKey<Item> repair) {
+                                                float attackDamage, float attackSpeed, TagKey<Item> repair) {
         return ITEMS.registerItem(name, properties ->
                                   new ShovelItem(material, attackDamage, attackSpeed,
                                                  properties.fireResistant().repairable(repair)));
@@ -692,8 +682,7 @@ public class ModItems {
 
     // ** CUSTOM METHOD - Axe tool **
     public static DeferredItem<Item> axeItem(String name, ToolMaterial material,
-                                             float attackDamage, float attackSpeed,
-                                             TagKey<Item> repair) {
+                                             float attackDamage, float attackSpeed, TagKey<Item> repair) {
         return ITEMS.registerItem(name, properties ->
                                   new AxeItem(material, attackDamage, attackSpeed,
                                               properties.fireResistant().repairable(repair)));
@@ -701,8 +690,7 @@ public class ModItems {
 
     // ** CUSTOM METHOD - Hoe tool **
     public static DeferredItem<Item> hoeItem(String name, ToolMaterial material,
-                                             float attackDamage, float attackSpeed,
-                                             TagKey<Item> repair) {
+                                             float attackDamage, float attackSpeed, TagKey<Item> repair) {
         return ITEMS.registerItem(name, properties ->
                                   new HoeItem(material, attackDamage, attackSpeed,
                                               properties.fireResistant().repairable(repair)));
@@ -710,8 +698,7 @@ public class ModItems {
 
     // ** CUSTOM METHOD - Pickaxe tool **
     public static DeferredItem<Item> pickaxeItem(String name, ToolMaterial material,
-                                                 float attackDamage, float attackSpeed,
-                                                 TagKey<Item> repair) {
+                                                 float attackDamage, float attackSpeed, TagKey<Item> repair) {
         return ITEMS.registerItem(name, properties ->
                                   new Item(properties.pickaxe(material, attackDamage, attackSpeed)
                                                      .fireResistant().repairable(repair)));
@@ -719,37 +706,32 @@ public class ModItems {
 
     // ** CUSTOM METHOD - Sword tool **
     public static DeferredItem<Item> swordItem(String name, ToolMaterial material,
-                                               float attackDamage, float attackSpeed,
-                                               TagKey<Item> repair) {
+                                               float attackDamage, float attackSpeed, TagKey<Item> repair) {
         return ITEMS.registerItem(name, properties ->
                                   new Item(properties.sword(material, attackDamage, attackSpeed)
                                                      .fireResistant().repairable(repair)));
     }
 
     // ** CUSTOM METHOD - Helmet armor **
-    public static DeferredItem<Item> helmetArmor(String name,
-                                                 ArmorMaterial material) {
+    public static DeferredItem<Item> helmetArmor(String name, ArmorMaterial material) {
         return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
                                                                                  ArmorType.HELMET).fireResistant()));
     }
 
     // ** CUSTOM METHOD - Chestplate armor **
-    public static DeferredItem<Item> chestplateArmor(String name,
-                                                     ArmorMaterial material) {
+    public static DeferredItem<Item> chestplateArmor(String name, ArmorMaterial material) {
         return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
                                                                                  ArmorType.CHESTPLATE).fireResistant()));
     }
 
     // ** CUSTOM METHOD - Leggings armor **
-    public static DeferredItem<Item> leggingsArmor(String name,
-                                                   ArmorMaterial material) {
+    public static DeferredItem<Item> leggingsArmor(String name, ArmorMaterial material) {
         return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
                                                                                  ArmorType.LEGGINGS).fireResistant()));
     }
 
     // ** CUSTOM METHOD - Boots armor **
-    public static DeferredItem<Item> bootsArmor(String name,
-                                                ArmorMaterial material) {
+    public static DeferredItem<Item> bootsArmor(String name, ArmorMaterial material) {
         return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
                                                                                  ArmorType.BOOTS).fireResistant()));
     }
@@ -757,8 +739,7 @@ public class ModItems {
     // ** CUSTOM METHOD - Elytra armor **
     public static DeferredItem<Item> elytraArmor(String name,
                                                  int durability, ResourceKey<EquipmentAsset> equipAsset,
-                                                 TagKey<Item> repair, Holder<MobEffect> effectHolder,
-                                                 int effectAmplifier) {
+                                                 TagKey<Item> repair, Holder<MobEffect> effectHolder, int effectAmplifier) {
         return ITEMS.registerItem(name, properties ->
                                   new ElytraPlusItem(effectHolder, effectAmplifier,
                                                      properties.fireResistant()

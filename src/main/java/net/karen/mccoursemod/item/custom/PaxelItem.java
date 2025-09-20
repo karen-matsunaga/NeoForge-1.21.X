@@ -1,10 +1,12 @@
 package net.karen.mccoursemod.item.custom;
 
+import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -27,10 +29,13 @@ import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class PaxelItem extends Item {
+    private final int textColor;
+
     public PaxelItem(ToolMaterial material, float attackDamage,
-                     float attackSpeed, Properties properties) {
+                     float attackSpeed, Properties properties, int textColor) {
         super(material.applyToolProperties(properties, ModTags.Blocks.MINEABLE_WITH_PAXEL,
                                            attackDamage, attackSpeed, 0F));
+        this.textColor = textColor;
     }
 
     // DEFAULT METHOD - AXE and SHOVEL functions
@@ -132,5 +137,10 @@ public class PaxelItem extends Item {
                                     @NotNull ItemAbility itemAbility) {
         return ItemAbilities.DEFAULT_AXE_ACTIONS.contains(itemAbility) ||
                ItemAbilities.DEFAULT_SHOVEL_ACTIONS.contains(itemAbility);
+    }
+
+    @Override
+    public @NotNull Component getName(@NotNull ItemStack stack) {
+        return ChatUtils.componentTranslatableIntColor(this.descriptionId, textColor);
     }
 }

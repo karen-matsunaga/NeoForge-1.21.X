@@ -4,6 +4,7 @@ import net.karen.mccoursemod.component.custom.FoundBlock;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.sound.ModSounds;
+import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.InventoryUtil;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.ChatFormatting;
@@ -140,5 +141,10 @@ public class MetalDetectorItem extends Item {
     // CUSTOM METHOD - Identifies ALL BLOCKS added in metal_detector_valuables.json on CUSTOM BLOCK TAGS
     private boolean isValuableBlock(BlockState blockState) {
         return blockState.is(getType()) || blockState.is(ModTags.Blocks.SPECIAL_METAL_DETECTOR_VALUABLES);
+    }
+
+    @Override
+    public @NotNull Component getName(@NotNull ItemStack stack) {
+        return ChatUtils.componentTranslatable(this.getDescriptionId(), gray);
     }
 }
