@@ -249,279 +249,168 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.WALNUT_BOAT, "Walnut Boat");
         addItem(ModItems.WALNUT_CHEST_BOAT, "Walnut Chest Boat");
 
-        // ** CUSTOM block items **
-        add("item.mccoursemod.bismuth_ore", "Bismuth Ore");
-        add("item.mccoursemod.bismuth_deepslate_ore", "Bismuth Deepslate Ore");
-        add("item.mccoursemod.bismuth_end_ore", "Bismuth End Ore");
-        add("item.mccoursemod.bismuth_nether_ore", "Bismuth Nether Ore");
-        add("item.mccoursemod.alexandrite_block", "Alexandrite Block");
-        add("item.mccoursemod.raw_alexandrite_block", "Alexandrite Raw Block");
-        add("item.mccoursemod.alexandrite_ore", "Alexandrite Ore");
-        add("item.mccoursemod.deepslate_alexandrite_ore", "Alexandrite Deepslate Ore");
-        add("item.mccoursemod.end_stone_alexandrite_ore", "Alexandrite End Ore");
-        add("item.mccoursemod.nether_alexandrite_ore", "Alexandrite Nether Ore");
-        add("item.mccoursemod.pink_block", "Pink Block");
-        add("item.mccoursemod.pink_ore", "Pink Ore");
-        add("item.mccoursemod.deepslate_pink_ore", "Pink Deepslate Ore");
-        add("item.mccoursemod.end_stone_pink_ore", "Pink End Ore");
-        add("item.mccoursemod.nether_pink_ore", "Pink Nether Ore");
-        add("item.mccoursemod.enchant", "Enchant Block");
-        add("item.mccoursemod.disenchant_individual", "Disenchant Individual Block");
-        add("item.mccoursemod.disenchant_grouped", "Disenchant Grouped Block");
-        add("item.mccoursemod.magic", "Magic Block");
-        add("item.mccoursemod.mccoursemod_elevator", "Mccourse Mod Elevator Block");
-        add("item.mccoursemod.mccoursemod_generator", "Mccourse Mod Generator Block");
-        add("item.mccoursemod.bismuth_button", "Bismuth Button Block");
-        add("item.mccoursemod.bismuth_door", "Bismuth Door Block");
-        add("item.mccoursemod.bismuth_fence", "Bismuth Fence Block");
-        add("item.mccoursemod.bismuth_fence_gate", "Bismuth Fence Gate Block");
-        add("item.mccoursemod.bismuth_pressure_plate", "Bismuth Pressure Plate Block");
-        add("item.mccoursemod.bismuth_slab", "Bismuth Slab Block");
-        add("item.mccoursemod.bismuth_stairs", "Bismuth Stairs Block");
-        add("item.mccoursemod.bismuth_trapdoor", "Bismuth Trapdoor Block");
-        add("item.mccoursemod.bismuth_wall", "Bismuth Wall Block");
-        add("item.mccoursemod.bismuth_lamp", "Bismuth Lamp Block");
-        add("item.mccoursemod.alexandrite_button", "Alexandrite Button Block");
-        add("item.mccoursemod.alexandrite_door", "Alexandrite Door Block");
-        add("item.mccoursemod.alexandrite_fence", "Alexandrite Fence Block");
-        add("item.mccoursemod.alexandrite_fence_gate", "Alexandrite Fence Gate Block");
-        add("item.mccoursemod.alexandrite_pressure_plate", "Alexandrite Pressure Plate Block");
-        add("item.mccoursemod.alexandrite_slabs", "Alexandrite Slab Block");
-        add("item.mccoursemod.alexandrite_stairs", "Alexandrite Stairs Block");
-        add("item.mccoursemod.alexandrite_trapdoor", "Alexandrite Trapdoor Block");
-        add("item.mccoursemod.alexandrite_wall", "Alexandrite Wall Block");
-        add("item.mccoursemod.alexandrite_lamp", "Alexandrite Lamp Block");
-        add("item.mccoursemod.radish_crop", "Radish Crop Block");
-        add("item.mccoursemod.kohlrabi_crop", "Kohlrabi Crop Block");
-        add("item.mccoursemod.cattail_crop", "Cattail Crop Block");
-        add("item.mccoursemod.goji_berry_bush", "Goji Berry Bush Block");
-        add("item.mccoursemod.bloodwood_log", "Bloodwood Log");
-        add("item.mccoursemod.bloodwood_planks", "Bloodwood Planks");
-        add("item.mccoursemod.bloodwood_wood", "Bloodwood Wood");
-        add("item.mccoursemod.stripped_bloodwood_log", "Stripped Bloodwood Log");
-        add("item.mccoursemod.stripped_bloodwood_wood", "Stripped Bloodwood Wood");
-        add("item.mccoursemod.bloodwood_leaves", "Bloodwood Leaves");
-        add("item.mccoursemod.bloodwood_sapling", "Bloodwood Sapling");
-        add("item.mccoursemod.walnut_log", "Walnut Log");
-        add("item.mccoursemod.walnut_planks", "Walnut Planks");
-        add("item.mccoursemod.walnut_wood", "Walnut Wood");
-        add("item.mccoursemod.stripped_walnut_log", "Stripped Walnut Log");
-        add("item.mccoursemod.stripped_walnut_wood", "Stripped Walnut Wood");
-        add("item.mccoursemod.walnut_leaves", "Walnut Leaves");
-        add("item.mccoursemod.walnut_sapling", "Walnut Sapling");
-        add("item.mccoursemod.colored_leaves", "Colored Leaves");
-        add("item.mccoursemod.chair", "Chair Block");
-        add("item.mccoursemod.pedestal", "Pedestal Block");
-        add("item.mccoursemod.growth_chamber", "Growth Chamber Block");
-        add("item.mccoursemod.forced_stained_glass", "Force Stained Glass Block");
-        add("item.mccoursemod.forced_stained_glass_pane", "Force Stained Glass Pane Block");
-        add("item.mccoursemod.soap_water_block", "Soap Water Block");
-        add("item.mccoursemod.walnut_sign", "Walnut Sign");
-        add("item.mccoursemod.walnut_hanging_sign", "Walnut Hanging Sign");
-        add("item.mccoursemod.walnut_wall_sign", "Walnut Wall Sign");
-        add("item.mccoursemod.walnut_wall_hanging_sign", "Walnut Wall Hanging Sign");
-        add("item.mccoursemod.ender_pearl_block", "Ender Pearl Block");
-        add("item.mccoursemod.green_ender_pearl_block", "Green Ender Pearl Block");
-        add("item.mccoursemod.black_ender_pearl_block", "Black Ender Pearl Block");
-        add("item.mccoursemod.magenta_ender_pearl_block", "Magenta Ender Pearl Block");
-        add("item.mccoursemod.purple_ender_pearl_block", "Purple Ender Pearl Block");
-        add("item.mccoursemod.orange_ender_pearl_block", "Orange Ender Pearl Block");
-        add("item.mccoursemod.pink_ender_pearl_block", "Pink Ender Pearl Block");
-        add("item.mccoursemod.cyan_ender_pearl_block", "Cyan Ender Pearl Block");
-        add("item.mccoursemod.brown_ender_pearl_block", "Brown Ender Pearl Block");
-        add("item.mccoursemod.gray_ender_pearl_block", "Gray Ender Pearl Block");
-        add("item.mccoursemod.red_ender_pearl_block", "Red Ender Pearl Block");
-        add("item.mccoursemod.lime_green_ender_pearl_block", "Lime Green Ender Pearl Block");
-        add("item.mccoursemod.yellow_ender_pearl_block", "Yellow Ender Pearl Block");
-        add("item.mccoursemod.blue_ender_pearl_block", "Blue Ender Pearl Block");
-        add("item.mccoursemod.white_ender_pearl_block", "White Ender Pearl Block");
-        add("item.mccoursemod.nether_star_block", "Nether Star Block");
-        add("item.mccoursemod.gunpowder_block", "Gunpowder Block");
-        add("item.mccoursemod.rotten_flesh_block", "Rotten Flesh Block");
-        add("item.mccoursemod.blaze_rod_block", "Blaze Rod Block");
-        add("item.mccoursemod.phantom_membrane_block", "Phantom Membrane Block");
-        add("item.mccoursemod.string_block", "String Block");
-        add("item.mccoursemod.spider_eye_block", "Spider Eye Block");
-        add("item.mccoursemod.fermented_spider_eye_block", "Fermented Spider Eye Block");
-        add("item.mccoursemod.sugar_block", "Sugar Block");
-        add("item.mccoursemod.sugar_cane_block", "Sugar Cane Block");
-        add("item.mccoursemod.ruby_block", "Block of Ruby");
-        add("item.mccoursemod.ruby_block_1", "Block of Ruby 1");
-        add("item.mccoursemod.ruby_block_2", "Block of Ruby 2");
-        add("item.mccoursemod.ruby_block_3", "Block of Ruby 3");
-        add("item.mccoursemod.waxed_ruby_block", "Waxed Block of Ruby");
-        add("item.mccoursemod.waxed_ruby_block_1", "Waxed Block of Ruby 1");
-        add("item.mccoursemod.waxed_ruby_block_2", "Waxed Block of Ruby 2");
-        add("item.mccoursemod.waxed_ruby_block_3", "Waxed Block of Ruby 3");
-        add("item.mccoursemod.snapdragon", "Snapdragon");
-        add("item.mccoursemod.potted_snapdragon", "Snapdragon Potted");
-        add("item.mccoursemod.kaupen_portal", "Kaupen Portal");
-        add("item.mccoursemod.kaupen_furnace", "Kaupen Furnace");
-        add("item.mccoursemod.dice", "Dice");
-        add("item.mccoursemod.crafting_plus", "Crafting Plus");
-
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
         // BISMUTH
         blockLang(ModBlocks.BISMUTH_BLOCK, "§6");
-        addBlock(ModBlocks.BISMUTH_ORE, "Bismuth Ore");
-        addBlock(ModBlocks.BISMUTH_DEEPSLATE_ORE, "Bismuth Deepslate Ore");
-        addBlock(ModBlocks.BISMUTH_END_ORE, "Bismuth End Ore");
-        addBlock(ModBlocks.BISMUTH_NETHER_ORE, "Bismuth Nether Ore");
+        blockLang(ModBlocks.BISMUTH_ORE, "§6");
+        blockLang(ModBlocks.BISMUTH_DEEPSLATE_ORE, "§6");
+        blockLang(ModBlocks.BISMUTH_END_ORE, "§6");
+        blockLang(ModBlocks.BISMUTH_NETHER_ORE, "§6");
         // ALEXANDRITE
-        addBlock(ModBlocks.ALEXANDRITE_BLOCK, "Alexandrite Block");
-        addBlock(ModBlocks.RAW_ALEXANDRITE_BLOCK, "Alexandrite Raw Block");
-        addBlock(ModBlocks.ALEXANDRITE_ORE, "Alexandrite Ore");
-        addBlock(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE, "Alexandrite Deepslate Ore");
-        addBlock(ModBlocks.END_STONE_ALEXANDRITE_ORE, "Alexandrite End Ore");
-        addBlock(ModBlocks.NETHER_ALEXANDRITE_ORE, "Alexandrite Nether Ore");
+        blockLang(ModBlocks.ALEXANDRITE_BLOCK, "§b");
+        blockLang(ModBlocks.RAW_ALEXANDRITE_BLOCK, "§b");
+        blockLang(ModBlocks.ALEXANDRITE_ORE, "§b");
+        blockLang(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE, "§b");
+        blockLang(ModBlocks.END_STONE_ALEXANDRITE_ORE, "§b");
+        blockLang(ModBlocks.NETHER_ALEXANDRITE_ORE, "§b");
 
         // PINK
-        addBlock(ModBlocks.PINK_BLOCK, "Pink Block");
-        addBlock(ModBlocks.PINK_ORE, "Pink Ore");
-        addBlock(ModBlocks.DEEPSLATE_PINK_ORE, "Pink Deepslate Ore");
-        addBlock(ModBlocks.END_STONE_PINK_ORE, "Pink End Ore");
-        addBlock(ModBlocks.NETHER_PINK_ORE, "Pink Nether Ore");
+        blockLang(ModBlocks.PINK_BLOCK, "§d");
+        blockLang(ModBlocks.PINK_ORE, "§d");
+        blockLang(ModBlocks.DEEPSLATE_PINK_ORE, "§d");
+        blockLang(ModBlocks.END_STONE_PINK_ORE, "§d");
+        blockLang(ModBlocks.NETHER_PINK_ORE, "§d");
 
         // ** CUSTOM Advanced blocks **
-        addBlock(ModBlocks.ENCHANT, "§2Enchant Block");
-        addBlock(ModBlocks.DISENCHANT_INDIVIDUAL, "Disenchant Individual Block");
-        addBlock(ModBlocks.DISENCHANT_GROUPED, "Disenchant Grouped Block");
-        addBlock(ModBlocks.MAGIC, "Magic Block");
-        addBlock(ModBlocks.MCCOURSEMOD_ELEVATOR, "Mccourse Mod Elevator Block");
-        addBlock(ModBlocks.MCCOURSEMOD_GENERATOR, "Mccourse Mod Generator Block");
-        addBlock(ModBlocks.CRAFTING_PLUS, "Crafting Plus Block");
+        blockLang(ModBlocks.ENCHANT, "§2");
+        blockLang(ModBlocks.DISENCHANT_INDIVIDUAL, "§5");
+        blockLang(ModBlocks.DISENCHANT_GROUPED, "§3");
+        blockLang(ModBlocks.MAGIC, "§4");
+        blockLang(ModBlocks.MCCOURSEMOD_ELEVATOR, "§8");
+        blockLang(ModBlocks.MCCOURSEMOD_GENERATOR, "§a");
+        blockLang(ModBlocks.CRAFTING_PLUS, "§a");
         blockLang(ModBlocks.SOUND, "§8");
 
         // ** CUSTOM Block Families **
         // BISMUTH
-        addBlock(ModBlocks.BISMUTH_BUTTON, "Bismuth Button Block");
-        addBlock(ModBlocks.BISMUTH_DOOR, "Bismuth Door Block");
-        addBlock(ModBlocks.BISMUTH_FENCE, "Bismuth Fence Block");
-        addBlock(ModBlocks.BISMUTH_FENCE_GATE, "Bismuth Fence Gate Block");
-        addBlock(ModBlocks.BISMUTH_PRESSURE_PLATE, "Bismuth Pressure Plate Block");
-        addBlock(ModBlocks.BISMUTH_SLAB, "Bismuth Slab Block");
-        addBlock(ModBlocks.BISMUTH_STAIRS, "Bismuth Stairs Block");
-        addBlock(ModBlocks.BISMUTH_TRAPDOOR, "Bismuth Trapdoor Block");
-        addBlock(ModBlocks.BISMUTH_WALL, "Bismuth Wall Block");
+        blockLang(ModBlocks.BISMUTH_BUTTON, "§6");
+        blockLang(ModBlocks.BISMUTH_DOOR, "§6");
+        blockLang(ModBlocks.BISMUTH_FENCE, "§6");
+        blockLang(ModBlocks.BISMUTH_FENCE_GATE, "§6");
+        blockLang(ModBlocks.BISMUTH_PRESSURE_PLATE, "§6");
+        blockLang(ModBlocks.BISMUTH_SLAB, "§6");
+        blockLang(ModBlocks.BISMUTH_STAIRS, "§6");
+        blockLang(ModBlocks.BISMUTH_TRAPDOOR, "§6");
+        blockLang(ModBlocks.BISMUTH_WALL, "§6");
         // ALEXANDRITE
-        addBlock(ModBlocks.ALEXANDRITE_BUTTON, "Alexandrite Button Block");
-        addBlock(ModBlocks.ALEXANDRITE_DOOR, "Alexandrite Door Block");
-        addBlock(ModBlocks.ALEXANDRITE_FENCE, "Alexandrite Fence Block");
-        addBlock(ModBlocks.ALEXANDRITE_FENCE_GATE, "Alexandrite Fence Gate Block");
-        addBlock(ModBlocks.ALEXANDRITE_PREASSURE_PLATE, "Alexandrite Pressure Plate Block");
-        addBlock(ModBlocks.ALEXANDRITE_SLABS, "Alexandrite Slab Block");
-        addBlock(ModBlocks.ALEXANDRITE_STAIRS, "Alexandrite Stairs Block");
-        addBlock(ModBlocks.ALEXANDRITE_TRAPDOOR, "Alexandrite Trapdoor Block");
-        addBlock(ModBlocks.ALEXANDRITE_WALL, "Alexandrite Wall Block");
+        blockLang(ModBlocks.ALEXANDRITE_BUTTON, "§b");
+        blockLang(ModBlocks.ALEXANDRITE_DOOR, "§b");
+        blockLang(ModBlocks.ALEXANDRITE_FENCE, "§b");
+        blockLang(ModBlocks.ALEXANDRITE_FENCE_GATE, "§b");
+        blockLang(ModBlocks.ALEXANDRITE_PREASSURE_PLATE, "§b");
+        blockLang(ModBlocks.ALEXANDRITE_SLABS, "§b");
+        blockLang(ModBlocks.ALEXANDRITE_STAIRS, "§b");
+        blockLang(ModBlocks.ALEXANDRITE_TRAPDOOR, "§b");
+        blockLang(ModBlocks.ALEXANDRITE_WALL, "§b");
 
         // ** CUSTOM glass block **
-        addBlock(ModBlocks.FORCED_STAINED_GLASS, "Forced Stained Glass Block");
-        addBlock(ModBlocks.FORCED_STAINED_GLASS_PANE, "Forced Stained Glass Pane Block");
+        blockLang(ModBlocks.FORCED_STAINED_GLASS, "§a");
+        blockLang(ModBlocks.FORCED_STAINED_GLASS_PANE, "§a");
 
         // ** CUSTOM Blockstate block **
-        addBlock(ModBlocks.BISMUTH_LAMP, "Bismuth Lamp Block");
-        addBlock(ModBlocks.ALEXANDRITE_LAMP, "Alexandrite Lamp Block");
+        blockLang(ModBlocks.BISMUTH_LAMP, "§6");
+        blockLang(ModBlocks.ALEXANDRITE_LAMP, "§b");
 
         // ** CUSTOM Crop block **
-        addBlock(ModBlocks.RADISH_CROP, "Radish Crop Block");
-        addBlock(ModBlocks.KOHLRABI_CROP, "Kohlrabi Crop Block");
-
-        // ** CUSTOM Crop block with two height **
-        addBlock(ModBlocks.CATTAIL_CROP, "Cattail Crop Block");
+        // One height
+        blockLang(ModBlocks.RADISH_CROP, "§2");
+        blockLang(ModBlocks.KOHLRABI_CROP, "§2");
+        // Two height
+        blockLang(ModBlocks.CATTAIL_CROP, "§6");
 
         // ** CUSTOM Bush block **
-        addBlock(ModBlocks.GOJI_BERRY_BUSH, "Goji Berry Bush Block");
+        blockLang(ModBlocks.GOJI_BERRY_BUSH, "§1");
 
         // ** CUSTOM Log block **
         // BLOODWOOD
-        addBlock(ModBlocks.BLOODWOOD_LOG, "Bloodwood Log");
-        addBlock(ModBlocks.BLOODWOOD_PLANKS, "Bloodwood Planks");
-        addBlock(ModBlocks.BLOODWOOD_WOOD, "Bloodwood Wood");
-        addBlock(ModBlocks.STRIPPED_BLOODWOOD_LOG, "Stripped Bloodwood Log");
-        addBlock(ModBlocks.STRIPPED_BLOODWOOD_WOOD, "Stripped Bloodwood Wood");
-        addBlock(ModBlocks.BLOODWOOD_LEAVES, "Bloodwood Leaves");
-        addBlock(ModBlocks.BLOODWOOD_SAPLING, "Bloodwood Sapling");
+        blockLang(ModBlocks.BLOODWOOD_LOG, "§4");
+        blockLang(ModBlocks.BLOODWOOD_PLANKS, "§4");
+        blockLang(ModBlocks.BLOODWOOD_WOOD, "§4");
+        blockLang(ModBlocks.STRIPPED_BLOODWOOD_LOG, "§4");
+        blockLang(ModBlocks.STRIPPED_BLOODWOOD_WOOD, "§4");
+        blockLang(ModBlocks.BLOODWOOD_LEAVES, "§4");
+        blockLang(ModBlocks.BLOODWOOD_SAPLING, "§4");
 
         // WALNUT
-        addBlock(ModBlocks.WALNUT_LOG, "Walnut Log");
-        addBlock(ModBlocks.WALNUT_PLANKS, "Walnut Planks");
-        addBlock(ModBlocks.WALNUT_WOOD, "Walnut Wood");
-        addBlock(ModBlocks.STRIPPED_WALNUT_LOG, "Stripped Walnut Log");
-        addBlock(ModBlocks.STRIPPED_WALNUT_WOOD, "Stripped Walnut Wood");
-        addBlock(ModBlocks.WALNUT_LEAVES, "Walnut Leaves");
-        addBlock(ModBlocks.WALNUT_SAPLING, "Walnut Sapling");
+        blockLang(ModBlocks.WALNUT_LOG, "§e");
+        blockLang(ModBlocks.WALNUT_PLANKS, "§e");
+        blockLang(ModBlocks.WALNUT_WOOD, "§e");
+        blockLang(ModBlocks.STRIPPED_WALNUT_LOG, "§e");
+        blockLang(ModBlocks.STRIPPED_WALNUT_WOOD, "§e");
+        blockLang(ModBlocks.WALNUT_LEAVES, "§e");
+        blockLang(ModBlocks.WALNUT_SAPLING, "§e");
 
         // ** CUSTOM colored blocks **
-        addBlock(ModBlocks.COLORED_LEAVES, "Colored Leaves");
+        blockLang(ModBlocks.COLORED_LEAVES, "§2");
 
         // ** CUSTOM Sign and Hanging sign **
-        addBlock(ModBlocks.WALNUT_SIGN, "Walnut Sign");
-        addBlock(ModBlocks.WALNUT_HANGING_SIGN, "Walnut Hanging Sign");
-        addBlock(ModBlocks.WALNUT_WALL_SIGN, "Walnut Wall Sign");
-        addBlock(ModBlocks.WALNUT_WALL_HANGING_SIGN, "Walnut Wall Hanging Sign");
+        blockLang(ModBlocks.WALNUT_SIGN, "§e");
+        blockLang(ModBlocks.WALNUT_HANGING_SIGN, "§e");
+        blockLang(ModBlocks.WALNUT_WALL_SIGN, "§e");
+        blockLang(ModBlocks.WALNUT_WALL_HANGING_SIGN, "§e");
 
         // ** CUSTOM sittable block model **
-        addBlock(ModBlocks.CHAIR, "Chair Block");
+        blockLang(ModBlocks.CHAIR, "§e");
 
         // ** CUSTOM block entity **
-        addBlock(ModBlocks.PEDESTAL, "Pedestal Block");
-        addBlock(ModBlocks.GROWTH_CHAMBER, "Growth Chamber Block");
+        blockLang(ModBlocks.PEDESTAL, "§8");
+        blockLang(ModBlocks.GROWTH_CHAMBER, "§8");
 
         // ** CUSTOM Fluid block **
-        addBlock(ModFluids.SOAP_WATER_BLOCK, "Soap Water Block");
+        blockLang(ModFluids.SOAP_WATER_BLOCK, "§d");
 
         // ** CUSTOM Ender Pearl blocks **
-        addBlock(ModBlocks.ENDER_PEARL_BLOCK, "Ender Pearl Block");
-        addBlock(ModBlocks.GREEN_ENDER_PEARL_BLOCK, "Green Ender Pearl Block");
-        addBlock(ModBlocks.BLACK_ENDER_PEARL_BLOCK, "Black Ender Pearl Block");
-        addBlock(ModBlocks.MAGENTA_ENDER_PEARL_BLOCK, "Magenta Ender Pearl Block");
-        addBlock(ModBlocks.PURPLE_ENDER_PEARL_BLOCK, "Purple Ender Pearl Block");
-        addBlock(ModBlocks.ORANGE_ENDER_PEARL_BLOCK, "Orange Ender Pearl Block");
-        addBlock(ModBlocks.PINK_ENDER_PEARL_BLOCK, "Pink Ender Pearl Block");
-        addBlock(ModBlocks.CYAN_ENDER_PEARL_BLOCK, "Cyan Ender Pearl Block");
-        addBlock(ModBlocks.BROWN_ENDER_PEARL_BLOCK, "Brown Ender Pearl Block");
-        addBlock(ModBlocks.GRAY_ENDER_PEARL_BLOCK, "Gray Ender Pearl Block");
-        addBlock(ModBlocks.RED_ENDER_PEARL_BLOCK, "Red Ender Pearl Block");
-        addBlock(ModBlocks.LIME_GREEN_ENDER_PEARL_BLOCK, "Lime Green Ender Pearl Block");
-        addBlock(ModBlocks.YELLOW_ENDER_PEARL_BLOCK, "Yellow Ender Pearl Block");
-        addBlock(ModBlocks.BLUE_ENDER_PEARL_BLOCK, "Blue Ender Pearl Block");
-        addBlock(ModBlocks.WHITE_ENDER_PEARL_BLOCK, "White Ender Pearl Block");
+        blockLang(ModBlocks.ENDER_PEARL_BLOCK, "§3");
+        blockLang(ModBlocks.GREEN_ENDER_PEARL_BLOCK, "§2");
+        blockLang(ModBlocks.BLACK_ENDER_PEARL_BLOCK, "§8");
+        blockLang(ModBlocks.MAGENTA_ENDER_PEARL_BLOCK, "§d");
+        blockLang(ModBlocks.PURPLE_ENDER_PEARL_BLOCK, "§5");
+        blockLang(ModBlocks.ORANGE_ENDER_PEARL_BLOCK, "§6");
+        blockLang(ModBlocks.PINK_ENDER_PEARL_BLOCK, "§5");
+        blockLang(ModBlocks.CYAN_ENDER_PEARL_BLOCK, "§7");
+        blockLang(ModBlocks.BROWN_ENDER_PEARL_BLOCK, "§6");
+        blockLang(ModBlocks.GRAY_ENDER_PEARL_BLOCK, "§8");
+        blockLang(ModBlocks.RED_ENDER_PEARL_BLOCK, "§c");
+        blockLang(ModBlocks.LIME_GREEN_ENDER_PEARL_BLOCK, "§a");
+        blockLang(ModBlocks.YELLOW_ENDER_PEARL_BLOCK, "§e");
+        blockLang(ModBlocks.BLUE_ENDER_PEARL_BLOCK, "§1");
+        blockLang(ModBlocks.WHITE_ENDER_PEARL_BLOCK, "§f");
 
         // ** CUSTOM mob blocks **
-        addBlock(ModBlocks.NETHER_STAR_BLOCK, "Nether Star Block");
-        addBlock(ModBlocks.GUNPOWDER_BLOCK, "Gunpowder Block");
-        addBlock(ModBlocks.ROTTEN_FLESH_BLOCK, "Rotten Flesh Block");
-        addBlock(ModBlocks.BLAZE_ROD_BLOCK, "Blaze Rod Block");
-        addBlock(ModBlocks.PHANTOM_MEMBRANE_BLOCK, "Phantom Membrane Block");
-        addBlock(ModBlocks.STRING_BLOCK, "String Block");
-        addBlock(ModBlocks.SPIDER_EYE_BLOCK, "Spider Eye Block");
-        addBlock(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK, "Fermented Spider Eye Block");
-        addBlock(ModBlocks.SUGAR_BLOCK, "Sugar Block");
-        addBlock(ModBlocks.SUGAR_CANE_BLOCK, "Sugar Cane Block");
+        blockLang(ModBlocks.NETHER_STAR_BLOCK, "§e");
+        blockLang(ModBlocks.GUNPOWDER_BLOCK, "§8");
+        blockLang(ModBlocks.ROTTEN_FLESH_BLOCK, "§c");
+        blockLang(ModBlocks.BLAZE_ROD_BLOCK, "§6");
+        blockLang(ModBlocks.PHANTOM_MEMBRANE_BLOCK, "§8");
+        blockLang(ModBlocks.STRING_BLOCK, "§f");
+        blockLang(ModBlocks.SPIDER_EYE_BLOCK, "§c");
+        blockLang(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK, "§4");
+        blockLang(ModBlocks.SUGAR_BLOCK, "§7");
+        blockLang(ModBlocks.SUGAR_CANE_BLOCK, "§a");
 
         // ** CUSTOM oxidizable blocks **
-        addBlock(ModBlocks.RUBY_BLOCK, "Block of Ruby");
-        addBlock(ModBlocks.RUBY_BLOCK_1, "Block of Ruby 1");
-        addBlock(ModBlocks.RUBY_BLOCK_2, "Block of Ruby 2");
-        addBlock(ModBlocks.RUBY_BLOCK_3, "Block of Ruby 3");
-        addBlock(ModBlocks.WAXED_RUBY_BLOCK, "Waxed Block of Ruby");
-        addBlock(ModBlocks.WAXED_RUBY_BLOCK_1, "Waxed Block of Ruby 1");
-        addBlock(ModBlocks.WAXED_RUBY_BLOCK_2, "Waxed Block of Ruby 2");
-        addBlock(ModBlocks.WAXED_RUBY_BLOCK_3, "Waxed Block of Ruby 3");
+        blockLang(ModBlocks.RUBY_BLOCK, "§c");
+        blockLang(ModBlocks.RUBY_BLOCK_1, "§c");
+        blockLang(ModBlocks.RUBY_BLOCK_2, "§c");
+        blockLang(ModBlocks.RUBY_BLOCK_3, "§c");
+        blockLang(ModBlocks.WAXED_RUBY_BLOCK, "§c");
+        blockLang(ModBlocks.WAXED_RUBY_BLOCK_1, "§c");
+        blockLang(ModBlocks.WAXED_RUBY_BLOCK_2, "§c");
+        blockLang(ModBlocks.WAXED_RUBY_BLOCK_3, "§c");
 
         // ** CUSTOM flowers and pot flowers **
-        addBlock(ModBlocks.SNAPDRAGON, "Snapdragon");
-        addBlock(ModBlocks.POTTED_SNAPDRAGON, "Snapdragon Potted");
+        blockLang(ModBlocks.SNAPDRAGON, "§5");
+        blockLang(ModBlocks.POTTED_SNAPDRAGON, "§5");
 
         // ** CUSTOM portal **
-        addBlock(ModBlocks.KAUPEN_PORTAL, "Kaupen Portal");
+        blockLang(ModBlocks.KAUPEN_PORTAL, "§7");
 
         // ** CUSTOM furnace **
-        addBlock(ModBlocks.KAUPEN_FURNACE_BLOCK, "Kaupen Furnace");
+        blockLang(ModBlocks.KAUPEN_FURNACE_BLOCK, "§7");
 
         // ** CUSTOM block projectile **
-        addBlock(ModBlocks.DICE, "Dice");
+        blockLang(ModBlocks.DICE, "§7");
 
         // ** CUSTOM CREATIVE TABS **
         add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");
@@ -833,24 +722,21 @@ public class ModLanguageProvider extends LanguageProvider {
         addBiome(ModBiomes.TEST_BIOME_2, "Test Biome 2");
     }
 
-    // CUSTOM METHOD - Register Block - Block Item
+    // CUSTOM METHOD - Register Block and Block Item
     public void blockLang(Supplier<? extends Block> block, String color) {
         String blockId = block.get().getDescriptionId().replace("block.mccoursemod.", "");
-
         // Sound -> One word
         String firstLetter = blockId.substring(0, 1).toUpperCase();
         String letters = blockId.substring(1).toLowerCase();
         String blockName = firstLetter + letters;
         String versionWithBlock = color + blockName + " Block";
-
         // Bismuth Block -> Two words
         String names = itemLines(splitWord(blockId));
         String versionWithoutBlock = color + names;
-
         // Block name -> Example: bismuth_block
         boolean hasSpace = block.get().getDescriptionId().contains("_");
         String blockPrefix = hasSpace ? versionWithoutBlock : versionWithBlock;
-
+        // Format block name + block item name
         addBlock(block, blockPrefix);
         add("item.mccoursemod." + blockId, blockPrefix);
     }
