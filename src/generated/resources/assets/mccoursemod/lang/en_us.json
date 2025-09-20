@@ -1,4 +1,6 @@
 {
+  "biome.mccoursemod.test_biome": "Test Biome",
+  "biome.mccoursemod.test_biome_2": "Test Biome 2",
   "block.mccoursemod.alexandrite_block": "Alexandrite Block",
   "block.mccoursemod.alexandrite_button": "Alexandrite Button Block",
   "block.mccoursemod.alexandrite_door": "Alexandrite Door Block",
@@ -113,6 +115,7 @@
   "container.inventory": "",
   "creativetab.mccoursemod.bismuth_blocks": "Mccourse Blocks",
   "creativetab.mccoursemod.bismuth_items": "Mccourse Items",
+  "dimension.mccoursemod.kaupendim": "Kaupendim",
   "effect.mccoursemod.fly": "Fly",
   "effect.mccoursemod.nothing": "Nothing",
   "effect.mccoursemod.slimey": "Slimey",
@@ -435,7 +438,7 @@
   "item.mccoursemod.snapdragon": "Snapdragon",
   "item.mccoursemod.soap_water_block": "Soap Water Block",
   "item.mccoursemod.soap_water_bucket": "Soap Water Bucket",
-  "item.mccoursemod.sound": "Sound Block",
+  "item.mccoursemod.sound": "§8Sound Block",
   "item.mccoursemod.spider_eye_block": "Spider Eye Block",
   "item.mccoursemod.starlight_ashes": "Starlight Ashes",
   "item.mccoursemod.stone_hammer": "Stone Hammer",

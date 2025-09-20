@@ -4,8 +4,12 @@ import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.fluid.ModFluids;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.worldgen.biome.ModBiomes;
+import net.karen.mccoursemod.worldgen.dimension.ModDimensions;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import java.util.function.Supplier;
 
 public class ModLanguageProvider extends LanguageProvider {
     public ModLanguageProvider(PackOutput packOutput) {
@@ -311,7 +315,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.growth_chamber", "Growth Chamber Block");
         add("item.mccoursemod.forced_stained_glass", "Force Stained Glass Block");
         add("item.mccoursemod.forced_stained_glass_pane", "Force Stained Glass Pane Block");
-        add("item.mccoursemod.sound", "Sound Block");
         add("item.mccoursemod.soap_water_block", "Soap Water Block");
         add("item.mccoursemod.walnut_sign", "Walnut Sign");
         add("item.mccoursemod.walnut_hanging_sign", "Walnut Hanging Sign");
@@ -388,7 +391,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.MCCOURSEMOD_ELEVATOR, "Mccourse Mod Elevator Block");
         addBlock(ModBlocks.MCCOURSEMOD_GENERATOR, "Mccourse Mod Generator Block");
         addBlock(ModBlocks.CRAFTING_PLUS, "Crafting Plus Block");
-        addBlock(ModBlocks.SOUND, "§8Sound Block");
+        blockLang(ModBlocks.SOUND, "§8");
 
         // ** CUSTOM Block Families **
         // BISMUTH
@@ -821,5 +824,25 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM block entity container **
         add("mccoursemod.container.crafting", "");
         add("container.inventory", "");
+
+        // ** CUSTOM DIMENSIONS **
+        addDimension(ModDimensions.KAUPENDIM_LEVEL_KEY, "Kaupendim");
+
+        // ** CUSTOM BIOMES **
+        addBiome(ModBiomes.TEST_BIOME, "Test Biome");
+        addBiome(ModBiomes.TEST_BIOME_2, "Test Biome 2");
+    }
+
+    // CUSTOM METHOD - Register Block - Block Item
+    public void blockLang(Supplier<? extends Block> block, String color) {
+        String blockId = block.get().getDescriptionId().replace("block.mccoursemod.", "");
+
+        String firstLetter = blockId.substring(0, 1).toUpperCase();
+        String letters = blockId.substring(1).toLowerCase();
+        String blockName = firstLetter + letters;
+        String versionFinal = color + blockName + " Block";
+
+        addBlock(block, versionFinal);
+        add("item.mccoursemod." + blockId, versionFinal);
     }
 }
