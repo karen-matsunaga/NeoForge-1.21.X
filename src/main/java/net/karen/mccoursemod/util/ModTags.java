@@ -108,6 +108,9 @@ public class ModTags {
         public static final TagKey<Block> VERTICAL_BLOCKS = createTag("vertical_blocks");
         public static final TagKey<Block> VERTICAL_GROW_BLOCKS = createTag("vertical_grow_blocks");
 
+        // ** CUSTOM Slimey effect blocks **
+        public static final TagKey<Block> SLIMEY_EFFECT_BLOCKS = createTag("slimey_effect_blocks");
+
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));

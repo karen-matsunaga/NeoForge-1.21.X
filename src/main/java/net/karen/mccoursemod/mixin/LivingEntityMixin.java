@@ -2,20 +2,15 @@ package net.karen.mccoursemod.mixin;
 
 import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantments;
+import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,13 +22,8 @@ import java.util.Optional;
 import static net.karen.mccoursemod.util.Utils.*;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin extends Entity {
+public abstract class LivingEntityMixin {
     @Shadow private Optional<BlockPos> lastClimbablePos;
-    @Shadow public abstract boolean hasEffect(Holder<MobEffect> effect);
-
-    public LivingEntityMixin(EntityType<?> entityType, Level level) {
-        super(entityType, level);
-    }
 
     // DEFAULT METHOD - MONSTERS not attack Player
     @Inject(method = "canAttack*", at = @At("HEAD"), cancellable = true)
@@ -53,20 +43,22 @@ public abstract class LivingEntityMixin extends Entity {
     // DEFAULT METHOD - Block Climbable
     @Inject(method = "onClimbable", at = @At("RETURN"), cancellable = true)
     public void slimeyEffectClimb(CallbackInfoReturnable<Boolean> cir) {
-        if (!this.isSpectator() && this.hasEffect(ModEffects.SLIMEY_EFFECT)) {
-            AABB bb = this.getBoundingBox();
+        LivingEntity entity = (LivingEntity) (Object) this;
+        if (!entity.isSpectator() && entity.hasEffect(ModEffects.SLIMEY_EFFECT)) {
+            // Block Bounding Box
+            AABB bb = entity.getBoundingBox();
             Iterable<BlockPos> blockPosCoordinates =
                     BlockPos.betweenClosed(Mth.floor(bb.minX), Mth.floor(bb.minY), Mth.floor(bb.minZ),
                                            Mth.floor(bb.maxX), Mth.floor(bb.maxY), Mth.floor(bb.maxZ));
+            // Found Block climb
             for (BlockPos pos : blockPosCoordinates) {
-                Direction[] directions = Direction.values();
-                for (Direction direction : directions) {
-                    BlockPos blockPos = pos.relative(direction);
-                    BlockState state = this.level().getBlockState(blockPos);
-                    if (state.is(BlockTags.BASE_STONE_OVERWORLD) || state.is(BlockTags.LOGS) ||
-                        state.is(BlockTags.LEAVES)) {
-                        this.lastClimbablePos = Optional.of(blockPos);
+                for (Direction dir : Direction.Plane.HORIZONTAL) { // Direction X and Z
+                    BlockPos adjacent = pos.relative(dir);
+                    BlockState state = entity.level().getBlockState(adjacent);
+                    if (state.is(ModTags.Blocks.SLIMEY_EFFECT_BLOCKS)) { // Compatible blocks
+                        this.lastClimbablePos = Optional.of(adjacent);
                         cir.setReturnValue(true);
+                        return;
                     }
                 }
             }

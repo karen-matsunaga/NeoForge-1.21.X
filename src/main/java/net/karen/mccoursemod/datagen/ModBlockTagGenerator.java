@@ -260,5 +260,11 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                      Blocks.CRIMSON_FUNGUS, Blocks.WARPED_FUNGUS);
         this.tag(ModTags.Blocks.VERTICAL_BLOCKS).add(Blocks.BAMBOO, Blocks.SUGAR_CANE, Blocks.CACTUS);
         this.tag(ModTags.Blocks.VERTICAL_GROW_BLOCKS).add(Blocks.GRASS_BLOCK, Blocks.SAND, Blocks.DIRT);
+
+        // ** CUSTOM Slimey effect blocks **
+        this.tag(ModTags.Blocks.SLIMEY_EFFECT_BLOCKS).addTag(BlockTags.BASE_STONE_OVERWORLD)
+                                                     .addTag(BlockTags.BASE_STONE_NETHER)
+                                                     .addTag(BlockTags.LOGS)
+                                                     .addTag(BlockTags.LEAVES);
     }
 }
