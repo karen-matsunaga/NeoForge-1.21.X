@@ -144,11 +144,6 @@ public class ChatUtils {
         return word.replace("_", " ");
     }
 
-    // CUSTOM METHOD - SPLIT UPPER STRING -> Example: LuckyBomb -> Lucky Bomb
-    public static String upperString(String upper) {
-        return upper.replaceAll("([a-z])([A-Z])", "$1 $2");
-    }
-
     // CUSTOM METHOD - Enchantment color
     public static ChatFormatting getEnchantmentColor(Holder<Enchantment> holder) {
         // FULL ARMOR

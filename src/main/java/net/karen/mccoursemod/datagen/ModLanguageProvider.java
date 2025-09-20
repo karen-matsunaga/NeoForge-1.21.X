@@ -10,6 +10,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import java.util.function.Supplier;
+import static net.karen.mccoursemod.util.ChatUtils.*;
 
 public class ModLanguageProvider extends LanguageProvider {
     public ModLanguageProvider(PackOutput packOutput) {
@@ -249,7 +250,6 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.WALNUT_CHEST_BOAT, "Walnut Chest Boat");
 
         // ** CUSTOM block items **
-        add("item.mccoursemod.bismuth_block", "Bismuth Block");
         add("item.mccoursemod.bismuth_ore", "Bismuth Ore");
         add("item.mccoursemod.bismuth_deepslate_ore", "Bismuth Deepslate Ore");
         add("item.mccoursemod.bismuth_end_ore", "Bismuth End Ore");
@@ -363,7 +363,7 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM BLOCKS **
         // ** CUSTOM ores **
         // BISMUTH
-        addBlock(ModBlocks.BISMUTH_BLOCK, "Bismuth Block");
+        blockLang(ModBlocks.BISMUTH_BLOCK, "§6");
         addBlock(ModBlocks.BISMUTH_ORE, "Bismuth Ore");
         addBlock(ModBlocks.BISMUTH_DEEPSLATE_ORE, "Bismuth Deepslate Ore");
         addBlock(ModBlocks.BISMUTH_END_ORE, "Bismuth End Ore");
@@ -837,12 +837,21 @@ public class ModLanguageProvider extends LanguageProvider {
     public void blockLang(Supplier<? extends Block> block, String color) {
         String blockId = block.get().getDescriptionId().replace("block.mccoursemod.", "");
 
+        // Sound -> One word
         String firstLetter = blockId.substring(0, 1).toUpperCase();
         String letters = blockId.substring(1).toLowerCase();
         String blockName = firstLetter + letters;
-        String versionFinal = color + blockName + " Block";
+        String versionWithBlock = color + blockName + " Block";
 
-        addBlock(block, versionFinal);
-        add("item.mccoursemod." + blockId, versionFinal);
+        // Bismuth Block -> Two words
+        String names = itemLines(splitWord(blockId));
+        String versionWithoutBlock = color + names;
+
+        // Block name -> Example: bismuth_block
+        boolean hasSpace = block.get().getDescriptionId().contains("_");
+        String blockPrefix = hasSpace ? versionWithoutBlock : versionWithBlock;
+
+        addBlock(block, blockPrefix);
+        add("item.mccoursemod." + blockId, blockPrefix);
     }
 }
