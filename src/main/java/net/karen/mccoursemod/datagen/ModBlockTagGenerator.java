@@ -262,9 +262,11 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
         this.tag(ModTags.Blocks.VERTICAL_GROW_BLOCKS).add(Blocks.GRASS_BLOCK, Blocks.SAND, Blocks.DIRT);
 
         // ** CUSTOM Slimey effect blocks **
-        this.tag(ModTags.Blocks.SLIMEY_EFFECT_BLOCKS).addTag(BlockTags.BASE_STONE_OVERWORLD)
+        this.tag(ModTags.Blocks.SLIMEY_EFFECT_BLOCKS).add(Blocks.END_STONE)
+                                                     .addTag(BlockTags.BASE_STONE_OVERWORLD)
                                                      .addTag(BlockTags.BASE_STONE_NETHER)
                                                      .addTag(BlockTags.LOGS)
-                                                     .addTag(BlockTags.LEAVES);
+                                                     .addTag(BlockTags.LEAVES)
+                                                     .addTag(ModTags.Blocks.ENDER_PEARL_BLOCKS);
     }
 }

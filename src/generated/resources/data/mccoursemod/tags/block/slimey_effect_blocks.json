@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:end_stone",
+    "#minecraft:base_stone_overworld",
+    "#minecraft:base_stone_nether",
+    "#minecraft:logs",
+    "#minecraft:leaves",
+    "#mccoursemod:ender_pearl_blocks"
+  ]
+}
