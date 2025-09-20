@@ -2,7 +2,9 @@ package net.karen.mccoursemod.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.karen.mccoursemod.item.ModArmorMaterials;
+import net.karen.mccoursemod.util.ChatUtils;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -22,6 +24,7 @@ import java.util.Map;
 import java.util.Optional;
 
 public class ModArmorItem extends Item {
+    private final int textColor;
     private static final ImmutableMap<ArmorMaterial, List<MobEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, List<MobEffectInstance>>())
             .put(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
@@ -38,8 +41,9 @@ public class ModArmorItem extends Item {
                          new MobEffectInstance(MobEffects.GLOWING, 200, 1, true, true)))
             .build();
 
-    public ModArmorItem(Properties properties) {
+    public ModArmorItem(Properties properties, int textColor) {
         super(properties);
+        this.textColor = textColor;
     }
 
     @Override
@@ -92,5 +96,10 @@ public class ModArmorItem extends Item {
     private boolean hasFullSuitOfArmorOn(Player player) {
         return player.hasItemInSlot(EquipmentSlot.FEET) && player.hasItemInSlot(EquipmentSlot.LEGS) &&
                player.hasItemInSlot(EquipmentSlot.CHEST) && player.hasItemInSlot(EquipmentSlot.HEAD);
+    }
+
+    @Override
+    public @NotNull Component getName(@NotNull ItemStack stack) {
+        return ChatUtils.componentTranslatableIntColor(this.getDescriptionId(), textColor);
     }
 }

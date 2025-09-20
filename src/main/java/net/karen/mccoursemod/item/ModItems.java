@@ -100,155 +100,115 @@ public class ModItems {
 
     public static final DeferredItem<Item> PEAT_BRICK = fuelItem("peat_brick", 200);
 
-    // ** CUSTOM tools (Sword, Pickaxe, Shovel, Axe, Hoe, Hammer, Paxel, Bow, etc.) **
+    // ** CUSTOM armors (Helmet, Chestplate, Leggings and Boots) **
     // BISMUTH
-    public static final DeferredItem<Item> BISMUTH_SWORD =
-           swordItem("bismuth_sword", ModToolMaterials.BISMUTH,
-                     5.0F, -2.4F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
+    public static final DeferredItem<Item> BISMUTH_HELMET =
+           helmetArmor("bismuth_helmet", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, 0xE85480);
 
-    public static final DeferredItem<Item> BISMUTH_PICKAXE =
-           pickaxeItem("bismuth_pickaxe", ModToolMaterials.BISMUTH,
-                       1.0F, -2.8F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
+    public static final DeferredItem<Item> BISMUTH_CHESTPLATE =
+           chestplateArmor("bismuth_chestplate", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, 0xE85480);
 
-    public static final DeferredItem<Item> BISMUTH_SHOVEL =
-           shovelItem("bismuth_shovel", ModToolMaterials.BISMUTH,
-                      1.5F, -3.0F,ModTags.Items.BISMUTH_TOOL_MATERIALS);
+    public static final DeferredItem<Item> BISMUTH_LEGGINGS =
+           leggingsArmor("bismuth_leggings", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, 0xE85480);
 
-    public static final DeferredItem<Item> BISMUTH_AXE =
-           axeItem("bismuth_axe", ModToolMaterials.BISMUTH,
-                   6.0F, -3.2F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
+    public static final DeferredItem<Item> BISMUTH_BOOTS =
+           bootsArmor("bismuth_boots", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, 0xE85480);
 
-    public static final DeferredItem<Item> BISMUTH_HOE =
-           hoeItem("bismuth_hoe", ModToolMaterials.BISMUTH,
-                   0.0F, -3.0F, ModTags.Items.BISMUTH_TOOL_MATERIALS);
+    // ALEXANDRITE
+    public static final DeferredItem<Item> ALEXANDRITE_HELMET =
+           helmetArmor("alexandrite_helmet", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL, 0x30D5C8);
 
+    public static final DeferredItem<Item> ALEXANDRITE_CHESTPLATE =
+           chestplateArmor("alexandrite_chestplate", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL, 0x30D5C8);
+
+    public static final DeferredItem<Item> ALEXANDRITE_LEGGINGS =
+           leggingsArmor("alexandrite_leggings", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL, 0x30D5C8);
+
+    public static final DeferredItem<Item> ALEXANDRITE_BOOTS =
+           bootsArmor("alexandrite_boots", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL, 0x30D5C8);
+
+    // PINK
+    public static final DeferredItem<Item> PINK_HELMET =
+           helmetArmor("pink_helmet", ModArmorMaterials.PINK_ARMOR_MATERIAL, 0xF433C1);
+
+    public static final DeferredItem<Item> PINK_CHESTPLATE =
+           chestplateArmor("pink_chestplate", ModArmorMaterials.PINK_ARMOR_MATERIAL, 0xF433C1);
+
+    public static final DeferredItem<Item> PINK_LEGGINGS =
+           leggingsArmor("pink_leggings", ModArmorMaterials.PINK_ARMOR_MATERIAL, 0xF433C1);
+
+    public static final DeferredItem<Item> PINK_BOOTS =
+           bootsArmor("pink_boots", ModArmorMaterials.PINK_ARMOR_MATERIAL, 0xF433C1);
+
+    // COPPER
+    public static final DeferredItem<Item> COPPER_HELMET =
+           helmetArmor("copper_helmet", ModArmorMaterials.COPPER_ARMOR_MATERIAL, 0x9C4529);
+
+    public static final DeferredItem<Item> COPPER_CHESTPLATE =
+           chestplateArmor("copper_chestplate", ModArmorMaterials.COPPER_ARMOR_MATERIAL, 0x9C4529);
+
+    public static final DeferredItem<Item> COPPER_LEGGINGS =
+           leggingsArmor("copper_leggings", ModArmorMaterials.COPPER_ARMOR_MATERIAL, 0x9C4529);
+
+    public static final DeferredItem<Item> COPPER_BOOTS =
+           bootsArmor("copper_boots", ModArmorMaterials.COPPER_ARMOR_MATERIAL, 0x9C4529);
+
+    // LAPIS LAZULI
+    public static final DeferredItem<Item> LAPIS_LAZULI_HELMET =
+           helmetArmor("lapis_lazuli_helmet", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL, 0x273FB2);
+
+    public static final DeferredItem<Item> LAPIS_LAZULI_CHESTPLATE =
+           chestplateArmor("lapis_lazuli_chestplate", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL, 0x273FB2);
+
+    public static final DeferredItem<Item> LAPIS_LAZULI_LEGGINGS =
+           leggingsArmor("lapis_lazuli_leggings", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL, 0x273FB2);
+
+    public static final DeferredItem<Item> LAPIS_LAZULI_BOOTS =
+           bootsArmor("lapis_lazuli_boots", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL, 0x273FB2);
+
+    // REDSTONE
+    public static final DeferredItem<Item> REDSTONE_HELMET =
+           helmetArmor("redstone_helmet", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL, 0xDA304B);
+
+    public static final DeferredItem<Item> REDSTONE_CHESTPLATE =
+           chestplateArmor("redstone_chestplate", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL, 0xDA304B);
+
+    public static final DeferredItem<Item> REDSTONE_LEGGINGS =
+           leggingsArmor("redstone_leggings", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL, 0xDA304B);
+
+    public static final DeferredItem<Item> REDSTONE_BOOTS =
+           bootsArmor("redstone_boots", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL, 0xDA304B);
+
+    // ** CUSTOM Horse armor **
+    public static final DeferredItem<Item> BISMUTH_HORSE_ARMOR =
+           horseArmorItem("bismuth_horse_armor", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, 0xE85480);
+
+    public static final DeferredItem<Item> ALEXANDRITE_HORSE_ARMOR =
+           horseArmorItem("alexandrite_horse_armor", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL, 0x30D5C8);
+
+    // ** CUSTOM tools (SWORD, PICKAXE, SHOVEL, AXE, HOE, HAMMER, PAXEL, BOW, etc.) **
+    // ** CUSTOM Bow tools **
     public static final DeferredItem<Item> KAUPEN_BOW =
-           bowItem("kaupen_bow", ModTags.Items.BISMUTH_TOOL_MATERIALS);
+           bowItem("kaupen_bow", ModTags.Items.BISMUTH_TOOL_MATERIALS, 0xE85480);
 
     public static final DeferredItem<Item> MINER_BOW =
            hammerBowItem("miner_bow", ModTags.Items.BISMUTH_TOOL_MATERIALS);
 
-    public static final DeferredItem<Item> BISMUTH_HORSE_ARMOR =
-           horseArmorItem("bismuth_horse_armor", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
+    public static final DeferredItem<Item> ALEXANDRITE_BOW =
+           bowItem("alexandrite_bow", ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 0x30D5C8);
 
-    // ** CUSTOM Fishing Rod **
+    // ** CUSTOM Fishing Rod tools **
     public static final DeferredItem<Item> MCCOURSE_MOD_FISHING_ROD =
-           ITEMS.registerItem("mccourse_mod_fishing_rod",
-                              properties ->
+           ITEMS.registerItem("mccourse_mod_fishing_rod", properties ->
                               new FishingRodItem(properties.fireResistant()) {
-                                  // DEFAULT METHOD - Appears on name item
-                                  @Override
-                                  public @NotNull Component getName(@NotNull ItemStack stack) {
-                                      return super.getName(stack).copy().withStyle(purple);
-                                  }
+                                   // DEFAULT METHOD - Appears on name item
+                                   @Override
+                                   public @NotNull Component getName(@NotNull ItemStack stack) {
+                                       return componentTranslatable(this.getDescriptionId(), purple);
+                                   }
                               });
 
-    // ALEXANDRITE
-    public static final DeferredItem<Item> ALEXANDRITE_SWORD =
-           swordItem("alexandrite_sword", ModToolMaterials.ALEXANDRITE,
-                     2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
-
-    public static final DeferredItem<Item> ALEXANDRITE_PICKAXE =
-           pickaxeItem("alexandrite_pickaxe", ModToolMaterials.ALEXANDRITE,
-                       1.0F, 2.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
-
-    public static final DeferredItem<Item> ALEXANDRITE_SHOVEL =
-           shovelItem("alexandrite_shovel", ModToolMaterials.ALEXANDRITE,
-                      2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
-
-    public static final DeferredItem<Item> ALEXANDRITE_AXE =
-           axeItem("alexandrite_axe", ModToolMaterials.ALEXANDRITE,
-                   2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
-
-    public static final DeferredItem<Item> ALEXANDRITE_HOE =
-           hoeItem("alexandrite_hoe", ModToolMaterials.ALEXANDRITE,
-                   2.0F, 3.0F, ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
-
-    // ** CUSTOM armors (Helmet, Chestplate, Leggings and Boots) **
-    // BISMUTH
-    public static final DeferredItem<Item> BISMUTH_HELMET =
-           helmetArmor("bismuth_helmet", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> BISMUTH_CHESTPLATE =
-           chestplateArmor("bismuth_chestplate", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> BISMUTH_LEGGINGS =
-           leggingsArmor("bismuth_leggings", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> BISMUTH_BOOTS =
-           bootsArmor("bismuth_boots", ModArmorMaterials.BISMUTH_ARMOR_MATERIAL);
-
-    // ALEXANDRITE
-    public static final DeferredItem<Item> ALEXANDRITE_HELMET =
-           helmetArmor("alexandrite_helmet", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> ALEXANDRITE_CHESTPLATE =
-           chestplateArmor("alexandrite_chestplate", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> ALEXANDRITE_LEGGINGS =
-           leggingsArmor("alexandrite_leggings", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> ALEXANDRITE_BOOTS =
-           bootsArmor("alexandrite_boots", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
-
-    // PINK
-    public static final DeferredItem<Item> PINK_HELMET =
-           helmetArmor("pink_helmet", ModArmorMaterials.PINK_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> PINK_CHESTPLATE =
-           chestplateArmor("pink_chestplate", ModArmorMaterials.PINK_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> PINK_LEGGINGS =
-           leggingsArmor("pink_leggings", ModArmorMaterials.PINK_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> PINK_BOOTS =
-           bootsArmor("pink_boots", ModArmorMaterials.PINK_ARMOR_MATERIAL);
-
-    // COPPER
-    public static final DeferredItem<Item> COPPER_HELMET =
-           helmetArmor("copper_helmet", ModArmorMaterials.COPPER_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> COPPER_CHESTPLATE =
-           chestplateArmor("copper_chestplate", ModArmorMaterials.COPPER_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> COPPER_LEGGINGS =
-           leggingsArmor("copper_leggings", ModArmorMaterials.COPPER_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> COPPER_BOOTS =
-           bootsArmor("copper_boots", ModArmorMaterials.COPPER_ARMOR_MATERIAL);
-
-    // LAPIS LAZULI
-    public static final DeferredItem<Item> LAPIS_LAZULI_HELMET =
-           helmetArmor("lapis_lazuli_helmet", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> LAPIS_LAZULI_CHESTPLATE =
-           chestplateArmor("lapis_lazuli_chestplate", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> LAPIS_LAZULI_LEGGINGS =
-           leggingsArmor("lapis_lazuli_leggings", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> LAPIS_LAZULI_BOOTS =
-           bootsArmor("lapis_lazuli_boots", ModArmorMaterials.LAPIS_LAZULI_ARMOR_MATERIAL);
-
-    // REDSTONE
-    public static final DeferredItem<Item> REDSTONE_HELMET =
-           helmetArmor("redstone_helmet", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> REDSTONE_CHESTPLATE =
-           chestplateArmor("redstone_chestplate", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> REDSTONE_LEGGINGS =
-           leggingsArmor("redstone_leggings", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> REDSTONE_BOOTS =
-           bootsArmor("redstone_boots", ModArmorMaterials.REDSTONE_ARMOR_MATERIAL);
-
-    public static final DeferredItem<Item> ALEXANDRITE_BOW =
-           bowItem("alexandrite_bow", ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
-
-    public static final DeferredItem<Item> ALEXANDRITE_HORSE_ARMOR =
-           horseArmorItem("alexandrite_horse_armor", ModArmorMaterials.ALEXANDRITE_ARMOR_MATERIAL);
-
+    // ** CUSTOM Shield tools **
     public static final DeferredItem<Item> ALEXANDRITE_SHIELD =
            shieldItem("alexandrite_shield", ModTags.Items.ALEXANDRITE_TOOL_MATERIALS);
 
@@ -363,89 +323,129 @@ public class ModItems {
                       0xDA304B);
 
     // ** CUSTOM Shovel tools **
+    public static final DeferredItem<Item> BISMUTH_SHOVEL =
+           shovelItem("bismuth_shovel", ModToolMaterials.BISMUTH, 1.5F, -3.0F,
+                      ModTags.Items.BISMUTH_TOOL_MATERIALS, 0xE85480);
+
+    public static final DeferredItem<Item> ALEXANDRITE_SHOVEL =
+           shovelItem("alexandrite_shovel", ModToolMaterials.ALEXANDRITE, 2.0F, 3.0F,
+                      ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 0x30D5C8);
+
     public static final DeferredItem<Item> PINK_SHOVEL =
-           shovelItem("pink_shovel", ModToolMaterials.PINK,
-                      2.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS);
+           shovelItem("pink_shovel", ModToolMaterials.PINK, 2.0F, 2.0F,
+                      ModTags.Items.PINK_TOOL_MATERIALS, 0xF433C1);
 
     public static final DeferredItem<Item> COPPER_SHOVEL =
-           shovelItem("copper_shovel", ModToolMaterials.COPPER,
-                      2.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS);
+           shovelItem("copper_shovel", ModToolMaterials.COPPER, 2.0F, 2.5F,
+                      ModTags.Items.COPPER_TOOL_MATERIALS, 0x9C4529);
 
     public static final DeferredItem<Item> LAPIS_LAZULI_SHOVEL =
-           shovelItem("lapis_lazuli_shovel", ModToolMaterials.LAPIS_LAZULI,
-                      2.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS);
+           shovelItem("lapis_lazuli_shovel", ModToolMaterials.LAPIS_LAZULI, 2.0F, 3.5F,
+                      ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS, 0x273FB2);
 
     public static final DeferredItem<Item> REDSTONE_SHOVEL =
-           shovelItem("redstone_shovel", ModToolMaterials.REDSTONE,
-                      2.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS);
+           shovelItem("redstone_shovel", ModToolMaterials.REDSTONE, 2.0F, 4.5F,
+                      ModTags.Items.REDSTONE_TOOL_MATERIALS, 0xDA304B);
 
     // ** CUSTOM Axe tools **
+    public static final DeferredItem<Item> BISMUTH_AXE =
+           axeItem("bismuth_axe", ModToolMaterials.BISMUTH, 6.0F, -3.2F,
+                   ModTags.Items.BISMUTH_TOOL_MATERIALS, 0xE85480);
+
+    public static final DeferredItem<Item> ALEXANDRITE_AXE =
+           axeItem("alexandrite_axe", ModToolMaterials.ALEXANDRITE, 2.0F, 3.0F,
+                   ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 0x30D5C8);
+
     public static final DeferredItem<Item> PINK_AXE =
-           axeItem("pink_axe", ModToolMaterials.PINK,
-                   2.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS);
+           axeItem("pink_axe", ModToolMaterials.PINK, 2.0F, 2.0F,
+                   ModTags.Items.PINK_TOOL_MATERIALS, 0xF433C1);
 
     public static final DeferredItem<Item> COPPER_AXE =
-           axeItem("copper_axe", ModToolMaterials.COPPER,
-                   2.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS);
+           axeItem("copper_axe", ModToolMaterials.COPPER, 2.0F, 2.5F,
+                   ModTags.Items.COPPER_TOOL_MATERIALS, 0x9C4529);
 
     public static final DeferredItem<Item> LAPIS_LAZULI_AXE =
-           axeItem("lapis_lazuli_axe", ModToolMaterials.LAPIS_LAZULI,
-                   2.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS);
+           axeItem("lapis_lazuli_axe", ModToolMaterials.LAPIS_LAZULI, 2.0F, 3.5F,
+                   ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS, 0x273FB2);
 
     public static final DeferredItem<Item> REDSTONE_AXE =
-           axeItem("redstone_axe", ModToolMaterials.REDSTONE,
-                   2.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS);
+           axeItem("redstone_axe", ModToolMaterials.REDSTONE, 2.0F, 4.5F,
+                   ModTags.Items.REDSTONE_TOOL_MATERIALS, 0xDA304B);
 
     // ** CUSTOM hoe **
+    public static final DeferredItem<Item> BISMUTH_HOE =
+           hoeItem("bismuth_hoe", ModToolMaterials.BISMUTH, 0.0F, -3.0F,
+                   ModTags.Items.BISMUTH_TOOL_MATERIALS, 0xE85480);
+
+    public static final DeferredItem<Item> ALEXANDRITE_HOE =
+           hoeItem("alexandrite_hoe", ModToolMaterials.ALEXANDRITE, 2.0F, 3.0F,
+                   ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 0x30D5C8);
+
     public static final DeferredItem<Item> PINK_HOE =
-           hoeItem("pink_hoe", ModToolMaterials.PINK,
-                   2.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS);
+           hoeItem("pink_hoe", ModToolMaterials.PINK, 2.0F, 2.0F,
+                   ModTags.Items.PINK_TOOL_MATERIALS, 0xF433C1);
 
     public static final DeferredItem<Item> COPPER_HOE =
-           hoeItem("copper_hoe", ModToolMaterials.COPPER,
-                   2.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS);
+           hoeItem("copper_hoe", ModToolMaterials.COPPER, 2.0F, 2.5F,
+                   ModTags.Items.COPPER_TOOL_MATERIALS, 0x9C4529);
 
     public static final DeferredItem<Item> LAPIS_LAZULI_HOE =
-           hoeItem("lapis_lazuli_hoe", ModToolMaterials.LAPIS_LAZULI,
-                   2.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS);
+           hoeItem("lapis_lazuli_hoe", ModToolMaterials.LAPIS_LAZULI, 2.0F, 3.5F,
+                   ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS, 0x273FB2);
 
     public static final DeferredItem<Item> REDSTONE_HOE =
-           hoeItem("redstone_hoe", ModToolMaterials.REDSTONE,
-                   2.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS);
+           hoeItem("redstone_hoe", ModToolMaterials.REDSTONE, 2.0F, 4.5F,
+                   ModTags.Items.REDSTONE_TOOL_MATERIALS, 0xDA304B);
 
     // ** CUSTOM pickaxe **
+    public static final DeferredItem<Item> BISMUTH_PICKAXE =
+           pickaxeItem("bismuth_pickaxe", ModToolMaterials.BISMUTH, 1.0F, -2.8F,
+                       ModTags.Items.BISMUTH_TOOL_MATERIALS, 0xE85480);
+
+    public static final DeferredItem<Item> ALEXANDRITE_PICKAXE =
+           pickaxeItem("alexandrite_pickaxe", ModToolMaterials.ALEXANDRITE, 1.0F, 2.0F,
+                       ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 0x30D5C8);
+
     public static final DeferredItem<Item> PINK_PICKAXE =
-           pickaxeItem("pink_pickaxe", ModToolMaterials.PINK,
-                       2.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS);
+           pickaxeItem("pink_pickaxe", ModToolMaterials.PINK, 2.0F, 2.0F,
+                       ModTags.Items.PINK_TOOL_MATERIALS, 0xF433C1);
 
     public static final DeferredItem<Item> COPPER_PICKAXE =
-           pickaxeItem("copper_pickaxe", ModToolMaterials.COPPER,
-                       2.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS);
+           pickaxeItem("copper_pickaxe", ModToolMaterials.COPPER, 2.0F, 2.5F,
+                       ModTags.Items.COPPER_TOOL_MATERIALS, 0x9C4529);
 
     public static final DeferredItem<Item> LAPIS_LAZULI_PICKAXE =
-           pickaxeItem("lapis_lazuli_pickaxe", ModToolMaterials.LAPIS_LAZULI,
-                       2.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS);
+           pickaxeItem("lapis_lazuli_pickaxe", ModToolMaterials.LAPIS_LAZULI, 2.0F, 3.5F,
+                       ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS, 0x273FB2);
 
     public static final DeferredItem<Item> REDSTONE_PICKAXE =
-           pickaxeItem("redstone_pickaxe", ModToolMaterials.REDSTONE,
-                       2.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS);
+           pickaxeItem("redstone_pickaxe", ModToolMaterials.REDSTONE, 2.0F, 4.5F,
+                       ModTags.Items.REDSTONE_TOOL_MATERIALS, 0xDA304B);
 
     // ** CUSTOM sword **
+    public static final DeferredItem<Item> BISMUTH_SWORD =
+           swordItem("bismuth_sword", ModToolMaterials.BISMUTH, 5.0F, -2.4F,
+                     ModTags.Items.BISMUTH_TOOL_MATERIALS, 0xE85480);
+
+    public static final DeferredItem<Item> ALEXANDRITE_SWORD =
+           swordItem("alexandrite_sword", ModToolMaterials.ALEXANDRITE, 2.0F, 3.0F,
+                     ModTags.Items.ALEXANDRITE_TOOL_MATERIALS, 0x30D5C8);
+
     public static final DeferredItem<Item> PINK_SWORD =
-           swordItem("pink_sword", ModToolMaterials.PINK,
-                     2.0F, 2.0F, ModTags.Items.PINK_TOOL_MATERIALS);
+           swordItem("pink_sword", ModToolMaterials.PINK, 2.0F, 2.0F,
+                     ModTags.Items.PINK_TOOL_MATERIALS, 0xF433C1);
 
     public static final DeferredItem<Item> COPPER_SWORD =
-           swordItem("copper_sword", ModToolMaterials.COPPER,
-                     2.0F, 2.5F, ModTags.Items.COPPER_TOOL_MATERIALS);
+           swordItem("copper_sword", ModToolMaterials.COPPER, 2.0F, 2.5F,
+                     ModTags.Items.COPPER_TOOL_MATERIALS, 0x9C4529);
 
     public static final DeferredItem<Item> LAPIS_LAZULI_SWORD =
-           swordItem("lapis_lazuli_sword", ModToolMaterials.LAPIS_LAZULI,
-                     2.0F, 3.5F, ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS);
+           swordItem("lapis_lazuli_sword", ModToolMaterials.LAPIS_LAZULI, 2.0F, 3.5F,
+                     ModTags.Items.LAPIS_LAZULI_TOOL_MATERIALS, 0x273FB2);
 
     public static final DeferredItem<Item> REDSTONE_SWORD =
-           swordItem("redstone_sword", ModToolMaterials.REDSTONE,
-                     2.0F, 4.5F, ModTags.Items.REDSTONE_TOOL_MATERIALS);
+           swordItem("redstone_sword", ModToolMaterials.REDSTONE, 2.0F, 4.5F,
+                     ModTags.Items.REDSTONE_TOOL_MATERIALS, 0xDA304B);
 
     // ** CUSTOM Elytra armor **
     public static final DeferredItem<Item> DIAMOND_ELYTRA =
@@ -674,66 +674,94 @@ public class ModItems {
 
     // ** CUSTOM METHOD - Shovel tool **
     public static DeferredItem<Item> shovelItem(String name, ToolMaterial material,
-                                                float attackDamage, float attackSpeed, TagKey<Item> repair) {
+                                                float attackDamage, float attackSpeed, TagKey<Item> repair, int color) {
         return ITEMS.registerItem(name, properties ->
                                   new ShovelItem(material, attackDamage, attackSpeed,
-                                                 properties.fireResistant().repairable(repair)));
+                                                 properties.fireResistant().repairable(repair)) {
+                                                      @Override
+                                                      public @NotNull Component getName(@NotNull ItemStack stack) {
+                                                          return componentTranslatableIntColor(this.getDescriptionId(), color);
+                                                      }
+                                                 });
     }
 
     // ** CUSTOM METHOD - Axe tool **
     public static DeferredItem<Item> axeItem(String name, ToolMaterial material,
-                                             float attackDamage, float attackSpeed, TagKey<Item> repair) {
+                                             float attackDamage, float attackSpeed, TagKey<Item> repair, int color) {
         return ITEMS.registerItem(name, properties ->
                                   new AxeItem(material, attackDamage, attackSpeed,
-                                              properties.fireResistant().repairable(repair)));
+                                              properties.fireResistant().repairable(repair)) {
+                                                   @Override
+                                                   public @NotNull Component getName(@NotNull ItemStack stack) {
+                                                       return componentTranslatableIntColor(this.getDescriptionId(), color);
+                                                   }
+                                              });
     }
 
     // ** CUSTOM METHOD - Hoe tool **
     public static DeferredItem<Item> hoeItem(String name, ToolMaterial material,
-                                             float attackDamage, float attackSpeed, TagKey<Item> repair) {
+                                             float attackDamage, float attackSpeed, TagKey<Item> repair, int color) {
         return ITEMS.registerItem(name, properties ->
                                   new HoeItem(material, attackDamage, attackSpeed,
-                                              properties.fireResistant().repairable(repair)));
+                                              properties.fireResistant().repairable(repair)) {
+                                                   @Override
+                                                   public @NotNull Component getName(@NotNull ItemStack stack) {
+                                                       return componentTranslatableIntColor(this.getDescriptionId(), color);
+                                                   }
+                                              });
     }
 
     // ** CUSTOM METHOD - Pickaxe tool **
     public static DeferredItem<Item> pickaxeItem(String name, ToolMaterial material,
-                                                 float attackDamage, float attackSpeed, TagKey<Item> repair) {
+                                                 float attackDamage, float attackSpeed, TagKey<Item> repair, int color) {
         return ITEMS.registerItem(name, properties ->
                                   new Item(properties.pickaxe(material, attackDamage, attackSpeed)
-                                                     .fireResistant().repairable(repair)));
+                                                     .fireResistant().repairable(repair)) {
+                                                @Override
+                                                public @NotNull Component getName(@NotNull ItemStack stack) {
+                                                    return componentTranslatableIntColor(this.getDescriptionId(), color);
+                                                }
+                                           });
     }
 
     // ** CUSTOM METHOD - Sword tool **
     public static DeferredItem<Item> swordItem(String name, ToolMaterial material,
-                                               float attackDamage, float attackSpeed, TagKey<Item> repair) {
+                                               float attackDamage, float attackSpeed, TagKey<Item> repair, int color) {
         return ITEMS.registerItem(name, properties ->
                                   new Item(properties.sword(material, attackDamage, attackSpeed)
-                                                     .fireResistant().repairable(repair)));
+                                                     .fireResistant().repairable(repair)) {
+                                                @Override
+                                                public @NotNull Component getName(@NotNull ItemStack stack) {
+                                                    return componentTranslatableIntColor(this.getDescriptionId(), color);
+                                                }
+                                           });
     }
 
     // ** CUSTOM METHOD - Helmet armor **
-    public static DeferredItem<Item> helmetArmor(String name, ArmorMaterial material) {
+    public static DeferredItem<Item> helmetArmor(String name,
+                                                 ArmorMaterial material, int color) {
         return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
-                                                                                 ArmorType.HELMET).fireResistant()));
+                                                                                 ArmorType.HELMET).fireResistant(), color));
     }
 
     // ** CUSTOM METHOD - Chestplate armor **
-    public static DeferredItem<Item> chestplateArmor(String name, ArmorMaterial material) {
+    public static DeferredItem<Item> chestplateArmor(String name,
+                                                     ArmorMaterial material, int color) {
         return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
-                                                                                 ArmorType.CHESTPLATE).fireResistant()));
+                                                                                 ArmorType.CHESTPLATE).fireResistant(), color));
     }
 
     // ** CUSTOM METHOD - Leggings armor **
-    public static DeferredItem<Item> leggingsArmor(String name, ArmorMaterial material) {
+    public static DeferredItem<Item> leggingsArmor(String name,
+                                                   ArmorMaterial material, int color) {
         return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
-                                                                                 ArmorType.LEGGINGS).fireResistant()));
+                                                                                 ArmorType.LEGGINGS).fireResistant(), color));
     }
 
     // ** CUSTOM METHOD - Boots armor **
-    public static DeferredItem<Item> bootsArmor(String name, ArmorMaterial material) {
+    public static DeferredItem<Item> bootsArmor(String name, ArmorMaterial material, int color) {
         return ITEMS.registerItem(name, properties -> new ModArmorItem(properties.humanoidArmor(material,
-                                                                                 ArmorType.BOOTS).fireResistant()));
+                                                                                 ArmorType.BOOTS).fireResistant(), color));
     }
 
     // ** CUSTOM METHOD - Elytra armor **
@@ -756,9 +784,15 @@ public class ModItems {
     }
 
     // ** CUSTOM METHOD - Bow tool **
-    public static DeferredItem<Item> bowItem(String name, TagKey<Item> repair) {
+    public static DeferredItem<Item> bowItem(String name,
+                                             TagKey<Item> repair, int color) {
         return ITEMS.registerItem(name, properties ->
-                                  new BowItem(properties.repairable(repair)));
+                                  new BowItem(properties.repairable(repair)) {
+                                                   @Override
+                                                   public @NotNull Component getName(@NotNull ItemStack stack) {
+                                                       return componentTranslatableIntColor(this.getDescriptionId(), color);
+                                                   }
+                                              });
     }
 
     // ** CUSTOM METHOD - Hammer Bow tool **
@@ -768,9 +802,15 @@ public class ModItems {
     }
 
     // ** CUSTOM METHOD - Horse armor **
-    public static DeferredItem<Item> horseArmorItem(String name, ArmorMaterial armorMaterial) {
+    public static DeferredItem<Item> horseArmorItem(String name,
+                                                    ArmorMaterial armorMaterial, int color) {
         return ITEMS.registerItem(name, properties ->
-                                  new Item(properties.stacksTo(1).horseArmor(armorMaterial)));
+                                  new Item(properties.stacksTo(1).horseArmor(armorMaterial)) {
+                                              @Override
+                                              public @NotNull Component getName(@NotNull ItemStack stack) {
+                                                  return componentTranslatableIntColor(this.getDescriptionId(), color);
+                                              }
+                                          });
     }
 
     // ** CUSTOM METHOD - Shield tool **

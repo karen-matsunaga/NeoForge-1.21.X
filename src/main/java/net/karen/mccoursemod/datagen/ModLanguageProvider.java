@@ -364,10 +364,10 @@ public class ModLanguageProvider extends LanguageProvider {
         blockLang(ModBlocks.ENDER_PEARL_BLOCK, "§3");
         blockLang(ModBlocks.GREEN_ENDER_PEARL_BLOCK, "§2");
         blockLang(ModBlocks.BLACK_ENDER_PEARL_BLOCK, "§8");
-        blockLang(ModBlocks.MAGENTA_ENDER_PEARL_BLOCK, "§d");
+        blockLang(ModBlocks.MAGENTA_ENDER_PEARL_BLOCK, "§5");
         blockLang(ModBlocks.PURPLE_ENDER_PEARL_BLOCK, "§5");
         blockLang(ModBlocks.ORANGE_ENDER_PEARL_BLOCK, "§6");
-        blockLang(ModBlocks.PINK_ENDER_PEARL_BLOCK, "§5");
+        blockLang(ModBlocks.PINK_ENDER_PEARL_BLOCK, "§d");
         blockLang(ModBlocks.CYAN_ENDER_PEARL_BLOCK, "§7");
         blockLang(ModBlocks.BROWN_ENDER_PEARL_BLOCK, "§6");
         blockLang(ModBlocks.GRAY_ENDER_PEARL_BLOCK, "§8");
