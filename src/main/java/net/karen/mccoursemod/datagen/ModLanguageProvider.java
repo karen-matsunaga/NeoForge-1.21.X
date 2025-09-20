@@ -22,13 +22,13 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM ITEMS **
         // ** CUSTOM ore items **
         // BISMUTH
-        addItem(ModItems.BISMUTH, "Bismuth");
-        addItem(ModItems.RAW_BISMUTH, "Raw Bismuth");
+        addItem(ModItems.BISMUTH, "§6Bismuth");
+        addItem(ModItems.RAW_BISMUTH, "§6Raw Bismuth");
         // ALEXANDRITE
-        addItem(ModItems.ALEXANDRITE, "Alexandrite");
-        addItem(ModItems.RAW_ALEXANDRITE, "Raw Alexandrite");
+        addItem(ModItems.ALEXANDRITE, "§bAlexandrite");
+        addItem(ModItems.RAW_ALEXANDRITE, "§bRaw Alexandrite");
         // PINK
-        addItem(ModItems.PINK, "Pink");
+        addItem(ModItems.PINK, "§dPink");
 
         // ** CUSTOM ADVANCED ITEMS **
         addItem(ModItems.GROWTH, "Growth");
