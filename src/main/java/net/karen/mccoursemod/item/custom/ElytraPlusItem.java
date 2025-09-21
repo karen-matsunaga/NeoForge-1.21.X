@@ -1,6 +1,5 @@
 package net.karen.mccoursemod.item.custom;
 
-import net.karen.mccoursemod.util.ChatUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -41,10 +40,7 @@ public class ElytraPlusItem extends Item {
 
     @Override
     public @NotNull Component getName(@NotNull ItemStack stack) {
-        for (int color : getCOLORS()) {
-            return componentTranslatableIntColor(this.getDescriptionId(), color);
-        }
-        return componentTranslatable(this.getDescriptionId(), aqua);
+        return rgbItemName(stack);
     }
 
     // CUSTOM METHOD - Elytra Plus item name
@@ -55,10 +51,5 @@ public class ElytraPlusItem extends Item {
         String effectName = upperLetter + lowerLetters;
         int effectLevel = effectAmplifier + 1;
         return " with more durability and receive an effect! \nEffect: " + effectName + " " + effectLevel;
-    }
-
-    // CUSTOM METHOD - Elytra Plus tooltip colors
-    public int[] getCOLORS() {
-        return ChatUtils.COLORS;
     }
 }
