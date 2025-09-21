@@ -17,9 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Map;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class ChatUtils {
     // VANILLA colors
@@ -170,32 +168,23 @@ public class ChatUtils {
 
     // CUSTOM METHOD - Enchantment color
     public static ChatFormatting getEnchantmentColor(Holder<Enchantment> holder) {
-        // FULL ARMOR
-        if (holder.is(EnchantmentTags.ARMOR_EXCLUSIVE)) { return gold; }
-        // HELMET ARMOR
-        if (holder.is(ModTags.Enchantments.HELMET_ENCHANTMENTS)) { return darkAqua; }
-        // CHESTPLATE ARMOR
-        if (holder.is(ModTags.Enchantments.CHESTPLATE_ENCHANTMENTS)) { return purple; }
-        // LEGGINGS ARMOR
-        if (holder.is(ModTags.Enchantments.LEGGINGS_ENCHANTMENTS)) { return darkGray; }
-        // BOOTS ARMOR
-        if (holder.is(ModTags.Enchantments.BOOTS_ENCHANTMENTS)) { return blue; }
-        // FISHING ROD
-        if (holder.is(ModTags.Enchantments.FISHING_ENCHANTMENTS)) { return yellow; }
-        // PICKAXE, AXE, SHOVEL ETC.
-        if (holder.is(ModTags.Enchantments.MINING_ENCHANTMENTS)) { return darkPurple; }
-        // UNBREAKING, MENDING
-        if (holder.is(ModTags.Enchantments.DURABILITY_ENCHANTMENTS)) { return darkBlue; }
-        // TRIDENT
-        if (holder.is(ModTags.Enchantments.TRIDENT_ENCHANTMENTS)) { return aqua; }
-        // SWORD
-        if (holder.is(ModTags.Enchantments.SWORD_ENCHANTMENTS)) { return darkRed; }
-        // BOW
-        if (holder.is(ModTags.Enchantments.BOW_ENCHANTMENTS)) { return green; }
-        // CROSSBOW
-        if (holder.is(ModTags.Enchantments.CROSSBOW_ENCHANTMENTS)) { return darkGreen; }
-        // MACE
-        if (holder.is(ModTags.Enchantments.MACE_ENCHANTMENTS)) { return white; }
+        Map<TagKey<Enchantment>, ChatFormatting> enchantmentColors = new HashMap<>();
+        enchantmentColors.put(EnchantmentTags.ARMOR_EXCLUSIVE, gold); // FULL ARMOR
+        enchantmentColors.put(ModTags.Enchantments.HELMET_ENCHANTMENTS, darkAqua); // HELMET ARMOR
+        enchantmentColors.put(ModTags.Enchantments.CHESTPLATE_ENCHANTMENTS, purple); // CHESTPLATE ARMOR
+        enchantmentColors.put(ModTags.Enchantments.LEGGINGS_ENCHANTMENTS, darkGray); // LEGGINGS ARMOR
+        enchantmentColors.put(ModTags.Enchantments.BOOTS_ENCHANTMENTS, blue); // BOOTS ARMOR
+        enchantmentColors.put(ModTags.Enchantments.FISHING_ENCHANTMENTS, yellow); // FISHING ROD
+        enchantmentColors.put(ModTags.Enchantments.MINING_ENCHANTMENTS, darkPurple); // PICKAXE, AXE, SHOVEL ETC.
+        enchantmentColors.put(ModTags.Enchantments.DURABILITY_ENCHANTMENTS, darkBlue); // UNBREAKING, MENDING
+        enchantmentColors.put(ModTags.Enchantments.TRIDENT_ENCHANTMENTS, aqua); // TRIDENT
+        enchantmentColors.put(ModTags.Enchantments.SWORD_ENCHANTMENTS, darkRed); // SWORD
+        enchantmentColors.put(ModTags.Enchantments.BOW_ENCHANTMENTS, green); // BOW
+        enchantmentColors.put(ModTags.Enchantments.CROSSBOW_ENCHANTMENTS, darkGreen); // CROSSBOW
+        enchantmentColors.put(ModTags.Enchantments.MACE_ENCHANTMENTS, white); // MACE
+        for (Map.Entry<TagKey<Enchantment>, ChatFormatting> value : enchantmentColors.entrySet()) {
+            if (holder.is(value.getKey())) { return value.getValue(); }
+        }
         return gray;
     }
 
@@ -204,36 +193,28 @@ public class ChatUtils {
         String armor = "§6⭐", pick = "§5⛏", hammer = "§3🔨", shield = "§1🛡",
                  bow = "§a\uD83C\uDFF9", sword = "§4\uD83D\uDDE1", trident = "§b\uD83D\uDD31",
                 fish = "§e\uD83C\uDFA3", axe = "§5\uD83E\uDE93";
-        // CURSE
-        if (holder.is(EnchantmentTags.CURSE)) { return "§c🔥"; }
-        // ARMOR
-        if (holder.is(EnchantmentTags.ARMOR_EXCLUSIVE)) { return armor; }
+        Map<List<TagKey<Enchantment>>, String> enchantmentIcons = new HashMap<>();
+        enchantmentIcons.put(List.of(EnchantmentTags.CURSE), "§c🔥"); // CURSE
+        enchantmentIcons.put(List.of(EnchantmentTags.ARMOR_EXCLUSIVE), armor); // ARMOR
         // HELMET, CHESTPLATE, LEGGINGS, BOOTS ARMORS AND MACE
-        if (holder.is(ModTags.Enchantments.HELMET_ENCHANTMENTS) ||
-            holder.is(ModTags.Enchantments.CHESTPLATE_ENCHANTMENTS) ||
-            holder.is(ModTags.Enchantments.LEGGINGS_ENCHANTMENTS) ||
-            holder.is(ModTags.Enchantments.BOOTS_ENCHANTMENTS) ||
-            holder.is(ModTags.Enchantments.MACE_ENCHANTMENTS)) {
-            return "";
+        enchantmentIcons.put(List.of(ModTags.Enchantments.HELMET_ENCHANTMENTS, ModTags.Enchantments.CHESTPLATE_ENCHANTMENTS,
+                                     ModTags.Enchantments.LEGGINGS_ENCHANTMENTS, ModTags.Enchantments.BOOTS_ENCHANTMENTS,
+                                     ModTags.Enchantments.MACE_ENCHANTMENTS), "");
+        enchantmentIcons.put(List.of(ModTags.Enchantments.FISHING_ENCHANTMENTS), fish); // FISHING ROD
+        enchantmentIcons.put(List.of(ModTags.Enchantments.MINING_ENCHANTMENTS), pick + " " + axe); // PICKAXE + AXE + SHOVEL
+        enchantmentIcons.put(List.of(ModTags.Enchantments.DURABILITY_ENCHANTMENTS),
+                                     axe + " " + fish + " " + pick + " " + armor + " " + sword + " " +
+                                     bow + " " + trident + " " + hammer + " " + shield); // DURABILITY
+        enchantmentIcons.put(List.of(ModTags.Enchantments.TRIDENT_ENCHANTMENTS), trident); // TRIDENT
+        enchantmentIcons.put(List.of(ModTags.Enchantments.SWORD_ENCHANTMENTS), sword); // SWORD
+        enchantmentIcons.put(List.of(ModTags.Enchantments.BOW_ENCHANTMENTS,
+                                     ModTags.Enchantments.CROSSBOW_ENCHANTMENTS), bow); // BOW or CROSSBOW
+        for (Map.Entry<List<TagKey<Enchantment>>, String> value : enchantmentIcons.entrySet()) {
+            for (TagKey<Enchantment> tagKey : value.getKey()) {
+                if (holder.is(tagKey)) { return value.getValue(); }
+            }
         }
-        // FISHING ROD
-        if (holder.is(ModTags.Enchantments.FISHING_ENCHANTMENTS)) { return fish; }
-        // PICKAXE
-        if (holder.is(ModTags.Enchantments.MINING_ENCHANTMENTS)) { return pick + " " + axe; }
-        // GENERAL UNBREAKING, MENDING
-        if (holder.is(ModTags.Enchantments.DURABILITY_ENCHANTMENTS)) {
-            return axe + " " + fish + " " + pick + " " + armor + " " + sword + " " + bow + " " + trident + " " +
-                   hammer + " " + shield;
-        }
-        // TRIDENT
-        if (holder.is(ModTags.Enchantments.TRIDENT_ENCHANTMENTS)) { return trident; }
-        // SWORD
-        if (holder.is(ModTags.Enchantments.SWORD_ENCHANTMENTS)) { return sword; }
-        // BOW or CROSSBOW
-        if (holder.is(ModTags.Enchantments.BOW_ENCHANTMENTS) || holder.is(ModTags.Enchantments.CROSSBOW_ENCHANTMENTS)) {
-            return bow;
-        }
-        return "ICON";
+        return "";
     }
 
     // CUSTOM METHOD - Display Icon message TOOLTIP -> IMAGE TOOLTIP COMPONENT
