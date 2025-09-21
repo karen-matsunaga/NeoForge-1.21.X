@@ -6,14 +6,19 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.*;
 import net.minecraft.tags.EnchantmentTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 import java.util.StringJoiner;
 
 public class ChatUtils {
@@ -31,6 +36,25 @@ public class ChatUtils {
     // RGB colors
     public static final int[] COLORS = { 0xff5555, 0xffaa00, 0xffff55, 0x55ff55,
                                          0x55ffff, 0x5555ff, 0xff55ff };
+
+    // Glowing Blocks X-RAY block bounding boxes
+    public static final Map<TagKey<Block>, Integer> renderColors =
+           Map.ofEntries(Map.entry(Tags.Blocks.ORES_COAL, color(169, 169,169)),
+                         Map.entry(Tags.Blocks.ORES_COPPER, color(255, 140, 0)),
+                         Map.entry(Tags.Blocks.ORES_DIAMOND, color(0, 254, 255)),
+                         Map.entry(Tags.Blocks.ORES_EMERALD, color(49, 200, 49)),
+                         Map.entry(Tags.Blocks.ORES_GOLD, color(255, 215, 0)),
+                         Map.entry(Tags.Blocks.ORES_IRON, color(211, 211, 211)),
+                         Map.entry(Tags.Blocks.ORES_LAPIS, color(0, 0, 255)),
+                         Map.entry(Tags.Blocks.ORES_REDSTONE, color(179, 0, 0)),
+                         Map.entry(Tags.Blocks.ORES_NETHERITE_SCRAP, color(210, 44, 248)),
+                         Map.entry(ModTags.Blocks.MCCOURSE_MOD_ORES, color(255, 192, 235)),
+                         Map.entry(ModTags.Blocks.SPECIAL_METAL_DETECTOR_VALUABLES, color(204, 0, 0)));
+
+    // CUSTOM METHOD - Glowing Blocks X-RAY block bounding box colors
+    public static int color(int red, int green, int blue) {
+        return ARGB.color(255, red, green, blue);
+    }
 
     // CUSTOM METHOD - COMPONENT LITERAL without color
     public static Component standardLiteral(String message) {

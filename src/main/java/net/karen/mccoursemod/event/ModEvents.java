@@ -155,15 +155,15 @@ public class ModEvents {
         BlockBoxRender.render(level, camera, poseStack, bufferSource);
     }
 
-    // CUSTOM EVENT - XRAY item
+    // CUSTOM EVENT - Glowing Blocks enchantment (X-RAY blocks)
     @SubscribeEvent
-    public static void onGlowingBlocksRender(RenderLevelStageEvent.AfterTranslucentBlocks event) {
+    public static void onGlowingBlocksRenderBlock(RenderLevelStageEvent.AfterTranslucentBlocks event) {
         Minecraft mc = Minecraft.getInstance();
         LocalPlayer player = mc.player;
         Level world = mc.level;
         Level level = event.getLevel();
         HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        if (player == null || world == null || !isXrayEnabled()) { return; }
+        if (player == null || world == null || !isGlowingBlocksXrayEnabled()) { return; }
         ItemStack mainHand = player.getMainHandItem();
         ItemStack helmetSlot = player.getItemBySlot(EquipmentSlot.HEAD);
         boolean metalDetector = !mainHand.isEmpty() && mainHand.is(ModItems.METAL_DETECTOR.get());
@@ -179,21 +179,23 @@ public class ModEvents {
             int radius = 10;
             poseStack.pushPose();
             poseStack.translate(-camX, -camY, -camZ);
-            for (BlockPos pos : BlockPos.betweenClosed(center.offset(-radius, -radius, -radius),
-                                center.offset(radius, radius, radius))) {
+            Iterable<BlockPos> glowingBlocksXray =
+                    BlockPos.betweenClosed(center.offset(-radius, -radius, -radius),
+                                           center.offset(radius, radius, radius));
+            for (BlockPos pos : glowingBlocksXray) {
                 BlockState state = world.getBlockState(pos);
-                BlockBoxRender.renderColors.forEach((block, color) -> {
-                    Optional<HolderSet.Named<Block>> tag = BuiltInRegistries.BLOCK.get(block);
-                    tag.ifPresent(block1 ->
-                                  block1.forEach(blockHolder -> {
-                                                 Block block2 = blockHolder.value();
-                                                 if (block2 == state.getBlock()) {
+                ChatUtils.renderColors.forEach((blockTags, color) -> {
+                    Optional<HolderSet.Named<Block>> tag = BuiltInRegistries.BLOCK.get(blockTags);
+                    tag.ifPresent(holders ->
+                                  holders.forEach(blockHolder -> {
+                                                 Block block = blockHolder.value();
+                                                 if (block == state.getBlock()) {
                                                      VoxelShape shape = Shapes.block();
                                                      poseStack.pushPose();
                                                      poseStack.translate(pos.getX(), pos.getY(), pos.getZ());
                                                      ShapeRenderer.renderShape(poseStack,
                                                                                buffer.getBuffer(
-                                                                               BlockBoxRender.LINES_NO_DEPTH_RENDER_TYPE),
+                                                                               ModRenderType.LINES_NO_DEPTH_RENDER_TYPE),
                                                                                shape, 0.0F, 0.0F, 0.0F,
                                                                                color);
                                                      poseStack.popPose();
@@ -206,18 +208,19 @@ public class ModEvents {
         }
     }
 
-    private static boolean xrayEnabled = false;
+    private static boolean glowingBlocksEnabled = false;
 
-    public static boolean isXrayEnabled() {
-        return xrayEnabled;
+    private static boolean isGlowingBlocksXrayEnabled() {
+        return glowingBlocksEnabled;
     }
 
     @SubscribeEvent
-    public static void onGlowingBlockStage(PlayerTickEvent.Post event) {
+    public static void onGlowingBlocksChangeStage(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
-        if (KeyBinding.GLOWING_BLOCKS_KEY.get().isDown() && KeyBinding.GLOWING_BLOCKS_KEY.get().consumeClick()) {
-            xrayEnabled = !xrayEnabled;
-            glow(player, isXrayEnabled(), "Blocks: ON!", "Blocks: OFF!");
+        KeyMapping glowingBlocks = KeyBinding.GLOWING_BLOCKS_KEY.get();
+        if (glowingBlocks.isDown() && glowingBlocks.consumeClick()) {
+            glowingBlocksEnabled = !glowingBlocksEnabled;
+            glow(player, isGlowingBlocksXrayEnabled(), "Blocks: ON!", "Blocks: OFF!");
         }
     }
 

@@ -8,7 +8,7 @@ import net.karen.mccoursemod.block.custom.MccourseModGeneratorBlock;
 import net.karen.mccoursemod.sound.ModSounds;
 import net.karen.mccoursemod.util.ModTags;
 import net.karen.mccoursemod.worldgen.tree.ModTreeGrowers;
-import net.karen.mccoursemod.worldgen.tree.ModWoodTypes;
+import net.karen.mccoursemod.util.ModWoodTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
