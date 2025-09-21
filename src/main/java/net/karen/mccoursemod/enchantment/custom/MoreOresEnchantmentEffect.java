@@ -16,7 +16,6 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -54,8 +53,7 @@ public record MoreOresEnchantmentEffect(List<TagKey<Block>> blockTagKey,
     // CUSTOM METHOD - MORE ORES Enchantment Effect EVENT
     public static void moreOresEnch(ItemStack tool,
                                     BlockState state, ServerLevel serverLevel,
-                                    BlockPos pos, Player player, List<ItemStack> finalDrops,
-                                    AtomicBoolean cancelVanillaDrop, int hasFortune) {
+                                    List<ItemStack> finalDrops, AtomicBoolean cancelVanillaDrop, int hasFortune) {
         EnchantmentHelper.runIterationOnItem(tool, (holder, holderLvl) -> {
             MoreOresEnchantmentEffect effect =
                     holder.value().effects().get(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT.get());
@@ -70,14 +68,13 @@ public record MoreOresEnchantmentEffect(List<TagKey<Block>> blockTagKey,
                 if (is(state, stoneBlock, serverLevel, stoneChance, tool, 1) ||
                     is(state, netherrackBlock, serverLevel, netherrackChance, tool, 2)) {
                     moreOresEffect(blockTag, holderLvl - 1, hasFortune, holderLvl, finalDrops);
+                    cancelVanillaDrop.set(true);
                 }
                 else if (is(state, stoneBlock, serverLevel, stoneChance, tool, 3)) {
                     moreOresEffect(blockTag, 6, hasFortune, holderLvl, finalDrops);
+                    cancelVanillaDrop.set(true);
                 }
             }
-            // Break block and ore chance drop
-            finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
-            cancelVanillaDrop.set(true);
         });
     }
 

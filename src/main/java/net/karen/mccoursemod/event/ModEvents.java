@@ -411,7 +411,7 @@ public class ModEvents {
              // * RAINBOW ENCHANTMENT EFFECT *
             rainbowEnch(tool, state, hasFortune, finalDrops, cancelVanillaDrop);
             // * MORE ORES ENCHANTMENT EFFECT *
-            moreOresEnch(tool, state, serverLevel, pos, player, finalDrops, cancelVanillaDrop, hasFortune);
+            moreOresEnch(tool, state, serverLevel, finalDrops, cancelVanillaDrop, hasFortune);
             // * AUTO SMELT EFFECT *
             autoSmeltEnch(tool, state, serverLevel, pos, player, finalDrops, cancelVanillaDrop, hasFortune);
             // * MAGNETIC EFFECT *
