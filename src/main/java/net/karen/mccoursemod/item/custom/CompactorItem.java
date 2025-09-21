@@ -22,9 +22,7 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 import static net.karen.mccoursemod.util.ChatUtils.*;
@@ -133,9 +131,11 @@ public class CompactorItem extends Item {
     // CUSTOM METHOD - COMPACTOR item description
     public Map<String, ChatFormatting> compactorItemName() {
         boolean isAutomated = this.AUTOMATED;
+        Map<String, ChatFormatting> lines = new LinkedHashMap<>();
         // Map<String, ChatFormatting> -> String [Message line]; ChatFormatting [Message color line].
-        return Map.of("Craft Automated: " + isAutomated, isAutomated ? green : red,
-                      "Transform all vanilla gems, raw's, ingots and mobs drops on blocks!", gold,
-                      "Compact type: 3x3 crafting recipes.", aqua);
+        lines.put("Craft Automated: " + isAutomated, isAutomated ? green : red);
+        lines.put("Transform on blocks all vanilla gems, raw's, ingots, mobs drops, etc.!", gold);
+        lines.put("Compact type: 3x3 crafting recipes.", aqua);
+        return lines;
     }
 }

@@ -413,8 +413,8 @@ public class ModLanguageProvider extends LanguageProvider {
         blockLang(ModBlocks.DICE, "§7");
 
         // ** CUSTOM CREATIVE TABS **
-        add("creativetab.mccoursemod.bismuth_items", "Mccourse Items");
-        add("creativetab.mccoursemod.bismuth_blocks", "Mccourse Blocks");
+        add("creativetab.mccoursemod.bismuth_items", "Mccourse Mod Items");
+        add("creativetab.mccoursemod.bismuth_blocks", "Mccourse Mod Blocks");
 
         // ** CUSTOM Mccourse Mod Enchantment names **
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");

@@ -1,8 +1,10 @@
 package net.karen.mccoursemod.item.custom;
 
+import net.karen.mccoursemod.util.ChatUtils;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
@@ -117,5 +119,10 @@ public class FarmerItem extends Item {
     // CUSTOM METHOD - Grow block
     public static void grow(Level level, BlockPos pos, BlockState state, int flag) {
         level.setBlock(pos, state, flag);
+    }
+
+    @Override
+    public @NotNull Component getName(@NotNull ItemStack stack) {
+        return ChatUtils.componentTranslatableIntColor(this.getDescriptionId(), 0x4094D3);
     }
 }

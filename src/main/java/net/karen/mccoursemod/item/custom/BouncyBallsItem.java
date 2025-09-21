@@ -2,6 +2,8 @@ package net.karen.mccoursemod.item.custom;
 
 import net.karen.mccoursemod.entity.custom.BouncyBallsProjectileEntity;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.util.ChatUtils;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
@@ -35,5 +37,10 @@ public class BouncyBallsItem extends Item {
             itemstack.hurtAndBreak(1, player, player.getUsedItemHand());
         }
         return InteractionResult.SUCCESS_SERVER;
+    }
+
+    @Override
+    public @NotNull Component getName(@NotNull ItemStack stack) {
+        return ChatUtils.componentTranslatableIntColor(this.getDescriptionId(), 0xEFBB2D);
     }
 }

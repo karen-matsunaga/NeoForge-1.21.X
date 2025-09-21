@@ -41,7 +41,10 @@ public class ElytraPlusItem extends Item {
 
     @Override
     public @NotNull Component getName(@NotNull ItemStack stack) {
-        return componentTranslatable(this.descriptionId, aqua);
+        for (int color : getCOLORS()) {
+            return componentTranslatableIntColor(this.getDescriptionId(), color);
+        }
+        return componentTranslatable(this.getDescriptionId(), aqua);
     }
 
     // CUSTOM METHOD - Elytra Plus item name
