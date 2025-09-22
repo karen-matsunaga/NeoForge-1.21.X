@@ -21,4 +21,9 @@ public class ModPaintingVariantTagGenerator extends PaintingVariantTagsProvider 
                                           .addOptional(ModPaintingVariants.SHRIMP)
                                           .addOptional(ModPaintingVariants.WORLD);
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Painting Variant Tags";
+    }
 }

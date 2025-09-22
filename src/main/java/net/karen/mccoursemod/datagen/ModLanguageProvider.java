@@ -9,6 +9,8 @@ import net.karen.mccoursemod.worldgen.dimension.ModDimensions;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.function.Supplier;
 import static net.karen.mccoursemod.util.ChatUtils.*;
 
@@ -739,5 +741,10 @@ public class ModLanguageProvider extends LanguageProvider {
         // Format block name + block item name
         addBlock(block, blockPrefix);
         add("item.mccoursemod." + blockId, blockPrefix);
+    }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Languages";
     }
 }

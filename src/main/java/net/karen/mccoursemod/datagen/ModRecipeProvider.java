@@ -47,7 +47,7 @@ public class ModRecipeProvider extends RecipeProvider {
         }
 
         @Override
-        public @NotNull String getName() { return "Mccourse Recipes"; }
+        public @NotNull String getName() { return "Mccourse Mod Recipes"; }
     }
 
     @Override

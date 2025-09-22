@@ -53,4 +53,9 @@ public class ModDataMapProvider extends DataMapProvider {
             .add(ModBlocks.WALNUT_LOG.getId(), new Strippable(ModBlocks.STRIPPED_WALNUT_LOG.get()), false)
             .add(ModBlocks.BLOODWOOD_LOG.getId(), new Strippable(ModBlocks.STRIPPED_BLOODWOOD_LOG.get()), false);
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Data Maps";
+    }
 }

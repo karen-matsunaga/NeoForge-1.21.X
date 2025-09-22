@@ -891,4 +891,9 @@ public class ModModelProvider extends ModelProvider {
                                               !(x.get() == ModItems.ALEXANDRITE_SHIELD.get()) &&
                                               !(x.get() == ModItems.DICE_ITEM.get()));
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Models";
+    }
 }

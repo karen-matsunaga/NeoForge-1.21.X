@@ -328,4 +328,9 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
                                                                 ModBlocks.SUGAR_CANE_BLOCK.get().asItem(),
                                                                 Blocks.HAY_BLOCK.asItem());
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Item Tags";
+    }
 }

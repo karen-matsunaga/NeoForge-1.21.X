@@ -19,4 +19,9 @@ public class ModFluidTagGenerator extends FluidTagsProvider {
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.tag(FluidTags.WATER).add(ModFluids.SOURCE_SOAP_WATER.get(), ModFluids.FLOWING_SOAP_WATER.get());
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Fluid Tags";
+    }
 }

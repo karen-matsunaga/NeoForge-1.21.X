@@ -167,4 +167,9 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                        .addTag(ModTags.Enchantments.MINING_ENCHANTMENTS)
                                                        .addTag(ModTags.Enchantments.DURABILITY_ENCHANTMENTS);
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Enchantment Tags";
+    }
 }

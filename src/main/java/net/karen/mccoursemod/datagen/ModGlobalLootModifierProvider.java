@@ -13,6 +13,8 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 import net.neoforged.neoforge.common.loot.LootTableIdCondition;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.concurrent.CompletableFuture;
 
 public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
@@ -50,5 +52,10 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                                             new LootTableIdCondition.Builder(
                                             ResourceLocation.withDefaultNamespace("archaeology/desert_pyramid"))
                                             .build() }, ModItems.METAL_DETECTOR.get()));
+    }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Global Loot Modifiers";
     }
 }

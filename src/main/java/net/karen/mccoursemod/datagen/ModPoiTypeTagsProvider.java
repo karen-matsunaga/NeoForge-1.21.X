@@ -25,4 +25,9 @@ public class ModPoiTypeTagsProvider extends PoiTypeTagsProvider {
             this.tag(PoiTypeTags.ACQUIRABLE_JOB_SITE).addOptional(kaupenKey).addOptional(soundKey);
         }
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Poi Tags";
+    }
 }

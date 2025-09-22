@@ -4,6 +4,7 @@ import net.karen.mccoursemod.MccourseMod;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.SoundDefinition;
 import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
+import org.jetbrains.annotations.NotNull;
 
 public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
     public ModSoundDefinitionsProvider(PackOutput output) {
@@ -64,5 +65,10 @@ public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
         // BAR BRAWL
         add("bar_brawl", SoundDefinition.definition().with(sound("mccoursemod:bar_brawl",
                                                                             SoundDefinition.SoundType.SOUND).stream(true)));
+    }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Sound Tags";
     }
 }

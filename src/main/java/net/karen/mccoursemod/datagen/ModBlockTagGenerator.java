@@ -269,4 +269,9 @@ public class ModBlockTagGenerator extends VanillaBlockTagsProvider {
                                                      .addTag(BlockTags.LEAVES)
                                                      .addTag(ModTags.Blocks.ENDER_PEARL_BLOCKS);
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Block Tags";
+    }
 }

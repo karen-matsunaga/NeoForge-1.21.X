@@ -87,4 +87,9 @@ public class ModEquipmentAssetProvider extends EquipmentAssetProvider {
         });
         return DataProvider.saveAll(output, EquipmentClientInfo.CODEC, this.pathProvider::json, map);
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "Mccourse Mod Equipment Assets";
+    }
 }
