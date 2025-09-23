@@ -292,6 +292,9 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.PINK_ULTRA_COMPACTOR.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RESTORE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.FARMER.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.LUCK_GENERAL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.LUCK_PICKAXE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.LUCK_WEAPON.get(), ModelTemplates.FLAT_ITEM);
 
         // ** CUSTOM MUSIC DISC **
         itemModels.generateFlatItem(ModItems.BAR_BRAWL_MUSIC_DISC.get(), ModelTemplates.FLAT_ITEM);

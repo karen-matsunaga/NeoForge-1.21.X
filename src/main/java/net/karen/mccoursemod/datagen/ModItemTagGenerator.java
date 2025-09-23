@@ -244,6 +244,11 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         tag(ModTags.Items.LEVEL_CHARGER_RED).add(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get(),
                                                  ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get());
 
+        // Luck items
+        tag(ModTags.Items.LUCK_ITEMS).add(ModItems.LUCK_GENERAL.get(),
+                                          ModItems.LUCK_PICKAXE.get(),
+                                          ModItems.LUCK_WEAPON.get());
+
         // Magic block items
         tag(ModTags.Items.MAGIC_BLOCK).add(ModItems.BISMUTH.get());
 

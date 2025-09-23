@@ -46,6 +46,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.PINK_ULTRA_COMPACTOR, "Pink Ultra Compactor");
         addItem(ModItems.RESTORE, "Restore");
         addItem(ModItems.FARMER, "Farmer");
+        addItem(ModItems.LUCK_GENERAL, "Luck General");
+        addItem(ModItems.LUCK_PICKAXE, "Luck Pickaxe");
+        addItem(ModItems.LUCK_WEAPON, "Luck Weapon");
 
         // ** CUSTOM MUSIC DISC **
         addItem(ModItems.BAR_BRAWL_MUSIC_DISC, "Bar Brawl Music Disc");

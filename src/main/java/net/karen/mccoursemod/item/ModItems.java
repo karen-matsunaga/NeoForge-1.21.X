@@ -613,6 +613,28 @@ public class ModItems {
                               properties -> new ModBoatItem(ModEntities.MOD_CHEST_BOAT.get(),
                                                                       properties.stacksTo(1)));
 
+    // ** Luck items **
+    public static final DeferredItem<Item> LUCK_GENERAL =
+           luckItem("luck_general", 3, 3, 0, 0,
+                    ModTags.Enchantments.ALL_ENCHANTMENTS, 0x4CA5E4, null);
+
+    public static final DeferredItem<Item> LUCK_PICKAXE =
+           luckItem("luck_pickaxe", 1, 2, 10, 1,
+                    ModTags.Enchantments.MINING_ENCHANTMENTS, 0x5DDCF2, "pickaxe");
+
+    public static final DeferredItem<Item> LUCK_WEAPON =
+           luckItem("luck_weapon", 1, 1, 6, 2,
+                    ModTags.Enchantments.SWORD_ENCHANTMENTS, 0xF25D6E, "weapon");
+
+    // ** CUSTOM METHOD - Luck items **
+    public static DeferredItem<Item> luckItem(String name, int bookAmount,
+                                              int enchPerBook, int enchLevel, int enchType,
+                                              TagKey<Enchantment> tag, int textColor, @Nullable String textMessage) {
+        return ITEMS.registerItem(name, properties -> new LuckItem(properties.fireResistant(), bookAmount,
+                                                                             enchPerBook, enchLevel, enchType,
+                                                                             tag, textColor, textMessage));
+    }
+
     // ** CUSTOM METHOD - Level Charger items **
     public static DeferredItem<Item> levelChargerItem(String name, int amount,
                                                       @Nullable ResourceKey<Enchantment> enchantment) {

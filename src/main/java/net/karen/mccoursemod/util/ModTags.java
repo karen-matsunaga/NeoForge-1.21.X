@@ -142,6 +142,9 @@ public class ModTags {
         public static final TagKey<Item> LEVEL_CHARGER_GREEN = createTag("level_charger_green");
         public static final TagKey<Item> LEVEL_CHARGER_RED = createTag("level_charger_red");
 
+        // Luck items
+        public static final TagKey<Item> LUCK_ITEMS = createTag("luck_items");
+
         // Magic block
         public static final TagKey<Item> MAGIC_BLOCK = createTag("magic_block");
 

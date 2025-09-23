@@ -130,6 +130,13 @@ public abstract class ItemStackMixin {
         if (stack.is(ModItems.MINER_BOW)) {
             tooltipLineLiteralRGB(tooltip, COLORS, stack, " Blocks: " + 3 + " x " + 3 + " x " + 2);
         }
+        // LUCK items
+        if (stack.is(ModTags.Items.LUCK_ITEMS)) {
+            if (item instanceof LuckItem luck) {
+                luck.luckDescription().forEach((key, value) ->
+                                               tooltip.add(componentTranslatableIntColor(key, value)));
+            }
+        }
         // ** CUSTOM ENCHANTMENTS **
         if (level != null) {
             HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);

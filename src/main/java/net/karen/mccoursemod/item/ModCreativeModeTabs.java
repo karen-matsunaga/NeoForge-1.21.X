@@ -47,6 +47,10 @@ public class ModCreativeModeTabs {
                  // CUSTOM Compactor items
                  output.accept(ModItems.ULTRA_COMPACTOR);
                  output.accept(ModItems.PINK_ULTRA_COMPACTOR);
+                 // CUSTOM Luck items
+                 output.accept(ModItems.LUCK_GENERAL);
+                 output.accept(ModItems.LUCK_PICKAXE);
+                 output.accept(ModItems.LUCK_WEAPON);
                  // ** CUSTOM tools **
                  // BISMUTH
                  output.accept(ModItems.BISMUTH_HAMMER);
