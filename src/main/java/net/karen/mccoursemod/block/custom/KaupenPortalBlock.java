@@ -1,5 +1,6 @@
 package net.karen.mccoursemod.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.worldgen.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
@@ -21,9 +22,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class KaupenPortalBlock extends Block implements Portal {
+    public static final MapCodec<KaupenPortalBlock> CODEC = simpleCodec(KaupenPortalBlock::new);
+
     public KaupenPortalBlock(Properties properties) {
         super(properties);
     }
+
+    @Override
+    protected @NotNull MapCodec<? extends Block> codec() { return CODEC; }
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level,
