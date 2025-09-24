@@ -94,44 +94,40 @@ public class ModBlocks {
 
     // ** CUSTOM advanced block **
     public static final DeferredBlock<Block> MAGIC = registerBlock("magic",
-           (properties) -> new MagicBlock(properties.strength(2F).sound(ModSounds.MAGIC_BLOCK_SOUNDS)));
+           properties -> new MagicBlock(properties.strength(2F).sound(ModSounds.MAGIC_BLOCK_SOUNDS)));
 
     // CUSTOM Enchant block
     public static final DeferredBlock<Block> ENCHANT = registerBlock("enchant",
-           (properties) -> new EnchantBlock(properties.strength(5.0F, 3600000.0F)
-                                                                .requiresCorrectToolForDrops()));
+           properties -> new EnchantBlock(properties.strength(5.0F, 3600000.0F)
+                                                              .requiresCorrectToolForDrops()));
 
     // CUSTOM Disenchant individual block
-    public static final DeferredBlock<Block> DISENCHANT_INDIVIDUAL = registerBlock("disenchant_individual",
-           (properties) -> new DisenchantBlock(properties.strength(5.0F, 3600000.0F)
-                                                                   .requiresCorrectToolForDrops(), 1));
+    public static final DeferredBlock<Block> DISENCHANT_INDIVIDUAL =
+           disenchantBlock("disenchant_individual", 1);
 
     // CUSTOM Disenchant grouped block
-    public static final DeferredBlock<Block> DISENCHANT_GROUPED = registerBlock("disenchant_grouped",
-           (properties) -> new DisenchantBlock(properties.strength(5.0F, 3600000.0F)
-                                                                   .requiresCorrectToolForDrops(), 2));
+    public static final DeferredBlock<Block> DISENCHANT_GROUPED = disenchantBlock("disenchant_grouped", 2);
 
     // CUSTOM Mccourse Mod Elevator block
     public static final DeferredBlock<Block> MCCOURSEMOD_ELEVATOR = registerBlock("mccoursemod_elevator",
-           (properties) -> new MccourseElevatorBlock(properties.mapColor(MapColor.WOOL).sound(SoundType.WOOL)
-                                                                         .strength(5F, 1200.F)
-                                                                         .requiresCorrectToolForDrops()));
+           properties -> new MccourseElevatorBlock(properties.mapColor(MapColor.WOOL).sound(SoundType.WOOL)
+                                                                       .strength(5F, 1200.F)
+                                                                       .requiresCorrectToolForDrops()));
 
     // CUSTOM Mccourse Mod Generator block
     public static final DeferredBlock<Block> MCCOURSEMOD_GENERATOR = registerBlock("mccoursemod_generator",
-           (properties) -> new MccourseModGeneratorBlock(properties.mapColor(MapColor.STONE)
-                                                                             .instrument(NoteBlockInstrument.BASEDRUM)
-                                                                             .strength(5F, 3600000.0F),
-                                                                                       "ALL", ModTags.Blocks.ALL_ORES));
+           properties -> new MccourseModGeneratorBlock(properties.mapColor(MapColor.STONE)
+                                                                           .instrument(NoteBlockInstrument.BASEDRUM)
+                                                                           .strength(5F, 3600000.0F),
+                                                                                     "ALL", ModTags.Blocks.ALL_ORES));
 
     // CUSTOM Crafting Plus custom Crafting Table
     public static final DeferredBlock<Block> CRAFTING_PLUS = registerBlock("crafting_plus",
-           (properties) ->
-           new CraftingPlusBlock(BlockBehaviour.Properties
-                                               .ofFullCopy(Blocks.CRAFTING_TABLE)
-                                               .setId(ResourceKey.create(Registries.BLOCK,
-                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                                            "crafting_plus")))));
+           properties -> new CraftingPlusBlock(BlockBehaviour.Properties
+                                                                       .ofFullCopy(Blocks.CRAFTING_TABLE)
+                                                                       .setId(ResourceKey.create(Registries.BLOCK,
+                                                                              ResourceLocation.fromNamespaceAndPath(
+                                                                              MccourseMod.MOD_ID, "crafting_plus")))));
 
     // ** CUSTOM Block Family -> (Button, Door, Fence, Fence Gate, Pressure Plate, Slab, Stairs, Trapdoor and Wall) **
     // BISMUTH
@@ -311,29 +307,27 @@ public class ModBlocks {
     // ** CUSTOM glass block **
     public static final DeferredBlock<Block> FORCED_STAINED_GLASS =
            registerBlock("forced_stained_glass",
-           (properties) -> new StainedGlassBlock(DyeColor.GREEN,
-                                                           properties.strength(3.0F, 10.0F)
-                                                                     .mapColor(DyeColor.GREEN).instrument(NoteBlockInstrument.HAT)
-                                                                     .sound(SoundType.GLASS).noOcclusion()
-                                                                     .isValidSpawn(Blocks::never)
-                                                                     .isRedstoneConductor((s, g, p)
-                                                                                           -> false)
-                                                                     .isSuffocating((s, g, p)
-                                                                                      -> false)
-                                                                     .isViewBlocking((s, g, p)
-                                                                                      -> false)));
+           properties -> new StainedGlassBlock(DyeColor.GREEN,
+                                                         properties.strength(3.0F, 10.0F)
+                                                                   .mapColor(DyeColor.GREEN).instrument(NoteBlockInstrument.HAT)
+                                                                   .sound(SoundType.GLASS).noOcclusion().isValidSpawn(Blocks::never)
+                                                                   .isRedstoneConductor((s, g, p)
+                                                                                        -> false)
+                                                                   .isSuffocating((s, g, p)
+                                                                                  -> false)
+                                                                   .isViewBlocking((s, g, p)
+                                                                                   -> false)));
 
     public static final DeferredBlock<Block> FORCED_STAINED_GLASS_PANE =
            registerBlock("forced_stained_glass_pane",
-           (properties) -> new IronBarsBlock(properties.strength(3.0F, 10.0F)
-                                                                 .instrument(NoteBlockInstrument.HAT)
-                                                                 .sound(SoundType.GLASS).noOcclusion()));
+           properties -> new IronBarsBlock(properties.strength(3.0F, 10.0F)
+                                                               .instrument(NoteBlockInstrument.HAT)
+                                                               .sound(SoundType.GLASS).noOcclusion()));
 
     // SOUND block
     public static final DeferredBlock<Block> SOUND = registerBlock("sound",
-           (properties) -> new SoundBlock(properties.strength(3.0F, 20.F)
-                                                              .requiresCorrectToolForDrops()
-                                                              .sound(SoundType.AMETHYST)));
+           properties -> new SoundBlock(properties.strength(3.0F, 20.F)
+                                                            .requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
 
     // END PEARL blocks
     public static final DeferredBlock<Block> ENDER_PEARL_BLOCK =
@@ -413,95 +407,50 @@ public class ModBlocks {
            mobBlock("sugar_cane_block", MapColor.METAL, NoteBlockInstrument.BELL, SoundType.SAND);
 
     // ** CUSTOM oxidizable block **
-    public static final DeferredBlock<Block> RUBY_BLOCK = registerBlock("ruby_block",
-           (properties) ->
-           new DegradableRubyBlock(GemDegradable.GemDegradationLevel.UNAFFECTED,
-                                   BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                                                            .setId(ResourceKey.create(Registries.BLOCK,
-                                                                   ResourceLocation.fromNamespaceAndPath(
-                                                                   MccourseMod.MOD_ID, "ruby_block")))));
+    public static final DeferredBlock<Block> RUBY_BLOCK =
+           oxidizableBlock("ruby_block", GemDegradable.GemDegradationLevel.UNAFFECTED);
 
-    public static final DeferredBlock<Block> RUBY_BLOCK_1 = registerBlock("ruby_block_1",
-           (properties) ->
-           new DegradableRubyBlock(GemDegradable.GemDegradationLevel.EXPOSED,
-                                   BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                                                            .setId(ResourceKey.create(Registries.BLOCK,
-                                                                   ResourceLocation.fromNamespaceAndPath(
-                                                                   MccourseMod.MOD_ID, "ruby_block_1")))));
+    public static final DeferredBlock<Block> RUBY_BLOCK_1 =
+           oxidizableBlock("ruby_block_1", GemDegradable.GemDegradationLevel.EXPOSED);
 
-    public static final DeferredBlock<Block> RUBY_BLOCK_2 = registerBlock("ruby_block_2",
-           (properties) ->
-           new DegradableRubyBlock(GemDegradable.GemDegradationLevel.WEATHERED,
-                                   BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                                                            .setId(ResourceKey.create(Registries.BLOCK,
-                                                                   ResourceLocation.fromNamespaceAndPath(
-                                                                   MccourseMod.MOD_ID, "ruby_block_2")))));
+    public static final DeferredBlock<Block> RUBY_BLOCK_2 =
+           oxidizableBlock("ruby_block_2", GemDegradable.GemDegradationLevel.WEATHERED);
 
-    public static final DeferredBlock<Block> RUBY_BLOCK_3 = registerBlock("ruby_block_3",
-           (properties) ->
-           new DegradableRubyBlock(GemDegradable.GemDegradationLevel.DEGRADED,
-                                   BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                                                 .setId(ResourceKey.create(Registries.BLOCK,
-                                                        ResourceLocation.fromNamespaceAndPath(
-                                                        MccourseMod.MOD_ID, "ruby_block_3")))));
+    public static final DeferredBlock<Block> RUBY_BLOCK_3 =
+           oxidizableBlock("ruby_block_3", GemDegradable.GemDegradationLevel.DEGRADED);
 
-    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK = registerBlock("waxed_ruby_block",
-           (properties) ->
-           new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                                              .setId(ResourceKey.create(Registries.BLOCK,
-                                                     ResourceLocation.fromNamespaceAndPath(
-                                                     MccourseMod.MOD_ID, "waxed_ruby_block")))));
+    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK = waxedOxidizableBlock("waxed_ruby_block");
 
-    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK_1 = registerBlock("waxed_ruby_block_1",
-           (properties) ->
-           new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                                              .setId(ResourceKey.create(Registries.BLOCK,
-                                                     ResourceLocation.fromNamespaceAndPath(
-                                                     MccourseMod.MOD_ID, "waxed_ruby_block_1")))));
+    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK_1 = waxedOxidizableBlock("waxed_ruby_block_1");
 
-    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK_2 = registerBlock("waxed_ruby_block_2",
-           (properties) ->
-           new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                                              .setId(ResourceKey.create(Registries.BLOCK,
-                                                     ResourceLocation.fromNamespaceAndPath(
-                                                     MccourseMod.MOD_ID, "waxed_ruby_block_2")))));
+    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK_2 = waxedOxidizableBlock("waxed_ruby_block_2");
 
-    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK_3 = registerBlock("waxed_ruby_block_3",
-           (properties) ->
-           new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                                              .setId(ResourceKey.create(Registries.BLOCK,
-                                                                        ResourceLocation.fromNamespaceAndPath(
-                                                                        MccourseMod.MOD_ID, "waxed_ruby_block_3")))));
+    public static final DeferredBlock<Block> WAXED_RUBY_BLOCK_3 = waxedOxidizableBlock("waxed_ruby_block_3");
 
     // ** CUSTOM flowers and pot flowers **
     // SNAPDRAGON
     public static final DeferredBlock<Block> SNAPDRAGON = registerBlock("snapdragon",
-           (properties) ->
-           new FlowerBlock(MobEffects.BLINDNESS, 6.0F,
-                           BlockBehaviour.Properties
-                                         .ofFullCopy(Blocks.ALLIUM)
-                                         .setId(ResourceKey.create(Registries.BLOCK,
-                                                ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                                      "snapdragon")))));
+           properties -> new FlowerBlock(MobEffects.BLINDNESS, 6.0F,
+                                                   BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)
+                                                                 .setId(ResourceKey.create(Registries.BLOCK,
+                                                                        ResourceLocation.fromNamespaceAndPath(
+                                                                        MccourseMod.MOD_ID, "snapdragon")))));
 
     public static final DeferredBlock<Block> POTTED_SNAPDRAGON = registerBlock("potted_snapdragon",
-           (properties) ->
-           new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SNAPDRAGON,
-                              BlockBehaviour.Properties
-                                            .ofFullCopy(Blocks.POTTED_ALLIUM)
-                                            .setId(ResourceKey.create(Registries.BLOCK,
-                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                                         "potted_snapdragon")))));
+           properties -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SNAPDRAGON,
+                                                      BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)
+                                                                    .setId(ResourceKey.create(Registries.BLOCK,
+                                                                           ResourceLocation.fromNamespaceAndPath(
+                                                                           MccourseMod.MOD_ID, "potted_snapdragon")))));
 
     // ** CUSTOM colored block **
     public static final DeferredBlock<Block> COLORED_LEAVES = registerBlock("colored_leaves",
-           (properties) ->
-           new UntintedParticleLeavesBlock(0.01F, ParticleTypes.PALE_OAK_LEAVES,
-                                           BlockBehaviour.Properties
-                                                         .ofFullCopy(Blocks.OAK_LEAVES)
-                                                         .setId(ResourceKey.create(Registries.BLOCK,
-                                                                ResourceLocation.fromNamespaceAndPath(
-                                                                MccourseMod.MOD_ID, "colored_leaves")))) {
+           properties -> new UntintedParticleLeavesBlock(0.01F,
+                                                                   ParticleTypes.PALE_OAK_LEAVES,
+                                                                   BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)
+                                                                                 .setId(ResourceKey.create(Registries.BLOCK,
+                                                                                        ResourceLocation.fromNamespaceAndPath(
+                                                                                        MccourseMod.MOD_ID, "colored_leaves")))) {
                @Override
                public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level,
                                           @NotNull BlockPos pos, @NotNull Direction direction) {
@@ -523,25 +472,46 @@ public class ModBlocks {
 
     // ** CUSTOM portal block **
     public static final DeferredBlock<Block> KAUPEN_PORTAL = registerBlock("kaupen_portal",
-           (properties) ->
-           new KaupenPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL)
-                                                          .liquid()
-                                                          .forceSolidOn()
-                                                          .noLootTable()
-                                                          .noOcclusion()
-                                                          .noCollission()
-                                                          .setId(ResourceKey.create(Registries.BLOCK,
-                                                                 ResourceLocation.fromNamespaceAndPath(
-                                                                 MccourseMod.MOD_ID, "kaupen_portal")))));
+           properties -> new KaupenPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL)
+                                                                       .liquid().forceSolidOn()
+                                                                       .noLootTable().noOcclusion().noCollission()
+                                                                       .setId(ResourceKey.create(Registries.BLOCK,
+                                                                              ResourceLocation.fromNamespaceAndPath(
+                                                                              MccourseMod.MOD_ID, "kaupen_portal")))));
 
     // ** CUSTOM block projectile **
-    public static final DeferredBlock<Block> DICE =
-           BLOCKS.register("dice", (properties) ->
-                           new DiceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                                                                  .noLootTable()
-                                                                  .setId(ResourceKey.create(Registries.BLOCK,
-                                                                         ResourceLocation.fromNamespaceAndPath(
-                                                                         MccourseMod.MOD_ID, "dice")))));
+    public static final DeferredBlock<Block> DICE = BLOCKS.register("dice",
+           properties -> new DiceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                                                     .noLootTable()
+                                                                     .setId(ResourceKey.create(Registries.BLOCK,
+                                                                            ResourceLocation.fromNamespaceAndPath(
+                                                                            MccourseMod.MOD_ID, "dice")))));
+
+    // ** CUSTOM METHOD - OXIDIZABLE blocks **
+    private static DeferredBlock<Block> oxidizableBlock(String name,
+                                                        GemDegradable.GemDegradationLevel gemDegradation) {
+        return registerBlock(name, properties ->
+                             new DegradableRubyBlock(gemDegradation,
+                                                     BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                                                   .setId(ResourceKey.create(Registries.BLOCK,
+                                                                          ResourceLocation.fromNamespaceAndPath(
+                                                                          MccourseMod.MOD_ID, name)))));
+    }
+
+    // ** CUSTOM METHOD - WAXED OXIDIZABLE blocks **
+    private static DeferredBlock<Block> waxedOxidizableBlock(String name) {
+        return registerBlock(name, properties ->
+                             new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                                                     .setId(ResourceKey.create(Registries.BLOCK,
+                                                            ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name)))));
+    }
+
+    // ** CUSTOM METHOD - DISENCHANT blocks **
+    private static DeferredBlock<Block> disenchantBlock(String name, int type) {
+        return registerBlock(name, properties ->
+                             new DisenchantBlock(properties.strength(5.0F, 3600000.0F)
+                                                           .requiresCorrectToolForDrops(), type));
+    }
 
     // ** CUSTOM METHOD - ORES blocks **
     private static DeferredBlock<Block> oresItemBlock(String name,
