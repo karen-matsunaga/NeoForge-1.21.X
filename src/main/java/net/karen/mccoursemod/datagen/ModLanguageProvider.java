@@ -436,6 +436,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.xp_boost", "Xp Boost");
         add("enchantment.mccoursemod.unlock", "Unlock");
         add("enchantment.mccoursemod.glowing_blocks", "Glowing Blocks");
+        add("enchantment.mccoursemod.mobs_critical", "Mobs Critical");
 
         // ** CUSTOM DESCRIPTIONS **
         // ** CUSTOM MUSIC DISC **
@@ -480,6 +481,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.mccoursemod.glowing_blocks.desc",
             "When applied on helmet armor all ores blocks are detected with X-Ray of blocks. " +
             "(Press G key to activated or disabled)");
+
+        add("enchantment.mccoursemod.mobs_critical.desc",
+            "When applied on sword when player attack all entities receive critical damage.");
 
         // ** VANILLA ENCHANTMENTS **
         // MINING

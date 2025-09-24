@@ -137,6 +137,8 @@
   "enchantment.mccoursemod.magnet.desc": "When applied on pickaxe all mined blocks automatically store on Player's inventory.",
   "enchantment.mccoursemod.magnetism": "Magnetism",
   "enchantment.mccoursemod.magnetism.desc": "When applied on leggings armor searches for items and Experience Orbs on the ground within a radius and returns them to the Player's inventory.",
+  "enchantment.mccoursemod.mobs_critical": "Mobs Critical",
+  "enchantment.mccoursemod.mobs_critical.desc": "When applied on sword when player attack all entities receive critical damage.",
   "enchantment.mccoursemod.more_ores": "More Ores",
   "enchantment.mccoursemod.more_ores.desc": "When applied on pickaxe if a stone block is break has a percentage to receive ores.",
   "enchantment.mccoursemod.peaceful_mobs": "Peaceful Mobs",

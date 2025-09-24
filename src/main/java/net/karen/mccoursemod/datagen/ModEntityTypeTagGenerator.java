@@ -19,6 +19,11 @@ public class ModEntityTypeTagGenerator extends EntityTypeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
+        this.tag(ModTags.Entities.ALL_ENTITIES).addTag(ModTags.Entities.MONSTERS)
+                                               .addTag(ModTags.Entities.ANIMALS)
+                                               .addTag(ModTags.Entities.VILLAGER)
+                                               .addTag(ModTags.Entities.WATER_ANIMALS);
+
         this.tag(ModTags.Entities.BOSSES).add(EntityType.WITHER, EntityType.ENDER_DRAGON);
 
         this.tag(ModTags.Entities.NETHER).add(EntityType.PIGLIN, EntityType.PIGLIN_BRUTE, EntityType.ZOMBIFIED_PIGLIN,

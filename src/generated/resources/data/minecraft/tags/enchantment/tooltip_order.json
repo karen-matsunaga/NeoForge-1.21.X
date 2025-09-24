@@ -55,6 +55,10 @@
     {
       "id": "mccoursemod:glowing_blocks",
       "required": false
+    },
+    {
+      "id": "mccoursemod:mobs_critical",
+      "required": false
     }
   ]
 }

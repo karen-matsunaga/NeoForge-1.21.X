@@ -234,6 +234,7 @@ public class ModTags {
     // Entities
     public static class Entities {
         // Created Entities's tags HERE
+        public static final TagKey<EntityType<?>> ALL_ENTITIES = createTag("all_entities");
         public static final TagKey<EntityType<?>> BOSSES = createTag("bosses");
         public static final TagKey<EntityType<?>> NETHER = createTag("nether");
         public static final TagKey<EntityType<?>> END = createTag("end");

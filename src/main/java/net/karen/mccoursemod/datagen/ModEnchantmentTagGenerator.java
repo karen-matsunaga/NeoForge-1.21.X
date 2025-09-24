@@ -33,7 +33,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                .addOptional(ModEnchantments.PEACEFUL_MOBS)
                                                .addOptional(ModEnchantments.XP_BOOST)
                                                .addOptional(ModEnchantments.UNLOCK)
-                                               .addOptional(ModEnchantments.GLOWING_BLOCKS);
+                                               .addOptional(ModEnchantments.GLOWING_BLOCKS)
+                                               .addOptional(ModEnchantments.MOBS_CRITICAL);
 
         // Not treasure enchantment
         this.tag(EnchantmentTags.NON_TREASURE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
@@ -49,7 +50,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                               .addOptional(ModEnchantments.PEACEFUL_MOBS)
                                               .addOptional(ModEnchantments.XP_BOOST)
                                               .addOptional(ModEnchantments.UNLOCK)
-                                              .addOptional(ModEnchantments.GLOWING_BLOCKS);
+                                              .addOptional(ModEnchantments.GLOWING_BLOCKS)
+                                              .addOptional(ModEnchantments.MOBS_CRITICAL);
 
         // Villager Trade
         this.tag(EnchantmentTags.TRADEABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
@@ -65,7 +67,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                            .addOptional(ModEnchantments.PEACEFUL_MOBS)
                                            .addOptional(ModEnchantments.XP_BOOST)
                                            .addOptional(ModEnchantments.UNLOCK)
-                                           .addOptional(ModEnchantments.GLOWING_BLOCKS);
+                                           .addOptional(ModEnchantments.GLOWING_BLOCKS)
+                                           .addOptional(ModEnchantments.MOBS_CRITICAL);
 
         // Enchant table
         this.tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
@@ -81,7 +84,8 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                      .addOptional(ModEnchantments.PEACEFUL_MOBS)
                                                      .addOptional(ModEnchantments.XP_BOOST)
                                                      .addOptional(ModEnchantments.UNLOCK)
-                                                     .addOptional(ModEnchantments.GLOWING_BLOCKS);
+                                                     .addOptional(ModEnchantments.GLOWING_BLOCKS)
+                                                     .addOptional(ModEnchantments.MOBS_CRITICAL);
 
         // Pickaxe enchantments
         this.tag(ModTags.Enchantments.MINING_ENCHANTMENTS).addOptional(ModEnchantments.BLOCK_FLY)
@@ -120,6 +124,7 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
 
         // Sword enchantments
         this.tag(ModTags.Enchantments.SWORD_ENCHANTMENTS).addOptional(ModEnchantments.LIGHTNING_STRIKER)
+                                                         .addOptional(ModEnchantments.MOBS_CRITICAL)
                                                          .add(Enchantments.SHARPNESS)
                                                          .add(Enchantments.SMITE)
                                                          .add(Enchantments.BANE_OF_ARTHROPODS)
