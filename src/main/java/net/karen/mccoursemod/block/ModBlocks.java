@@ -42,68 +42,55 @@ public class ModBlocks {
 
     // ** CUSTOM ores **
     // BISMUTH
-    public static final DeferredBlock<Block> BISMUTH_BLOCK = registerBlock("bismuth_block",
-           (properties) -> new Block(properties.strength(4F).requiresCorrectToolForDrops()
-                                                         .sound(SoundType.AMETHYST)));
+    public static final DeferredBlock<Block> BISMUTH_BLOCK =
+           oresItemBlock("bismuth_block", 4.0F, 4.0F, SoundType.AMETHYST);
 
     public static final DeferredBlock<Block> BISMUTH_ORE =
-           oreBlock("bismuth_ore", 2, 4, 3F, SoundType.STONE);
+           oreBlock("bismuth_ore", 2, 4, 3.0F, SoundType.STONE);
 
     public static final DeferredBlock<Block> BISMUTH_DEEPSLATE_ORE =
-           oreBlock("bismuth_deepslate_ore", 3, 6, 4F, SoundType.DEEPSLATE);
+           oreBlock("bismuth_deepslate_ore", 3, 6, 4.0F, SoundType.DEEPSLATE);
 
     public static final DeferredBlock<Block> BISMUTH_END_ORE =
-           oreBlock("bismuth_end_ore", 5, 9, 7F, SoundType.GLASS);
+           oreBlock("bismuth_end_ore", 5, 9, 7.0F, SoundType.GLASS);
 
     public static final DeferredBlock<Block> BISMUTH_NETHER_ORE =
-           oreBlock("bismuth_nether_ore", 1, 5, 3F, SoundType.NETHERRACK);
+           oreBlock("bismuth_nether_ore", 1, 5, 3.0F, SoundType.NETHERRACK);
 
     // ALEXANDRITE
-    public static final DeferredBlock<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block",
-           (properties) -> new Block(properties.mapColor(MapColor.METAL)
-                                                         .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
-                                                         .requiresCorrectToolForDrops()
-                                                         .strength(5.0F, 6.0F)
-                                                         .sound(SoundType.METAL)));
+    public static final DeferredBlock<Block> ALEXANDRITE_BLOCK =
+           oresItemBlock("alexandrite_block", 5.0F, 6.0F, SoundType.METAL);
 
-    public static final DeferredBlock<Block> RAW_ALEXANDRITE_BLOCK = registerBlock("raw_alexandrite_block",
-           (properties) -> new Block(properties.mapColor(MapColor.METAL)
-                                                        .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
-                                                        .requiresCorrectToolForDrops()
-                                                        .strength(5.0F, 6.0F)
-                                                        .sound(SoundType.METAL)));
+    public static final DeferredBlock<Block> RAW_ALEXANDRITE_BLOCK =
+           oresItemBlock("raw_alexandrite_block", 5.0F, 6.0F, SoundType.METAL);
 
     public static final DeferredBlock<Block> ALEXANDRITE_ORE =
-           oreBlock("alexandrite_ore", 2, 5, 5F, SoundType.STONE);
+           oreBlock("alexandrite_ore", 2, 5, 5.0F, SoundType.STONE);
 
     public static final DeferredBlock<Block> DEEPSLATE_ALEXANDRITE_ORE =
-           oreBlock("deepslate_alexandrite_ore", 3, 7, 5F, SoundType.DEEPSLATE);
+           oreBlock("deepslate_alexandrite_ore", 3, 7, 5.0F, SoundType.DEEPSLATE);
 
     public static final DeferredBlock<Block> END_STONE_ALEXANDRITE_ORE =
-           oreBlock("end_stone_alexandrite_ore", 5, 8, 5F, SoundType.GLASS);
+           oreBlock("end_stone_alexandrite_ore", 5, 8, 5.0F, SoundType.GLASS);
 
     public static final DeferredBlock<Block> NETHER_ALEXANDRITE_ORE =
-           oreBlock("nether_alexandrite_ore", 3, 6, 5F, SoundType.NETHERRACK);
+           oreBlock("nether_alexandrite_ore", 3, 6, 5.0F, SoundType.NETHERRACK);
 
     // PINK
-    public static final DeferredBlock<Block> PINK_BLOCK = registerBlock("pink_block",
-           (properties) -> new Block(properties.mapColor(MapColor.METAL)
-                                                         .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
-                                                         .requiresCorrectToolForDrops()
-                                                         .strength(5.0F, 6.0F)
-                                                         .sound(SoundType.METAL)));
+    public static final DeferredBlock<Block> PINK_BLOCK =
+           oresItemBlock("pink_block", 5.0F, 6.0F, SoundType.AMETHYST);
 
     public static final DeferredBlock<Block> PINK_ORE =
-           oreBlock("pink_ore", 2, 5, 5F, SoundType.STONE);
+           oreBlock("pink_ore", 2, 5, 5.0F, SoundType.STONE);
 
     public static final DeferredBlock<Block> DEEPSLATE_PINK_ORE =
-           oreBlock("deepslate_pink_ore", 3, 7, 5F, SoundType.DEEPSLATE);
+           oreBlock("deepslate_pink_ore", 3, 7, 5.0F, SoundType.DEEPSLATE);
 
     public static final DeferredBlock<Block> END_STONE_PINK_ORE =
-           oreBlock("end_stone_pink_ore", 5, 8, 5F, SoundType.GLASS);
+           oreBlock("end_stone_pink_ore", 5, 8, 5.0F, SoundType.GLASS);
 
     public static final DeferredBlock<Block> NETHER_PINK_ORE =
-           oreBlock("nether_pink_ore", 3, 6, 5F, SoundType.NETHERRACK);
+           oreBlock("nether_pink_ore", 3, 6, 5.0F, SoundType.NETHERRACK);
 
     // ** CUSTOM advanced block **
     public static final DeferredBlock<Block> MAGIC = registerBlock("magic",
@@ -206,32 +193,31 @@ public class ModBlocks {
     // ** CUSTOM crop block **
     // RADISH
     public static final DeferredBlock<Block> RADISH_CROP = BLOCKS.registerBlock("radish_crop",
-           (properties) -> new RadishCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
-                                                                   .randomTicks().instabreak().sound(SoundType.CROP)
-                                                                   .pushReaction(PushReaction.DESTROY)));
+           properties -> new RadishCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
+                                                                 .randomTicks().instabreak().sound(SoundType.CROP)
+                                                                 .pushReaction(PushReaction.DESTROY)));
     // KOHLRABI
     public static final DeferredBlock<Block> KOHLRABI_CROP = BLOCKS.registerBlock("kohlrabi_crop",
-           (properties) -> new KohlrabiCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
-                                                                     .randomTicks().instabreak().sound(SoundType.CROP)
-                                                                     .pushReaction(PushReaction.DESTROY)));
+           properties -> new KohlrabiCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
+                                                                   .randomTicks().instabreak().sound(SoundType.CROP)
+                                                                   .pushReaction(PushReaction.DESTROY)));
 
     // ** CUSTOM Crop block with two height **
     // CATTAIL
     public static final DeferredBlock<Block> CATTAIL_CROP = BLOCKS.registerBlock("cattail_crop",
-           (properties) -> new CattailCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
-                                                                    .randomTicks().instabreak().sound(SoundType.CROP)
-                                                                    .pushReaction(PushReaction.DESTROY)));
+           properties -> new CattailCropBlock(properties.mapColor(MapColor.PLANT).noCollission()
+                                                                  .randomTicks().instabreak().sound(SoundType.CROP)
+                                                                  .pushReaction(PushReaction.DESTROY)));
 
     // ** CUSTOM bush crop block **
     public static final DeferredBlock<Block> GOJI_BERRY_BUSH = BLOCKS.registerBlock("goji_berry_bush",
-           (properties) -> new GojiBerryBushBlock(properties.mapColor(MapColor.PLANT).noCollission()
-                                                                      .randomTicks().instabreak().sound(SoundType.CROP)
-                                                                      .pushReaction(PushReaction.DESTROY)));
+           properties -> new GojiBerryBushBlock(properties.mapColor(MapColor.PLANT).noCollission()
+                                                                    .randomTicks().instabreak().sound(SoundType.CROP)
+                                                                    .pushReaction(PushReaction.DESTROY)));
 
     // ** CUSTOM log **
     // BLOODWOOD
-    public static final DeferredBlock<Block> BLOODWOOD_LOG =
-           logWoodBlocks("bloodwood_log", SoundType.CHERRY_WOOD);
+    public static final DeferredBlock<Block> BLOODWOOD_LOG = logWoodBlocks("bloodwood_log", SoundType.CHERRY_WOOD);
 
     // CUSTOM wood
     public static final DeferredBlock<Block> BLOODWOOD_WOOD =
@@ -246,23 +232,19 @@ public class ModBlocks {
            logWoodBlocks("stripped_bloodwood_wood", SoundType.CHERRY_WOOD);
 
     // CUSTOM planks
-    public static final DeferredBlock<Block> BLOODWOOD_PLANKS =
-           plankBlock("bloodwood_planks");
+    public static final DeferredBlock<Block> BLOODWOOD_PLANKS = plankBlock("bloodwood_planks");
 
     // CUSTOM leaves
-    public static final DeferredBlock<Block> BLOODWOOD_LEAVES =
-           leaveBlock("bloodwood_leaves");
+    public static final DeferredBlock<Block> BLOODWOOD_LEAVES = leaveBlock("bloodwood_leaves");
 
     // CUSTOM sapling
     public static final DeferredBlock<Block> BLOODWOOD_SAPLING =
            saplingBlock("bloodwood_sapling", ModTreeGrowers.BLOODWOOD, () -> Blocks.NETHERRACK);
 
     // WALNUT
-    public static final DeferredBlock<Block> WALNUT_LOG =
-           logWoodBlocks("walnut_log", SoundType.WOOD);
+    public static final DeferredBlock<Block> WALNUT_LOG = logWoodBlocks("walnut_log", SoundType.WOOD);
 
-    public static final DeferredBlock<Block> WALNUT_WOOD =
-           logWoodBlocks("walnut_wood", SoundType.WOOD);
+    public static final DeferredBlock<Block> WALNUT_WOOD = logWoodBlocks("walnut_wood", SoundType.WOOD);
 
     public static final DeferredBlock<Block> STRIPPED_WALNUT_LOG =
            logWoodBlocks("stripped_walnut_log", SoundType.WOOD);
@@ -270,11 +252,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> STRIPPED_WALNUT_WOOD =
            logWoodBlocks("stripped_walnut_wood", SoundType.WOOD);
 
-    public static final DeferredBlock<Block> WALNUT_PLANKS =
-           plankBlock("walnut_planks");
+    public static final DeferredBlock<Block> WALNUT_PLANKS = plankBlock("walnut_planks");
 
-    public static final DeferredBlock<Block> WALNUT_LEAVES =
-           leaveBlock("walnut_leaves");
+    public static final DeferredBlock<Block> WALNUT_LEAVES = leaveBlock("walnut_leaves");
 
     public static final DeferredBlock<Block> WALNUT_SAPLING =
            saplingBlock("walnut_sapling", ModTreeGrowers.WALNUT, () -> Blocks.END_STONE);
@@ -315,11 +295,11 @@ public class ModBlocks {
 
     // ** CUSTOM sittable block model **
     public static final DeferredBlock<Block> CHAIR = registerBlock("chair",
-           (properties) -> new ChairBlock(properties.noOcclusion()));
+           properties -> new ChairBlock(properties.noOcclusion()));
 
     // ** CUSTOM block entity **
     public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal",
-           (properties) -> new PedestalBlock(properties.noOcclusion()));
+           properties -> new PedestalBlock(properties.noOcclusion()));
 
     // ** CUSTOM crafting block entity **
     public static final DeferredBlock<Block> GROWTH_CHAMBER =
@@ -563,6 +543,15 @@ public class ModBlocks {
                                                                          ResourceLocation.fromNamespaceAndPath(
                                                                          MccourseMod.MOD_ID, "dice")))));
 
+    // ** CUSTOM METHOD - ORES blocks **
+    private static DeferredBlock<Block> oresItemBlock(String name,
+                                                      float strength, float explosion, SoundType soundType) {
+        return registerBlock(name, properties ->
+                             new Block(properties.mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+                                                                          .requiresCorrectToolForDrops()
+                                                                          .strength(strength, explosion).sound(soundType)));
+    }
+
     // ** CUSTOM METHOD - SLAB blocks **
     private static DeferredBlock<SlabBlock> slabBlock(String name) {
         return registerBlock(name, properties ->
@@ -655,9 +644,9 @@ public class ModBlocks {
 
     // ** CUSTOM METHOD - LOG, WOOD, STRIPPED LOG, STRIPPED WOOD blocks **
     private static DeferredBlock<Block> logWoodBlocks(String name, SoundType soundType) {
-        return  registerBlock(name, properties ->
-                              new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS).strength(2.0F)
-                                                                           .sound(soundType).ignitedByLava()));
+        return registerBlock(name, properties ->
+                             new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS).strength(2.0F)
+                                                                          .sound(soundType).ignitedByLava()));
     }
 
     // ** CUSTOM METHOD - PLANK blocks **
