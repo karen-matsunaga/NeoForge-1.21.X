@@ -148,96 +148,60 @@ public class ModBlocks {
 
     // ** CUSTOM Block Family -> (Button, Door, Fence, Fence Gate, Pressure Plate, Slab, Stairs, Trapdoor and Wall) **
     // BISMUTH
-    public static final DeferredBlock<StairBlock> BISMUTH_STAIRS = registerBlock("bismuth_stairs",
-           (properties) -> new StairBlock(ModBlocks.BISMUTH_BLOCK.get().defaultBlockState(),
-                                                    properties.strength(2F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<StairBlock> BISMUTH_STAIRS =
+           registerBlock("bismuth_stairs", properties ->
+                         new StairBlock(ModBlocks.BISMUTH_BLOCK.get().defaultBlockState(),
+                                        properties.strength(2F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    public static final DeferredBlock<SlabBlock> BISMUTH_SLAB = registerBlock("bismuth_slab",
-           (properties) -> new SlabBlock(properties.strength(2F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<SlabBlock> BISMUTH_SLAB = slabBlock("bismuth_slab");
 
     public static final DeferredBlock<PressurePlateBlock> BISMUTH_PRESSURE_PLATE =
-           registerBlock("bismuth_pressure_plate",
-           (properties) -> new PressurePlateBlock(BlockSetType.IRON,
-                                                            properties.strength(2F).requiresCorrectToolForDrops()));
+           pressurePlateBlock("bismuth_pressure_plate");
 
-    public static final DeferredBlock<ButtonBlock> BISMUTH_BUTTON = registerBlock("bismuth_button",
-           (properties) -> new ButtonBlock(BlockSetType.IRON, 20,
-                                                    properties.strength(2F).requiresCorrectToolForDrops()
-                                                              .noCollission()));
+    public static final DeferredBlock<ButtonBlock> BISMUTH_BUTTON = buttonBlock("bismuth_button", 20);
 
-    public static final DeferredBlock<FenceBlock> BISMUTH_FENCE = registerBlock("bismuth_fence",
-           (properties) -> new FenceBlock(properties.strength(2F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<FenceBlock> BISMUTH_FENCE = fenceBlock("bismuth_fence");
 
-    public static final DeferredBlock<FenceGateBlock> BISMUTH_FENCE_GATE = registerBlock("bismuth_fence_gate",
-           (properties) -> new FenceGateBlock(WoodType.ACACIA,
-                                                        properties.strength(2F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<FenceGateBlock> BISMUTH_FENCE_GATE = fenceGateBlock("bismuth_fence_gate");
 
-    public static final DeferredBlock<WallBlock> BISMUTH_WALL = registerBlock("bismuth_wall",
-           (properties) -> new WallBlock(properties.strength(2F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<WallBlock> BISMUTH_WALL = wallBlock("bismuth_wall");
 
-    public static final DeferredBlock<DoorBlock> BISMUTH_DOOR = registerBlock("bismuth_door",
-           (properties) -> new DoorBlock(BlockSetType.IRON,
-                                                  properties.strength(2F).requiresCorrectToolForDrops()
-                                                                         .noOcclusion()));
+    public static final DeferredBlock<DoorBlock> BISMUTH_DOOR = doorBlock("bismuth_door");
 
-    public static final DeferredBlock<TrapDoorBlock> BISMUTH_TRAPDOOR = registerBlock("bismuth_trapdoor",
-           (properties) -> new TrapDoorBlock(BlockSetType.IRON,
-                                                       properties.strength(2F).requiresCorrectToolForDrops()
-                                                                              .noOcclusion()));
+    public static final DeferredBlock<TrapDoorBlock> BISMUTH_TRAPDOOR = trapDoorBlock("bismuth_trapdoor");
 
     // ALEXANDRITE
-    public static final DeferredBlock<Block> ALEXANDRITE_STAIRS = registerBlock("alexandrite_stairs",
-           (properties) -> new StairBlock(ModBlocks.ALEXANDRITE_BLOCK.get().defaultBlockState(),
-                                                    properties.strength(2F).requiresCorrectToolForDrops()
-                                                                           .sound(SoundType.METAL)));
+    public static final DeferredBlock<StairBlock> ALEXANDRITE_STAIRS =
+           registerBlock("alexandrite_stairs", properties ->
+                         new StairBlock(ModBlocks.ALEXANDRITE_BLOCK.get().defaultBlockState(),
+                                        properties.strength(2F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    public static final DeferredBlock<Block> ALEXANDRITE_SLABS = registerBlock("alexandrite_slabs",
-           (properties) -> new SlabBlock(properties.strength(2F).requiresCorrectToolForDrops()
-                                                                          .sound(SoundType.METAL)));
+    public static final DeferredBlock<SlabBlock> ALEXANDRITE_SLABS = slabBlock("alexandrite_slabs");
 
-    public static final DeferredBlock<Block> ALEXANDRITE_PREASSURE_PLATE =
-           registerBlock("alexandrite_pressure_plate",
-           (properties) -> new PressurePlateBlock(BlockSetType.IRON,
-                                                            properties.strength(2F).requiresCorrectToolForDrops()
-                                                                                   .sound(SoundType.METAL)));
+    public static final DeferredBlock<PressurePlateBlock> ALEXANDRITE_PREASSURE_PLATE =
+           pressurePlateBlock("alexandrite_pressure_plate");
 
-    public static final DeferredBlock<Block> ALEXANDRITE_BUTTON = registerBlock("alexandrite_button",
-           (properties) -> new ButtonBlock(BlockSetType.IRON, 10,
-                                                     properties.strength(2F).requiresCorrectToolForDrops()
-                                                                            .sound(SoundType.METAL)));
+    public static final DeferredBlock<ButtonBlock> ALEXANDRITE_BUTTON =
+           buttonBlock("alexandrite_button", 10);
 
-    public static final DeferredBlock<Block> ALEXANDRITE_FENCE = registerBlock("alexandrite_fence",
-           (properties) -> new FenceBlock(properties.strength(2F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<FenceBlock> ALEXANDRITE_FENCE = fenceBlock("alexandrite_fence");
 
-    public static final DeferredBlock<Block> ALEXANDRITE_FENCE_GATE = registerBlock("alexandrite_fence_gate",
-           (properties) -> new FenceGateBlock(WoodType.ACACIA,
-                                                        properties.strength(2F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<FenceGateBlock> ALEXANDRITE_FENCE_GATE =
+           fenceGateBlock("alexandrite_fence_gate");
 
-    public static final DeferredBlock<Block> ALEXANDRITE_WALL = registerBlock("alexandrite_wall",
-           (properties) -> new WallBlock(properties.strength(2F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<WallBlock> ALEXANDRITE_WALL = wallBlock("alexandrite_wall");
 
-    public static final DeferredBlock<Block> ALEXANDRITE_DOOR = registerBlock("alexandrite_door",
-           (properties) -> new DoorBlock(BlockSetType.IRON,
-                                                   properties.strength(2F).requiresCorrectToolForDrops().noOcclusion()));
+    public static final DeferredBlock<DoorBlock> ALEXANDRITE_DOOR = doorBlock("alexandrite_door");
 
-    public static final DeferredBlock<Block> ALEXANDRITE_TRAPDOOR = registerBlock("alexandrite_trapdoor",
-           (properties) -> new TrapDoorBlock(BlockSetType.IRON,
-                                                       properties.strength(2F).requiresCorrectToolForDrops().noOcclusion()));
+    public static final DeferredBlock<TrapDoorBlock> ALEXANDRITE_TRAPDOOR =
+           trapDoorBlock("alexandrite_trapdoor");
 
     // ** CUSTOM blockstate block **
-    public static final DeferredBlock<Block> BISMUTH_LAMP = registerBlock("bismuth_lamp",
-           (properties) -> new BismuthLampBlock(properties.strength(2F).requiresCorrectToolForDrops()
-                                                                    .lightLevel(state ->
-                                                                                state.getValue(BismuthLampBlock.CLICKED)
-                                                                                               ? 15 : 0)));
+    public static final DeferredBlock<Block> BISMUTH_LAMP =
+           lampBlock("bismuth_lamp", MapColor.COLOR_ORANGE, ModSounds.MAGIC_BLOCK_SOUNDS);
 
-    public static final DeferredBlock<Block> ALEXANDRITE_LAMP = registerBlock("alexandrite_lamp",
-           (properties) -> new BismuthLampBlock(properties.mapColor(MapColor.COLOR_BLUE)
-                                                                    .sound(ModSounds.ALEXANDRITE_LAMP_SOUNDS)
-                                                                    .strength(1f)
-                                                                    .lightLevel(state ->
-                                                                                state.getValue(BismuthLampBlock.CLICKED)
-                                                                                               ? 15 : 0)));
+    public static final DeferredBlock<Block> ALEXANDRITE_LAMP =
+           lampBlock("alexandrite_lamp", MapColor.COLOR_BLUE, ModSounds.ALEXANDRITE_LAMP_SOUNDS);
 
     // ** CUSTOM crop block **
     // RADISH
@@ -599,19 +563,76 @@ public class ModBlocks {
                                                                          ResourceLocation.fromNamespaceAndPath(
                                                                          MccourseMod.MOD_ID, "dice")))));
 
+    // ** CUSTOM METHOD - SLAB blocks **
+    private static DeferredBlock<SlabBlock> slabBlock(String name) {
+        return registerBlock(name, properties ->
+                             new SlabBlock(properties.strength(2F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+    }
+
+    // ** CUSTOM METHOD - PRESSURE PLATE blocks **
+    private static DeferredBlock<PressurePlateBlock> pressurePlateBlock(String name) {
+        return registerBlock(name, properties ->
+                             new PressurePlateBlock(BlockSetType.IRON, properties.strength(2F).requiresCorrectToolForDrops()
+                                                                                              .sound(SoundType.METAL)));
+    }
+
+    // ** CUSTOM METHOD - BUTTON blocks **
+    private static DeferredBlock<ButtonBlock> buttonBlock(String name, int tick) {
+        return registerBlock(name, properties ->
+                             new ButtonBlock(BlockSetType.IRON, tick, properties.strength(2F).requiresCorrectToolForDrops()
+                                                                                .noCollission().sound(SoundType.METAL)));
+    }
+
+    // ** CUSTOM METHOD - FENCE blocks **
+    private static DeferredBlock<FenceBlock> fenceBlock(String name) {
+        return registerBlock(name, properties -> new FenceBlock(properties.strength(2F).requiresCorrectToolForDrops()));
+    }
+
+    // ** CUSTOM METHOD - FENCE GATE blocks **
+    private static DeferredBlock<FenceGateBlock> fenceGateBlock(String name) {
+        return registerBlock(name, properties ->
+                             new FenceGateBlock(WoodType.ACACIA, properties.strength(2F).requiresCorrectToolForDrops()));
+    }
+
+    // ** CUSTOM METHOD - WALL blocks **
+    private static DeferredBlock<WallBlock> wallBlock(String name) {
+        return registerBlock(name, properties -> new WallBlock(properties.strength(2F).requiresCorrectToolForDrops()));
+    }
+
+    // ** CUSTOM METHOD - DOOR blocks **
+    private static DeferredBlock<DoorBlock> doorBlock(String name) {
+        return registerBlock(name, properties ->
+                             new DoorBlock(BlockSetType.IRON, properties.strength(2F).requiresCorrectToolForDrops()
+                                                                                     .noOcclusion()));
+    }
+
+    // ** CUSTOM METHOD - TRAPDOOR blocks **
+    private static DeferredBlock<TrapDoorBlock> trapDoorBlock(String name) {
+        return registerBlock(name, properties ->
+                             new TrapDoorBlock(BlockSetType.IRON, properties.strength(2F).requiresCorrectToolForDrops()
+                                                                                         .noOcclusion()));
+    }
+
+    // ** CUSTOM METHOD - LAMP blocks **
+    private static DeferredBlock<Block> lampBlock(String name,
+                                                  MapColor mapColor, SoundType soundType) {
+        return registerBlock(name, properties ->
+                             new BismuthLampBlock(properties.strength(2F).mapColor(mapColor).sound(soundType)
+                                                                         .requiresCorrectToolForDrops()
+                                                                         .lightLevel(state ->
+                                                                                     state.getValue(BismuthLampBlock.CLICKED)
+                                                                                     ? 15 : 0)));
+    }
+
     // ** CUSTOM METHOD - LEAVE blocks **
     private static DeferredBlock<Block> leaveBlock(String name) {
         return registerBlock(name, properties ->
                              new UntintedParticleLeavesBlock(0.01F,
                                                              ParticleTypes.CHERRY_LEAVES,
-                                                             properties.mapColor(MapColor.PLANT)
-                                                                       .strength(0.2F)
-                                                                       .randomTicks()
-                                                                       .sound(SoundType.CHERRY_LEAVES)
-                                                                       .noOcclusion()
+                                                             properties.mapColor(MapColor.PLANT).strength(0.2F).randomTicks()
+                                                                       .sound(SoundType.CHERRY_LEAVES).noOcclusion()
                                                                        .isValidSpawn(Blocks::ocelotOrParrot)
-                                                                       .ignitedByLava()
-                                                                       .pushReaction(PushReaction.DESTROY)) {
+                                                                       .ignitedByLava().pushReaction(PushReaction.DESTROY)) {
                              @Override
                              public boolean isFlammable(@NotNull BlockState state, @NotNull BlockGetter level,
                                                         @NotNull BlockPos pos, @NotNull Direction direction) {
@@ -635,10 +656,8 @@ public class ModBlocks {
     // ** CUSTOM METHOD - LOG, WOOD, STRIPPED LOG, STRIPPED WOOD blocks **
     private static DeferredBlock<Block> logWoodBlocks(String name, SoundType soundType) {
         return  registerBlock(name, properties ->
-                              new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS)
-                                                                           .strength(2.0F)
-                                                                           .sound(soundType)
-                                                                           .ignitedByLava()));
+                              new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS).strength(2.0F)
+                                                                           .sound(soundType).ignitedByLava()));
     }
 
     // ** CUSTOM METHOD - PLANK blocks **
@@ -665,7 +684,8 @@ public class ModBlocks {
     }
 
     // ** CUSTOM METHOD - SAPLING blocks **
-    private static DeferredBlock<Block> saplingBlock(String name, TreeGrower tree, Supplier<Block> block) {
+    private static DeferredBlock<Block> saplingBlock(String name,
+                                                     TreeGrower tree, Supplier<Block> block) {
         return registerBlock(name, properties ->
                              new ModSaplingBlock(tree, properties.mapColor(MapColor.PLANT)
                                                                  .noCollission().randomTicks()
