@@ -36,8 +36,7 @@ import java.util.function.Function;
 
 public class ModBlocks {
     // Registry all custom BLOCKS
-    public static final DeferredRegister.Blocks BLOCKS =
-           DeferredRegister.createBlocks(MccourseMod.MOD_ID);
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MccourseMod.MOD_ID);
 
     // ** CUSTOM ores **
     // BISMUTH
@@ -45,25 +44,17 @@ public class ModBlocks {
            (properties) -> new Block(properties.strength(4F).requiresCorrectToolForDrops()
                                                          .sound(SoundType.AMETHYST)));
 
-    public static final DeferredBlock<Block> BISMUTH_ORE = registerBlock("bismuth_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(2, 4),
-                                                             properties.strength(3F).requiresCorrectToolForDrops()
-                                                                       .sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> BISMUTH_ORE =
+           oreBlock("bismuth_ore", 2, 4, 3F, SoundType.STONE);
 
-    public static final DeferredBlock<Block> BISMUTH_DEEPSLATE_ORE = registerBlock("bismuth_deepslate_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(3, 6),
-                                                             properties.strength(4F).requiresCorrectToolForDrops()
-                                                                       .sound(SoundType.DEEPSLATE)));
+    public static final DeferredBlock<Block> BISMUTH_DEEPSLATE_ORE =
+           oreBlock("bismuth_deepslate_ore", 3, 6, 4F, SoundType.DEEPSLATE);
 
-    public static final DeferredBlock<Block> BISMUTH_END_ORE = registerBlock("bismuth_end_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(5, 9),
-                                                             properties.strength(7F).requiresCorrectToolForDrops()
-                                                                       .instrument(NoteBlockInstrument.BASEDRUM)));
+    public static final DeferredBlock<Block> BISMUTH_END_ORE =
+           oreBlock("bismuth_end_ore", 5, 9, 7F, SoundType.GLASS);
 
-    public static final DeferredBlock<Block> BISMUTH_NETHER_ORE = registerBlock("bismuth_nether_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(1, 5),
-                                                             properties.strength(3F).requiresCorrectToolForDrops()
-                                                                       .sound(SoundType.NETHERRACK)));
+    public static final DeferredBlock<Block> BISMUTH_NETHER_ORE =
+           oreBlock("bismuth_nether_ore", 1, 5, 3F, SoundType.NETHERRACK);
 
     // ALEXANDRITE
     public static final DeferredBlock<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block",
@@ -80,23 +71,17 @@ public class ModBlocks {
                                                         .strength(5.0F, 6.0F)
                                                         .sound(SoundType.METAL)));
 
-    public static final DeferredBlock<Block> ALEXANDRITE_ORE = registerBlock("alexandrite_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(2, 5),
-                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> ALEXANDRITE_ORE =
+           oreBlock("alexandrite_ore", 2, 5, 5F, SoundType.STONE);
 
     public static final DeferredBlock<Block> DEEPSLATE_ALEXANDRITE_ORE =
-           registerBlock("deepslate_alexandrite_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(3, 7),
-                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+           oreBlock("deepslate_alexandrite_ore", 3, 7, 5F, SoundType.DEEPSLATE);
 
     public static final DeferredBlock<Block> END_STONE_ALEXANDRITE_ORE =
-           registerBlock("end_stone_alexandrite_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(5, 8),
-                                                            properties.strength(5F).requiresCorrectToolForDrops()));
+           oreBlock("end_stone_alexandrite_ore", 5, 8, 5F, SoundType.GLASS);
 
-    public static final DeferredBlock<Block> NETHER_ALEXANDRITE_ORE = registerBlock("nether_alexandrite_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(3, 6),
-                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> NETHER_ALEXANDRITE_ORE =
+           oreBlock("nether_alexandrite_ore", 3, 6, 5F, SoundType.NETHERRACK);
 
     // PINK
     public static final DeferredBlock<Block> PINK_BLOCK = registerBlock("pink_block",
@@ -107,24 +92,16 @@ public class ModBlocks {
                                                          .sound(SoundType.METAL)));
 
     public static final DeferredBlock<Block> PINK_ORE =
-           registerBlock("pink_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(2, 5),
-                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+           oreBlock("pink_ore", 2, 5, 5F, SoundType.STONE);
 
     public static final DeferredBlock<Block> DEEPSLATE_PINK_ORE =
-           registerBlock("deepslate_pink_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(3, 7),
-                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+           oreBlock("deepslate_pink_ore", 3, 7, 5F, SoundType.DEEPSLATE);
 
     public static final DeferredBlock<Block> END_STONE_PINK_ORE =
-           registerBlock("end_stone_pink_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(5, 8),
-                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+           oreBlock("end_stone_pink_ore", 5, 8, 5F, SoundType.GLASS);
 
     public static final DeferredBlock<Block> NETHER_PINK_ORE =
-           registerBlock("nether_pink_ore",
-           (properties) -> new DropExperienceBlock(UniformInt.of(3, 6),
-                                                             properties.strength(5F).requiresCorrectToolForDrops()));
+           oreBlock("nether_pink_ore", 3, 6, 5F, SoundType.NETHERRACK);
 
     // ** CUSTOM advanced block **
     public static final DeferredBlock<Block> MAGIC = registerBlock("magic",
@@ -744,9 +721,18 @@ public class ModBlocks {
                                                                          ResourceLocation.fromNamespaceAndPath(
                                                                          MccourseMod.MOD_ID, "dice")))));
 
+    // ** CUSTOM METHOD - ORES blocks **
+    private static DeferredBlock<Block> oreBlock(String name, int min, int max,
+                                                 float strength, SoundType soundType) {
+        return registerBlock(name, properties ->
+                             new DropExperienceBlock(UniformInt.of(min, max), properties.strength(strength)
+                                                                                        .requiresCorrectToolForDrops()
+                                                                                        .sound(soundType)));
+    }
+
     // ** CUSTOM METHOD - ENDER PEARL blocks **
-    protected static DeferredBlock<Block> enderPearlBlock(String name, MapColor color) {
-        return registerBlock(name, (properties) ->
+    private static DeferredBlock<Block> enderPearlBlock(String name, MapColor color) {
+        return registerBlock(name, properties ->
                              new Block(properties.mapColor(color)
                                                  .instrument(NoteBlockInstrument.BELL)
                                                  .requiresCorrectToolForDrops()
@@ -755,10 +741,10 @@ public class ModBlocks {
                                                  .lightLevel(state -> 50)));
     }
 
-    // ** CUSTOM METHOD - Mob nine blocks **
-    protected static DeferredBlock<Block> mobBlock(String name, MapColor color,
+    // ** CUSTOM METHOD - MOB blocks **
+    private static DeferredBlock<Block> mobBlock(String name, MapColor color,
                                                    NoteBlockInstrument noteBlock, SoundType soundType) {
-       return registerBlock(name, (properties) ->
+       return registerBlock(name, properties ->
                             new Block(properties.mapColor(color)
                                                 .instrument(noteBlock)
                                                 .requiresCorrectToolForDrops()
@@ -766,7 +752,7 @@ public class ModBlocks {
                                                 .sound(soundType)));
     }
 
-    // CUSTOM METHOD - Registry all custom BLOCKS
+    // ** CUSTOM METHOD - Registry all custom BLOCKS **
     private static <T extends Block> DeferredBlock<T> registerBlock(String name,
                                                                     Function<BlockBehaviour.Properties, T> block) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, block);
@@ -774,17 +760,14 @@ public class ModBlocks {
         return toReturn;
     }
 
-    // CUSTOM METHOD - Registry all custom BLOCK ITEMS
+    // ** CUSTOM METHOD - Registry all custom BLOCK ITEMS **
     private static <T extends Block> void registerBlockItem(String name,
                                                             DeferredBlock<T> block) {
-        ModItems.ITEMS.registerItem(name, (properties) ->
-                                    new BlockItem(block.get(), properties.useBlockDescriptionPrefix()
-                                                                         .setId(ResourceKey.create(Registries.ITEM,
-                                                                                ResourceLocation.fromNamespaceAndPath(
-                                                                                MccourseMod.MOD_ID, name)))));
+        ModItems.ITEMS.registerItem(name, properties ->
+                                    new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
     }
 
-    // CUSTOM METHOD - Registry all custom BLOCKS on EVENT
+    // ** CUSTOM METHOD - Registry all custom BLOCKS on EVENT **
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
