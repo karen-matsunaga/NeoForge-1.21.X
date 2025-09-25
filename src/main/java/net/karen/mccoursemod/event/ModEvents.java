@@ -32,6 +32,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Camera;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -44,6 +45,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FormattedText;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -445,23 +447,24 @@ public class ModEvents {
         Minecraft mc = Minecraft.getInstance();
         GuiGraphics guiGraphics = event.getGuiGraphics();
         LocalPlayer player = mc.player;
+        Font font = mc.font;
+        Level level = mc.level;
         int a = 10, b = 10;
         ItemStack itemStack = new ItemStack(Items.DIAMOND);
-        guiGraphics.renderItem(itemStack, a, b);
-        guiGraphics.renderItemDecorations(mc.font, itemStack, a + 20, b + 10, "§bDiamond");
-        if (mc.screen == null) {
-            if (player != null && mc.level != null) { // Render only when the player is in the game and not in the menu
-                double x = player.getX(), y = player.getY(), z = player.getZ(); // Player x, y, z coordinates
-                BlockPos pos = player.blockPosition();
-                int blockLight = Utils.light(mc, LightLayer.BLOCK, pos);
-                int skyLight = Utils.light(mc, LightLayer.SKY, pos);
-                int totalLight = Math.max(blockLight, skyLight);
-                // Text to be displayed on screen - LIGHT, SKY, BLOCK
-                Component coordinate = ChatUtils.literal(x, y, z);
-                Component light = ChatUtils.numbers(totalLight, skyLight, blockLight);
-                guiGraphics.renderItemDecorations(mc.font, itemStack, a + 165, b + 20, coordinate.getString());
-                guiGraphics.renderItemDecorations(mc.font, itemStack, a + 165, b + 30, light.getString());
-            }
+        // Render only when the player is in the game and not in the menu
+        if (mc.screen == null && player != null && level != null) {
+            double x = player.getX(), y = player.getY(), z = player.getZ(); // Player x, y, z coordinates
+            BlockPos pos = player.blockPosition();
+            int blockLight = Utils.light(level, LightLayer.BLOCK, pos);
+            int skyLight = Utils.light(level, LightLayer.SKY, pos);
+            int totalLight = Math.max(blockLight, skyLight);
+            // Text to be displayed on screen - LIGHT, SKY, BLOCK
+            Component coordinate = ChatUtils.literal(x, y, z);
+            Component light = ChatUtils.numbers(totalLight, skyLight, blockLight);
+            guiGraphics.renderItem(itemStack, a, b);
+            guiGraphics.renderItemDecorations(font, itemStack, a + 20, b + 10, "§bDiamond");
+            guiGraphics.renderItemDecorations(font, itemStack, a + 165, b + 20, coordinate.getString());
+            guiGraphics.renderItemDecorations(font, itemStack, a + 165, b + 30, light.getString());
         }
     }
 
@@ -877,7 +880,8 @@ public class ModEvents {
             Player newPlayer = event.getEntity(); // Entity is New player -> AFTER death
             BlockPos blockPos = oldPlayer.blockPosition(); // Player position BEFORE death
             // MESSAGE when player death
-            playDisplayLiteralFalse(newPlayer, chatMessage(newPlayer, blockPos, green));
+            ResourceKey<Level> level = oldPlayer.level().dimension();
+            playDisplayLiteralFalse(newPlayer, chatMessage(level, newPlayer, blockPos, green));
             // Restore EXPERIENCE and removed all EXPERIENCE saved
             int[] xp = savedExperience.remove(uuid);
             if (xp != null) {

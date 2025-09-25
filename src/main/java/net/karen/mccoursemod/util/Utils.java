@@ -2,7 +2,6 @@ package net.karen.mccoursemod.util;
 
 import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.network.UnlockEnchantmentPacketPayload;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -230,12 +229,11 @@ public class Utils {
     // CUSTOM METHOD - GLOWING MOBS -> GET player item
     public static List<LivingEntity> getPlayer(Player player, TagKey<EntityType<?>> tag) {
         return player.level().getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(10),
-                entity -> entity.getType().is(tag) && entity != player);
+                                                 entity -> entity.getType().is(tag) && entity != player);
     }
 
     // CUSTOM METHOD - Render Overlay LIGHT, SKY, BLOCK numbers
-    public static int light(Minecraft mc, LightLayer type, BlockPos pos) {
-        Level level = mc.level;
+    public static int light(Level level, LightLayer type, BlockPos pos) {
         return level != null ? level.getLightEngine().getLayerListener(type).getLightValue(pos) : 0;
     }
 

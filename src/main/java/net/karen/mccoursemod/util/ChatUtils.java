@@ -1,10 +1,12 @@
 package net.karen.mccoursemod.util;
 
 import com.mojang.datafixers.util.Either;
+import net.karen.mccoursemod.worldgen.dimension.ModDimensions;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.*;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.ARGB;
@@ -13,11 +15,13 @@ import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ChatUtils {
     // VANILLA colors
@@ -241,11 +245,28 @@ public class ChatUtils {
     }
 
     // CUSTOM METHOD - Player death message display
-    public static Component chatMessage(Player player, BlockPos pos, ChatFormatting color) {
+    public static Component chatMessage(ResourceKey<Level> level, Player player,
+                                        BlockPos pos, ChatFormatting color) {
         String playerName = player.getGameProfile().getName();
         int x = pos.getX(), y = pos.getY(), z = pos.getZ();
         String deathTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        return Component.literal(playerName + " died at [X: " + x + ", Y: " + y + ", Z: " + z + "] " + deathTime)
+        AtomicReference<String> dimensionName = new AtomicReference<>("Unknown dimension.");
+        if (level != null) {
+            Map<Boolean, String> dimensionMap = new HashMap<>();
+            dimensionMap.put(level.equals(Level.OVERWORLD), "Overworld dimension.");
+            dimensionMap.put(level.equals(Level.NETHER), "Nether dimension.");
+            dimensionMap.put(level.equals(Level.END), "End dimension.");
+            dimensionMap.put(level.equals(ModDimensions.KAUPENDIM_LEVEL_KEY), "Kaupendim dimension.");
+            dimensionMap.forEach((key, value) -> { if (key) { dimensionName.set(value); } });
+        }
+        return dimensionMessage(playerName, x, y, z, deathTime, color, dimensionName.get());
+    }
+
+    // CUSTOM METHOD - Player death message
+    public static Component dimensionMessage(String playerName, int x, int y, int z,
+                                             String deathTime, ChatFormatting color, String dimension) {
+        return Component.literal(playerName + " died at [X: " + x + ", Y: " + y + ", Z: " + z + "] " +
+                                 deathTime + " " + dimension)
                         .withStyle(Style.EMPTY.withColor(color).withItalic(false));
     }
 
