@@ -96,7 +96,7 @@ public class MetalDetectorItem extends Item {
     private void addDataToDataTablet(Player player, BlockPos below, Block block) {
         ItemStack dataTablet =
             player.getInventory().getItem(InventoryUtil.getFirstInventoryIndex(player, ModItems.DATA_TABLET.get()));
-        FoundBlock foundBlockData = new FoundBlock(block.defaultBlockState(), below);
+        FoundBlock foundBlockData = new FoundBlock(block.defaultBlockState(), below, player.level().dimension());
         // Added x, y, z coordinates on Data Tablet
         dataTablet.set(ModDataComponentTypes.FOUND_BLOCK.get(), foundBlockData);
     }
