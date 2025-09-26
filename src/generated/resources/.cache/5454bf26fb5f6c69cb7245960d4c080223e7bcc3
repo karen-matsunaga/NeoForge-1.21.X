@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-23T13:58:50.4427708	Mccourse Mod Item Tags
+// 1.21.8	2025-09-26T12:13:30.3829885	Mccourse Mod Item Tags
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/entity_water.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/water.json
@@ -45,6 +45,7 @@ e3240995426e8b46bf8cf1d62d20f00f50e6be74 data/mccoursemod/tags/item/repairs_bism
 056929b7ab3fd6b71312bcc7bae8661d4f4a5df0 data/mccoursemod/tags/item/repairs_lapis_lazuli_armor.json
 204eeee6677118a4984bd1e17ff2bdfd176a3b66 data/mccoursemod/tags/item/repairs_pink_armor.json
 5db69586b6c50b2befacf44de1aedc4a5af092fe data/mccoursemod/tags/item/repairs_redstone_armor.json
+003335a81b58279bebf281d1d1082ab96ee4768c data/mccoursemod/tags/item/restore_blacklist_items.json
 2fdbd2b6ab32e20c3a31fb2a55581d4c364be123 data/mccoursemod/tags/item/ultra_compactor_items.json
 1dd942f7a578100b857661b20a19c22aee5dae48 data/mccoursemod/tags/item/ultra_compactor_result.json
 774205992e78cc4b0cce335e5a396e3a2426ecab data/mccoursemod/tags/item/walnut_logs.json

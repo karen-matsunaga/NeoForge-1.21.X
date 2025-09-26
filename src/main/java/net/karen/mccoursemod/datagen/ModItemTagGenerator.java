@@ -332,6 +332,17 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         this.tag(ModTags.Items.PINK_ULTRA_COMPACTOR_RESULT).add(ModBlocks.SUGAR_BLOCK.get().asItem(),
                                                                 ModBlocks.SUGAR_CANE_BLOCK.get().asItem(),
                                                                 Blocks.HAY_BLOCK.asItem());
+
+        // Restore blacklist items
+        this.tag(ModTags.Items.RESTORE_BLACKLIST_ITEMS).add(Items.NETHERITE_AXE,
+                                                            Items.NETHERITE_HOE,
+                                                            Items.NETHERITE_PICKAXE,
+                                                            Items.NETHERITE_SWORD,
+                                                            Items.NETHERITE_SHOVEL,
+                                                            Items.NETHERITE_HELMET,
+                                                            Items.NETHERITE_CHESTPLATE,
+                                                            Items.NETHERITE_LEGGINGS,
+                                                            Items.NETHERITE_BOOTS);
     }
 
     @Override

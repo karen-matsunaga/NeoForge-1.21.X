@@ -137,6 +137,15 @@ public abstract class ItemStackMixin {
                                                tooltip.add(componentTranslatableIntColor(key, value)));
             }
         }
+        // RESTORE item
+        if (stack.is(ModItems.RESTORE)) {
+            if (item instanceof RestoreItem restore) {
+                List<String> lines = restore.restoreItemDescription();
+                for (int i = 0; i < lines.size(); i++) {
+                     tooltip.add(i + 1, standardLiteral(lines.get(i)));
+                }
+            }
+        }
         // ** CUSTOM ENCHANTMENTS **
         if (level != null) {
             HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);

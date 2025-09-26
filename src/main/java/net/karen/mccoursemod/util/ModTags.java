@@ -203,6 +203,9 @@ public class ModTags {
         public static final TagKey<Item> PINK_ULTRA_COMPACTOR_RESULT =
                createTag("pink_ultra_compactor_result");
 
+        // Restore item
+        public static final TagKey<Item> RESTORE_BLACKLIST_ITEMS = createTag("restore_blacklist_items");
+
         // CUSTOM METHOD - Registry all custom item tags
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
