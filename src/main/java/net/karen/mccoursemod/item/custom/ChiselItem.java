@@ -79,7 +79,7 @@ public class ChiselItem extends Item {
 
     @Override
     public @NotNull Component getName(@NotNull ItemStack stack) {
-        return componentTranslatable(this.descriptionId, gold);
+        return componentTranslatable(this.getDescriptionId(), gold);
     }
 
     // CUSTOM METHOD - CHISEL shift description

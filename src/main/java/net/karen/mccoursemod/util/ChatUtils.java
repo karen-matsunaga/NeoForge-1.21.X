@@ -1,7 +1,6 @@
 package net.karen.mccoursemod.util;
 
 import com.mojang.datafixers.util.Either;
-import net.karen.mccoursemod.worldgen.dimension.ModDimensions;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -21,7 +20,6 @@ import net.neoforged.neoforge.common.Tags;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class ChatUtils {
     // VANILLA colors
@@ -250,24 +248,20 @@ public class ChatUtils {
         String playerName = player.getGameProfile().getName();
         int x = pos.getX(), y = pos.getY(), z = pos.getZ();
         String deathTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        AtomicReference<String> dimensionName = new AtomicReference<>("Unknown dimension.");
-        if (level != null) {
-            Map<Boolean, String> dimensionMap = new HashMap<>();
-            dimensionMap.put(level.equals(Level.OVERWORLD), "Overworld dimension.");
-            dimensionMap.put(level.equals(Level.NETHER), "Nether dimension.");
-            dimensionMap.put(level.equals(Level.END), "End dimension.");
-            dimensionMap.put(level.equals(ModDimensions.KAUPENDIM_LEVEL_KEY), "Kaupendim dimension.");
-            dimensionMap.forEach((key, value) -> { if (key) { dimensionName.set(value); } });
-        }
-        return dimensionMessage(playerName, x, y, z, deathTime, color, dimensionName.get());
+        String dimensionPath = level.location().getPath();
+        return Component.literal(playerName + " died at [X: " + x + ", Y: " + y + ", Z: " + z + "] " +
+                                 deathTime + " " + dimensionName(dimensionPath) + " dimension.")
+                        .withStyle(Style.EMPTY.withColor(color).withItalic(false));
     }
 
     // CUSTOM METHOD - Player death message
-    public static Component dimensionMessage(String playerName, int x, int y, int z,
-                                             String deathTime, ChatFormatting color, String dimension) {
-        return Component.literal(playerName + " died at [X: " + x + ", Y: " + y + ", Z: " + z + "] " +
-                                 deathTime + " " + dimension)
-                        .withStyle(Style.EMPTY.withColor(color).withItalic(false));
+    public static String dimensionName(String dimensionPath) {
+        return switch (dimensionPath) {
+               case "overworld" -> "Overworld";
+               case "the_nether" -> "Nether";
+               case "the_end" -> "End";
+               default -> "Kaupendim";
+        };
     }
 
     // CUSTOM METHOD - Total light, Skylight and Block light + [X, Y, Z] Coordinates

@@ -2,6 +2,7 @@ package net.karen.mccoursemod.component.custom;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.karen.mccoursemod.util.ChatUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -24,14 +25,10 @@ public record FoundBlock(BlockState block, BlockPos position,
 
     // CUSTOM METHOD - METAL DETECTOR found an ore
     public String getOutputString() {
-        String name = dimension.location().getPath();
-        String dimensionName = switch (name) { case "overworld" -> "Overworld";
-                                               case "the_nether" -> "Nether";
-                                               case "the_end" -> "End";
-                                               default -> "Kaupendim"; };
+        String dimensionPath = dimension.location().getPath();
         return "Valuable Found: " + block.getBlock().getName().getString() +
                " at [X: " + position.getX() + ", Y: " + position.getY() + ", Z: " + position.getZ() + "] " +
-               dimensionName + " dimension!";
+               ChatUtils.dimensionName(dimensionPath) + " dimension!";
     }
 
     // CUSTOM METHOD - Block HASH is equals with Position HASH
