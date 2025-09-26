@@ -26,9 +26,10 @@ import static net.karen.mccoursemod.util.ChatUtils.*;
 
 public class ChiselItem extends Item {
     private static final Map<Block, Block> CHISEL_MAP =
-            Map.of(Blocks.STONE, Blocks.STONE_BRICKS, Blocks.END_STONE, Blocks.END_STONE_BRICKS,
-                   Blocks.DEEPSLATE, Blocks.DEEPSLATE_BRICKS, Blocks.GOLD_BLOCK, Blocks.IRON_BLOCK,
-                   Blocks.IRON_BLOCK, Blocks.STONE, Blocks.NETHERRACK, ModBlocks.BISMUTH_BLOCK.get(),
+            Map.of(Blocks.STONE, Blocks.STONE_BRICKS,
+                   Blocks.END_STONE, Blocks.END_STONE_BRICKS,
+                   Blocks.DEEPSLATE, Blocks.DEEPSLATE_BRICKS,
+                   Blocks.NETHERRACK, Blocks.NETHER_BRICKS,
                    ModBlocks.RUBY_BLOCK.get(), ModBlocks.RUBY_BLOCK_1.get(),
                    ModBlocks.RUBY_BLOCK_2.get(), ModBlocks.RUBY_BLOCK_3.get(),
                    ModBlocks.WAXED_RUBY_BLOCK.get(),  ModBlocks.WAXED_RUBY_BLOCK_1.get(),
@@ -91,7 +92,8 @@ public class ChiselItem extends Item {
     public String chiselItemDescription(ItemStack stack) {
         BlockPos COORDINATES = stack.get(ModDataComponentTypes.COORDINATES);
         if (COORDINATES != null) {
-            return "Last Block changed at " + COORDINATES.getX() + COORDINATES.getY() + COORDINATES.getZ();
+            return "Last Block changed at [X: " + COORDINATES.getX() +
+                    ", Y: " +  COORDINATES.getY() + ", Z: " + COORDINATES.getZ() + "]";
         }
         else { return ""; }
     }
