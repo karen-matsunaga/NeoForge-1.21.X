@@ -6,9 +6,9 @@
       "loot_table_id": "minecraft:chests/jungle_temple"
     },
     {
-      "chance": 0.5,
+      "chance": 0.1,
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "mccoursemod:chisel"
+  "item": "mccoursemod:metal_detector"
 }

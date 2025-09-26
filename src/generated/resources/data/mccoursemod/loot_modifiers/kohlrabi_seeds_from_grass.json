@@ -1,0 +1,14 @@
+{
+  "type": "mccoursemod:add_item",
+  "conditions": [
+    {
+      "block": "minecraft:grass_block",
+      "condition": "minecraft:block_state_property"
+    },
+    {
+      "chance": 0.35,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "mccoursemod:kohlrabi_seeds"
+}
