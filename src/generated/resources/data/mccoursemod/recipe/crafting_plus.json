@@ -1,13 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "equipment",
   "key": {
-    "#": "minecraft:crafting_table"
+    "S": "minecraft:anvil",
+    "W": "minecraft:crafting_table"
   },
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "WWW",
+    "WSW",
+    "WWW"
   ],
   "result": {
     "count": 1,

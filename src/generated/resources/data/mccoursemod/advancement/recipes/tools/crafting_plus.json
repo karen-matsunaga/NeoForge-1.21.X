@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:crafting_plus"
+        "recipe": "mccoursemod:crafting_plus"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:crafting_plus"
+      "mccoursemod:crafting_plus"
     ]
   }
 }

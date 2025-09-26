@@ -96,8 +96,15 @@ public class ModRecipeProvider extends RecipeProvider {
         this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.PINK.get(),
                                      RecipeCategory.BUILDING_BLOCKS, ModBlocks.PINK_BLOCK.get());
 
-        this.nineBlockStorageRecipes(RecipeCategory.BUILDING_BLOCKS, Items.CRAFTING_TABLE,
-                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRAFTING_PLUS.get());
+        // ** CUSTOM advanced block **
+        this.shaped(RecipeCategory.TOOLS, ModBlocks.CRAFTING_PLUS.get())
+            .pattern("WWW")
+            .pattern("WSW")
+            .pattern("WWW")
+            .define('W', Items.CRAFTING_TABLE) // Main ingredient
+            .define('S', Items.ANVIL) // Center ingredient
+            .unlockedBy(getHasName(Items.CRAFTING_TABLE), this.has(Items.CRAFTING_TABLE))
+            .save(this.output);
 
         // ** CUSTOM tools **
         this.allTools(List.of(ModItems.BISMUTH_SWORD.get(), ModItems.BISMUTH_PICKAXE.get(),
