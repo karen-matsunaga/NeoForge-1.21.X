@@ -200,7 +200,7 @@ public class ModItems {
     // ** CUSTOM Fishing Rod tools **
     public static final DeferredItem<Item> MCCOURSE_MOD_FISHING_ROD =
            ITEMS.registerItem("mccourse_mod_fishing_rod", properties ->
-                              new FishingRodItem(properties.fireResistant()) {
+                              new FishingRodItem(properties.fireResistant().stacksTo(1)) {
                                    // DEFAULT METHOD - Appears on name item
                                    @Override
                                    public @NotNull Component getName(@NotNull ItemStack stack) {
