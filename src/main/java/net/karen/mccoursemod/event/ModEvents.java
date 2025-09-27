@@ -43,7 +43,6 @@ import net.minecraft.client.renderer.ShapeRenderer;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FormattedText;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -51,6 +50,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -111,6 +111,8 @@ import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import net.neoforged.neoforge.server.command.ConfigCommand;
 import org.lwjgl.glfw.GLFW;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import static net.karen.mccoursemod.enchantment.custom.AutoSmeltEnchantmentEffect.autoSmeltEnch;
@@ -426,22 +428,26 @@ public class ModEvents {
         }
     }
 
-    // CUSTOM EVENT - Icon tooltip
+    // CUSTOM EVENT - ENCHANTMENT tooltip icon description
     @SubscribeEvent
     public static void onRenderTooltipGatherComponent(RenderTooltipEvent.GatherComponents event) {
         ItemStack item = event.getItemStack();
-        boolean hasMoreOres = item.has(ModDataComponentTypes.MORE_ORES_ENCHANTMENT_EFFECT.get());
-        List<Either<FormattedText, TooltipComponent>> elements = event.getTooltipElements(); // Item TOOLTIP
-        // IMAGE TOOLTIP COMPONENT
-        ChatUtils.image(elements, Items.DIAMOND_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
-        ChatUtils.image(elements, Items.REDSTONE_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
-        ChatUtils.image(elements, Items.GOLD_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
-        ChatUtils.image(elements, Items.IRON_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
-        // MULTI IMAGE TOOLTIP COMPONENT
-        ChatUtils.text(elements, List.of(Items.IRON_ORE, Items.GOLD_ORE), 16, "More Ores Effect!", hasMoreOres);
+        Level level = Minecraft.getInstance().level;
+        if (level != null && item.isEnchanted()) {
+            HolderLookup.RegistryLookup<Enchantment> ench = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            boolean hasMoreOres = toolEnchant(ench, ModEnchantments.MORE_ORES, item) > 0;
+            List<Either<FormattedText, TooltipComponent>> elements = event.getTooltipElements(); // Item TOOLTIP
+            // IMAGE TOOLTIP COMPONENT
+            image(elements, Items.DIAMOND_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
+            image(elements, Items.REDSTONE_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
+            image(elements, Items.GOLD_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
+            image(elements, Items.IRON_ORE, 16, 16, "More Ores Effect!", hasMoreOres);
+            // MULTI IMAGE TOOLTIP COMPONENT
+            text(elements, List.of(Items.IRON_ORE, Items.GOLD_ORE), 16, "More Ores Effect!", hasMoreOres);
+        }
     }
 
-    // CUSTOM EVENT - RENDER on SCREEN
+    // CUSTOM EVENT - Render GUI screen OVERLAY
     @SubscribeEvent
     public static void onRenderGuiScreenOverlay(RenderGuiEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
@@ -449,22 +455,26 @@ public class ModEvents {
         LocalPlayer player = mc.player;
         Font font = mc.font;
         Level level = mc.level;
-        int a = 10, b = 10;
-        ItemStack itemStack = new ItemStack(Items.DIAMOND);
-        // Render only when the player is in the game and not in the menu
+        // Render only when the PLAYER is in the game and not in the menu
         if (mc.screen == null && player != null && level != null) {
-            double x = player.getX(), y = player.getY(), z = player.getZ(); // Player x, y, z coordinates
+            double x = player.getX(), y = player.getY(), z = player.getZ(); // Player X, Y, Z coordinates
             BlockPos pos = player.blockPosition();
+            String dimensionPath = player.level().dimension().location().getPath();
             int blockLight = Utils.light(level, LightLayer.BLOCK, pos);
             int skyLight = Utils.light(level, LightLayer.SKY, pos);
             int totalLight = Math.max(blockLight, skyLight);
-            // Text to be displayed on screen - LIGHT, SKY, BLOCK
-            Component coordinate = ChatUtils.literal(x, y, z);
-            Component light = ChatUtils.numbers(totalLight, skyLight, blockLight);
-            guiGraphics.renderItem(itemStack, a, b);
-            guiGraphics.renderItemDecorations(font, itemStack, a + 20, b + 10, "§bDiamond");
-            guiGraphics.renderItemDecorations(font, itemStack, a + 165, b + 20, coordinate.getString());
-            guiGraphics.renderItemDecorations(font, itemStack, a + 165, b + 30, light.getString());
+            // Text to be displayed on screen - X, Y, Z coordinates
+            guiGraphics.drawString(font, coordinate(x, y, z), 10, 10,
+                                   ARGB.color(85, 151, 223));
+            // TOTAL LIGHT, SKYLIGHT and BLOCK LIGHT
+            guiGraphics.drawString(font, light(totalLight, skyLight, blockLight), 10, 20,
+                                   ARGB.color(219, 233, 71));
+            // DIMENSION
+            guiGraphics.drawString(font, dimension(dimensionPath), 10, 30,
+                                   ARGB.color(233, 210, 114));
+            // HOUR:MINUTES:SECONDS
+            guiGraphics.drawString(font, LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
+                                   10, 40, ARGB.color(173, 154, 221));
         }
     }
 

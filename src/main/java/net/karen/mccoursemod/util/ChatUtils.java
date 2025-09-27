@@ -264,15 +264,31 @@ public class ChatUtils {
         };
     }
 
+    // CUSTOM METHOD - Player dimension color name
+    public static int dimensionColorName(String dimensionPath) {
+        return switch (dimensionPath) {
+            case "overworld" -> ARGB.color(125, 218, 88);
+            case "the_nether" -> ARGB.color(133, 34, 36);
+            case "the_end" -> ARGB.color(217, 91, 255);
+            default -> ARGB.color(129, 214, 235);
+        };
+    }
+
+    // CUSTOM METHOD - Player dimension
+    public static Component dimension(String dimensionPath) {
+        return Component.literal("Dimension: ")
+                        .append(componentLiteralIntColor(dimensionName(dimensionPath), dimensionColorName(dimensionPath)));
+    }
+
     // CUSTOM METHOD - Total light, Skylight and Block light + [X, Y, Z] Coordinates
-    public static Component literal(double x, double y, double z) {
+    public static Component coordinate(double x, double y, double z) {
         return Component.literal("X: ").append(componentLiteral(String.format("%.3f", x), aqua))
                         .append(standardLiteral("  Y: ")).append(componentLiteral(String.format("%.5f", y), purple))
                         .append(standardLiteral("  Z: ")).append(componentLiteral(String.format("%.3f", z), gold));
     }
 
     // CUSTOM METHOD - Total light, Skylight and Block light numbers
-    public static Component numbers(int totalLight, int skyLight, int blockLight) {
+    public static Component light(int totalLight, int skyLight, int blockLight) {
         return Component.literal("Light:").append(customStyle(" " + totalLight, totalLight))
                         .append(standardLiteral("  Sky:")).append(customStyle(" " + skyLight, skyLight))
                         .append(standardLiteral("  Block:")).append(customStyle(" " + blockLight, blockLight));
@@ -280,7 +296,9 @@ public class ChatUtils {
 
     // CUSTOM METHOD - Total light, Skylight and Block light colors numbers
     public static Component customStyle(String number, int light) {
-        return Component.literal(String.valueOf(number)).setStyle(Style.EMPTY.withColor(light > 6 ? 0x32FC76 : 0xFF1818));
+        return Component.literal(String.valueOf(number))
+                        .setStyle(Style.EMPTY.withColor(light > 6 ? ARGB.color(50, 252, 118)
+                                                                  : ARGB.color(255, 24, 24)));
     }
 
     // CUSTOM METHOD - ITEM NAME
