@@ -27,12 +27,17 @@ public class DataGenerators {
         generator.addProvider(true, new ModModelProvider(packOutput));
         // Recipes -> Recipe Provider
         generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
-        // Block Loot Table Provider + Entity Loot Table Provider
+        // Block Loot Table Provider + Entity Loot Table Provider + Chest Loot Table Provider
         generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
+                                      // BLOCK loot tables
                               List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new,
                                                                              LootContextParamSets.BLOCK),
+                                      // ENTITY loot tables
                                       new LootTableProvider.SubProviderEntry(ModEntityLootTableProvider::new,
-                                                                             LootContextParamSets.ENTITY)),
+                                                                             LootContextParamSets.ENTITY),
+                                      // CHEST loot tables
+                                      new LootTableProvider.SubProviderEntry(ModChestLootTableProvider::new,
+                                                                             LootContextParamSets.CHEST)),
                               lookupProvider));
         // Block tags
         generator.addProvider(true, new ModBlockTagGenerator(packOutput, lookupProvider));
