@@ -472,9 +472,12 @@ public class ModEvents {
             // DIMENSION
             guiGraphics.drawString(font, dimension(dimensionPath), 10, 30,
                                    ARGB.color(233, 210, 114));
+            // DAY
+            guiGraphics.drawString(font, "Day: " + level.getDayTime() / 24000,
+                                   10, 40, ARGB.color(249, 206, 141));
             // HOUR:MINUTES:SECONDS
-            guiGraphics.drawString(font, LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
-                                   10, 40, ARGB.color(173, 154, 221));
+            guiGraphics.drawString(font, "Hour: " + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
+                                   10, 50, ARGB.color(173, 154, 221));
         }
     }
 
