@@ -145,7 +145,8 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         tag(ItemTags.WITHER_SKELETON_DISLIKED_WEAPONS).addTag(ModTags.Items.BOW_TOOLS);
         tag(ItemTags.DURABILITY_ENCHANTABLE).addTag(ModTags.Items.BOW_TOOLS)
                                             .add(ModItems.ALEXANDRITE_SHIELD.get(),
-                                                 ModItems.DIAMOND_ELYTRA.get());
+                                                 ModItems.DIAMOND_ELYTRA.get(),
+                                                 ModItems.MCCOURSE_MOD_FISHING_ROD.get());
         tag(ItemTags.BOW_ENCHANTABLE).addTag(ModTags.Items.BOW_TOOLS);
 
         // CUSTOM Elytra

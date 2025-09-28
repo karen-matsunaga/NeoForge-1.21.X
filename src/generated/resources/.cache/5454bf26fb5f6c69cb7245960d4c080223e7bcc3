@@ -1,4 +1,4 @@
-// 1.21.8	2025-09-27T11:27:32.3881782	Mccourse Mod Item Tags
+// 1.21.8	2025-09-28T20:50:33.7757467	Mccourse Mod Item Tags
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/entity_water.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/water.json
@@ -55,7 +55,7 @@ d3450747fa065931cf4ea3f9bf415f885c981dfc data/minecraft/tags/item/beacon_payment
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/item/bee_food.json
 0ccfe8b0103e383fbc010deee56e45064df8eaa0 data/minecraft/tags/item/chest_armor.json
 641d6e9ec6e02fb870479de7da76c7020aa5ee61 data/minecraft/tags/item/enchantable/bow.json
-4b3ae122d029da6452a7f80fdf7946724d49a3c5 data/minecraft/tags/item/enchantable/durability.json
+b16636ae44638b7b33ba4fd20fbfaec0a168d6aa data/minecraft/tags/item/enchantable/durability.json
 d8fc688e10164d96802c427816aa052fd193a01c data/minecraft/tags/item/enchantable/equippable.json
 9c282bdcff9fd68b31446b59ab15bd12039d5eb2 data/minecraft/tags/item/enchantable/fishing.json
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/item/flowers.json
