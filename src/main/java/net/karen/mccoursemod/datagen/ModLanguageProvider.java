@@ -729,6 +729,9 @@ public class ModLanguageProvider extends LanguageProvider {
         // ** CUSTOM BIOMES **
         addBiome(ModBiomes.TEST_BIOME, "Test Biome");
         addBiome(ModBiomes.TEST_BIOME_2, "Test Biome 2");
+
+        // ** CUSTOM ENCHANTMENT LEVEL **
+        vanillaEnchantment();
     }
 
     // CUSTOM METHOD - Register Block and Block Item
@@ -748,6 +751,13 @@ public class ModLanguageProvider extends LanguageProvider {
         // Format block name + block item name
         addBlock(block, blockPrefix);
         add("item.mccoursemod." + blockId, blockPrefix);
+    }
+
+    // CUSTOM METHOD - Vanilla enchantment levels
+    public void vanillaEnchantment() {
+        for (int i = 1; i < 256; i++) {
+            add("enchantment.level." + i, String.valueOf(i));
+        }
     }
 
     @Override
