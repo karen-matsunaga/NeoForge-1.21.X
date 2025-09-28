@@ -13,6 +13,17 @@
             }
           ],
           "name": "mccoursemod:miner_bow"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 300.0,
+              "options": "#minecraft:on_random_loot"
+            }
+          ],
+          "name": "minecraft:book"
         }
       ],
       "rolls": 1.0

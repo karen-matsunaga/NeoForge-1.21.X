@@ -1,7 +1,9 @@
 package net.karen.mccoursemod.mixin;
 
+import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.loot.ModLootTables;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.server.ReloadableServerRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -13,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
@@ -82,40 +85,16 @@ public abstract class FishingHookMixin {
                                   .withParameter(LootContextParams.THIS_ENTITY, fishingHook)
                                   .withParameter(LootContextParams.ATTACKING_ENTITY, owner)
                                   .withLuck((float) this.luck + player.getLuck()).create(LootContextParamSets.FISHING);
-                    LootTable modFish =
-                        level.getServer().reloadableRegistries().getLootTable(ModLootTables.MCCOURSE_MOD_FISHING_ROD_TREASURE);
-                    List<ItemStack> list = modFish.getRandomItems(lootparams);
-                    event = new ItemFishedEvent(list, fishingHook.onGround() ? 2 : 1, fishingHook);
-                    NeoForge.EVENT_BUS.post(event);
-                    if (event.isCanceled()) {
-                        fishingHook.discard();
-                        cir.setReturnValue(event.getRodDamage());
-                    }
-                    CriteriaTriggers.FISHING_ROD_HOOKED.trigger((ServerPlayer) player, stack, fishingHook, list);
-                    double x = fishingHook.getX();
-                    double y = fishingHook.getY();
-                    double z = fishingHook.getZ();
-                    double playerX = player.getX();
-                    double playerY = player.getY();
-                    double playerZ = player.getZ();
-                    for (ItemStack itemstack : list) {
-                        ItemEntity itementity = new ItemEntity(level, x, y, z, itemstack);
-                        double d0 = playerX - x;
-                        double d1 = playerY - y;
-                        double d2 = playerZ - z;
-                        itementity.setDeltaMovement(d0 * 0.1,
-                                d1 * 0.1 + Math.sqrt(Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2)) * 0.08,
-                                d2 * 0.1);
-                        level.addFreshEntity(itementity);
-                        player.level().addFreshEntity(new ExperienceOrb(player.level(),
-                                playerX,
-                                playerY + (double) 0.5F,
-                                playerZ + (double) 0.5F,
-                                level.random.nextInt(6) + 1));
-                        if (itemstack.is(ItemTags.FISHES)) { player.awardStat(Stats.FISH_CAUGHT, 1); }
-                    }
-                    i = 1;
-
+                ReloadableServerRegistries.Holder loot = level.getServer().reloadableRegistries();
+                if (player.getMainHandItem().is(ModItems.MCCOURSE_MOD_FISHING_ROD)) {
+                    LootTable modFish = loot.getLootTable(ModLootTables.MCCOURSE_MOD_FISHING_ROD_TREASURE);
+                    neoForge_1_21_X$fishLootTable(fishingHook, modFish, lootparams, level, player, stack, cir);
+                }
+                else {
+                    LootTable vanillaFish = loot.getLootTable(BuiltInLootTables.FISHING);
+                    neoForge_1_21_X$fishLootTable(fishingHook, vanillaFish, lootparams, level, player, stack, cir);
+                }
+                i = 1;
             }
             if (fishingHook.onGround()) { i = 2; }
             fishingHook.discard();
@@ -124,6 +103,7 @@ public abstract class FishingHookMixin {
         else { cir.setReturnValue(0); }
     }
 
+    // CUSTOM METHOD - Player stop fishing
     @Unique
     private boolean neoForge_1_21_X$shouldStopFishing(FishingHook fishingHook, Player player) {
         ItemStack itemstack = player.getMainHandItem();
@@ -140,6 +120,7 @@ public abstract class FishingHookMixin {
         }
     }
 
+    // CUSTOM METHOD - Player fishing position
     @Unique
     protected void neoForge_1_21_X$pullEntity(FishingHook fishingHook, Entity entity1) {
         Entity entity = fishingHook.getOwner();
@@ -148,6 +129,43 @@ public abstract class FishingHookMixin {
                                  entity.getY() - fishingHook.getY(),
                                  entity.getZ() - fishingHook.getZ()).scale(0.1);
             entity1.setDeltaMovement(entity1.getDeltaMovement().add(vec3));
+        }
+    }
+
+    // CUSTOM METHOD - FISH loot table
+    @Unique
+    private void neoForge_1_21_X$fishLootTable(FishingHook fishingHook, LootTable lootTable,
+                                               LootParams lootparams,
+                                               Level level, Player player,
+                                               ItemStack stack, CallbackInfoReturnable<Integer> cir) {
+        List<ItemStack> list = lootTable.getRandomItems(lootparams);
+        ItemFishedEvent event = new ItemFishedEvent(list, fishingHook.onGround() ? 2 : 1, fishingHook);
+        NeoForge.EVENT_BUS.post(event);
+        if (event.isCanceled()) {
+            fishingHook.discard();
+            cir.setReturnValue(event.getRodDamage());
+        }
+        CriteriaTriggers.FISHING_ROD_HOOKED.trigger((ServerPlayer) player, stack, fishingHook, list);
+        double x = fishingHook.getX();
+        double y = fishingHook.getY();
+        double z = fishingHook.getZ();
+        double playerX = player.getX();
+        double playerY = player.getY();
+        double playerZ = player.getZ();
+        for (ItemStack itemstack : list) {
+            ItemEntity itementity = new ItemEntity(level, x, y, z, itemstack);
+            double d0 = playerX - x;
+            double d1 = playerY - y;
+            double d2 = playerZ - z;
+            itementity.setDeltaMovement(d0 * 0.1,
+                                        d1 * 0.1 + Math.sqrt(Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2)) * 0.08,
+                                        d2 * 0.1);
+            level.addFreshEntity(itementity);
+            player.level().addFreshEntity(new ExperienceOrb(player.level(), playerX,
+                                                            playerY + (double) 0.5F,
+                                                            playerZ + (double) 0.5F,
+                                                            level.random.nextInt(6) + 1));
+            if (itemstack.is(ItemTags.FISHES)) { player.awardStat(Stats.FISH_CAUGHT, 1); }
         }
     }
 }

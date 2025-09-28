@@ -36,7 +36,7 @@ public class DataGenerators {
                                       new LootTableProvider.SubProviderEntry(ModEntityLootTableProvider::new,
                                                                              LootContextParamSets.ENTITY),
                                       // CHEST loot tables
-                                      new LootTableProvider.SubProviderEntry(ModChestLootTableProvider::new,
+                                      new LootTableProvider.SubProviderEntry(ModLootTableProvider::new,
                                                                              LootContextParamSets.CHEST)),
                               lookupProvider));
         // Block tags

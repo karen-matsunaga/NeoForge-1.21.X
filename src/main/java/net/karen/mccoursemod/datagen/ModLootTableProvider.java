@@ -20,10 +20,12 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import org.jetbrains.annotations.NotNull;
 import java.util.function.BiConsumer;
 
-public record ModChestLootTableProvider(HolderLookup.Provider registries) implements LootTableSubProvider {
+public record ModLootTableProvider(HolderLookup.Provider registries) implements LootTableSubProvider {
     @Override
     public void generate(@NotNull BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
+        // CHEST loot tables
         consumer.accept(ModLootTables.KAUPEN_HOUSE_TREASURE, addKaupenHouseChestLootTables());
+        // FISH loot tables
         consumer.accept(ModLootTables.MCCOURSE_MOD_FISHING_ROD_TREASURE, addMccourseModFishingRodFishLootTable());
     }
 
@@ -57,12 +59,14 @@ public record ModChestLootTableProvider(HolderLookup.Provider registries) implem
                                                      .apply(new EnchantRandomlyFunction
                                                             .Builder()
                                                             .withEnchantment(ench.getOrThrow(Enchantments.LUCK_OF_THE_SEA)))
-                                                     .setWeight(1)));
+                                                     .setWeight(1))
+        );
     }
 
     // CUSTOM METHOD - MCCOURSE MOD FISHING ROD loot table
     public LootTable.Builder addMccourseModFishingRodFishLootTable() {
-        HolderLookup.RegistryLookup<Enchantment> ench = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        HolderLookup.Provider provider = this.registries;
+        HolderLookup.RegistryLookup<Enchantment> ench = provider.lookupOrThrow(Registries.ENCHANTMENT);
         LootTable.Builder builder = LootTable.lootTable();
         return builder.withPool(LootPool.lootPool()
                                         .setRolls(ConstantValue.exactly(1.0F))
@@ -70,6 +74,11 @@ public record ModChestLootTableProvider(HolderLookup.Provider registries) implem
                                                      .apply(EnchantRandomlyFunction
                                                             .randomEnchantment()
                                                             .withOneOf(ench.getOrThrow(ModTags.Enchantments.ALL_ENCHANTMENTS)))
-                                                     .setWeight(1)));
+                                                     .setWeight(1))
+                                        .add(LootItem.lootTableItem(Items.BOOK)
+                                                     .apply(EnchantWithLevelsFunction
+                                                            .enchantWithLevels(provider,
+                                                                               ConstantValue.exactly(300.0F))))
+        );
     }
 }
