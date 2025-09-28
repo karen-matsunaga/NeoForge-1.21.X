@@ -154,6 +154,10 @@ public class ModItemTagGenerator extends VanillaItemTagsProvider {
         // CUSTOM Shield
         this.tag(Tags.Items.TOOLS_SHIELD).add(ModItems.ALEXANDRITE_SHIELD.get());
 
+        // CUSTOM Fishing Rod
+        this.tag(Tags.Items.TOOLS_FISHING_ROD).add(ModItems.MCCOURSE_MOD_FISHING_ROD.get());
+        this.tag(ItemTags.FISHING_ENCHANTABLE).add(ModItems.MCCOURSE_MOD_FISHING_ROD.get());
+
         // ** CUSTOM Repair ARMOR - TOOL ingredients **
         // TOOL MATERIALS
         tag(ModTags.Items.BISMUTH_TOOL_MATERIALS).add(ModItems.BISMUTH.get());

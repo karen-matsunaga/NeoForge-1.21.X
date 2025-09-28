@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": "#mccoursemod:all_enchantments"
+            }
+          ],
+          "name": "mccoursemod:miner_bow"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "mccoursemod:gameplay/mccourse_mod_fishing_rod_treasure"
+}

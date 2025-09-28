@@ -809,7 +809,7 @@ public class ModItems {
     public static DeferredItem<Item> bowItem(String name,
                                              TagKey<Item> repair, int color) {
         return ITEMS.registerItem(name, properties ->
-                                  new BowItem(properties.repairable(repair)) {
+                                  new BowItem(properties.repairable(repair).stacksTo(1)) {
                                                    @Override
                                                    public @NotNull Component getName(@NotNull ItemStack stack) {
                                                        return componentTranslatableIntColor(this.getDescriptionId(), color);

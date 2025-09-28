@@ -80,6 +80,10 @@
               "add": false,
               "count": 1.0,
               "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": "minecraft:luck_of_the_sea"
             }
           ],
           "name": "mccoursemod:mccourse_mod_fishing_rod"

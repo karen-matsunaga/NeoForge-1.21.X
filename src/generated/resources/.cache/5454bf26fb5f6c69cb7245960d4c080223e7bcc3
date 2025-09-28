@@ -1,7 +1,8 @@
-// 1.21.8	2025-09-26T12:13:30.3829885	Mccourse Mod Item Tags
+// 1.21.8	2025-09-27T11:27:32.3881782	Mccourse Mod Item Tags
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/entity_water.json
 ca1d1a0f75cf3cb42d62b7b6770f7c29c97e549c data/c/tags/item/buckets/water.json
+9c282bdcff9fd68b31446b59ab15bd12039d5eb2 data/c/tags/item/tools/fishing_rod.json
 e39a63d714d964df94fca0f8733eca55312cb8e8 data/c/tags/item/tools/shield.json
 23322585108afbbd5f20fd5e29aa83527532621d data/mccoursemod/tags/item/alexandrite_armor.json
 02a8fa743728513eae3772a21bbbbbd390fe2b02 data/mccoursemod/tags/item/alexandrite_ores_items.json
@@ -56,6 +57,7 @@ d3450747fa065931cf4ea3f9bf415f885c981dfc data/minecraft/tags/item/beacon_payment
 641d6e9ec6e02fb870479de7da76c7020aa5ee61 data/minecraft/tags/item/enchantable/bow.json
 4b3ae122d029da6452a7f80fdf7946724d49a3c5 data/minecraft/tags/item/enchantable/durability.json
 d8fc688e10164d96802c427816aa052fd193a01c data/minecraft/tags/item/enchantable/equippable.json
+9c282bdcff9fd68b31446b59ab15bd12039d5eb2 data/minecraft/tags/item/enchantable/fishing.json
 7b931db4f1395bf4662244ddcca54886f9544a10 data/minecraft/tags/item/flowers.json
 72a3558c1039f29ac6ab4a4bb84b860a5bffd3ca data/minecraft/tags/item/foot_armor.json
 c0979c1ed814e6f634ca7191bcf8f5a649cfea3f data/minecraft/tags/item/head_armor.json

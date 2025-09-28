@@ -1,7 +1,7 @@
 package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.item.ModItems;
-import net.karen.mccoursemod.loot.ModChestLootTables;
+import net.karen.mccoursemod.loot.ModLootTables;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -9,12 +9,12 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction;
-import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.functions.SetPotionFunction;
+import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import org.jetbrains.annotations.NotNull;
@@ -23,13 +23,15 @@ import java.util.function.BiConsumer;
 public record ModChestLootTableProvider(HolderLookup.Provider registries) implements LootTableSubProvider {
     @Override
     public void generate(@NotNull BiConsumer<ResourceKey<LootTable>, LootTable.Builder> consumer) {
-        consumer.accept(ModChestLootTables.KAUPEN_HOUSE_TREASURE, addKaupenHouseChestLootTables());
+        consumer.accept(ModLootTables.KAUPEN_HOUSE_TREASURE, addKaupenHouseChestLootTables());
+        consumer.accept(ModLootTables.MCCOURSE_MOD_FISHING_ROD_TREASURE, addMccourseModFishingRodFishLootTable());
     }
 
     // CUSTOM METHOD - KAUPEN HOUSE chest loot table
     public LootTable.Builder addKaupenHouseChestLootTables() {
+        HolderLookup.RegistryLookup<Enchantment> ench = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
         LootTable.Builder builder = LootTable.lootTable();
-                      // CHEST 1 - RARE chest loot table
+        // COMMON chest loot table
         return builder.withPool(LootPool.lootPool()
                                         .setRolls(UniformGenerator.between(1, 10))
                                         .add(LootItem.lootTableItem(ModItems.KAUPEN_ARMOR_TRIM_SMITHING_TEMPLATE)
@@ -37,9 +39,9 @@ public record ModChestLootTableProvider(HolderLookup.Provider registries) implem
                                                      .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                                         .add(LootItem.lootTableItem(Items.BOOK)
                                                      .setWeight(5)
-                                                     .apply(EnchantRandomlyFunction.randomEnchantment()
-                                                                                   .withOneOf(registries.lookupOrThrow(Registries.ENCHANTMENT)
-                                                                                                        .getOrThrow(ModTags.Enchantments.ALL_ENCHANTMENTS))))
+                                                     .apply(EnchantRandomlyFunction
+                                                            .randomEnchantment()
+                                                            .withOneOf(ench.getOrThrow(ModTags.Enchantments.ALL_ENCHANTMENTS))))
                                         .add(LootItem.lootTableItem(ModItems.CHISEL)
                                                      .setWeight(1)
                                                      .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
@@ -52,6 +54,22 @@ public record ModChestLootTableProvider(HolderLookup.Provider registries) implem
                                                      .apply(SetItemCountFunction.setCount(UniformGenerator.between(5, 16))))
                                         .add(LootItem.lootTableItem(ModItems.MCCOURSE_MOD_FISHING_ROD)
                                                      .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))
+                                                     .apply(new EnchantRandomlyFunction
+                                                            .Builder()
+                                                            .withEnchantment(ench.getOrThrow(Enchantments.LUCK_OF_THE_SEA)))
+                                                     .setWeight(1)));
+    }
+
+    // CUSTOM METHOD - MCCOURSE MOD FISHING ROD loot table
+    public LootTable.Builder addMccourseModFishingRodFishLootTable() {
+        HolderLookup.RegistryLookup<Enchantment> ench = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        LootTable.Builder builder = LootTable.lootTable();
+        return builder.withPool(LootPool.lootPool()
+                                        .setRolls(ConstantValue.exactly(1.0F))
+                                        .add(LootItem.lootTableItem(ModItems.MINER_BOW)
+                                                     .apply(EnchantRandomlyFunction
+                                                            .randomEnchantment()
+                                                            .withOneOf(ench.getOrThrow(ModTags.Enchantments.ALL_ENCHANTMENTS)))
                                                      .setWeight(1)));
     }
 }

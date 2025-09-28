@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ModChestLootTables {
+public class ModLootTables {
     private static final Set<ResourceKey<LootTable>> MCCOURSE_MOD_LOOT_TABLES = new HashSet<>();
     private static final Set<ResourceKey<LootTable>> IMMUTABLE_LOCATIONS =
             Collections.unmodifiableSet(MCCOURSE_MOD_LOOT_TABLES);
@@ -17,6 +17,10 @@ public class ModChestLootTables {
     // Register all CHEST loot tables
     public static final ResourceKey<LootTable> KAUPEN_HOUSE_TREASURE =
            register("chests/kaupen_house_treasure");
+
+    // Register all FISH loot tables
+    public static final ResourceKey<LootTable> MCCOURSE_MOD_FISHING_ROD_TREASURE =
+           register("gameplay/mccourse_mod_fishing_rod_treasure");
 
     // CUSTOM METHOD - Register all CHEST loot tables
     private static ResourceKey<LootTable> register(String name) {
