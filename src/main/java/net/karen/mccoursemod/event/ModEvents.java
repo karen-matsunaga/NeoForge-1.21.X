@@ -78,6 +78,7 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -448,6 +449,8 @@ public class ModEvents {
     }
 
     // CUSTOM EVENT - Render GUI screen OVERLAY
+    // Credits by giok3r (Where Am I?) MIT License - https://github.com/giok3r/Where-Am-I/blob/1.21.x/TEMPLATE_LICENSE.txt
+    // https://github.com/giok3r/Where-Am-I/blob/1.21.x/src/main/java/net/giok3r/whereami/ClientEvents.java
     @SubscribeEvent
     public static void onRenderGuiScreenOverlay(RenderGuiEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
@@ -459,7 +462,8 @@ public class ModEvents {
         if (mc.screen == null && player != null && level != null) {
             double x = player.getX(), y = player.getY(), z = player.getZ(); // Player X, Y, Z coordinates
             BlockPos pos = player.blockPosition();
-            String dimensionPath = player.level().dimension().location().getPath();
+            Level playerLevel = player.level();
+            String dimensionPath = playerLevel.dimension().location().getPath();
             int blockLight = Utils.light(level, LightLayer.BLOCK, pos);
             int skyLight = Utils.light(level, LightLayer.SKY, pos);
             int totalLight = Math.max(blockLight, skyLight);
@@ -472,12 +476,42 @@ public class ModEvents {
             // DIMENSION
             guiGraphics.drawString(font, dimension(dimensionPath), 10, 30,
                                    ARGB.color(233, 210, 114));
-            // DAY
-            guiGraphics.drawString(font, "Day: " + level.getDayTime() / 24000,
-                                   10, 40, ARGB.color(249, 206, 141));
+            // BIOME
+            ResourceKey<Biome> biome = playerLevel.getBiome(pos).getKey();
+            if (biome != null) {
+                String biomeName = biome.location().getPath();
+                String upperCase = biomeName.substring(0, 1).toUpperCase();
+                String lowerCase = biomeName.substring(1).toLowerCase();
+                String biomeFormatted = upperCase + lowerCase;
+                guiGraphics.drawString(font, "Biome: " + biomeFormatted,
+                                       10, 40, ARGB.color(254, 153, 0));
+            }
+            // HOUR:MINUTES:SECONDS:DAY
+            long dayTime = level.getDayTime();
+            int time = (int) dayTime % 24000;
+            int hour;
+            String amOrPm;
+            if (time < 7000) { // 6AM - 12PM
+                hour = time / 1000 + 6;
+                if (hour == 12) { amOrPm = "PM"; }
+                else { amOrPm = "AM"; }
+            }
+            else if (time < 19000) { // 1PM - 12AM
+                hour = time / 1000 - 6;
+                if (hour == 12) { amOrPm = "AM"; }
+                else { amOrPm = "PM"; }
+            }
+            else { // 1AM - 5AM
+                hour = time / 1000 - 18;
+                amOrPm = "AM";
+            }
+            int minute = (int) ((time % 1000) * 0.06);
+            int day = (int) dayTime / 24000;
+            guiGraphics.drawString(font, "Time: " + String.format("%d:%02d %s [Day %d]", hour, minute, amOrPm, day),
+                                   10, 50, ARGB.color(249, 206, 141));
             // HOUR:MINUTES:SECONDS
             guiGraphics.drawString(font, "Hour: " + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
-                                   10, 50, ARGB.color(173, 154, 221));
+                                   10, 60, ARGB.color(173, 154, 221));
         }
     }
 
