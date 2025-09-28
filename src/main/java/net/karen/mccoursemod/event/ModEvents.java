@@ -210,6 +210,7 @@ public class ModEvents {
             poseStack.popPose();
             buffer.endBatch();
         }
+        else { player(player, "Glowing Blocks: Enchanted helmet!", darkRed); } // Hasn't item
     }
 
     @SubscribeEvent
@@ -773,9 +774,8 @@ public class ModEvents {
         UUID playerUUID = player.getUUID(); // Player UUID -> Detected GLOWING MOBS stage
         HolderLookup.RegistryLookup<Enchantment> ench = player.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
         boolean isEnchanted = helmet.isEnchanted() && helmet.getEnchantmentLevel(ench.getOrThrow(ModEnchantments.GLOWING_MOBS)) > 0;
-        if (!isEnchanted) { // Player hasn't GLOWING MOBS is disabled
-            glowingState.remove(playerUUID);
-        }
+        // Player hasn't GLOWING MOBS is disabled
+        if (!isEnchanted) { glowingState.remove(playerUUID); }
         boolean current = glowingState.getOrDefault(playerUUID, false); // GLOWING MOBS default stage is FALSE
         if (KeyBinding.GLOWING_MOBS_KEY.get().consumeClick() && KeyBinding.GLOWING_MOBS_KEY.get().isDown()) { // Press [M] key input
             if (isEnchanted) { // Player has a HELMET inputted on slot and GLOWING MOBS enchantment level
@@ -783,9 +783,7 @@ public class ModEvents {
                 glowingState.put(playerUUID, newState); // Adapted "newState" of "current" stage
                 glow(player, newState, "Mobs: ON!", "Mobs: OFF!"); // Toggle ON/OFF
             }
-            else { // Hasn't item
-                player(player, "Mobs: Enchanted helmet!", darkRed);
-            }
+            else { player(player, "Glowing Mobs: Enchanted helmet!", darkRed); } // Hasn't item
         }
         if (current && isEnchanted) {
             // Key (Color) -> Each group represent with some color. Value (Group tag name) -> Represent as Tag.
@@ -800,7 +798,10 @@ public class ModEvents {
                     Scoreboard score = player.getScoreboard();
                     PlayerTeam team = score.getPlayerTeam(teamName);
                     // Added each entity on group with specif tag and color on entitiesTag
-                    if (team == null) { team = score.addPlayerTeam(teamName); team.setColor(color); }
+                    if (team == null) {
+                        team = score.addPlayerTeam(teamName);
+                        team.setColor(color);
+                    }
                     PlayerTeam finalTeam = team; // Each entity received GLOWING effect with specif color on entitiesTag
                     entities.forEach(entity -> {
                         entity.addEffect(effect(MobEffects.GLOWING, 20, 1));
