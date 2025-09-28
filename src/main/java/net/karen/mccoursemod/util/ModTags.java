@@ -227,6 +227,7 @@ public class ModTags {
         public static final TagKey<Enchantment> TRIDENT_ENCHANTMENTS = createTag("trident_enchantments");
         public static final TagKey<Enchantment> MACE_ENCHANTMENTS = createTag("mace_enchantments");
         public static final TagKey<Enchantment> ALL_ENCHANTMENTS = createTag("all_enchantments");
+        public static final TagKey<Enchantment> ENCHANTMENT_ONE_LEVEL = createTag("enchantment_one_level");
 
         // CUSTOM METHOD - Registry all custom enchantment tags
         private static TagKey<Enchantment> createTag(String name) {

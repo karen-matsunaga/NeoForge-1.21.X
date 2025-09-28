@@ -89,7 +89,7 @@ public class ModEnchantments {
         register(context, MAGNET,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                                                                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
-                                                                5, 2,
+                                                                5, 1,
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.MAINHAND)));
@@ -97,7 +97,7 @@ public class ModEnchantments {
         // Immortal - Armor and Tools
         register(context, IMMORTAL,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE),
-                                                                5, 2,
+                                                                5, 1,
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.ANY)));
@@ -105,7 +105,7 @@ public class ModEnchantments {
         // Peaceful Mobs - Leggings
         register(context, PEACEFUL_MOBS,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.LEG_ARMOR_ENCHANTABLE),
-                                                                5, 2,
+                                                                5, 1,
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.LEGS)));
@@ -130,7 +130,7 @@ public class ModEnchantments {
         // Glowing Mobs - Head
         register(context, GLOWING_MOBS,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.HEAD_ARMOR_ENCHANTABLE),
-                                                                5, 2,
+                                                                5, 1,
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.HEAD)));
@@ -186,7 +186,7 @@ public class ModEnchantments {
         // Unlock - Armor and Tools
         register(context, UNLOCK,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE),
-                                                                5, 2,
+                                                                5, 1,
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.ANY)));
@@ -194,7 +194,7 @@ public class ModEnchantments {
         // Glowing Blocks - Helmet
         register(context, GLOWING_BLOCKS,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.HEAD_ARMOR_ENCHANTABLE),
-                                                                5, 2,
+                                                                5, 1,
                                                                 Enchantment.dynamicCost(5, 7),
                                                                 Enchantment.dynamicCost(25, 7),
                                                                 2, EquipmentSlotGroup.HEAD)));

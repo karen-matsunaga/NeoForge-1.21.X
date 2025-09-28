@@ -1,10 +1,11 @@
-// 1.21.8	2025-09-23T18:53:13.4793314	Mccourse Mod Enchantment Tags
+// 1.21.8	2025-09-28T14:26:50.031576	Mccourse Mod Enchantment Tags
 3834a210ae1c8cb5863a4f5e598f06cacad6966a data/mccoursemod/tags/enchantment/all_enchantments.json
 07173cc2b2b9dae300de39fb690d3cef6c484092 data/mccoursemod/tags/enchantment/boots_enchantments.json
 f5831f2ebdaf06701c3c4814c8a622bfe0bd9b99 data/mccoursemod/tags/enchantment/bow_enchantments.json
 ff315407079774fe2d1b8b1b4afbf2fc3215bd92 data/mccoursemod/tags/enchantment/chestplate_enchantments.json
 4f058517a61129eea8ff2fbd4cd04fc1c0b5cd98 data/mccoursemod/tags/enchantment/crossbow_enchantments.json
 821c54b773c0c0897e6f2670bfa9e64a4bde8fad data/mccoursemod/tags/enchantment/durability_enchantments.json
+f5079a606349274eaa30c67a794efdd9076742dd data/mccoursemod/tags/enchantment/enchantment_one_level.json
 61db72559f8815a2074d8ef0444a9f9148e92327 data/mccoursemod/tags/enchantment/fishing_enchantments.json
 e7e8e49e4431aae49bc7e9e37bfb2c96ef8c100d data/mccoursemod/tags/enchantment/helmet_enchantments.json
 98710b8a45a5b17ad27aa7e2921520d279ce0ca2 data/mccoursemod/tags/enchantment/leggings_enchantments.json

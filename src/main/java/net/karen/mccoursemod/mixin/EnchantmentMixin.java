@@ -23,19 +23,20 @@ public abstract class EnchantmentMixin {
     // Enchantment tooltip
     @Inject(method = "getFullname", at = @At(value = "TAIL"), cancellable = true)
     private static void getFullname(Holder<Enchantment> holder, int level, CallbackInfoReturnable<Component> cir) {
-        Enchantment enchantment = holder.value(); // Enchantment name
-        MutableComponent enchantmentComponent = enchantment.description().copy(); // Old enchantment tooltip
-        int maxLevel = enchantment.getMaxLevel(); // Enchantment max level
-        ChatFormatting color = getEnchantmentColor(holder); // Enchantment color by category
-        String icon = icon(holder); // Enchantment icon by category
-        // Apply new enchantment tooltip
+        Enchantment enchantment = holder.value(); // ENCHANTMENT name
+        MutableComponent enchantmentComponent = enchantment.description().copy(); // Old enchantment TOOLTIP
+        int maxLevel = enchantment.getMaxLevel(); // Enchantment MAX LEVEL
+        ChatFormatting color = getEnchantmentColor(holder); // Enchantment COLOR by category
+        String icon = icon(holder); // Enchantment ICON by category
+        // Apply NEW enchantment tooltip
         boolean isCurse = holder.is(EnchantmentTags.CURSE);
         ChatFormatting colors = isCurse ? red : color, formats = isCurse ? italic : bold;
         ComponentUtils.mergeStyles(enchantmentComponent, Style.EMPTY.withColor(colors).applyFormat(formats));
-        if (level != 1 || maxLevel != 1) { // Enchantment level equals 1+
-            MutableComponent line = enchantmentComponent.append(CommonComponents.SPACE)
-                    .append(standardLiteral(level + " / " + maxLevel)) // Level
-                    .append(CommonComponents.SPACE).append(standardLiteral(icon));
+        if (level != 0 || maxLevel != 0) { // Enchantment level equals 1+
+            MutableComponent line =
+                   enchantmentComponent.append(CommonComponents.SPACE)
+                                       .append(standardLiteral(level + " / " + maxLevel)) // Level
+                                       .append(CommonComponents.SPACE).append(standardLiteral(icon)); // Icon
             Enchantment enchName = holder.value();
             Level LEVEL = Minecraft.getInstance().level;
             if (LEVEL != null) {
@@ -46,7 +47,7 @@ public abstract class EnchantmentMixin {
                     if (I18n.exists(descriptionKey)) {
                         MutableComponent line1 = description(I18n.get(descriptionKey), colors, List.of(false, false));
                         Component combined = ComponentUtils.formatList(List.of(line, line1), CommonComponents.NEW_LINE);
-                        // Return new enchantment tooltip
+                        // Return NEW enchantment tooltip
                         cir.setReturnValue(combined);
                     }
                 }
@@ -57,6 +58,8 @@ public abstract class EnchantmentMixin {
     // Max Enchantment Level
     @Inject(at = @At("HEAD"), method = "getMaxLevel", cancellable = true)
     private void getMaxLevel(CallbackInfoReturnable<Integer> info) {
-        info.setReturnValue(255); // Enchantment max level -> Ex: Fortune 255
+        Enchantment enchantment = (Enchantment) (Object) this;
+        if (enchantment.definition().maxLevel() > 1) { info.setReturnValue(255); } // Enchantment max level -> Ex: FORTUNE 255
+        else { info.setReturnValue(1); }
     }
 }

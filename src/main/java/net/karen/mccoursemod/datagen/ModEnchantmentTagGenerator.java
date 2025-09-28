@@ -171,6 +171,21 @@ public class ModEnchantmentTagGenerator extends EnchantmentTagsProvider {
                                                        .addTag(ModTags.Enchantments.MACE_ENCHANTMENTS)
                                                        .addTag(ModTags.Enchantments.MINING_ENCHANTMENTS)
                                                        .addTag(ModTags.Enchantments.DURABILITY_ENCHANTMENTS);
+
+        // Enchantment One level
+        this.tag(ModTags.Enchantments.ENCHANTMENT_ONE_LEVEL).addOptional(ModEnchantments.GLOWING_BLOCKS)
+                                                            .addOptional(ModEnchantments.GLOWING_MOBS)
+                                                            .addOptional(ModEnchantments.UNLOCK)
+                                                            .addOptional(ModEnchantments.MAGNET)
+                                                            .addOptional(ModEnchantments.IMMORTAL)
+                                                            .addOptional(ModEnchantments.PEACEFUL_MOBS)
+                                                            .addOptional(Enchantments.INFINITY)
+                                                            .addOptional(Enchantments.SILK_TOUCH)
+                                                            .addOptional(Enchantments.BINDING_CURSE)
+                                                            .addOptional(Enchantments.VANISHING_CURSE)
+                                                            .addOptional(Enchantments.CHANNELING)
+                                                            .addOptional(Enchantments.FLAME)
+                                                            .addOptional(Enchantments.MULTISHOT);
     }
 
     @Override
