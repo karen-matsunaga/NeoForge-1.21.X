@@ -51,9 +51,12 @@ public abstract class FishingHookMixin {
         if (player != null && !player.level().isClientSide()) {
             ItemStack fishingRod = player.getMainHandItem(); // Player has Mccourse Fishing Rod on MAIN HAND
             if (fishingRod.is(Tags.Items.TOOLS_FISHING_ROD)) {
-                this.timeUntilLured = Math.min(this.timeUntilLured, 10); // Waiting time until a fish starts to approach
-                this.nibble = Math.min(this.nibble, 10); // Hook swing time (fish agitation phase)
-                this.timeUntilHooked = Math.min(this.timeUntilHooked, 20); // Time remaining until the fish actually bites the hook
+                // 1- Waiting time until a FISH starts to approach
+                this.timeUntilLured = Math.min(this.timeUntilLured, 10);
+                // 2- Hook swing time (FISH agitation phase)
+                this.nibble = Math.min(this.nibble, 10);
+                // 3- Time remaining until the FISH actually bites the hook
+                this.timeUntilHooked = Math.min(this.timeUntilHooked, 20);
             }
         }
     }
