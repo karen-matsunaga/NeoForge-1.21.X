@@ -5,11 +5,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -38,9 +40,9 @@ public abstract class EnchantmentMixin {
                                        .append(standardLiteral(level + " / " + maxLevel)) // Level
                                        .append(CommonComponents.SPACE).append(standardLiteral(icon)); // Icon
             Enchantment enchName = holder.value();
-            Level LEVEL = Minecraft.getInstance().level;
-            if (LEVEL != null) {
-                Registry<Enchantment> enchantmentRegistry = LEVEL.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            Level mcLevel = Minecraft.getInstance().level;
+            if (mcLevel != null) {
+                Registry<Enchantment> enchantmentRegistry = mcLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
                 ResourceLocation enchantKey = enchantmentRegistry.getKey(enchName);
                 if (enchantKey != null) {
                     String descriptionKey = "enchantment." + enchantKey.getNamespace() + "." + enchantKey.getPath() + ".desc";
@@ -59,7 +61,12 @@ public abstract class EnchantmentMixin {
     @Inject(at = @At("HEAD"), method = "getMaxLevel", cancellable = true)
     private void getMaxLevel(CallbackInfoReturnable<Integer> info) {
         Enchantment enchantment = (Enchantment) (Object) this;
-        if (enchantment.definition().maxLevel() > 1) { info.setReturnValue(255); } // Enchantment max level -> Ex: FORTUNE 255
+        DataComponentMap dataCompMap = enchantment.effects();
+        // Enchantment MAX LEVEL -> Ex: FORTUNE 255 (AQUA AFFINITY + MENDING enchantments)
+        if (enchantment.definition().maxLevel() > 1 || dataCompMap.has(EnchantmentEffectComponents.ATTRIBUTES) ||
+            dataCompMap.has(EnchantmentEffectComponents.REPAIR_WITH_XP)) {
+            info.setReturnValue(255);
+        }
         else { info.setReturnValue(1); }
     }
 }
