@@ -22,7 +22,7 @@ import static net.karen.mccoursemod.util.ChatUtils.*;
 
 @Mixin(value = Enchantment.class)
 public abstract class EnchantmentMixin {
-    // Enchantment tooltip
+    // DEFAULT METHOD - Mccourse Mod and Vanilla NEW enchantment tooltips
     @Inject(method = "getFullname", at = @At(value = "TAIL"), cancellable = true)
     private static void getFullname(Holder<Enchantment> holder, int level, CallbackInfoReturnable<Component> cir) {
         Enchantment enchantment = holder.value(); // ENCHANTMENT name
@@ -57,16 +57,22 @@ public abstract class EnchantmentMixin {
         }
     }
 
-    // Max Enchantment Level
+    // DEFAULT METHOD - Mccourse Mod and Vanilla MAX enchantment levels
     @Inject(at = @At("HEAD"), method = "getMaxLevel", cancellable = true)
     private void getMaxLevel(CallbackInfoReturnable<Integer> info) {
         Enchantment enchantment = (Enchantment) (Object) this;
         DataComponentMap dataCompMap = enchantment.effects();
-        // Enchantment MAX LEVEL -> Ex: FORTUNE 255 (AQUA AFFINITY + MENDING enchantments)
-        if (enchantment.definition().maxLevel() > 1 || dataCompMap.has(EnchantmentEffectComponents.ATTRIBUTES) ||
-            dataCompMap.has(EnchantmentEffectComponents.REPAIR_WITH_XP)) {
+        int maxLevel = enchantment.definition().maxLevel();
+        // LURE enchantment MAX Level
+        if (dataCompMap.has(EnchantmentEffectComponents.FISHING_TIME_REDUCTION)) {
+            info.setReturnValue(maxLevel);
+        }
+        // ALL enchantments with 2+ MAX LEVEL -> Ex: FORTUNE 255. (Except AQUA AFFINITY and MENDING enchantments)
+        else if (maxLevel > 1 || dataCompMap.has(EnchantmentEffectComponents.ATTRIBUTES) ||
+                 dataCompMap.has(EnchantmentEffectComponents.REPAIR_WITH_XP)) {
             info.setReturnValue(255);
         }
+        // ALL enchantments with 1 MAX Level
         else { info.setReturnValue(1); }
     }
 }

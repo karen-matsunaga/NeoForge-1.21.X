@@ -50,7 +50,7 @@ public abstract class FishingHookMixin {
         Player player = getPlayerOwner(); // Player Fishing Rod OWNER
         if (player != null && !player.level().isClientSide()) {
             ItemStack fishingRod = player.getMainHandItem(); // Player has Mccourse Fishing Rod on MAIN HAND
-            if (fishingRod.is(Tags.Items.TOOLS_FISHING_ROD)) {
+            if (fishingRod.is(ModItems.MCCOURSE_MOD_FISHING_ROD)) {
                 // 1- Waiting time until a FISH starts to approach
                 this.timeUntilLured = Math.min(this.timeUntilLured, 10);
                 // 2- Hook swing time (FISH agitation phase)
