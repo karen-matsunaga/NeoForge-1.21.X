@@ -605,7 +605,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // MACE
         add("enchantment.minecraft.breach.desc",
-            "When applied on mace ignores 15% of armor damage reduction per level.");
+            "When applied on mace ignores 15 percent of armor damage reduction per level.");
 
         add("enchantment.minecraft.density.desc",
             "When applied on mace increases 0.5 additional damage per level for each block fallen with tool.");

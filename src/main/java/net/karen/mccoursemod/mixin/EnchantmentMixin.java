@@ -63,9 +63,13 @@ public abstract class EnchantmentMixin {
         Enchantment enchantment = (Enchantment) (Object) this;
         DataComponentMap dataCompMap = enchantment.effects();
         int maxLevel = enchantment.definition().maxLevel();
-        // LURE enchantment MAX Level
+        // LURE enchantment MAX level
         if (dataCompMap.has(EnchantmentEffectComponents.FISHING_TIME_REDUCTION)) {
             info.setReturnValue(maxLevel);
+        }
+        // LOYALTY enchantment MAX level
+        else if (dataCompMap.has(EnchantmentEffectComponents.TRIDENT_RETURN_ACCELERATION)) {
+            info.setReturnValue(10);
         }
         // ALL enchantments with 2+ MAX LEVEL -> Ex: FORTUNE 255. (Except AQUA AFFINITY and MENDING enchantments)
         else if (maxLevel > 1 || dataCompMap.has(EnchantmentEffectComponents.ATTRIBUTES) ||
