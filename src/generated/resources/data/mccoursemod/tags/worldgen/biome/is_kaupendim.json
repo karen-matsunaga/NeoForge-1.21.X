@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "mccoursemod:test_biome",
+      "required": false
+    },
+    {
+      "id": "mccoursemod:test_biome_2",
+      "required": false
+    }
+  ]
+}

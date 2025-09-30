@@ -15,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import java.time.LocalTime;
@@ -278,6 +279,55 @@ public class ChatUtils {
     public static Component dimension(String dimensionPath) {
         return Component.literal("Dimension: ")
                         .append(componentLiteralIntColor(dimensionName(dimensionPath), dimensionColorName(dimensionPath)));
+    }
+
+    // CUSTOM METHOD - Player biome name
+    public static String biomeName(ResourceKey<Biome> biome) {
+        if (biome != null) {
+            String biomeName = biome.location().getPath();
+            String upperCase = biomeName.substring(0, 1).toUpperCase();
+            String lowerCase = biomeName.substring(1).toLowerCase();
+            String biomeFormatted = upperCase + lowerCase;
+            return itemLines(splitWord(biomeFormatted));
+        }
+        return "";
+    }
+
+    // CUSTOM METHOD - Player biome color name
+    public static Component biomeColor(ResourceKey<Biome> biome) {
+        if (biome != null) {
+            return Component.literal("Biome: ")
+                            .append(componentLiteralIntColor(biomeName(biome), ARGB.color(125, 218, 88)));
+        }
+        return Component.nullToEmpty("");
+    }
+
+    // CUSTOM METHOD - Player day number
+    // Credits by giok3r (Where Am I?) MIT License - https://github.com/giok3r/Where-Am-I/blob/1.21.x/TEMPLATE_LICENSE.txt
+    // https://github.com/giok3r/Where-Am-I/blob/1.21.x/src/main/java/net/giok3r/whereami/ClientEvents.java
+    public static Component dayNumber(long dayTime) {
+        int time = (int) dayTime % 24000;
+        int hour;
+        String amOrPm;
+        if (time < 7000) { // 6AM - 12PM
+            hour = time / 1000 + 6;
+            if (hour == 12) { amOrPm = "PM"; }
+            else { amOrPm = "AM"; }
+        }
+        else if (time < 19000) { // 1PM - 12AM
+            hour = time / 1000 - 6;
+            if (hour == 12) { amOrPm = "AM"; }
+            else { amOrPm = "PM"; }
+        }
+        else { // 1AM - 5AM
+            hour = time / 1000 - 18;
+            amOrPm = "AM";
+        }
+        int minute = (int) ((time % 1000) * 0.06);
+        int day = (int) dayTime / 24000;
+        return Component.literal("Time: " + String.format("%d:%02d %s", hour, minute, amOrPm))
+                        .append(componentLiteralIntColor(String.format(" [Day %d]", day),
+                                                         ARGB.color(113, 255, 241)));
     }
 
     // CUSTOM METHOD - Total light, Skylight and Block light + [X, Y, Z] Coordinates

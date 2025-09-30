@@ -23,6 +23,7 @@ public class ModBiomeTagsProvider extends BiomeTagsProvider {
         this.tag(ModTags.Biomes.HAS_KAUPEN_HOUSE).addOptionalTag(BiomeTags.IS_JUNGLE)
                                                  .addOptionalTag(BiomeTags.IS_FOREST)
                                                  .addOptionalTag(BiomeTags.IS_TAIGA)
+                                                 .addOptionalTag(ModTags.Biomes.IS_KAUPENDIM)
                                                  .addOptional(Biomes.DESERT)
                                                  .addOptional(Biomes.PLAINS)
                                                  .addOptional(Biomes.SNOWY_PLAINS)
@@ -30,14 +31,13 @@ public class ModBiomeTagsProvider extends BiomeTagsProvider {
                                                  .addOptional(Biomes.SAVANNA)
                                                  .addOptional(Biomes.SAVANNA_PLATEAU)
                                                  .addOptional(Biomes.WINDSWEPT_SAVANNA)
-                                                 .addOptional(ModBiomes.TEST_BIOME)
-                                                 .addOptional(ModBiomes.TEST_BIOME_2)
                                                  .replace(false);
 
         // STORAGE PLATFORM JIGSAW STRUCTURE
         this.tag(ModTags.Biomes.HAS_STORAGE_PLATFORM).addOptionalTag(BiomeTags.IS_JUNGLE)
                                                      .addOptionalTag(BiomeTags.IS_FOREST)
                                                      .addOptionalTag(BiomeTags.IS_TAIGA)
+                                                     .addOptionalTag(ModTags.Biomes.IS_KAUPENDIM)
                                                      .addOptional(Biomes.DESERT)
                                                      .addOptional(Biomes.PLAINS)
                                                      .addOptional(Biomes.SNOWY_PLAINS)
@@ -45,9 +45,12 @@ public class ModBiomeTagsProvider extends BiomeTagsProvider {
                                                      .addOptional(Biomes.SAVANNA)
                                                      .addOptional(Biomes.SAVANNA_PLATEAU)
                                                      .addOptional(Biomes.WINDSWEPT_SAVANNA)
-                                                     .addOptional(ModBiomes.TEST_BIOME)
-                                                     .addOptional(ModBiomes.TEST_BIOME_2)
                                                      .replace(false);
+
+        // CUSTOM BIOMES
+        this.tag(ModTags.Biomes.IS_KAUPENDIM).addOptional(ModBiomes.TEST_BIOME)
+                                             .addOptional(ModBiomes.TEST_BIOME_2)
+                                             .replace(false);
     }
 
     @Override
